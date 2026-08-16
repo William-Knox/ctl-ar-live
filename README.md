@@ -1,2 +1,1 @@
-# ctl-ar-live
-Public HTTPS redirect to the CTL morning queue
+Public redirect to the current CTL morning queue deploy.
