@@ -760,6 +760,15 @@ th:nth-child(5), td.addr { width: 16%; }
   .act { min-height: 40px; }
   .d-foot .act { min-height: 40px; }
 }
+
+.menu-pop label .n {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--muted);
+}
+.menu-pop label { justify-content: space-between; }
 </style>
 </head>
 <body>
@@ -795,6 +804,15 @@ th:nth-child(5), td.addr { width: 16%; }
       <button type="button" data-mail="drafted">Drafted <span class="n" data-n="drafted">3</span></button>
       <button type="button" data-mail="awaiting" class="awaiting on">Awaiting <span class="n" data-n="awaiting">2</span></button>
       <button type="button" data-mail="needs_you">Needs you <span class="n" data-n="needs_you">0</span></button>
+    </div>
+    <div class="menu" data-menu="days">
+      <button class="menu-btn" type="button"><span class="t">Days</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="0-15" /> 0–15 <span class="n" data-days-n="0-15"></span></label>
+        <label><input type="checkbox" value="16-30" /> 16–30 <span class="n" data-days-n="16-30"></span></label>
+        <label><input type="checkbox" value="30+" /> 30+ <span class="n" data-days-n="30+"></span></label>
+        <div class="menu-foot"><button type="button" class="all">Clear</button></div>
+      </div>
     </div>
     <div class="menu" data-menu="builder">
       <button class="menu-btn" type="button"><span class="t">Builder</span><i class="caret"></i></button>
@@ -1157,7 +1175,7 @@ th:nth-child(5), td.addr { width: 16%; }
 
   var state = {
     sortKey: "days", sortDir: "desc", search: "", mail: "awaiting",
-    builders: new Set(), whys: new Set(), cols: {}, selected: null
+    builders: new Set(), whys: new Set(), days: new Set(), cols: {}, selected: null
   };
 
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
@@ -1172,11 +1190,19 @@ th:nth-child(5), td.addr { width: 16%; }
   }
   function whyHot(w) { return /amount off|2nd callout|consumed|cutoff/i.test(w || ""); }
 
+
+  function dayBucket(d) {
+    d = Number(d) || 0;
+    if (d <= 15) return "0-15";
+    if (d <= 30) return "16-30";
+    return "30+";
+  }
   function applyBaseFilters() {
     var q = state.search.trim().toLowerCase();
     return DATA.filter(function (r) {
       if (state.builders.size && !state.builders.has(r.builder)) return false;
       if (state.whys.size && !state.whys.has(r.why)) return false;
+      if (state.days.size && !state.days.has(dayBucket(r.days))) return false;
       if (q) {
         var bag = [r.id, r.address, r.community, r.builder, BUILDER_LABEL[r.builder] || ""].join(" ").toLowerCase();
         if (bag.indexOf(q) === -1) return false;
@@ -1187,6 +1213,19 @@ th:nth-child(5), td.addr { width: 16%; }
   function applyFilters() {
     return applyBaseFilters().filter(function (r) {
       return state.mail === "all" || r.mail === state.mail;
+    });
+  }
+  function applyFiltersExceptDays() {
+    var q = state.search.trim().toLowerCase();
+    return DATA.filter(function (r) {
+      if (state.mail !== "all" && r.mail !== state.mail) return false;
+      if (state.builders.size && !state.builders.has(r.builder)) return false;
+      if (state.whys.size && !state.whys.has(r.why)) return false;
+      if (q) {
+        var bag = [r.id, r.address, r.community, r.builder, BUILDER_LABEL[r.builder] || ""].join(" ").toLowerCase();
+        if (bag.indexOf(q) === -1) return false;
+      }
+      return true;
     });
   }
   function sortRows(rows) {
@@ -1213,7 +1252,7 @@ th:nth-child(5), td.addr { width: 16%; }
     return copy;
   }
   function hasExtraFilters() {
-    return !!(state.search.trim() || state.builders.size || state.whys.size);
+    return !!(state.search.trim() || state.builders.size || state.whys.size || state.days.size);
   }
   function updateCounts(rows) {
     var n = rows.length;
@@ -1227,11 +1266,17 @@ th:nth-child(5), td.addr { width: 16%; }
     $$("#mailSeg .n").forEach(function (el) {
       el.textContent = tally[el.dataset.n] == null ? "0" : String(tally[el.dataset.n]);
     });
+    var dayTally = { "0-15": 0, "16-30": 0, "30+": 0 };
+    applyFiltersExceptDays().forEach(function (r) { dayTally[dayBucket(r.days)] += 1; });
+    $$("[data-days-n]").forEach(function (el) {
+      el.textContent = String(dayTally[el.dataset.daysN] || 0);
+    });
   }
   function syncChrome() {
     $("#clearBtn").classList.toggle("show", hasExtraFilters());
     markMenu("builder", state.builders.size, "Builder");
     markMenu("why", state.whys.size, "Why");
+    markMenu("days", state.days.size, "Days");
     var colOn = Object.keys(state.cols).filter(function (k) { return state.cols[k]; }).length;
     markMenu("cols", colOn, "Columns");
     var table = $("#grid");
@@ -1435,6 +1480,7 @@ th:nth-child(5), td.addr { width: 16%; }
       state.search = "";
       state.builders.clear();
       state.whys.clear();
+      state.days.clear();
       $("#q").value = "";
       $$('.menu-pop input[type="checkbox"]').forEach(function (c) {
         if (c.closest('[data-menu="cols"]')) return;
@@ -1474,6 +1520,12 @@ th:nth-child(5), td.addr { width: 16%; }
         render();
       });
     });
+    $$('[data-menu="days"] input').forEach(function (c) {
+      c.addEventListener("change", function () {
+        if (c.checked) state.days.add(c.value); else state.days.delete(c.value);
+        render();
+      });
+    });
     $$('[data-menu="cols"] input').forEach(function (c) {
       c.addEventListener("change", function () { state.cols[c.value] = c.checked; render(); });
     });
@@ -1485,6 +1537,7 @@ th:nth-child(5), td.addr { width: 16%; }
         $$('input[type="checkbox"]', pop).forEach(function (c) { c.checked = false; });
         if (menu === "builder") state.builders.clear();
         if (menu === "why") state.whys.clear();
+        if (menu === "days") state.days.clear();
         if (menu === "cols") state.cols = {};
         render();
       });
