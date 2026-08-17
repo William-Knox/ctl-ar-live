@@ -55,7 +55,7 @@ button { cursor: pointer; background: none; border: 0; }
   height: 100%;
   display: flex;
   flex-direction: column;
-  min-width: 1100px;
+  min-width: 1580px;
 }
 
 /* —— Header —— */
@@ -259,6 +259,69 @@ button { cursor: pointer; background: none; border: 0; }
 .expand-btn.show { display: inline-flex; align-items: center; }
 .expand-btn:hover { color: var(--navy); }
 
+/* —— Mail segment + days —— */
+.seg-lab {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 2px 0 6px;
+}
+.seg {
+  display: inline-flex;
+  height: 26px;
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.seg button {
+  height: 26px;
+  padding: 0 9px;
+  font-size: 11.5px;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-right: 1px solid var(--line-2);
+}
+.seg button:last-child { border-right: 0; }
+.seg button:hover { background: var(--cream-2); }
+.seg button.on { background: var(--navy); color: var(--cream); }
+.seg button.on:hover { background: var(--navy-2); }
+.seg button.awaiting.on { background: var(--clay); color: var(--cream); }
+.seg button.awaiting.on:hover { background: #A3360A; }
+.seg .n {
+  font-variant-numeric: tabular-nums;
+  font-size: 10.5px;
+  font-weight: 650;
+  opacity: 0.72;
+}
+.menu-pop label { justify-content: space-between; }
+.menu-pop label .n {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--muted);
+}
+.mail-note {
+  flex: 0 0 auto;
+  padding: 7px 14px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--navy);
+  background: var(--clay-soft);
+  border-bottom: 1px solid var(--line);
+  letter-spacing: -0.01em;
+}
+.mail-note[hidden] { display: none; }
+.mail-note b { font-weight: 650; }
+.mail-note.ready-note { background: #E4E8F0; }
+
 /* —— Table —— */
 .wrap {
   flex: 1;
@@ -279,7 +342,7 @@ table {
 #grid.show-era, #grid.show-builder, #grid.show-billed, #grid.show-due,
 #grid.show-bo, #grid.show-notes, #grid.show-ticket, #grid.show-po, #grid.show-next {
   table-layout: auto;
-  min-width: 1480px;
+  min-width: 1880px;
 }
 thead th {
   position: sticky;
@@ -379,6 +442,14 @@ tbody tr { cursor: pointer; }
 }
 .pill.yes { background: var(--cream-2); color: var(--navy); }
 .pill.mute { background: transparent; color: var(--muted); border: 1px dashed var(--line-2); }
+.pill.awaiting { background: var(--clay-soft); color: var(--clay); }
+.pill.needs_you { background: var(--navy); color: var(--cream); }
+.pill.ready { background: var(--navy); color: var(--cream); }
+.pill.drafted { background: var(--cream); color: var(--navy); border: 1px solid var(--navy); }
+.pill.not_sent { background: transparent; color: var(--muted); border: 1px dashed var(--line-2); }
+.wait { font-variant-numeric: tabular-nums; font-weight: 550; }
+.wait.late { color: var(--clay); font-weight: 650; }
+.reply, .sent { font-weight: 500; letter-spacing: -0.01em; }
 .next { color: var(--navy-2); font-weight: 500; max-width: 240px; }
 
 .col-era, .col-builder, .col-billed, .col-due, .col-bo, .col-notes, .col-ticket, .col-po, .col-next { display: none; }
@@ -445,12 +516,16 @@ tr.child td:first-child { padding-left: 22px; }
 .w-inv { width: 118px; }
 .w-open { width: 82px; }
 .w-hy { width: 86px; }
-.w-why { width: 150px; }
+.w-why { width: 142px; }
+.w-mail { width: 92px; }
+.w-sent { width: 78px; }
+.w-wait { width: 72px; }
+.w-reply { width: 118px; }
 .w-era { width: 110px; }
 .w-billed { width: 92px; }
 .w-due { width: 78px; }
-th:nth-child(4), td.comm { width: 22%; }
-th:nth-child(5), td.addr { width: 18%; }
+th:nth-child(4), td.comm { width: 16%; }
+th:nth-child(5), td.addr { width: 14%; }
 
 .empty-state {
   padding: 48px 20px;
@@ -888,6 +963,9 @@ th:nth-child(5), td.addr { width: 18%; }
     row-gap: 6px;
   }
   .search { width: 100%; }
+  .seg-lab { width: 100%; margin: 4px 0 0; }
+  .seg { flex-wrap: wrap; height: auto; width: 100%; }
+  .seg button { min-height: 40px; height: 40px; flex: 1 1 auto; }
   .menu-btn, .toggle, .clear-btn { min-height: 36px; }
   .wrap { overflow: visible; background: transparent; padding: 8px 10px 24px; }
   table, #grid.show-era, #grid.show-builder, #grid.show-billed, #grid.show-due,
@@ -1009,6 +1087,26 @@ th:nth-child(5), td.addr { width: 18%; }
   <div class="bar">
     <input class="search" id="q" type="search" placeholder="Invoice, address, community, BO#" autocomplete="off" />
 
+    <span class="seg-lab">Mail</span>
+    <div class="seg" id="mailSeg" role="tablist" aria-label="Mail">
+      <button type="button" data-mail="all" class="on">All <span class="n" data-n="all">0</span></button>
+      <button type="button" data-mail="ready">Ready <span class="n" data-n="ready">0</span></button>
+      <button type="button" data-mail="awaiting" class="awaiting">Awaiting <span class="n" data-n="awaiting">0</span></button>
+      <button type="button" data-mail="needs_you">Needs you <span class="n" data-n="needs_you">0</span></button>
+      <button type="button" data-mail="drafted">Drafted <span class="n" data-n="drafted">0</span></button>
+      <button type="button" data-mail="not_sent">Not sent <span class="n" data-n="not_sent">0</span></button>
+    </div>
+
+    <div class="menu" data-menu="days">
+      <button class="menu-btn" type="button"><span class="t">Days</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="0-15" /> 0–15 <span class="n" data-days-n="0-15"></span></label>
+        <label><input type="checkbox" value="16-30" /> 16–30 <span class="n" data-days-n="16-30"></span></label>
+        <label><input type="checkbox" value="30+" /> 30+ <span class="n" data-days-n="30+"></span></label>
+        <div class="menu-foot"><button type="button" class="all">Clear</button></div>
+      </div>
+    </div>
+
     <div class="menu" data-menu="builder">
       <button class="menu-btn" type="button"><span class="t">Builder</span><i class="caret"></i></button>
       <div class="menu-pop" hidden>
@@ -1082,6 +1180,8 @@ th:nth-child(5), td.addr { width: 18%; }
     </div>
   </div>
 
+  <div class="mail-note" id="mailNote" hidden></div>
+
   <div class="wrap">
     <table id="grid">
       <thead>
@@ -1093,6 +1193,10 @@ th:nth-child(5), td.addr { width: 18%; }
           <th data-sort="service_address">Address <span class="s"></span></th>
           <th class="w-hy" data-sort="found">Hyphen <span class="s"></span></th>
           <th class="w-why" data-sort="first_pass_column">Why <span class="s"></span></th>
+          <th class="w-mail" data-sort="mail">Mail <span class="s"></span></th>
+          <th class="w-sent" data-sort="last_sent">Last sent <span class="s"></span></th>
+          <th class="num w-wait" data-sort="waiting" data-dir="desc">Waiting <span class="s"></span></th>
+          <th class="w-reply" data-sort="last_reply">Last reply <span class="s"></span></th>
           <th class="col-era w-era" data-sort="era">Era <span class="s"></span></th>
           <th class="col-builder" data-sort="parent">Builder <span class="s"></span></th>
           <th class="num col-billed w-billed" data-sort="totalAmt" data-dir="desc">Billed $ <span class="s"></span></th>
@@ -1198,6 +1302,10 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   ];
   const WHY_LABEL = Object.fromEntries(WHYS.map((w) => [w.id, w.label]));
   const WHY_HOT = new Set(["2nd callout", "Amount off / unpaid PO", "consumed/cutoff"]);
+  const MAIL_LABEL = { ready: "Ready", awaiting: "Awaiting", needs_you: "Needs you", drafted: "Drafted", not_sent: "Not sent" };
+  const MAIL_ORDER = { ready: 0, awaiting: 1, needs_you: 2, drafted: 3, not_sent: 4 };
+  const MAIL_OK = new Set(["ready", "awaiting", "needs_you", "drafted", "not_sent"]);
+
   const HIDEABLE = [
     { id: "era", label: "Era" },
     { id: "builder", label: "Builder" },
@@ -1214,6 +1322,8 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     sortKey: "daysPastDue",
     sortDir: "desc",
     search: "",
+    mail: "all",
+    days: new Set(),
     builders: new Set(),
     eras: new Set(),
     whys: new Set(),
@@ -1306,10 +1416,61 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   function notesCell(r) {
     return r.researched_notes ? "Yes" : "Not scraped";
   }
+  function mailStatus(r) {
+    const v = r.mail || r.chase_mail || "not_sent";
+    return MAIL_OK.has(v) ? v : "not_sent";
+  }
+  function lastSent(r) {
+    return r.last_sent || r.chase_last_sent || "";
+  }
+  function waitingDays(r) {
+    const v = r.waiting != null && r.waiting !== "" ? r.waiting : r.chase_waiting;
+    if (v == null || v === "") return null;
+    const n = Number(v);
+    return Number.isFinite(n) ? n : null;
+  }
+  function lastReply(r) {
+    return r.last_reply || r.chase_last_reply || "";
+  }
+  function dayBucket(d) {
+    d = Number(d) || 0;
+    if (d <= 15) return "0-15";
+    if (d <= 30) return "16-30";
+    return "30+";
+  }
 
-  function applyFilters() {
+  function applyBaseFilters() {
     const q = state.search.trim().toLowerCase();
     return DATA.filter((r) => {
+      if (state.builders.size && !state.builders.has(r.parent)) return false;
+      if (state.eras.size && !state.eras.has(r.era)) return false;
+      if (state.whys.size && !state.whys.has(r.first_pass_column)) return false;
+      if (state.hyphen.size) {
+        const tag = payStatus(r);
+        if (!state.hyphen.has(tag)) return false;
+      }
+      if (state.days.size && !state.days.has(dayBucket(r.daysPastDue))) return false;
+      if (q) {
+        const bag = [
+          r.docNumber,
+          r.service_address,
+          r.customer,
+          r.builder_order_number,
+        ]
+          .map((x) => (x == null ? "" : String(x)).toLowerCase())
+          .join(" ");
+        if (!bag.includes(q)) return false;
+      }
+      return true;
+    });
+  }
+  function applyFilters() {
+    return applyBaseFilters().filter((r) => state.mail === "all" || mailStatus(r) === state.mail);
+  }
+  function applyFiltersExceptDays() {
+    const q = state.search.trim().toLowerCase();
+    return DATA.filter((r) => {
+      if (state.mail !== "all" && mailStatus(r) !== state.mail) return false;
       if (state.builders.size && !state.builders.has(r.parent)) return false;
       if (state.eras.size && !state.eras.has(r.era)) return false;
       if (state.whys.size && !state.whys.has(r.first_pass_column)) return false;
@@ -1335,7 +1496,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   function sortRows(rows) {
     const key = state.sortKey;
     const dir = state.sortDir === "asc" ? 1 : -1;
-    const num = new Set(["daysPastDue", "balance", "totalAmt", "daysSinceInvoice", "open_balance"]);
+    const num = new Set(["daysPastDue", "balance", "totalAmt", "daysSinceInvoice", "open_balance", "waiting", "mail"]);
     const copy = rows.slice();
     copy.sort((a, b) => {
       let av, bv;
@@ -1354,13 +1515,25 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       } else if (key === "po") {
         av = a.strata_po_num || "";
         bv = b.strata_po_num || "";
+      } else if (key === "mail") {
+        av = MAIL_ORDER[mailStatus(a)];
+        bv = MAIL_ORDER[mailStatus(b)];
+      } else if (key === "last_sent") {
+        av = lastSent(a);
+        bv = lastSent(b);
+      } else if (key === "waiting") {
+        av = waitingDays(a);
+        bv = waitingDays(b);
+      } else if (key === "last_reply") {
+        av = lastReply(a);
+        bv = lastReply(b);
       } else {
         av = a[key];
         bv = b[key];
       }
       if (num.has(key)) {
-        av = Number(av);
-        bv = Number(bv);
+        av = av == null || av === "" ? -Infinity : Number(av);
+        bv = bv == null || bv === "" ? -Infinity : Number(bv);
         if (Number.isNaN(av)) av = -Infinity;
         if (Number.isNaN(bv)) bv = -Infinity;
         return (av - bv) * dir;
@@ -1383,6 +1556,17 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     $("#countOpen").textContent = money(open);
     const filtered = n !== DATA.length || hasFilters();
     $("#countNLabel").textContent = filtered ? "invoices shown" : "invoices";
+    const base = applyBaseFilters();
+    const tally = { all: base.length, ready: 0, not_sent: 0, drafted: 0, awaiting: 0, needs_you: 0 };
+    base.forEach((r) => { tally[mailStatus(r)] += 1; });
+    $$("#mailSeg .n").forEach((el) => {
+      el.textContent = tally[el.dataset.n] == null ? "0" : String(tally[el.dataset.n]);
+    });
+    const dayTally = { "0-15": 0, "16-30": 0, "30+": 0 };
+    applyFiltersExceptDays().forEach((r) => { dayTally[dayBucket(r.daysPastDue)] += 1; });
+    $$("[data-days-n]").forEach((el) => {
+      el.textContent = String(dayTally[el.dataset.daysN] || 0);
+    });
   }
 
   function hasFilters() {
@@ -1391,7 +1575,9 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       state.builders.size ||
       state.eras.size ||
       state.whys.size ||
-      state.hyphen.size
+      state.hyphen.size ||
+      state.days.size ||
+      state.mail !== "all"
     );
   }
 
@@ -1403,6 +1589,23 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     markMenu("era", state.eras.size, "Era");
     markMenu("why", state.whys.size, "Why");
     markMenu("hyphen", state.hyphen.size, "Hyphen");
+    markMenu("days", state.days.size, "Days");
+    $$("#mailSeg button").forEach((b) => b.classList.toggle("on", b.dataset.mail === state.mail));
+    const note = $("#mailNote");
+    if (note) {
+      if (state.mail === "ready") {
+        note.hidden = false;
+        note.classList.add("ready-note");
+        note.innerHTML = "<b>Ready</b> = 7:30 auto-drafts of complete packets. Nothing sent. Incomplete stays out.";
+      } else if (state.mail === "awaiting") {
+        note.hidden = false;
+        note.classList.remove("ready-note");
+        note.innerHTML = "<b>Awaiting</b> = already sent, still their court. A reply that does not close the gap stays here.";
+      } else {
+        note.hidden = true;
+        note.classList.remove("ready-note");
+      }
+    }
     const colOn = Object.values(state.cols).some(Boolean);
     markMenu("cols", colOn ? HIDEABLE.filter((c) => state.cols[c.id]).length : 0, "Columns");
     const table = $("#grid");
@@ -1489,6 +1692,22 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       '">' +
       esc(whyLabel(r.first_pass_column)) +
       "</span></td>" +
+      '<td data-label="Mail"><span class="pill ' +
+      esc(mailStatus(r)) +
+      '">' +
+      esc(MAIL_LABEL[mailStatus(r)]) +
+      "</span></td>" +
+      '<td data-label="Last sent"><span class="sent">' +
+      (lastSent(r) ? esc(lastSent(r)) : '<span class="empty">—</span>') +
+      "</span></td>" +
+      '<td class="num" data-label="Waiting"><span class="wait' +
+      (waitingDays(r) != null && Number(waitingDays(r)) >= 5 ? " late" : "") +
+      '">' +
+      (waitingDays(r) == null ? '<span class="empty">—</span>' : esc(waitingDays(r))) +
+      "</span></td>" +
+      '<td data-label="Last reply"><span class="reply">' +
+      (lastReply(r) ? esc(lastReply(r)) : '<span class="empty">—</span>') +
+      "</span></td>" +
       '<td class="col-era" data-label="Era">' +
       esc(r.era || "—") +
       "</td>" +
@@ -1524,6 +1743,29 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     );
   }
 
+  function emptyCopy() {
+    if (state.mail === "needs_you" && state.mail !== "all" && !hasExtraFilters()) {
+      return "<b>Nothing needs you.</b> Replies that still leave the ball with them stay on Awaiting.";
+    }
+    if (state.mail === "ready") {
+      return "<b>No complete packets in this filter.</b> Incomplete never enters Ready.";
+    }
+    if (state.mail === "awaiting" && !hasExtraFilters()) {
+      return "<b>Nothing awaiting.</b> Sent threads still in their court show here.";
+    }
+    return "No invoices match these filters.";
+  }
+  function hasExtraFilters() {
+    return !!(
+      state.search.trim() ||
+      state.builders.size ||
+      state.eras.size ||
+      state.whys.size ||
+      state.hyphen.size ||
+      state.days.size
+    );
+  }
+
   function render() {
     const filtered = sortRows(applyFilters());
     updateCounts(filtered);
@@ -1531,7 +1773,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     const tb = $("#tbody");
     if (!filtered.length) {
       tb.innerHTML =
-        '<tr><td colspan="16"><div class="empty-state">No invoices match these filters.</div></td></tr>';
+        '<tr><td colspan="20"><div class="empty-state">' + emptyCopy() + "</div></td></tr>";
       return;
     }
     if (!state.group) {
@@ -1559,7 +1801,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       const pktN = missing.length;
       const pktOpen = missing.reduce((s, r) => s + (Number(r.balance) || 0), 0);
       html +=
-        '<tr class="section"><td colspan="16">Missing PO · community packets · ' +
+        '<tr class="section"><td colspan="20">Missing PO · community packets · ' +
         groups.length +
         " communities · " +
         pktN +
@@ -1574,7 +1816,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
           (isOpen ? " open" : "") +
           '" data-comm="' +
           esc(name) +
-          '"><td colspan="16"><div class="ghead-inner"><i class="chev"></i><span class="gname">' +
+          '"><td colspan="20"><div class="ghead-inner"><i class="chev"></i><span class="gname">' +
           esc(name) +
           '</span><span class="gmeta">' +
           rows.length +
@@ -1587,7 +1829,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     }
     if (other.length) {
       html +=
-        '<tr class="section"><td colspan="16">Other invoices · ' +
+        '<tr class="section"><td colspan="20">Other invoices · ' +
         other.length +
         " · " +
         money(other.reduce((s, r) => s + (Number(r.balance) || 0), 0)) +
@@ -1752,6 +1994,12 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       secondary = "Draft a chase";
     } else {
       hint = "Next step after this row is researched.";
+    }
+    const mail = mailStatus(r);
+    if (mail === "awaiting") {
+      primary = "Follow up on thread";
+    } else if (mail === "ready") {
+      primary = "Send";
     }
     return (
       '<p class="act-hint">' +
@@ -2393,6 +2641,8 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       state.eras.clear();
       state.whys.clear();
       state.hyphen.clear();
+      state.days.clear();
+      state.mail = "all";
       $("#q").value = "";
       $$('.menu-pop input[type="checkbox"]').forEach((c) => {
         if (c.closest('[data-menu="cols"]')) return;
@@ -2443,6 +2693,19 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
         render();
       });
     });
+    $$('[data-menu="days"] input').forEach((c) => {
+      c.addEventListener("change", () => {
+        if (c.checked) state.days.add(c.value);
+        else state.days.delete(c.value);
+        render();
+      });
+    });
+    $$("#mailSeg button").forEach((b) => {
+      b.addEventListener("click", () => {
+        state.mail = b.dataset.mail;
+        render();
+      });
+    });
     $$('[data-menu="hyphen"] input').forEach((c) => {
       c.addEventListener("change", () => {
         if (c.checked) state.hyphen.add(c.value);
@@ -2466,6 +2729,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
         if (menu === "era") state.eras.clear();
         if (menu === "why") state.whys.clear();
         if (menu === "hyphen") state.hyphen.clear();
+        if (menu === "days") state.days.clear();
         if (menu === "cols") {
           state.cols = {};
           render();
@@ -2480,7 +2744,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
         if (state.sortKey === k) state.sortDir = state.sortDir === "desc" ? "asc" : "desc";
         else {
           state.sortKey = k;
-          state.sortDir = th.dataset.dir || (["daysPastDue", "balance", "totalAmt"].includes(k) ? "desc" : "asc");
+          state.sortDir = th.dataset.dir || (["daysPastDue", "balance", "totalAmt", "waiting"].includes(k) ? "desc" : "asc");
         }
         render();
       });
