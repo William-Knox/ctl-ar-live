@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F8F6F2" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Hyphen" />
+<meta name="mobile-web-app-capable" content="yes" />
+<title>Hyphen review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --cream: #F8F6F2;
+  --cream-2: #EFEDE7;
+  --cream-3: #E7E3DB;
+  --paper: #FFFdf8;
+  --navy: #0F172A;
+  --navy-2: #1E293B;
+  --ink: #161410;
+  --muted: #6F6A62;
+  --muted-2: #8A847A;
+  --line: #E4E0D8;
+  --line-2: #D6D1C7;
+  --clay: #C2410C;
+  --clay-soft: #F3E6DE;
+  --found-bg: #E3EBE5;
+  --found-fg: #3A5648;
+  --not-bg: #F3E6DE;
+  --not-fg: #B45309;
+  --header-h: 46px;
+  --toolbar-h: 38px;
+  --thead-h: 30px;
+  --row-h: 42px;
+  --drawer-w: 400px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  background: var(--cream);
+  color: var(--navy);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "tnum";
+  -webkit-font-smoothing: antialiased;
+}
+body { overflow: hidden; }
+button, input { font-family: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; }
+::selection { background: #E8D5C8; }
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 1100px;
+}
+
+/* —— Header —— */
+.hdr {
+  height: var(--header-h);
+  flex: 0 0 var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 0 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  gap: 16px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.mark { display: block; flex: 0 0 14px; }
+.brand-text { min-width: 0; }
+.brand-text h1 {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.asof {
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.asof .scrape {
+  color: var(--clay);
+  font-weight: 600;
+}
+.counts {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.count { text-align: right; }
+.count b {
+  display: block;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.count span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* —— Toolbar —— */
+.bar {
+  height: var(--toolbar-h);
+  flex: 0 0 var(--toolbar-h);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  position: relative;
+  z-index: 20;
+  white-space: nowrap;
+}
+.search {
+  width: 220px;
+  height: 26px;
+  border: 1px solid var(--line-2);
+  background: var(--paper);
+  border-radius: 4px;
+  padding: 0 8px 0 26px;
+  font-size: 12px;
+  font-weight: 500;
+  outline: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%236F6A62' stroke-width='1.6'><circle cx='5.2' cy='5.2' r='3.6'/><path d='M8 8l3 3'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 8px 50%;
+}
+.search:focus { border-color: var(--navy); }
+.search::placeholder { color: var(--muted-2); font-weight: 450; }
+
+.menu { position: relative; }
+.menu-btn {
+  height: 26px;
+  padding: 0 8px;
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  background: var(--paper);
+  font-size: 11.5px;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.menu-btn:hover { border-color: #C4BDB2; }
+.menu-btn.on {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: var(--cream);
+}
+.menu-btn .caret {
+  width: 0; height: 0;
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  border-top: 4px solid currentColor;
+  opacity: 0.55;
+}
+.menu-pop {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 196px;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.10), 0 1px 2px rgba(15,23,42,0.04);
+  padding: 6px;
+  z-index: 40;
+}
+.menu-pop.right { left: auto; right: 0; }
+.menu-pop[hidden] { display: none; }
+.menu-pop label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.menu-pop label:hover { background: var(--cream-2); }
+.menu-pop input[type="checkbox"] {
+  accent-color: var(--navy);
+  width: 13px;
+  height: 13px;
+}
+.menu-foot {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 6px 2px;
+  margin-top: 2px;
+  border-top: 1px solid var(--line);
+}
+.menu-foot button {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 2px 0;
+}
+.menu-foot button:hover { color: var(--navy); }
+
+.bar-spacer { flex: 1; }
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 26px;
+  padding: 0 4px 0 2px;
+  font-size: 11.5px;
+  font-weight: 550;
+  color: var(--navy);
+  user-select: none;
+  white-space: nowrap;
+}
+.toggle input { accent-color: var(--navy); width: 13px; height: 13px; }
+.toggle .hint { color: var(--muted); font-weight: 500; font-size: 11px; }
+.clear-btn {
+  height: 26px;
+  padding: 0 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--clay);
+  display: none;
+}
+.clear-btn.show { display: inline-flex; align-items: center; }
+.expand-btn {
+  height: 26px;
+  padding: 0 6px;
+  font-size: 11.5px;
+  font-weight: 550;
+  color: var(--muted);
+  display: none;
+}
+.expand-btn.show { display: inline-flex; align-items: center; }
+.expand-btn:hover { color: var(--navy); }
+
+/* —— Table —— */
+.wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: var(--paper);
+}
+table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: -0.011em;
+}
+#grid.show-era, #grid.show-builder, #grid.show-billed, #grid.show-due,
+#grid.show-bo, #grid.show-notes, #grid.show-ticket, #grid.show-po, #grid.show-next {
+  table-layout: auto;
+  min-width: 1480px;
+}
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  height: var(--thead-h);
+  background: var(--cream-2);
+  border-bottom: 1px solid var(--line-2);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  padding: 0 8px;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+}
+thead th:hover { color: var(--navy); }
+thead th .s {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 8px;
+  letter-spacing: 0;
+  color: var(--navy);
+  opacity: 0;
+}
+thead th.sorted { color: var(--navy); }
+thead th.sorted .s { opacity: 1; }
+thead th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+td {
+  height: var(--row-h);
+  padding: 0 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--paper);
+}
+td.comm, td.addr {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+tbody tr.alt td { background: #FBF9F5; }
+tbody tr:hover td { background: #F3EFE8; }
+tbody tr.sel td { background: #EDE6DC; }
+tbody tr.sel td:first-child { box-shadow: inset 2px 0 0 var(--navy); }
+tbody tr.researched td:first-child { box-shadow: inset 2px 0 0 var(--clay); }
+tbody tr.researched.sel td:first-child { box-shadow: inset 2px 0 0 var(--clay); }
+tbody tr { cursor: pointer; }
+.dpd { font-variant-numeric: tabular-nums; font-weight: 600; }
+.dpd.late { color: var(--clay); }
+.inv {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.inv .dot {
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--clay);
+  margin-right: 5px;
+  vertical-align: 1px;
+}
+.money { font-variant-numeric: tabular-nums; font-weight: 600; letter-spacing: -0.015em; }
+.trunc { overflow: hidden; text-overflow: ellipsis; max-width: 1px; }
+.comm { font-weight: 550; }
+.addr { color: var(--navy-2); }
+.empty { color: var(--muted-2); }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.pill.found, .pill.paid { background: var(--found-bg); color: var(--found-fg); }
+.pill.unpaid { background: var(--cream); color: var(--navy); border: 1px solid #C9C3B8; }
+.pill.short { background: var(--clay-soft); color: var(--clay); }
+.pill.notfound { background: var(--not-bg); color: var(--not-fg); }
+.pill.why {
+  background: var(--cream);
+  color: var(--navy);
+  border: 1px solid #C9C3B8;
+}
+.pill.why.hot {
+  background: var(--clay-soft);
+  color: var(--clay);
+  border-color: transparent;
+}
+.pill.yes { background: var(--cream-2); color: var(--navy); }
+.pill.mute { background: transparent; color: var(--muted); border: 1px dashed var(--line-2); }
+.next { color: var(--navy-2); font-weight: 500; max-width: 240px; }
+
+.col-era, .col-builder, .col-billed, .col-due, .col-bo, .col-notes, .col-ticket, .col-po, .col-next { display: none; }
+.show-era .col-era,
+.show-builder .col-builder,
+.show-billed .col-billed,
+.show-due .col-due,
+.show-bo .col-bo,
+.show-notes .col-notes,
+.show-ticket .col-ticket,
+.show-po .col-po,
+.show-next .col-next { display: table-cell; }
+
+/* group rows */
+tr.ghead td {
+  height: 34px;
+  background: var(--cream-2) !important;
+  border-bottom: 1px solid var(--line-2);
+  font-size: 12px;
+  cursor: pointer;
+  position: sticky;
+  top: var(--thead-h);
+  z-index: 6;
+}
+tr.ghead:hover td { background: var(--cream-3) !important; }
+.ghead-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.chev {
+  width: 0; height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 5px solid var(--navy);
+  opacity: 0.55;
+  transition: transform 0.12s ease;
+}
+.ghead.open .chev { transform: rotate(90deg); }
+.gname { font-weight: 650; letter-spacing: -0.02em; }
+.gmeta {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  font-weight: 550;
+  font-size: 11.5px;
+}
+tr.section td {
+  height: 28px;
+  background: var(--cream) !important;
+  border-bottom: 1px solid var(--line-2);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: default;
+  position: sticky;
+  top: var(--thead-h);
+  z-index: 5;
+}
+tr.child td:first-child { padding-left: 22px; }
+
+.w-dpd { width: 52px; }
+.w-inv { width: 118px; }
+.w-open { width: 82px; }
+.w-hy { width: 86px; }
+.w-why { width: 150px; }
+.w-era { width: 110px; }
+.w-billed { width: 92px; }
+.w-due { width: 78px; }
+th:nth-child(4), td.comm { width: 22%; }
+th:nth-child(5), td.addr { width: 18%; }
+
+.empty-state {
+  padding: 48px 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* —— Drawer —— */
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,0.18);
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease;
+}
+.scrim.on { opacity: 1; pointer-events: auto; }
+.drawer {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(var(--drawer-w), 42vw);
+  background: var(--cream);
+  border-left: 1px solid var(--line-2);
+  z-index: 60;
+  transform: translateX(100%);
+  transition: transform 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: -12px 0 32px rgba(15,23,42,0.08);
+}
+.drawer.on { transform: translateX(0); }
+.d-head {
+  flex: 0 0 52px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--line);
+}
+.d-head h2 {
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.d-sub {
+  margin-top: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.d-x {
+  width: 28px; height: 28px;
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -4px -6px 0 0;
+}
+.d-x:hover { background: var(--cream-2); color: var(--navy); }
+.d-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 4px 0 8px;
+}
+.d-foot {
+  flex: 0 0 auto;
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--line-2);
+  background: #F3EFE8;
+  z-index: 2;
+  box-shadow: 0 -8px 16px rgba(15,23,42,0.04);
+}
+.d-foot[hidden] { display: none; }
+.drawer.on .d-foot:not([hidden]) { display: block; }
+.sec { padding: 8px 16px 7px; }
+.sec + .sec { border-top: 1px solid var(--line); }
+.sec h3 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.dl { display: grid; grid-template-columns: 118px 1fr; gap: 3px 10px; }
+.dl dt {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--muted);
+  padding-top: 1px;
+}
+.dl dd {
+  font-size: 12.5px;
+  font-weight: 550;
+  letter-spacing: -0.015em;
+  word-break: break-word;
+}
+.dl dd.money, .dl dd.num { font-variant-numeric: tabular-nums; font-weight: 600; }
+.dl dd.late { color: var(--clay); }
+.note-status {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.note-status.warn { color: var(--clay); }
+.mail {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--navy);
+}
+.mail.empty { color: var(--muted); font-weight: 500; }
+.mail-lead {
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+  color: var(--navy);
+  margin: 0 0 10px;
+}
+.drawer .tl { margin: 0; }
+.drawer .tl li { padding-bottom: 8px; }
+.actions { display: flex; flex-direction: column; gap: 6px; }
+.act-hint {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--navy-2);
+  line-height: 1.4;
+  margin-bottom: 2px;
+}
+.act {
+  height: 34px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  cursor: default;
+}
+.act.primary {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--cream);
+}
+.act.primary:hover { background: var(--navy-2); }
+.act.ghost:hover { border-color: #C4BDB2; background: #FFFdf8; }
+.act-note {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.void { color: var(--muted-2); }
+
+
+/* —— Compose —— */
+.compose {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(520px, 46vw);
+  background: var(--cream);
+  border-left: 1px solid var(--line-2);
+  z-index: 70;
+  transform: translateX(100%);
+  transition: transform 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: -12px 0 32px rgba(15,23,42,0.08);
+}
+.compose.on { transform: translateX(0); }
+.c-head {
+  flex: 0 0 auto;
+  padding: 10px 14px 10px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.c-head-left { min-width: 0; }
+.c-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 22px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 0;
+  margin-bottom: 4px;
+}
+.c-back:hover { color: var(--navy); }
+.c-back i {
+  width: 0; height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-right: 5px solid currentColor;
+}
+.c-head h2 {
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.c-kind {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  margin-top: 5px;
+  padding: 0 7px;
+  border: 1px solid #C9C3B8;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.c-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 0 0 12px;
+}
+.c-meta { padding: 10px 16px 8px; }
+.c-row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 8px;
+  align-items: start;
+  padding: 5px 0;
+}
+.c-row dt {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 7px;
+}
+.c-field {
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 5px;
+  padding: 6px 9px;
+  min-height: 32px;
+}
+.c-field .who {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+.c-field .addr {
+  margin-top: 1px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--navy-2);
+}
+.c-field.subj .who { font-weight: 550; }
+.letter {
+  margin: 4px 16px 0;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  padding: 16px 16px 14px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.011em;
+}
+.letter p { margin: 0 0 10px; }
+.letter p:last-child { margin-bottom: 0; }
+.tl { margin: 12px 0 14px; padding: 0; list-style: none; }
+.tl li {
+  position: relative;
+  padding: 0 0 10px 14px;
+  border-left: 2px solid var(--navy);
+}
+.tl li:last-child { padding-bottom: 0; }
+.tl li.today { border-left-color: var(--clay); }
+.tl .when {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+.tl li.today .when { color: var(--clay); }
+.tl .what {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-top: 1px;
+}
+.sig {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.sig b { display: block; font-weight: 650; letter-spacing: -0.02em; }
+.sig span { display: block; font-size: 12px; font-weight: 500; }
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px 16px 0;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 9px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.chip em {
+  font-style: normal;
+  font-weight: 550;
+  color: var(--clay);
+  font-size: 10.5px;
+}
+.c-foot {
+  flex: 0 0 auto;
+  padding: 12px 16px 14px;
+  border-top: 1px solid var(--line-2);
+  background: #F3EFE8;
+  box-shadow: 0 -8px 16px rgba(15,23,42,0.04);
+}
+.c-foot .actions { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+.c-foot .act { padding: 0 12px; flex: 1 1 auto; }
+.c-foot .act.primary { flex: 1.4 1 auto; }
+
+
+@media (max-width: 900px) {
+  html, body { overflow: auto; }
+  .app { min-width: 0; height: auto; min-height: 100%; padding-bottom: env(safe-area-inset-bottom); }
+  .hdr {
+    height: auto;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    padding: calc(10px + env(safe-area-inset-top)) 12px 8px;
+    gap: 8px;
+  }
+  .asof { white-space: normal; }
+  .counts { width: 100%; justify-content: space-between; }
+  .bar {
+    height: auto;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    white-space: normal;
+    padding: 8px 10px;
+    row-gap: 6px;
+  }
+  .search { width: 100%; }
+  .menu-btn, .toggle, .clear-btn { min-height: 36px; }
+  .wrap { overflow: visible; background: transparent; padding: 8px 10px 24px; }
+  table, #grid.show-era, #grid.show-builder, #grid.show-billed, #grid.show-due,
+  #grid.show-bo, #grid.show-notes, #grid.show-ticket, #grid.show-po, #grid.show-next {
+    min-width: 0 !important;
+    table-layout: auto;
+    width: 100%;
+  }
+  thead { display: none; }
+  tbody tr[data-id] {
+    display: block;
+    padding: 12px 14px 10px;
+    margin: 0 0 8px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--paper);
+    box-shadow: none;
+  }
+  tbody tr[data-id].alt td,
+  tbody tr[data-id] td { background: transparent; }
+  tbody tr[data-id] td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    height: auto;
+    min-height: 28px;
+    padding: 5px 0;
+    border-bottom: 0;
+    white-space: normal;
+    max-width: none;
+  }
+  tbody tr[data-id] td {
+    overflow: visible;
+    width: auto;
+    max-width: none;
+  }
+  tbody tr[data-id] td.comm,
+  tbody tr[data-id] td.addr {
+    max-width: none;
+    overflow: visible;
+    width: auto;
+    flex: 1 1 auto;
+  }
+  tbody tr[data-id] td.comm,
+  tbody tr[data-id] td.addr { text-align: right; }
+  /* hideable cols stay hidden unless toggled — display:flex must not unhide them */
+  tbody tr[data-id] td.col-era,
+  tbody tr[data-id] td.col-builder,
+  tbody tr[data-id] td.col-billed,
+  tbody tr[data-id] td.col-due,
+  tbody tr[data-id] td.col-bo,
+  tbody tr[data-id] td.col-notes,
+  tbody tr[data-id] td.col-ticket,
+  tbody tr[data-id] td.col-po,
+  tbody tr[data-id] td.col-next { display: none; }
+  #grid.show-era tbody tr[data-id] td.col-era,
+  #grid.show-builder tbody tr[data-id] td.col-builder,
+  #grid.show-billed tbody tr[data-id] td.col-billed,
+  #grid.show-due tbody tr[data-id] td.col-due,
+  #grid.show-bo tbody tr[data-id] td.col-bo,
+  #grid.show-notes tbody tr[data-id] td.col-notes,
+  #grid.show-ticket tbody tr[data-id] td.col-ticket,
+  #grid.show-po tbody tr[data-id] td.col-po,
+  #grid.show-next tbody tr[data-id] td.col-next { display: flex; }
+  tbody tr[data-id] td::before {
+    content: attr(data-label);
+    font-size: 10px;
+    font-weight: 650;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex: 0 0 92px;
+  }
+  tbody tr.section td, tbody tr.ghead td {
+    display: block;
+    height: auto;
+    padding: 10px 12px;
+    white-space: normal;
+  }
+  .drawer, .compose {
+    width: 100%;
+    max-width: none;
+  }
+  .c-foot .actions { flex-direction: column; }
+  .c-foot .act { width: 100%; min-height: 40px; }
+  .act { min-height: 40px; }
+  .d-foot .act { min-height: 40px; }
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+        <path fill="#0F172A" d="M8 1.8L14.9 14.4H1.1L8 1.8Z"/>
+      </svg>
+      <div class="brand-text">
+        <h1>Hyphen review</h1>
+        <p class="asof">Books Mon Aug 17 3:18am CT · Scrape <span class="scrape">Sat Aug 15 4:43pm CT</span></p>
+      </div>
+    </div>
+    <div class="counts">
+      <div class="count">
+        <b id="countN">454</b>
+        <span id="countNLabel">invoices</span>
+      </div>
+      <div class="count">
+        <b id="countOpen">$231,898.12</b>
+        <span>open</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="bar">
+    <input class="search" id="q" type="search" placeholder="Invoice, address, community, BO#" autocomplete="off" />
+
+    <div class="menu" data-menu="builder">
+      <button class="menu-btn" type="button"><span class="t">Builder</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="LENNAR HOMES" /> Lennar</label>
+        <label><input type="checkbox" value="MHI HOMES" /> MHI</label>
+        <label><input type="checkbox" value="Toll Brothers, Inc." /> Toll</label>
+        <label><input type="checkbox" value="TriPointe Homes" /> TriPointe</label>
+        <label><input type="checkbox" value="K. Hovnanian of Houston" /> K. Hovnanian</label>
+        <div class="menu-foot"><button type="button" class="all">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="menu" data-menu="era">
+      <button class="menu-btn" type="button"><span class="t">Era</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="pre-strata" /> pre-strata</label>
+        <label><input type="checkbox" value="strata" /> strata</label>
+        <label><input type="checkbox" value="legacy-numeric" /> legacy-numeric</label>
+        <div class="menu-foot"><button type="button" class="all">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="menu" data-menu="why">
+      <button class="menu-btn" type="button"><span class="t">Why</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="No PO" /> No PO</label>
+        <label><input type="checkbox" value="2nd callout" /> 2nd callout</label>
+        <label><input type="checkbox" value="Amount off / unpaid PO" /> Amount off</label>
+        <label><input type="checkbox" value="Paid, to apply" /> Paid to apply</label>
+        <label><input type="checkbox" value="Broken link" /> Broken link</label>
+        <label><input type="checkbox" value="Linked, needs detail" /> Linked needs detail</label>
+        <div class="menu-foot"><button type="button" class="all">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="menu" data-menu="hyphen">
+      <button class="menu-btn" type="button"><span class="t">Hyphen</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="paid" /> Paid</label>
+        <label><input type="checkbox" value="short" /> Short</label>
+        <label><input type="checkbox" value="unpaid" /> Unpaid</label>
+        <label><input type="checkbox" value="not_found" /> Not found</label>
+        <div class="menu-foot"><button type="button" class="all">Clear</button></div>
+      </div>
+    </div>
+
+    <button class="clear-btn" id="clearBtn" type="button">Clear filters</button>
+    <div class="bar-spacer"></div>
+
+    <label class="toggle">
+      <input type="checkbox" id="groupToggle" />
+      Group by community
+      <span class="hint">Missing PO</span>
+    </label>
+    <button class="expand-btn" id="expandBtn" type="button">Expand packets</button>
+
+    <div class="menu" data-menu="cols">
+      <button class="menu-btn" type="button"><span class="t">Columns</span><i class="caret"></i></button>
+      <div class="menu-pop right" hidden>
+        <label><input type="checkbox" value="era" /> Era</label>
+        <label><input type="checkbox" value="builder" /> Builder</label>
+        <label><input type="checkbox" value="billed" /> Billed $</label>
+        <label><input type="checkbox" value="due" /> Due date</label>
+        <label><input type="checkbox" value="bo" /> Builder Order Number</label>
+        <label><input type="checkbox" value="notes" /> Hyphen notes</label>
+        <label><input type="checkbox" value="ticket" /> Strata ticket</label>
+        <label><input type="checkbox" value="po" /> Strata PO</label>
+        <label><input type="checkbox" value="next" /> Next</label>
+        <div class="menu-foot"><button type="button" class="all">Reset</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <table id="grid">
+      <thead>
+        <tr>
+          <th class="num w-dpd sorted" data-sort="daysPastDue" data-dir="desc">Days <span class="s">▼</span></th>
+          <th class="w-inv" data-sort="docNumber">Invoice # <span class="s"></span></th>
+          <th class="num w-open" data-sort="balance" data-dir="desc">Open $ <span class="s"></span></th>
+          <th data-sort="customer">Community <span class="s"></span></th>
+          <th data-sort="service_address">Address <span class="s"></span></th>
+          <th class="w-hy" data-sort="found">Hyphen <span class="s"></span></th>
+          <th class="w-why" data-sort="first_pass_column">Why <span class="s"></span></th>
+          <th class="col-era w-era" data-sort="era">Era <span class="s"></span></th>
+          <th class="col-builder" data-sort="parent">Builder <span class="s"></span></th>
+          <th class="num col-billed w-billed" data-sort="totalAmt" data-dir="desc">Billed $ <span class="s"></span></th>
+          <th class="col-due w-due" data-sort="dueDate">Due date <span class="s"></span></th>
+          <th class="col-bo" data-sort="builder_order_number">Builder Order # <span class="s"></span></th>
+          <th class="col-notes" data-sort="notes">Hyphen notes <span class="s"></span></th>
+          <th class="col-ticket" data-sort="ticket">Strata ticket <span class="s"></span></th>
+          <th class="col-po" data-sort="po">Strata PO <span class="s"></span></th>
+          <th class="col-next" data-sort="next">Next <span class="s"></span></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="d-head">
+    <div>
+      <h2 id="dTitle"></h2>
+      <p class="d-sub" id="dSub"></p>
+    </div>
+    <button class="d-x" id="dClose" type="button" aria-label="Close">×</button>
+  </div>
+  <div class="d-body" id="dBody"></div>
+  <div class="d-foot" id="dFoot" hidden></div>
+</aside>
+
+<aside class="compose" id="compose" aria-hidden="true">
+  <div class="c-head">
+    <div class="c-head-left">
+      <button class="c-back" id="cBack" type="button"><i></i>Back to case</button>
+      <h2 id="cTitle">Draft</h2>
+      <span class="c-kind" id="cKind">Internal</span>
+    </div>
+    <button class="d-x" id="cClose" type="button" aria-label="Close">×</button>
+  </div>
+  <div class="c-body">
+    <dl class="c-meta">
+      <div class="c-row"><dt>From</dt><dd class="c-field" id="cFrom"></dd></div>
+      <div class="c-row"><dt>To</dt><dd class="c-field" id="cTo"></dd></div>
+      <div class="c-row"><dt>CC</dt><dd class="c-field" id="cCc"></dd></div>
+      <div class="c-row"><dt>Subject</dt><dd class="c-field subj" id="cSubj"></dd></div>
+    </dl>
+    <div class="letter" id="cLetter"></div>
+    <div class="chips" id="cChips"></div>
+  </div>
+  <div class="c-foot">
+    <div class="actions">
+      <button class="act ghost" id="cHold" type="button">Hold</button>
+      <button class="act ghost" type="button">Save draft</button>
+      <button class="act primary" type="button">Ready for review</button>
+    </div>
+    <p class="act-note">Nothing sends until you approve.</p>
+  </div>
+</aside>
+
+<script src="data.js?v=20260817c"></script>
+
+<script>
+(function () {
+  "use strict";
+
+  const BUILDERS = [
+    { id: "LENNAR HOMES", label: "Lennar" },
+    { id: "MHI HOMES", label: "MHI" },
+    { id: "Toll Brothers, Inc.", label: "Toll" },
+    { id: "TriPointe Homes", label: "TriPointe" },
+    { id: "K. Hovnanian of Houston", label: "K. Hovnanian" },
+  ];
+  const DEFAULT_CHASE_CC = [
+    {name: "Ryan", email: "ryan@coastaltestinglabs.com"},
+    {name: "Maria", email: "maria@coastaltestinglabs.com"},
+    {name: "Veronica", email: "veronica@coastaltestinglabs.com"},
+    {name: "William Knox", email: "william@coastaltestinglabs.com"}
+  ];
+  const BUILDER_LABEL = Object.fromEntries(BUILDERS.map((b) => [b.id, b.label]));
+  const ERAS = [
+    { id: "pre-strata", label: "pre-strata" },
+    { id: "strata", label: "strata" },
+    { id: "legacy-numeric", label: "legacy-numeric" },
+  ];
+  const WHYS = [
+    { id: "No PO", label: "No PO" },
+    { id: "2nd callout", label: "2nd callout" },
+    { id: "Amount off / unpaid PO", label: "Amount off" },
+    { id: "Paid, to apply", label: "Paid to apply" },
+    { id: "Broken link", label: "Broken link" },
+    { id: "Linked, needs detail", label: "Linked needs detail" },
+  ];
+  const WHY_LABEL = Object.fromEntries(WHYS.map((w) => [w.id, w.label]));
+  const WHY_HOT = new Set(["2nd callout", "Amount off / unpaid PO", "consumed/cutoff"]);
+  const HIDEABLE = [
+    { id: "era", label: "Era" },
+    { id: "builder", label: "Builder" },
+    { id: "billed", label: "Billed $" },
+    { id: "due", label: "Due date" },
+    { id: "bo", label: "Builder Order Number" },
+    { id: "notes", label: "Hyphen notes" },
+    { id: "ticket", label: "Strata ticket" },
+    { id: "po", label: "Strata PO" },
+    { id: "next", label: "Next" },
+  ];
+
+  const state = {
+    sortKey: "daysPastDue",
+    sortDir: "desc",
+    search: "",
+    builders: new Set(),
+    eras: new Set(),
+    whys: new Set(),
+    hyphen: new Set(),
+    cols: {},
+    group: false,
+    expandAll: false,
+    collapsed: new Set(),
+    selected: null,
+  };
+
+  const $ = (sel, root) => (root || document).querySelector(sel);
+  const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
+
+  function money(n) {
+    if (n == null || n === "") return "—";
+    return (
+      "$" +
+      Number(n).toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })
+    );
+  }
+  function moneyShort(n) {
+    if (n == null || n === "") return "—";
+    const v = Number(n);
+    if (Math.abs(v - Math.round(v)) < 1e-9) {
+      return "$" + Math.round(v).toLocaleString("en-US");
+    }
+    return money(v);
+  }
+  function fmtDate(s) {
+    if (!s) return "—";
+    const p = String(s).slice(0, 10).split("-");
+    if (p.length < 3) return s;
+    const dt = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+    return dt.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  }
+  function fmtDateShort(s) {
+    if (!s) return "—";
+    const p = String(s).slice(0, 10).split("-");
+    if (p.length < 3) return s;
+    return Number(p[1]) + "/" + Number(p[2]) + "/" + String(p[0]).slice(2);
+  }
+  function fmtDateTime(s) {
+    if (!s) return "—";
+    const d = new Date(s);
+    if (isNaN(d)) return fmtDate(s);
+    return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  }
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+  function dash(s) {
+    const v = (s == null ? "" : String(s)).trim();
+    return v ? v : "—";
+  }
+  function whyLabel(w) {
+    return WHY_LABEL[w] || w || "—";
+  }
+  function whyHot(w) {
+    if (!w) return false;
+    const s = w.toLowerCase();
+    return WHY_HOT.has(w) || s.includes("consumed") || s.includes("cutoff") || s.includes("amount off") || s.includes("2nd callout");
+  }
+  function nextLine(r) {
+    if (r.researched_notes) {
+      const n = String(r.researched_notes).replace(/\s+/g, " ").trim();
+      return n.length > 78 ? n.slice(0, 76) + "…" : n;
+    }
+    const why = r.first_pass_column || "";
+    if (why === "2nd callout") return "EPO / research";
+    if (why === "Amount off / unpaid PO") return "Research unpaid PO";
+    if (why === "Paid, to apply") return "Match check to invoice";
+    if (why === "Broken link") return "Research cancelled PO";
+    if (!r.found && !r.has_strata_ticket) return "Chase community packet";
+    if (!r.found && r.has_strata_ticket) return "Confirm SON vs ticket";
+    if (r.found && why === "Linked, needs detail") return "Scrape payments";
+    if (why === "No PO") return "Chase community packet";
+    return "Review";
+  }
+  function isMissingPo(r) {
+    return !r.found || r.first_pass_column === "No PO";
+  }
+  function notesCell(r) {
+    return r.researched_notes ? "Yes" : "Not scraped";
+  }
+
+  function applyFilters() {
+    const q = state.search.trim().toLowerCase();
+    return DATA.filter((r) => {
+      if (state.builders.size && !state.builders.has(r.parent)) return false;
+      if (state.eras.size && !state.eras.has(r.era)) return false;
+      if (state.whys.size && !state.whys.has(r.first_pass_column)) return false;
+      if (state.hyphen.size) {
+        const tag = payStatus(r);
+        if (!state.hyphen.has(tag)) return false;
+      }
+      if (q) {
+        const bag = [
+          r.docNumber,
+          r.service_address,
+          r.customer,
+          r.builder_order_number,
+        ]
+          .map((x) => (x == null ? "" : String(x)).toLowerCase())
+          .join(" ");
+        if (!bag.includes(q)) return false;
+      }
+      return true;
+    });
+  }
+
+  function sortRows(rows) {
+    const key = state.sortKey;
+    const dir = state.sortDir === "asc" ? 1 : -1;
+    const num = new Set(["daysPastDue", "balance", "totalAmt", "daysSinceInvoice", "open_balance"]);
+    const copy = rows.slice();
+    copy.sort((a, b) => {
+      let av, bv;
+      if (key === "found") {
+        av = a.found ? 1 : 0;
+        bv = b.found ? 1 : 0;
+      } else if (key === "next") {
+        av = nextLine(a);
+        bv = nextLine(b);
+      } else if (key === "notes") {
+        av = notesCell(a);
+        bv = notesCell(b);
+      } else if (key === "ticket") {
+        av = a.strata_report_number || "";
+        bv = b.strata_report_number || "";
+      } else if (key === "po") {
+        av = a.strata_po_num || "";
+        bv = b.strata_po_num || "";
+      } else {
+        av = a[key];
+        bv = b[key];
+      }
+      if (num.has(key)) {
+        av = Number(av);
+        bv = Number(bv);
+        if (Number.isNaN(av)) av = -Infinity;
+        if (Number.isNaN(bv)) bv = -Infinity;
+        return (av - bv) * dir;
+      }
+      if (typeof av === "boolean") av = av ? 1 : 0;
+      if (typeof bv === "boolean") bv = bv ? 1 : 0;
+      av = av == null ? "" : String(av).toLowerCase();
+      bv = bv == null ? "" : String(bv).toLowerCase();
+      if (av < bv) return -1 * dir;
+      if (av > bv) return 1 * dir;
+      return (Number(b.daysPastDue) - Number(a.daysPastDue)) || String(a.docNumber).localeCompare(String(b.docNumber));
+    });
+    return copy;
+  }
+
+  function updateCounts(rows) {
+    const n = rows.length;
+    const open = rows.reduce((s, r) => s + (Number(r.balance) || 0), 0);
+    $("#countN").textContent = n.toLocaleString("en-US");
+    $("#countOpen").textContent = money(open);
+    const filtered = n !== DATA.length || hasFilters();
+    $("#countNLabel").textContent = filtered ? "invoices shown" : "invoices";
+  }
+
+  function hasFilters() {
+    return (
+      state.search.trim() ||
+      state.builders.size ||
+      state.eras.size ||
+      state.whys.size ||
+      state.hyphen.size
+    );
+  }
+
+  function syncChrome() {
+    $("#clearBtn").classList.toggle("show", !!hasFilters());
+    $("#expandBtn").classList.toggle("show", state.group);
+    $("#expandBtn").textContent = state.expandAll ? "Collapse packets" : "Expand packets";
+    markMenu("builder", state.builders.size, "Builder");
+    markMenu("era", state.eras.size, "Era");
+    markMenu("why", state.whys.size, "Why");
+    markMenu("hyphen", state.hyphen.size, "Hyphen");
+    const colOn = Object.values(state.cols).some(Boolean);
+    markMenu("cols", colOn ? HIDEABLE.filter((c) => state.cols[c.id]).length : 0, "Columns");
+    const table = $("#grid");
+    HIDEABLE.forEach((c) => table.classList.toggle("show-" + c.id, !!state.cols[c.id]));
+    $$("thead th").forEach((th) => {
+      const k = th.dataset.sort;
+      th.classList.toggle("sorted", k === state.sortKey);
+      const s = th.querySelector(".s");
+      if (s) s.textContent = k === state.sortKey ? (state.sortDir === "asc" ? "▲" : "▼") : "";
+    });
+  }
+
+  function markMenu(name, n, label) {
+    const btn = $('[data-menu="' + name + '"] .menu-btn');
+    if (!btn) return;
+    btn.classList.toggle("on", n > 0);
+    const text = btn.querySelector(".t");
+    if (text) text.textContent = n ? label + " · " + n : label;
+  }
+
+  function payStatus(r) {
+    return r.payment_status || (r.found ? "unpaid" : "not_found");
+  }
+  function payLabel(r) {
+    const s = payStatus(r);
+    if (s === "paid") return "Paid";
+    if (s === "short") return "Short";
+    if (s === "unpaid") return "Unpaid";
+    if (s === "not_found") return "Not found";
+    return s;
+  }
+  function payClass(r) {
+    const s = payStatus(r);
+    return s === "not_found" ? "notfound" : s;
+  }
+
+  function rowHtml(r, child, alt) {
+    const late = Number(r.daysPastDue) > 0;
+    const addr = (r.service_address || "").trim();
+    const researched = !!r.researched_notes;
+    const cls = [
+      child ? "child" : "",
+      alt ? "alt" : "",
+      state.selected === r.docNumber ? "sel" : "",
+      researched ? "researched" : "",
+    ]
+      .filter(Boolean)
+      .join(" ");
+    return (
+      '<tr class="' +
+      cls +
+      '" data-id="' +
+      esc(r.docNumber) +
+      '">' +
+      '<td class="num" data-label="Days"><span class="dpd' +
+      (late ? " late" : "") +
+      '">' +
+      esc(r.daysPastDue) +
+      "</span></td>" +
+      '<td data-label="Invoice"><span class="inv">' +
+      (researched ? '<i class="dot"></i>' : "") +
+      esc(r.docNumber) +
+      "</span></td>" +
+      '<td class="num" data-label="Open $"><span class="money">' +
+      money(r.balance) +
+      "</span></td>" +
+      '<td class="comm" data-label="Community" title="' +
+      esc(r.customer) +
+      '">' +
+      esc(r.customer) +
+      "</td>" +
+      '<td class="addr" data-label="Address" title="' +
+      esc(addr) +
+      '">' +
+      (addr ? esc(addr) : '<span class="empty">—</span>') +
+      "</td>" +
+      '<td data-label="Hyphen"><span class="pill ' +
+      payClass(r) +
+      '">' +
+      esc(payLabel(r)) +
+      "</span></td>" +
+      '<td data-label="Why"><span class="pill why' +
+      (whyHot(r.first_pass_column) ? " hot" : "") +
+      '">' +
+      esc(whyLabel(r.first_pass_column)) +
+      "</span></td>" +
+      '<td class="col-era" data-label="Era">' +
+      esc(r.era || "—") +
+      "</td>" +
+      '<td class="col-builder" data-label="Builder">' +
+      esc(BUILDER_LABEL[r.parent] || r.parent || "—") +
+      "</td>" +
+      '<td class="num col-billed" data-label="Billed $"><span class="money">' +
+      money(r.totalAmt) +
+      "</span></td>" +
+      '<td class="col-due" data-label="Due">' +
+      esc(fmtDateShort(r.dueDate)) +
+      "</td>" +
+      '<td class="col-bo" data-label="Builder Order #">' +
+      esc(dash(r.builder_order_number)) +
+      "</td>" +
+      '<td class="col-notes" data-label="Hyphen notes">' +
+      (r.researched_notes
+        ? '<span class="pill yes">Yes</span>'
+        : '<span class="pill mute">Not scraped</span>') +
+      "</td>" +
+      '<td class="col-ticket" data-label="Strata ticket">' +
+      esc(dash(r.strata_report_number)) +
+      "</td>" +
+      '<td class="col-po" data-label="Strata PO">' +
+      esc(dash(r.strata_po_num)) +
+      "</td>" +
+      '<td class="col-next next" title="' +
+      esc(nextLine(r)) +
+      '">' +
+      esc(nextLine(r)) +
+      "</td>" +
+      "</tr>"
+    );
+  }
+
+  function render() {
+    const filtered = sortRows(applyFilters());
+    updateCounts(filtered);
+    syncChrome();
+    const tb = $("#tbody");
+    if (!filtered.length) {
+      tb.innerHTML =
+        '<tr><td colspan="16"><div class="empty-state">No invoices match these filters.</div></td></tr>';
+      return;
+    }
+    if (!state.group) {
+      tb.innerHTML = filtered.map((r, i) => rowHtml(r, false, i % 2 === 1)).join("");
+      return;
+    }
+    const missing = filtered.filter(isMissingPo);
+    const other = filtered.filter((r) => !isMissingPo(r));
+    const map = new Map();
+    missing.forEach((r) => {
+      const k = r.customer || "—";
+      if (!map.has(k)) map.set(k, []);
+      map.get(k).push(r);
+    });
+    const groups = Array.from(map.entries()).sort((a, b) => {
+      const maxA = Math.max.apply(null, a[1].map((r) => Number(r.daysPastDue) || 0));
+      const maxB = Math.max.apply(null, b[1].map((r) => Number(r.daysPastDue) || 0));
+      if (maxB !== maxA) return maxB - maxA;
+      const sumA = a[1].reduce((s, r) => s + (Number(r.balance) || 0), 0);
+      const sumB = b[1].reduce((s, r) => s + (Number(r.balance) || 0), 0);
+      return sumB - sumA;
+    });
+    let html = "";
+    if (groups.length) {
+      const pktN = missing.length;
+      const pktOpen = missing.reduce((s, r) => s + (Number(r.balance) || 0), 0);
+      html +=
+        '<tr class="section"><td colspan="16">Missing PO · community packets · ' +
+        groups.length +
+        " communities · " +
+        pktN +
+        " invoices · " +
+        money(pktOpen) +
+        "</td></tr>";
+      groups.forEach(([name, rows]) => {
+        const isOpen = state.expandAll ? !state.collapsed.has(name) : state.collapsed.has("open:" + name);
+        const sum = rows.reduce((s, r) => s + (Number(r.balance) || 0), 0);
+        html +=
+          '<tr class="ghead' +
+          (isOpen ? " open" : "") +
+          '" data-comm="' +
+          esc(name) +
+          '"><td colspan="16"><div class="ghead-inner"><i class="chev"></i><span class="gname">' +
+          esc(name) +
+          '</span><span class="gmeta">' +
+          rows.length +
+          (rows.length === 1 ? " invoice" : " invoices") +
+          " · " +
+          money(sum) +
+          "</span></div></td></tr>";
+        if (isOpen) html += rows.map((r, i) => rowHtml(r, true, i % 2 === 1)).join("");
+      });
+    }
+    if (other.length) {
+      html +=
+        '<tr class="section"><td colspan="16">Other invoices · ' +
+        other.length +
+        " · " +
+        money(other.reduce((s, r) => s + (Number(r.balance) || 0), 0)) +
+        "</td></tr>";
+      html += other.map((r, i) => rowHtml(r, false, i % 2 === 1)).join("");
+    }
+    tb.innerHTML = html;
+  }
+
+  function toggleCommunity(name) {
+    if (state.expandAll) {
+      if (state.collapsed.has(name)) state.collapsed.delete(name);
+      else state.collapsed.add(name);
+    } else {
+      const key = "open:" + name;
+      if (state.collapsed.has(key)) state.collapsed.delete(key);
+      else state.collapsed.add(key);
+    }
+    render();
+  }
+
+  function openDrawer(id) {
+    const r = DATA.find((x) => x.docNumber === id);
+    if (!r) return;
+    state.selected = id;
+    $$("#tbody tr[data-id]").forEach((tr) => tr.classList.toggle("sel", tr.dataset.id === id));
+    const el = $("#drawer");
+    const body = $("#dBody");
+    const found = !!r.found;
+    const addr = (r.service_address || "").trim();
+    const statusNote = r.hyphen_status
+      ? '<span class="note-status warn">Order status only — not a payment</span>'
+      : "";
+    const strata = r.has_strata_ticket
+      ? '<div class="dl">' +
+        kv("Ticket", dash(r.strata_report_number)) +
+        kv("PO", dash(r.strata_po_num)) +
+        kv("Status", dash(r.strata_status)) +
+        kv("Service date", fmtDate(r.strata_service_date)) +
+        kv("Notes entered", fmtDateTime(r.strata_hyphen_notes_entered_at)) +
+        "</div>"
+      : '<p class="mail empty">No Strata ticket</p>';
+    let mail = "";
+    if (r.mail_lead) mail += '<p class="mail-lead">' + esc(r.mail_lead) + "</p>";
+    if (r.timeline && r.timeline.length) {
+      mail += '<ul class="tl">' + r.timeline.map(function (ev) {
+        return (
+          "<li" + (ev.today ? ' class="today"' : "") + '><div class="when">' +
+          esc(ev.when || "") +
+          '</div><div class="what">' +
+          esc(ev.what || "") +
+          "</div></li>"
+        );
+      }).join("") + "</ul>";
+    } else if (r.researched_notes) {
+      mail += '<p class="mail">' + esc(r.researched_notes) + "</p>";
+    } else {
+      mail += '<p class="mail empty">No mail pulled on this row yet</p>';
+    }
+    $("#dTitle").textContent = r.docNumber;
+    $("#dSub").textContent =
+      (BUILDER_LABEL[r.parent] || r.parent || "") +
+      " · " +
+      (r.customer || "") +
+      " · " +
+      (found ? "Found" : "Not found");
+    body.innerHTML =
+      '<div class="sec"><h3>Books</h3><div class="dl">' +
+      kv("Invoice", r.docNumber) +
+      kv("Billed", money(r.totalAmt), "money") +
+      kv("Open", money(r.balance), "money") +
+      kv("Invoice date", fmtDate(r.txnDate)) +
+      kv("Due", fmtDate(r.dueDate)) +
+      kv("Days past due", r.daysPastDue, Number(r.daysPastDue) > 0 ? "num late" : "num") +
+      kv("Community", dash(r.customer)) +
+      kv("Address", addr || "—") +
+      kv("Builder", BUILDER_LABEL[r.parent] || dash(r.parent)) +
+      kv("Email", dash(r.email)) +
+      "</div></div>" +
+      '<div class="sec"><h3>Hyphen</h3><div class="dl">' +
+      kv("In Hyphen", payLabel(r)) +
+      kv("Supplier order", dash(r.supplier_order_number)) +
+      kv("Builder order", dash(r.builder_order_number)) +
+      (r.hyphen_review
+        ? (
+            kv("Notes", r.hyphen_review.notes_ok) +
+            kv("PO face", r.hyphen_review.po_face) +
+            kv("Builder", r.hyphen_review.builder) +
+            kv("Payment", r.hyphen_review.payment) +
+            kv("Open", r.hyphen_review.open_since, r.hyphen_review.next === "chase" ? "late" : "") +
+            (r.hyphen_notes_plain ? kv("Note text", r.hyphen_notes_plain) : "")
+          )
+        : (
+            "<dt>Order status</dt><dd>" +
+            esc(dash(r.hyphen_status)) +
+            statusNote +
+            "</dd>" +
+            kv("Check", dash(r.check_number)) +
+            kv("Check date", r.check_date ? fmtDate(r.check_date) : "—") +
+            kv("Check amount", r.check_amount != null && r.check_amount !== "" ? money(r.check_amount) : "—", "money") +
+            kv("Notes", r.hyphen_notes_plain ? r.hyphen_notes_plain : (r.researched_notes ? "No Hyphen notes" : "Not scraped"))
+          )) +
+      "</div></div>" +
+      '<div class="sec"><h3>Strata</h3>' +
+      strata +
+      "</div>" +
+      '<div class="sec"><h3>Mail</h3>' +
+      mail +
+      "</div>";
+    const acts = actionFooter(r);
+    const foot = $("#dFoot");
+    if (foot) {
+      foot.hidden = false;
+      foot.removeAttribute("hidden");
+      foot.style.display = "block";
+      foot.innerHTML = acts;
+    }
+    el.classList.add("on");
+    $("#scrim").classList.add("on");
+    el.setAttribute("aria-hidden", "false");
+  }
+
+  function actionFooter(r) {
+    const why = r.first_pass_column || "";
+    let hint = "";
+    let primary = "Draft a chase";
+    let secondary = "Hold";
+    if (why.indexOf("Paid") === 0) {
+      hint = "Paid in Hyphen. Packet so the office can find the check and apply it in QBO.";
+      primary = "Draft apply packet";
+    } else if (why.indexOf("2nd") === 0) {
+      hint = "Needs two client call-outs (not two CTL schedule emails) plus both visits. First PO is consumed.";
+      primary = "Draft EPO chase";
+    } else if (why.indexOf("No PO") === 0) {
+      hint = "No PO on this invoice. Chase goes in billings@ Drafts.";
+      primary = "Draft a chase";
+      secondary = "Add to community packet";
+    } else if (why.indexOf("Amount") === 0) {
+      hint = "Hyphen PO is short of the open books. Confirm lifts before a chase.";
+      primary = "Draft amount-off note";
+    } else if (why.indexOf("Broken") === 0) {
+      hint = "Supplier Order Number sits on a cancelled or wrong PO.";
+      primary = "Draft a chase";
+    } else if (r.hyphen_review && r.hyphen_review.next === "chase") {
+      hint = "Notes are in. Builder completed the PO and has not paid. Chase from billings@.";
+      primary = "Draft a chase";
+      secondary = "Hold";
+    } else if (why.indexOf("Linked") === 0) {
+      hint = r.found
+        ? "PO is linked. Enter the Supplier Order Number and note once charges exist."
+        : "Linked on our side. Hyphen still has no Supplier Order Number hit.";
+      primary = r.has_strata_ticket && r.found ? "Enter a note" : "Link a PO";
+      secondary = "Draft a chase";
+    } else {
+      hint = "Next step after this row is researched.";
+    }
+    return (
+      '<p class="act-hint">' +
+      esc(hint) +
+      "</p><div class=\"actions\">" +
+      '<button class="act primary" type="button">' +
+      esc(primary) +
+      "</button>" +
+      '<button class="act ghost" type="button">' +
+      esc(secondary) +
+      "</button>" +
+      '<p class="act-note">Review only — these do not send.</p></div>'
+    );
+  }
+
+  function kv(k, v, cls) {
+    return (
+      "<dt>" +
+      esc(k) +
+      "</dt><dd" +
+      (cls ? ' class="' + cls + '"' : "") +
+      ">" +
+      esc(v) +
+      "</dd>"
+    );
+  }
+
+
+  function field(name, addr) {
+    return (
+      '<div class="who">' +
+      esc(name) +
+      "</div>" +
+      (addr ? '<div class="addr">' + esc(addr) + "</div>" : "")
+    );
+  }
+
+  function closeCompose() {
+    const el = $("#compose");
+    if (!el) return;
+    el.classList.remove("on");
+    el.setAttribute("aria-hidden", "true");
+    if (state.selected) {
+      $("#drawer").classList.add("on");
+      $("#drawer").setAttribute("aria-hidden", "false");
+    }
+  }
+
+  function tlHtml(items) {
+    return '<ul class="tl">' + (items || []).map(function (it) {
+      return "<li" + (it.today ? ' class="today"' : "") + '><div class="when">' +
+        esc(it.when) + '</div><div class="what">' + esc(it.what) + "</div></li>";
+    }).join("") + "</ul>";
+  }
+  function daysOpenPhrase(r) {
+    var d = Number(r.daysPastDue);
+    if (!isFinite(d)) return "still open";
+    if (d < 0) return "not yet due";
+    if (d === 0) return "due today";
+    return d + " days past due";
+  }
+  function dropResearch(items) {
+    return (items || []).filter(function (it) {
+      return it && it.what && !/^Research:/i.test(String(it.what));
+    });
+  }
+  function abbrevTimeline(r, todayWhat) {
+    var src = dropResearch(
+      (r.chase_timeline && r.chase_timeline.length) ? r.chase_timeline : (r.timeline || [])
+    );
+    var out = [];
+    var seen = {};
+    src.forEach(function (it) {
+      if (out.length >= 5) return;
+      var key = (it.when || "") + "|" + it.what;
+      if (seen[key]) return;
+      seen[key] = true;
+      out.push({when: it.when, what: it.what, today: !!it.today});
+    });
+    if (todayWhat) {
+      out = out.filter(function (it) { return !it.today; });
+      if (out.length > 4) out = out.slice(0, 4);
+      out.push({when: "Today", what: todayWhat, today: true});
+    } else if (!out.some(function (it) { return it.today; })) {
+      out.push({when: "Today", what: "Still open " + money(r.balance), today: true});
+    }
+    if (!out.length) {
+      out = [
+        {when: fmtDate(r.txnDate), what: "Invoice " + r.docNumber + " · " + money(r.totalAmt) + " · " + (((r.service_address || "").trim()) || "—")},
+        {when: "Today", what: todayWhat || ("Still open " + money(r.balance)), today: true}
+      ];
+    }
+    return out;
+  }
+  function clientAskItems(r) {
+    return dropResearch(r.timeline || []).filter(function (it) {
+      var w = String(it.what || "");
+      if (/Added to schedule|Ryan added|Research:/i.test(w)) return false;
+      return /call-?in|callout|called|ready|asked Ryan|asked Joe|to Ryan\/Joe|to Ryan|to Joe/i.test(w);
+    });
+  }
+  function letterWrap(lead, items, extraP, withClose) {
+    var closeP = (withClose === false)
+      ? ""
+      : "<p>If you have any questions about these requests, we&rsquo;re happy to help address them.</p>";
+    return "<p>" + lead + "</p>" + tlHtml(items) + (extraP || "") + closeP +
+      '<p class="sig"><b>Hyphen</b><span>Coastal Testing Labs</span></p>';
+  }
+  function chipsFrom(r, extras) {
+    if (r.chase_attachments && r.chase_attachments.length) {
+      return r.chase_attachments.map(function (a) {
+        return '<span class="chip">' + esc(a.label || a.kind) + "</span>";
+      }).join("");
+    }
+    return (extras || []).join("");
+  }
+  function openCompose(id) {
+    const r = DATA.find((x) => x.docNumber === id);
+    if (!r) return;
+    const why = r.first_pass_column || "";
+    const addr = (r.service_address || "").trim() || "—";
+    const comm = r.customer || "";
+    const builder = BUILDER_LABEL[r.parent] || r.parent || "";
+    const inv = r.docNumber;
+    const openAmt = money(r.balance);
+    const billed = money(r.totalAmt);
+    const po = r.builder_order_number || r.strata_po_num || "";
+    const aging = daysOpenPhrase(r);
+    let title = "Draft a chase";
+    let kind = "Builder";
+    let fromName = "Billings";
+    let fromAddr = "billings@coastaltestinglabs.com";
+    let toName = (r.chase_to_name || "Hyphen PO contact");
+    let toAddr = r.chase_to || "";
+    let subject = (r.hyphen_review && r.hyphen_review.next === "chase")
+      ? ("Payment needed — " + inv + " — " + addr)
+      : ("PO needed — " + inv + " — " + addr);
+    let letter = "";
+    let chips = "";
+
+    if (why.indexOf("Paid") === 0) {
+      title = "Draft apply packet";
+      kind = "Internal";
+      fromName = "William Knox";
+      fromAddr = "william@coastaltestinglabs.com";
+      toName = "Cash application";
+      toAddr = "Internal";
+      subject = "Paid, to apply — " + inv + " — " + addr;
+      var ck = r.check_number ? ("check " + r.check_number) : "a Hyphen payment";
+      var ckWhen = r.check_date ? (" dated " + r.check_date) : "";
+      var ckAmt = (r.check_amount != null && r.check_amount !== "") ? (" for " + money(r.check_amount)) : "";
+      var poBit = po ? (" on PO " + po) : "";
+      letter = letterWrap(
+        "Need this check applied to invoice " + esc(inv) + " at " + esc(addr) +
+          ". Hyphen shows " + esc(ck) + esc(ckWhen) + esc(ckAmt) + esc(poBit) +
+          ". Books still have " + esc(openAmt) + " open (" + esc(aging) +
+          "). The office applies in QBO.",
+        abbrevTimeline(r, "Books still open " + openAmt + " · apply this check"),
+        "<p>Do not apply cash from this screen.</p>",
+        false
+      );
+      chips = chipsFrom(r, [
+        '<span class="chip">' + esc(inv) + " invoice</span>",
+        '<span class="chip">Hyphen payment' + (r.check_number ? " " + esc(String(r.check_number)) : "") + "</span>"
+      ]);
+    } else if (why.indexOf("2nd") === 0) {
+      title = "Draft EPO chase";
+      kind = "Builder";
+      subject = "EPO needed — " + inv + " — " + addr;
+      var asks = clientAskItems(r);
+      var haveTwoAsks = asks.length >= 2;
+      var lead2 = haveTwoAsks
+        ? ("This is a second visit at " + esc(addr) +
+           ". The first PO is consumed, so this work needs its own EPO. Invoice " +
+           esc(inv) + " for " + esc(billed) + " has been " + esc(aging) + ".")
+        : ("This looks like a second visit at " + esc(addr) +
+           ", and the first PO is consumed. We do not yet have two client call-out emails on file " +
+           "(the builder or CM asking Ryan or Joe twice). Do not send an EPO chase until both client asks are attached.");
+      var tl2;
+      if (haveTwoAsks) {
+        tl2 = [
+          {when: asks[0].when, what: asks[0].what},
+          {when: asks[1].when, what: asks[1].what},
+          {when: "Today", what: "Still open " + openAmt + " · needs EPO", today: true}
+        ];
+      } else {
+        tl2 = abbrevTimeline(r, "Still open " + openAmt + " · need two client call-outs before chase");
+      }
+      letter = letterWrap(lead2, tl2);
+      if (haveTwoAsks) {
+        chips = chipsFrom(r, [
+          '<span class="chip">1st client call-out</span>',
+          '<span class="chip">2nd client call-out</span>',
+          '<span class="chip">' + esc(inv) + " invoice</span>"
+        ]);
+      } else {
+        chips = chipsFrom(r, [
+          '<span class="chip">1st client call-out <em>Need both</em></span>',
+          '<span class="chip">2nd client call-out <em>Need both</em></span>',
+          '<span class="chip">' + esc(inv) + " invoice</span>"
+        ]);
+      }
+    } else if (why.indexOf("Amount") === 0) {
+      title = "Draft amount-off note";
+      kind = "Internal";
+      fromName = "William Knox";
+      fromAddr = "william@coastaltestinglabs.com";
+      toName = "Cash application";
+      toAddr = "Internal";
+      subject = "Amount off — " + inv + " — " + addr;
+      var paidBit = (r.check_amount != null && r.check_amount !== "")
+        ? (money(r.check_amount) + (r.check_number ? " on check " + r.check_number : ""))
+        : ((r.hyphen_line_total != null && r.hyphen_line_total !== "") ? money(r.hyphen_line_total) + " on the PO" : "a short Hyphen payment");
+      letter = letterWrap(
+        "Hyphen shows " + esc(paidBit) + " against billed " + esc(billed) +
+          " on invoice " + esc(inv) + " at " + esc(addr) + ", leaving " +
+          esc(openAmt) + " still open. This has been " + esc(aging) +
+          ". Confirm lift count before a builder chase.",
+        abbrevTimeline(r, "Amount off — confirm lifts · open " + openAmt),
+        "",
+        false
+      );
+      chips = chipsFrom(r, ['<span class="chip">' + esc(inv) + " invoice</span>"]);
+    } else {
+      var noPo = why.indexOf("No PO") === 0;
+      var leadG = noPo
+        ? ("Please issue a PO for the work at " + esc(addr) +
+           ". Invoice " + esc(inv) + ", billed " + esc(billed) +
+           ", has been " + esc(aging) + " with no PO on file, and we need it closed.")
+        : ("Please close invoice " + esc(inv) + " at " + esc(addr) +
+           " (" + esc(billed) + " billed, " + esc(openAmt) + " open). This has been " +
+           esc(aging) + ".");
+      letter = letterWrap(leadG, abbrevTimeline(r, noPo ? ("No PO on file · open " + openAmt) : ("Still open " + openAmt)));
+      chips = chipsFrom(r, ['<span class="chip">' + esc(inv) + " invoice</span>"]);
+    }
+
+    $("#cTitle").textContent = title;
+    $("#cKind").textContent = kind;
+    if (r.chase_to) {
+      toName = r.chase_to_name || r.chase_to;
+      toAddr = r.chase_to;
+    }
+    if (r.chase_from) {
+      fromName = r.chase_from_name || "Billings";
+      fromAddr = r.chase_from;
+    }
+    if (r.chase_subject) subject = r.chase_subject;
+    if (r.chase_letter_lead) {
+      var chaseTl = (r.chase_timeline && r.chase_timeline.length) ? r.chase_timeline : abbrevTimeline(r);
+      letter = letterWrap(esc(r.chase_letter_lead), chaseTl);
+    }
+    var ccSeen = {};
+    var ccList = [];
+    function addCc(c) {
+      if (!c || !c.email) return;
+      var key = String(c.email).toLowerCase();
+      if (ccSeen[key]) return;
+      ccSeen[key] = true;
+      ccList.push({name: c.name || c.email, email: c.email});
+    }
+    (r.chase_cc || []).forEach(addCc);
+    if (kind !== "Internal") {
+      DEFAULT_CHASE_CC.forEach(addCc);
+    }
+    var ccHtml = ccList.length
+      ? ccList.map(function (c) { return field(c.name, c.email); }).join("")
+      : field("—", "");
+    $("#cFrom").innerHTML = field(fromName, fromAddr);
+    $("#cTo").innerHTML = field(toName, toAddr);
+    var ccEl = $("#cCc");
+    if (ccEl) ccEl.innerHTML = ccHtml;
+    $("#cSubj").innerHTML = '<div class="who">' + esc(subject) + "</div>";
+    $("#cLetter").innerHTML = letter;
+    if (r.chase_attachments && r.chase_attachments.length) {
+      chips = r.chase_attachments.map(function (a) {
+        return '<span class="chip">' + esc(a.label || a.kind) + "</span>";
+      }).join("");
+    } else if (!chips) {
+      chips = '<span class="chip">' + esc(inv) + " invoice</span>";
+    }
+    $("#cChips").innerHTML = chips;
+    $("#drawer").classList.remove("on");
+    $("#compose").classList.add("on");
+    $("#compose").setAttribute("aria-hidden", "false");
+    $("#scrim").classList.add("on");
+  }
+
+
+  function closeDrawer() {
+    state.selected = null;
+    $("#drawer").classList.remove("on");
+    $("#compose").classList.remove("on");
+    $("#scrim").classList.remove("on");
+    $("#drawer").setAttribute("aria-hidden", "true");
+    $("#compose").setAttribute("aria-hidden", "true");
+    const foot = $("#dFoot");
+    if (foot) { foot.hidden = true; foot.innerHTML = ""; }
+    $$("#tbody tr.sel").forEach((tr) => tr.classList.remove("sel"));
+  }
+
+  function closeMenus(except) {
+    $$(".menu-pop").forEach((p) => {
+      if (p !== except) p.hidden = true;
+    });
+  }
+
+  function bind() {
+    $("#q").addEventListener("input", (e) => {
+      state.search = e.target.value;
+      render();
+    });
+    $("#clearBtn").addEventListener("click", () => {
+      state.search = "";
+      state.builders.clear();
+      state.eras.clear();
+      state.whys.clear();
+      state.hyphen.clear();
+      $("#q").value = "";
+      $$('.menu-pop input[type="checkbox"]').forEach((c) => {
+        if (c.closest('[data-menu="cols"]')) return;
+        c.checked = false;
+      });
+      render();
+    });
+    $("#groupToggle").addEventListener("change", (e) => {
+      state.group = e.target.checked;
+      state.collapsed = new Set();
+      render();
+    });
+    $("#expandBtn").addEventListener("click", () => {
+      state.expandAll = !state.expandAll;
+      state.collapsed = new Set();
+      render();
+    });
+    $$(".menu-btn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const pop = btn.parentElement.querySelector(".menu-pop");
+        const open = !pop.hidden;
+        closeMenus();
+        pop.hidden = open;
+      });
+    });
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".menu")) closeMenus();
+    });
+    $$('[data-menu="builder"] input').forEach((c) => {
+      c.addEventListener("change", () => {
+        if (c.checked) state.builders.add(c.value);
+        else state.builders.delete(c.value);
+        render();
+      });
+    });
+    $$('[data-menu="era"] input').forEach((c) => {
+      c.addEventListener("change", () => {
+        if (c.checked) state.eras.add(c.value);
+        else state.eras.delete(c.value);
+        render();
+      });
+    });
+    $$('[data-menu="why"] input').forEach((c) => {
+      c.addEventListener("change", () => {
+        if (c.checked) state.whys.add(c.value);
+        else state.whys.delete(c.value);
+        render();
+      });
+    });
+    $$('[data-menu="hyphen"] input').forEach((c) => {
+      c.addEventListener("change", () => {
+        if (c.checked) state.hyphen.add(c.value);
+        else state.hyphen.delete(c.value);
+        render();
+      });
+    });
+    $$('[data-menu="cols"] input').forEach((c) => {
+      c.addEventListener("change", () => {
+        state.cols[c.value] = c.checked;
+        render();
+      });
+    });
+    $$(".menu-pop .all").forEach((b) => {
+      b.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const pop = b.closest(".menu-pop");
+        const menu = b.closest(".menu").dataset.menu;
+        $$('input[type="checkbox"]', pop).forEach((c) => (c.checked = false));
+        if (menu === "builder") state.builders.clear();
+        if (menu === "era") state.eras.clear();
+        if (menu === "why") state.whys.clear();
+        if (menu === "hyphen") state.hyphen.clear();
+        if (menu === "cols") {
+          state.cols = {};
+          render();
+          return;
+        }
+        render();
+      });
+    });
+    $$("thead th[data-sort]").forEach((th) => {
+      th.addEventListener("click", () => {
+        const k = th.dataset.sort;
+        if (state.sortKey === k) state.sortDir = state.sortDir === "desc" ? "asc" : "desc";
+        else {
+          state.sortKey = k;
+          state.sortDir = th.dataset.dir || (["daysPastDue", "balance", "totalAmt"].includes(k) ? "desc" : "asc");
+        }
+        render();
+      });
+    });
+    $("#tbody").addEventListener("click", (e) => {
+      const g = e.target.closest("tr.ghead");
+      if (g) {
+        toggleCommunity(g.dataset.comm);
+        return;
+      }
+      if (e.target.closest("tr.section")) return;
+      const tr = e.target.closest("tr[data-id]");
+      if (!tr) return;
+      if (state.selected === tr.dataset.id) closeDrawer();
+      else openDrawer(tr.dataset.id);
+    });
+    $("#scrim").addEventListener("click", () => {
+      if ($("#compose").classList.contains("on")) closeCompose();
+      else closeDrawer();
+    });
+    $("#dClose").addEventListener("click", closeDrawer);
+    $("#dFoot").addEventListener("click", (e) => {
+      if (e.target.closest(".act.primary")) openCompose(state.selected);
+    });
+    $("#cBack").addEventListener("click", closeCompose);
+    $("#cClose").addEventListener("click", closeCompose);
+    $("#cHold").addEventListener("click", closeCompose);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        if ($("#compose").classList.contains("on")) closeCompose();
+        else if ($("#drawer").classList.contains("on")) closeDrawer();
+        else closeMenus();
+      }
+    });
+  }
+
+  function setAsof() {
+    const el = document.querySelector(".asof");
+    if (!el || !DATA.length) return;
+    const raw = DATA[0].scrape_as_of;
+    let scrape = "Not scraped";
+    if (raw) {
+      const d = new Date(raw);
+      if (!isNaN(d)) {
+        const opts = { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" };
+        scrape = d.toLocaleString("en-US", { timeZone: "America/Chicago", ...opts }) + " CT";
+      } else scrape = raw;
+    }
+    el.innerHTML = 'Books Mon Aug 17 3:18am CT · Scrape <span class="scrape">' + scrape + "</span>";
+  }
+  bind();
+  render();
+  setAsof();
+  try {
+    const openId = new URLSearchParams(location.search).get("open");
+    if (openId) {
+      state.search = openId;
+      $("#q").value = openId;
+      render();
+      openDrawer(openId);
+    }
+    const composeId = new URLSearchParams(location.search).get("compose");
+    if (composeId) {
+      state.search = composeId;
+      $("#q").value = composeId;
+      render();
+      openDrawer(composeId);
+      openCompose(composeId);
+    }
+  } catch (e) {}
+})();
+
+</script>
+</body>
+</html>
