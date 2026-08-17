@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F8F6F2" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Hyphen mock" />
+<meta name="mobile-web-app-capable" content="yes" />
+<title>Hyphen review · mail tracker mock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --cream: #F8F6F2;
+  --cream-2: #EFEDE7;
+  --cream-3: #E7E3DB;
+  --paper: #FFFdf8;
+  --navy: #0F172A;
+  --navy-2: #1E293B;
+  --ink: #161410;
+  --muted: #6F6A62;
+  --muted-2: #8A847A;
+  --line: #E4E0D8;
+  --line-2: #D6D1C7;
+  --clay: #C2410C;
+  --clay-soft: #F3E6DE;
+  --found-bg: #E3EBE5;
+  --found-fg: #3A5648;
+  --not-bg: #F3E6DE;
+  --not-fg: #B45309;
+  --header-h: 46px;
+  --toolbar-h: 38px;
+  --thead-h: 30px;
+  --row-h: 42px;
+  --drawer-w: 400px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  background: var(--cream);
+  color: var(--navy);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "tnum";
+  -webkit-font-smoothing: antialiased;
+}
+body { overflow: hidden; }
+button, input { font-family: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; }
+::selection { background: #E8D5C8; }
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 1220px;
+}
+
+.hdr {
+  height: var(--header-h);
+  flex: 0 0 var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 0 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.mark { display: block; flex: 0 0 14px; }
+.brand-text { min-width: 0; }
+.brand-text h1 {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.mock-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 16px;
+  margin-left: 7px;
+  padding: 0 6px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  vertical-align: 2px;
+}
+.asof {
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.counts { display: flex; align-items: baseline; gap: 14px; flex-shrink: 0; }
+.count { text-align: right; }
+.count b {
+  display: block;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.count span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.bar {
+  height: var(--toolbar-h);
+  flex: 0 0 var(--toolbar-h);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  position: relative;
+  z-index: 20;
+  white-space: nowrap;
+}
+.search {
+  width: 200px;
+  height: 26px;
+  border: 1px solid var(--line-2);
+  background: var(--paper);
+  border-radius: 4px;
+  padding: 0 8px 0 26px;
+  font-size: 12px;
+  font-weight: 500;
+  outline: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%236F6A62' stroke-width='1.6'><circle cx='5.2' cy='5.2' r='3.6'/><path d='M8 8l3 3'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 8px 50%;
+}
+.search:focus { border-color: var(--navy); }
+.search::placeholder { color: var(--muted-2); font-weight: 450; }
+
+.seg-lab {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 2px 0 6px;
+}
+.seg {
+  display: inline-flex;
+  height: 26px;
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.seg button {
+  height: 26px;
+  padding: 0 9px;
+  font-size: 11.5px;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-right: 1px solid var(--line-2);
+}
+.seg button:last-child { border-right: 0; }
+.seg button:hover { background: var(--cream-2); }
+.seg button.on { background: var(--navy); color: var(--cream); }
+.seg button.on:hover { background: var(--navy-2); }
+.seg button.awaiting.on { background: var(--clay); color: var(--cream); }
+.seg button.awaiting.on:hover { background: #A3360A; }
+.seg .n {
+  font-variant-numeric: tabular-nums;
+  font-size: 10.5px;
+  font-weight: 650;
+  opacity: 0.72;
+}
+
+.menu { position: relative; }
+.menu-btn {
+  height: 26px;
+  padding: 0 8px;
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  background: var(--paper);
+  font-size: 11.5px;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.menu-btn:hover { border-color: #C4BDB2; }
+.menu-btn.on { border-color: var(--navy); background: var(--navy); color: var(--cream); }
+.menu-btn .caret {
+  width: 0; height: 0;
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  border-top: 4px solid currentColor;
+  opacity: 0.55;
+}
+.menu-pop {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 196px;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.10), 0 1px 2px rgba(15,23,42,0.04);
+  padding: 6px;
+  z-index: 40;
+}
+.menu-pop.right { left: auto; right: 0; }
+.menu-pop[hidden] { display: none; }
+.menu-pop label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.menu-pop label:hover { background: var(--cream-2); }
+.menu-pop input[type="checkbox"] { accent-color: var(--navy); width: 13px; height: 13px; }
+.menu-foot {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 6px 2px;
+  margin-top: 2px;
+  border-top: 1px solid var(--line);
+}
+.menu-foot button { font-size: 11px; font-weight: 600; color: var(--muted); padding: 2px 0; }
+.menu-foot button:hover { color: var(--navy); }
+.bar-spacer { flex: 1; }
+.clear-btn {
+  height: 26px;
+  padding: 0 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--clay);
+  display: none;
+}
+.clear-btn.show { display: inline-flex; align-items: center; }
+
+.mail-note {
+  flex: 0 0 auto;
+  padding: 7px 14px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--navy);
+  background: var(--clay-soft);
+  border-bottom: 1px solid var(--line);
+  letter-spacing: -0.01em;
+}
+.mail-note[hidden] { display: none; }
+.mail-note b { font-weight: 650; }
+
+.wrap { flex: 1; min-height: 0; overflow: auto; background: var(--paper); }
+table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: -0.011em;
+}
+#grid.show-builder, #grid.show-era, #grid.show-billed {
+  table-layout: auto;
+  min-width: 1480px;
+}
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  height: var(--thead-h);
+  background: var(--cream-2);
+  border-bottom: 1px solid var(--line-2);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  padding: 0 8px;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+}
+thead th:hover { color: var(--navy); }
+thead th .s {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 8px;
+  letter-spacing: 0;
+  color: var(--navy);
+  opacity: 0;
+}
+thead th.sorted { color: var(--navy); }
+thead th.sorted .s { opacity: 1; }
+thead th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+td {
+  height: var(--row-h);
+  padding: 0 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--paper);
+}
+td.comm, td.addr { overflow: hidden; text-overflow: ellipsis; }
+tbody tr.alt td { background: #FBF9F5; }
+tbody tr:hover td { background: #F3EFE8; }
+tbody tr.sel td { background: #EDE6DC; }
+tbody tr.sel td:first-child { box-shadow: inset 2px 0 0 var(--navy); }
+tbody tr { cursor: pointer; }
+.dpd { font-variant-numeric: tabular-nums; font-weight: 600; }
+.dpd.late { color: var(--clay); }
+.inv { font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.money { font-variant-numeric: tabular-nums; font-weight: 600; letter-spacing: -0.015em; }
+.comm { font-weight: 550; }
+.addr { color: var(--navy-2); }
+.empty { color: var(--muted-2); }
+.wait { font-variant-numeric: tabular-nums; font-weight: 550; }
+.wait.late { color: var(--clay); font-weight: 650; }
+.reply, .sent { font-weight: 500; letter-spacing: -0.01em; }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.pill.why { background: var(--cream); color: var(--navy); border: 1px solid #C9C3B8; }
+.pill.why.hot { background: var(--clay-soft); color: var(--clay); border-color: transparent; }
+.pill.awaiting { background: var(--clay-soft); color: var(--clay); }
+.pill.needs_you { background: var(--navy); color: var(--cream); }
+.pill.drafted { background: var(--cream); color: var(--navy); border: 1px solid var(--navy); }
+.pill.not_sent, .pill.mute { background: transparent; color: var(--muted); border: 1px dashed var(--line-2); }
+
+.col-builder, .col-era, .col-billed { display: none; }
+.show-builder .col-builder,
+.show-era .col-era,
+.show-billed .col-billed { display: table-cell; }
+
+.w-dpd { width: 48px; }
+.w-inv { width: 112px; }
+.w-open { width: 76px; }
+.w-mail { width: 92px; }
+.w-sent { width: 78px; }
+.w-wait { width: 72px; }
+.w-reply { width: 118px; }
+.w-why { width: 142px; }
+th:nth-child(4), td.comm { width: 20%; }
+th:nth-child(5), td.addr { width: 16%; }
+
+.empty-state {
+  padding: 48px 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+.empty-state b { display: block; color: var(--navy); font-weight: 650; margin-bottom: 6px; }
+
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,0.18);
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease;
+}
+.scrim.on { opacity: 1; pointer-events: auto; }
+.drawer {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(var(--drawer-w), 42vw);
+  background: var(--cream);
+  border-left: 1px solid var(--line-2);
+  z-index: 60;
+  transform: translateX(100%);
+  transition: transform 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: -12px 0 32px rgba(15,23,42,0.08);
+}
+.drawer.on { transform: translateX(0); }
+.d-head {
+  flex: 0 0 52px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--line);
+}
+.d-head h2 { font-size: 16px; font-weight: 650; letter-spacing: -0.03em; line-height: 1.15; }
+.d-sub { margin-top: 3px; font-size: 11px; font-weight: 500; color: var(--muted); }
+.d-x {
+  width: 28px; height: 28px;
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -4px -6px 0 0;
+}
+.d-x:hover { background: var(--cream-2); color: var(--navy); }
+.d-body { flex: 1; min-height: 0; overflow: auto; padding: 4px 0 8px; }
+.d-foot {
+  flex: 0 0 auto;
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--line-2);
+  background: #F3EFE8;
+  z-index: 2;
+  box-shadow: 0 -8px 16px rgba(15,23,42,0.04);
+}
+.d-foot[hidden] { display: none; }
+.drawer.on .d-foot:not([hidden]) { display: block; }
+.sec { padding: 8px 16px 7px; }
+.sec + .sec { border-top: 1px solid var(--line); }
+.sec h3 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.dl { display: grid; grid-template-columns: 118px 1fr; gap: 3px 10px; }
+.dl dt { font-size: 11.5px; font-weight: 500; color: var(--muted); padding-top: 1px; }
+.dl dd { font-size: 12.5px; font-weight: 550; letter-spacing: -0.015em; word-break: break-word; }
+.dl dd.money, .dl dd.num { font-variant-numeric: tabular-nums; font-weight: 600; }
+.dl dd.late { color: var(--clay); }
+.mail { font-size: 13px; font-weight: 500; line-height: 1.45; color: var(--navy); }
+.mail.empty { color: var(--muted); font-weight: 500; }
+.mail-lead {
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+  color: var(--navy);
+  margin: 0 0 10px;
+}
+.drawer .tl { margin: 0; }
+.drawer .tl li { padding-bottom: 8px; }
+.actions { display: flex; flex-direction: column; gap: 6px; }
+.act-hint { font-size: 11.5px; font-weight: 500; color: var(--navy-2); line-height: 1.4; margin-bottom: 2px; }
+.act {
+  height: 34px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  cursor: pointer;
+}
+.act.primary { background: var(--navy); border-color: var(--navy); color: var(--cream); }
+.act.primary:hover { background: var(--navy-2); }
+.act.ghost:hover { border-color: #C4BDB2; background: #FFFdf8; }
+.act-note { font-size: 11px; font-weight: 500; color: var(--muted); margin-top: 2px; }
+
+.compose {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(520px, 46vw);
+  background: var(--cream);
+  border-left: 1px solid var(--line-2);
+  z-index: 70;
+  transform: translateX(100%);
+  transition: transform 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: -12px 0 32px rgba(15,23,42,0.08);
+}
+.compose.on { transform: translateX(0); }
+.c-head {
+  flex: 0 0 auto;
+  padding: 10px 14px 10px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.c-head-left { min-width: 0; }
+.c-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 22px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 0;
+  margin-bottom: 4px;
+}
+.c-back:hover { color: var(--navy); }
+.c-back i {
+  width: 0; height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-right: 5px solid currentColor;
+}
+.c-head h2 { font-size: 16px; font-weight: 650; letter-spacing: -0.03em; line-height: 1.15; }
+.c-kind {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  margin-top: 5px;
+  padding: 0 7px;
+  border: 1px solid #C9C3B8;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.c-body { flex: 1; min-height: 0; overflow: auto; padding: 0 0 12px; }
+.c-meta { padding: 10px 16px 8px; }
+.c-row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 8px;
+  align-items: start;
+  padding: 5px 0;
+}
+.c-row dt {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 7px;
+}
+.c-field {
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 5px;
+  padding: 6px 9px;
+  min-height: 32px;
+}
+.c-field .who { font-size: 12.5px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; }
+.c-field .addr { margin-top: 1px; font-size: 11px; font-weight: 500; color: var(--navy-2); }
+.c-field.subj .who { font-weight: 550; }
+.letter {
+  margin: 4px 16px 0;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  padding: 16px 16px 14px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.011em;
+}
+.letter p { margin: 0 0 10px; color: var(--ink); }
+.letter p:last-child { margin-bottom: 0; }
+.tl { margin: 12px 0 14px; padding: 0; list-style: none; }
+.tl li { position: relative; padding: 0 0 10px 14px; border-left: 2px solid var(--navy); }
+.tl li:last-child { padding-bottom: 0; }
+.tl li.today { border-left-color: var(--clay); }
+.tl .when { font-size: 11px; font-weight: 650; letter-spacing: -0.01em; color: var(--navy); }
+.tl li.today .when { color: var(--clay); }
+.tl .what { font-size: 12.5px; font-weight: 500; color: var(--ink); margin-top: 1px; }
+.sig { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--line); }
+.sig b { display: block; font-weight: 650; letter-spacing: -0.02em; color: var(--ink); }
+.sig span { display: block; font-size: 12px; font-weight: 500; color: var(--navy); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 16px 0; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 9px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.c-foot {
+  flex: 0 0 auto;
+  padding: 12px 16px 14px;
+  border-top: 1px solid var(--line-2);
+  background: #F3EFE8;
+  box-shadow: 0 -8px 16px rgba(15,23,42,0.04);
+}
+.c-foot .actions { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+.c-foot .act { padding: 0 12px; flex: 1 1 auto; }
+.c-foot .act.primary { flex: 1.4 1 auto; }
+.split { display: flex; position: relative; flex: 1.4 1 auto; min-width: 0; }
+.split .act.primary { flex: 1 1 auto; border-radius: 6px 0 0 6px; }
+.split-arrow {
+  flex: 0 0 40px;
+  width: 40px;
+  min-width: 40px;
+  height: 34px;
+  border-radius: 0 6px 6px 0;
+  border-left: 1px solid rgba(248,246,242,0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.split-arrow svg { display: block; }
+.split-arrow[aria-expanded="true"] { background: var(--navy-2); }
+.split-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 6px);
+  min-width: 220px;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(15,23,42,0.14);
+  padding: 4px;
+  z-index: 40;
+}
+.split-menu.on { display: block; }
+.split-menu[hidden] { display: none; }
+.split-menu.on { display: block; }
+.split-menu button {
+  width: 100%;
+  text-align: left;
+  min-height: 40px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 650;
+  color: var(--navy);
+}
+.split-menu button:hover { background: var(--cream-2); }
+.split-menu .send { color: var(--clay); }
+.split-menu .hint { display: block; font-size: 11px; font-weight: 500; color: var(--muted); margin-top: 2px; }
+.c-foot .split { flex: 1.4 1 auto; }
+.c-foot .split .act.primary { flex: 1 1 auto; }
+
+@media (max-width: 900px) {
+  html, body { overflow: auto; }
+  .app { min-width: 0; height: auto; min-height: 100%; padding-bottom: env(safe-area-inset-bottom); }
+  .hdr {
+    height: auto;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    padding: calc(10px + env(safe-area-inset-top)) 12px 8px;
+    gap: 8px;
+  }
+  .asof { white-space: normal; }
+  .counts { width: 100%; justify-content: space-between; }
+  .bar {
+    height: auto;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    white-space: normal;
+    padding: 8px 10px;
+    row-gap: 6px;
+  }
+  .search { width: 100%; }
+  .seg-lab { width: 100%; margin: 4px 0 0; }
+  .seg { flex-wrap: wrap; height: auto; width: 100%; }
+  .seg button { min-height: 36px; height: 36px; flex: 1 1 auto; }
+  .menu-btn, .clear-btn { min-height: 36px; }
+  .wrap { overflow: visible; background: transparent; padding: 8px 10px 24px; }
+  table, #grid.show-builder, #grid.show-era, #grid.show-billed {
+    min-width: 0 !important;
+    table-layout: auto;
+    width: 100%;
+  }
+  thead { display: none; }
+  tbody tr[data-id] {
+    display: block;
+    padding: 12px 14px 10px;
+    margin: 0 0 8px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--paper);
+    box-shadow: none;
+  }
+  tbody tr[data-id].alt td,
+  tbody tr[data-id] td { background: transparent; }
+  tbody tr[data-id] td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    height: auto;
+    min-height: 28px;
+    padding: 5px 0;
+    border-bottom: 0;
+    white-space: normal;
+    max-width: none;
+    overflow: visible;
+    width: auto;
+  }
+  tbody tr[data-id] td.comm,
+  tbody tr[data-id] td.addr {
+    max-width: none;
+    overflow: visible;
+    width: auto;
+    flex: 1 1 auto;
+    text-align: right;
+  }
+  tbody tr[data-id] td.col-builder,
+  tbody tr[data-id] td.col-era,
+  tbody tr[data-id] td.col-billed { display: none; }
+  #grid.show-builder tbody tr[data-id] td.col-builder,
+  #grid.show-era tbody tr[data-id] td.col-era,
+  #grid.show-billed tbody tr[data-id] td.col-billed { display: flex; }
+  tbody tr[data-id] td::before {
+    content: attr(data-label);
+    font-size: 10px;
+    font-weight: 650;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex: 0 0 92px;
+    text-align: left;
+  }
+  .drawer, .compose { width: 100%; max-width: none; }
+  .c-foot .actions { flex-direction: column; }
+  .c-foot .act { width: 100%; min-height: 40px; }
+  .c-foot .split { width: 100%; }
+  .split-arrow { height: 40px; min-height: 40px; }
+  .act { min-height: 40px; }
+  .d-foot .act { min-height: 40px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+        <path fill="#0F172A" d="M8 1.8L14.9 14.4H1.1L8 1.8Z"/>
+      </svg>
+      <div class="brand-text">
+        <h1>Hyphen review <span class="mock-tag">Mock</span></h1>
+        <p class="asof">Mock · mail tracker · example thread states from this week's book · live queue unchanged</p>
+      </div>
+    </div>
+    <div class="counts">
+      <div class="count">
+        <b id="countN">2</b>
+        <span id="countNLabel">invoices</span>
+      </div>
+      <div class="count">
+        <b id="countOpen">$766.00</b>
+        <span>open</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="bar">
+    <input class="search" id="q" type="search" placeholder="Invoice, address, community" autocomplete="off" />
+    <span class="seg-lab">Mail</span>
+    <div class="seg" id="mailSeg" role="tablist" aria-label="Mail">
+      <button type="button" data-mail="all">All <span class="n" data-n="all">8</span></button>
+      <button type="button" data-mail="not_sent">Not sent <span class="n" data-n="not_sent">3</span></button>
+      <button type="button" data-mail="drafted">Drafted <span class="n" data-n="drafted">3</span></button>
+      <button type="button" data-mail="awaiting" class="awaiting on">Awaiting <span class="n" data-n="awaiting">2</span></button>
+      <button type="button" data-mail="needs_you">Needs you <span class="n" data-n="needs_you">0</span></button>
+    </div>
+    <div class="menu" data-menu="builder">
+      <button class="menu-btn" type="button"><span class="t">Builder</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="LENNAR HOMES" /> Lennar</label>
+        <label><input type="checkbox" value="Toll Brothers, Inc." /> Toll</label>
+        <label><input type="checkbox" value="TriPointe Homes" /> TriPointe</label>
+        <div class="menu-foot"><button type="button" class="all">Clear</button></div>
+      </div>
+    </div>
+    <div class="menu" data-menu="why">
+      <button class="menu-btn" type="button"><span class="t">Why</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="No PO" /> No PO</label>
+        <label><input type="checkbox" value="Broken link" /> Broken link</label>
+        <label><input type="checkbox" value="Linked, needs detail" /> Linked needs detail</label>
+        <label><input type="checkbox" value="Amount off / unpaid PO" /> Amount off</label>
+        <div class="menu-foot"><button type="button" class="all">Clear</button></div>
+      </div>
+    </div>
+    <button class="clear-btn" id="clearBtn" type="button">Clear filters</button>
+    <div class="bar-spacer"></div>
+    <div class="menu" data-menu="cols">
+      <button class="menu-btn" type="button"><span class="t">Columns</span><i class="caret"></i></button>
+      <div class="menu-pop right" hidden>
+        <label><input type="checkbox" value="builder" /> Builder</label>
+        <label><input type="checkbox" value="era" /> Era</label>
+        <label><input type="checkbox" value="billed" /> Billed $</label>
+        <div class="menu-foot"><button type="button" class="all">Reset</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mail-note" id="mailNote">
+    <b>Awaiting</b> = still their court. A reply that does not close the gap stays here. Silence flag is 5 business days — none due yet.
+  </div>
+
+  <div class="wrap">
+    <table id="grid">
+      <thead>
+        <tr>
+          <th class="num w-dpd sorted" data-sort="days" data-dir="desc">Days <span class="s">▼</span></th>
+          <th class="w-inv" data-sort="id">Invoice # <span class="s"></span></th>
+          <th class="num w-open" data-sort="open" data-dir="desc">Open $ <span class="s"></span></th>
+          <th data-sort="community">Community <span class="s"></span></th>
+          <th data-sort="address">Address <span class="s"></span></th>
+          <th class="w-mail" data-sort="mail">Mail <span class="s"></span></th>
+          <th class="w-sent" data-sort="lastSentSort">Last sent <span class="s"></span></th>
+          <th class="num w-wait" data-sort="waiting" data-dir="desc">Waiting <span class="s"></span></th>
+          <th class="w-reply" data-sort="lastReply">Last reply <span class="s"></span></th>
+          <th class="w-why" data-sort="why">Why <span class="s"></span></th>
+          <th class="col-builder" data-sort="builder">Builder <span class="s"></span></th>
+          <th class="col-era" data-sort="era">Era <span class="s"></span></th>
+          <th class="num col-billed" data-sort="billed" data-dir="desc">Billed $ <span class="s"></span></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="d-head">
+    <div>
+      <h2 id="dTitle"></h2>
+      <p class="d-sub" id="dSub"></p>
+    </div>
+    <button class="d-x" id="dClose" type="button" aria-label="Close">×</button>
+  </div>
+  <div class="d-body" id="dBody"></div>
+  <div class="d-foot" id="dFoot" hidden></div>
+</aside>
+
+<aside class="compose" id="compose" aria-hidden="true">
+  <div class="c-head">
+    <div class="c-head-left">
+      <button class="c-back" id="cBack" type="button"><i></i>Back to case</button>
+      <h2 id="cTitle">Follow up</h2>
+      <span class="c-kind" id="cKind">Reply on thread</span>
+    </div>
+    <button class="d-x" id="cClose" type="button" aria-label="Close">×</button>
+  </div>
+  <div class="c-body">
+    <dl class="c-meta">
+      <div class="c-row"><dt>From</dt><dd class="c-field" id="cFrom"></dd></div>
+      <div class="c-row"><dt>To</dt><dd class="c-field" id="cTo"></dd></div>
+      <div class="c-row"><dt>CC</dt><dd class="c-field" id="cCc"></dd></div>
+      <div class="c-row"><dt>Subject</dt><dd class="c-field subj" id="cSubj"></dd></div>
+    </dl>
+    <div class="letter" id="cLetter"></div>
+    <div class="chips" id="cChips"></div>
+  </div>
+  <div class="c-foot">
+    <div class="actions">
+      <button class="act ghost" id="cHold" type="button">Hold</button>
+      <button class="act ghost" id="cSave" type="button">Save draft</button>
+      <div class="split" id="cReadySplit">
+        <button class="act primary" id="cReady" type="button">Put in Drafts</button>
+        <button class="act primary split-arrow" id="cReadyMore" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="More send options">
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1.2L5 5l4-3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="split-menu" id="cReadyMenu" hidden>
+          <button type="button" class="send" id="cSend">Send reply<span class="hint">Replies on the original Outlook conversation. This mock does not send.</span></button>
+        </div>
+      </div>
+    </div>
+    <p class="act-note" id="cNote">Mock. Does not send.</p>
+  </div>
+</aside>
+
+<script>
+(function () {
+  "use strict";
+
+  var CTL_CC = [
+    {name: "Ryan", email: "ryan@coastaltestinglabs.com"},
+    {name: "Maria", email: "maria@coastaltestinglabs.com"},
+    {name: "Veronica", email: "veronica@coastaltestinglabs.com"},
+    {name: "William Knox", email: "william@coastaltestinglabs.com"}
+  ];
+  var BUILDER_LABEL = {
+    "LENNAR HOMES": "Lennar",
+    "Toll Brothers, Inc.": "Toll",
+    "TriPointe Homes": "TriPointe"
+  };
+  var WHY_LABEL = {
+    "No PO": "No PO",
+    "Broken link": "Broken link",
+    "Linked, needs detail": "Linked needs detail",
+    "Amount off / unpaid PO": "Amount off"
+  };
+  var MAIL_LABEL = { awaiting: "Awaiting", needs_you: "Needs you", drafted: "Drafted", not_sent: "Not sent" };
+  var MAIL_ORDER = { awaiting: 0, needs_you: 1, drafted: 2, not_sent: 3 };
+
+  var DATA = [
+    {
+      id: "0415-170614", days: 89, open: 350, billed: 350,
+      community: "21-506 Pecan Ridge", address: "32147 Sky Branch",
+      builder: "TriPointe Homes", era: "pre-strata", why: "No PO", mail: "awaiting",
+      lastSent: "Fri 8/14", lastSentSort: "2026-08-14", lastSentFull: "Fri Aug 14, 3:33pm CT",
+      waiting: 1, lastReply: "Chad · Mon 8/17", lastReplyFull: "Chad Luedke · Mon Aug 17",
+      court: "Theirs. They still have to enter this in Hyphen.",
+      lead: "Chad wrote back Monday. They have not entered Hyphen or closed it. Stays on Awaiting.",
+      txnDate: "Apr 20, 2026", dueDate: "May 20, 2026",
+      thread: [
+        {when: "Fri Aug 14, 3:33pm CT", what: "Billings sent a follow-up to Chad Luedke and Josh Runnells on Maria's June 25 thread."},
+        {when: "Mon Aug 17", what: "Chad replied. Not his house. Victor will enter it. Still nothing in Hyphen."}
+      ],
+      fromName: "Billings", fromAddr: "billings@coastaltestinglabs.com",
+      to: [
+        {name: "Chad Luedke", email: "chad.luedke@tripointehomes.com"},
+        {name: "Josh Runnells", email: "josh.runnells@tripointehomes.com"}
+      ],
+      cc: [
+        {name: "William Knox", email: "william@coastaltestinglabs.com"},
+        {name: "Esmeralda", email: "esmeralda@coastaltestinglabs.com"},
+        {name: "Veronica", email: "veronica@coastaltestinglabs.com"},
+        {name: "Maria", email: "maria@coastaltestinglabs.com"}
+      ],
+      subject: "Re: PO request - 32147 Sky Branch - Pecan Ridge - Invoice 0415-170614",
+      composeTitle: "Follow up", composeKind: "Reply on thread",
+      sendLabel: "Send reply", sendHint: "Replies on the original Outlook conversation. This mock does not send.",
+      letterLead: "Thanks for the Monday note on 32147 Sky Branch. For Tri Pointe, the path is call-in, service, report, then invoice. The PO is created only after the invoice is entered in Hyphen. We serviced this house April 15, sent the report April 17, and sent the invoice April 27. Nothing is in Hyphen yet, so $350 is still open.",
+      letterTl: [
+        {when: "Fri Aug 14", what: "Asked. Follow-up on Maria's June 25 request. Report April 17, invoice April 27, still no Hyphen entry."},
+        {when: "Today", what: "Still their court. Enter invoice 0415-170614 in Hyphen so the PO can generate.", today: true}
+      ],
+      chips: ["0415-170614 invoice", "Apr 17 report", "Apr 27 invoice"]
+    },
+    {
+      id: "0416-170670", days: 89, open: 416, billed: 416,
+      community: "09-679 Woodson's Reserve", address: "3903 Sandhills Pine Cove",
+      builder: "Toll Brothers, Inc.", era: "pre-strata", why: "Broken link", mail: "awaiting",
+      lastSent: "Fri 8/14", lastSentSort: "2026-08-14", lastSentFull: "Fri Aug 14, 3:58pm CT",
+      waiting: 1, lastReply: "", lastReplyFull: "",
+      court: "Theirs. No builder reply after Friday's send.",
+      lead: "Friday chase is out. No builder reply. Ball is still theirs.",
+      txnDate: "Apr 20, 2026", dueDate: "May 20, 2026",
+      thread: [
+        {when: "Fri Aug 14, 3:58pm CT", what: "Billings sent a PO-needed chase to mbarajas@ and the Toll CMs on that send."},
+        {when: "Since Friday", what: "No builder reply."}
+      ],
+      fromName: "Billings", fromAddr: "billings@coastaltestinglabs.com",
+      to: [
+        {name: "M. Barajas", email: "mbarajas@tollbrothers.com"},
+        {name: "C. Snell", email: "csnell@tollbrothers.com"},
+        {name: "G. Westenburg", email: "gwestenburg@tollbrothers.com"},
+        {name: "V. Perez Motolongo", email: "vperezmotolongo@tollbrothers.com"},
+        {name: "J. Reinesch", email: "jreinesch@tollbrothers.com"},
+        {name: "J. Phillips", email: "jphillips1@tollbrothers.com"},
+        {name: "Hunter Hott", email: "hunter@hotttrucking.com"}
+      ],
+      cc: CTL_CC,
+      subject: "Re: PO needed · Invoice 0416-170670 · 3903 Sandhills, Woodson's Reserve",
+      composeTitle: "Follow up", composeKind: "Reply on thread",
+      sendLabel: "Send reply", sendHint: "Replies on the original Outlook conversation. This mock does not send.",
+      letterLead: "Checking back on invoice 0416-170670 at 3903 Sandhills Pine Cove, Woodson's Reserve. $416 is still open. We wrote Friday and have not heard back.",
+      letterTl: [
+        {when: "Fri Aug 14", what: "Asked. PO needed for this compaction invoice."},
+        {when: "Today", what: "Still their court. No builder reply after Friday's send.", today: true}
+      ],
+      chips: ["0416-170670 invoice"]
+    },
+    {
+      id: "180131", days: 124, open: 783, billed: 783,
+      community: "98-639 Bridgeland", address: "12527/12523 Alligator Lake",
+      builder: "LENNAR HOMES", era: "legacy-numeric", why: "Linked, needs detail", mail: "drafted",
+      lastSent: "", lastSentSort: "", lastSentFull: "", waiting: null, lastReply: "", lastReplyFull: "",
+      court: "Not sent. Outlook draft sits in billings@ Drafts.",
+      lead: "Outlook draft exists. Nothing has been sent from the queue.",
+      txnDate: "Mar 16, 2026", dueDate: "Apr 15, 2026",
+      thread: [{when: "Draft", what: "To Steven Ayala. Subject: Payment needed, 180131, 12523/12527 Alligator Lake Court."}],
+      fromName: "Billings", fromAddr: "billings@coastaltestinglabs.com",
+      to: [{name: "Steven Ayala", email: "steven.ayala@lennar.com"}],
+      cc: [{name: "Jordan Beakley", email: "jordan.beakley@lennar.com"}, {name: "Shawn Summers", email: "shawn.summers@lennar.com"}].concat(CTL_CC),
+      subject: "Payment needed — 180131 — 12523/12527 Alligator Lake Court",
+      composeTitle: "Open draft", composeKind: "Builder",
+      sendLabel: "Send now", sendHint: "Would send from billings@. This mock does not send.",
+      letterLead: "Please release payment on PO 70276926-000 / invoice 180131. You marked this order complete on March 19. Our note (3 lifts, $783 at 12523 and 12527 Alligator Lake Court) has been on the PO since March 17, and nothing has been paid in the five months since.",
+      letterTl: [
+        {when: "Mar 10, 2026", what: "Called in. Jen asked for 12523/12527. Tested and passed that day."},
+        {when: "Mar 17, 2026", what: "Notes entered. Maria noted 180131, 3 lifts, $783."},
+        {when: "Mar 19, 2026", what: "Steven completed PO 70276926-000."},
+        {when: "Mar 26, 2026", what: "Reports sent."},
+        {when: "Today", what: "Still open $783. No payment on the file.", today: true}
+      ],
+      chips: ["180131 invoice", "Mar 10 call-in", "Mar 26 reports"]
+    },
+    {
+      id: "179586", days: 152, open: 261, billed: 783,
+      community: "98-639 Spring Branch Crossing", address: "11974 Hedley Court",
+      builder: "LENNAR HOMES", era: "legacy-numeric", why: "Amount off / unpaid PO", mail: "drafted",
+      lastSent: "", lastSentSort: "", lastSentFull: "", waiting: null, lastReply: "", lastReplyFull: "",
+      court: "Not sent. Outlook draft sits in billings@ Drafts.",
+      lead: "Outlook draft exists. To Montana Grove. Nothing has been sent from the queue.",
+      txnDate: "Feb 16, 2026", dueDate: "Mar 18, 2026",
+      thread: [{when: "Draft", what: "To Montana Grove. Subject: EPO needed, 179586, 11974 Hedley Court."}],
+      fromName: "Billings", fromAddr: "billings@coastaltestinglabs.com",
+      to: [{name: "Montana Grove", email: "montana.grove@lennar.com"}],
+      cc: [{name: "Brian Maerz", email: "brian.maerz@lennar.com"}, {name: "Jordan Beakley", email: "jordan.beakley@lennar.com"}, {name: "Ben Jimenez", email: "ben.jimenez@lennar.com"}].concat(CTL_CC),
+      subject: "EPO needed — 179586 — 11974 Hedley Court",
+      composeTitle: "Open draft", composeKind: "Builder",
+      sendLabel: "Send now", sendHint: "Would send from billings@. This mock does not send.",
+      letterLead: "We originally uploaded the wrong notes into Hyphen on PO 61893156-000 for the work at 11974 Hedley Court. The first note, entered March 11, said two lifts for $522. That was our error, and we apologize. Those incorrect notes caused the underpayment: Lennar paid $522 on check 1217932 (April 6) against invoice 179586, which billed $783 for three lifts. We corrected the notes on March 24. The corrective notes now show three lifts for $783.",
+      letterExtra: [
+        "Three lifts were performed at this address on February 10, and three separate reports were issued: 260210-61527 (1st lift), 260210-61528 (2nd lift), and 260210-61529 (3rd / final). Those reports were sent to you on March 5. After the $522 check, $261 remains open on invoice 179586. This has been 152 days past due. Please issue an EPO or supplemental purchase order for the remaining $261 so we can close the balance.",
+        "Maria asked Montana Grove and Brian Maerz for an updated PO on May 13 and again on May 29. We have not received a reply. The Hyphen PO is still sitting at the original two-lift quantity / $522."
+      ],
+      letterTl: [
+        {when: "Feb 9, 2026", what: "Called in. Lot called as 3 lifts at 11974 Hedley."},
+        {when: "Feb 16, 2026", what: "Invoiced. 179586 issued for $783."},
+        {when: "Mar 11, 2026", what: "Notes entered. First note said 2 lifts, $522. That was our error."},
+        {when: "Apr 6, 2026", what: "Paid. Check 1217932, $522, covered the two-lift note."},
+        {when: "Today", what: "Still open $261. Need EPO for the leftover lift.", today: true}
+      ],
+      chips: ["179586 invoice", "Three reports", "May 13 ask", "May 29 ask"]
+    },
+    {
+      id: "0410-170532", days: 99, open: 349, billed: 871,
+      community: "98-639 Crockett Meadows", address: "10478 Sugar Mill Dr",
+      builder: "LENNAR HOMES", era: "pre-strata", why: "Amount off / unpaid PO", mail: "drafted",
+      lastSent: "", lastSentSort: "", lastSentFull: "", waiting: null,
+      lastReply: "Jordan · Jun 26", lastReplyFull: "Jordan Beakley · Jun 26",
+      court: "Not sent. Outlook draft sits in billings@ Drafts.",
+      lead: "Draft exists. Maria asked June 25. Jordan replied June 26. Nothing sent from this queue draft.",
+      txnDate: "Apr 10, 2026", dueDate: "May 10, 2026",
+      thread: [
+        {when: "Jun 25", what: "Maria asked Montana Grove and Jordan Beakley for a PO covering the $349 Proctor and PI."},
+        {when: "Jun 26", what: "Jordan replied, asking whether that PO had been created."},
+        {when: "Draft", what: "To Montana Grove. Subject: EPO needed, 0410-170532, 10478 Sugar Mill Dr."}
+      ],
+      fromName: "Billings", fromAddr: "billings@coastaltestinglabs.com",
+      to: [{name: "Montana Grove", email: "montana.grove@lennar.com"}],
+      cc: [{name: "Jordan Beakley", email: "jordan.beakley@lennar.com"}, {name: "Chris Coghlan", email: "chris.coghlan@lennar.com"}, {name: "Blake Hunt", email: "blake.hunt@lennar.com"}].concat(CTL_CC),
+      subject: "EPO needed — 0410-170532 — 10478 Sugar Mill Dr",
+      composeTitle: "Open draft", composeKind: "Builder",
+      sendLabel: "Send now", sendHint: "Would send from billings@. This mock does not send.",
+      letterLead: "We performed two compaction lifts plus Proctor and PI at 10478 Sugar Mill Dr and billed invoice 0410-170532 for $871. Lennar paid $522 on check 1236227 (April 27) on PO 82258936-000 for the two lifts. The remaining $349 is the Proctor and PI. Maria emailed Montana Grove and Jordan Beakley on June 25 asking for a PO covering that $349. Jordan replied June 26 asking if it had been created. Nothing has been issued. This has been 99 days past due.",
+      letterExtra: [
+        "Please issue an EPO or supplemental purchase order for the Proctor and PI ($349) on 10478 Sugar Mill Dr so we can close invoice 0410-170532. Do not park this remainder on another lot.",
+        "The April 9 call-in, the reports, Maria's June 25 request, and Jordan's June 26 reply are attached."
+      ],
+      letterTl: [
+        {when: "Apr 9, 2026", what: "Called in. Brandi Cook asked Ryan/Joe for 2 compaction lifts at 10478 Sugar Mill Dr."},
+        {when: "Apr 27, 2026", what: "Paid. Check 1236227, $522, on PO 82258936-000. Covers the two lifts."},
+        {when: "Jun 25, 2026", what: "Asked. Maria emailed Montana and Jordan for a PO covering the $349 Proctor and PI."},
+        {when: "Jun 26, 2026", what: "Replied. Jordan asked Montana whether that PO had been created."},
+        {when: "Today", what: "Still open $349. Need EPO for Proctor and PI.", today: true}
+      ],
+      chips: ["0410-170532 invoice", "Apr 9 call-in", "Jun 25 ask", "Jun 26 reply"]
+    },
+    {
+      id: "0513-171546", days: 66, open: 522, billed: 522,
+      community: "98-639 Binford Creek", address: "21602 Colonial Meadow",
+      builder: "LENNAR HOMES", era: "pre-strata", why: "No PO", mail: "not_sent",
+      lastSent: "", lastSentSort: "", lastSentFull: "", waiting: null, lastReply: "", lastReplyFull: "",
+      court: "Never sent a builder chase from the queue.",
+      lead: "Not sent. No billings@ chase on this invoice from the queue.",
+      txnDate: "May 13, 2026", dueDate: "Jun 12, 2026", thread: [],
+      fromName: "Billings", fromAddr: "billings@coastaltestinglabs.com",
+      to: [{name: "Need project CM", email: ""}], cc: CTL_CC,
+      subject: "PO needed — 0513-171546 — 21602 Colonial Meadow",
+      composeTitle: "Draft a chase", composeKind: "Builder",
+      sendLabel: "Send now", sendHint: "Would send from billings@. This mock does not send.",
+      letterLead: "We performed the work at 21602 Colonial Meadow and issued invoice 0513-171546 for $522. This is in 98-639 Binford Creek. This has been 66 days past due with no purchase order on file, so nothing has been paid.",
+      letterExtra: ["Please issue a PO for invoice 0513-171546 / $522 so we can close this. If a PO was already issued, send the Builder Order Number and we will attach it."],
+      letterTl: [
+        {when: "May 5, 2026", what: "Called in. Tom Whetstine asked for 1 lift front and 1 back."},
+        {when: "May 13, 2026", what: "Invoiced. 0513-171546 issued for $522."},
+        {when: "Today", what: "No PO on file. Open $522.", today: true}
+      ],
+      chips: ["0513-171546 invoice"]
+    },
+    {
+      id: "0519-171828", days: 60, open: 261, billed: 261,
+      community: "98-639 Caney Mills", address: "13560 Bay Springs",
+      builder: "LENNAR HOMES", era: "pre-strata", why: "No PO", mail: "not_sent",
+      lastSent: "", lastSentSort: "", lastSentFull: "", waiting: null, lastReply: "", lastReplyFull: "",
+      court: "Never sent a builder chase from the queue.",
+      lead: "Not sent. No billings@ chase on this invoice from the queue.",
+      txnDate: "May 19, 2026", dueDate: "Jun 18, 2026", thread: [],
+      fromName: "Billings", fromAddr: "billings@coastaltestinglabs.com",
+      to: [{name: "Need project CM", email: ""}], cc: CTL_CC,
+      subject: "PO needed — 0519-171828 — 13560 Bay Springs",
+      composeTitle: "Draft a chase", composeKind: "Builder",
+      sendLabel: "Send now", sendHint: "Would send from billings@. This mock does not send.",
+      letterLead: "We performed the work at 13560 Bay Springs and issued invoice 0519-171828 for $261. This is in 98-639 Caney Mills. This has been 60 days past due with no purchase order on file, so nothing has been paid.",
+      letterExtra: ["Please issue a PO for invoice 0519-171828 / $261 so we can close this. If a PO was already issued, send the Builder Order Number and we will attach it."],
+      letterTl: [
+        {when: "May 18, 2026", what: "Called in. Brandi Cook asked for 1 lift at 13560 Bay Springs."},
+        {when: "May 19, 2026", what: "Invoiced. 0519-171828 issued for $261."},
+        {when: "Today", what: "No PO on file. Open $261.", today: true}
+      ],
+      chips: ["0519-171828 invoice"]
+    },
+    {
+      id: "0505-171249", days: 74, open: 261, billed: 261,
+      community: "98-639 Moore's Landing", address: "11946 Noble Wood",
+      builder: "LENNAR HOMES", era: "pre-strata", why: "No PO", mail: "not_sent",
+      lastSent: "", lastSentSort: "", lastSentFull: "", waiting: null, lastReply: "", lastReplyFull: "",
+      court: "Never sent a builder chase from the queue.",
+      lead: "Not sent. No billings@ chase on this invoice from the queue.",
+      txnDate: "May 5, 2026", dueDate: "Jun 4, 2026", thread: [],
+      fromName: "Billings", fromAddr: "billings@coastaltestinglabs.com",
+      to: [{name: "Need project CM", email: ""}], cc: CTL_CC,
+      subject: "PO needed — 0505-171249 — 11946 Noble Wood",
+      composeTitle: "Draft a chase", composeKind: "Builder",
+      sendLabel: "Send now", sendHint: "Would send from billings@. This mock does not send.",
+      letterLead: "We performed the work at 11946 Noble Wood and issued invoice 0505-171249 for $261. This is in 98-639 Moore's Landing. This has been 74 days past due with no purchase order on file, so nothing has been paid.",
+      letterExtra: ["Please issue a PO for invoice 0505-171249 / $261 so we can close this. If a PO was already issued, send the Builder Order Number and we will attach it."],
+      letterTl: [
+        {when: "Apr 29, 2026", what: "Called in. Brandi Cook asked for 1 lift at 11946 Noble Wood."},
+        {when: "May 5, 2026", what: "Invoiced. 0505-171249 issued for $261 after the pad was retested and passed."},
+        {when: "Today", what: "No PO on file. Open $261.", today: true}
+      ],
+      chips: ["0505-171249 invoice"]
+    }
+  ];
+
+  var state = {
+    sortKey: "days", sortDir: "desc", search: "", mail: "awaiting",
+    builders: new Set(), whys: new Set(), cols: {}, selected: null
+  };
+
+  var $ = function (sel, root) { return (root || document).querySelector(sel); };
+  var $$ = function (sel, root) { return Array.from((root || document).querySelectorAll(sel)); };
+
+  function money(n) {
+    if (n == null || n === "") return "—";
+    return "$" + Number(n).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function whyHot(w) { return /amount off|2nd callout|consumed|cutoff/i.test(w || ""); }
+
+  function applyBaseFilters() {
+    var q = state.search.trim().toLowerCase();
+    return DATA.filter(function (r) {
+      if (state.builders.size && !state.builders.has(r.builder)) return false;
+      if (state.whys.size && !state.whys.has(r.why)) return false;
+      if (q) {
+        var bag = [r.id, r.address, r.community, r.builder, BUILDER_LABEL[r.builder] || ""].join(" ").toLowerCase();
+        if (bag.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+  }
+  function applyFilters() {
+    return applyBaseFilters().filter(function (r) {
+      return state.mail === "all" || r.mail === state.mail;
+    });
+  }
+  function sortRows(rows) {
+    var key = state.sortKey;
+    var dir = state.sortDir === "asc" ? 1 : -1;
+    var num = { days: 1, open: 1, waiting: 1, billed: 1 };
+    var copy = rows.slice();
+    copy.sort(function (a, b) {
+      var av, bv;
+      if (key === "mail") { av = MAIL_ORDER[a.mail]; bv = MAIL_ORDER[b.mail]; }
+      else { av = a[key]; bv = b[key]; }
+      if (num[key]) {
+        av = av == null ? -Infinity : Number(av);
+        bv = bv == null ? -Infinity : Number(bv);
+        if (av !== bv) return (av - bv) * dir;
+      } else {
+        av = av == null ? "" : String(av).toLowerCase();
+        bv = bv == null ? "" : String(bv).toLowerCase();
+        if (av < bv) return -1 * dir;
+        if (av > bv) return 1 * dir;
+      }
+      return (b.days - a.days) || String(a.id).localeCompare(String(b.id));
+    });
+    return copy;
+  }
+  function hasExtraFilters() {
+    return !!(state.search.trim() || state.builders.size || state.whys.size);
+  }
+  function updateCounts(rows) {
+    var n = rows.length;
+    var open = rows.reduce(function (s, r) { return s + (Number(r.open) || 0); }, 0);
+    $("#countN").textContent = n.toLocaleString("en-US");
+    $("#countOpen").textContent = money(open);
+    $("#countNLabel").textContent = (state.mail !== "all" || hasExtraFilters()) ? "invoices shown" : "invoices";
+    var base = applyBaseFilters();
+    var tally = { all: base.length, not_sent: 0, drafted: 0, awaiting: 0, needs_you: 0 };
+    base.forEach(function (r) { tally[r.mail] += 1; });
+    $$("#mailSeg .n").forEach(function (el) {
+      el.textContent = tally[el.dataset.n] == null ? "0" : String(tally[el.dataset.n]);
+    });
+  }
+  function syncChrome() {
+    $("#clearBtn").classList.toggle("show", hasExtraFilters());
+    markMenu("builder", state.builders.size, "Builder");
+    markMenu("why", state.whys.size, "Why");
+    var colOn = Object.keys(state.cols).filter(function (k) { return state.cols[k]; }).length;
+    markMenu("cols", colOn, "Columns");
+    var table = $("#grid");
+    ["builder", "era", "billed"].forEach(function (c) { table.classList.toggle("show-" + c, !!state.cols[c]); });
+    $$("#mailSeg button").forEach(function (b) { b.classList.toggle("on", b.dataset.mail === state.mail); });
+    var note = $("#mailNote");
+    if (note) note.hidden = state.mail !== "awaiting";
+    $$("thead th").forEach(function (th) {
+      var k = th.dataset.sort;
+      th.classList.toggle("sorted", k === state.sortKey);
+      var s = th.querySelector(".s");
+      if (s) s.textContent = k === state.sortKey ? (state.sortDir === "asc" ? "▲" : "▼") : "";
+    });
+  }
+  function markMenu(name, n, label) {
+    var btn = $('[data-menu="' + name + '"] .menu-btn');
+    if (!btn) return;
+    btn.classList.toggle("on", n > 0);
+    var text = btn.querySelector(".t");
+    if (text) text.textContent = n ? label + " · " + n : label;
+  }
+  function rowHtml(r, alt) {
+    var late = Number(r.days) > 0;
+    var waitLate = r.waiting != null && Number(r.waiting) >= 5;
+    var cls = [alt ? "alt" : "", state.selected === r.id ? "sel" : ""].filter(Boolean).join(" ");
+    return (
+      '<tr class="' + cls + '" data-id="' + esc(r.id) + '">' +
+      '<td class="num" data-label="Days"><span class="dpd' + (late ? " late" : "") + '">' + esc(r.days) + "</span></td>" +
+      '<td data-label="Invoice"><span class="inv">' + esc(r.id) + "</span></td>" +
+      '<td class="num" data-label="Open $"><span class="money">' + money(r.open) + "</span></td>" +
+      '<td class="comm" data-label="Community" title="' + esc(r.community) + '">' + esc(r.community) + "</td>" +
+      '<td class="addr" data-label="Address" title="' + esc(r.address) + '">' + esc(r.address) + "</td>" +
+      '<td data-label="Mail"><span class="pill ' + esc(r.mail) + '">' + esc(MAIL_LABEL[r.mail]) + "</span></td>" +
+      '<td data-label="Last sent"><span class="sent">' + (r.lastSent ? esc(r.lastSent) : '<span class="empty">—</span>') + "</span></td>" +
+      '<td class="num" data-label="Waiting"><span class="wait' + (waitLate ? " late" : "") + '">' +
+        (r.waiting == null ? '<span class="empty">—</span>' : esc(r.waiting)) + "</span></td>" +
+      '<td data-label="Last reply"><span class="reply">' + (r.lastReply ? esc(r.lastReply) : '<span class="empty">—</span>') + "</span></td>" +
+      '<td data-label="Why"><span class="pill why' + (whyHot(r.why) ? " hot" : "") + '">' + esc(WHY_LABEL[r.why] || r.why) + "</span></td>" +
+      '<td class="col-builder" data-label="Builder">' + esc(BUILDER_LABEL[r.builder] || r.builder) + "</td>" +
+      '<td class="col-era" data-label="Era">' + esc(r.era) + "</td>" +
+      '<td class="num col-billed" data-label="Billed $"><span class="money">' + money(r.billed) + "</span></td>" +
+      "</tr>"
+    );
+  }
+  function emptyCopy() {
+    if (state.mail === "needs_you" && !hasExtraFilters()) {
+      return "<b>Nothing needs you.</b>Replies that still leave the ball with them stay on Awaiting.";
+    }
+    return "No invoices match these filters.";
+  }
+  function render() {
+    var filtered = sortRows(applyFilters());
+    updateCounts(filtered);
+    syncChrome();
+    var tb = $("#tbody");
+    if (!filtered.length) {
+      tb.innerHTML = '<tr><td colspan="13"><div class="empty-state">' + emptyCopy() + "</div></td></tr>";
+      return;
+    }
+    tb.innerHTML = filtered.map(function (r, i) { return rowHtml(r, i % 2 === 1); }).join("");
+  }
+  function kv(k, v, cls) {
+    return "<dt>" + esc(k) + "</dt><dd" + (cls ? ' class="' + cls + '"' : "") + ">" + esc(v) + "</dd>";
+  }
+  function tlHtml(items) {
+    return '<ul class="tl">' + (items || []).map(function (it) {
+      return "<li" + (it.today ? ' class="today"' : "") + '><div class="when">' +
+        esc(it.when) + '</div><div class="what">' + esc(it.what) + "</div></li>";
+    }).join("") + "</ul>";
+  }
+  function field(name, addr) {
+    return '<div class="who">' + esc(name) + "</div>" + (addr ? '<div class="addr">' + esc(addr) + "</div>" : "");
+  }
+  function actionFor(r) {
+    if (r.mail === "awaiting") {
+      return { hint: "Follow-up replies on the original Outlook conversation. It does not start a new thread.", primary: "Follow up on thread", secondary: "Hold" };
+    }
+    if (r.mail === "needs_you") {
+      return { hint: "Their reply needs a decision from you.", primary: "Review reply", secondary: "Hold" };
+    }
+    if (r.mail === "drafted") {
+      return { hint: "An Outlook draft already exists in billings@ Drafts. Nothing has been sent.", primary: "Open draft", secondary: "Hold" };
+    }
+    return { hint: "Never sent a builder chase from the queue.", primary: "Draft a chase", secondary: "Hold" };
+  }
+  function openDrawer(id) {
+    var r = DATA.find(function (x) { return x.id === id; });
+    if (!r) return;
+    state.selected = id;
+    $$("#tbody tr[data-id]").forEach(function (tr) { tr.classList.toggle("sel", tr.dataset.id === id); });
+    $("#dTitle").textContent = r.id;
+    $("#dSub").textContent = (BUILDER_LABEL[r.builder] || r.builder) + " · " + r.community + " · " + MAIL_LABEL[r.mail];
+    var thread = (r.thread && r.thread.length)
+      ? tlHtml(r.thread)
+      : '<p class="mail empty">No outbound chase from the queue yet.</p>';
+    $("#dBody").innerHTML =
+      '<div class="sec"><h3>Books</h3><div class="dl">' +
+      kv("Invoice", r.id) + kv("Billed", money(r.billed), "money") + kv("Open", money(r.open), "money") +
+      kv("Invoice date", r.txnDate) + kv("Due", r.dueDate) + kv("Days past due", r.days, "num late") +
+      kv("Community", r.community) + kv("Address", r.address) +
+      kv("Builder", BUILDER_LABEL[r.builder] || r.builder) +
+      "</div></div>" +
+      '<div class="sec"><h3>Thread</h3><div class="dl">' +
+      kv("Mail", MAIL_LABEL[r.mail]) +
+      kv("Last sent", r.lastSentFull || "—") +
+      kv("Waiting", r.waiting == null ? "—" : r.waiting + (r.waiting === 1 ? " business day" : " business days"), r.waiting >= 5 ? "late" : "") +
+      kv("Last reply", r.lastReplyFull || "—") +
+      kv("Court", r.court) +
+      "</div>" + (r.lead ? '<p class="mail-lead" style="margin-top:10px">' + esc(r.lead) + "</p>" : "") +
+      "</div>" +
+      '<div class="sec"><h3>Mail</h3>' + thread + "</div>";
+    var acts = actionFor(r);
+    var foot = $("#dFoot");
+    foot.hidden = false;
+    foot.removeAttribute("hidden");
+    foot.style.display = "block";
+    foot.innerHTML =
+      '<p class="act-hint">' + esc(acts.hint) + "</p><div class=\"actions\">" +
+      '<button class="act primary" type="button">' + esc(acts.primary) + "</button>" +
+      '<button class="act ghost" type="button">' + esc(acts.secondary) + "</button>" +
+      '<p class="act-note">Mock. These do not send.</p></div>';
+    $("#drawer").classList.add("on");
+    $("#scrim").classList.add("on");
+    $("#drawer").setAttribute("aria-hidden", "false");
+  }
+  function closeCompose() {
+    var el = $("#compose");
+    el.classList.remove("on");
+    el.setAttribute("aria-hidden", "true");
+    closeReadyMenu();
+    if (state.selected) {
+      $("#drawer").classList.add("on");
+      $("#drawer").setAttribute("aria-hidden", "false");
+    }
+  }
+  function closeDrawer() {
+    state.selected = null;
+    $("#drawer").classList.remove("on");
+    $("#compose").classList.remove("on");
+    $("#scrim").classList.remove("on");
+    $("#drawer").setAttribute("aria-hidden", "true");
+    $("#compose").setAttribute("aria-hidden", "true");
+    var foot = $("#dFoot");
+    if (foot) { foot.hidden = true; foot.innerHTML = ""; }
+    $$("#tbody tr.sel").forEach(function (tr) { tr.classList.remove("sel"); });
+    closeReadyMenu();
+  }
+  function openCompose(id) {
+    var r = DATA.find(function (x) { return x.id === id; });
+    if (!r) return;
+    $("#cTitle").textContent = r.composeTitle;
+    $("#cKind").textContent = r.composeKind;
+    $("#cFrom").innerHTML = field(r.fromName, r.fromAddr);
+    $("#cTo").innerHTML = (r.to || []).map(function (p) { return field(p.name, p.email); }).join("") || field("—", "");
+    $("#cCc").innerHTML = (r.cc || []).map(function (p) { return field(p.name, p.email); }).join("") || field("—", "");
+    $("#cSubj").innerHTML = '<div class="who">' + esc(r.subject) + "</div>";
+    var extra = "";
+    (r.letterExtra || []).forEach(function (p) { extra += "<p>" + esc(p) + "</p>"; });
+    $("#cLetter").innerHTML =
+      "<p>" + esc(r.letterLead) + "</p>" +
+      tlHtml(r.letterTl) + extra +
+      "<p>If you have any questions about these requests, we&rsquo;re happy to help address them.</p>" +
+      '<p class="sig"><b>Hyphen</b><span>Coastal Testing Labs</span></p>';
+    $("#cChips").innerHTML = (r.chips || []).map(function (c) { return '<span class="chip">' + esc(c) + "</span>"; }).join("");
+    $("#cSend").innerHTML = esc(r.sendLabel) + '<span class="hint">' + esc(r.sendHint) + "</span>";
+    $("#cNote").textContent = "Mock. Does not send.";
+    $("#cReady").textContent = "Put in Drafts";
+    $("#cReady").disabled = false;
+    $("#cReadyMore").disabled = false;
+    $("#drawer").classList.remove("on");
+    $("#compose").classList.add("on");
+    $("#compose").setAttribute("aria-hidden", "false");
+    $("#scrim").classList.add("on");
+  }
+  function closeMenus(except) {
+    $$(".menu-pop").forEach(function (p) { if (p !== except) p.hidden = true; });
+  }
+  function closeReadyMenu() {
+    var menu = $("#cReadyMenu");
+    var more = $("#cReadyMore");
+    if (menu) { menu.classList.remove("on"); menu.hidden = true; }
+    if (more) more.setAttribute("aria-expanded", "false");
+  }
+  function toggleReadyMenu(e) {
+    if (e) e.stopPropagation();
+    var menu = $("#cReadyMenu");
+    var more = $("#cReadyMore");
+    if (!menu || !more || more.disabled) return;
+    var open = !menu.classList.contains("on");
+    if (open) { menu.hidden = false; menu.classList.add("on"); more.setAttribute("aria-expanded", "true"); }
+    else closeReadyMenu();
+  }
+  function mockNote(msg) {
+    var n = $("#cNote");
+    if (n) n.textContent = msg;
+  }
+
+  function bind() {
+    $("#q").addEventListener("input", function (e) { state.search = e.target.value; render(); });
+    $("#clearBtn").addEventListener("click", function () {
+      state.search = "";
+      state.builders.clear();
+      state.whys.clear();
+      $("#q").value = "";
+      $$('.menu-pop input[type="checkbox"]').forEach(function (c) {
+        if (c.closest('[data-menu="cols"]')) return;
+        c.checked = false;
+      });
+      render();
+    });
+    $$("#mailSeg button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        state.mail = b.dataset.mail;
+        render();
+      });
+    });
+    $$(".menu-btn").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var pop = btn.parentElement.querySelector(".menu-pop");
+        var open = !pop.hidden;
+        closeMenus();
+        pop.hidden = open;
+      });
+    });
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".menu")) closeMenus();
+      if (!$("#cReadySplit") || $("#cReadySplit").contains(e.target)) return;
+      closeReadyMenu();
+    });
+    $$('[data-menu="builder"] input').forEach(function (c) {
+      c.addEventListener("change", function () {
+        if (c.checked) state.builders.add(c.value); else state.builders.delete(c.value);
+        render();
+      });
+    });
+    $$('[data-menu="why"] input').forEach(function (c) {
+      c.addEventListener("change", function () {
+        if (c.checked) state.whys.add(c.value); else state.whys.delete(c.value);
+        render();
+      });
+    });
+    $$('[data-menu="cols"] input').forEach(function (c) {
+      c.addEventListener("change", function () { state.cols[c.value] = c.checked; render(); });
+    });
+    $$(".menu-pop .all").forEach(function (b) {
+      b.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var pop = b.closest(".menu-pop");
+        var menu = b.closest(".menu").dataset.menu;
+        $$('input[type="checkbox"]', pop).forEach(function (c) { c.checked = false; });
+        if (menu === "builder") state.builders.clear();
+        if (menu === "why") state.whys.clear();
+        if (menu === "cols") state.cols = {};
+        render();
+      });
+    });
+    $$("thead th[data-sort]").forEach(function (th) {
+      th.addEventListener("click", function () {
+        var k = th.dataset.sort;
+        if (state.sortKey === k) state.sortDir = state.sortDir === "desc" ? "asc" : "desc";
+        else {
+          state.sortKey = k;
+          state.sortDir = th.dataset.dir || (["days", "open", "waiting", "billed"].indexOf(k) >= 0 ? "desc" : "asc");
+        }
+        render();
+      });
+    });
+    $("#tbody").addEventListener("click", function (e) {
+      var tr = e.target.closest("tr[data-id]");
+      if (!tr) return;
+      if (state.selected === tr.dataset.id) closeDrawer();
+      else openDrawer(tr.dataset.id);
+    });
+    $("#scrim").addEventListener("click", function () {
+      if ($("#compose").classList.contains("on")) closeCompose();
+      else closeDrawer();
+    });
+    $("#dClose").addEventListener("click", closeDrawer);
+    $("#dFoot").addEventListener("click", function (e) {
+      if (e.target.closest(".act.primary")) openCompose(state.selected);
+      else if (e.target.closest(".act.ghost")) closeDrawer();
+    });
+    $("#cBack").addEventListener("click", closeCompose);
+    $("#cClose").addEventListener("click", closeCompose);
+    $("#cHold").addEventListener("click", closeCompose);
+    $("#cSave").addEventListener("click", function () { mockNote("Saved on this device. Nothing sends."); });
+    $("#cReady").addEventListener("click", function () { mockNote("Put in Drafts. Local mock only. Nothing sends."); });
+    $("#cReadyMore").addEventListener("click", toggleReadyMenu);
+    $("#cSend").addEventListener("click", function () {
+      closeReadyMenu();
+      mockNote("This mock does not send.");
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        if ($("#compose").classList.contains("on")) closeCompose();
+        else if ($("#drawer").classList.contains("on")) closeDrawer();
+        else closeMenus();
+      }
+    });
+  }
+
+  bind();
+  render();
+})();
+</script>
+</body>
+</html>
