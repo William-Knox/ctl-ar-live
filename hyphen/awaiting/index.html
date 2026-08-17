@@ -273,6 +273,7 @@ button { cursor: pointer; background: none; border: 0; }
 }
 .mail-note[hidden] { display: none; }
 .mail-note b { font-weight: 650; }
+.mail-note.ready-note { background: #E4E8F0; }
 
 .wrap { flex: 1; min-height: 0; overflow: auto; background: var(--paper); }
 table {
@@ -362,6 +363,7 @@ tbody tr { cursor: pointer; }
 .pill.needs_you { background: var(--navy); color: var(--cream); }
 .pill.drafted { background: var(--cream); color: var(--navy); border: 1px solid var(--navy); }
 .pill.not_sent, .pill.mute { background: transparent; color: var(--muted); border: 1px dashed var(--line-2); }
+.pill.ready { background: var(--navy); color: var(--cream); }
 
 .col-builder, .col-era, .col-billed { display: none; }
 .show-builder .col-builder,
@@ -670,6 +672,9 @@ th:nth-child(5), td.addr { width: 16%; }
 .split-menu .hint { display: block; font-size: 11px; font-weight: 500; color: var(--muted); margin-top: 2px; }
 .c-foot .split { flex: 1.4 1 auto; }
 .c-foot .split .act.primary { flex: 1 1 auto; }
+.split.solo .act.primary { border-radius: 6px; }
+.split.solo .split-arrow,
+.split.solo .split-menu { display: none !important; }
 
 @media (max-width: 900px) {
   html, body { overflow: auto; }
@@ -785,11 +790,11 @@ th:nth-child(5), td.addr { width: 16%; }
     </div>
     <div class="counts">
       <div class="count">
-        <b id="countN">2</b>
-        <span id="countNLabel">invoices</span>
+        <b id="countN">4</b>
+        <span id="countNLabel">invoices shown</span>
       </div>
       <div class="count">
-        <b id="countOpen">$766.00</b>
+        <b id="countOpen">$1,810.00</b>
         <span>open</span>
       </div>
     </div>
@@ -800,10 +805,11 @@ th:nth-child(5), td.addr { width: 16%; }
     <span class="seg-lab">Mail</span>
     <div class="seg" id="mailSeg" role="tablist" aria-label="Mail">
       <button type="button" data-mail="all">All <span class="n" data-n="all">8</span></button>
-      <button type="button" data-mail="not_sent">Not sent <span class="n" data-n="not_sent">3</span></button>
-      <button type="button" data-mail="drafted">Drafted <span class="n" data-n="drafted">3</span></button>
-      <button type="button" data-mail="awaiting" class="awaiting on">Awaiting <span class="n" data-n="awaiting">2</span></button>
+      <button type="button" data-mail="ready" class="on">Ready <span class="n" data-n="ready">4</span></button>
+      <button type="button" data-mail="awaiting" class="awaiting">Awaiting <span class="n" data-n="awaiting">0</span></button>
       <button type="button" data-mail="needs_you">Needs you <span class="n" data-n="needs_you">0</span></button>
+      <button type="button" data-mail="drafted">Drafted <span class="n" data-n="drafted">1</span></button>
+      <button type="button" data-mail="not_sent">Not sent <span class="n" data-n="not_sent">3</span></button>
     </div>
     <div class="menu" data-menu="days">
       <button class="menu-btn" type="button"><span class="t">Days</span><i class="caret"></i></button>
@@ -846,8 +852,8 @@ th:nth-child(5), td.addr { width: 16%; }
     </div>
   </div>
 
-  <div class="mail-note" id="mailNote">
-    <b>Awaiting</b> = still their court. A reply that does not close the gap stays here. Silence flag is 5 business days — none due yet.
+  <div class="mail-note ready-note" id="mailNote">
+    7:30 put <b>4</b> complete packets in billings@ Drafts. Nothing sent. Incomplete stays out of Ready.
   </div>
 
   <div class="wrap">
@@ -945,22 +951,23 @@ th:nth-child(5), td.addr { width: 16%; }
     "Linked, needs detail": "Linked needs detail",
     "Amount off / unpaid PO": "Amount off"
   };
-  var MAIL_LABEL = { awaiting: "Awaiting", needs_you: "Needs you", drafted: "Drafted", not_sent: "Not sent" };
-  var MAIL_ORDER = { awaiting: 0, needs_you: 1, drafted: 2, not_sent: 3 };
+  var MAIL_LABEL = { ready: "Ready", awaiting: "Awaiting", needs_you: "Needs you", drafted: "Drafted", not_sent: "Not sent" };
+  var MAIL_ORDER = { ready: 0, awaiting: 1, needs_you: 2, drafted: 3, not_sent: 4 };
 
   var DATA = [
     {
       id: "0415-170614", days: 89, open: 350, billed: 350,
       community: "21-506 Pecan Ridge", address: "32147 Sky Branch",
-      builder: "TriPointe Homes", era: "pre-strata", why: "No PO", mail: "awaiting",
+      builder: "TriPointe Homes", era: "pre-strata", why: "No PO", mail: "ready",
       lastSent: "Fri 8/14", lastSentSort: "2026-08-14", lastSentFull: "Fri Aug 14, 3:33pm CT",
       waiting: 1, lastReply: "Chad · Mon 8/17", lastReplyFull: "Chad Luedke · Mon Aug 17",
       court: "Theirs. They still have to enter this in Hyphen.",
-      lead: "Chad wrote back Monday. They have not entered Hyphen or closed it. Stays on Awaiting.",
+      lead: "Chad wrote back Monday. They have not entered Hyphen or closed it. Ball is still theirs. 7:30 auto-drafted a reply on the Friday thread.",
       txnDate: "Apr 20, 2026", dueDate: "May 20, 2026",
       thread: [
         {when: "Fri Aug 14, 3:33pm CT", what: "Billings sent a follow-up to Chad Luedke and Josh Runnells on Maria's June 25 thread."},
-        {when: "Mon Aug 17", what: "Chad replied. Not his house. Victor will enter it. Still nothing in Hyphen."}
+        {when: "Mon Aug 17", what: "Chad replied. Not his house. Victor will enter it. Still nothing in Hyphen."},
+        {when: "7:30 today", what: "Auto-drafted a reply on the thread into billings@ Drafts. Nothing sent."}
       ],
       fromName: "Billings", fromAddr: "billings@coastaltestinglabs.com",
       to: [
@@ -986,15 +993,16 @@ th:nth-child(5), td.addr { width: 16%; }
     {
       id: "0416-170670", days: 89, open: 416, billed: 416,
       community: "09-679 Woodson's Reserve", address: "3903 Sandhills Pine Cove",
-      builder: "Toll Brothers, Inc.", era: "pre-strata", why: "Broken link", mail: "awaiting",
+      builder: "Toll Brothers, Inc.", era: "pre-strata", why: "Broken link", mail: "ready",
       lastSent: "Fri 8/14", lastSentSort: "2026-08-14", lastSentFull: "Fri Aug 14, 3:58pm CT",
       waiting: 1, lastReply: "", lastReplyFull: "",
       court: "Theirs. No builder reply after Friday's send.",
-      lead: "Friday chase is out. No builder reply. Ball is still theirs.",
+      lead: "Friday chase is out. No builder reply. Ball is still theirs. 7:30 auto-drafted a reply on the thread.",
       txnDate: "Apr 20, 2026", dueDate: "May 20, 2026",
       thread: [
         {when: "Fri Aug 14, 3:58pm CT", what: "Billings sent a PO-needed chase to mbarajas@ and the Toll CMs on that send."},
-        {when: "Since Friday", what: "No builder reply."}
+        {when: "Since Friday", what: "No builder reply."},
+        {when: "7:30 today", what: "Auto-drafted a reply on the thread into billings@ Drafts. Nothing sent."}
       ],
       fromName: "Billings", fromAddr: "billings@coastaltestinglabs.com",
       to: [
@@ -1020,12 +1028,12 @@ th:nth-child(5), td.addr { width: 16%; }
     {
       id: "180131", days: 124, open: 783, billed: 783,
       community: "98-639 Bridgeland", address: "12527/12523 Alligator Lake",
-      builder: "LENNAR HOMES", era: "legacy-numeric", why: "Linked, needs detail", mail: "drafted",
+      builder: "LENNAR HOMES", era: "legacy-numeric", why: "Linked, needs detail", mail: "ready",
       lastSent: "", lastSentSort: "", lastSentFull: "", waiting: null, lastReply: "", lastReplyFull: "",
-      court: "Not sent. Outlook draft sits in billings@ Drafts.",
-      lead: "Outlook draft exists. Nothing has been sent from the queue.",
+      court: "Ready. Auto-drafted at 7:30 into billings@ Drafts. Nothing sent.",
+      lead: "Complete packet. 7:30 auto-drafted the first chase to Steven Ayala. Nothing sent.",
       txnDate: "Mar 16, 2026", dueDate: "Apr 15, 2026",
-      thread: [{when: "Draft", what: "To Steven Ayala. Subject: Payment needed, 180131, 12523/12527 Alligator Lake Court."}],
+      thread: [{when: "7:30 today", what: "Auto-drafted into billings@ Drafts. To Steven Ayala. Subject: Payment needed, 180131, 12523/12527 Alligator Lake Court. Nothing sent."}],
       fromName: "Billings", fromAddr: "billings@coastaltestinglabs.com",
       to: [{name: "Steven Ayala", email: "steven.ayala@lennar.com"}],
       cc: [{name: "Jordan Beakley", email: "jordan.beakley@lennar.com"}, {name: "Shawn Summers", email: "shawn.summers@lennar.com"}].concat(CTL_CC),
@@ -1045,12 +1053,12 @@ th:nth-child(5), td.addr { width: 16%; }
     {
       id: "179586", days: 152, open: 261, billed: 783,
       community: "98-639 Spring Branch Crossing", address: "11974 Hedley Court",
-      builder: "LENNAR HOMES", era: "legacy-numeric", why: "Amount off / unpaid PO", mail: "drafted",
+      builder: "LENNAR HOMES", era: "legacy-numeric", why: "Amount off / unpaid PO", mail: "ready",
       lastSent: "", lastSentSort: "", lastSentFull: "", waiting: null, lastReply: "", lastReplyFull: "",
-      court: "Not sent. Outlook draft sits in billings@ Drafts.",
-      lead: "Outlook draft exists. To Montana Grove. Nothing has been sent from the queue.",
+      court: "Ready. Auto-drafted at 7:30 into billings@ Drafts. Nothing sent.",
+      lead: "Complete notes-error EPO packet. 7:30 auto-drafted to Montana Grove. Nothing sent.",
       txnDate: "Feb 16, 2026", dueDate: "Mar 18, 2026",
-      thread: [{when: "Draft", what: "To Montana Grove. Subject: EPO needed, 179586, 11974 Hedley Court."}],
+      thread: [{when: "7:30 today", what: "Auto-drafted into billings@ Drafts. To Montana Grove. Subject: EPO needed, 179586, 11974 Hedley Court. Nothing sent."}],
       fromName: "Billings", fromAddr: "billings@coastaltestinglabs.com",
       to: [{name: "Montana Grove", email: "montana.grove@lennar.com"}],
       cc: [{name: "Brian Maerz", email: "brian.maerz@lennar.com"}, {name: "Jordan Beakley", email: "jordan.beakley@lennar.com"}, {name: "Ben Jimenez", email: "ben.jimenez@lennar.com"}].concat(CTL_CC),
@@ -1173,8 +1181,9 @@ th:nth-child(5), td.addr { width: 16%; }
     }
   ];
 
+  var composeIsReady = false;
   var state = {
-    sortKey: "days", sortDir: "desc", search: "", mail: "awaiting",
+    sortKey: "days", sortDir: "desc", search: "", mail: "ready",
     builders: new Set(), whys: new Set(), days: new Set(), cols: {}, selected: null
   };
 
@@ -1261,7 +1270,7 @@ th:nth-child(5), td.addr { width: 16%; }
     $("#countOpen").textContent = money(open);
     $("#countNLabel").textContent = (state.mail !== "all" || hasExtraFilters()) ? "invoices shown" : "invoices";
     var base = applyBaseFilters();
-    var tally = { all: base.length, not_sent: 0, drafted: 0, awaiting: 0, needs_you: 0 };
+    var tally = { all: base.length, ready: 0, not_sent: 0, drafted: 0, awaiting: 0, needs_you: 0 };
     base.forEach(function (r) { tally[r.mail] += 1; });
     $$("#mailSeg .n").forEach(function (el) {
       el.textContent = tally[el.dataset.n] == null ? "0" : String(tally[el.dataset.n]);
@@ -1283,7 +1292,21 @@ th:nth-child(5), td.addr { width: 16%; }
     ["builder", "era", "billed"].forEach(function (c) { table.classList.toggle("show-" + c, !!state.cols[c]); });
     $$("#mailSeg button").forEach(function (b) { b.classList.toggle("on", b.dataset.mail === state.mail); });
     var note = $("#mailNote");
-    if (note) note.hidden = state.mail !== "awaiting";
+    if (note) {
+      if (state.mail === "ready") {
+        var readyN = 0;
+        applyBaseFilters().forEach(function (r) { if (r.mail === "ready") readyN += 1; });
+        note.hidden = false;
+        note.classList.add("ready-note");
+        note.innerHTML = "7:30 put <b>" + readyN + "</b> complete packet" + (readyN === 1 ? "" : "s") + " in billings@ Drafts. Nothing sent. Incomplete stays out of Ready.";
+      } else if (state.mail === "awaiting") {
+        note.hidden = false;
+        note.classList.remove("ready-note");
+        note.innerHTML = "<b>Awaiting</b> = still their court. A reply that does not close the gap stays here. Silence flag is 5 business days — none due yet.";
+      } else {
+        note.hidden = true;
+      }
+    }
     $$("thead th").forEach(function (th) {
       var k = th.dataset.sort;
       th.classList.toggle("sorted", k === state.sortKey);
@@ -1325,6 +1348,12 @@ th:nth-child(5), td.addr { width: 16%; }
     if (state.mail === "needs_you" && !hasExtraFilters()) {
       return "<b>Nothing needs you.</b>Replies that still leave the ball with them stay on Awaiting.";
     }
+    if (state.mail === "ready") {
+      return "<b>No complete packets in this filter.</b>Incomplete never enters Ready.";
+    }
+    if (state.mail === "awaiting" && !hasExtraFilters()) {
+      return "<b>Nothing awaiting.</b>Complete packets from the 7:30 pass are on Ready.";
+    }
     return "No invoices match these filters.";
   }
   function render() {
@@ -1351,6 +1380,9 @@ th:nth-child(5), td.addr { width: 16%; }
     return '<div class="who">' + esc(name) + "</div>" + (addr ? '<div class="addr">' + esc(addr) + "</div>" : "");
   }
   function actionFor(r) {
+    if (r.mail === "ready") {
+      return { hint: "Already in billings@ Drafts from the 7:30 pass. Nothing sent.", primary: "Send", secondary: "Hold" };
+    }
     if (r.mail === "awaiting") {
       return { hint: "Follow-up replies on the original Outlook conversation. It does not start a new thread.", primary: "Follow up on thread", secondary: "Hold" };
     }
@@ -1381,6 +1413,7 @@ th:nth-child(5), td.addr { width: 16%; }
       "</div></div>" +
       '<div class="sec"><h3>Thread</h3><div class="dl">' +
       kv("Mail", MAIL_LABEL[r.mail]) +
+      (r.mail === "ready" ? kv("Drafted", "7:30 · billings@ Drafts") : "") +
       kv("Last sent", r.lastSentFull || "—") +
       kv("Waiting", r.waiting == null ? "—" : r.waiting + (r.waiting === 1 ? " business day" : " business days"), r.waiting >= 5 ? "late" : "") +
       kv("Last reply", r.lastReplyFull || "—") +
@@ -1427,8 +1460,10 @@ th:nth-child(5), td.addr { width: 16%; }
   function openCompose(id) {
     var r = DATA.find(function (x) { return x.id === id; });
     if (!r) return;
+    var isReady = r.mail === "ready";
+    composeIsReady = isReady;
     $("#cTitle").textContent = r.composeTitle;
-    $("#cKind").textContent = r.composeKind;
+    $("#cKind").textContent = isReady ? "Ready · drafted 7:30" : r.composeKind;
     $("#cFrom").innerHTML = field(r.fromName, r.fromAddr);
     $("#cTo").innerHTML = (r.to || []).map(function (p) { return field(p.name, p.email); }).join("") || field("—", "");
     $("#cCc").innerHTML = (r.cc || []).map(function (p) { return field(p.name, p.email); }).join("") || field("—", "");
@@ -1443,7 +1478,18 @@ th:nth-child(5), td.addr { width: 16%; }
     $("#cChips").innerHTML = (r.chips || []).map(function (c) { return '<span class="chip">' + esc(c) + "</span>"; }).join("");
     $("#cSend").innerHTML = esc(r.sendLabel) + '<span class="hint">' + esc(r.sendHint) + "</span>";
     $("#cNote").textContent = "Mock. Does not send.";
-    $("#cReady").textContent = "Put in Drafts";
+    var split = $("#cReadySplit");
+    if (isReady) {
+      $("#cReady").textContent = "Send";
+      $("#cSave").textContent = "Put in Drafts";
+      if (split) split.classList.add("solo");
+      $("#cReadyMore").hidden = true;
+    } else {
+      $("#cReady").textContent = "Put in Drafts";
+      $("#cSave").textContent = "Save draft";
+      if (split) split.classList.remove("solo");
+      $("#cReadyMore").hidden = false;
+    }
     $("#cReady").disabled = false;
     $("#cReadyMore").disabled = false;
     $("#drawer").classList.remove("on");
@@ -1571,8 +1617,12 @@ th:nth-child(5), td.addr { width: 16%; }
     $("#cBack").addEventListener("click", closeCompose);
     $("#cClose").addEventListener("click", closeCompose);
     $("#cHold").addEventListener("click", closeCompose);
-    $("#cSave").addEventListener("click", function () { mockNote("Saved on this device. Nothing sends."); });
-    $("#cReady").addEventListener("click", function () { mockNote("Put in Drafts. Local mock only. Nothing sends."); });
+    $("#cSave").addEventListener("click", function () {
+      mockNote(composeIsReady ? "Already in Drafts from the 7:30 pass. Nothing sends." : "Saved on this device. Nothing sends.");
+    });
+    $("#cReady").addEventListener("click", function () {
+      mockNote(composeIsReady ? "This mock does not send." : "Put in Drafts. Local mock only. Nothing sends.");
+    });
     $("#cReadyMore").addEventListener("click", toggleReadyMenu);
     $("#cSend").addEventListener("click", function () {
       closeReadyMenu();
