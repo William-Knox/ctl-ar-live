@@ -802,6 +802,66 @@ th:nth-child(5), td.addr { width: 18%; }
 .c-foot .act { padding: 0 12px; flex: 1 1 auto; }
 .c-foot .act.primary { flex: 1.4 1 auto; }
 
+.split {
+  display: flex;
+  position: relative;
+  flex: 1.4 1 auto;
+  min-width: 0;
+}
+.split .act.primary {
+  flex: 1 1 auto;
+  border-radius: 6px 0 0 6px;
+}
+.split-arrow {
+  flex: 0 0 40px;
+  width: 40px;
+  min-width: 40px;
+  height: 34px;
+  border-radius: 0 6px 6px 0;
+  border-left: 1px solid rgba(248,246,242,0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.split-arrow svg { display: block; }
+.split-arrow[aria-expanded="true"] { background: var(--navy-2); }
+.split-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 6px);
+  min-width: 220px;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(15,23,42,0.14);
+  padding: 4px;
+  z-index: 40;
+}
+.split-menu.on { display: block; }
+.split-menu button {
+  width: 100%;
+  text-align: left;
+  min-height: 40px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 650;
+  color: var(--navy);
+}
+.split-menu button:hover { background: var(--cream-2); }
+.split-menu .send { color: var(--clay); }
+.split-menu .hint {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.c-foot .split { flex: 1.4 1 auto; }
+.c-foot .split .act.primary { flex: 1 1 auto; }
+
+
 
 @media (max-width: 900px) {
   html, body { overflow: auto; }
@@ -910,6 +970,8 @@ th:nth-child(5), td.addr { width: 18%; }
   }
   .c-foot .actions { flex-direction: column; }
   .c-foot .act { width: 100%; min-height: 40px; }
+  .c-foot .split { width: 100%; }
+  .split-arrow { height: 40px; min-height: 40px; }
   .act { min-height: 40px; }
   .d-foot .act { min-height: 40px; }
 }
@@ -1079,13 +1141,22 @@ th:nth-child(5), td.addr { width: 18%; }
     <div class="actions">
       <button class="act ghost" id="cHold" type="button">Hold</button>
       <button class="act ghost" id="cSave" type="button">Save draft</button>
-      <button class="act primary" id="cReady" type="button">Ready for review</button>
+      <div class="split" id="cReadySplit">
+        <button class="act primary" id="cReady" type="button">Put in Drafts</button>
+        <button class="act primary split-arrow" id="cReadyMore" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="More send options">
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1.2L5 5l4-3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="split-menu" id="cReadyMenu" hidden>
+          <button type="button" class="send" id="cSend">Send now<span class="hint">Sends this letter from billings@. Does not wait in Drafts.</span></button>
+        </div>
+      </div>
     </div>
-    <p class="act-note" id="cNote">Ready for review queues a billings@ draft. Nothing sends until you say send.</p>
+    <p class="act-note" id="cNote">Put in Drafts drops a billings@ draft. The arrow is Send.</p>
   </div>
 </aside>
 
 <script src="data.js?v=cm-letters1"></script>
+<script src="ready-config.js?v=1"></script>
 
 <script>
 (function () {
@@ -2022,19 +2093,7 @@ th:nth-child(5), td.addr { width: 18%; }
     $("#compose").classList.add("on");
     $("#compose").setAttribute("aria-hidden", "false");
     $("#scrim").classList.add("on");
-    var readyBtn = $("#cReady");
-    var note = $("#cNote");
-    if (readyBtn) {
-      if (composeStatus(inv) === "ready") {
-        readyBtn.textContent = "Queued";
-        readyBtn.disabled = true;
-        if (note) note.textContent = "Already queued. Hyphen is making the billings@ draft. Nothing sends until you say send.";
-      } else {
-        readyBtn.textContent = "Ready for review";
-        readyBtn.disabled = false;
-        if (note) note.textContent = "Ready for review queues a billings@ draft. Nothing sends until you say send.";
-      }
-    }
+    syncReadyUi(inv);
   }
 
 
@@ -2189,16 +2248,173 @@ th:nth-child(5), td.addr { width: 18%; }
         if (n) n.textContent = "Saved on this device. Nothing sends.";
       });
     }
-    if ($("#cReady")) {
-      $("#cReady").addEventListener("click", function () {
-        var id = queueCompose("ready");
-        var btn = $("#cReady");
-        btn.textContent = "Queued";
-        btn.disabled = true;
-        var n = $("#cNote");
-        if (n) n.textContent = "Queued. Hyphen will make the billings@ draft. Nothing sends until you say send.";
-      });
+
+  function parseFieldPeople(el) {
+    if (!el) return [];
+    var addrs = el.querySelectorAll(".addr");
+    var whos = el.querySelectorAll(".who");
+    var out = [];
+    for (var i = 0; i < addrs.length; i++) {
+      var email = (addrs[i].textContent || "").trim();
+      var name = (whos[i] && whos[i].textContent || "").trim();
+      if (!email || email === "—" || email === "Internal") continue;
+      out.push({ name: name, email: email });
     }
+    return out;
+  }
+  function collectComposePayload() {
+    var id = state.selected;
+    var to = parseFieldPeople($("#cTo"));
+    var cc = parseFieldPeople($("#cCc"));
+    var fromP = parseFieldPeople($("#cFrom"))[0] || {
+      name: "Billings",
+      email: "billings@coastaltestinglabs.com"
+    };
+    var subjEl = $("#cSubj");
+    var subject = (subjEl && (subjEl.textContent || "").trim()) || "";
+    var letter = ($("#cLetter") && $("#cLetter").innerHTML) || "";
+    return { invoice: id, subject: subject, to: to, cc: cc, from: fromP, html: letter };
+  }
+  function composeRecord(id) {
+    try {
+      var map = JSON.parse(localStorage.getItem("hyphen-compose") || "{}");
+      return map[id] || {};
+    } catch (e) { return {}; }
+  }
+  function saveComposeRecord(id, rec) {
+    var map = {};
+    try { map = JSON.parse(localStorage.getItem("hyphen-compose") || "{}"); } catch (e) {}
+    map[id] = rec;
+    localStorage.setItem("hyphen-compose", JSON.stringify(map));
+  }
+  function closeReadyMenu() {
+    var menu = $("#cReadyMenu");
+    var more = $("#cReadyMore");
+    if (menu) {
+      menu.classList.remove("on");
+      menu.hidden = true;
+    }
+    if (more) more.setAttribute("aria-expanded", "false");
+  }
+  function toggleReadyMenu(e) {
+    if (e) e.stopPropagation();
+    var menu = $("#cReadyMenu");
+    var more = $("#cReadyMore");
+    if (!menu || !more || more.disabled) return;
+    var open = !menu.classList.contains("on");
+    if (open) {
+      menu.hidden = false;
+      menu.classList.add("on");
+      more.setAttribute("aria-expanded", "true");
+    } else {
+      closeReadyMenu();
+    }
+  }
+  function syncReadyUi(id) {
+    var rec = composeRecord(id);
+    var btn = $("#cReady");
+    var more = $("#cReadyMore");
+    var note = $("#cNote");
+    if (!btn) return;
+    if (rec.status === "sent") {
+      btn.textContent = "Sent";
+      btn.disabled = true;
+      if (more) more.disabled = true;
+      if (note) note.textContent = "Sent from billings@. Nothing else to do here.";
+    } else if (rec.status === "ready") {
+      btn.textContent = "Queued";
+      btn.disabled = true;
+      if (more) more.disabled = false;
+      if (note) {
+        if (rec.webLink) {
+          note.innerHTML = 'Queued in billings@ Drafts. <a href="' + rec.webLink + '" target="_blank" rel="noopener">Open in Outlook</a>. Arrow still sends.';
+        } else {
+          note.textContent = "Queued in billings@ Drafts. Arrow still sends.";
+        }
+      }
+    } else {
+      btn.textContent = "Put in Drafts";
+      btn.disabled = false;
+      if (more) more.disabled = false;
+      if (note) note.textContent = "Put in Drafts drops a billings@ draft. The arrow is Send.";
+    }
+  }
+  function dropToOutlook(action) {
+    var btn = $("#cReady");
+    var more = $("#cReadyMore");
+    var n = $("#cNote");
+    var payload = collectComposePayload();
+    if (!payload.invoice || !payload.html) {
+      if (n) n.textContent = "Nothing to queue — open a letter first.";
+      return;
+    }
+    if (!window.HYPHEN_READY_API || !window.HYPHEN_READY_SECRET) {
+      if (n) n.textContent = "Drop is not live yet. Try again in a moment.";
+      return;
+    }
+    closeReadyMenu();
+    var rec = composeRecord(payload.invoice);
+    btn.disabled = true;
+    if (more) more.disabled = true;
+    btn.textContent = action === "send" ? "Sending…" : "Queuing…";
+    if (n) n.textContent = action === "send"
+      ? "Sending from billings@."
+      : "Creating the billings@ draft. Nothing sends.";
+    fetch(window.HYPHEN_READY_API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Hyphen-Ready": window.HYPHEN_READY_SECRET
+      },
+      body: JSON.stringify({
+        secret: window.HYPHEN_READY_SECRET,
+        action: action,
+        graphMessageId: rec.graphMessageId || "",
+        invoice: payload.invoice,
+        subject: payload.subject,
+        to: payload.to,
+        cc: payload.cc,
+        from: payload.from,
+        html: payload.html
+      })
+    })
+      .then(function (res) {
+        return res.json().then(function (data) { return { res: res, data: data }; });
+      })
+      .then(function (x) {
+        if (!x.res.ok || !x.data.ok) {
+          throw new Error((x.data && x.data.error) || ("HTTP " + x.res.status));
+        }
+        var next = {
+          status: action === "send" ? "sent" : "ready",
+          at: new Date().toISOString(),
+          graphMessageId: x.data.id || rec.graphMessageId || "",
+          webLink: x.data.webLink || rec.webLink || ""
+        };
+        saveComposeRecord(payload.invoice, next);
+        syncReadyUi(payload.invoice);
+      })
+      .catch(function () {
+        syncReadyUi(payload.invoice);
+        if (n) n.textContent = action === "send"
+          ? "Could not send. Draft is unchanged."
+          : "Could not create the Outlook draft. Try again.";
+      });
+  }
+    if ($("#cReady")) {
+      $("#cReady").addEventListener("click", function () { dropToOutlook("draft"); });
+    }
+    if ($("#cReadyMore")) {
+      $("#cReadyMore").addEventListener("click", toggleReadyMenu);
+    }
+    if ($("#cSend")) {
+      $("#cSend").addEventListener("click", function () { dropToOutlook("send"); });
+    }
+    document.addEventListener("click", function (e) {
+      if (!$("#cReadySplit") || $("#cReadySplit").contains(e.target)) return;
+      closeReadyMenu();
+    });
+
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         if ($("#compose").classList.contains("on")) closeCompose();
