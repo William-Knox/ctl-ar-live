@@ -1078,14 +1078,14 @@ th:nth-child(5), td.addr { width: 18%; }
   <div class="c-foot">
     <div class="actions">
       <button class="act ghost" id="cHold" type="button">Hold</button>
-      <button class="act ghost" type="button">Save draft</button>
-      <button class="act primary" type="button">Ready for review</button>
+      <button class="act ghost" id="cSave" type="button">Save draft</button>
+      <button class="act primary" id="cReady" type="button">Ready for review</button>
     </div>
-    <p class="act-note">Nothing sends until you approve.</p>
+    <p class="act-note" id="cNote">Ready for review queues a billings@ draft. Nothing sends until you say send.</p>
   </div>
 </aside>
 
-<script src="data.js?v=20260817c"></script>
+<script src="data.js?v=ready1"></script>
 
 <script>
 (function () {
@@ -1702,6 +1702,21 @@ th:nth-child(5), td.addr { width: 18%; }
     );
   }
 
+  function queueCompose(status) {
+    var id = state.selected;
+    if (!id) return "";
+    var map = {};
+    try { map = JSON.parse(localStorage.getItem("hyphen-compose") || "{}"); } catch (e) {}
+    map[id] = {status: status, at: new Date().toISOString()};
+    localStorage.setItem("hyphen-compose", JSON.stringify(map));
+    return id;
+  }
+  function composeStatus(id) {
+    try {
+      var map = JSON.parse(localStorage.getItem("hyphen-compose") || "{}");
+      return (map[id] || {}).status || "";
+    } catch (e) { return ""; }
+  }
   function closeCompose() {
     const el = $("#compose");
     if (!el) return;
@@ -1950,6 +1965,19 @@ th:nth-child(5), td.addr { width: 18%; }
     $("#compose").classList.add("on");
     $("#compose").setAttribute("aria-hidden", "false");
     $("#scrim").classList.add("on");
+    var readyBtn = $("#cReady");
+    var note = $("#cNote");
+    if (readyBtn) {
+      if (composeStatus(inv) === "ready") {
+        readyBtn.textContent = "Queued";
+        readyBtn.disabled = true;
+        if (note) note.textContent = "Already queued. Hyphen is making the billings@ draft. Nothing sends until you say send.";
+      } else {
+        readyBtn.textContent = "Ready for review";
+        readyBtn.disabled = false;
+        if (note) note.textContent = "Ready for review queues a billings@ draft. Nothing sends until you say send.";
+      }
+    }
   }
 
 
@@ -2097,6 +2125,23 @@ th:nth-child(5), td.addr { width: 18%; }
     $("#cBack").addEventListener("click", closeCompose);
     $("#cClose").addEventListener("click", closeCompose);
     $("#cHold").addEventListener("click", closeCompose);
+    if ($("#cSave")) {
+      $("#cSave").addEventListener("click", function () {
+        queueCompose("saved");
+        var n = $("#cNote");
+        if (n) n.textContent = "Saved on this device. Nothing sends.";
+      });
+    }
+    if ($("#cReady")) {
+      $("#cReady").addEventListener("click", function () {
+        var id = queueCompose("ready");
+        var btn = $("#cReady");
+        btn.textContent = "Queued";
+        btn.disabled = true;
+        var n = $("#cNote");
+        if (n) n.textContent = "Queued. Hyphen will make the billings@ draft. Nothing sends until you say send.";
+      });
+    }
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         if ($("#compose").classList.contains("on")) closeCompose();
