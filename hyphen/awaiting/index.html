@@ -805,8 +805,8 @@ th:nth-child(5), td.addr { width: 16%; }
     <span class="seg-lab">Mail</span>
     <div class="seg" id="mailSeg" role="tablist" aria-label="Mail">
       <button type="button" data-mail="all">All <span class="n" data-n="all">8</span></button>
-      <button type="button" data-mail="ready" class="on">Ready <span class="n" data-n="ready">4</span></button>
-      <button type="button" data-mail="awaiting" class="awaiting">Awaiting <span class="n" data-n="awaiting">0</span></button>
+      <button type="button" data-mail="ready" class="on">Ready <span class="n" data-n="ready">2</span></button>
+      <button type="button" data-mail="awaiting" class="awaiting">Awaiting <span class="n" data-n="awaiting">2</span></button>
       <button type="button" data-mail="needs_you">Needs you <span class="n" data-n="needs_you">0</span></button>
       <button type="button" data-mail="drafted">Drafted <span class="n" data-n="drafted">1</span></button>
       <button type="button" data-mail="not_sent">Not sent <span class="n" data-n="not_sent">3</span></button>
@@ -853,7 +853,7 @@ th:nth-child(5), td.addr { width: 16%; }
   </div>
 
   <div class="mail-note ready-note" id="mailNote">
-    7:30 put <b>4</b> complete packets in billings@ Drafts. Nothing sent. Incomplete stays out of Ready.
+    7:30 put <b>2</b> complete packets in billings@ Drafts. Nothing sent. Incomplete stays out of Ready.
   </div>
 
   <div class="wrap">
@@ -958,7 +958,7 @@ th:nth-child(5), td.addr { width: 16%; }
     {
       id: "0415-170614", days: 89, open: 350, billed: 350,
       community: "21-506 Pecan Ridge", address: "32147 Sky Branch",
-      builder: "TriPointe Homes", era: "pre-strata", why: "No PO", mail: "ready",
+      builder: "TriPointe Homes", era: "pre-strata", why: "No PO", mail: "awaiting",
       lastSent: "Fri 8/14", lastSentSort: "2026-08-14", lastSentFull: "Fri Aug 14, 3:33pm CT",
       waiting: 1, lastReply: "Chad · Mon 8/17", lastReplyFull: "Chad Luedke · Mon Aug 17",
       court: "Theirs. They still have to enter this in Hyphen.",
@@ -993,7 +993,7 @@ th:nth-child(5), td.addr { width: 16%; }
     {
       id: "0416-170670", days: 89, open: 416, billed: 416,
       community: "09-679 Woodson's Reserve", address: "3903 Sandhills Pine Cove",
-      builder: "Toll Brothers, Inc.", era: "pre-strata", why: "Broken link", mail: "ready",
+      builder: "Toll Brothers, Inc.", era: "pre-strata", why: "Broken link", mail: "awaiting",
       lastSent: "Fri 8/14", lastSentSort: "2026-08-14", lastSentFull: "Fri Aug 14, 3:58pm CT",
       waiting: 1, lastReply: "", lastReplyFull: "",
       court: "Theirs. No builder reply after Friday's send.",
@@ -1352,7 +1352,7 @@ th:nth-child(5), td.addr { width: 16%; }
       return "<b>No complete packets in this filter.</b>Incomplete never enters Ready.";
     }
     if (state.mail === "awaiting" && !hasExtraFilters()) {
-      return "<b>Nothing awaiting.</b>Complete packets from the 7:30 pass are on Ready.";
+      return "<b>Nothing awaiting.</b> Sent threads still in their court show here.";
     }
     return "No invoices match these filters.";
   }
