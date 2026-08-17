@@ -1155,7 +1155,7 @@ th:nth-child(5), td.addr { width: 18%; }
   </div>
 </aside>
 
-<script src="data.js?v=cm-letters1"></script>
+<script src="data.js?v=leftover-rules1"></script>
 <script>
 window.HYPHEN_READY_API = "https://temporary-quick-sitar-fa3vsqk.vercel.app/api/ready";
 window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18eb7e6555a03fba7";
@@ -1724,9 +1724,15 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "notes_error") {
       hint = "We uploaded the wrong 2-lift notes. That caused the underpay. Notes now show 3 lifts. Ask the builder for an EPO on the leftover lift.";
       primary = "Draft EPO chase";
+    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "proctor_pi") {
+      hint = "They paid the lifts. Leftover is Proctor and PI. Builder EPO from billings@, not an internal cash-app note.";
+      primary = "Draft EPO chase";
+    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "unpaid_po") {
+      hint = "PO is in Hyphen and still unpaid. This is a payment chase, not amount-off.";
+      primary = "Draft a chase";
     } else if (why.indexOf("Amount") === 0) {
-      hint = "Hyphen PO is short of the open books. Confirm lifts before a chase.";
-      primary = "Draft amount-off note";
+      hint = "Leftover is unnamed. Hold until we can say what they still owe. Do not send a confirm-lifts stub.";
+      primary = "Hold — leftover unnamed";
     } else if (why.indexOf("Broken") === 0) {
       hint = "Supplier Order Number sits on a cancelled or wrong PO.";
       primary = "Draft a chase";
@@ -1999,27 +2005,67 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
         '<span class="chip">Corrected Hyphen notes</span>',
         '<span class="chip">Three reports</span>'
       ]);
+    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "proctor_pi") {
+      title = "Draft EPO chase";
+      kind = "Builder";
+      subject = "EPO needed — " + inv + " — " + addr;
+      var leftover = r.leftover_label || "Proctor and PI";
+      var work = r.work_done || ("two compaction lifts plus " + leftover);
+      var paidFor = r.paid_for || "the two lifts";
+      var ck = r.check_number ? ("check " + r.check_number) : "the builder check";
+      var ckWhen = r.check_date ? (" on " + r.check_date) : "";
+      var ckAmt = (r.check_amount != null && r.check_amount !== "") ? money(r.check_amount) : "a partial payment";
+      var poBit = po ? (" on PO " + po) : "";
+      var leadP = "We performed " + esc(work) + " at " + esc(addr) +
+        " and billed invoice " + esc(inv) + " for " + esc(billed) +
+        ". Lennar paid " + esc(ckAmt) + " on " + esc(ck) + esc(ckWhen) + esc(poBit) +
+        " for " + esc(paidFor) + ". The remaining " + esc(openAmt) +
+        " is the " + esc(leftover) + ", and it has been " + esc(aging) + ".";
+      var extraP = "<p>Please issue an EPO or supplemental purchase order for the " +
+        esc(leftover) + " (" + esc(openAmt) + ") on this address so we can close invoice " +
+        esc(inv) + ". Do not park this remainder on another lot. Prior Hyphen notes and payment asks are on the timeline below.</p>";
+      letter = letterWrap(
+        leadP,
+        abbrevTimeline(r, "Still open " + openAmt + " · need EPO for " + leftover),
+        extraP
+      );
+      chips = chipsFrom(r, [
+        '<span class="chip">' + esc(inv) + " invoice</span>",
+        '<span class="chip">' + esc(leftover) + " leftover</span>"
+      ]);
+    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "unpaid_po") {
+      title = "Draft a chase";
+      kind = "Builder";
+      subject = "Payment needed — " + inv + " — " + addr;
+      var poBitU = po ? (" on PO " + esc(po)) : "";
+      var leadU = "We performed the work at " + esc(addr) + " and billed invoice " +
+        esc(inv) + " for " + esc(billed) + poBitU +
+        ". The PO is in Hyphen and nothing has been paid. This has been " + esc(aging) + ".";
+      var extraU = "<p>Please release payment for invoice " + esc(inv) +
+        " / " + esc(billed) + " so we can close this. Call-in, service date, and notes are on the timeline below.</p>";
+      letter = letterWrap(leadU, abbrevTimeline(r, "PO unpaid · open " + openAmt), extraU);
+      chips = chipsFrom(r, ['<span class="chip">' + esc(inv) + " invoice</span>"]);
     } else if (why.indexOf("Amount") === 0) {
-      title = "Draft amount-off note";
+      title = "Hold — leftover unnamed";
       kind = "Internal";
       fromName = "William Knox";
       fromAddr = "william@coastaltestinglabs.com";
-      toName = "Cash application";
-      toAddr = "Internal";
-      subject = "Amount off — " + inv + " — " + addr;
+      toName = "William Knox";
+      toAddr = "william@coastaltestinglabs.com";
+      subject = "Hold — unnamed leftover — " + inv + " — " + addr;
       var paidBit = (r.check_amount != null && r.check_amount !== "")
         ? (money(r.check_amount) + (r.check_number ? " on check " + r.check_number : ""))
-        : ((r.hyphen_line_total != null && r.hyphen_line_total !== "") ? money(r.hyphen_line_total) + " on the PO" : "a short Hyphen payment");
+        : "a short Hyphen payment";
       letter = letterWrap(
-        "Hyphen shows " + esc(paidBit) + " against billed " + esc(billed) +
-          " on invoice " + esc(inv) + " at " + esc(addr) + ", leaving " +
-          esc(openAmt) + " still open. This has been " + esc(aging) +
-          ". Confirm lift count before a builder chase.",
-        abbrevTimeline(r, "Amount off — confirm lifts · open " + openAmt),
-        "",
+        "Do not send a builder letter yet. Invoice " + esc(inv) + " at " + esc(addr) +
+          " billed " + esc(billed) + ", Hyphen shows " + esc(paidBit) +
+          ", and " + esc(openAmt) + " is still open (" + esc(aging) +
+          "). Notes do not name the leftover (lift vs Proctor/PI vs lab). Research that before any CM letter.",
+        abbrevTimeline(r, "HOLD · leftover unnamed · open " + openAmt),
+        "<p>Internal hold only. Not a cash-application packet.</p>",
         false
       );
-      chips = chipsFrom(r, ['<span class="chip">' + esc(inv) + " invoice</span>"]);
+      chips = chipsFrom(r, ['<span class="chip">Hold</span>']);
     } else {
       var noPo = why.indexOf("No PO") === 0;
       var commBit = comm ? (" This is in " + esc(comm) + ".") : "";
@@ -2323,16 +2369,20 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       btn.textContent = "Sent";
       btn.disabled = true;
       if (more) more.disabled = true;
-      if (note) note.textContent = "Sent from billings@. Nothing else to do here.";
+      if (note) {
+        var fromEl = $("#cFrom");
+        var fromAddr = (fromEl && fromEl.querySelector(".addr") && fromEl.querySelector(".addr").textContent) || "billings@";
+        note.textContent = "Sent from " + fromAddr + ". Nothing else to do here.";
+      }
     } else if (rec.status === "ready") {
       btn.textContent = "Queued";
       btn.disabled = true;
       if (more) more.disabled = false;
       if (note) {
         if (rec.webLink) {
-          note.innerHTML = 'Queued in billings@ Drafts. <a href="' + rec.webLink + '" target="_blank" rel="noopener">Open in Outlook</a>. Arrow still sends.';
+          note.innerHTML = 'Queued in Drafts. <a href="' + rec.webLink + '" target="_blank" rel="noopener">Open in Outlook</a>. Arrow still sends.';
         } else {
-          note.textContent = "Queued in billings@ Drafts. Arrow still sends.";
+          note.textContent = "Queued in Drafts. Arrow still sends.";
         }
       }
     } else {
@@ -2372,6 +2422,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       body: JSON.stringify({
         secret: window.HYPHEN_READY_SECRET,
         action: action,
+        mailbox: payload.from && payload.from.email ? payload.from.email : "billings@coastaltestinglabs.com",
         graphMessageId: rec.graphMessageId || "",
         invoice: payload.invoice,
         subject: payload.subject,
