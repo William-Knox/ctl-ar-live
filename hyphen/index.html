@@ -9,7 +9,7 @@
 <body>
 <p>Opening Hyphen review…</p>
 <script>
-fetch("https://gist.githubusercontent.com/William-Knox/9fb5de09d67cb3a83c82838c92626021/raw/Hyphen-review.html", {cache:"no-store"})
+fetch("https://gist.githubusercontent.com/William-Knox/9fb5de09d67cb3a83c82838c92626021/raw/dd3e0358d250955e41ca09bdb11fc86c6a449907/Hyphen-review.html?v=close1", {cache:"no-store"})
   .then(function(r){ if(!r.ok) throw new Error(r.status + " " + r.statusText); return r.text(); })
   .then(function(html){ document.open(); document.write(html); document.close(); })
   .catch(function(e){ document.body.innerHTML = "<p>Could not load the queue. " + String(e) + "</p>"; });
