@@ -1829,6 +1829,129 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       return it && it.what && !/^Research:/i.test(String(it.what));
     });
   }
+  function prettyWhen(when) {
+    var s = String(when || "").replace(/\s+\d{1,2}:\d{2}\s*(AM|PM)\s*CT/i, "").trim();
+    var m = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (!m) return s;
+    var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return months[Number(m[2]) - 1] + " " + Number(m[3]) + ", " + m[1];
+  }
+  function formatExternalEvent(it, r) {
+    var what = String(it.what || "").trim();
+    var when = prettyWhen(it.when);
+    var po = (r && (r.builder_order_number || r.strata_po_num)) || "";
+    var addr = r && (r.service_address || "").trim();
+    if (/^Added to schedule|^Ryan added|^Research:/i.test(what)) {
+      return null;
+    }
+    var CANON = {
+      "called in": "Called in",
+      "serviced": "Serviced",
+      "invoiced": "Invoiced",
+      "notes entered": "Notes entered",
+      "paid": "Paid",
+      "asked": "Asked",
+      "replied": "Replied",
+      "prior request": "Asked",
+      "today": "Today"
+    };
+    function dashLabel(label, rest) {
+      rest = String(rest || "").replace(/^\s*[:—–-]+\s*/, "").trim();
+      return label + " — " + rest;
+    }
+    var lab = what.match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Prior request|Today)\b\s*[:—–-]?\s*(.*)$/i);
+    if (lab) {
+      var name = CANON[lab[1].toLowerCase()] || lab[1];
+      var rest = lab[2] || "";
+      if (name === "Today" || it.today) {
+        return {when: "Today", what: rest || what.replace(/^Today\b\s*[:—–-]?\s*/i, ""), today: true};
+      }
+      return {when: when, what: dashLabel(name, rest), today: false};
+    }
+    if (it.today) {
+      return {when: "Today", what: what, today: true};
+    }
+    var m;
+    m = what.match(/^(.+?) to Ryan\/Joe:\s*(.+)$/i);
+    if (m) {
+      var who = m[1].replace(/\s*\(.*\)\s*$/, "").trim();
+      var restRJ = m[2].replace(/-\s*/g, " ").replace(/\s+/g, " ").trim();
+      var work = restRJ;
+      var at = addr || "";
+      if (addr) {
+        var reAddr = new RegExp(addr.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i");
+        if (reAddr.test(restRJ)) {
+          work = restRJ.replace(reAddr, "").replace(/\s+/g, " ").trim();
+          at = addr;
+        }
+      }
+      if (!work) work = restRJ;
+      var phrase = who + " asked Ryan/Joe for " + work;
+      if (at) phrase += " at " + at;
+      if (!/[.!?]$/.test(phrase)) phrase += ".";
+      return {when: when, what: "Called in — " + phrase, today: false};
+    }
+    m = what.match(/^QBO\s+(\S+)\s+\$([0-9,.]+)/i);
+    if (m) {
+      return {when: when, what: "Invoiced — " + m[1] + " issued for $" + m[2], today: false};
+    }
+    m = what.match(/^Hyphen note\s+([^:]+):\s*(.+)$/i);
+    if (m) {
+      var note = m[2].replace(/\s+/g, " ").trim();
+      var poBit = po || "the Hyphen PO";
+      return {when: when, what: "Notes entered — " + m[1].trim() + " on PO " + poBit + ": " + note, today: false};
+    }
+    m = what.match(/check\s+(\d+)/i);
+    if (m && /paid|check|Lennar check/i.test(what)) {
+      var amtM = what.match(/\$([0-9,.]+)/);
+      var amt = amtM ? amtM[1] : "";
+      var dateM = what.match(/\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2}(?:,\s*\d{4})?|\d{4}-\d{2}-\d{2}|\d{1,2}\/\d{1,2}\/\d{2,4})\b/i);
+      var dt = dateM ? dateM[1] : "";
+      var covers = "";
+      var covM = what.match(/covers?\s+(.+)$/i);
+      if (covM) covers = covM[1].replace(/[.]+$/, "").trim();
+      var bits = ["check " + m[1]];
+      if (dt) bits.push(dt);
+      if (amt) bits.push("$" + amt);
+      var paid = "Paid — " + bits.join(" ");
+      if (po) paid += " on PO " + po;
+      if (covers) paid += "; covers " + covers;
+      return {when: when, what: paid, today: false};
+    }
+    m = what.match(/^(Maria|William|Veronica|Esme|Esmeralda)\b(.*)$/i);
+    if (m && /PO|EPO|request|asked/i.test(what)) {
+      var whoA = /Esmeralda/i.test(m[1]) ? "Esme" : m[1];
+      var tail = m[2].replace(/\s+/g, " ").trim();
+      var cm = "";
+      var named = tail.match(/(Montana(?:\s+Grove)?|Jordan(?:\s+Beakley)?)/gi);
+      if (named && named.length) {
+        var uniq = [];
+        var seenN = {};
+        named.forEach(function (n) {
+          var full = /montana/i.test(n) ? "Montana Grove" : /jordan/i.test(n) ? "Jordan Beakley" : n;
+          if (!seenN[full]) { seenN[full] = true; uniq.push(full); }
+        });
+        cm = uniq.join(" and ");
+      }
+      var ask = tail;
+      var forM = tail.match(/\bfor\s+(.+)$/i);
+      if (forM) ask = forM[1].replace(/[.]+$/, "").trim();
+      else ask = tail.replace(/^[:\s—–-]+/, "").replace(/[.]+$/, "").trim();
+      var asked = "Asked — " + whoA + " emailed" + (cm ? " " + cm : "") + " for " + ask;
+      if (!/[.!?]$/.test(asked)) asked += ".";
+      return {when: when, what: asked, today: false};
+    }
+    if (/has this been created|replied\b/i.test(what) || (/^(Jordan|Montana|Lennar)\b/i.test(what) && /created|replied|whether/i.test(what))) {
+      var whoR = "Client";
+      var wr = what.match(/^(Jordan(?:\s+Beakley)?|Montana(?:\s+Grove)?|Lennar)\b/i);
+      if (wr) whoR = wr[1];
+      else if (/Jordan/i.test(what)) whoR = "Jordan Beakley";
+      else if (/Montana/i.test(what)) whoR = "Montana Grove";
+      var sub = what.replace(/^(Jordan(?:\s+Beakley)?|Montana(?:\s+Grove)?|Lennar)\s*[:—–-]\s*/i, "").replace(/\s+/g, " ").trim();
+      return {when: when, what: "Replied — " + whoR + ": " + sub, today: false};
+    }
+    return {when: when, what: what, today: !!it.today};
+  }
   function abbrevTimeline(r, todayWhat) {
     var src = dropResearch(
       (r.chase_timeline && r.chase_timeline.length) ? r.chase_timeline : (r.timeline || [])
@@ -1836,19 +1959,50 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var out = [];
     var seen = {};
     src.forEach(function (it) {
-      if (out.length >= 5) return;
       var key = (it.when || "") + "|" + it.what;
       if (seen[key]) return;
       seen[key] = true;
-      out.push({when: it.when, what: it.what, today: !!it.today});
+      var ev = formatExternalEvent(it, r);
+      if (!ev) return;
+      out.push(ev);
     });
     if (todayWhat) {
       out = out.filter(function (it) { return !it.today; });
-      if (out.length > 4) out = out.slice(0, 4);
       out.push({when: "Today", what: todayWhat, today: true});
     } else if (!out.some(function (it) { return it.today; })) {
       out.push({when: "Today", what: "Still open " + money(r.balance), today: true});
     }
+    function isMust(it) {
+      return /^(Asked|Replied)\b/i.test(it.what || "");
+    }
+    function isKeep(it) {
+      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied)\b/i.test(it.what || "");
+    }
+    var todayRows = out.filter(function (it) { return it.today; });
+    var rest = out.filter(function (it) { return !it.today; });
+    var must = rest.filter(isMust);
+    var keep = rest.filter(function (it) { return isKeep(it) && !isMust(it); });
+    var extra = rest.filter(function (it) { return !isKeep(it); });
+    var budget = 8;
+    var selected;
+    if (must.length + keep.length <= budget) {
+      selected = rest.filter(isKeep);
+      extra.forEach(function (it) {
+        if (selected.length < budget) selected.push(it);
+      });
+    } else {
+      var room = Math.max(0, budget - must.length);
+      var nice = keep;
+      if (nice.length > room) nice = nice.slice(nice.length - room);
+      var keepSet = {};
+      must.concat(nice).forEach(function (it) {
+        keepSet[(it.when || "") + "|" + it.what] = true;
+      });
+      selected = rest.filter(function (it) {
+        return keepSet[(it.when || "") + "|" + it.what];
+      });
+    }
+    out = selected.concat(todayRows.slice(-1));
     if (!out.length) {
       out = [
         {when: fmtDate(r.txnDate), what: "Invoice " + r.docNumber + " · " + money(r.totalAmt) + " · " + (((r.service_address || "").trim()) || "—")},
@@ -2101,7 +2255,16 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     }
     if (r.chase_subject) subject = r.chase_subject;
     if (r.chase_letter_lead) {
-      var chaseTl = (r.chase_timeline && r.chase_timeline.length) ? r.chase_timeline : abbrevTimeline(r);
+      var chaseTl;
+      if (r.chase_timeline && r.chase_timeline.length) {
+        chaseTl = [];
+        r.chase_timeline.forEach(function (it) {
+          var ev = formatExternalEvent(it, r);
+          if (ev) chaseTl.push(ev);
+        });
+      } else {
+        chaseTl = abbrevTimeline(r);
+      }
       var extra = "";
       (r.chase_letter_paras || []).forEach(function (p) {
         extra += "<p>" + esc(p) + "</p>";
@@ -2322,7 +2485,23 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var subjEl = $("#cSubj");
     var subject = (subjEl && (subjEl.textContent || "").trim()) || "";
     var letter = ($("#cLetter") && $("#cLetter").innerHTML) || "";
-    return { invoice: id, subject: subject, to: to, cc: cc, from: fromP, html: letter };
+    var rec = DATA.find(function (x) { return x.docNumber === id; }) || {};
+    var atts = (rec.chase_attachments || []).filter(function (a) {
+      return a && a.mailbox && a.messageId;
+    }).map(function (a) {
+      return {
+        mailbox: a.mailbox,
+        messageId: a.messageId,
+        filename: a.filename || a.name || a.label || "attachment.eml",
+        name: a.filename || a.name || a.label || "attachment.eml"
+      };
+    });
+    var payload = { invoice: id, subject: subject, to: to, cc: cc, from: fromP, html: letter };
+    if (atts.length) {
+      payload.attachments = atts;
+      payload.replaceExisting = true;
+    }
+    return payload;
   }
   function composeRecord(id) {
     try {
@@ -2429,7 +2608,9 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
         to: payload.to,
         cc: payload.cc,
         from: payload.from,
-        html: payload.html
+        html: payload.html,
+        attachments: payload.attachments || [],
+        replaceExisting: !!payload.replaceExisting
       })
     })
       .then(function (res) {
