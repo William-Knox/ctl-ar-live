@@ -739,6 +739,10 @@ th:nth-child(5), td.addr { width: 18%; }
 }
 .letter p { margin: 0 0 10px; }
 .letter p:last-child { margin-bottom: 0; }
+.letter p.hold {
+  color: var(--clay);
+}
+
 .tl { margin: 12px 0 14px; padding: 0; list-style: none; }
 .tl li {
   position: relative;
@@ -2033,6 +2037,31 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     }
     return (extras || []).join("");
   }
+  function isCtlEmail(e) {
+    return /@coastaltestinglabs\.com$/i.test(String(e || ""));
+  }
+  function packetGaps(r, kind) {
+    if (kind === "Internal") return [];
+    var gaps = [];
+    if (!r.chase_to || !/@/.test(String(r.chase_to))) {
+      gaps.push("To is not a real PO person or project CM");
+    }
+    var clientCc = (r.chase_cc || []).some(function (c) {
+      return c && c.email && !isCtlEmail(c.email);
+    });
+    if (!clientCc) gaps.push("CC has no builder or community manager");
+    if (!r.chase_letter_lead) gaps.push("No written background a CM can act on");
+    var tl = r.chase_timeline || [];
+    var labeled = tl.some(function (it) {
+      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied)\b/i.test(String(it.what || ""));
+    });
+    if (!labeled) gaps.push("No labeled timeline");
+    var atts = (r.chase_attachments || []).filter(function (a) {
+      return a && a.mailbox && a.messageId;
+    });
+    if (!atts.length) gaps.push("No customer-facing attachments on file");
+    return gaps;
+  }
   function openCompose(id) {
     const r = DATA.find((x) => x.docNumber === id);
     if (!r) return;
@@ -2049,7 +2078,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     let kind = "Builder";
     let fromName = "Billings";
     let fromAddr = "billings@coastaltestinglabs.com";
-    let toName = (r.chase_to_name || "Hyphen PO contact");
+    let toName = (r.chase_to_name || "Need project CM");
     let toAddr = r.chase_to || "";
     let subject = (r.hyphen_review && r.hyphen_review.next === "chase")
       ? ("Payment needed — " + inv + " — " + addr)
@@ -2243,6 +2272,16 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       chips = chipsFrom(r, ['<span class="chip">' + esc(inv) + " invoice</span>"]);
     }
 
+
+    var gaps = packetGaps(r, kind);
+    if (!r.chase_to && kind !== "Internal") {
+      toName = "Need project CM";
+      toAddr = "";
+    }
+    if (gaps.length) {
+      title = "Hold — packet incomplete";
+    }
+
     $("#cTitle").textContent = title;
     $("#cKind").textContent = kind;
     if (r.chase_to) {
@@ -2292,7 +2331,6 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var ccEl = $("#cCc");
     if (ccEl) ccEl.innerHTML = ccHtml;
     $("#cSubj").innerHTML = '<div class="who">' + esc(subject) + "</div>";
-    $("#cLetter").innerHTML = letter;
     if (r.chase_attachments && r.chase_attachments.length) {
       chips = r.chase_attachments.map(function (a) {
         return '<span class="chip">' + esc(a.label || a.kind) + "</span>";
@@ -2300,11 +2338,28 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     } else if (!chips) {
       chips = '<span class="chip">' + esc(inv) + " invoice</span>";
     }
+
+    if (gaps.length) {
+      letter = '<p class="hold"><b>Not ready.</b> Missing: ' + gaps.join("; ") + ". Do not send. This is the old stub, not a finished packet.</p>" + letter;
+      var chipFor = {
+        "To is not a real PO person or project CM": "Need To",
+        "CC has no builder or community manager": "Need client CC",
+        "No written background a CM can act on": "Need background",
+        "No labeled timeline": "Need timeline",
+        "No customer-facing attachments on file": "Need attachments"
+      };
+      chips = gaps.map(function (g) {
+        return '<span class="chip">' + esc(chipFor[g] || g) + "</span>";
+      }).join("");
+    }
+
+    $("#cLetter").innerHTML = letter;
     $("#cChips").innerHTML = chips;
     $("#drawer").classList.remove("on");
     $("#compose").classList.add("on");
     $("#compose").setAttribute("aria-hidden", "false");
     $("#scrim").classList.add("on");
+    state.packetGaps = gaps;
     syncReadyUi(inv);
   }
 
@@ -2544,7 +2599,12 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var more = $("#cReadyMore");
     var note = $("#cNote");
     if (!btn) return;
-    if (rec.status === "sent") {
+    if (state.packetGaps && state.packetGaps.length && rec.status !== "sent" && rec.status !== "ready") {
+      btn.textContent = "Not ready";
+      btn.disabled = true;
+      if (more) more.disabled = true;
+      if (note) note.textContent = "Packet incomplete: " + state.packetGaps.join(". ") + ".";
+    } else if (rec.status === "sent") {
       btn.textContent = "Sent";
       btn.disabled = true;
       if (more) more.disabled = true;
@@ -2575,6 +2635,10 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var btn = $("#cReady");
     var more = $("#cReadyMore");
     var n = $("#cNote");
+    if (state.packetGaps && state.packetGaps.length) {
+      if (n) n.textContent = "Packet incomplete: " + state.packetGaps.join(". ") + ".";
+      return;
+    }
     var payload = collectComposePayload();
     if (!payload.invoice || !payload.html) {
       if (n) n.textContent = "Nothing to queue — open a letter first.";
