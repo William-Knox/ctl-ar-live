@@ -1085,7 +1085,7 @@ th:nth-child(5), td.addr { width: 18%; }
   </div>
 </aside>
 
-<script src="data.js?v=ready1"></script>
+<script src="data.js?v=notes-error1"></script>
 
 <script>
 (function () {
@@ -1647,6 +1647,9 @@ th:nth-child(5), td.addr { width: 18%; }
       hint = "No PO on this invoice. Chase goes in billings@ Drafts.";
       primary = "Draft a chase";
       secondary = "Add to community packet";
+    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "notes_error") {
+      hint = "We uploaded the wrong 2-lift notes. That caused the underpay. Notes now show 3 lifts. Ask the builder for an EPO on the leftover lift.";
+      primary = "Draft EPO chase";
     } else if (why.indexOf("Amount") === 0) {
       hint = "Hyphen PO is short of the open books. Confirm lifts before a chase.";
       primary = "Draft amount-off note";
@@ -1882,6 +1885,41 @@ th:nth-child(5), td.addr { width: 18%; }
           '<span class="chip">' + esc(inv) + " invoice</span>"
         ]);
       }
+    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "notes_error") {
+      title = "Draft EPO chase";
+      kind = "Builder";
+      subject = "EPO needed — " + inv + " — " + addr;
+      var ck = r.check_number ? ("check " + r.check_number) : "the builder check";
+      var ckWhen = r.check_date ? (" on " + r.check_date) : "";
+      var ckAmt = (r.check_amount != null && r.check_amount !== "") ? money(r.check_amount) : "a short payment";
+      var poBit = po ? ("PO " + po) : "this Hyphen PO";
+      var wrongNote = r.notes_error_wrong || "two lifts";
+      var rightNote = r.notes_error_right || "three lifts";
+      var reportsBit = (r.report_numbers && r.report_numbers.length)
+        ? (" Three separate reports were issued (" + r.report_numbers.join(", ") + ").")
+        : " Three lifts were performed, and three separate reports were issued.";
+      var leadN = "We originally uploaded the wrong notes into Hyphen on " + esc(poBit) +
+        " for the work at " + esc(addr) + ". The first note said " + esc(wrongNote) +
+        ". That was our error, and we apologize. Those incorrect notes caused the underpayment: " +
+        esc(ckAmt) + " on " + esc(ck) + esc(ckWhen) + " against invoice " + esc(inv) +
+        ", which billed " + esc(billed) + ". The notes have been corrected and now show " +
+        esc(rightNote) + ".";
+      var extraN = "<p>" + esc(rightNote).charAt(0).toUpperCase() + esc(rightNote).slice(1) +
+        " is what was actually performed." + reportsBit +
+        " After the " + esc(ckAmt) + " payment, " + esc(openAmt) +
+        " remains open. This has been " + esc(aging) +
+        ". Please issue an EPO or supplemental purchase order for the remaining " +
+        esc(openAmt) + " so we can close the balance.</p>";
+      letter = letterWrap(
+        leadN,
+        abbrevTimeline(r, "Still open " + openAmt + " · need EPO for the leftover lift"),
+        extraN
+      );
+      chips = chipsFrom(r, [
+        '<span class="chip">' + esc(inv) + " invoice</span>",
+        '<span class="chip">Corrected Hyphen notes</span>',
+        '<span class="chip">Three reports</span>'
+      ]);
     } else if (why.indexOf("Amount") === 0) {
       title = "Draft amount-off note";
       kind = "Internal";
@@ -1929,7 +1967,11 @@ th:nth-child(5), td.addr { width: 18%; }
     if (r.chase_subject) subject = r.chase_subject;
     if (r.chase_letter_lead) {
       var chaseTl = (r.chase_timeline && r.chase_timeline.length) ? r.chase_timeline : abbrevTimeline(r);
-      letter = letterWrap(esc(r.chase_letter_lead), chaseTl);
+      var extra = "";
+      (r.chase_letter_paras || []).forEach(function (p) {
+        extra += "<p>" + esc(p) + "</p>";
+      });
+      letter = letterWrap(esc(r.chase_letter_lead), chaseTl, extra);
     }
     var ccSeen = {};
     var ccList = [];
