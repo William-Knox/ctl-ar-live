@@ -1085,7 +1085,7 @@ th:nth-child(5), td.addr { width: 18%; }
   </div>
 </aside>
 
-<script src="data.js?v=notes-error2"></script>
+<script src="data.js?v=cm-letters1"></script>
 
 <script>
 (function () {
@@ -1855,9 +1855,11 @@ th:nth-child(5), td.addr { width: 18%; }
       var asks = clientAskItems(r);
       var haveTwoAsks = asks.length >= 2;
       var lead2 = haveTwoAsks
-        ? ("This is a second visit at " + esc(addr) +
-           ". The first PO is consumed, so this work needs its own EPO. Invoice " +
-           esc(inv) + " for " + esc(billed) + " has been " + esc(aging) + ".")
+        ? ("We tested " + esc(addr) + " a second time after the first visit was already billed and paid. " +
+           "The first PO is consumed, so this second visit cannot ride on it. Invoice " +
+           esc(inv) + " billed " + esc(billed) + " and has been " + esc(aging) +
+           ". Please issue an EPO or a new PO for this second call-out so we can close the remaining " +
+           esc(openAmt) + ".")
         : ("This looks like a second visit at " + esc(addr) +
            ", and the first PO is consumed. We do not yet have two client call-out emails on file " +
            "(the builder or CM asking Ryan or Joe twice). Do not send an EPO chase until both client asks are attached.");
@@ -1871,7 +1873,10 @@ th:nth-child(5), td.addr { width: 18%; }
       } else {
         tl2 = abbrevTimeline(r, "Still open " + openAmt + " · need two client call-outs before chase");
       }
-      letter = letterWrap(lead2, tl2);
+      var extra2 = haveTwoAsks
+        ? "<p>The two client call-outs and both service dates are on the timeline below. We need the EPO on this address, not another lot.</p>"
+        : "";
+      letter = letterWrap(lead2, tl2, extra2);
       if (haveTwoAsks) {
         chips = chipsFrom(r, [
           '<span class="chip">1st client call-out</span>',
@@ -1943,14 +1948,24 @@ th:nth-child(5), td.addr { width: 18%; }
       chips = chipsFrom(r, ['<span class="chip">' + esc(inv) + " invoice</span>"]);
     } else {
       var noPo = why.indexOf("No PO") === 0;
-      var leadG = noPo
-        ? ("Please issue a PO for the work at " + esc(addr) +
-           ". Invoice " + esc(inv) + ", billed " + esc(billed) +
-           ", has been " + esc(aging) + " with no PO on file, and we need it closed.")
-        : ("Please close invoice " + esc(inv) + " at " + esc(addr) +
-           " (" + esc(billed) + " billed, " + esc(openAmt) + " open). This has been " +
-           esc(aging) + ".");
-      letter = letterWrap(leadG, abbrevTimeline(r, noPo ? ("No PO on file · open " + openAmt) : ("Still open " + openAmt)));
+      var commBit = comm ? (" This is in " + esc(comm) + ".") : "";
+      var poBitG = po ? (" on PO " + esc(po)) : "";
+      var leadG, extraG;
+      if (noPo) {
+        leadG = "We performed the work at " + esc(addr) + " and issued invoice " + esc(inv) +
+          " for " + esc(billed) + "." + commBit +
+          " This has been " + esc(aging) + " with no purchase order on file, so nothing has been paid.";
+        extraG = "<p>Please issue a PO for invoice " + esc(inv) + " / " + esc(billed) +
+          " so we can close this. The call-in, service date, and any prior PO requests are on the timeline below. " +
+          "If a PO was already issued, send the Builder Order Number and we will attach it.</p>";
+      } else {
+        leadG = "Please release payment" + poBitG + " for invoice " + esc(inv) + " at " + esc(addr) +
+          "." + commBit + " We billed " + esc(billed) + " and " + esc(openAmt) +
+          " is still open. This has been " + esc(aging) + ".";
+        extraG = "<p>The work, our notes, and any prior payment or PO asks are on the timeline below. " +
+          "We need this invoice closed.</p>";
+      }
+      letter = letterWrap(leadG, abbrevTimeline(r, noPo ? ("No PO on file · open " + openAmt) : ("Still open " + openAmt)), extraG);
       chips = chipsFrom(r, ['<span class="chip">' + esc(inv) + " invoice</span>"]);
     }
 
