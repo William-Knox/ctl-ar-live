@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F8F6F2" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Hyphen mock" />
+<title>Hyphen review · top 4 mock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --cream: #F8F6F2;
+  --cream-2: #EFEDE7;
+  --cream-3: #E7E3DB;
+  --paper: #FFFdf8;
+  --navy: #0F172A;
+  --navy-2: #1E293B;
+  --ink: #161410;
+  --muted: #6F6A62;
+  --muted-2: #8A847A;
+  --line: #E4E0D8;
+  --line-2: #D6D1C7;
+  --clay: #C2410C;
+  --clay-soft: #F3E6DE;
+  --found-bg: #E3EBE5;
+  --found-fg: #3A5648;
+  --not-bg: #F3E6DE;
+  --not-fg: #B45309;
+  --header-h: 46px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  min-height: 100%;
+  background: var(--cream);
+  color: var(--navy);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "tnum";
+  -webkit-font-smoothing: antialiased;
+}
+button { font-family: inherit; color: inherit; cursor: pointer; background: none; border: 0; }
+::selection { background: #E8D5C8; }
+
+.app { min-height: 100vh; display: flex; flex-direction: column; }
+
+.hdr {
+  min-height: var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px 8px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.mark { display: block; flex: 0 0 14px; }
+.brand-text h1 {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.mock-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 16px;
+  margin-left: 7px;
+  padding: 0 6px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  vertical-align: 2px;
+}
+.asof {
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: -0.01em;
+}
+.counts { display: flex; align-items: baseline; gap: 14px; flex-shrink: 0; }
+.count { text-align: right; }
+.count b {
+  display: block;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.count span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  padding: 8px 12px 0;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  flex-wrap: wrap;
+}
+.tab {
+  min-height: 40px;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--muted);
+  border-radius: 6px 6px 0 0;
+  border: 1px solid transparent;
+  border-bottom: 0;
+  position: relative;
+  top: 1px;
+}
+.tab:hover { color: var(--navy); background: var(--cream-2); }
+.tab.on {
+  color: var(--navy);
+  background: var(--paper);
+  border-color: var(--line);
+}
+.why {
+  padding: 10px 16px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.011em;
+  color: var(--navy);
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+  max-width: 900px;
+}
+
+.main { flex: 1; padding: 14px 12px 40px; }
+.panel { display: none; }
+.panel.on { display: block; }
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  max-width: 900px;
+}
+.card + .card { margin-top: 12px; }
+
+/* —— Next ticket —— */
+.review {
+  display: grid;
+  grid-template-columns: 248px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  max-width: 1100px;
+}
+.queue {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  position: sticky;
+  top: 10px;
+}
+.q-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 10px 8px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream-2);
+}
+.q-head b {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.q-nav { display: flex; gap: 4px; }
+.q-nav button, .pager button {
+  min-width: 40px;
+  min-height: 40px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--navy);
+}
+.q-nav button:hover, .pager button:hover { border-color: #C4BDB2; }
+.q-nav button:disabled, .pager button:disabled { opacity: 0.38; cursor: default; }
+.q-hint {
+  padding: 6px 10px 8px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+.q-row {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  min-height: 56px;
+  border-bottom: 1px solid var(--line);
+  border-left: 2px solid transparent;
+}
+.q-row:last-child { border-bottom: 0; }
+.q-row:hover { background: #F3EFE8; }
+.q-row.on {
+  background: #EDE6DC;
+  border-left-color: var(--navy);
+}
+.q-row .id {
+  font-size: 12.5px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.q-row .addr {
+  margin-top: 1px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--navy-2);
+}
+.q-row .meta {
+  margin-top: 3px;
+  font-size: 11px;
+  font-weight: 550;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.pane { min-width: 0; }
+.pane-card { padding: 0; }
+.books {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px 16px;
+  padding: 14px 16px 12px;
+}
+.kv { min-width: 0; }
+.kv dt {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+.kv dd {
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+.kv dd.late { color: var(--clay); }
+.kv dd.sub {
+  font-size: 12.5px;
+  font-weight: 550;
+}
+
+.status {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0 16px 14px;
+}
+.schip {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--cream);
+  min-height: 56px;
+}
+.schip lab {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.schip val {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.schip.awaiting val { color: var(--clay); }
+.schip.ok { background: var(--found-bg); border-color: transparent; }
+.schip.ok val { color: var(--found-fg); }
+
+.note {
+  margin: 0 16px 14px;
+  padding: 9px 11px;
+  background: var(--cream-2);
+  border-radius: 7px;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--navy);
+}
+.note b { font-weight: 650; }
+.note.clay {
+  background: var(--clay-soft);
+}
+.sec-h {
+  padding: 0 16px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.rule { height: 1px; background: var(--line); margin: 0 0 12px; }
+
+.ledger { padding: 0 8px 8px; }
+.erow {
+  display: grid;
+  grid-template-columns: 108px 88px 1fr auto;
+  gap: 8px 12px;
+  align-items: start;
+  padding: 8px 8px 8px 10px;
+  border-left: 2px solid var(--navy);
+  margin: 0 8px;
+}
+.erow.today { border-left-color: var(--clay); background: #FBF6F2; border-radius: 0 6px 6px 0; }
+.erow .when {
+  font-size: 11.5px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+.erow.today .when { color: var(--clay); }
+.erow .lab {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.erow .what {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.erow .who {
+  font-weight: 650;
+  color: var(--navy);
+}
+.src {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  background: var(--cream);
+  border: 1px solid #C9C3B8;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.src.soft { color: var(--not-fg); background: var(--not-bg); border-color: transparent; }
+
+.letter {
+  margin: 0 16px 14px;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  padding: 16px 16px 14px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.011em;
+}
+.letter .meta {
+  font-size: 11.5px;
+  font-weight: 550;
+  color: var(--navy-2);
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+.letter .meta b {
+  display: inline-block;
+  width: 36px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: var(--muted);
+}
+.letter p { margin: 0 0 10px; color: var(--ink); }
+.letter p:last-child { margin-bottom: 0; }
+.letter .sig { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--line); }
+.letter .sig b { display: block; font-weight: 650; letter-spacing: -0.02em; color: var(--navy); }
+.letter .sig span { display: block; font-size: 12px; font-weight: 500; color: var(--navy); }
+.letter-kind {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  margin: 0 16px 8px;
+  padding: 0 7px;
+  border: 1px solid #C9C3B8;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 16px 16px;
+}
+.act {
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+}
+.act.primary { background: var(--navy); border-color: var(--navy); color: var(--cream); }
+.act.primary:hover { background: var(--navy-2); }
+.act.ghost:hover { border-color: #C4BDB2; }
+.act-note {
+  width: 100%;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* —— Ledger full —— */
+.ledger-full { padding: 4px 0 10px; }
+.ledger-full .erow {
+  grid-template-columns: 120px 92px 72px 1fr auto;
+  margin: 0 12px;
+}
+.ledger-full .erow + .erow { margin-top: 2px; }
+.page-note {
+  margin: 0 16px 12px;
+  padding: 10px 12px;
+  background: var(--cream-2);
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--navy);
+  max-width: 868px;
+}
+
+/* —— Packet —— */
+.pack-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 1100px;
+  align-items: start;
+}
+.pack { padding: 0 0 12px; }
+.pack-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px 10px;
+}
+.pack-top h2 {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+.pack-top p {
+  margin-top: 3px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--navy-2);
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pill.pass { background: var(--found-bg); color: var(--found-fg); }
+.pill.fail { background: var(--clay-soft); color: var(--clay); }
+.pill.warn { background: var(--not-bg); color: var(--not-fg); }
+.check { padding: 0 8px; }
+.crow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: start;
+  padding: 9px 8px;
+  margin: 0 8px;
+  border-bottom: 1px solid var(--line);
+}
+.crow:last-child { border-bottom: 0; }
+.crow .t {
+  font-size: 13px;
+  font-weight: 550;
+  color: var(--ink);
+  line-height: 1.4;
+}
+.crow .d {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--navy-2);
+}
+.verdict {
+  margin: 10px 16px 4px;
+  padding: 10px 12px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.verdict.ok { background: var(--found-bg); color: var(--found-fg); }
+.verdict.hold { background: var(--clay-soft); color: var(--clay); }
+
+/* —— Follow-up —— */
+.fu-wrap { max-width: 1100px; }
+.fu-table { width: 100%; border-collapse: collapse; font-size: 12.5px; font-weight: 500; }
+.fu-table th {
+  text-align: left;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--cream-2);
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line-2);
+}
+.fu-table td {
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  color: var(--navy);
+}
+.fu-table tbody tr { cursor: pointer; }
+.fu-table tbody tr:hover td { background: #F3EFE8; }
+.fu-table tbody tr.on td { background: #EDE6DC; }
+.fu-table tbody tr.on td:first-child { box-shadow: inset 2px 0 0 var(--navy); }
+.fu-table .inv { font-weight: 650; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.fu-table .st { color: var(--clay); font-weight: 650; }
+.fu-preview { margin-top: 12px; }
+
+.toast {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy);
+  color: var(--cream);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  z-index: 80;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.18);
+}
+.toast.on { opacity: 1; }
+
+@media (max-width: 860px) {
+  .review { grid-template-columns: 1fr; }
+  .queue { position: static; }
+  .q-rows {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .q-row { min-width: 168px; border-bottom: 0; border-right: 1px solid var(--line); }
+  .books { grid-template-columns: 1fr 1fr; }
+  .status { grid-template-columns: 1fr 1fr; }
+  .pack-grid { grid-template-columns: 1fr; }
+  .ledger-full .erow, .erow {
+    grid-template-columns: 1fr 1fr;
+  }
+  .erow .src { grid-column: 1 / -1; }
+  .fu-table thead { display: none; }
+  .fu-table, .fu-table tbody, .fu-table tr, .fu-table td { display: block; width: 100%; }
+  .fu-table tbody tr {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin: 0 8px 8px;
+    padding: 8px 10px 6px;
+    background: var(--paper);
+  }
+  .fu-table tbody tr.on td:first-child { box-shadow: none; }
+  .fu-table td {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border: 0;
+    padding: 5px 0;
+  }
+  .fu-table td::before {
+    content: attr(data-label);
+    font-size: 10px;
+    font-weight: 650;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex: 0 0 92px;
+  }
+  .tabs { padding-bottom: 0; }
+  .tab { flex: 1 1 calc(50% - 4px); min-height: 40px; border-radius: 6px; border: 1px solid var(--line); margin-bottom: 8px; }
+  .tab.on { border-color: var(--navy); background: var(--navy); color: var(--cream); }
+  .hdr { flex-wrap: wrap; }
+  .acts .act { flex: 1 1 auto; min-width: 120px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+        <path fill="#0F172A" d="M8 1.8L14.9 14.4H1.1L8 1.8Z"/>
+      </svg>
+      <div class="brand-text">
+        <h1>Hyphen review <span class="mock-tag">Mock</span></h1>
+        <p class="asof">Top 4 · live queue unchanged</p>
+      </div>
+    </div>
+    <div class="counts">
+      <div class="count">
+        <b>6</b>
+        <span>tickets in review</span>
+      </div>
+      <div class="count">
+        <b>$2,420.00</b>
+        <span>open</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="Ideas">
+    <button class="tab on" role="tab" aria-selected="true" data-tab="next" type="button">Next ticket</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="ledger" type="button">Event ledger</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="packet" type="button">Packet</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="follow" type="button">Follow-up</button>
+  </nav>
+  <p class="why" id="whyLine">You stop hunting in a 461-row table and move case to case with books, history, and the letter on one screen.</p>
+
+  <div class="main">
+    <section class="panel on" id="panel-next" role="tabpanel">
+      <div class="review">
+        <aside class="queue">
+          <div class="q-head">
+            <b>Queue</b>
+            <div class="q-nav">
+              <button type="button" id="btnPrev" aria-label="Previous ticket">Prev</button>
+              <button type="button" id="btnNext" aria-label="Next ticket">Next</button>
+            </div>
+          </div>
+          <p class="q-hint">J next · K previous</p>
+          <div class="q-rows" id="qRows"></div>
+        </aside>
+        <div class="pane" id="pane"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-ledger" role="tabpanel">
+      <div class="card" style="max-width:900px">
+        <div class="pack-top">
+          <div>
+            <h2>0415-170614 · 32147 Sky Branch</h2>
+            <p>Tri Pointe · 21-506 Pecan Ridge · $350 open · 89 days past due</p>
+          </div>
+        </div>
+        <p class="page-note">This ledger drives the letter, the mail state, and the follow-up. We do not invent missing events.</p>
+        <div class="ledger-full">
+          <div class="erow">
+            <div class="when">Before Apr 15</div>
+            <div class="lab">Called in</div>
+            <div class="who">Phone</div>
+            <div class="what">No ryan@ or joe@ email names 32147 or 0415-170614. Same-day neighbor 32151 also has no dispatch email. Treat as phone. Do not invent a caller.</div>
+            <span class="src soft">None on file</span>
+          </div>
+          <div class="erow">
+            <div class="when">Wed Apr 15</div>
+            <div class="lab">Serviced</div>
+            <div class="who">Chase Tanner</div>
+            <div class="what">House pad nuclear density, final lift, 4 locations, $350. Report 260415-63737.</div>
+            <span class="src">Report PDF</span>
+          </div>
+          <div class="erow">
+            <div class="when">Fri Apr 17<br>3:07pm CT</div>
+            <div class="lab">Report sent</div>
+            <div class="who">Maria</div>
+            <div class="what">To Chad, Keith, Josh, Jerry + compactiontests@trendmakerhomes.com.</div>
+            <span class="src">Maria mail</span>
+          </div>
+          <div class="erow">
+            <div class="when">Mon Apr 20<br>sent Apr 27<br>10:03am CT</div>
+            <div class="lab">Invoiced</div>
+            <div class="who">Maria</div>
+            <div class="what">Created Apr 20. Sent Apr 27 in the April Pecan Ridge batch.</div>
+            <span class="src">Maria mail</span>
+          </div>
+          <div class="erow">
+            <div class="when">Thu Jun 25</div>
+            <div class="lab">Asked</div>
+            <div class="who">Maria</div>
+            <div class="what">PO request to Chad + Josh. Enter in Hyphen. Attached the Apr 17 report and Apr 27 invoice.</div>
+            <span class="src">Maria mail</span>
+          </div>
+          <div class="erow">
+            <div class="when">Fri Aug 14<br>3:33pm CT</div>
+            <div class="lab">Asked</div>
+            <div class="who">billings@</div>
+            <div class="what">RE: PO request - 32147 Sky Branch to Chad + Josh. Still no Hyphen PO.</div>
+            <span class="src">billings@</span>
+          </div>
+          <div class="erow">
+            <div class="when">Mon Aug 17<br>10:16 / 10:38</div>
+            <div class="lab">Replied</div>
+            <div class="who">Chad</div>
+            <div class="what">Not his house. Victor will make the PO then move. Keith and Chad are the Pecan Ridge builders going forward. Josh is area manager.</div>
+            <span class="src">Chad</span>
+          </div>
+          <div class="erow">
+            <div class="when">Mon Aug 17<br>11:16am CT</div>
+            <div class="lab">Asked</div>
+            <div class="who">billings@</div>
+            <div class="what">Asked Chad to copy Keith and Victor, or send addresses.</div>
+            <span class="src">billings@</span>
+          </div>
+          <div class="erow today">
+            <div class="when">Today</div>
+            <div class="lab">Today</div>
+            <div class="who">Theirs</div>
+            <div class="what">Still nothing in Hyphen. Ball is still theirs. Do not use hou.acctspayable.</div>
+            <span class="src">Graph 4:28pm</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-packet" role="tabpanel">
+      <div class="pack-grid">
+        <article class="card pack">
+          <div class="pack-top">
+            <div>
+              <h2>0415-170614 · Sky Branch</h2>
+              <p>32147 Sky Branch · Tri Pointe · $350 · 89 days</p>
+            </div>
+            <span class="pill pass">Complete</span>
+          </div>
+          <div class="check">
+            <div class="crow">
+              <div class="t">To is project CM / thread person<span class="d">Chad + Josh on the Friday send. Keith recommended going forward.</span></div>
+              <span class="pill pass">Pass</span>
+            </div>
+            <div class="crow">
+              <div class="t">Client on CC (not CTL-only)<span class="d">Chad and Josh are client To. CTL on CC only as office copy.</span></div>
+              <span class="pill pass">Pass</span>
+            </div>
+            <div class="crow">
+              <div class="t">Written background<span class="d">Tri Pointe reverse-PO: enter invoice in Hyphen, then PO. Dates on the letter.</span></div>
+              <span class="pill pass">Pass</span>
+            </div>
+            <div class="crow">
+              <div class="t">Labeled timeline<span class="d">Called in, Serviced, Report sent, Invoiced, Asked, Replied, Today.</span></div>
+              <span class="pill pass">Pass</span>
+            </div>
+            <div class="crow">
+              <div class="t">Call-in .eml<span class="d">None on file · phone. No ryan@ or joe@ email for 32147. Disclosed, not a fail.</span></div>
+              <span class="pill warn">None on file · phone</span>
+            </div>
+            <div class="crow">
+              <div class="t">Report transmittal .eml<span class="d">Apr 17 Maria to Chad, Keith, Josh, Jerry + compactiontests@.</span></div>
+              <span class="pill pass">Pass</span>
+            </div>
+            <div class="crow">
+              <div class="t">Invoice PDF<span class="d">Apr 27 Maria, April Pecan Ridge batch.</span></div>
+              <span class="pill pass">Pass</span>
+            </div>
+            <div class="crow">
+              <div class="t">Prior client ask + reply .eml<span class="d">Maria Jun 25 ask. Chad Aug 17 replies.</span></div>
+              <span class="pill pass">Pass</span>
+            </div>
+            <div class="crow">
+              <div class="t">No internal-only attachments<span class="d">Intuit approval notice kept off the packet.</span></div>
+              <span class="pill pass">Pass</span>
+            </div>
+          </div>
+          <p class="verdict ok">Ready to auto-draft. Already sent. Follow-up on this thread.</p>
+        </article>
+
+        <article class="card pack">
+          <div class="pack-top">
+            <div>
+              <h2>0513-171546 · Colonial Meadow</h2>
+              <p>21602 Colonial Meadow · Lennar · No PO · $522 · 66 days</p>
+            </div>
+            <span class="pill fail">Incomplete</span>
+          </div>
+          <div class="check">
+            <div class="crow">
+              <div class="t">To is project CM / thread person<span class="d">Need project CM. Do not invent one. No chase To on file.</span></div>
+              <span class="pill fail">Fail</span>
+            </div>
+            <div class="crow">
+              <div class="t">Client on CC (not CTL-only)<span class="d">No builder or community manager on CC. CTL-only.</span></div>
+              <span class="pill fail">Fail</span>
+            </div>
+            <div class="crow">
+              <div class="t">Written background<span class="d">Missing. Research notes exist in the file. They are not a letter.</span></div>
+              <span class="pill fail">Fail</span>
+            </div>
+            <div class="crow">
+              <div class="t">Labeled timeline<span class="d">Missing from the packet. Cannot enter Ready without it.</span></div>
+              <span class="pill fail">Fail</span>
+            </div>
+            <div class="crow">
+              <div class="t">Customer-facing attachments<span class="d">Missing. No report transmittal, invoice PDF, or prior ask on the packet.</span></div>
+              <span class="pill fail">Fail</span>
+            </div>
+          </div>
+          <p class="verdict hold">Hold. Cannot enter Ready. Gaps: To, client CC, background, labeled timeline, attachments.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-follow" role="tabpanel">
+      <div class="fu-wrap">
+        <p class="page-note">Silence flag is 5 business days. None due today. At 7:30 on the due date, a reply-on-thread draft lands in Ready.</p>
+        <div class="card" style="max-width:1100px; overflow:auto">
+          <table class="fu-table" id="fuTable">
+            <thead>
+              <tr>
+                <th>Invoice</th>
+                <th>Address</th>
+                <th>Last sent</th>
+                <th>Last reply</th>
+                <th>Court</th>
+                <th>Follow-up due</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="fuBody"></tbody>
+          </table>
+        </div>
+        <div class="fu-preview" id="fuPreview"></div>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="toast" id="toast" role="status">Mock. Does not send.</div>
+
+<script>
+(function () {
+  var WHYS = {
+    next: "You stop hunting in a 461-row table and move case to case with books, history, and the letter on one screen.",
+    ledger: "One dated history drives the letter, the mail state, and the follow-up, so the queue and Outlook stop disagreeing.",
+    packet: "Ready only when To, client CC, background, labeled timeline, and customer-facing attachments are actually present.",
+    follow: "Every send gets a due date and a thread. Silence becomes a reply on that thread, not a new first-ask."
+  };
+
+  var TICKETS = [
+    {
+      id: "0415-170614",
+      street: "Sky Branch",
+      address: "32147 Sky Branch",
+      community: "21-506 Pecan Ridge",
+      builder: "Tri Pointe",
+      open: "$350.00",
+      dpd: 89,
+      issue: "Hyphen entry (Tri Pointe)",
+      packet: "Complete",
+      packetOk: true,
+      mail: "Awaiting",
+      next: "Follow up Fri 8/22",
+      sibling: "Same-address sibling: 0415-170615 / 32151 Sky Branch, same Apr 27 batch, entered as EPO 1230035-000 and paid Apr 30 check 397018. That is the Tri Pointe path: invoice first, then Hyphen.",
+      excerpt: [
+        { when: "Before Apr 15", lab: "Called in", who: "Phone", what: "No ryan@ or joe@ email for 32147. Treat as phone. Do not invent a caller.", src: "None on file", soft: true },
+        { when: "Wed Apr 15", lab: "Serviced", who: "Chase Tanner", what: "House pad final lift $350. Report 260415-63737.", src: "Report PDF" },
+        { when: "Fri Apr 17 3:07pm", lab: "Report sent", who: "Maria", what: "To Chad, Keith, Josh, Jerry + compactiontests@.", src: "Maria mail" },
+        { when: "Mon Apr 27 10:03am", lab: "Invoiced", who: "Maria", what: "April Pecan Ridge batch. Created Apr 20.", src: "Maria mail" },
+        { when: "Thu Jun 25", lab: "Asked", who: "Maria", what: "PO request to Chad + Josh. Enter in Hyphen.", src: "Maria mail" },
+        { when: "Mon Aug 17 10:16", lab: "Replied", who: "Chad", what: "Not his house. Victor will make the PO then move. Keith and Chad stay.", src: "Chad" },
+        { when: "Today", lab: "Today", who: "Theirs", what: "Still nothing in Hyphen. Ball is still theirs. Do not use hou.acctspayable.", src: "Graph 4:28pm", today: true }
+      ],
+      letterKind: "Last sent · Mon Aug 17 11:16 CT",
+      letter: {
+        from: "billings@coastaltestinglabs.com",
+        to: "Chad Luedke, Josh Runnells",
+        cc: "william@, esmeralda@, veronica@, Maria@",
+        subject: "Re: PO request - 32147 Sky Branch - Pecan Ridge - Invoice 0415-170614",
+        paras: [
+          "Chad, thank you for the note this morning.",
+          "Please copy Keith Barrett and Victor on this thread, or send their addresses, so we can follow the Hyphen entry with them. Invoice 0415-170614 at 32147 Sky Branch is still not in Hyphen.",
+          "Tri Pointe creates the PO after the invoice is entered. Neighbor 32151 Sky Branch from the same April 27 batch was entered and paid. We will not write hou.acctspayable."
+        ]
+      },
+      primary: "Follow up on thread",
+      awaiting: true
+    },
+    {
+      id: "0416-170670",
+      street: "Sandhills",
+      address: "3903 Sandhills Pine Cove",
+      community: "09-679 Woodson's Reserve",
+      builder: "Toll Brothers",
+      open: "$416.00",
+      dpd: 89,
+      issue: "Broken link",
+      packet: "Sent",
+      packetOk: true,
+      mail: "Awaiting",
+      next: "Follow up Fri 8/21",
+      sibling: "Broken link: Toll issued PO 16528960-000 on Apr 10 as concrete density, then cancelled it Apr 16 9:50am CT. The SON still sits on that cancelled PO. No 2026 ryan@/joe@ dispatch email for this house.",
+      excerpt: [
+        { when: "2026", lab: "Called in", who: "None", what: "No 2026 ryan@ or joe@ dispatch email. The 2023 Veronica Royer hit is her office signature, not a callout.", src: "None on file", soft: true },
+        { when: "Mon Apr 20", lab: "Invoiced", who: "QBO", what: "0416-170670 issued for $416. Still open.", src: "Books" },
+        { when: "Mon Apr 27 11:33am", lab: "Asked", who: "Maria", what: "Sent Toll the Woodson's April invoices.", src: "Maria mail" },
+        { when: "Fri Aug 14 3:58pm", lab: "Asked", who: "billings@", what: "Chase to Toll + Hunter Hott. No builder reply since.", src: "billings@" },
+        { when: "Today", lab: "Today", who: "Theirs", what: "1 business day of silence. SON still sits on cancelled PO 16528960-000.", src: "Graph 4:28pm", today: true }
+      ],
+      letterKind: "Last sent · Fri Aug 14 3:58 CT",
+      letter: {
+        from: "billings@coastaltestinglabs.com",
+        to: "Toll (mbarajas, csnell, gwestenburg, vperezmotolongo, jreinesch, jphillips1)",
+        cc: "hunter@hotttrucking.com",
+        subject: "PO needed · Invoice 0416-170670 · 3903 Sandhills, Woodson's Reserve",
+        paras: [
+          "Please send a Hyphen compaction PO for invoice 0416-170670 at 3903 Sandhills Pine Cove. $416 is still open.",
+          "No builder reply as of Mon Aug 17."
+        ]
+      },
+      primary: "Follow up on thread",
+      awaiting: true
+    },
+    {
+      id: "180131",
+      street: "Alligator",
+      address: "12527/12523 Alligator Lake",
+      community: "98-639 Bridgeland",
+      builder: "Lennar",
+      open: "$783.00",
+      dpd: 124,
+      issue: "Payment needed",
+      packet: "Sent",
+      packetOk: true,
+      mail: "Awaiting",
+      next: "Follow up Mon 8/24",
+      sibling: "Neighbor Alligator Lake Court lots 12502 to 12519 are Cypress and paid. These two Bridgeland lots are not.",
+      excerpt: [
+        { when: "Tue Mar 10", lab: "Called in", who: "Jen", what: "Add 12523/12527 Alligator Lake Court. Ryan added to schedule.", src: "Ryan mail" },
+        { when: "Wed Mar 11", lab: "Serviced", who: "Ryan", what: "These all passed yesterday.", src: "Ryan mail" },
+        { when: "Mon Mar 16", lab: "Invoiced", who: "QBO", what: "180131 issued for $783 (3 lifts, both lots).", src: "Books" },
+        { when: "Thu Mar 19", lab: "Replied", who: "Steven Ayala", what: "Marked PO 70276926-000 complete.", src: "Hyphen" },
+        { when: "Thu Mar 26 4:25pm", lab: "Report sent", who: "Laverne", what: "Bridgeland / 12523-12527 Alligator Lake Court reports.", src: "Laverne mail" },
+        { when: "Mon Aug 17 10:49", lab: "Asked", who: "billings@", what: "Payment needed to Steven Ayala.", src: "billings@" },
+        { when: "Today", lab: "Today", who: "Theirs", what: "PO complete since Mar 19. $783 still unpaid. No builder reply.", src: "Graph 4:28pm", today: true }
+      ],
+      letterKind: "Last sent · Mon Aug 17 10:49 CT",
+      letter: {
+        from: "billings@coastaltestinglabs.com",
+        to: "Steven Ayala",
+        cc: "Jordan Beakley, Shawn Summers, ryan@, Maria@, veronica@, william@",
+        subject: "Payment needed · 180131 · 12523/12527 Alligator Lake Court",
+        paras: [
+          "Please release payment on PO 70276926-000 / invoice 180131. You marked this order complete on March 19. Our note (3 lifts, $783 at 12523 and 12527 Alligator Lake Court) has been on the PO since March 17, and nothing has been paid in the five months since."
+        ]
+      },
+      primary: "Follow up on thread",
+      awaiting: true
+    },
+    {
+      id: "179586",
+      street: "Hedley 11974",
+      address: "11974 Hedley Court",
+      community: "98-639 Spring Branch Crossing",
+      builder: "Lennar",
+      open: "$261.00",
+      dpd: 152,
+      issue: "Notes-error EPO",
+      packet: "Sent",
+      packetOk: true,
+      mail: "Awaiting",
+      next: "Follow up Mon 8/24",
+      sibling: "Same-pattern sibling: 179587 / 11975 Hedley Court. Same 783 / 522 / 261 leftover.",
+      excerpt: [
+        { when: "Tue Feb 10", lab: "Serviced", who: "Field", what: "Three lifts. Reports 260210-61527 / 61528 / 61529.", src: "Report PDF" },
+        { when: "Mon Feb 16", lab: "Invoiced", who: "QBO", what: "179586 issued for $783 (three lifts).", src: "Books" },
+        { when: "Thu Mar 5", lab: "Report sent", who: "CTL", what: "Those three reports sent to Montana Grove.", src: "Report send" },
+        { when: "Mon Apr 6", lab: "Replied", who: "Lennar", what: "Check 1217932 $522. Paid the wrong 2-lift note.", src: "Hyphen" },
+        { when: "Wed May 13", lab: "Asked", who: "Maria", what: "Asked Montana / Brian to update the PO.", src: "Maria mail" },
+        { when: "Mon Aug 17 11:39", lab: "Asked", who: "billings@", what: "EPO needed to Montana Grove.", src: "billings@" },
+        { when: "Today", lab: "Today", who: "Theirs", what: "$261 leftover lift still open. No builder reply.", src: "Graph 4:28pm", today: true }
+      ],
+      letterKind: "Last sent · Mon Aug 17 11:39 CT",
+      letter: {
+        from: "billings@coastaltestinglabs.com",
+        to: "Montana Grove",
+        cc: "Brian Maerz, ryan@, Maria@, veronica@, william@",
+        subject: "EPO needed · 179586 · 11974 Hedley Court",
+        paras: [
+          "We originally uploaded the wrong notes into Hyphen on PO 61893156-000 for the work at 11974 Hedley Court. The first note said two lifts for $522. That was our error. Lennar paid $522 on check 1217932 against invoice 179586, which billed $783 for three lifts.",
+          "After the check, $261 remains open. Please issue an EPO for the remaining $261 on this house."
+        ]
+      },
+      primary: "Follow up on thread",
+      awaiting: true
+    },
+    {
+      id: "179587",
+      street: "Hedley 11975",
+      address: "11975 Hedley Court",
+      community: "98-639 Spring Branch Crossing",
+      builder: "Lennar",
+      open: "$261.00",
+      dpd: 152,
+      issue: "Notes-error EPO",
+      packet: "Sent",
+      packetOk: true,
+      mail: "Awaiting",
+      next: "Follow up Mon 8/24",
+      sibling: "Same-pattern sibling: 179586 / 11974 Hedley Court.",
+      excerpt: [
+        { when: "Tue Feb 10", lab: "Serviced", who: "Field", what: "Three lifts. Reports 260210-61530 / 61531 / 61532.", src: "Report PDF" },
+        { when: "Mon Feb 16", lab: "Invoiced", who: "QBO", what: "179587 issued for $783 (three lifts).", src: "Books" },
+        { when: "Thu Mar 5", lab: "Report sent", who: "CTL", what: "Those three reports sent to Montana Grove.", src: "Report send" },
+        { when: "Mon Mar 23", lab: "Replied", who: "Lennar", what: "Check 1205773 $522. Paid the wrong 2-lift note.", src: "Hyphen" },
+        { when: "Thu Jul 16", lab: "Replied", who: "Montana", what: "Asked to add this lift to another address with an open PO.", src: "Montana" },
+        { when: "Mon Aug 17 1:09pm", lab: "Asked", who: "billings@", what: "EPO needed on 11975 itself, not another lot.", src: "billings@" },
+        { when: "Today", lab: "Today", who: "Theirs", what: "$261 leftover. Need EPO on 11975 Hedley, not another lot.", src: "Graph 4:28pm", today: true }
+      ],
+      letterKind: "Last sent · Mon Aug 17 1:09 CT",
+      letter: {
+        from: "billings@coastaltestinglabs.com",
+        to: "Montana Grove",
+        cc: "Brian Maerz, Jordan Beakley, Ben Jimenez, ryan@, Maria@, veronica@, william@",
+        subject: "EPO needed · 179587 · 11975 Hedley Court",
+        paras: [
+          "We originally uploaded the wrong notes into Hyphen on PO 61894458-000 for the work at 11975 Hedley Court. The first note said two lifts for $522. That was our error. Lennar paid $522 on check 1205773 against invoice 179587, which billed $783 for three lifts.",
+          "Please issue an EPO for the remaining $261 on 11975 Hedley itself. Moving it onto another lot would leave this invoice open and mix two houses."
+        ]
+      },
+      primary: "Follow up on thread",
+      awaiting: true
+    },
+    {
+      id: "0410-170532",
+      street: "Sugar Mill",
+      address: "10478 Sugar Mill Dr",
+      community: "98-639 Crockett Meadows",
+      builder: "Lennar",
+      open: "$349.00",
+      dpd: 99,
+      issue: "Amount off · Proctor/PI",
+      packet: "Sent",
+      packetOk: true,
+      mail: "Awaiting",
+      next: "Follow up Mon 8/24",
+      sibling: "Brandi's Apr 9 call-in also named 10728 Crockett Meadows. This remainder is the Proctor and PI on 10478.",
+      excerpt: [
+        { when: "Thu Apr 9 3:41pm", lab: "Called in", who: "Brandi Cook", what: "Asked Ryan/Joe for 2 compaction lifts at 10478 Sugar Mill Dr.", src: "Ryan mail" },
+        { when: "Fri Apr 10", lab: "Invoiced", who: "QBO", what: "0410-170532 issued for $871 (2 lifts plus Proctor and PI).", src: "Books" },
+        { when: "Mon Apr 27", lab: "Replied", who: "Lennar", what: "Check 1236227 $522 on PO 82258936-000. Covers the two lifts.", src: "Hyphen" },
+        { when: "Thu Jun 25", lab: "Asked", who: "Maria", what: "Asked Montana and Jordan for a PO covering the $349 Proctor and PI.", src: "Maria mail" },
+        { when: "Fri Jun 26", lab: "Replied", who: "Jordan Beakley", what: "Asked Montana whether that PO had been created.", src: "Maria mail" },
+        { when: "Mon Aug 17 2:47pm", lab: "Asked", who: "billings@", what: "EPO needed to Montana Grove.", src: "billings@" },
+        { when: "Today", lab: "Today", who: "Theirs", what: "Still open $349. Need an EPO for the Proctor and PI on this address. chris.coghlan NDR is a CC bounce, not a reply.", src: "Graph 4:28pm", today: true }
+      ],
+      letterKind: "Last sent · Mon Aug 17 2:47 CT",
+      letter: {
+        from: "billings@coastaltestinglabs.com",
+        to: "Montana Grove",
+        cc: "Jordan Beakley, chris.coghlan, blake.hunt, ryan@, Maria@, veronica@, william@",
+        subject: "EPO needed · 0410-170532 · 10478 Sugar Mill Dr",
+        paras: [
+          "We performed two compaction lifts plus Proctor and PI at 10478 Sugar Mill Dr and billed invoice 0410-170532 for $871. Lennar paid $522 on check 1236227 on PO 82258936-000 for the two lifts. The remaining $349 is the Proctor and PI.",
+          "Please issue an EPO for the Proctor and PI ($349) on 10478 Sugar Mill Dr. Do not park this remainder on another lot."
+        ]
+      },
+      primary: "Follow up on thread",
+      awaiting: true
+    }
+  ];
+
+  var FOLLOWS = [
+    {
+      id: "0415-170614",
+      address: "32147 Sky Branch",
+      lastSent: "Mon 8/17 11:16",
+      lastReply: "Chad Mon 8/17",
+      court: "Theirs",
+      due: "Fri 8/22",
+      status: "Awaiting (replied, not closed)",
+      letter: {
+        from: "billings@coastaltestinglabs.com",
+        to: "Chad Luedke, Josh Runnells",
+        cc: "william@, esmeralda@, veronica@, Maria@",
+        subject: "Re: PO request - 32147 Sky Branch - Pecan Ridge - Invoice 0415-170614",
+        paras: [
+          "Following up on Monday's 11:16 note.",
+          "We still do not see invoice 0415-170614 / 32147 Sky Branch entered in Hyphen. Tri Pointe generates the PO after the invoice is entered. This is not a PO-needed case.",
+          "Please enter this one, or copy Keith Barrett and Victor so we can close it with them. Same To and CC as Monday."
+        ]
+      }
+    },
+    {
+      id: "0416-170670",
+      address: "3903 Sandhills Pine Cove",
+      lastSent: "Fri 8/14 3:58",
+      lastReply: "none",
+      court: "Theirs",
+      due: "Fri 8/21",
+      status: "Awaiting (1 biz day, silence)",
+      letter: {
+        from: "billings@coastaltestinglabs.com",
+        to: "Toll (mbarajas, csnell, gwestenburg, vperezmotolongo, jreinesch, jphillips1), hunter@hotttrucking.com",
+        cc: "",
+        subject: "Re: PO needed · Invoice 0416-170670 · 3903 Sandhills, Woodson's Reserve",
+        paras: [
+          "Following up on Friday's note.",
+          "Invoice 0416-170670 at 3903 Sandhills Pine Cove is still open $416. We have not received a reply. Please send the Hyphen compaction PO for this house."
+        ]
+      }
+    },
+    {
+      id: "180131",
+      address: "12527/12523 Alligator Lake",
+      lastSent: "Mon 8/17 10:49",
+      lastReply: "none",
+      court: "Theirs",
+      due: "Mon 8/24",
+      status: "Awaiting",
+      letter: {
+        from: "billings@coastaltestinglabs.com",
+        to: "Steven Ayala",
+        cc: "Jordan Beakley, Shawn Summers, ryan@, Maria@, veronica@, william@",
+        subject: "Re: Payment needed · 180131 · 12523/12527 Alligator Lake Court",
+        paras: [
+          "Following up on Monday's note.",
+          "PO 70276926-000 / invoice 180131 is still unpaid. You marked this complete on March 19. $783 remains open at 12523/12527 Alligator Lake Court."
+        ]
+      }
+    },
+    {
+      id: "179586",
+      address: "11974 Hedley Court",
+      lastSent: "Mon 8/17 11:39",
+      lastReply: "none",
+      court: "Theirs",
+      due: "Mon 8/24",
+      status: "Awaiting",
+      letter: {
+        from: "billings@coastaltestinglabs.com",
+        to: "Montana Grove",
+        cc: "Brian Maerz, ryan@, Maria@, veronica@, william@",
+        subject: "Re: EPO needed · 179586 · 11974 Hedley Court",
+        paras: [
+          "Following up on Monday's note.",
+          "Invoice 179586 at 11974 Hedley Court is still short $261 after check 1217932. Please issue the EPO for the leftover lift on this house."
+        ]
+      }
+    },
+    {
+      id: "179587",
+      address: "11975 Hedley Court",
+      lastSent: "Mon 8/17 13:09",
+      lastReply: "none",
+      court: "Theirs",
+      due: "Mon 8/24",
+      status: "Awaiting",
+      letter: {
+        from: "billings@coastaltestinglabs.com",
+        to: "Montana Grove",
+        cc: "Brian Maerz, Jordan Beakley, Ben Jimenez, ryan@, Maria@, veronica@, william@",
+        subject: "Re: EPO needed · 179587 · 11975 Hedley Court",
+        paras: [
+          "Following up on Monday's note.",
+          "Invoice 179587 at 11975 Hedley Court is still short $261. We need the EPO on 11975 itself, not another lot."
+        ]
+      }
+    },
+    {
+      id: "0410-170532",
+      address: "10478 Sugar Mill Dr",
+      lastSent: "Mon 8/17 14:47",
+      lastReply: "none",
+      court: "Theirs",
+      due: "Mon 8/24",
+      status: "Awaiting",
+      letter: {
+        from: "billings@coastaltestinglabs.com",
+        to: "Montana Grove",
+        cc: "Jordan Beakley, blake.hunt, ryan@, Maria@, veronica@, william@",
+        subject: "Re: EPO needed · 0410-170532 · 10478 Sugar Mill Dr",
+        paras: [
+          "Following up on Monday's note.",
+          "Invoice 0410-170532 is still open $349 for the Proctor and PI at 10478 Sugar Mill Dr. Please issue the EPO on this address."
+        ]
+      }
+    }
+  ];
+
+  var state = { tab: "next", idx: 0, fu: 0 };
+
+  function $(sel) { return document.querySelector(sel); }
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  function toast(msg) {
+    var el = $("#toast");
+    el.textContent = msg || "Mock. Does not send.";
+    el.classList.add("on");
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function () { el.classList.remove("on"); }, 2200);
+  }
+
+  function setTab(name) {
+    state.tab = name;
+    document.querySelectorAll(".tab").forEach(function (b) {
+      var on = b.dataset.tab === name;
+      b.classList.toggle("on", on);
+      b.setAttribute("aria-selected", on ? "true" : "false");
+    });
+    document.querySelectorAll(".panel").forEach(function (p) {
+      p.classList.toggle("on", p.id === "panel-" + name);
+    });
+    $("#whyLine").textContent = WHYS[name] || "";
+  }
+
+  function renderQueue() {
+    $("#qRows").innerHTML = TICKETS.map(function (t, i) {
+      return '<button type="button" class="q-row' + (i === state.idx ? " on" : "") + '" data-i="' + i + '">' +
+        '<div class="id">' + esc(t.id) + '</div>' +
+        '<div class="addr">' + esc(t.street) + '</div>' +
+        '<div class="meta">' + esc(t.open) + ' · ' + t.dpd + 'd</div></button>';
+    }).join("");
+    $("#btnPrev").disabled = state.idx === 0;
+    $("#btnNext").disabled = state.idx === TICKETS.length - 1;
+  }
+
+  function letterHtml(letter, kind) {
+    return '<div class="letter-kind">' + esc(kind) + '</div>' +
+      '<div class="letter">' +
+      '<div class="meta">' +
+      '<div><b>From</b> ' + esc(letter.from) + '</div>' +
+      '<div><b>To</b> ' + esc(letter.to) + '</div>' +
+      (letter.cc ? '<div><b>Cc</b> ' + esc(letter.cc) + '</div>' : '') +
+      '<div><b>Subj</b> ' + esc(letter.subject) + '</div>' +
+      '</div>' +
+      letter.paras.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join("") +
+      '<p class="sig"><b>Hyphen</b><span>Coastal Testing Labs</span></p>' +
+      '</div>';
+  }
+
+  function excerptHtml(rows) {
+    return '<div class="ledger">' + rows.map(function (r) {
+      return '<div class="erow' + (r.today ? " today" : "") + '">' +
+        '<div class="when">' + esc(r.when) + '</div>' +
+        '<div class="lab">' + esc(r.lab) + '</div>' +
+        '<div class="what"><span class="who">' + esc(r.who) + '</span> · ' + esc(r.what) + '</div>' +
+        '<span class="src' + (r.soft ? " soft" : "") + '">' + esc(r.src) + '</span></div>';
+    }).join("") + '</div>';
+  }
+
+  function renderPane() {
+    var t = TICKETS[state.idx];
+    $("#pane").innerHTML =
+      '<div class="card pane-card">' +
+      '<div class="books">' +
+      '<div class="kv"><dt>Invoice</dt><dd>' + esc(t.id) + '</dd></div>' +
+      '<div class="kv"><dt>Address</dt><dd class="sub">' + esc(t.address) + '</dd></div>' +
+      '<div class="kv"><dt>Community</dt><dd class="sub">' + esc(t.community) + '</dd></div>' +
+      '<div class="kv"><dt>Builder</dt><dd class="sub">' + esc(t.builder) + '</dd></div>' +
+      '<div class="kv"><dt>Open $</dt><dd>' + esc(t.open) + '</dd></div>' +
+      '<div class="kv"><dt>Days past due</dt><dd class="late">' + t.dpd + '</dd></div>' +
+      '</div>' +
+      '<div class="status">' +
+      '<div class="schip"><lab>Issue</lab><val>' + esc(t.issue) + '</val></div>' +
+      '<div class="schip' + (t.packetOk ? " ok" : "") + '"><lab>Packet</lab><val>' + esc(t.packet) + '</val></div>' +
+      '<div class="schip awaiting"><lab>Mail</lab><val>' + esc(t.mail) + '</val></div>' +
+      '<div class="schip"><lab>Next</lab><val>' + esc(t.next) + '</val></div>' +
+      '</div>' +
+      (t.sibling ? '<p class="note"><b>Sibling.</b> ' + esc(t.sibling) + '</p>' : '') +
+      '<div class="rule"></div>' +
+      '<h3 class="sec-h">Event ledger</h3>' +
+      excerptHtml(t.excerpt) +
+      '<div class="rule"></div>' +
+      '<h3 class="sec-h">Letter</h3>' +
+      letterHtml(t.letter, t.letterKind) +
+      '<div class="acts">' +
+      '<button class="act primary" type="button" data-act="follow">' + esc(t.primary) + '</button>' +
+      '<button class="act ghost" type="button" data-act="hold">Hold</button>' +
+      '<button class="act ghost" type="button" data-act="next">Next</button>' +
+      '<p class="act-note">Mock. These do not send.</p>' +
+      '</div></div>';
+  }
+
+  function go(i) {
+    if (i < 0 || i >= TICKETS.length) return;
+    state.idx = i;
+    renderQueue();
+    renderPane();
+  }
+
+  function renderFollow() {
+    $("#fuBody").innerHTML = FOLLOWS.map(function (f, i) {
+      return '<tr data-i="' + i + '" class="' + (i === state.fu ? "on" : "") + '">' +
+        '<td data-label="Invoice" class="inv">' + esc(f.id) + '</td>' +
+        '<td data-label="Address">' + esc(f.address) + '</td>' +
+        '<td data-label="Last sent">' + esc(f.lastSent) + '</td>' +
+        '<td data-label="Last reply">' + esc(f.lastReply) + '</td>' +
+        '<td data-label="Court">' + esc(f.court) + '</td>' +
+        '<td data-label="Follow-up due">' + esc(f.due) + '</td>' +
+        '<td data-label="Status" class="st">' + esc(f.status) + '</td></tr>';
+    }).join("");
+    var f = FOLLOWS[state.fu];
+    $("#fuPreview").innerHTML =
+      '<div class="card" style="max-width:900px; padding-top:12px">' +
+      '<h3 class="sec-h">Follow-up preview · due ' + esc(f.due) + ' · not a first-ask</h3>' +
+      letterHtml(f.letter, "Reply on thread · lands in Ready at 7:30 on the due date") +
+      '</div>';
+  }
+
+  document.querySelectorAll(".tab").forEach(function (b) {
+    b.addEventListener("click", function () { setTab(b.dataset.tab); });
+  });
+  $("#qRows").addEventListener("click", function (e) {
+    var row = e.target.closest(".q-row");
+    if (row) go(Number(row.dataset.i));
+  });
+  $("#btnPrev").addEventListener("click", function () { go(state.idx - 1); });
+  $("#btnNext").addEventListener("click", function () { go(state.idx + 1); });
+  $("#pane").addEventListener("click", function (e) {
+    var btn = e.target.closest("[data-act]");
+    if (!btn) return;
+    if (btn.dataset.act === "next") go(state.idx + 1);
+    else if (btn.dataset.act === "hold") toast("Held on this device. Mock. Does not send.");
+    else toast("Mock. Does not send.");
+  });
+  $("#fuBody").addEventListener("click", function (e) {
+    var tr = e.target.closest("tr[data-i]");
+    if (!tr) return;
+    state.fu = Number(tr.dataset.i);
+    renderFollow();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) return;
+    if (state.tab !== "next") return;
+    if (e.key === "j" || e.key === "J") { e.preventDefault(); go(state.idx + 1); }
+    if (e.key === "k" || e.key === "K") { e.preventDefault(); go(state.idx - 1); }
+  });
+
+  renderQueue();
+  renderPane();
+  renderFollow();
+})();
+</script>
+</body>
+</html>
