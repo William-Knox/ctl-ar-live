@@ -1,0 +1,3697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F8F6F2" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Hyphen" />
+<meta name="mobile-web-app-capable" content="yes" />
+<title>Hyphen review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --cream: #F8F6F2;
+  --cream-2: #EFEDE7;
+  --cream-3: #E7E3DB;
+  --paper: #FFFdf8;
+  --navy: #0F172A;
+  --navy-2: #1E293B;
+  --ink: #161410;
+  --muted: #6F6A62;
+  --muted-2: #8A847A;
+  --line: #E4E0D8;
+  --line-2: #D6D1C7;
+  --clay: #C2410C;
+  --clay-soft: #F3E6DE;
+  --found-bg: #E3EBE5;
+  --found-fg: #3A5648;
+  --not-bg: #F3E6DE;
+  --not-fg: #B45309;
+  --header-h: 46px;
+  --toolbar-h: 38px;
+  --thead-h: 30px;
+  --row-h: 42px;
+  --drawer-w: 400px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  background: var(--cream);
+  color: var(--navy);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "tnum";
+  -webkit-font-smoothing: antialiased;
+}
+body { overflow: hidden; }
+button, input { font-family: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; }
+::selection { background: #E8D5C8; }
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 1280px;
+}
+
+/* —— Header —— */
+.hdr {
+  height: var(--header-h);
+  flex: 0 0 var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 0 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  gap: 16px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.mark { display: block; flex: 0 0 14px; }
+.brand-text { min-width: 0; }
+.brand-text h1 {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.asof {
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.asof .scrape {
+  color: var(--clay);
+  font-weight: 600;
+}
+.counts {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.count { text-align: right; }
+.count b {
+  display: block;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.count span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* —— Toolbar —— */
+.bar {
+  height: var(--toolbar-h);
+  flex: 0 0 var(--toolbar-h);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  position: relative;
+  z-index: 20;
+  white-space: nowrap;
+}
+.search {
+  width: 220px;
+  height: 26px;
+  border: 1px solid var(--line-2);
+  background: var(--paper);
+  border-radius: 4px;
+  padding: 0 8px 0 26px;
+  font-size: 12px;
+  font-weight: 500;
+  outline: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%236F6A62' stroke-width='1.6'><circle cx='5.2' cy='5.2' r='3.6'/><path d='M8 8l3 3'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 8px 50%;
+}
+.search:focus { border-color: var(--navy); }
+.search::placeholder { color: var(--muted-2); font-weight: 450; }
+
+.menu { position: relative; }
+.menu-btn {
+  height: 26px;
+  padding: 0 8px;
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  background: var(--paper);
+  font-size: 11.5px;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.menu-btn:hover { border-color: #C4BDB2; }
+.menu-btn.on {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: var(--cream);
+}
+.menu-btn .caret {
+  width: 0; height: 0;
+  border-left: 3.5px solid transparent;
+  border-right: 3.5px solid transparent;
+  border-top: 4px solid currentColor;
+  opacity: 0.55;
+}
+.menu-pop {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  min-width: 196px;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.10), 0 1px 2px rgba(15,23,42,0.04);
+  padding: 6px;
+  z-index: 40;
+}
+.menu-pop.right { left: auto; right: 0; }
+.menu-pop[hidden] { display: none; }
+.menu-pop label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.menu-pop label:hover { background: var(--cream-2); }
+.menu-pop input[type="checkbox"] {
+  accent-color: var(--navy);
+  width: 13px;
+  height: 13px;
+}
+.menu-foot {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 6px 2px;
+  margin-top: 2px;
+  border-top: 1px solid var(--line);
+}
+.menu-foot button {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 2px 0;
+}
+.menu-foot button:hover { color: var(--navy); }
+
+.bar-spacer { flex: 1; }
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 26px;
+  padding: 0 4px 0 2px;
+  font-size: 11.5px;
+  font-weight: 550;
+  color: var(--navy);
+  user-select: none;
+  white-space: nowrap;
+}
+.toggle input { accent-color: var(--navy); width: 13px; height: 13px; }
+.toggle .hint { color: var(--muted); font-weight: 500; font-size: 11px; }
+.clear-btn {
+  height: 26px;
+  padding: 0 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--clay);
+  display: none;
+}
+.clear-btn.show { display: inline-flex; align-items: center; }
+.expand-btn {
+  height: 26px;
+  padding: 0 6px;
+  font-size: 11.5px;
+  font-weight: 550;
+  color: var(--muted);
+  display: none;
+}
+.expand-btn.show { display: inline-flex; align-items: center; }
+.expand-btn:hover { color: var(--navy); }
+
+/* —— Mail segment + days —— */
+.seg-lab {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 2px 0 6px;
+}
+.seg {
+  display: inline-flex;
+  height: 26px;
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.seg button {
+  height: 26px;
+  padding: 0 9px;
+  font-size: 11.5px;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-right: 1px solid var(--line-2);
+}
+.seg button:last-child { border-right: 0; }
+.seg button:hover { background: var(--cream-2); }
+.seg button.on { background: var(--navy); color: var(--cream); }
+.seg button.on:hover { background: var(--navy-2); }
+.seg button.awaiting.on { background: var(--clay); color: var(--cream); }
+.seg button.awaiting.on:hover { background: #A3360A; }
+.seg .n {
+  font-variant-numeric: tabular-nums;
+  font-size: 10.5px;
+  font-weight: 650;
+  opacity: 0.72;
+}
+.menu-pop label { justify-content: space-between; }
+.menu-pop label .n {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--muted);
+}
+.mail-note {
+  flex: 0 0 auto;
+  padding: 7px 14px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--navy);
+  background: var(--clay-soft);
+  border-bottom: 1px solid var(--line);
+  letter-spacing: -0.01em;
+}
+.mail-note[hidden] { display: none; }
+.mail-note b { font-weight: 650; }
+.mail-note.ready-note { background: #E4E8F0; }
+
+/* —— Table —— */
+.wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: var(--paper);
+}
+table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: -0.011em;
+}
+#grid.show-era, #grid.show-builder, #grid.show-billed, #grid.show-due,
+#grid.show-bo, #grid.show-notes, #grid.show-ticket, #grid.show-po, #grid.show-next {
+  table-layout: auto;
+  min-width: 1880px;
+}
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  height: var(--thead-h);
+  background: var(--cream-2);
+  border-bottom: 1px solid var(--line-2);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  padding: 0 8px;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+}
+thead th:hover { color: var(--navy); }
+thead th .s {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 8px;
+  letter-spacing: 0;
+  color: var(--navy);
+  opacity: 0;
+}
+thead th.sorted { color: var(--navy); }
+thead th.sorted .s { opacity: 1; }
+thead th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+td {
+  height: var(--row-h);
+  padding: 0 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--paper);
+}
+td.comm, td.addr {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+tbody tr.alt td { background: #FBF9F5; }
+tbody tr:hover td { background: #F3EFE8; }
+tbody tr.sel td { background: #EDE6DC; }
+tbody tr.sel td:first-child { box-shadow: inset 2px 0 0 var(--navy); }
+tbody tr.researched td:first-child { box-shadow: inset 2px 0 0 var(--clay); }
+tbody tr.researched.sel td:first-child { box-shadow: inset 2px 0 0 var(--clay); }
+tbody tr { cursor: pointer; }
+.dpd { font-variant-numeric: tabular-nums; font-weight: 600; }
+.dpd.late { color: var(--clay); }
+.inv {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.inv .dot {
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--clay);
+  margin-right: 5px;
+  vertical-align: 1px;
+}
+.money { font-variant-numeric: tabular-nums; font-weight: 600; letter-spacing: -0.015em; }
+.trunc { overflow: hidden; text-overflow: ellipsis; max-width: 1px; }
+.comm { font-weight: 550; }
+.addr { color: var(--navy-2); }
+.empty { color: var(--muted-2); }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.pill.found, .pill.paid { background: var(--found-bg); color: var(--found-fg); }
+.pill.unpaid { background: var(--cream); color: var(--navy); border: 1px solid #C9C3B8; }
+.pill.short { background: var(--clay-soft); color: var(--clay); }
+.pill.notfound { background: var(--not-bg); color: var(--not-fg); }
+.pill.why {
+  background: var(--cream);
+  color: var(--navy);
+  border: 1px solid #C9C3B8;
+}
+.pill.why.hot {
+  background: var(--clay-soft);
+  color: var(--clay);
+  border-color: transparent;
+}
+.pill.yes { background: var(--cream-2); color: var(--navy); }
+.pill.mute { background: transparent; color: var(--muted); border: 1px dashed var(--line-2); }
+.pill.awaiting { background: var(--clay-soft); color: var(--clay); }
+.pill.needs_you { background: var(--navy); color: var(--cream); }
+.pill.ready { background: var(--navy); color: var(--cream); }
+.pill.drafted { background: var(--cream); color: var(--navy); border: 1px solid var(--navy); }
+.pill.not_sent { background: transparent; color: var(--muted); border: 1px dashed var(--line-2); }
+.wait { font-variant-numeric: tabular-nums; font-weight: 550; }
+.wait.late { color: var(--clay); font-weight: 650; }
+.reply, .sent { font-weight: 500; letter-spacing: -0.01em; }
+.next { color: var(--navy-2); font-weight: 500; max-width: 240px; }
+
+.col-era, .col-builder, .col-billed, .col-due, .col-bo, .col-notes, .col-ticket, .col-po, .col-next { display: none; }
+.show-era .col-era,
+.show-builder .col-builder,
+.show-billed .col-billed,
+.show-due .col-due,
+.show-bo .col-bo,
+.show-notes .col-notes,
+.show-ticket .col-ticket,
+.show-po .col-po,
+.show-next .col-next { display: table-cell; }
+
+/* group rows */
+tr.ghead td {
+  height: 34px;
+  background: var(--cream-2) !important;
+  border-bottom: 1px solid var(--line-2);
+  font-size: 12px;
+  cursor: pointer;
+  position: sticky;
+  top: var(--thead-h);
+  z-index: 6;
+}
+tr.ghead:hover td { background: var(--cream-3) !important; }
+.ghead-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.chev {
+  width: 0; height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 5px solid var(--navy);
+  opacity: 0.55;
+  transition: transform 0.12s ease;
+}
+.ghead.open .chev { transform: rotate(90deg); }
+.gname { font-weight: 650; letter-spacing: -0.02em; }
+.gmeta {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  font-weight: 550;
+  font-size: 11.5px;
+}
+tr.section td {
+  height: 28px;
+  background: var(--cream) !important;
+  border-bottom: 1px solid var(--line-2);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: default;
+  position: sticky;
+  top: var(--thead-h);
+  z-index: 5;
+}
+tr.child td:first-child { padding-left: 22px; }
+
+.w-dpd { width: 52px; }
+.w-inv { width: 118px; }
+.w-open { width: 82px; }
+.w-hy { width: 86px; }
+.w-why { width: 142px; }
+.w-mail { width: 92px; }
+.w-sent { width: 78px; }
+.w-wait { width: 72px; }
+.w-reply { width: 118px; }
+.w-era { width: 110px; }
+.w-billed { width: 92px; }
+.w-due { width: 78px; }
+th:nth-child(4), td.comm { width: 16%; }
+th:nth-child(5), td.addr { width: 14%; }
+
+.empty-state {
+  padding: 48px 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* —— Drawer —— */
+.scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,0.18);
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease;
+}
+.scrim.on { opacity: 1; pointer-events: auto; }
+.drawer {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(var(--drawer-w), 42vw);
+  background: var(--cream);
+  border-left: 1px solid var(--line-2);
+  z-index: 60;
+  transform: translateX(100%);
+  transition: transform 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: -12px 0 32px rgba(15,23,42,0.08);
+}
+.drawer.on { transform: translateX(0); }
+.d-head {
+  flex: 0 0 52px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--line);
+}
+.d-head h2 {
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.d-sub {
+  margin-top: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.d-x {
+  width: 28px; height: 28px;
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -4px -6px 0 0;
+}
+.d-x:hover { background: var(--cream-2); color: var(--navy); }
+.d-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 4px 0 8px;
+}
+.d-foot {
+  flex: 0 0 auto;
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--line-2);
+  background: #F3EFE8;
+  z-index: 2;
+  box-shadow: 0 -8px 16px rgba(15,23,42,0.04);
+}
+.d-foot[hidden] { display: none; }
+.drawer.on .d-foot:not([hidden]) { display: block; }
+.sec { padding: 8px 16px 7px; }
+.sec + .sec { border-top: 1px solid var(--line); }
+.sec h3 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.dl { display: grid; grid-template-columns: 118px 1fr; gap: 3px 10px; }
+.dl dt {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--muted);
+  padding-top: 1px;
+}
+.dl dd {
+  font-size: 12.5px;
+  font-weight: 550;
+  letter-spacing: -0.015em;
+  word-break: break-word;
+}
+.dl dd.money, .dl dd.num { font-variant-numeric: tabular-nums; font-weight: 600; }
+.dl dd.late { color: var(--clay); }
+.note-status {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.note-status.warn { color: var(--clay); }
+.mail {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--navy);
+}
+.mail.empty { color: var(--muted); font-weight: 500; }
+.mail-lead {
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+  color: var(--navy);
+  margin: 0 0 10px;
+}
+.drawer .tl { margin: 0; }
+.drawer .tl li { padding-bottom: 8px; }
+.actions { display: flex; flex-direction: column; gap: 6px; }
+.act-hint {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--navy-2);
+  line-height: 1.4;
+  margin-bottom: 2px;
+}
+.act {
+  height: 34px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  cursor: default;
+}
+.act.primary {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--cream);
+}
+.act.primary:hover { background: var(--navy-2); }
+.act.ghost:hover { border-color: #C4BDB2; background: #FFFdf8; }
+.act-note {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.void { color: var(--muted-2); }
+
+
+/* —— Compose —— */
+.compose {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(520px, 46vw);
+  background: var(--cream);
+  border-left: 1px solid var(--line-2);
+  z-index: 70;
+  transform: translateX(100%);
+  transition: transform 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: -12px 0 32px rgba(15,23,42,0.08);
+}
+.compose.on { transform: translateX(0); }
+.c-head {
+  flex: 0 0 auto;
+  padding: 10px 14px 10px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.c-head-left { min-width: 0; }
+.c-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 22px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 0;
+  margin-bottom: 4px;
+}
+.c-back:hover { color: var(--navy); }
+.c-back i {
+  width: 0; height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-right: 5px solid currentColor;
+}
+.c-head h2 {
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.c-kind {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  margin-top: 5px;
+  padding: 0 7px;
+  border: 1px solid #C9C3B8;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.c-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 0 0 12px;
+}
+.c-meta { padding: 10px 16px 8px; }
+.c-row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 8px;
+  align-items: start;
+  padding: 5px 0;
+}
+.c-row dt {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 7px;
+}
+.c-field {
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 5px;
+  padding: 6px 9px;
+  min-height: 32px;
+}
+.c-field .who {
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+.c-field .addr {
+  margin-top: 1px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--navy-2);
+}
+.c-field.subj .who { font-weight: 550; }
+.letter {
+  margin: 4px 16px 0;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  padding: 16px 16px 14px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.011em;
+}
+.letter p { margin: 0 0 10px; }
+.letter p:last-child { margin-bottom: 0; }
+.letter p.hold {
+  color: var(--clay);
+}
+
+.tl { margin: 12px 0 14px; padding: 0; list-style: none; }
+.tl li {
+  position: relative;
+  padding: 0 0 10px 14px;
+  border-left: 2px solid var(--navy);
+}
+.tl li:last-child { padding-bottom: 0; }
+.tl li.today { border-left-color: var(--clay); }
+.tl .when {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+.tl li.today .when { color: var(--clay); }
+.tl .what {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-top: 1px;
+}
+.sig {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.sig b { display: block; font-weight: 650; letter-spacing: -0.02em; }
+.sig span { display: block; font-size: 12px; font-weight: 500; }
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px 16px 0;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 9px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+.chip em {
+  font-style: normal;
+  font-weight: 550;
+  color: var(--clay);
+  font-size: 10.5px;
+}
+.c-foot {
+  flex: 0 0 auto;
+  padding: 12px 16px 14px;
+  border-top: 1px solid var(--line-2);
+  background: #F3EFE8;
+  box-shadow: 0 -8px 16px rgba(15,23,42,0.04);
+}
+.c-foot .actions { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+.c-foot .act { padding: 0 12px; flex: 1 1 auto; }
+.c-foot .act.primary { flex: 1.4 1 auto; }
+
+.split {
+  display: flex;
+  position: relative;
+  flex: 1.4 1 auto;
+  min-width: 0;
+}
+.split .act.primary {
+  flex: 1 1 auto;
+  border-radius: 6px 0 0 6px;
+}
+.split-arrow {
+  flex: 0 0 40px;
+  width: 40px;
+  min-width: 40px;
+  height: 34px;
+  border-radius: 0 6px 6px 0;
+  border-left: 1px solid rgba(248,246,242,0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.split-arrow svg { display: block; }
+.split-arrow[aria-expanded="true"] { background: var(--navy-2); }
+.split-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 6px);
+  min-width: 220px;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(15,23,42,0.14);
+  padding: 4px;
+  z-index: 40;
+}
+.split-menu.on { display: block; }
+.split-menu button {
+  width: 100%;
+  text-align: left;
+  min-height: 40px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 650;
+  color: var(--navy);
+}
+.split-menu button:hover { background: var(--cream-2); }
+.split-menu .send { color: var(--clay); }
+.split-menu .hint {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.c-foot .split { flex: 1.4 1 auto; }
+.c-foot .split .act.primary { flex: 1 1 auto; }
+
+
+
+@media (max-width: 900px) {
+  html, body { overflow: auto; }
+  .app { min-width: 0; height: auto; min-height: 100%; padding-bottom: env(safe-area-inset-bottom); }
+  .hdr {
+    height: auto;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    padding: calc(10px + env(safe-area-inset-top)) 12px 8px;
+    gap: 8px;
+  }
+  .asof { white-space: normal; }
+  .counts { width: 100%; justify-content: space-between; }
+  .bar {
+    height: auto;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    white-space: normal;
+    padding: 8px 10px;
+    row-gap: 6px;
+  }
+  .search { width: 100%; }
+  .seg-lab { width: 100%; margin: 4px 0 0; }
+  .seg { flex-wrap: wrap; height: auto; width: 100%; }
+  .seg button { min-height: 40px; height: 40px; flex: 1 1 auto; }
+  .menu-btn, .toggle, .clear-btn { min-height: 36px; }
+  .wrap { overflow: visible; background: transparent; padding: 8px 10px 24px; }
+  table, #grid.show-era, #grid.show-builder, #grid.show-billed, #grid.show-due,
+  #grid.show-bo, #grid.show-notes, #grid.show-ticket, #grid.show-po, #grid.show-next {
+    min-width: 0 !important;
+    table-layout: auto;
+    width: 100%;
+  }
+  thead { display: none; }
+  tbody tr[data-id] {
+    display: block;
+    padding: 12px 14px 10px;
+    margin: 0 0 8px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--paper);
+    box-shadow: none;
+  }
+  tbody tr[data-id].alt td,
+  tbody tr[data-id] td { background: transparent; }
+  tbody tr[data-id] td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    height: auto;
+    min-height: 28px;
+    padding: 5px 0;
+    border-bottom: 0;
+    white-space: normal;
+    max-width: none;
+  }
+  tbody tr[data-id] td {
+    overflow: visible;
+    width: auto;
+    max-width: none;
+  }
+  tbody tr[data-id] td.comm,
+  tbody tr[data-id] td.addr {
+    max-width: none;
+    overflow: visible;
+    width: auto;
+    flex: 1 1 auto;
+  }
+  tbody tr[data-id] td.comm,
+  tbody tr[data-id] td.addr { text-align: right; }
+  /* hideable cols stay hidden unless toggled — display:flex must not unhide them */
+  tbody tr[data-id] td.col-era,
+  tbody tr[data-id] td.col-builder,
+  tbody tr[data-id] td.col-billed,
+  tbody tr[data-id] td.col-due,
+  tbody tr[data-id] td.col-bo,
+  tbody tr[data-id] td.col-notes,
+  tbody tr[data-id] td.col-ticket,
+  tbody tr[data-id] td.col-po,
+  tbody tr[data-id] td.col-next { display: none; }
+  #grid.show-era tbody tr[data-id] td.col-era,
+  #grid.show-builder tbody tr[data-id] td.col-builder,
+  #grid.show-billed tbody tr[data-id] td.col-billed,
+  #grid.show-due tbody tr[data-id] td.col-due,
+  #grid.show-bo tbody tr[data-id] td.col-bo,
+  #grid.show-notes tbody tr[data-id] td.col-notes,
+  #grid.show-ticket tbody tr[data-id] td.col-ticket,
+  #grid.show-po tbody tr[data-id] td.col-po,
+  #grid.show-next tbody tr[data-id] td.col-next { display: flex; }
+  tbody tr[data-id] td::before {
+    content: attr(data-label);
+    font-size: 10px;
+    font-weight: 650;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex: 0 0 92px;
+  }
+  tbody tr.section td, tbody tr.ghead td {
+    display: block;
+    height: auto;
+    padding: 10px 12px;
+    white-space: normal;
+  }
+  .drawer, .compose {
+    width: 100%;
+    max-width: none;
+  }
+  .c-foot .actions { flex-direction: column; }
+  .c-foot .act { width: 100%; min-height: 40px; }
+  .c-foot .split { width: 100%; }
+  .split-arrow { height: 40px; min-height: 40px; }
+  .act { min-height: 40px; }
+  .d-foot .act { min-height: 40px; }
+}
+
+</style>
+<link rel="stylesheet" href="case-view.css" />
+</head>
+<body>
+<div class="app" id="app">
+  <header class="hdr">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+        <path fill="#0F172A" d="M8 1.8L14.9 14.4H1.1L8 1.8Z"/>
+      </svg>
+      <div class="brand-text">
+        <h1>Hyphen review</h1>
+        <p class="asof">Books Mon Aug 17 3:18am CT · Scrape <span class="scrape">Sat Aug 15 4:43pm CT</span></p>
+      </div>
+    </div>
+    <div class="counts">
+      <div class="count">
+        <b id="countN">454</b>
+        <span id="countNLabel">invoices</span>
+      </div>
+      <div class="count">
+        <b id="countOpen">$231,898.12</b>
+        <span>open</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="bar">
+    <input class="search" id="q" type="search" placeholder="Invoice, address, community, BO#" autocomplete="off" />
+
+    <span class="seg-lab">Mail</span>
+    <div class="seg" id="mailSeg" role="tablist" aria-label="Mail">
+      <button type="button" data-mail="all" class="on">All <span class="n" data-n="all">0</span></button>
+      <button type="button" data-mail="ready">Ready <span class="n" data-n="ready">0</span></button>
+      <button type="button" data-mail="awaiting" class="awaiting">Awaiting <span class="n" data-n="awaiting">0</span></button>
+      <button type="button" data-mail="needs_you">Needs you <span class="n" data-n="needs_you">0</span></button>
+      <button type="button" data-mail="drafted">Drafted <span class="n" data-n="drafted">0</span></button>
+      <button type="button" data-mail="not_sent">Not sent <span class="n" data-n="not_sent">0</span></button>
+    </div>
+
+    <button class="fu-btn" id="fuDueBtn" type="button" aria-pressed="false">Follow-up due <span class="n" id="fuDueN">0</span></button>
+
+    <div class="menu" data-menu="days">
+      <button class="menu-btn" type="button"><span class="t">Days</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="0-15" /> 0–15 <span class="n" data-days-n="0-15"></span></label>
+        <label><input type="checkbox" value="16-30" /> 16–30 <span class="n" data-days-n="16-30"></span></label>
+        <label><input type="checkbox" value="30+" /> 30+ <span class="n" data-days-n="30+"></span></label>
+        <div class="menu-foot"><button type="button" class="all">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="menu" data-menu="builder">
+      <button class="menu-btn" type="button"><span class="t">Builder</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="LENNAR HOMES" /> Lennar</label>
+        <label><input type="checkbox" value="MHI HOMES" /> MHI</label>
+        <label><input type="checkbox" value="Toll Brothers, Inc." /> Toll</label>
+        <label><input type="checkbox" value="TriPointe Homes" /> TriPointe</label>
+        <label><input type="checkbox" value="K. Hovnanian of Houston" /> K. Hovnanian</label>
+        <div class="menu-foot"><button type="button" class="all">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="menu" data-menu="era">
+      <button class="menu-btn" type="button"><span class="t">Era</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="pre-strata" /> pre-strata</label>
+        <label><input type="checkbox" value="strata" /> strata</label>
+        <label><input type="checkbox" value="legacy-numeric" /> legacy-numeric</label>
+        <div class="menu-foot"><button type="button" class="all">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="menu" data-menu="why">
+      <button class="menu-btn" type="button"><span class="t">Why</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="No PO" /> No PO</label>
+        <label><input type="checkbox" value="2nd callout" /> 2nd callout</label>
+        <label><input type="checkbox" value="Amount off / unpaid PO" /> Amount off</label>
+        <label><input type="checkbox" value="Paid, to apply" /> Paid to apply</label>
+        <label><input type="checkbox" value="Broken link" /> Broken link</label>
+        <label><input type="checkbox" value="Linked, needs detail" /> Linked needs detail</label>
+        <div class="menu-foot"><button type="button" class="all">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="menu" data-menu="hyphen">
+      <button class="menu-btn" type="button"><span class="t">Hyphen</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="paid" /> Paid</label>
+        <label><input type="checkbox" value="short" /> Short</label>
+        <label><input type="checkbox" value="unpaid" /> Unpaid</label>
+        <label><input type="checkbox" value="not_found" /> Not found</label>
+        <div class="menu-foot"><button type="button" class="all">Clear</button></div>
+      </div>
+    </div>
+
+    <button class="clear-btn" id="clearBtn" type="button">Clear filters</button>
+    <div class="bar-spacer"></div>
+
+    <label class="toggle">
+      <input type="checkbox" id="groupToggle" />
+      Group by community
+      <span class="hint">Missing PO</span>
+    </label>
+    <button class="expand-btn" id="expandBtn" type="button">Expand packets</button>
+
+    <div class="menu" data-menu="cols">
+      <button class="menu-btn" type="button"><span class="t">Columns</span><i class="caret"></i></button>
+      <div class="menu-pop right" hidden>
+        <label><input type="checkbox" value="era" /> Era</label>
+        <label><input type="checkbox" value="builder" /> Builder</label>
+        <label><input type="checkbox" value="billed" /> Billed $</label>
+        <label><input type="checkbox" value="due" /> Due date</label>
+        <label><input type="checkbox" value="bo" /> Builder Order Number</label>
+        <label><input type="checkbox" value="notes" /> Hyphen notes</label>
+        <label><input type="checkbox" value="ticket" /> Strata ticket</label>
+        <label><input type="checkbox" value="po" /> Strata PO</label>
+        <label><input type="checkbox" value="next" /> Next</label>
+        <div class="menu-foot"><button type="button" class="all">Reset</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mail-note" id="mailNote" hidden></div>
+
+  <div class="stage" id="stage">
+  <div class="wrap" id="list">
+    <table id="grid">
+      <thead>
+        <tr>
+          <th class="num w-dpd sorted" data-sort="daysPastDue" data-dir="desc">Days <span class="s">▼</span></th>
+          <th class="w-inv" data-sort="docNumber">Invoice # <span class="s"></span></th>
+          <th class="num w-open wide-only" data-sort="balance" data-dir="desc">Open $ <span class="s"></span></th>
+          <th class="wide-only" data-sort="customer">Community <span class="s"></span></th>
+          <th data-sort="service_address">Address <span class="s"></span></th>
+          <th class="w-hy wide-only" data-sort="found">Hyphen <span class="s"></span></th>
+          <th class="w-why" data-sort="issue">Issue <span class="s"></span></th>
+          <th class="w-mail" data-sort="mail">Mail <span class="s"></span></th>
+          <th class="w-sent wide-only" data-sort="last_sent">Last sent <span class="s"></span></th>
+          <th class="num w-wait wide-only" data-sort="waiting" data-dir="desc">Waiting <span class="s"></span></th>
+          <th class="w-reply wide-only" data-sort="last_reply">Last reply <span class="s"></span></th>
+          <th class="col-era w-era" data-sort="era">Era <span class="s"></span></th>
+          <th class="col-builder" data-sort="parent">Builder <span class="s"></span></th>
+          <th class="num col-billed w-billed" data-sort="totalAmt" data-dir="desc">Billed $ <span class="s"></span></th>
+          <th class="col-due w-due" data-sort="dueDate">Due date <span class="s"></span></th>
+          <th class="col-bo" data-sort="builder_order_number">Builder Order # <span class="s"></span></th>
+          <th class="col-notes" data-sort="notes">Hyphen notes <span class="s"></span></th>
+          <th class="col-ticket" data-sort="ticket">Strata ticket <span class="s"></span></th>
+          <th class="col-po" data-sort="po">Strata PO <span class="s"></span></th>
+          <th class="col-next" data-sort="next">Next <span class="s"></span></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+  <section class="case" id="case" aria-hidden="true" aria-label="Invoice case"></section>
+  <section class="campaign" id="campaign" aria-hidden="true" aria-label="Community campaign"></section>
+  </div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="d-head">
+    <div>
+      <h2 id="dTitle"></h2>
+      <p class="d-sub" id="dSub"></p>
+    </div>
+    <button class="d-x" id="dClose" type="button" aria-label="Close">×</button>
+  </div>
+  <div class="d-body" id="dBody"></div>
+  <div class="d-foot" id="dFoot" hidden></div>
+</aside>
+
+<aside class="compose" id="compose" aria-hidden="true">
+  <div class="c-head">
+    <div class="c-head-left">
+      <button class="c-back" id="cBack" type="button"><i></i>Back to case</button>
+      <h2 id="cTitle">Draft</h2>
+      <span class="c-kind" id="cKind">Internal</span>
+    </div>
+    <button class="d-x" id="cClose" type="button" aria-label="Close">×</button>
+  </div>
+  <div class="c-body">
+    <dl class="c-meta">
+      <div class="c-row"><dt>From</dt><dd class="c-field" id="cFrom"></dd></div>
+      <div class="c-row"><dt>To</dt><dd class="c-field" id="cTo"></dd></div>
+      <div class="c-row"><dt>CC</dt><dd class="c-field" id="cCc"></dd></div>
+      <div class="c-row"><dt>Subject</dt><dd class="c-field subj" id="cSubj"></dd></div>
+    </dl>
+    <div class="letter" id="cLetter"></div>
+    <div class="chips" id="cChips"></div>
+  </div>
+  <div class="c-foot">
+    <div class="actions">
+      <button class="act ghost" id="cHold" type="button">Hold</button>
+      <button class="act ghost" id="cSave" type="button">Save draft</button>
+      <div class="split" id="cReadySplit">
+        <button class="act primary" id="cReady" type="button">Put in Drafts</button>
+        <button class="act primary split-arrow" id="cReadyMore" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="More send options">
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1.2L5 5l4-3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="split-menu" id="cReadyMenu" hidden>
+          <button type="button" class="send" id="cSend">Send now<span class="hint">Sends this letter from billings@. Does not wait in Drafts.</span></button>
+        </div>
+      </div>
+    </div>
+    <p class="act-note" id="cNote">Put in Drafts drops a billings@ draft. The arrow is Send.</p>
+  </div>
+</aside>
+
+<script src="data.js?v=case-campaign1"></script>
+<script>
+window.HYPHEN_READY_API = "https://temporary-swift-silicon-bfeajj8.vercel.app/api/ready";
+window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18eb7e6555a03fba7";
+</script>
+
+<script>
+(function () {
+  "use strict";
+
+  const BUILDERS = [
+    { id: "LENNAR HOMES", label: "Lennar" },
+    { id: "MHI HOMES", label: "MHI" },
+    { id: "Toll Brothers, Inc.", label: "Toll" },
+    { id: "TriPointe Homes", label: "TriPointe" },
+    { id: "K. Hovnanian of Houston", label: "K. Hovnanian" },
+  ];
+  const DEFAULT_CHASE_CC = [
+    {name: "Ryan", email: "ryan@coastaltestinglabs.com"},
+    {name: "Maria", email: "maria@coastaltestinglabs.com"},
+    {name: "Veronica", email: "veronica@coastaltestinglabs.com"},
+    {name: "William Knox", email: "william@coastaltestinglabs.com"}
+  ];
+  const BUILDER_LABEL = Object.fromEntries(BUILDERS.map((b) => [b.id, b.label]));
+  const ERAS = [
+    { id: "pre-strata", label: "pre-strata" },
+    { id: "strata", label: "strata" },
+    { id: "legacy-numeric", label: "legacy-numeric" },
+  ];
+  const WHYS = [
+    { id: "No PO", label: "No PO" },
+    { id: "2nd callout", label: "2nd callout" },
+    { id: "Amount off / unpaid PO", label: "Amount off" },
+    { id: "Paid, to apply", label: "Paid to apply" },
+    { id: "Broken link", label: "Broken link" },
+    { id: "Linked, needs detail", label: "Linked needs detail" },
+  ];
+  const WHY_LABEL = Object.fromEntries(WHYS.map((w) => [w.id, w.label]));
+  const WHY_HOT = new Set(["2nd callout", "Amount off / unpaid PO", "consumed/cutoff"]);
+  const MAIL_LABEL = { ready: "Ready", awaiting: "Awaiting", needs_you: "Needs you", drafted: "Drafted", not_sent: "Not sent" };
+  const MAIL_ORDER = { ready: 0, awaiting: 1, needs_you: 2, drafted: 3, not_sent: 4 };
+  const MAIL_OK = new Set(["ready", "awaiting", "needs_you", "drafted", "not_sent"]);
+
+  const HIDEABLE = [
+    { id: "era", label: "Era" },
+    { id: "builder", label: "Builder" },
+    { id: "billed", label: "Billed $" },
+    { id: "due", label: "Due date" },
+    { id: "bo", label: "Builder Order Number" },
+    { id: "notes", label: "Hyphen notes" },
+    { id: "ticket", label: "Strata ticket" },
+    { id: "po", label: "Strata PO" },
+    { id: "next", label: "Next" },
+  ];
+
+  const state = {
+    sortKey: "daysPastDue",
+    sortDir: "desc",
+    search: "",
+    mail: "all",
+    days: new Set(),
+    builders: new Set(),
+    eras: new Set(),
+    whys: new Set(),
+    hyphen: new Set(),
+    cols: {},
+    group: false,
+    expandAll: false,
+    collapsed: new Set(),
+    selected: null,
+    followUpDue: false,
+    caseOpen: false,
+    campaignOpen: false,
+    campaignKey: null,
+    campaignHouse: null,
+  };
+
+  const $ = (sel, root) => (root || document).querySelector(sel);
+  const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
+
+  function money(n) {
+    if (n == null || n === "") return "—";
+    return (
+      "$" +
+      Number(n).toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })
+    );
+  }
+  function moneyShort(n) {
+    if (n == null || n === "") return "—";
+    const v = Number(n);
+    if (Math.abs(v - Math.round(v)) < 1e-9) {
+      return "$" + Math.round(v).toLocaleString("en-US");
+    }
+    return money(v);
+  }
+  function fmtDate(s) {
+    if (!s) return "—";
+    const p = String(s).slice(0, 10).split("-");
+    if (p.length < 3) return s;
+    const dt = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+    return dt.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  }
+  function fmtDateShort(s) {
+    if (!s) return "—";
+    const p = String(s).slice(0, 10).split("-");
+    if (p.length < 3) return s;
+    return Number(p[1]) + "/" + Number(p[2]) + "/" + String(p[0]).slice(2);
+  }
+  function fmtDateTime(s) {
+    if (!s) return "—";
+    const d = new Date(s);
+    if (isNaN(d)) return fmtDate(s);
+    return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  }
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+  function dash(s) {
+    const v = (s == null ? "" : String(s)).trim();
+    return v ? v : "—";
+  }
+  function whyLabel(w) {
+    return WHY_LABEL[w] || w || "—";
+  }
+  function whyHot(w) {
+    if (!w) return false;
+    const s = w.toLowerCase();
+    return WHY_HOT.has(w) || s.includes("consumed") || s.includes("cutoff") || s.includes("amount off") || s.includes("2nd callout");
+  }
+  function nextLine(r) {
+    if (r.researched_notes) {
+      const n = String(r.researched_notes).replace(/\s+/g, " ").trim();
+      return n.length > 78 ? n.slice(0, 76) + "…" : n;
+    }
+    const why = r.first_pass_column || "";
+    if (why === "2nd callout") return "EPO / research";
+    if (why === "Amount off / unpaid PO") return "Research unpaid PO";
+    if (why === "Paid, to apply") return "Match check to invoice";
+    if (why === "Broken link") return "Research cancelled PO";
+    if (!r.found && !r.has_strata_ticket) return "Chase community packet";
+    if (!r.found && r.has_strata_ticket) return "Confirm SON vs ticket";
+    if (r.found && why === "Linked, needs detail") return "Scrape payments";
+    if (why === "No PO") return "Chase community packet";
+    return "Review";
+  }
+  function isMissingPo(r) {
+    return !r.found || r.first_pass_column === "No PO";
+  }
+  function notesCell(r) {
+    return r.researched_notes ? "Yes" : "Not scraped";
+  }
+  function mailStatus(r) {
+    const v = r.mail || r.chase_mail || "not_sent";
+    return MAIL_OK.has(v) ? v : "not_sent";
+  }
+  function lastSent(r) {
+    return r.last_sent || r.chase_last_sent || "";
+  }
+  function waitingDays(r) {
+    const v = r.waiting != null && r.waiting !== "" ? r.waiting : r.chase_waiting;
+    if (v == null || v === "") return null;
+    const n = Number(v);
+    return Number.isFinite(n) ? n : null;
+  }
+  function lastReply(r) {
+    return r.last_reply || r.chase_last_reply || "";
+  }
+  function dayBucket(d) {
+    d = Number(d) || 0;
+    if (d <= 15) return "0-15";
+    if (d <= 30) return "16-30";
+    return "30+";
+  }
+
+  function applyBaseFilters() {
+    const q = state.search.trim().toLowerCase();
+    return DATA.filter((r) => {
+      if (state.builders.size && !state.builders.has(r.parent)) return false;
+      if (state.eras.size && !state.eras.has(r.era)) return false;
+      if (state.whys.size && !state.whys.has(r.first_pass_column)) return false;
+      if (state.hyphen.size) {
+        const tag = payStatus(r);
+        if (!state.hyphen.has(tag)) return false;
+      }
+      if (state.days.size && !state.days.has(dayBucket(r.daysPastDue))) return false;
+      if (q) {
+        const bag = [
+          r.docNumber,
+          r.service_address,
+          r.customer,
+          r.builder_order_number,
+        ]
+          .map((x) => (x == null ? "" : String(x)).toLowerCase())
+          .join(" ");
+        if (!bag.includes(q)) return false;
+      }
+      return true;
+    });
+  }
+  function applyFilters() {
+    return applyBaseFilters().filter((r) => {
+      if (state.mail !== "all" && mailStatus(r) !== state.mail) return false;
+      if (state.followUpDue && !isFollowUpDue(r)) return false;
+      return true;
+    });
+  }
+  function applyFiltersExceptDays() {
+    const q = state.search.trim().toLowerCase();
+    return DATA.filter((r) => {
+      if (state.mail !== "all" && mailStatus(r) !== state.mail) return false;
+      if (state.followUpDue && !isFollowUpDue(r)) return false;
+      if (state.builders.size && !state.builders.has(r.parent)) return false;
+      if (state.eras.size && !state.eras.has(r.era)) return false;
+      if (state.whys.size && !state.whys.has(r.first_pass_column)) return false;
+      if (state.hyphen.size) {
+        const tag = payStatus(r);
+        if (!state.hyphen.has(tag)) return false;
+      }
+      if (q) {
+        const bag = [
+          r.docNumber,
+          r.service_address,
+          r.customer,
+          r.builder_order_number,
+        ]
+          .map((x) => (x == null ? "" : String(x)).toLowerCase())
+          .join(" ");
+        if (!bag.includes(q)) return false;
+      }
+      return true;
+    });
+  }
+
+  function sortRows(rows) {
+    const key = state.sortKey;
+    const dir = state.sortDir === "asc" ? 1 : -1;
+    const num = new Set(["daysPastDue", "balance", "totalAmt", "daysSinceInvoice", "open_balance", "waiting", "mail"]);
+    const copy = rows.slice();
+    copy.sort((a, b) => {
+      let av, bv;
+      if (key === "found") {
+        av = a.found ? 1 : 0;
+        bv = b.found ? 1 : 0;
+      } else if (key === "next") {
+        av = nextLine(a);
+        bv = nextLine(b);
+      } else if (key === "notes") {
+        av = notesCell(a);
+        bv = notesCell(b);
+      } else if (key === "ticket") {
+        av = a.strata_report_number || "";
+        bv = b.strata_report_number || "";
+      } else if (key === "po") {
+        av = a.strata_po_num || "";
+        bv = b.strata_po_num || "";
+      } else if (key === "mail") {
+        av = MAIL_ORDER[mailStatus(a)];
+        bv = MAIL_ORDER[mailStatus(b)];
+      } else if (key === "last_sent") {
+        av = lastSent(a);
+        bv = lastSent(b);
+      } else if (key === "waiting") {
+        av = waitingDays(a);
+        bv = waitingDays(b);
+      } else if (key === "last_reply") {
+        av = lastReply(a);
+        bv = lastReply(b);
+      } else if (key === "issue") {
+        av = issueLabel(a);
+        bv = issueLabel(b);
+      } else if (key === "packet") {
+        av = packetStatus(a);
+        bv = packetStatus(b);
+      } else {
+        av = a[key];
+        bv = b[key];
+      }
+      if (num.has(key)) {
+        av = av == null || av === "" ? -Infinity : Number(av);
+        bv = bv == null || bv === "" ? -Infinity : Number(bv);
+        if (Number.isNaN(av)) av = -Infinity;
+        if (Number.isNaN(bv)) bv = -Infinity;
+        return (av - bv) * dir;
+      }
+      if (typeof av === "boolean") av = av ? 1 : 0;
+      if (typeof bv === "boolean") bv = bv ? 1 : 0;
+      av = av == null ? "" : String(av).toLowerCase();
+      bv = bv == null ? "" : String(bv).toLowerCase();
+      if (av < bv) return -1 * dir;
+      if (av > bv) return 1 * dir;
+      return (Number(b.daysPastDue) - Number(a.daysPastDue)) || String(a.docNumber).localeCompare(String(b.docNumber));
+    });
+    return copy;
+  }
+
+  function updateCounts(rows) {
+    const n = rows.length;
+    const open = rows.reduce((s, r) => s + (Number(r.balance) || 0), 0);
+    $("#countN").textContent = n.toLocaleString("en-US");
+    $("#countOpen").textContent = money(open);
+    const filtered = n !== DATA.length || hasFilters();
+    $("#countNLabel").textContent = filtered ? "invoices shown" : "invoices";
+    const base = applyBaseFilters();
+    const tally = { all: base.length, ready: 0, not_sent: 0, drafted: 0, awaiting: 0, needs_you: 0 };
+    base.forEach((r) => { tally[mailStatus(r)] += 1; });
+    $$("#mailSeg .n").forEach((el) => {
+      el.textContent = tally[el.dataset.n] == null ? "0" : String(tally[el.dataset.n]);
+    });
+    const dayTally = { "0-15": 0, "16-30": 0, "30+": 0 };
+    applyFiltersExceptDays().forEach((r) => { dayTally[dayBucket(r.daysPastDue)] += 1; });
+    $$("[data-days-n]").forEach((el) => {
+      el.textContent = String(dayTally[el.dataset.daysN] || 0);
+    });
+    var fuEl = $("#fuDueN");
+    if (fuEl) {
+      var fuN = applyBaseFilters().filter(isFollowUpDue).length;
+      fuEl.textContent = String(fuN);
+    }
+  }
+
+  function hasFilters() {
+    return (
+      state.search.trim() ||
+      state.builders.size ||
+      state.eras.size ||
+      state.whys.size ||
+      state.hyphen.size ||
+      state.days.size ||
+      state.mail !== "all" ||
+      state.followUpDue
+    );
+  }
+
+  function syncChrome() {
+    $("#clearBtn").classList.toggle("show", !!hasFilters());
+    $("#expandBtn").classList.toggle("show", state.group);
+    $("#expandBtn").textContent = state.expandAll ? "Collapse packets" : "Expand packets";
+    markMenu("builder", state.builders.size, "Builder");
+    markMenu("era", state.eras.size, "Era");
+    markMenu("why", state.whys.size, "Why");
+    markMenu("hyphen", state.hyphen.size, "Hyphen");
+    markMenu("days", state.days.size, "Days");
+    var fuBtn = $("#fuDueBtn");
+    if (fuBtn) {
+      fuBtn.classList.toggle("on", !!state.followUpDue);
+      fuBtn.setAttribute("aria-pressed", state.followUpDue ? "true" : "false");
+    }
+    $$("#mailSeg button").forEach((b) => b.classList.toggle("on", b.dataset.mail === state.mail));
+    const note = $("#mailNote");
+    if (note) {
+      if (state.mail === "ready") {
+        note.hidden = false;
+        note.classList.add("ready-note");
+        note.innerHTML = "<b>Ready</b> = 7:30 auto-drafts of complete packets. Nothing sent. Incomplete stays out.";
+      } else if (state.followUpDue) {
+        note.hidden = false;
+        note.classList.remove("ready-note");
+        note.innerHTML = "<b>Follow-up due</b> = awaiting, and last send + 3 business days (America/Chicago) has been reached.";
+      } else if (state.mail === "awaiting") {
+        note.hidden = false;
+        note.classList.remove("ready-note");
+        note.innerHTML = "<b>Awaiting</b> = already sent, still their court. A reply that does not close the gap stays here.";
+      } else {
+        note.hidden = true;
+        note.classList.remove("ready-note");
+      }
+    }
+    const colOn = Object.values(state.cols).some(Boolean);
+    markMenu("cols", colOn ? HIDEABLE.filter((c) => state.cols[c.id]).length : 0, "Columns");
+    const table = $("#grid");
+    HIDEABLE.forEach((c) => table.classList.toggle("show-" + c.id, !!state.cols[c.id]));
+    $$("thead th").forEach((th) => {
+      const k = th.dataset.sort;
+      th.classList.toggle("sorted", k === state.sortKey);
+      const s = th.querySelector(".s");
+      if (s) s.textContent = k === state.sortKey ? (state.sortDir === "asc" ? "▲" : "▼") : "";
+    });
+  }
+
+  function markMenu(name, n, label) {
+    const btn = $('[data-menu="' + name + '"] .menu-btn');
+    if (!btn) return;
+    btn.classList.toggle("on", n > 0);
+    const text = btn.querySelector(".t");
+    if (text) text.textContent = n ? label + " · " + n : label;
+  }
+
+  function payStatus(r) {
+    return r.payment_status || (r.found ? "unpaid" : "not_found");
+  }
+  function payLabel(r) {
+    const s = payStatus(r);
+    if (s === "paid") return "Paid";
+    if (s === "short") return "Short";
+    if (s === "unpaid") return "Unpaid";
+    if (s === "not_found") return "Not found";
+    return s;
+  }
+  function payClass(r) {
+    const s = payStatus(r);
+    return s === "not_found" ? "notfound" : s;
+  }
+
+  function rowHtml(r, child, alt) {
+    const late = Number(r.daysPastDue) > 0;
+    const addr = (r.service_address || "").trim();
+    const researched = !!r.researched_notes;
+    const cls = [
+      child ? "child" : "",
+      alt ? "alt" : "",
+      state.selected === r.docNumber ? "sel" : "",
+      researched ? "researched" : "",
+    ]
+      .filter(Boolean)
+      .join(" ");
+    return (
+      '<tr class="' +
+      cls +
+      '" data-id="' +
+      esc(r.docNumber) +
+      '">' +
+      '<td class="num" data-label="Days"><span class="dpd' +
+      (late ? " late" : "") +
+      '">' +
+      esc(r.daysPastDue) +
+      "</span></td>" +
+      '<td data-label="Invoice"><span class="inv">' +
+      (researched ? '<i class="dot"></i>' : "") +
+      esc(r.docNumber) +
+      "</span></td>" +
+      '<td class="num wide-only" data-label="Open $"><span class="money">' +
+      money(r.balance) +
+      "</span></td>" +
+      '<td class="comm wide-only" data-label="Community" title="' +
+      esc(r.customer) +
+      '">' +
+      esc(r.customer) +
+      "</td>" +
+      '<td class="addr" data-label="Address" title="' +
+      esc(addr) +
+      '">' +
+      (addr ? esc(addr) : '<span class="empty">—</span>') +
+      "</td>" +
+      '<td class="wide-only" data-label="Hyphen"><span class="pill ' +
+      payClass(r) +
+      '">' +
+      esc(payLabel(r)) +
+      "</span></td>" +
+      '<td data-label="Why"><span class="pill why' +
+      (whyHot(issueRaw(r)) || whyHot(r.first_pass_column) ? " hot" : "") +
+      '">' +
+      esc(issueLabel(r)) +
+      "</span></td>" +
+      '<td data-label="Mail"><span class="pill ' +
+      esc(mailStatus(r)) +
+      '">' +
+      esc(MAIL_LABEL[mailStatus(r)]) +
+      "</span></td>" +
+      '<td class="wide-only" data-label="Last sent"><span class="sent">' +
+      (lastSent(r) ? esc(lastSent(r)) : '<span class="empty">—</span>') +
+      "</span></td>" +
+      '<td class="num wide-only" data-label="Waiting"><span class="wait' +
+      (waitingDays(r) != null && Number(waitingDays(r)) >= 5 ? " late" : "") +
+      '">' +
+      (waitingDays(r) == null ? '<span class="empty">—</span>' : esc(waitingDays(r))) +
+      "</span></td>" +
+      '<td class="wide-only" data-label="Last reply"><span class="reply">' +
+      (lastReply(r) ? esc(lastReply(r)) : '<span class="empty">—</span>') +
+      "</span></td>" +
+      '<td class="col-era" data-label="Era">' +
+      esc(r.era || "—") +
+      "</td>" +
+      '<td class="col-builder" data-label="Builder">' +
+      esc(BUILDER_LABEL[r.parent] || r.parent || "—") +
+      "</td>" +
+      '<td class="num col-billed" data-label="Billed $"><span class="money">' +
+      money(r.totalAmt) +
+      "</span></td>" +
+      '<td class="col-due" data-label="Due">' +
+      esc(fmtDateShort(r.dueDate)) +
+      "</td>" +
+      '<td class="col-bo" data-label="Builder Order #">' +
+      esc(dash(r.builder_order_number)) +
+      "</td>" +
+      '<td class="col-notes" data-label="Hyphen notes">' +
+      (r.researched_notes
+        ? '<span class="pill yes">Yes</span>'
+        : '<span class="pill mute">Not scraped</span>') +
+      "</td>" +
+      '<td class="col-ticket" data-label="Strata ticket">' +
+      esc(dash(r.strata_report_number)) +
+      "</td>" +
+      '<td class="col-po" data-label="Strata PO">' +
+      esc(dash(r.strata_po_num)) +
+      "</td>" +
+      '<td class="col-next next" title="' +
+      esc(nextLine(r)) +
+      '">' +
+      esc(nextLine(r)) +
+      "</td>" +
+      "</tr>"
+    );
+  }
+
+  function emptyCopy() {
+    if (state.mail === "needs_you" && state.mail !== "all" && !hasExtraFilters()) {
+      return "<b>Nothing needs you.</b> Replies that still leave the ball with them stay on Awaiting.";
+    }
+    if (state.mail === "ready") {
+      return "<b>No complete packets in this filter.</b> Incomplete never enters Ready.";
+    }
+    if (state.mail === "awaiting" && !hasExtraFilters()) {
+      return "<b>Nothing awaiting.</b> Sent threads still in their court show here.";
+    }
+    return "No invoices match these filters.";
+  }
+  function hasExtraFilters() {
+    return !!(
+      state.search.trim() ||
+      state.builders.size ||
+      state.eras.size ||
+      state.whys.size ||
+      state.hyphen.size ||
+      state.days.size
+    );
+  }
+
+  function render() {
+    const filtered = sortRows(applyFilters());
+    updateCounts(filtered);
+    syncChrome();
+    const tb = $("#tbody");
+    if (!filtered.length) {
+      tb.innerHTML =
+        '<tr><td colspan="20"><div class="empty-state">' + emptyCopy() + "</div></td></tr>";
+      if (state.caseOpen) renderCase();
+      if (state.campaignOpen) renderCampaign();
+      return;
+    }
+    if (!state.group) {
+      tb.innerHTML = filtered.map((r, i) => rowHtml(r, false, i % 2 === 1)).join("");
+      if (state.caseOpen) renderCase();
+      if (state.campaignOpen) renderCampaign();
+      return;
+    }
+    const missing = filtered.filter(isMissingPo);
+    const other = filtered.filter((r) => !isMissingPo(r));
+    const map = new Map();
+    missing.forEach((r) => {
+      const k = r.customer || "—";
+      if (!map.has(k)) map.set(k, []);
+      map.get(k).push(r);
+    });
+    const groups = Array.from(map.entries()).sort((a, b) => {
+      const maxA = Math.max.apply(null, a[1].map((r) => Number(r.daysPastDue) || 0));
+      const maxB = Math.max.apply(null, b[1].map((r) => Number(r.daysPastDue) || 0));
+      if (maxB !== maxA) return maxB - maxA;
+      const sumA = a[1].reduce((s, r) => s + (Number(r.balance) || 0), 0);
+      const sumB = b[1].reduce((s, r) => s + (Number(r.balance) || 0), 0);
+      return sumB - sumA;
+    });
+    let html = "";
+    if (groups.length) {
+      const pktN = missing.length;
+      const pktOpen = missing.reduce((s, r) => s + (Number(r.balance) || 0), 0);
+      html +=
+        '<tr class="section"><td colspan="20">Missing PO · community packets · ' +
+        groups.length +
+        " communities · " +
+        pktN +
+        " invoices · " +
+        money(pktOpen) +
+        "</td></tr>";
+      groups.forEach(([name, rows]) => {
+        const isOpen = state.expandAll ? !state.collapsed.has(name) : state.collapsed.has("open:" + name);
+        const sum = rows.reduce((s, r) => s + (Number(r.balance) || 0), 0);
+        html +=
+          '<tr class="ghead' +
+          (isOpen ? " open" : "") +
+          '" data-comm="' +
+          esc(name) +
+          '"><td colspan="20"><div class="ghead-inner"><i class="chev"></i><span class="gname">' +
+          esc(name) +
+          (campaignForCommunity(name) ? '<span class="gcamp">Campaign</span>' : '') +
+          '</span><span class="gmeta">' +
+          rows.length +
+          (rows.length === 1 ? " invoice" : " invoices") +
+          " · " +
+          money(sum) +
+          "</span></div></td></tr>";
+        if (isOpen) html += rows.map((r, i) => rowHtml(r, true, i % 2 === 1)).join("");
+      });
+    }
+    if (other.length) {
+      html +=
+        '<tr class="section"><td colspan="20">Other invoices · ' +
+        other.length +
+        " · " +
+        money(other.reduce((s, r) => s + (Number(r.balance) || 0), 0)) +
+        "</td></tr>";
+      html += other.map((r, i) => rowHtml(r, false, i % 2 === 1)).join("");
+    }
+    tb.innerHTML = html;
+    if (state.caseOpen) renderCase();
+    if (state.campaignOpen) renderCampaign();
+  }
+
+  function toggleCommunity(name) {
+    if (state.expandAll) {
+      if (state.collapsed.has(name)) state.collapsed.delete(name);
+      else state.collapsed.add(name);
+    } else {
+      const key = "open:" + name;
+      if (state.collapsed.has(key)) state.collapsed.delete(key);
+      else state.collapsed.add(key);
+    }
+    render();
+  }
+
+  function openDrawer(id) {
+    openCase(id);
+  }
+
+  function actionFooter(r) {
+    const why = r.first_pass_column || "";
+    let hint = "";
+    let primary = "Draft a chase";
+    let secondary = "Hold";
+    if (why.indexOf("Paid") === 0) {
+      hint = "Paid in Hyphen. Packet so the office can find the check and apply it in QBO.";
+      primary = "Draft apply packet";
+    } else if (why.indexOf("2nd") === 0) {
+      hint = "Needs two client call-outs (not two CTL schedule emails) plus both visits. First PO is consumed.";
+      primary = "Draft EPO chase";
+    } else if (why.indexOf("No PO") === 0) {
+      hint = "No PO on this invoice. Chase goes in billings@ Drafts.";
+      primary = "Draft a chase";
+      secondary = "Add to community packet";
+    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "notes_error") {
+      hint = "We uploaded the wrong 2-lift notes. That caused the underpay. Notes now show 3 lifts. Ask the builder for an EPO on the leftover lift.";
+      primary = "Draft EPO chase";
+    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "proctor_pi") {
+      hint = "They paid the lifts. Leftover is Proctor and PI. Builder EPO from billings@, not an internal cash-app note.";
+      primary = "Draft EPO chase";
+    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "unpaid_po") {
+      hint = "PO is in Hyphen and still unpaid. This is a payment chase, not amount-off.";
+      primary = "Draft a chase";
+    } else if (why.indexOf("Amount") === 0) {
+      hint = "Leftover is unnamed. Hold until we can say what they still owe. Do not send a confirm-lifts stub.";
+      primary = "Hold — leftover unnamed";
+    } else if (why.indexOf("Broken") === 0) {
+      hint = "Supplier Order Number sits on a cancelled or wrong PO.";
+      primary = "Draft a chase";
+    } else if (r.hyphen_review && r.hyphen_review.next === "chase") {
+      hint = "Notes are in. Builder completed the PO and has not paid. Chase from billings@.";
+      primary = "Draft a chase";
+      secondary = "Hold";
+    } else if (why.indexOf("Linked") === 0) {
+      hint = r.found
+        ? "PO is linked. Enter the Supplier Order Number and note once charges exist."
+        : "Linked on our side. Hyphen still has no Supplier Order Number hit.";
+      primary = r.has_strata_ticket && r.found ? "Enter a note" : "Link a PO";
+      secondary = "Draft a chase";
+    } else {
+      hint = "Next step after this row is researched.";
+    }
+    const mail = mailStatus(r);
+    if (mail === "awaiting") {
+      primary = "Follow up on thread";
+    } else if (mail === "ready") {
+      primary = "Send";
+    }
+    return (
+      '<p class="act-hint">' +
+      esc(hint) +
+      "</p><div class=\"actions\">" +
+      '<button class="act primary" type="button">' +
+      esc(primary) +
+      "</button>" +
+      '<button class="act ghost" type="button">' +
+      esc(secondary) +
+      "</button>" +
+      '<p class="act-note">Review only — these do not send.</p></div>'
+    );
+  }
+
+  function kv(k, v, cls) {
+    return (
+      "<dt>" +
+      esc(k) +
+      "</dt><dd" +
+      (cls ? ' class="' + cls + '"' : "") +
+      ">" +
+      esc(v) +
+      "</dd>"
+    );
+  }
+
+
+  function field(name, addr) {
+    return (
+      '<div class="who">' +
+      esc(name) +
+      "</div>" +
+      (addr ? '<div class="addr">' + esc(addr) + "</div>" : "")
+    );
+  }
+
+  function queueCompose(status) {
+    var id = state.selected;
+    if (!id) return "";
+    var map = {};
+    try { map = JSON.parse(localStorage.getItem("hyphen-compose") || "{}"); } catch (e) {}
+    map[id] = {status: status, at: new Date().toISOString()};
+    localStorage.setItem("hyphen-compose", JSON.stringify(map));
+    return id;
+  }
+  function composeStatus(id) {
+    try {
+      var map = JSON.parse(localStorage.getItem("hyphen-compose") || "{}");
+      return (map[id] || {}).status || "";
+    } catch (e) { return ""; }
+  }
+  function closeCompose() {
+    const el = $("#compose");
+    if (!el) return;
+    el.classList.remove("on");
+    el.setAttribute("aria-hidden", "true");
+    $("#scrim").classList.remove("on");
+  }
+
+  function tlHtml(items) {
+    return '<ul class="tl">' + (items || []).map(function (it) {
+      return "<li" + (it.today ? ' class="today"' : "") + '><div class="when">' +
+        esc(it.when) + '</div><div class="what">' + esc(it.what) + "</div></li>";
+    }).join("") + "</ul>";
+  }
+  function daysOpenPhrase(r) {
+    var d = Number(r.daysPastDue);
+    if (!isFinite(d)) return "still open";
+    if (d < 0) return "not yet due";
+    if (d === 0) return "due today";
+    return d + " days past due";
+  }
+  function dropResearch(items) {
+    return (items || []).filter(function (it) {
+      return it && it.what && !/^Research:/i.test(String(it.what));
+    });
+  }
+  function prettyWhen(when) {
+    var s = String(when || "").replace(/\s+\d{1,2}:\d{2}\s*(AM|PM)\s*CT/i, "").trim();
+    var m = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (!m) return s;
+    var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return months[Number(m[2]) - 1] + " " + Number(m[3]) + ", " + m[1];
+  }
+  function formatExternalEvent(it, r) {
+    var what = String(it.what || "").trim();
+    var when = prettyWhen(it.when);
+    var po = (r && (r.builder_order_number || r.strata_po_num)) || "";
+    var addr = r && (r.service_address || "").trim();
+    if (/^Added to schedule|^Ryan added|^Research:/i.test(what)) {
+      return null;
+    }
+    var CANON = {
+      "called in": "Called in",
+      "serviced": "Serviced",
+      "invoiced": "Invoiced",
+      "notes entered": "Notes entered",
+      "paid": "Paid",
+      "asked": "Asked",
+      "replied": "Replied",
+      "prior request": "Asked",
+      "today": "Today"
+    };
+    function dashLabel(label, rest) {
+      rest = String(rest || "").replace(/^\s*[:—–-]+\s*/, "").trim();
+      return label + " — " + rest;
+    }
+    var lab = what.match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Prior request|Today)\b\s*[:—–-]?\s*(.*)$/i);
+    if (lab) {
+      var name = CANON[lab[1].toLowerCase()] || lab[1];
+      var rest = lab[2] || "";
+      if (name === "Today" || it.today) {
+        return {when: "Today", what: rest || what.replace(/^Today\b\s*[:—–-]?\s*/i, ""), today: true};
+      }
+      return {when: when, what: dashLabel(name, rest), today: false};
+    }
+    if (it.today) {
+      return {when: "Today", what: what, today: true};
+    }
+    var m;
+    m = what.match(/^(.+?) to Ryan\/Joe:\s*(.+)$/i);
+    if (m) {
+      var who = m[1].replace(/\s*\(.*\)\s*$/, "").trim();
+      var restRJ = m[2].replace(/-\s*/g, " ").replace(/\s+/g, " ").trim();
+      var work = restRJ;
+      var at = addr || "";
+      if (addr) {
+        var reAddr = new RegExp(addr.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i");
+        if (reAddr.test(restRJ)) {
+          work = restRJ.replace(reAddr, "").replace(/\s+/g, " ").trim();
+          at = addr;
+        }
+      }
+      if (!work) work = restRJ;
+      var phrase = who + " asked Ryan/Joe for " + work;
+      if (at) phrase += " at " + at;
+      if (!/[.!?]$/.test(phrase)) phrase += ".";
+      return {when: when, what: "Called in — " + phrase, today: false};
+    }
+    m = what.match(/^QBO\s+(\S+)\s+\$([0-9,.]+)/i);
+    if (m) {
+      return {when: when, what: "Invoiced — " + m[1] + " issued for $" + m[2], today: false};
+    }
+    m = what.match(/^Hyphen note\s+([^:]+):\s*(.+)$/i);
+    if (m) {
+      var note = m[2].replace(/\s+/g, " ").trim();
+      var poBit = po || "the Hyphen PO";
+      return {when: when, what: "Notes entered — " + m[1].trim() + " on PO " + poBit + ": " + note, today: false};
+    }
+    m = what.match(/check\s+(\d+)/i);
+    if (m && /paid|check|Lennar check/i.test(what)) {
+      var amtM = what.match(/\$([0-9,.]+)/);
+      var amt = amtM ? amtM[1] : "";
+      var dateM = what.match(/\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2}(?:,\s*\d{4})?|\d{4}-\d{2}-\d{2}|\d{1,2}\/\d{1,2}\/\d{2,4})\b/i);
+      var dt = dateM ? dateM[1] : "";
+      var covers = "";
+      var covM = what.match(/covers?\s+(.+)$/i);
+      if (covM) covers = covM[1].replace(/[.]+$/, "").trim();
+      var bits = ["check " + m[1]];
+      if (dt) bits.push(dt);
+      if (amt) bits.push("$" + amt);
+      var paid = "Paid — " + bits.join(" ");
+      if (po) paid += " on PO " + po;
+      if (covers) paid += "; covers " + covers;
+      return {when: when, what: paid, today: false};
+    }
+    m = what.match(/^(Maria|William|Veronica|Esme|Esmeralda)\b(.*)$/i);
+    if (m && /PO|EPO|request|asked/i.test(what)) {
+      var whoA = /Esmeralda/i.test(m[1]) ? "Esme" : m[1];
+      var tail = m[2].replace(/\s+/g, " ").trim();
+      var cm = "";
+      var named = tail.match(/(Montana(?:\s+Grove)?|Jordan(?:\s+Beakley)?)/gi);
+      if (named && named.length) {
+        var uniq = [];
+        var seenN = {};
+        named.forEach(function (n) {
+          var full = /montana/i.test(n) ? "Montana Grove" : /jordan/i.test(n) ? "Jordan Beakley" : n;
+          if (!seenN[full]) { seenN[full] = true; uniq.push(full); }
+        });
+        cm = uniq.join(" and ");
+      }
+      var ask = tail;
+      var forM = tail.match(/\bfor\s+(.+)$/i);
+      if (forM) ask = forM[1].replace(/[.]+$/, "").trim();
+      else ask = tail.replace(/^[:\s—–-]+/, "").replace(/[.]+$/, "").trim();
+      var asked = "Asked — " + whoA + " emailed" + (cm ? " " + cm : "") + " for " + ask;
+      if (!/[.!?]$/.test(asked)) asked += ".";
+      return {when: when, what: asked, today: false};
+    }
+    if (/has this been created|replied\b/i.test(what) || (/^(Jordan|Montana|Lennar)\b/i.test(what) && /created|replied|whether/i.test(what))) {
+      var whoR = "Client";
+      var wr = what.match(/^(Jordan(?:\s+Beakley)?|Montana(?:\s+Grove)?|Lennar)\b/i);
+      if (wr) whoR = wr[1];
+      else if (/Jordan/i.test(what)) whoR = "Jordan Beakley";
+      else if (/Montana/i.test(what)) whoR = "Montana Grove";
+      var sub = what.replace(/^(Jordan(?:\s+Beakley)?|Montana(?:\s+Grove)?|Lennar)\s*[:—–-]\s*/i, "").replace(/\s+/g, " ").trim();
+      return {when: when, what: "Replied — " + whoR + ": " + sub, today: false};
+    }
+    return {when: when, what: what, today: !!it.today};
+  }
+  function abbrevTimeline(r, todayWhat) {
+    var src = dropResearch(
+      (r.chase_timeline && r.chase_timeline.length) ? r.chase_timeline : (r.timeline || [])
+    );
+    var out = [];
+    var seen = {};
+    src.forEach(function (it) {
+      var key = (it.when || "") + "|" + it.what;
+      if (seen[key]) return;
+      seen[key] = true;
+      var ev = formatExternalEvent(it, r);
+      if (!ev) return;
+      out.push(ev);
+    });
+    if (todayWhat) {
+      out = out.filter(function (it) { return !it.today; });
+      out.push({when: "Today", what: todayWhat, today: true});
+    } else if (!out.some(function (it) { return it.today; })) {
+      out.push({when: "Today", what: "Still open " + money(r.balance), today: true});
+    }
+    function isMust(it) {
+      return /^(Asked|Replied)\b/i.test(it.what || "");
+    }
+    function isKeep(it) {
+      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied)\b/i.test(it.what || "");
+    }
+    var todayRows = out.filter(function (it) { return it.today; });
+    var rest = out.filter(function (it) { return !it.today; });
+    var must = rest.filter(isMust);
+    var keep = rest.filter(function (it) { return isKeep(it) && !isMust(it); });
+    var extra = rest.filter(function (it) { return !isKeep(it); });
+    var budget = 8;
+    var selected;
+    if (must.length + keep.length <= budget) {
+      selected = rest.filter(isKeep);
+      extra.forEach(function (it) {
+        if (selected.length < budget) selected.push(it);
+      });
+    } else {
+      var room = Math.max(0, budget - must.length);
+      var nice = keep;
+      if (nice.length > room) nice = nice.slice(nice.length - room);
+      var keepSet = {};
+      must.concat(nice).forEach(function (it) {
+        keepSet[(it.when || "") + "|" + it.what] = true;
+      });
+      selected = rest.filter(function (it) {
+        return keepSet[(it.when || "") + "|" + it.what];
+      });
+    }
+    out = selected.concat(todayRows.slice(-1));
+    if (!out.length) {
+      out = [
+        {when: fmtDate(r.txnDate), what: "Invoice " + r.docNumber + " · " + money(r.totalAmt) + " · " + (((r.service_address || "").trim()) || "—")},
+        {when: "Today", what: todayWhat || ("Still open " + money(r.balance)), today: true}
+      ];
+    }
+    return out;
+  }
+  function clientAskItems(r) {
+    return dropResearch(r.timeline || []).filter(function (it) {
+      var w = String(it.what || "");
+      if (/Added to schedule|Ryan added|Research:/i.test(w)) return false;
+      return /call-?in|callout|called|ready|asked Ryan|asked Joe|to Ryan\/Joe|to Ryan|to Joe/i.test(w);
+    });
+  }
+  function letterWrap(lead, items, extraP, withClose) {
+    var closeP = (withClose === false)
+      ? ""
+      : "<p>If you have any questions about these requests, we&rsquo;re happy to help address them.</p>";
+    return "<p>" + lead + "</p>" + tlHtml(items) + (extraP || "") + closeP +
+      '<p class="sig"><b>Hyphen</b><span>Coastal Testing Labs</span></p>';
+  }
+  function chipsFrom(r, extras) {
+    if (r.chase_attachments && r.chase_attachments.length) {
+      return r.chase_attachments.map(function (a) {
+        return '<span class="chip">' + esc(a.label || a.kind) + "</span>";
+      }).join("");
+    }
+    return (extras || []).join("");
+  }
+  function isCtlEmail(e) {
+    return /@coastaltestinglabs\.com$/i.test(String(e || ""));
+  }
+  function packetGaps(r, kind) {
+    if (kind === "Internal") return [];
+    var gaps = [];
+    if (!r.chase_to || !/@/.test(String(r.chase_to))) {
+      gaps.push("To is not a real PO person or project CM");
+    }
+    var clientCc = (r.chase_cc || []).some(function (c) {
+      return c && c.email && !isCtlEmail(c.email);
+    });
+    if (!clientCc) gaps.push("CC has no builder or community manager");
+    if (!r.chase_letter_lead) gaps.push("No written background a CM can act on");
+    var tl = r.chase_timeline || [];
+    var labeled = tl.some(function (it) {
+      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied)\b/i.test(String(it.what || ""));
+    });
+    if (!labeled) gaps.push("No labeled timeline");
+    var atts = (r.chase_attachments || []).filter(function (a) {
+      return a && a.mailbox && a.messageId;
+    });
+    if (!atts.length) gaps.push("No customer-facing attachments on file");
+    return gaps;
+  }
+  function openCompose(id) {
+    const r = DATA.find((x) => x.docNumber === id);
+    if (!r) return;
+    const why = r.first_pass_column || "";
+    const addr = (r.service_address || "").trim() || "—";
+    const comm = r.customer || "";
+    const builder = BUILDER_LABEL[r.parent] || r.parent || "";
+    const inv = r.docNumber;
+    const openAmt = money(r.balance);
+    const billed = money(r.totalAmt);
+    const po = r.builder_order_number || r.strata_po_num || "";
+    const aging = daysOpenPhrase(r);
+    let title = "Draft a chase";
+    let kind = "Builder";
+    let fromName = "Billings";
+    let fromAddr = "billings@coastaltestinglabs.com";
+    let toName = (r.chase_to_name || "Need project CM");
+    let toAddr = r.chase_to || "";
+    let subject = (r.hyphen_review && r.hyphen_review.next === "chase")
+      ? ("Payment needed — " + inv + " — " + addr)
+      : ("PO needed — " + inv + " — " + addr);
+    let letter = "";
+    let chips = "";
+
+    if (why.indexOf("Paid") === 0) {
+      title = "Draft apply packet";
+      kind = "Internal";
+      fromName = "William Knox";
+      fromAddr = "william@coastaltestinglabs.com";
+      toName = "Cash application";
+      toAddr = "Internal";
+      subject = "Paid, to apply — " + inv + " — " + addr;
+      var ck = r.check_number ? ("check " + r.check_number) : "a Hyphen payment";
+      var ckWhen = r.check_date ? (" dated " + r.check_date) : "";
+      var ckAmt = (r.check_amount != null && r.check_amount !== "") ? (" for " + money(r.check_amount)) : "";
+      var poBit = po ? (" on PO " + po) : "";
+      letter = letterWrap(
+        "Need this check applied to invoice " + esc(inv) + " at " + esc(addr) +
+          ". Hyphen shows " + esc(ck) + esc(ckWhen) + esc(ckAmt) + esc(poBit) +
+          ". Books still have " + esc(openAmt) + " open (" + esc(aging) +
+          "). The office applies in QBO.",
+        abbrevTimeline(r, "Books still open " + openAmt + " · apply this check"),
+        "<p>Do not apply cash from this screen.</p>",
+        false
+      );
+      chips = chipsFrom(r, [
+        '<span class="chip">' + esc(inv) + " invoice</span>",
+        '<span class="chip">Hyphen payment' + (r.check_number ? " " + esc(String(r.check_number)) : "") + "</span>"
+      ]);
+    } else if (why.indexOf("2nd") === 0) {
+      title = "Draft EPO chase";
+      kind = "Builder";
+      subject = "EPO needed — " + inv + " — " + addr;
+      var asks = clientAskItems(r);
+      var haveTwoAsks = asks.length >= 2;
+      var lead2 = haveTwoAsks
+        ? ("We tested " + esc(addr) + " a second time after the first visit was already billed and paid. " +
+           "The first PO is consumed, so this second visit cannot ride on it. Invoice " +
+           esc(inv) + " billed " + esc(billed) + " and has been " + esc(aging) +
+           ". Please issue an EPO or a new PO for this second call-out so we can close the remaining " +
+           esc(openAmt) + ".")
+        : ("This looks like a second visit at " + esc(addr) +
+           ", and the first PO is consumed. We do not yet have two client call-out emails on file " +
+           "(the builder or CM asking Ryan or Joe twice). Do not send an EPO chase until both client asks are attached.");
+      var tl2;
+      if (haveTwoAsks) {
+        tl2 = [
+          {when: asks[0].when, what: asks[0].what},
+          {when: asks[1].when, what: asks[1].what},
+          {when: "Today", what: "Still open " + openAmt + " · needs EPO", today: true}
+        ];
+      } else {
+        tl2 = abbrevTimeline(r, "Still open " + openAmt + " · need two client call-outs before chase");
+      }
+      var extra2 = haveTwoAsks
+        ? "<p>The two client call-outs and both service dates are on the timeline below. We need the EPO on this address, not another lot.</p>"
+        : "";
+      letter = letterWrap(lead2, tl2, extra2);
+      if (haveTwoAsks) {
+        chips = chipsFrom(r, [
+          '<span class="chip">1st client call-out</span>',
+          '<span class="chip">2nd client call-out</span>',
+          '<span class="chip">' + esc(inv) + " invoice</span>"
+        ]);
+      } else {
+        chips = chipsFrom(r, [
+          '<span class="chip">1st client call-out <em>Need both</em></span>',
+          '<span class="chip">2nd client call-out <em>Need both</em></span>',
+          '<span class="chip">' + esc(inv) + " invoice</span>"
+        ]);
+      }
+    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "notes_error") {
+      title = "Draft EPO chase";
+      kind = "Builder";
+      subject = "EPO needed — " + inv + " — " + addr;
+      var ck = r.check_number ? ("check " + r.check_number) : "the builder check";
+      var ckWhen = r.check_date ? (" on " + r.check_date) : "";
+      var ckAmt = (r.check_amount != null && r.check_amount !== "") ? money(r.check_amount) : "a short payment";
+      var poBit = po ? ("PO " + po) : "this Hyphen PO";
+      var wrongNote = r.notes_error_wrong || "two lifts";
+      var rightNote = r.notes_error_right || "three lifts";
+      var reportsBit = (r.report_numbers && r.report_numbers.length)
+        ? (" Three separate reports were issued (" + r.report_numbers.join(", ") + ").")
+        : " Three lifts were performed, and three separate reports were issued.";
+      var leadN = "We originally uploaded the wrong notes into Hyphen on " + esc(poBit) +
+        " for the work at " + esc(addr) + ". The first note said " + esc(wrongNote) +
+        ". That was our error, and we apologize. Those incorrect notes caused the underpayment: " +
+        esc(ckAmt) + " on " + esc(ck) + esc(ckWhen) + " against invoice " + esc(inv) +
+        ", which billed " + esc(billed) + ". The notes have been corrected and now show " +
+        esc(rightNote) + ".";
+      var extraN = "<p>" + esc(rightNote).charAt(0).toUpperCase() + esc(rightNote).slice(1) +
+        " is what was actually performed." + reportsBit +
+        " After the " + esc(ckAmt) + " payment, " + esc(openAmt) +
+        " remains open. This has been " + esc(aging) +
+        ". Please issue an EPO or supplemental purchase order for the remaining " +
+        esc(openAmt) + " so we can close the balance.</p>";
+      letter = letterWrap(
+        leadN,
+        abbrevTimeline(r, "Still open " + openAmt + " · need EPO for the leftover lift"),
+        extraN
+      );
+      chips = chipsFrom(r, [
+        '<span class="chip">' + esc(inv) + " invoice</span>",
+        '<span class="chip">Corrected Hyphen notes</span>',
+        '<span class="chip">Three reports</span>'
+      ]);
+    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "proctor_pi") {
+      title = "Draft EPO chase";
+      kind = "Builder";
+      subject = "EPO needed — " + inv + " — " + addr;
+      var leftover = r.leftover_label || "Proctor and PI";
+      var work = r.work_done || ("two compaction lifts plus " + leftover);
+      var paidFor = r.paid_for || "the two lifts";
+      var ck = r.check_number ? ("check " + r.check_number) : "the builder check";
+      var ckWhen = r.check_date ? (" on " + r.check_date) : "";
+      var ckAmt = (r.check_amount != null && r.check_amount !== "") ? money(r.check_amount) : "a partial payment";
+      var poBit = po ? (" on PO " + po) : "";
+      var leadP = "We performed " + esc(work) + " at " + esc(addr) +
+        " and billed invoice " + esc(inv) + " for " + esc(billed) +
+        ". Lennar paid " + esc(ckAmt) + " on " + esc(ck) + esc(ckWhen) + esc(poBit) +
+        " for " + esc(paidFor) + ". The remaining " + esc(openAmt) +
+        " is the " + esc(leftover) + ", and it has been " + esc(aging) + ".";
+      var extraP = "<p>Please issue an EPO or supplemental purchase order for the " +
+        esc(leftover) + " (" + esc(openAmt) + ") on this address so we can close invoice " +
+        esc(inv) + ". Do not park this remainder on another lot. Prior Hyphen notes and payment asks are on the timeline below.</p>";
+      letter = letterWrap(
+        leadP,
+        abbrevTimeline(r, "Still open " + openAmt + " · need EPO for " + leftover),
+        extraP
+      );
+      chips = chipsFrom(r, [
+        '<span class="chip">' + esc(inv) + " invoice</span>",
+        '<span class="chip">' + esc(leftover) + " leftover</span>"
+      ]);
+    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "unpaid_po") {
+      title = "Draft a chase";
+      kind = "Builder";
+      subject = "Payment needed — " + inv + " — " + addr;
+      var poBitU = po ? (" on PO " + esc(po)) : "";
+      var leadU = "We performed the work at " + esc(addr) + " and billed invoice " +
+        esc(inv) + " for " + esc(billed) + poBitU +
+        ". The PO is in Hyphen and nothing has been paid. This has been " + esc(aging) + ".";
+      var extraU = "<p>Please release payment for invoice " + esc(inv) +
+        " / " + esc(billed) + " so we can close this. Call-in, service date, and notes are on the timeline below.</p>";
+      letter = letterWrap(leadU, abbrevTimeline(r, "PO unpaid · open " + openAmt), extraU);
+      chips = chipsFrom(r, ['<span class="chip">' + esc(inv) + " invoice</span>"]);
+    } else if (why.indexOf("Amount") === 0) {
+      title = "Hold — leftover unnamed";
+      kind = "Internal";
+      fromName = "William Knox";
+      fromAddr = "william@coastaltestinglabs.com";
+      toName = "William Knox";
+      toAddr = "william@coastaltestinglabs.com";
+      subject = "Hold — unnamed leftover — " + inv + " — " + addr;
+      var paidBit = (r.check_amount != null && r.check_amount !== "")
+        ? (money(r.check_amount) + (r.check_number ? " on check " + r.check_number : ""))
+        : "a short Hyphen payment";
+      letter = letterWrap(
+        "Do not send a builder letter yet. Invoice " + esc(inv) + " at " + esc(addr) +
+          " billed " + esc(billed) + ", Hyphen shows " + esc(paidBit) +
+          ", and " + esc(openAmt) + " is still open (" + esc(aging) +
+          "). Notes do not name the leftover (lift vs Proctor/PI vs lab). Research that before any CM letter.",
+        abbrevTimeline(r, "HOLD · leftover unnamed · open " + openAmt),
+        "<p>Internal hold only. Not a cash-application packet.</p>",
+        false
+      );
+      chips = chipsFrom(r, ['<span class="chip">Hold</span>']);
+    } else {
+      var noPo = why.indexOf("No PO") === 0;
+      var commBit = comm ? (" This is in " + esc(comm) + ".") : "";
+      var poBitG = po ? (" on PO " + esc(po)) : "";
+      var leadG, extraG;
+      if (noPo) {
+        leadG = "We performed the work at " + esc(addr) + " and issued invoice " + esc(inv) +
+          " for " + esc(billed) + "." + commBit +
+          " This has been " + esc(aging) + " with no purchase order on file, so nothing has been paid.";
+        extraG = "<p>Please issue a PO for invoice " + esc(inv) + " / " + esc(billed) +
+          " so we can close this. The call-in, service date, and any prior PO requests are on the timeline below. " +
+          "If a PO was already issued, send the Builder Order Number and we will attach it.</p>";
+      } else {
+        leadG = "Please release payment" + poBitG + " for invoice " + esc(inv) + " at " + esc(addr) +
+          "." + commBit + " We billed " + esc(billed) + " and " + esc(openAmt) +
+          " is still open. This has been " + esc(aging) + ".";
+        extraG = "<p>The work, our notes, and any prior payment or PO asks are on the timeline below. " +
+          "We need this invoice closed.</p>";
+      }
+      letter = letterWrap(leadG, abbrevTimeline(r, noPo ? ("No PO on file · open " + openAmt) : ("Still open " + openAmt)), extraG);
+      chips = chipsFrom(r, ['<span class="chip">' + esc(inv) + " invoice</span>"]);
+    }
+
+
+    var gaps = packetGaps(r, kind);
+    if (!r.chase_to && kind !== "Internal") {
+      toName = "Need project CM";
+      toAddr = "";
+    }
+    if (gaps.length) {
+      title = "Hold — packet incomplete";
+    }
+
+    $("#cTitle").textContent = title;
+    $("#cKind").textContent = kind;
+    if (r.chase_to) {
+      toName = r.chase_to_name || r.chase_to;
+      toAddr = r.chase_to;
+    }
+    if (r.chase_from) {
+      fromName = r.chase_from_name || "Billings";
+      fromAddr = r.chase_from;
+    }
+    if (r.chase_subject) subject = r.chase_subject;
+    if (mailStatus(r) === "awaiting" && subject && !/^re\s*:/i.test(subject)) {
+      subject = "Re: " + subject;
+    }
+    if (r.chase_letter_lead) {
+      var chaseTl;
+      if (r.chase_timeline && r.chase_timeline.length) {
+        chaseTl = [];
+        r.chase_timeline.forEach(function (it) {
+          var ev = formatExternalEvent(it, r);
+          if (ev) chaseTl.push(ev);
+        });
+      } else {
+        chaseTl = abbrevTimeline(r);
+      }
+      var extra = "";
+      (r.chase_letter_paras || []).forEach(function (p) {
+        extra += "<p>" + esc(p) + "</p>";
+      });
+      letter = letterWrap(esc(r.chase_letter_lead), chaseTl, extra);
+    }
+    var ccSeen = {};
+    var ccList = [];
+    function addCc(c) {
+      if (!c || !c.email) return;
+      var key = String(c.email).toLowerCase();
+      if (ccSeen[key]) return;
+      ccSeen[key] = true;
+      ccList.push({name: c.name || c.email, email: c.email});
+    }
+    (r.chase_cc || []).forEach(addCc);
+    if (kind !== "Internal") {
+      DEFAULT_CHASE_CC.forEach(addCc);
+    }
+    var ccHtml = ccList.length
+      ? ccList.map(function (c) { return field(c.name, c.email); }).join("")
+      : field("—", "");
+    $("#cFrom").innerHTML = field(fromName, fromAddr);
+    $("#cTo").innerHTML = field(toName, toAddr);
+    var ccEl = $("#cCc");
+    if (ccEl) ccEl.innerHTML = ccHtml;
+    $("#cSubj").innerHTML = '<div class="who">' + esc(subject) + "</div>";
+    if (r.chase_attachments && r.chase_attachments.length) {
+      chips = r.chase_attachments.map(function (a) {
+        return '<span class="chip">' + esc(a.label || a.kind) + "</span>";
+      }).join("");
+    } else if (!chips) {
+      chips = '<span class="chip">' + esc(inv) + " invoice</span>";
+    }
+
+    if (gaps.length) {
+      letter = '<p class="hold"><b>Not ready.</b> Missing: ' + gaps.join("; ") + ". Do not send. This is the old stub, not a finished packet.</p>" + letter;
+      var chipFor = {
+        "To is not a real PO person or project CM": "Need To",
+        "CC has no builder or community manager": "Need client CC",
+        "No written background a CM can act on": "Need background",
+        "No labeled timeline": "Need timeline",
+        "No customer-facing attachments on file": "Need attachments"
+      };
+      chips = gaps.map(function (g) {
+        return '<span class="chip">' + esc(chipFor[g] || g) + "</span>";
+      }).join("");
+    }
+
+    $("#cLetter").innerHTML = letter;
+    $("#cChips").innerHTML = chips;
+    $("#drawer").classList.remove("on");
+    $("#compose").classList.add("on");
+    $("#compose").setAttribute("aria-hidden", "false");
+    $("#scrim").classList.add("on");
+    state.packetGaps = gaps;
+    syncReadyUi(inv);
+  }
+
+
+  function closeDrawer() {
+    closeCase();
+  }
+
+  function closeMenus(except) {
+    $$(".menu-pop").forEach((p) => {
+      if (p !== except) p.hidden = true;
+    });
+  }
+
+  function chicagoTodayISO() {
+    return new Intl.DateTimeFormat("en-CA", {
+      timeZone: "America/Chicago",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(new Date());
+  }
+  function parseFollowUpDue(s) {
+    if (!s) return null;
+    s = String(s).trim();
+    if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0, 10);
+    var m = s.match(/(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)?\s*(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?/i);
+    if (!m) return null;
+    var year = m[3] ? Number(m[3]) : Number(chicagoTodayISO().slice(0, 4));
+    if (year < 100) year += 2000;
+    var mm = String(Number(m[1])).padStart(2, "0");
+    var dd = String(Number(m[2])).padStart(2, "0");
+    return year + "-" + mm + "-" + dd;
+  }
+  function noSibling(s) {
+    return String(s == null ? "" : s).replace(/\bsibling(s)?\b/gi, function (_, pl) {
+      return pl ? "same-address invoices" : "same address";
+    });
+  }
+  function issueRaw(r) {
+    return r.issue || r.first_pass_column || "";
+  }
+  function issueLabel(r) {
+    var w = noSibling(issueRaw(r)).trim();
+    if (!w) return "—";
+    return WHY_LABEL[issueRaw(r)] || WHY_LABEL[w] || w;
+  }
+  function packetStatus(r) {
+    if (r.packet === "complete") return "complete";
+    if (r.packet === "hold" || r.packet === "incomplete") return "hold";
+    var mail = mailStatus(r);
+    if ((mail === "awaiting" || mail === "ready") && r.chase_to) return "complete";
+    return "hold";
+  }
+  function packetLabel(r) {
+    return packetStatus(r) === "complete" ? "Complete" : "Hold";
+  }
+  function isFollowUpDue(r) {
+    if (mailStatus(r) !== "awaiting") return false;
+    var due = parseFollowUpDue(r.follow_up_due);
+    if (due && due <= chicagoTodayISO()) return true;
+    var w = waitingDays(r);
+    return w != null && w >= 3;
+  }
+  function nextAction(r) {
+    if (r.next) return noSibling(String(r.next));
+    var mail = mailStatus(r);
+    var pkt = packetStatus(r);
+    if (issueRaw(r) === "Write-off") return "Write-off";
+    if (mail === "awaiting" && isFollowUpDue(r)) return "Follow up";
+    if (mail === "awaiting") return "Wait · their court";
+    if (mail === "ready") return "Send";
+    if (pkt === "hold") return "Research";
+    if (mail === "not_sent" && pkt === "complete") return "Draft";
+    return "Review";
+  }
+  function prettyWhenShort(when) {
+    var s = String(when || "").trim();
+    var m = s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{1,2}):(\d{2}))?/);
+    if (!m) return s.replace(/\s+CT$/i, "");
+    var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    var out = months[Number(m[2]) - 1] + " " + Number(m[3]);
+    if (m[4] != null) {
+      var h = Number(m[4]);
+      var ap = h >= 12 ? "pm" : "am";
+      var h12 = h % 12;
+      if (!h12) h12 = 12;
+      out += "<br>" + h12 + ":" + m[5] + ap;
+    }
+    return out;
+  }
+  function ledgerEvents(r) {
+    var src = r.ledger || r.chase_timeline || r.timeline || [];
+    if (!src.length) return [];
+    return src.map(function (ev) {
+      var what = noSibling(ev.what || "");
+      var lab = ev.label || ev.lab || "";
+      if (!lab && what) {
+        var mm = String(what).match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Prior request|Today|Report sent|2nd call-in)\b/i);
+        if (mm) lab = /prior request/i.test(mm[1]) ? "Asked" : mm[1];
+      }
+      var today = !!ev.today || /^today$/i.test(String(ev.when || "")) || /^today$/i.test(lab);
+      return {
+        when: ev.when || "",
+        lab: lab,
+        who: ev.who || "",
+        what: what,
+        src: ev.source || ev.src || "",
+        today: today,
+      };
+    });
+  }
+  function standingNote(r) {
+    if (r.standing_note) return noSibling(r.standing_note);
+    if (r.mail_states_note) {
+      var parts = String(r.mail_states_note).split(/(?<=\.)\s+/);
+      return noSibling(parts.slice(0, 3).join(" "));
+    }
+    if (r.mail_lead) return noSibling(r.mail_lead);
+    if (r.write_off_reason) return noSibling(r.write_off_reason);
+    return "";
+  }
+  function packetChips(r) {
+    var items = [];
+    var toOk = !!(r.chase_to && /@/.test(String(r.chase_to)));
+    items.push({ t: toOk ? ("To · " + (r.chase_to_name || r.chase_to)) : "To · need project CM", ok: toOk });
+    var clientCc = (r.chase_cc || []).some(function (c) {
+      return c && c.email && !isCtlEmail(c.email);
+    });
+    items.push({ t: clientCc ? "Client on CC" : "Need client CC", ok: clientCc });
+    items.push({ t: r.chase_letter_lead ? "Background" : "Need background", ok: !!r.chase_letter_lead });
+    var tl = r.chase_timeline || r.timeline || [];
+    var labeled = tl.some(function (it) {
+      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent)\b/i.test(String(it.what || ""));
+    });
+    items.push({ t: labeled ? "Labeled timeline" : "Need timeline", ok: labeled });
+    var atts = (r.chase_attachments || []).filter(function (a) {
+      return a && (a.label || a.kind || (a.mailbox && a.messageId));
+    });
+    items.push({ t: atts.length ? "Customer-facing atts" : "Need attachments", ok: !!atts.length });
+    if (r.docNumber === "0415-170614") {
+      items.push({ t: "Call-in · phone, none on file", ok: false });
+    }
+    return items;
+  }
+  function cmKey(r) {
+    return String(r.email || "").toLowerCase();
+  }
+  function chaseableIssue(issue) {
+    return /^(No PO|Hyphen entry|Notes error|Payment|EPO|2nd callout)$/i.test(String(issue || ""));
+  }
+  function campaignKeyOf(r) {
+    return (r.customer || "—") + "||" + issueLabel(r) + "||" + cmKey(r);
+  }
+  function campaignMembers(r) {
+    var key = campaignKeyOf(r);
+    return DATA.filter(function (x) { return campaignKeyOf(x) === key; });
+  }
+  function campaignForCommunity(name) {
+    var rows = DATA.filter(function (x) { return (x.customer || "—") === name; });
+    var groups = {};
+    rows.forEach(function (x) {
+      if (!chaseableIssue(issueLabel(x))) return;
+      var k = campaignKeyOf(x);
+      if (!groups[k]) groups[k] = [];
+      groups[k].push(x);
+    });
+    var best = null;
+    Object.keys(groups).forEach(function (k) {
+      if (groups[k].length >= 2 && (!best || groups[k].length > best.rows.length)) {
+        best = { key: k, rows: groups[k] };
+      }
+    });
+    return best;
+  }
+  function leftOutOfCampaign(inRows) {
+    if (!inRows.length) return [];
+    var comm = inRows[0].customer;
+    var inIds = {};
+    inRows.forEach(function (r) { inIds[r.docNumber] = true; });
+    return DATA.filter(function (x) {
+      if ((x.customer || "") !== comm) return false;
+      if (inIds[x.docNumber]) return false;
+      var iss = issueLabel(x);
+      return iss === "Paid to apply" || iss === "Write-off" || /^CTL-26-/.test(x.docNumber) || iss === "Linked";
+    });
+  }
+  function streetKey(addr) {
+    return String(addr || "").toLowerCase().replace(/\b(path|court|dr|drive|cove|lane|ln|st|street|cir|circle)\b/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+  }
+  function erowHtml(ev) {
+    var who = ev.who ? '<span class="who">' + esc(ev.who) + (ev.who.slice(-1) === "." ? "" : ".") + "</span> " : "";
+    var when = prettyWhenShort(ev.when);
+    return '<div class="erow' + (ev.today ? " today" : "") + (ev.rel ? " rel" : "") + '">' +
+      '<div class="when">' + when + "</div>" +
+      '<div class="lab">' + esc(ev.lab || "") + "</div>" +
+      '<div class="what">' + who + esc(ev.what || "") + "</div></div>";
+  }
+  function caseQueue() {
+    var rows = sortRows(applyFilters());
+    if (state.selected && !rows.some(function (r) { return r.docNumber === state.selected; })) {
+      var cur = DATA.find(function (x) { return x.docNumber === state.selected; });
+      if (cur) rows = [cur].concat(rows);
+    }
+    return rows;
+  }
+  function caseIndex(rows) {
+    rows = rows || caseQueue();
+    for (var i = 0; i < rows.length; i++) {
+      if (rows[i].docNumber === state.selected) return i;
+    }
+    return 0;
+  }
+  function setAppOpen(on) {
+    var app = document.querySelector(".app");
+    if (app) app.classList.toggle("open", !!on);
+  }
+  function hidePanels() {
+    var cse = $("#case");
+    var camp = $("#campaign");
+    if (cse) {
+      cse.classList.remove("on");
+      cse.setAttribute("aria-hidden", "true");
+    }
+    if (camp) {
+      camp.classList.remove("on");
+      camp.setAttribute("aria-hidden", "true");
+    }
+    state.caseOpen = false;
+    state.campaignOpen = false;
+  }
+  function caseLetterHtml(r) {
+    var lead = r.chase_letter_lead ? noSibling(r.chase_letter_lead) : "";
+    var paras = r.chase_letter_paras || [];
+    var kind = lastSent(r) ? ("Last sent · " + lastSent(r)) : (lead ? "Draft · not sent" : "No letter on file");
+    var to = r.chase_to_name || r.chase_to || "";
+    var cc = (r.chase_cc || []).map(function (c) { return c.name || c.email; }).filter(Boolean).join(", ");
+    var subj = r.chase_subject || "";
+    if (mailStatus(r) === "awaiting" && subj && !/^re\s*:/i.test(subj)) subj = "Re: " + subj;
+    var html = '<div class="kind">' + esc(kind) + "</div><div class=\"meta\">";
+    if (r.chase_from || r.chase_from_name) {
+      html += "<div><b>From</b> " + esc(r.chase_from_name || r.chase_from) + "</div>";
+    }
+    if (to) html += "<div><b>To</b> " + esc(to) + (r.chase_to && r.chase_to_name ? " · " + esc(r.chase_to) : "") + "</div>";
+    if (cc) html += "<div><b>Cc</b> " + esc(cc) + "</div>";
+    if (subj) html += "<div><b>Subj</b> " + esc(subj) + "</div>";
+    html += "</div>";
+    if (lead) html += "<p>" + esc(lead) + "</p>";
+    paras.forEach(function (p) { html += "<p>" + esc(noSibling(p)) + "</p>"; });
+    if (!lead && !paras.length) {
+      html += '<p>Letter body is not stored on this row. Follow up on thread opens the existing compose with the same To/CC.</p>';
+    }
+    html += '<div class="sig"><b>Coastal Testing Laboratories, Inc.</b><span>billings@coastaltestinglabs.com</span></div>';
+    return html;
+  }
+  function caseActs(r) {
+    var mail = mailStatus(r);
+    var pkt = packetStatus(r);
+    var kind = (r.first_pass_column || "").indexOf("Paid") === 0 || issueRaw(r) === "Write-off" ? "Internal" : "Builder";
+    var gaps = packetGaps(r, kind);
+    var primary = "Draft";
+    var disabled = false;
+    var note = "";
+    if (issueRaw(r) === "Write-off") {
+      primary = "Hold — write-off";
+      disabled = true;
+      note = r.write_off_reason || "Missing two client call-ins. Not a builder chase.";
+    } else if (mail === "awaiting") {
+      primary = "Follow up on thread";
+      if (pkt === "hold" && gaps.length) {
+        disabled = true;
+        note = "Hold. Packet gaps: " + gaps.join("; ") + ".";
+      } else {
+        note = "Does not send. Opens compose on this thread (Re: · same To/CC).";
+      }
+    } else if (mail === "ready") {
+      primary = "Send";
+    } else if (pkt === "hold") {
+      primary = "Hold — packet incomplete";
+      disabled = true;
+      note = gaps.length ? ("Gaps: " + gaps.join("; ") + ".") : "Packet on hold.";
+    }
+    return { primary: primary, disabled: disabled, note: note, gaps: gaps };
+  }
+  function renderCase() {
+    var el = $("#case");
+    if (!el || !state.caseOpen) return;
+    var r = DATA.find(function (x) { return x.docNumber === state.selected; });
+    var rows = caseQueue();
+    var idx = caseIndex(rows);
+    if (!r) {
+      el.innerHTML = '<p class="note">No invoice selected.</p>';
+      return;
+    }
+    var addr = (r.service_address || "").trim() || "—";
+    var mail = mailStatus(r);
+    var pkt = packetStatus(r);
+    var acts = caseActs(r);
+    var evs = ledgerEvents(r);
+    if (!evs.some(function (e) { return e.today; })) {
+      evs = evs.concat([{ when: "Today", lab: "Today", what: "Still open " + money(r.balance) + (r.follow_up_due ? (". Follow-up due " + r.follow_up_due) : "."), today: true }]);
+    }
+    var chips = packetChips(r).map(function (c) {
+      return '<span class="chip' + (c.ok ? "" : " warn") + '">' + esc(c.t) + "</span>";
+    }).join("");
+    var note = standingNote(r);
+    el.innerHTML =
+      '<div class="case-top"><div>' +
+      '<div class="case-id">' + esc(r.docNumber) + " · " + esc(addr) + "</div>" +
+      '<div class="case-sub">' + esc(BUILDER_LABEL[r.parent] || r.parent || "") +
+      " · " + esc(r.customer || "") + " · " + esc(money(r.balance)) + " open · " +
+      esc(r.daysPastDue) + " days past due</div></div>" +
+      '<div class="case-nav">' +
+      '<button type="button" id="casePrev"' + (idx <= 0 ? " disabled" : "") + ">Prev</button>" +
+      '<button type="button" id="caseNext"' + (idx >= rows.length - 1 ? " disabled" : "") + ">Next</button>" +
+      '<button type="button" class="x" id="caseClose" aria-label="Close">✕</button>' +
+      "</div></div>" +
+      '<div class="status">' +
+      '<div class="schip"><lab>Issue</lab><val>' + esc(issueLabel(r)) + "</val></div>" +
+      '<div class="schip ' + (pkt === "complete" ? "ok" : "hold") + '"><lab>Packet</lab><val>' +
+      esc(packetLabel(r)) + "</val></div>" +
+      '<div class="schip' + (mail === "awaiting" ? " awaiting" : "") + '"><lab>Mail</lab><val>' +
+      esc(MAIL_LABEL[mail] || mail) + (mail === "awaiting" ? " · their court" : "") + "</val></div>" +
+      '<div class="schip"><lab>Next</lab><val>' + esc(nextAction(r)) + "</val></div></div>" +
+      (note ? '<p class="note"><b>' + esc(note.split(". ")[0] + (note.indexOf(".") >= 0 ? "." : "")) + "</b> " +
+        esc(note.split(". ").slice(1).join(". ")) + "</p>" : "") +
+      '<div class="pack-strip">' + chips + "</div>" +
+      '<div class="case-body"><div class="col"><div class="sec-h">Ledger</div><div class="card">' +
+      (evs.length ? evs.map(erowHtml).join("") : '<p class="note quiet">No labeled events on file. We do not invent missing events.</p>') +
+      '</div></div><div class="col"><div class="sec-h">Last letter</div><div class="card letter">' +
+      caseLetterHtml(r) + "</div></div></div>" +
+      '<div class="acts">' +
+      '<button class="act primary" type="button" data-case-act="primary"' + (acts.disabled ? " disabled" : "") + ">" +
+      esc(acts.primary) + "</button>" +
+      '<button class="act" type="button" data-case-act="hold">Hold</button>' +
+      '<button class="act" type="button" data-case-act="next">Next ticket</button>' +
+      (campaignMembers(r).length >= 2 ? '<button class="act" type="button" data-case-act="campaign">Campaign</button>' : "") +
+      (acts.note ? '<span class="act-note">' + esc(acts.note) + "</span>" : "") +
+      "</div>";
+    bindCaseChrome();
+  }
+  function bindCaseChrome() {
+    var prev = $("#casePrev");
+    var next = $("#caseNext");
+    var close = $("#caseClose");
+    if (prev) prev.addEventListener("click", function () { goCase(-1); });
+    if (next) next.addEventListener("click", function () { goCase(1); });
+    if (close) close.addEventListener("click", closeCase);
+    var cse = $("#case");
+    if (cse) {
+      cse.onclick = function (e) {
+        var btn = e.target.closest("[data-case-act]");
+        if (!btn) return;
+        var act = btn.getAttribute("data-case-act");
+        if (act === "next") { goCase(1); return; }
+        if (act === "hold") { closeCase(); return; }
+        if (act === "campaign") {
+          var cur = DATA.find(function (x) { return x.docNumber === state.selected; });
+          if (cur) openCampaign(campaignKeyOf(cur));
+          return;
+        }
+        if (act === "primary" && !btn.disabled) openCompose(state.selected);
+      };
+    }
+  }
+  function goCase(delta) {
+    var rows = caseQueue();
+    var idx = caseIndex(rows) + delta;
+    if (idx < 0 || idx >= rows.length) return;
+    openCase(rows[idx].docNumber);
+  }
+  function openCase(id) {
+    var r = DATA.find(function (x) { return x.docNumber === id; });
+    if (!r) return;
+    state.selected = id;
+    state.caseOpen = true;
+    state.campaignOpen = false;
+    $$("#tbody tr[data-id]").forEach(function (tr) {
+      tr.classList.toggle("sel", tr.dataset.id === id);
+    });
+    hidePanels();
+    state.caseOpen = true;
+    setAppOpen(true);
+    var el = $("#case");
+    if (el) {
+      el.classList.add("on");
+      el.setAttribute("aria-hidden", "false");
+    }
+    var drawer = $("#drawer");
+    if (drawer) {
+      drawer.classList.remove("on");
+      drawer.setAttribute("aria-hidden", "true");
+    }
+    renderCase();
+    try {
+      var url = new URL(location.href);
+      url.searchParams.set("open", id);
+      url.searchParams.delete("campaign");
+      history.replaceState(null, "", url);
+    } catch (e) {}
+  }
+  function closeCase() {
+    state.selected = null;
+    state.campaignHouse = null;
+    state.campaignKey = null;
+    hidePanels();
+    setAppOpen(false);
+    $("#scrim").classList.remove("on");
+    var drawer = $("#drawer");
+    if (drawer) {
+      drawer.classList.remove("on");
+      drawer.setAttribute("aria-hidden", "true");
+    }
+    $("#compose").classList.remove("on");
+    $("#compose").setAttribute("aria-hidden", "true");
+    $$("#tbody tr.sel").forEach(function (tr) { tr.classList.remove("sel"); });
+    try {
+      var url = new URL(location.href);
+      url.searchParams.delete("open");
+      url.searchParams.delete("campaign");
+      history.replaceState(null, "", url);
+    } catch (e) {}
+  }
+  function houseAtts(r) {
+    var atts = (r.chase_attachments || []).map(function (a) { return a.label || a.kind; }).filter(Boolean);
+    if (atts.length) return atts;
+    var out = [];
+    if (r.timeline && r.timeline.length) out.push("Timeline on file");
+    if (r.researched_notes) out.push("Research note");
+    return out;
+  }
+  function relatedStrip(r) {
+    var rel = r.related_visit;
+    if (!rel || !rel.second_client_ask) return "";
+    return '<div class="related"><h4>Related · visit 2 · not this bill</h4>' +
+      '<div class="erow rel"><div class="when">' + esc(prettyWhenShort(rel.ask_when || "").replace("<br>", " ")) +
+      '</div><div class="lab">Called in</div><div class="what"><span class="who">' +
+      esc(rel.ask_who || "") + "</span> called this lot again. Second client ask.</div></div>" +
+      (rel.serviced ? '<div class="erow rel"><div class="when">' + esc(prettyWhenShort(rel.serviced)) +
+      '</div><div class="lab">Serviced</div><div class="what">Second visit. ' + esc(rel.docNumber) + ".</div></div>" : "") +
+      (rel.po ? '<div class="erow rel"><div class="when"></div><div class="lab">Later PO</div><div class="what">' +
+      esc(rel.po) + " on the later ticket. Not this bill. " +
+      (rel.paid ? esc(rel.paid) : "") + "</div></div>" : "") +
+      '<div class="atts"><span class="att ok">2nd call-in on file</span>' +
+      '<span class="att miss">Not attached as payment on ' + esc(r.docNumber) + "</span></div></div>";
+  }
+  function campaignLetterHtml(inRows, leftRows) {
+    var seed = inRows[0];
+    var comm = (seed.customer || "").replace(/^\d+-/, "").replace(/\s*\(NEW\)\s*$/, "").trim();
+    var issue = issueLabel(seed);
+    var toName = seed.chase_to_name;
+    var toAddr = seed.chase_to;
+    if (!toAddr && /westridge/i.test(comm)) {
+      toName = "Brandon Pope";
+      toAddr = "brandon.pope@coventryhomes.com";
+    }
+    var openSum = inRows.reduce(function (s, r) { return s + (Number(r.balance) || 0); }, 0);
+    var html = '<div class="kind">Draft · not sent</div><div class="meta">';
+    html += "<div><b>From</b> billings@coastaltestinglabs.com</div>";
+    html += "<div><b>To</b> " + esc(toName || "Need project CM") + (toAddr ? " · " + esc(toAddr) : "") + "</div>";
+    html += "<div><b>Cc</b> " + esc(seed.email || "") + ", ryan@, maria@, veronica@, william@</div>";
+    html += "<div><b>Subj</b> PO needed · " + esc(comm) + " · " + inRows.length + " " + esc(issue.toLowerCase()) + " still open</div></div>";
+    html += "<p>" + esc((toName || "Hello").split(" ")[0]) + ", we still need Hyphen compaction POs for " +
+      inRows.length + " " + esc(issue.toLowerCase()) + " invoices at " + esc(comm) +
+      ", totaling " + esc(money(openSum)) + ". Please issue one PO per first visit.</p>";
+
+    var twoAsk = inRows.filter(function (r) { return r.related_visit && r.related_visit.second_client_ask; });
+    var noAskLater = inRows.filter(function (r) { return r.related_visit && !r.related_visit.second_client_ask; });
+    if (twoAsk.length) {
+      html += "<p>";
+      html += "Some of these lots were called in a second time. Letter names who called the first service in and when, and who called the second in and when. ";
+      html += "If one of the two call-outs was paid, we say only that one of the two call-outs was paid and the other was not. We do not infer which visit a check or PO hit. ";
+      html += "Two CTL schedule emails or two Ryan “added” emails are not two call-ins.";
+      html += "</p>";
+    }
+    if (noAskLater.length) {
+      noAskLater.forEach(function (r) {
+        html += "<p>" + esc(r.service_address) + " (" + esc(r.docNumber) + ") has a later visit on file (" +
+          esc(r.related_visit.docNumber) + "). " + esc(r.related_visit.note) + " It is not a second-call-out chase.</p>";
+      });
+    }
+
+    html += '<table class="mini"><thead><tr><th>Address</th><th>Invoice</th><th>Called in</th><th>Open</th></tr></thead><tbody>';
+    inRows.forEach(function (r) {
+      var evs = ledgerEvents(r);
+      var called = evs.filter(function (e) { return /called in/i.test(e.lab || e.what || ""); })[0];
+      html += "<tr><td>" + esc(r.service_address || "") + "</td><td>" + esc(r.docNumber) + "</td><td>" +
+        esc(called ? String(called.what || called.when).slice(0, 48) : "—") + "</td><td>" +
+        esc(money(r.balance)) + " · " + esc(r.daysPastDue) + "d</td></tr>";
+    });
+    html += "</tbody></table>";
+
+    inRows.forEach(function (r) {
+      html += "<h4>" + esc(r.service_address || "") + " · " + esc(r.docNumber) + " · this letter</h4>";
+      html += '<div class="htl">';
+      ledgerEvents(r).forEach(function (e) {
+        if (e.today) return;
+        html += "<div><span class=\"d\">" + prettyWhenShort(e.when).replace(/<br>.*/, "") +
+          "</span><span class=\"l\">" + esc(e.lab || "") + "</span><span>" + esc(noSibling(e.what || "")) + "</span></div>";
+      });
+      html += "<div><span class=\"d\">Today</span><span class=\"l\">Today</span><span>" +
+        esc(money(r.balance)) + " open, " + esc(r.daysPastDue) + " days, nothing in Hyphen on this first visit.</span></div></div>";
+      var atts = houseAtts(r);
+      html += '<p class="attline">Attached: ' + esc(atts.length ? atts.join(", ") : "invoice + research on file") + ".</p>";
+      var rel = r.related_visit;
+      if (rel && rel.second_client_ask) {
+        html += '<div class="htl rel">';
+        html += "<div><span class=\"d\">" + esc(prettyWhenShort(rel.ask_when || "").replace(/<br>.*/, "")) +
+          "</span><span class=\"l\">2nd call-in</span><span>" + esc(rel.ask_who || "") + " asked again for " +
+          esc(rel.address || r.service_address || "") + ".</span></div>";
+        if (rel.serviced) {
+          html += "<div><span class=\"d\">" + esc(prettyWhenShort(rel.serviced)) +
+            "</span><span class=\"l\">Serviced</span><span>Second visit. " + esc(rel.docNumber) + ".</span></div>";
+        }
+        html += "<div><span class=\"d\"></span><span class=\"l\">Paid</span><span>" +
+          esc(rel.paid || "one of the two call-outs was paid and the other was not") +
+          ". Do not infer which visit a check or PO hit.</span></div></div>";
+        html += '<p class="attline">Also attached: the second client ask, so both client asks are on the thread.</p>';
+      } else if (rel && !rel.second_client_ask) {
+        html += '<p class="relnote">Related later visit, not a second call-out: ' + esc(rel.docNumber) +
+          (rel.po ? " / PO " + esc(rel.po) : "") + ". " + esc(rel.note) + "</p>";
+      }
+    });
+    html += "<p>If you have any questions about these requests, we're happy to help address them.</p>";
+    html += '<div class="sig"><b>Coastal Testing Laboratories, Inc.</b><span>billings@coastaltestinglabs.com</span></div>';
+    return html;
+  }
+  function renderCampaign() {
+    var el = $("#campaign");
+    if (!el || !state.campaignOpen || !state.campaignKey) return;
+    var inRows = DATA.filter(function (x) { return campaignKeyOf(x) === state.campaignKey; })
+      .sort(function (a, b) { return (Number(b.daysPastDue) || 0) - (Number(a.daysPastDue) || 0); });
+    if (!inRows.length) {
+      el.innerHTML = '<p class="note">No campaign houses.</p>';
+      return;
+    }
+    var leftRows = leftOutOfCampaign(inRows);
+    var seed = inRows[0];
+    var comm = seed.customer || "";
+    var issue = issueLabel(seed);
+    var openSum = inRows.reduce(function (s, r) { return s + (Number(r.balance) || 0); }, 0);
+    var dpds = inRows.map(function (r) { return Number(r.daysPastDue) || 0; });
+    var houseId = state.campaignHouse || inRows[0].docNumber;
+    var house = DATA.find(function (x) { return x.docNumber === houseId; }) || inRows[0];
+    var completeN = inRows.filter(function (r) { return packetStatus(r) === "complete"; }).length;
+    var pktOk = completeN === inRows.length;
+    var evs = ledgerEvents(house);
+
+    function houseRow(r, inLetter) {
+      var rel = r.related_visit;
+      var relTxt = "—";
+      var pill = inLetter ? '<span class="pill in">In</span>' : ('<span class="pill out">' + esc(issueLabel(r)) + "</span>");
+      if (rel && rel.second_client_ask) {
+        relTxt = "2nd call-out · " + (rel.ask_who || "") + " · " + (rel.po || "");
+        if (inLetter) pill = '<span class="pill rel">In + 2nd visit</span>';
+      } else if (rel && !rel.second_client_ask) {
+        relTxt = rel.note || "Later visit · not a second call-out";
+      } else if (!inLetter) {
+        relTxt = "Not this ask";
+      }
+      return '<tr class="' + (inLetter ? "in" : "out") + (r.docNumber === house.docNumber ? " on" : "") +
+        '" data-house="' + esc(r.docNumber) + '"><td>' + esc(r.service_address || "") +
+        '<br><span class="rel">' + esc(r.docNumber) + " · " + esc(money(r.balance)) + "</span></td>" +
+        '<td class="inv">' + esc(r.docNumber) + "</td>" +
+        '<td class="dpd">' + esc(r.daysPastDue) + "</td>" +
+        '<td class="rel">' + esc(relTxt) + "</td><td>" + pill + "</td></tr>";
+    }
+
+    var atts = houseAtts(house).map(function (a) {
+      return '<span class="att ok">' + esc(a) + "</span>";
+    }).join("");
+    if (!atts) atts = '<span class="att miss">Named files not stored on this row</span>';
+
+    el.innerHTML =
+      '<div class="case-top"><div>' +
+      '<div class="case-id">' + esc(String(comm).replace(/^\d+-/, "").replace(/\s*\(NEW\)\s*$/, "").trim()) +
+      " · " + esc(issue.toLowerCase()) + "</div>" +
+      '<div class="case-sub">' + esc(BUILDER_LABEL[seed.parent] || seed.parent || "") +
+      " · " + inRows.length + " houses · " + esc(money(openSum)) + " · " +
+      Math.min.apply(null, dpds) + "–" + Math.max.apply(null, dpds) + " days past due</div></div>" +
+      '<div class="case-nav"><button type="button" id="campClose" class="x" aria-label="Close">✕</button></div></div>' +
+      '<div class="status">' +
+      '<div class="schip"><lab>Issue</lab><val>' + esc(issue) + "</val></div>" +
+      '<div class="schip ' + (pktOk ? "ok" : "hold") + '"><lab>Packet</lab><val>' +
+      (pktOk ? ("Complete · " + inRows.length + " of " + inRows.length) : ("Hold · " + completeN + " of " + inRows.length + " complete")) +
+      "</val></div>" +
+      '<div class="schip"><lab>Mail</lab><val>Not sent</val></div>' +
+      '<div class="schip"><lab>Next</lab><val>Put in Drafts · one thread</val></div></div>' +
+      '<p class="note quiet"><b>One ask, one Outlook thread.</b> Houses with a documented second client ask show a quieter related-visit strip. ' +
+      "A later visit without a second client ask is not a 2nd-callout chase. Write-off, paid-to-apply, and later retests with their own PO stay out of the letter.</p>" +
+      '<div class="wrap-inner"><div class="grid"><div class="leftcol">' +
+      '<div class="card" style="margin-bottom:12px"><div class="sec-h">Houses <span>Click a row for that house’s ledger and files</span></div>' +
+      '<table class="houses"><thead><tr><th>Address</th><th>Invoice</th><th>Days</th><th>Related visit</th><th>In letter</th></tr></thead><tbody>' +
+      inRows.map(function (r) { return houseRow(r, true); }).join("") +
+      leftRows.map(function (r) { return houseRow(r, false); }).join("") +
+      "</tbody></table></div>" +
+      '<div class="card"><div class="sec-h">Support · ' + esc(house.service_address || "") +
+      " <span>This bill " + esc(house.docNumber) + "</span></div><div class=\"house\">" +
+      "<h3>Visit 1 · the bill in this letter</h3>" +
+      (evs.length ? evs.map(erowHtml).join("") : '<p class="rel">No labeled events on file.</p>') +
+      '<div class="atts">' + atts + "</div>" +
+      relatedStrip(house) +
+      "</div></div></div>" +
+      '<div class="card letter-card"><div class="sec-h">Letter the CM gets <span>One thread · ' +
+      inRows.length + " house blocks</span></div><div class=\"letter\">" +
+      campaignLetterHtml(inRows, leftRows) +
+      "</div></div></div></div>" +
+      '<div class="acts">' +
+      '<button class="act primary" type="button" id="campDraft">Put in Drafts</button>' +
+      '<button class="act" type="button" id="campHold">Hold a house</button>' +
+      '<button class="act" type="button" id="campClose2">Close</button>' +
+      '<span class="act-note">One thread. Put in Drafts uses the existing Ready API. Packet gaps still block send.</span></div>';
+
+    var close = function () { closeCase(); };
+    if ($("#campClose")) $("#campClose").addEventListener("click", close);
+    if ($("#campClose2")) $("#campClose2").addEventListener("click", close);
+    if ($("#campHold")) $("#campHold").addEventListener("click", close);
+    $$("#campaign tr[data-house]").forEach(function (tr) {
+      tr.addEventListener("click", function () {
+        state.campaignHouse = tr.getAttribute("data-house");
+        renderCampaign();
+      });
+    });
+    if ($("#campDraft")) {
+      $("#campDraft").addEventListener("click", function () {
+        openCampaignCompose(inRows);
+      });
+    }
+  }
+  function openCampaign(nameOrKey) {
+    var camp = null;
+    if (nameOrKey && nameOrKey.indexOf("||") >= 0) {
+      var rows = DATA.filter(function (x) { return campaignKeyOf(x) === nameOrKey; });
+      if (rows.length) camp = { key: nameOrKey, rows: rows };
+    } else {
+      camp = campaignForCommunity(nameOrKey);
+      if (!camp && nameOrKey) {
+        var q = String(nameOrKey).toLowerCase();
+        var names = {};
+        DATA.forEach(function (x) { names[x.customer || "—"] = true; });
+        Object.keys(names).forEach(function (nm) {
+          if (camp) return;
+          if (nm.toLowerCase().indexOf(q) >= 0 || q.indexOf(String(nm).toLowerCase()) >= 0) {
+            camp = campaignForCommunity(nm);
+          }
+        });
+      }
+    }
+    if (!camp) return;
+    state.campaignKey = camp.key;
+    state.campaignHouse = camp.rows[0].docNumber;
+    state.selected = camp.rows[0].docNumber;
+    hidePanels();
+    state.campaignOpen = true;
+    setAppOpen(true);
+    var el = $("#campaign");
+    if (el) {
+      el.classList.add("on");
+      el.setAttribute("aria-hidden", "false");
+    }
+    renderCampaign();
+    try {
+      var url = new URL(location.href);
+      url.searchParams.set("campaign", camp.rows[0].customer);
+      url.searchParams.delete("open");
+      history.replaceState(null, "", url);
+    } catch (e) {}
+  }
+  function openCampaignCompose(inRows) {
+    var seed = inRows[0];
+    state.selected = seed.docNumber;
+    var toName = seed.chase_to_name;
+    var toAddr = seed.chase_to;
+    if (!toAddr && /westridge/i.test(seed.customer || "")) {
+      toName = "Brandon Pope";
+      toAddr = "brandon.pope@coventryhomes.com";
+    }
+    var comm = (seed.customer || "").replace(/^\d+-/, "").replace(/\s*\(NEW\)\s*$/, "").trim();
+    var openSum = inRows.reduce(function (s, r) { return s + (Number(r.balance) || 0); }, 0);
+    var subject = "PO needed · " + comm + " · " + inRows.length + " first visits still open";
+    var letter = campaignLetterHtml(inRows, leftOutOfCampaign(inRows));
+    var kind = "Builder";
+    var fake = {
+      chase_to: toAddr,
+      chase_to_name: toName,
+      chase_cc: [{ name: seed.email, email: seed.email }].filter(function (c) { return c.email; }),
+      chase_letter_lead: "Community campaign letter on file.",
+      chase_timeline: [{ when: "Today", what: "Called in — campaign" }],
+      chase_attachments: inRows.reduce(function (acc, r) { return acc.concat(r.chase_attachments || []); }, [])
+    };
+    var gaps = packetGaps(fake, kind);
+    $("#cTitle").textContent = gaps.length ? "Hold — packet incomplete" : "Community campaign";
+    $("#cKind").textContent = kind;
+    $("#cFrom").innerHTML = field("Billings", "billings@coastaltestinglabs.com");
+    $("#cTo").innerHTML = field(toName || "Need project CM", toAddr || "");
+    var ccList = [];
+    var seen = {};
+    function addCc(c) {
+      if (!c || !c.email) return;
+      var k = String(c.email).toLowerCase();
+      if (seen[k]) return;
+      seen[k] = true;
+      ccList.push(c);
+    }
+    if (seed.email) addCc({ name: seed.email, email: seed.email });
+    DEFAULT_CHASE_CC.forEach(addCc);
+    $("#cCc").innerHTML = ccList.map(function (c) { return field(c.name, c.email); }).join("");
+    $("#cSubj").innerHTML = '<div class="who">' + esc(subject) + "</div>";
+    $("#cLetter").innerHTML = letter;
+    $("#cChips").innerHTML = inRows.map(function (r) {
+      return '<span class="chip">' + esc(r.docNumber) + "</span>";
+    }).join("");
+    $("#compose").classList.add("on");
+    $("#compose").setAttribute("aria-hidden", "false");
+    $("#scrim").classList.add("on");
+    state.packetGaps = gaps;
+    syncReadyUi(seed.docNumber);
+  }
+
+  function bind() {
+    $("#q").addEventListener("input", (e) => {
+      state.search = e.target.value;
+      render();
+    });
+    $("#clearBtn").addEventListener("click", () => {
+      state.search = "";
+      state.builders.clear();
+      state.eras.clear();
+      state.whys.clear();
+      state.hyphen.clear();
+      state.days.clear();
+      state.mail = "all";
+      state.followUpDue = false;
+      $("#q").value = "";
+      $$('.menu-pop input[type="checkbox"]').forEach((c) => {
+        if (c.closest('[data-menu="cols"]')) return;
+        c.checked = false;
+      });
+      render();
+    });
+    $("#groupToggle").addEventListener("change", (e) => {
+      state.group = e.target.checked;
+      state.collapsed = new Set();
+      render();
+    });
+    $("#expandBtn").addEventListener("click", () => {
+      state.expandAll = !state.expandAll;
+      state.collapsed = new Set();
+      render();
+    });
+    $$(".menu-btn").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const pop = btn.parentElement.querySelector(".menu-pop");
+        const open = !pop.hidden;
+        closeMenus();
+        pop.hidden = open;
+      });
+    });
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".menu")) closeMenus();
+    });
+    $$('[data-menu="builder"] input').forEach((c) => {
+      c.addEventListener("change", () => {
+        if (c.checked) state.builders.add(c.value);
+        else state.builders.delete(c.value);
+        render();
+      });
+    });
+    $$('[data-menu="era"] input').forEach((c) => {
+      c.addEventListener("change", () => {
+        if (c.checked) state.eras.add(c.value);
+        else state.eras.delete(c.value);
+        render();
+      });
+    });
+    $$('[data-menu="why"] input').forEach((c) => {
+      c.addEventListener("change", () => {
+        if (c.checked) state.whys.add(c.value);
+        else state.whys.delete(c.value);
+        render();
+      });
+    });
+    $$('[data-menu="days"] input').forEach((c) => {
+      c.addEventListener("change", () => {
+        if (c.checked) state.days.add(c.value);
+        else state.days.delete(c.value);
+        render();
+      });
+    });
+    $$("#mailSeg button").forEach((b) => {
+      b.addEventListener("click", () => {
+        state.mail = b.dataset.mail;
+        render();
+      });
+    });
+    $$('[data-menu="hyphen"] input').forEach((c) => {
+      c.addEventListener("change", () => {
+        if (c.checked) state.hyphen.add(c.value);
+        else state.hyphen.delete(c.value);
+        render();
+      });
+    });
+    $$('[data-menu="cols"] input').forEach((c) => {
+      c.addEventListener("change", () => {
+        state.cols[c.value] = c.checked;
+        render();
+      });
+    });
+    $$(".menu-pop .all").forEach((b) => {
+      b.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const pop = b.closest(".menu-pop");
+        const menu = b.closest(".menu").dataset.menu;
+        $$('input[type="checkbox"]', pop).forEach((c) => (c.checked = false));
+        if (menu === "builder") state.builders.clear();
+        if (menu === "era") state.eras.clear();
+        if (menu === "why") state.whys.clear();
+        if (menu === "hyphen") state.hyphen.clear();
+        if (menu === "days") state.days.clear();
+        if (menu === "cols") {
+          state.cols = {};
+          render();
+          return;
+        }
+        render();
+      });
+    });
+    $$("thead th[data-sort]").forEach((th) => {
+      th.addEventListener("click", () => {
+        const k = th.dataset.sort;
+        if (state.sortKey === k) state.sortDir = state.sortDir === "desc" ? "asc" : "desc";
+        else {
+          state.sortKey = k;
+          state.sortDir = th.dataset.dir || (["daysPastDue", "balance", "totalAmt", "waiting"].includes(k) ? "desc" : "asc");
+        }
+        render();
+      });
+    });
+    $("#tbody").addEventListener("click", (e) => {
+      const g = e.target.closest("tr.ghead");
+      if (g) {
+        if (e.target.closest(".gcamp") || e.target.closest(".gname")) {
+          if (campaignForCommunity(g.dataset.comm)) {
+            openCampaign(g.dataset.comm);
+            return;
+          }
+        }
+        toggleCommunity(g.dataset.comm);
+        return;
+      }
+      if (e.target.closest("tr.section")) return;
+      const tr = e.target.closest("tr[data-id]");
+      if (!tr) return;
+      if (state.selected === tr.dataset.id) closeDrawer();
+      else openDrawer(tr.dataset.id);
+    });
+    $("#scrim").addEventListener("click", () => {
+      if ($("#compose").classList.contains("on")) closeCompose();
+      else closeDrawer();
+    });
+    $("#dClose").addEventListener("click", closeDrawer);
+    $("#dFoot").addEventListener("click", (e) => {
+      if (e.target.closest(".act.primary")) openCompose(state.selected);
+    });
+    $("#cBack").addEventListener("click", closeCompose);
+    $("#cClose").addEventListener("click", closeCompose);
+    $("#cHold").addEventListener("click", closeCompose);
+    if ($("#cSave")) {
+      $("#cSave").addEventListener("click", function () {
+        queueCompose("saved");
+        var n = $("#cNote");
+        if (n) n.textContent = "Saved on this device. Nothing sends.";
+      });
+    }
+
+  function parseFieldPeople(el) {
+    if (!el) return [];
+    var addrs = el.querySelectorAll(".addr");
+    var whos = el.querySelectorAll(".who");
+    var out = [];
+    for (var i = 0; i < addrs.length; i++) {
+      var email = (addrs[i].textContent || "").trim();
+      var name = (whos[i] && whos[i].textContent || "").trim();
+      if (!email || email === "—" || email === "Internal") continue;
+      out.push({ name: name, email: email });
+    }
+    return out;
+  }
+  function collectComposePayload() {
+    var id = state.selected;
+    var to = parseFieldPeople($("#cTo"));
+    var cc = parseFieldPeople($("#cCc"));
+    var fromP = parseFieldPeople($("#cFrom"))[0] || {
+      name: "Billings",
+      email: "billings@coastaltestinglabs.com"
+    };
+    var subjEl = $("#cSubj");
+    var subject = (subjEl && (subjEl.textContent || "").trim()) || "";
+    var letter = ($("#cLetter") && $("#cLetter").innerHTML) || "";
+    var rec = DATA.find(function (x) { return x.docNumber === id; }) || {};
+    var atts = (rec.chase_attachments || []).filter(function (a) {
+      return a && a.mailbox && a.messageId;
+    }).map(function (a) {
+      return {
+        mailbox: a.mailbox,
+        messageId: a.messageId,
+        filename: a.filename || a.name || a.label || "attachment.eml",
+        name: a.filename || a.name || a.label || "attachment.eml"
+      };
+    });
+    var payload = { invoice: id, subject: subject, to: to, cc: cc, from: fromP, html: letter };
+    if (atts.length) {
+      payload.attachments = atts;
+      payload.replaceExisting = true;
+    }
+    return payload;
+  }
+  function composeRecord(id) {
+    try {
+      var map = JSON.parse(localStorage.getItem("hyphen-compose") || "{}");
+      return map[id] || {};
+    } catch (e) { return {}; }
+  }
+  function saveComposeRecord(id, rec) {
+    var map = {};
+    try { map = JSON.parse(localStorage.getItem("hyphen-compose") || "{}"); } catch (e) {}
+    map[id] = rec;
+    localStorage.setItem("hyphen-compose", JSON.stringify(map));
+  }
+  function closeReadyMenu() {
+    var menu = $("#cReadyMenu");
+    var more = $("#cReadyMore");
+    if (menu) {
+      menu.classList.remove("on");
+      menu.hidden = true;
+    }
+    if (more) more.setAttribute("aria-expanded", "false");
+  }
+  function toggleReadyMenu(e) {
+    if (e) e.stopPropagation();
+    var menu = $("#cReadyMenu");
+    var more = $("#cReadyMore");
+    if (!menu || !more || more.disabled) return;
+    var open = !menu.classList.contains("on");
+    if (open) {
+      menu.hidden = false;
+      menu.classList.add("on");
+      more.setAttribute("aria-expanded", "true");
+    } else {
+      closeReadyMenu();
+    }
+  }
+  function syncReadyUi(id) {
+    var rec = composeRecord(id);
+    var btn = $("#cReady");
+    var more = $("#cReadyMore");
+    var note = $("#cNote");
+    if (!btn) return;
+    if (state.packetGaps && state.packetGaps.length && rec.status !== "sent" && rec.status !== "ready") {
+      btn.textContent = "Not ready";
+      btn.disabled = true;
+      if (more) more.disabled = true;
+      if (note) note.textContent = "Packet incomplete: " + state.packetGaps.join(". ") + ".";
+    } else if (rec.status === "sent") {
+      btn.textContent = "Sent";
+      btn.disabled = true;
+      if (more) more.disabled = true;
+      if (note) {
+        var fromEl = $("#cFrom");
+        var fromAddr = (fromEl && fromEl.querySelector(".addr") && fromEl.querySelector(".addr").textContent) || "billings@";
+        note.textContent = "Sent from " + fromAddr + ". Nothing else to do here.";
+      }
+    } else if (rec.status === "ready") {
+      btn.textContent = "Queued";
+      btn.disabled = true;
+      if (more) more.disabled = false;
+      if (note) {
+        if (rec.webLink) {
+          note.innerHTML = 'Queued in Drafts. <a href="' + rec.webLink + '" target="_blank" rel="noopener">Open in Outlook</a>. Arrow still sends.';
+        } else {
+          note.textContent = "Queued in Drafts. Arrow still sends.";
+        }
+      }
+    } else {
+      btn.textContent = "Put in Drafts";
+      btn.disabled = false;
+      if (more) more.disabled = false;
+      if (note) note.textContent = "Put in Drafts drops a billings@ draft. The arrow is Send.";
+    }
+  }
+  function dropToOutlook(action) {
+    var btn = $("#cReady");
+    var more = $("#cReadyMore");
+    var n = $("#cNote");
+    if (state.packetGaps && state.packetGaps.length) {
+      if (n) n.textContent = "Packet incomplete: " + state.packetGaps.join(". ") + ".";
+      return;
+    }
+    var payload = collectComposePayload();
+    if (!payload.invoice || !payload.html) {
+      if (n) n.textContent = "Nothing to queue — open a letter first.";
+      return;
+    }
+    if (!window.HYPHEN_READY_API || !window.HYPHEN_READY_SECRET) {
+      if (n) n.textContent = "Drop is not live yet. Try again in a moment.";
+      return;
+    }
+    closeReadyMenu();
+    var rec = composeRecord(payload.invoice);
+    btn.disabled = true;
+    if (more) more.disabled = true;
+    btn.textContent = action === "send" ? "Sending…" : "Queuing…";
+    if (n) n.textContent = action === "send"
+      ? "Sending from billings@."
+      : "Creating the billings@ draft. Nothing sends.";
+    fetch(window.HYPHEN_READY_API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Hyphen-Ready": window.HYPHEN_READY_SECRET
+      },
+      body: JSON.stringify({
+        secret: window.HYPHEN_READY_SECRET,
+        action: action,
+        mailbox: payload.from && payload.from.email ? payload.from.email : "billings@coastaltestinglabs.com",
+        graphMessageId: rec.graphMessageId || "",
+        invoice: payload.invoice,
+        subject: payload.subject,
+        to: payload.to,
+        cc: payload.cc,
+        from: payload.from,
+        html: payload.html,
+        attachments: payload.attachments || [],
+        replaceExisting: !!payload.replaceExisting
+      })
+    })
+      .then(function (res) {
+        return res.json().then(function (data) { return { res: res, data: data }; });
+      })
+      .then(function (x) {
+        if (!x.res.ok || !x.data.ok) {
+          throw new Error((x.data && x.data.error) || ("HTTP " + x.res.status));
+        }
+        var next = {
+          status: action === "send" ? "sent" : "ready",
+          at: new Date().toISOString(),
+          graphMessageId: x.data.id || rec.graphMessageId || "",
+          webLink: x.data.webLink || rec.webLink || ""
+        };
+        saveComposeRecord(payload.invoice, next);
+        syncReadyUi(payload.invoice);
+      })
+      .catch(function () {
+        syncReadyUi(payload.invoice);
+        if (n) n.textContent = action === "send"
+          ? "Could not send. Draft is unchanged."
+          : "Could not create the Outlook draft. Try again.";
+      });
+  }
+    if ($("#cReady")) {
+      $("#cReady").addEventListener("click", function () { dropToOutlook("draft"); });
+    }
+    if ($("#cReadyMore")) {
+      $("#cReadyMore").addEventListener("click", toggleReadyMenu);
+    }
+    if ($("#cSend")) {
+      $("#cSend").addEventListener("click", function () { dropToOutlook("send"); });
+    }
+    document.addEventListener("click", function (e) {
+      if (!$("#cReadySplit") || $("#cReadySplit").contains(e.target)) return;
+      closeReadyMenu();
+    });
+
+    var fuDueBtn = $("#fuDueBtn");
+    if (fuDueBtn) {
+      fuDueBtn.addEventListener("click", function () {
+        state.followUpDue = !state.followUpDue;
+        render();
+      });
+    }
+    document.addEventListener("keydown", (e) => {
+      var tag = (e.target && e.target.tagName) || "";
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
+      if (e.key === "Escape") {
+        if ($("#compose").classList.contains("on")) closeCompose();
+        else if (state.caseOpen || state.campaignOpen) closeCase();
+        else if ($("#drawer").classList.contains("on")) closeDrawer();
+        else closeMenus();
+        return;
+      }
+      if ((e.key === "j" || e.key === "J") && (state.caseOpen || state.selected)) { e.preventDefault(); goCase(1); }
+      if ((e.key === "k" || e.key === "K") && (state.caseOpen || state.selected)) { e.preventDefault(); goCase(-1); }
+    });
+  }
+
+  function setAsof() {
+    const el = document.querySelector(".asof");
+    if (!el || !DATA.length) return;
+    const raw = DATA[0].scrape_as_of;
+    let scrape = "Not scraped";
+    if (raw) {
+      const d = new Date(raw);
+      if (!isNaN(d)) {
+        const opts = { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" };
+        scrape = d.toLocaleString("en-US", { timeZone: "America/Chicago", ...opts }) + " CT";
+      } else scrape = raw;
+    }
+    el.innerHTML = 'Books Mon Aug 17 3:18am CT · Scrape <span class="scrape">' + scrape + "</span>";
+  }
+  bind();
+  render();
+  setAsof();
+  try {
+    const openId = new URLSearchParams(location.search).get("open");
+    if (openId) {
+      state.search = openId;
+      $("#q").value = openId;
+      render();
+      openDrawer(openId);
+    }
+    const campQ = new URLSearchParams(location.search).get("campaign");
+    if (campQ) {
+      openCampaign(campQ);
+    }
+    const composeId = new URLSearchParams(location.search).get("compose");
+    if (composeId) {
+      state.search = composeId;
+      $("#q").value = composeId;
+      render();
+      openDrawer(composeId);
+      openCompose(composeId);
+    }
+  } catch (e) {}
+})();
+
+</script>
+</body>
+</html>
