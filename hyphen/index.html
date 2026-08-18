@@ -2653,26 +2653,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var m = s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{1,2}):(\d{2})(?:\s*([AaPp]\.?[Mm]\.?))?)?/);
     if (!m) return s.replace(/\s+CT$/i, "");
     var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-    var out = months[Number(m[2]) - 1] + " " + Number(m[3]);
-    if (m[4] != null) {
-      var h = Number(m[4]);
-      var ap;
-      if (forcePm || (m[6] && /p/i.test(m[6]))) {
-        ap = "PM";
-        if (h === 0) h = 12;
-        else if (h > 12) h = h % 12;
-      } else if (forceAm || (m[6] && /a/i.test(m[6]))) {
-        ap = "AM";
-        if (h === 0) h = 12;
-        else if (h > 12) h = h % 12;
-      } else {
-        ap = h >= 12 ? "PM" : "AM";
-        h = h % 12;
-        if (!h) h = 12;
-      }
-      out += "<br>" + h + ":" + m[5] + " " + ap;
-    }
-    return out;
+    return months[Number(m[2]) - 1] + " " + Number(m[3]);
   }
   function ledgerEvents(r) {
     var src = r.ledger || r.chase_timeline || r.timeline || [];
@@ -2838,6 +2819,32 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     state.caseOpen = false;
     state.campaignOpen = false;
   }
+  function chaseSubject(r) {
+    var subj = chaseSubject(r);
+    var days = r.daysPastDue;
+    if (days != null && days !== "" && !/days past due/i.test(subj)) {
+      var bit = days + " days past due";
+      subj = subj ? (subj.replace(/\s*$/, "") + " · " + bit) : bit;
+    }
+    return subj;
+  }
+  function caseAttsHtml(r) {
+    var atts = (r.chase_attachments || []).filter(function (a) { return a && (a.label || a.kind || a.subject); });
+    if (!atts.length) return "";
+    var html = '<div class="att-review"><div class="sec-h">On this email</div><div class="card">';
+    atts.forEach(function (a, i) {
+      var label = a.label || a.kind || a.subject || "file";
+      var href = a.webLink || a.url || "";
+      var meta = [a.subject, a.from, a.sent || a.mailbox].filter(Boolean).join(" · ");
+      html += '<button type="button" class="att-item" data-att="' + i + '"' +
+        (href ? ' data-href="' + esc(href) + '"' : "") + ">" +
+        '<span class="att-name">' + esc(label) + "</span>" +
+        (meta ? '<span class="att-meta">' + esc(meta) + "</span>" : "") +
+        "</button>";
+    });
+    html += "</div></div>";
+    return html;
+  }
   function caseLetterHtml(r) {
     var lead = r.chase_letter_lead ? noSibling(r.chase_letter_lead) : "";
     var paras = r.chase_letter_paras || [];
@@ -2861,27 +2868,21 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     if (lead) html += "<p>" + esc(lead) + "</p>";
     var evs = ledgerEvents(r);
     if (evs.length) {
-      html += '<div class="htl">';
+      html += '<div class="tl-h">Timeline of Events</div><div class="htl">';
       evs.forEach(function (e) {
         html += "<div><span class=\"d\">" + prettyWhenShort(e.when).replace(/<br\s*\/?>/gi, " ") +
           "</span><span class=\"l\">" + esc(e.lab || "") + "</span><span>" + esc(noSibling(e.what || "")) + "</span></div>";
       });
       html += "</div>";
     }
-    var close = "If you have any questions about these requests, we're happy to help address them.";
-    function isClose(s) { return /questions about these requests/i.test(String(s || "")); }
+    var close = "If you have any questions about this invoice, please feel free to reach out for assistance.";
+    function isClose(s) { return /feel free to reach out|questions about these requests|questions about this invoice/i.test(String(s || "")); }
     var hasClose = isClose(lead);
     paras.forEach(function (p) {
       if (isClose(p)) { hasClose = true; return; }
       html += "<p>" + esc(noSibling(p)) + "</p>";
     });
     if (!hasClose) html += "<p>" + close + "</p>";
-    var atts = (r.chase_attachments || []).filter(function (a) { return a && (a.label || a.kind || a.subject); });
-    if (atts.length) {
-      html += '<div class="att-used"><b>Attachments</b> ' + atts.map(function (a) {
-        return esc(a.label || a.kind || a.subject || "file");
-      }).join(" · ") + "</div>";
-    }
     if (!lead && !paras.length && !evs.length) {
       html += '<p>Letter body is not stored on this row. Follow up on thread opens the existing compose with the same To/CC.</p>';
     }
@@ -2963,7 +2964,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       '<div class="case-body"><div class="col"><div class="sec-h">Ledger</div><div class="card">' +
       (evs.length ? evs.map(erowHtml).join("") : '<p class="note quiet">No labeled events on file. We do not invent missing events.</p>') +
       '</div></div><div class="col"><div class="sec-h">' + ((mail === "awaiting" || lastSent(r)) ? "Last sent" : "Draft") + '</div><div class="card letter">' +
-      caseLetterHtml(r) + "</div></div></div>" +
+      caseLetterHtml(r) + "</div>" + caseAttsHtml(r) + "</div></div>" +
       '<div class="acts">' +
       '<button class="act primary" type="button" data-case-act="primary"' + (acts.disabled ? " disabled" : "") + ">" +
       esc(acts.primary) + "</button>" +
@@ -2984,6 +2985,13 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var cse = $("#case");
     if (cse) {
       cse.onclick = function (e) {
+        var att = e.target.closest(".att-item");
+        if (att) {
+          var href = att.getAttribute("data-href");
+          if (href) window.open(href, "_blank", "noopener");
+          else att.classList.toggle("open");
+          return;
+        }
         var btn = e.target.closest("[data-case-act]");
         if (!btn) return;
         var act = btn.getAttribute("data-case-act");
