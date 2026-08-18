@@ -55,7 +55,7 @@ button { cursor: pointer; background: none; border: 0; }
   height: 100%;
   display: flex;
   flex-direction: column;
-  min-width: 1580px;
+  min-width: 1280px;
 }
 
 /* —— Header —— */
@@ -1059,9 +1059,10 @@ th:nth-child(5), td.addr { width: 14%; }
 }
 
 </style>
+<link rel="stylesheet" href="case-view.css" />
 </head>
 <body>
-<div class="app">
+<div class="app" id="app">
   <header class="hdr">
     <div class="brand">
       <svg class="mark" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
@@ -1069,7 +1070,7 @@ th:nth-child(5), td.addr { width: 14%; }
       </svg>
       <div class="brand-text">
         <h1>Hyphen review</h1>
-        <p class="asof">Books Mon Aug 17 3:18am CT · Scrape <span class="scrape">Sat Aug 15 4:43pm CT</span></p>
+        <p class="asof">Books Tue Aug 18· Scrape <span class="scrape">Sat Aug 15 4:43pm CT</span></p>
       </div>
     </div>
     <div class="counts">
@@ -1096,6 +1097,8 @@ th:nth-child(5), td.addr { width: 14%; }
       <button type="button" data-mail="drafted">Drafted <span class="n" data-n="drafted">0</span></button>
       <button type="button" data-mail="not_sent">Not sent <span class="n" data-n="not_sent">0</span></button>
     </div>
+
+    <button class="fu-btn" id="fuDueBtn" type="button" aria-pressed="false">Follow-up due <span class="n" id="fuDueN">0</span></button>
 
     <div class="menu" data-menu="days">
       <button class="menu-btn" type="button"><span class="t">Days</span><i class="caret"></i></button>
@@ -1182,21 +1185,22 @@ th:nth-child(5), td.addr { width: 14%; }
 
   <div class="mail-note" id="mailNote" hidden></div>
 
-  <div class="wrap">
+  <div class="stage" id="stage">
+  <div class="wrap" id="list">
     <table id="grid">
       <thead>
         <tr>
           <th class="num w-dpd sorted" data-sort="daysPastDue" data-dir="desc">Days <span class="s">▼</span></th>
           <th class="w-inv" data-sort="docNumber">Invoice # <span class="s"></span></th>
-          <th class="num w-open" data-sort="balance" data-dir="desc">Open $ <span class="s"></span></th>
-          <th data-sort="customer">Community <span class="s"></span></th>
+          <th class="num w-open wide-only" data-sort="balance" data-dir="desc">Open $ <span class="s"></span></th>
+          <th class="wide-only" data-sort="customer">Community <span class="s"></span></th>
           <th data-sort="service_address">Address <span class="s"></span></th>
-          <th class="w-hy" data-sort="found">Hyphen <span class="s"></span></th>
-          <th class="w-why" data-sort="first_pass_column">Why <span class="s"></span></th>
+          <th class="w-hy wide-only" data-sort="found">Hyphen <span class="s"></span></th>
+          <th class="w-why" data-sort="issue">Issue <span class="s"></span></th>
           <th class="w-mail" data-sort="mail">Mail <span class="s"></span></th>
-          <th class="w-sent" data-sort="last_sent">Last sent <span class="s"></span></th>
-          <th class="num w-wait" data-sort="waiting" data-dir="desc">Waiting <span class="s"></span></th>
-          <th class="w-reply" data-sort="last_reply">Last reply <span class="s"></span></th>
+          <th class="w-sent wide-only" data-sort="last_sent">Last sent <span class="s"></span></th>
+          <th class="num w-wait wide-only" data-sort="waiting" data-dir="desc">Waiting <span class="s"></span></th>
+          <th class="w-reply wide-only" data-sort="last_reply">Last reply <span class="s"></span></th>
           <th class="col-era w-era" data-sort="era">Era <span class="s"></span></th>
           <th class="col-builder" data-sort="parent">Builder <span class="s"></span></th>
           <th class="num col-billed w-billed" data-sort="totalAmt" data-dir="desc">Billed $ <span class="s"></span></th>
@@ -1210,6 +1214,9 @@ th:nth-child(5), td.addr { width: 14%; }
       </thead>
       <tbody id="tbody"></tbody>
     </table>
+  </div>
+  <section class="case" id="case" aria-hidden="true" aria-label="Invoice case"></section>
+  <section class="campaign" id="campaign" aria-hidden="true" aria-label="Community campaign"></section>
   </div>
 </div>
 
@@ -1263,7 +1270,7 @@ th:nth-child(5), td.addr { width: 14%; }
   </div>
 </aside>
 
-<script src="data.js?v=leftover-rules1"></script>
+<script src="data.js?v=case-campaign1"></script>
 <script>
 window.HYPHEN_READY_API = "https://temporary-swift-silicon-bfeajj8.vercel.app/api/ready";
 window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18eb7e6555a03fba7";
@@ -1333,6 +1340,11 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     expandAll: false,
     collapsed: new Set(),
     selected: null,
+    followUpDue: false,
+    caseOpen: false,
+    campaignOpen: false,
+    campaignKey: null,
+    campaignHouse: null,
   };
 
   const $ = (sel, root) => (root || document).querySelector(sel);
@@ -1465,12 +1477,17 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     });
   }
   function applyFilters() {
-    return applyBaseFilters().filter((r) => state.mail === "all" || mailStatus(r) === state.mail);
+    return applyBaseFilters().filter((r) => {
+      if (state.mail !== "all" && mailStatus(r) !== state.mail) return false;
+      if (state.followUpDue && !isFollowUpDue(r)) return false;
+      return true;
+    });
   }
   function applyFiltersExceptDays() {
     const q = state.search.trim().toLowerCase();
     return DATA.filter((r) => {
       if (state.mail !== "all" && mailStatus(r) !== state.mail) return false;
+      if (state.followUpDue && !isFollowUpDue(r)) return false;
       if (state.builders.size && !state.builders.has(r.parent)) return false;
       if (state.eras.size && !state.eras.has(r.era)) return false;
       if (state.whys.size && !state.whys.has(r.first_pass_column)) return false;
@@ -1527,6 +1544,12 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       } else if (key === "last_reply") {
         av = lastReply(a);
         bv = lastReply(b);
+      } else if (key === "issue") {
+        av = issueLabel(a);
+        bv = issueLabel(b);
+      } else if (key === "packet") {
+        av = packetStatus(a);
+        bv = packetStatus(b);
       } else {
         av = a[key];
         bv = b[key];
@@ -1567,6 +1590,11 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     $$("[data-days-n]").forEach((el) => {
       el.textContent = String(dayTally[el.dataset.daysN] || 0);
     });
+    var fuEl = $("#fuDueN");
+    if (fuEl) {
+      var fuN = applyBaseFilters().filter(isFollowUpDue).length;
+      fuEl.textContent = String(fuN);
+    }
   }
 
   function hasFilters() {
@@ -1577,7 +1605,8 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       state.whys.size ||
       state.hyphen.size ||
       state.days.size ||
-      state.mail !== "all"
+      state.mail !== "all" ||
+      state.followUpDue
     );
   }
 
@@ -1590,6 +1619,11 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     markMenu("why", state.whys.size, "Why");
     markMenu("hyphen", state.hyphen.size, "Hyphen");
     markMenu("days", state.days.size, "Days");
+    var fuBtn = $("#fuDueBtn");
+    if (fuBtn) {
+      fuBtn.classList.toggle("on", !!state.followUpDue);
+      fuBtn.setAttribute("aria-pressed", state.followUpDue ? "true" : "false");
+    }
     $$("#mailSeg button").forEach((b) => b.classList.toggle("on", b.dataset.mail === state.mail));
     const note = $("#mailNote");
     if (note) {
@@ -1597,6 +1631,10 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
         note.hidden = false;
         note.classList.add("ready-note");
         note.innerHTML = "<b>Ready</b> = 7:30 auto-drafts of complete packets. Nothing sent. Incomplete stays out.";
+      } else if (state.followUpDue) {
+        note.hidden = false;
+        note.classList.remove("ready-note");
+        note.innerHTML = "<b>Follow-up due</b> = awaiting, and last send + 3 business days (America/Chicago) has been reached.";
       } else if (state.mail === "awaiting") {
         note.hidden = false;
         note.classList.remove("ready-note");
@@ -1669,10 +1707,10 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       (researched ? '<i class="dot"></i>' : "") +
       esc(r.docNumber) +
       "</span></td>" +
-      '<td class="num" data-label="Open $"><span class="money">' +
+      '<td class="num wide-only" data-label="Open $"><span class="money">' +
       money(r.balance) +
       "</span></td>" +
-      '<td class="comm" data-label="Community" title="' +
+      '<td class="comm wide-only" data-label="Community" title="' +
       esc(r.customer) +
       '">' +
       esc(r.customer) +
@@ -1682,30 +1720,30 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       '">' +
       (addr ? esc(addr) : '<span class="empty">—</span>') +
       "</td>" +
-      '<td data-label="Hyphen"><span class="pill ' +
+      '<td class="wide-only" data-label="Hyphen"><span class="pill ' +
       payClass(r) +
       '">' +
       esc(payLabel(r)) +
       "</span></td>" +
       '<td data-label="Why"><span class="pill why' +
-      (whyHot(r.first_pass_column) ? " hot" : "") +
+      (whyHot(issueRaw(r)) || whyHot(r.first_pass_column) ? " hot" : "") +
       '">' +
-      esc(whyLabel(r.first_pass_column)) +
+      esc(issueLabel(r)) +
       "</span></td>" +
       '<td data-label="Mail"><span class="pill ' +
       esc(mailStatus(r)) +
       '">' +
       esc(MAIL_LABEL[mailStatus(r)]) +
       "</span></td>" +
-      '<td data-label="Last sent"><span class="sent">' +
+      '<td class="wide-only" data-label="Last sent"><span class="sent">' +
       (lastSent(r) ? esc(lastSent(r)) : '<span class="empty">—</span>') +
       "</span></td>" +
-      '<td class="num" data-label="Waiting"><span class="wait' +
+      '<td class="num wide-only" data-label="Waiting"><span class="wait' +
       (waitingDays(r) != null && Number(waitingDays(r)) >= 5 ? " late" : "") +
       '">' +
       (waitingDays(r) == null ? '<span class="empty">—</span>' : esc(waitingDays(r))) +
       "</span></td>" +
-      '<td data-label="Last reply"><span class="reply">' +
+      '<td class="wide-only" data-label="Last reply"><span class="reply">' +
       (lastReply(r) ? esc(lastReply(r)) : '<span class="empty">—</span>') +
       "</span></td>" +
       '<td class="col-era" data-label="Era">' +
@@ -1774,10 +1812,14 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     if (!filtered.length) {
       tb.innerHTML =
         '<tr><td colspan="20"><div class="empty-state">' + emptyCopy() + "</div></td></tr>";
+      if (state.caseOpen) renderCase();
+      if (state.campaignOpen) renderCampaign();
       return;
     }
     if (!state.group) {
       tb.innerHTML = filtered.map((r, i) => rowHtml(r, false, i % 2 === 1)).join("");
+      if (state.caseOpen) renderCase();
+      if (state.campaignOpen) renderCampaign();
       return;
     }
     const missing = filtered.filter(isMissingPo);
@@ -1818,6 +1860,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
           esc(name) +
           '"><td colspan="20"><div class="ghead-inner"><i class="chev"></i><span class="gname">' +
           esc(name) +
+          (campaignForCommunity(name) ? '<span class="gcamp">Campaign</span>' : '') +
           '</span><span class="gmeta">' +
           rows.length +
           (rows.length === 1 ? " invoice" : " invoices") +
@@ -1837,6 +1880,8 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       html += other.map((r, i) => rowHtml(r, false, i % 2 === 1)).join("");
     }
     tb.innerHTML = html;
+    if (state.caseOpen) renderCase();
+    if (state.campaignOpen) renderCampaign();
   }
 
   function toggleCommunity(name) {
@@ -1852,104 +1897,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   }
 
   function openDrawer(id) {
-    const r = DATA.find((x) => x.docNumber === id);
-    if (!r) return;
-    state.selected = id;
-    $$("#tbody tr[data-id]").forEach((tr) => tr.classList.toggle("sel", tr.dataset.id === id));
-    const el = $("#drawer");
-    const body = $("#dBody");
-    const found = !!r.found;
-    const addr = (r.service_address || "").trim();
-    const statusNote = r.hyphen_status
-      ? '<span class="note-status warn">Order status only — not a payment</span>'
-      : "";
-    const strata = r.has_strata_ticket
-      ? '<div class="dl">' +
-        kv("Ticket", dash(r.strata_report_number)) +
-        kv("PO", dash(r.strata_po_num)) +
-        kv("Status", dash(r.strata_status)) +
-        kv("Service date", fmtDate(r.strata_service_date)) +
-        kv("Notes entered", fmtDateTime(r.strata_hyphen_notes_entered_at)) +
-        "</div>"
-      : '<p class="mail empty">No Strata ticket</p>';
-    let mail = "";
-    if (r.mail_lead) mail += '<p class="mail-lead">' + esc(r.mail_lead) + "</p>";
-    if (r.timeline && r.timeline.length) {
-      mail += '<ul class="tl">' + r.timeline.map(function (ev) {
-        return (
-          "<li" + (ev.today ? ' class="today"' : "") + '><div class="when">' +
-          esc(ev.when || "") +
-          '</div><div class="what">' +
-          esc(ev.what || "") +
-          "</div></li>"
-        );
-      }).join("") + "</ul>";
-    } else if (r.researched_notes) {
-      mail += '<p class="mail">' + esc(r.researched_notes) + "</p>";
-    } else {
-      mail += '<p class="mail empty">No mail pulled on this row yet</p>';
-    }
-    $("#dTitle").textContent = r.docNumber;
-    $("#dSub").textContent =
-      (BUILDER_LABEL[r.parent] || r.parent || "") +
-      " · " +
-      (r.customer || "") +
-      " · " +
-      (found ? "Found" : "Not found");
-    body.innerHTML =
-      '<div class="sec"><h3>Books</h3><div class="dl">' +
-      kv("Invoice", r.docNumber) +
-      kv("Billed", money(r.totalAmt), "money") +
-      kv("Open", money(r.balance), "money") +
-      kv("Invoice date", fmtDate(r.txnDate)) +
-      kv("Due", fmtDate(r.dueDate)) +
-      kv("Days past due", r.daysPastDue, Number(r.daysPastDue) > 0 ? "num late" : "num") +
-      kv("Community", dash(r.customer)) +
-      kv("Address", addr || "—") +
-      kv("Builder", BUILDER_LABEL[r.parent] || dash(r.parent)) +
-      kv("Email", dash(r.email)) +
-      "</div></div>" +
-      '<div class="sec"><h3>Hyphen</h3><div class="dl">' +
-      kv("In Hyphen", payLabel(r)) +
-      kv("Supplier order", dash(r.supplier_order_number)) +
-      kv("Builder order", dash(r.builder_order_number)) +
-      (r.hyphen_review
-        ? (
-            kv("Notes", r.hyphen_review.notes_ok) +
-            kv("PO face", r.hyphen_review.po_face) +
-            kv("Builder", r.hyphen_review.builder) +
-            kv("Payment", r.hyphen_review.payment) +
-            kv("Open", r.hyphen_review.open_since, r.hyphen_review.next === "chase" ? "late" : "") +
-            (r.hyphen_notes_plain ? kv("Note text", r.hyphen_notes_plain) : "")
-          )
-        : (
-            "<dt>Order status</dt><dd>" +
-            esc(dash(r.hyphen_status)) +
-            statusNote +
-            "</dd>" +
-            kv("Check", dash(r.check_number)) +
-            kv("Check date", r.check_date ? fmtDate(r.check_date) : "—") +
-            kv("Check amount", r.check_amount != null && r.check_amount !== "" ? money(r.check_amount) : "—", "money") +
-            kv("Notes", r.hyphen_notes_plain ? r.hyphen_notes_plain : (r.researched_notes ? "No Hyphen notes" : "Not scraped"))
-          )) +
-      "</div></div>" +
-      '<div class="sec"><h3>Strata</h3>' +
-      strata +
-      "</div>" +
-      '<div class="sec"><h3>Mail</h3>' +
-      mail +
-      "</div>";
-    const acts = actionFooter(r);
-    const foot = $("#dFoot");
-    if (foot) {
-      foot.hidden = false;
-      foot.removeAttribute("hidden");
-      foot.style.display = "block";
-      foot.innerHTML = acts;
-    }
-    el.classList.add("on");
-    $("#scrim").classList.add("on");
-    el.setAttribute("aria-hidden", "false");
+    openCase(id);
   }
 
   function actionFooter(r) {
@@ -2057,10 +2005,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     if (!el) return;
     el.classList.remove("on");
     el.setAttribute("aria-hidden", "true");
-    if (state.selected) {
-      $("#drawer").classList.add("on");
-      $("#drawer").setAttribute("aria-hidden", "false");
-    }
+    $("#scrim").classList.remove("on");
   }
 
   function tlHtml(items) {
@@ -2541,6 +2486,9 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       fromAddr = r.chase_from;
     }
     if (r.chase_subject) subject = r.chase_subject;
+    if (mailStatus(r) === "awaiting" && subject && !/^re\s*:/i.test(subject)) {
+      subject = "Re: " + subject;
+    }
     if (r.chase_letter_lead) {
       var chaseTl;
       if (r.chase_timeline && r.chase_timeline.length) {
@@ -2613,21 +2561,718 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
 
 
   function closeDrawer() {
-    state.selected = null;
-    $("#drawer").classList.remove("on");
-    $("#compose").classList.remove("on");
-    $("#scrim").classList.remove("on");
-    $("#drawer").setAttribute("aria-hidden", "true");
-    $("#compose").setAttribute("aria-hidden", "true");
-    const foot = $("#dFoot");
-    if (foot) { foot.hidden = true; foot.innerHTML = ""; }
-    $$("#tbody tr.sel").forEach((tr) => tr.classList.remove("sel"));
+    closeCase();
   }
 
   function closeMenus(except) {
     $$(".menu-pop").forEach((p) => {
       if (p !== except) p.hidden = true;
     });
+  }
+
+  function chicagoTodayISO() {
+    return new Intl.DateTimeFormat("en-CA", {
+      timeZone: "America/Chicago",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(new Date());
+  }
+  function parseFollowUpDue(s) {
+    if (!s) return null;
+    s = String(s).trim();
+    if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0, 10);
+    var m = s.match(/(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)?\s*(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?/i);
+    if (!m) return null;
+    var year = m[3] ? Number(m[3]) : Number(chicagoTodayISO().slice(0, 4));
+    if (year < 100) year += 2000;
+    var mm = String(Number(m[1])).padStart(2, "0");
+    var dd = String(Number(m[2])).padStart(2, "0");
+    return year + "-" + mm + "-" + dd;
+  }
+  function noSibling(s) {
+    return String(s == null ? "" : s).replace(/\bsibling(s)?\b/gi, function (_, pl) {
+      return pl ? "same-address invoices" : "same address";
+    });
+  }
+  function issueRaw(r) {
+    return r.issue || r.first_pass_column || "";
+  }
+  function issueLabel(r) {
+    var w = noSibling(issueRaw(r)).trim();
+    if (!w) return "—";
+    return WHY_LABEL[issueRaw(r)] || WHY_LABEL[w] || w;
+  }
+  function packetStatus(r) {
+    if (r.packet === "complete") return "complete";
+    if (r.packet === "hold" || r.packet === "incomplete") return "hold";
+    var mail = mailStatus(r);
+    if ((mail === "awaiting" || mail === "ready") && r.chase_to) return "complete";
+    return "hold";
+  }
+  function packetLabel(r) {
+    return packetStatus(r) === "complete" ? "Complete" : "Hold";
+  }
+  function isFollowUpDue(r) {
+    if (mailStatus(r) !== "awaiting") return false;
+    var due = parseFollowUpDue(r.follow_up_due);
+    if (due && due <= chicagoTodayISO()) return true;
+    var w = waitingDays(r);
+    return w != null && w >= 3;
+  }
+  function nextAction(r) {
+    if (r.next) return noSibling(String(r.next));
+    var mail = mailStatus(r);
+    var pkt = packetStatus(r);
+    if (issueRaw(r) === "Write-off") return "Write-off";
+    if (mail === "awaiting" && isFollowUpDue(r)) return "Follow up";
+    if (mail === "awaiting") return "Wait · their court";
+    if (mail === "ready") return "Send";
+    if (pkt === "hold") return "Research";
+    if (mail === "not_sent" && pkt === "complete") return "Draft";
+    return "Review";
+  }
+  function prettyWhenShort(when) {
+    var s = String(when || "").trim();
+    var m = s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{1,2}):(\d{2}))?/);
+    if (!m) return s.replace(/\s+CT$/i, "");
+    var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    var out = months[Number(m[2]) - 1] + " " + Number(m[3]);
+    if (m[4] != null) {
+      var h = Number(m[4]);
+      var ap = h >= 12 ? "pm" : "am";
+      var h12 = h % 12;
+      if (!h12) h12 = 12;
+      out += "<br>" + h12 + ":" + m[5] + ap;
+    }
+    return out;
+  }
+  function ledgerEvents(r) {
+    var src = r.ledger || r.chase_timeline || r.timeline || [];
+    if (!src.length) return [];
+    return src.map(function (ev) {
+      var what = noSibling(ev.what || "");
+      var lab = ev.label || ev.lab || "";
+      if (!lab && what) {
+        var mm = String(what).match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Prior request|Today|Report sent|2nd call-in)\b/i);
+        if (mm) lab = /prior request/i.test(mm[1]) ? "Asked" : mm[1];
+      }
+      var today = !!ev.today || /^today$/i.test(String(ev.when || "")) || /^today$/i.test(lab);
+      return {
+        when: ev.when || "",
+        lab: lab,
+        who: ev.who || "",
+        what: what,
+        src: ev.source || ev.src || "",
+        today: today,
+      };
+    });
+  }
+  function standingNote(r) {
+    if (r.standing_note) return noSibling(r.standing_note);
+    if (r.mail_states_note) {
+      var parts = String(r.mail_states_note).split(/(?<=\.)\s+/);
+      return noSibling(parts.slice(0, 3).join(" "));
+    }
+    if (r.mail_lead) return noSibling(r.mail_lead);
+    if (r.write_off_reason) return noSibling(r.write_off_reason);
+    return "";
+  }
+  function packetChips(r) {
+    var items = [];
+    var toOk = !!(r.chase_to && /@/.test(String(r.chase_to)));
+    items.push({ t: toOk ? ("To · " + (r.chase_to_name || r.chase_to)) : "To · need project CM", ok: toOk });
+    var clientCc = (r.chase_cc || []).some(function (c) {
+      return c && c.email && !isCtlEmail(c.email);
+    });
+    items.push({ t: clientCc ? "Client on CC" : "Need client CC", ok: clientCc });
+    items.push({ t: r.chase_letter_lead ? "Background" : "Need background", ok: !!r.chase_letter_lead });
+    var tl = r.chase_timeline || r.timeline || [];
+    var labeled = tl.some(function (it) {
+      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent)\b/i.test(String(it.what || ""));
+    });
+    items.push({ t: labeled ? "Labeled timeline" : "Need timeline", ok: labeled });
+    var atts = (r.chase_attachments || []).filter(function (a) {
+      return a && (a.label || a.kind || (a.mailbox && a.messageId));
+    });
+    items.push({ t: atts.length ? "Customer-facing atts" : "Need attachments", ok: !!atts.length });
+    if (r.docNumber === "0415-170614") {
+      items.push({ t: "Call-in · phone, none on file", ok: false });
+    }
+    return items;
+  }
+  function cmKey(r) {
+    return String(r.email || "").toLowerCase();
+  }
+  function chaseableIssue(issue) {
+    return /^(No PO|Hyphen entry|Notes error|Payment|EPO|2nd callout)$/i.test(String(issue || ""));
+  }
+  function campaignKeyOf(r) {
+    return (r.customer || "—") + "||" + issueLabel(r) + "||" + cmKey(r);
+  }
+  function campaignMembers(r) {
+    var key = campaignKeyOf(r);
+    return DATA.filter(function (x) { return campaignKeyOf(x) === key; });
+  }
+  function campaignForCommunity(name) {
+    var rows = DATA.filter(function (x) { return (x.customer || "—") === name; });
+    var groups = {};
+    rows.forEach(function (x) {
+      if (!chaseableIssue(issueLabel(x))) return;
+      var k = campaignKeyOf(x);
+      if (!groups[k]) groups[k] = [];
+      groups[k].push(x);
+    });
+    var best = null;
+    Object.keys(groups).forEach(function (k) {
+      if (groups[k].length >= 2 && (!best || groups[k].length > best.rows.length)) {
+        best = { key: k, rows: groups[k] };
+      }
+    });
+    return best;
+  }
+  function leftOutOfCampaign(inRows) {
+    if (!inRows.length) return [];
+    var comm = inRows[0].customer;
+    var inIds = {};
+    inRows.forEach(function (r) { inIds[r.docNumber] = true; });
+    return DATA.filter(function (x) {
+      if ((x.customer || "") !== comm) return false;
+      if (inIds[x.docNumber]) return false;
+      var iss = issueLabel(x);
+      return iss === "Paid to apply" || iss === "Write-off" || /^CTL-26-/.test(x.docNumber) || iss === "Linked";
+    });
+  }
+  function streetKey(addr) {
+    return String(addr || "").toLowerCase().replace(/\b(path|court|dr|drive|cove|lane|ln|st|street|cir|circle)\b/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+  }
+  function erowHtml(ev) {
+    var who = ev.who ? '<span class="who">' + esc(ev.who) + (ev.who.slice(-1) === "." ? "" : ".") + "</span> " : "";
+    var when = prettyWhenShort(ev.when);
+    return '<div class="erow' + (ev.today ? " today" : "") + (ev.rel ? " rel" : "") + '">' +
+      '<div class="when">' + when + "</div>" +
+      '<div class="lab">' + esc(ev.lab || "") + "</div>" +
+      '<div class="what">' + who + esc(ev.what || "") + "</div></div>";
+  }
+  function caseQueue() {
+    var rows = sortRows(applyFilters());
+    if (state.selected && !rows.some(function (r) { return r.docNumber === state.selected; })) {
+      var cur = DATA.find(function (x) { return x.docNumber === state.selected; });
+      if (cur) rows = [cur].concat(rows);
+    }
+    return rows;
+  }
+  function caseIndex(rows) {
+    rows = rows || caseQueue();
+    for (var i = 0; i < rows.length; i++) {
+      if (rows[i].docNumber === state.selected) return i;
+    }
+    return 0;
+  }
+  function setAppOpen(on) {
+    var app = document.querySelector(".app");
+    if (app) app.classList.toggle("open", !!on);
+  }
+  function hidePanels() {
+    var cse = $("#case");
+    var camp = $("#campaign");
+    if (cse) {
+      cse.classList.remove("on");
+      cse.setAttribute("aria-hidden", "true");
+    }
+    if (camp) {
+      camp.classList.remove("on");
+      camp.setAttribute("aria-hidden", "true");
+    }
+    state.caseOpen = false;
+    state.campaignOpen = false;
+  }
+  function caseLetterHtml(r) {
+    var lead = r.chase_letter_lead ? noSibling(r.chase_letter_lead) : "";
+    var paras = r.chase_letter_paras || [];
+    var kind = lastSent(r) ? ("Last sent · " + lastSent(r)) : (lead ? "Draft · not sent" : "No letter on file");
+    var to = r.chase_to_name || r.chase_to || "";
+    var cc = (r.chase_cc || []).map(function (c) { return c.name || c.email; }).filter(Boolean).join(", ");
+    var subj = r.chase_subject || "";
+    if (mailStatus(r) === "awaiting" && subj && !/^re\s*:/i.test(subj)) subj = "Re: " + subj;
+    var html = '<div class="kind">' + esc(kind) + "</div><div class=\"meta\">";
+    if (r.chase_from || r.chase_from_name) {
+      html += "<div><b>From</b> " + esc(r.chase_from_name || r.chase_from) + "</div>";
+    }
+    if (to) html += "<div><b>To</b> " + esc(to) + (r.chase_to && r.chase_to_name ? " · " + esc(r.chase_to) : "") + "</div>";
+    if (cc) html += "<div><b>Cc</b> " + esc(cc) + "</div>";
+    if (subj) html += "<div><b>Subj</b> " + esc(subj) + "</div>";
+    html += "</div>";
+    if (lead) html += "<p>" + esc(lead) + "</p>";
+    paras.forEach(function (p) { html += "<p>" + esc(noSibling(p)) + "</p>"; });
+    if (!lead && !paras.length) {
+      html += '<p>Letter body is not stored on this row. Follow up on thread opens the existing compose with the same To/CC.</p>';
+    }
+    html += '<div class="sig"><b>Coastal Testing Laboratories, Inc.</b><span>billings@coastaltestinglabs.com</span></div>';
+    return html;
+  }
+  function caseActs(r) {
+    var mail = mailStatus(r);
+    var pkt = packetStatus(r);
+    var kind = (r.first_pass_column || "").indexOf("Paid") === 0 || issueRaw(r) === "Write-off" ? "Internal" : "Builder";
+    var gaps = packetGaps(r, kind);
+    var primary = "Draft";
+    var disabled = false;
+    var note = "";
+    if (issueRaw(r) === "Write-off") {
+      primary = "Hold — write-off";
+      disabled = true;
+      note = r.write_off_reason || "Missing two client call-ins. Not a builder chase.";
+    } else if (mail === "awaiting") {
+      primary = "Follow up on thread";
+      if (pkt === "hold" && gaps.length) {
+        disabled = true;
+        note = "Hold. Packet gaps: " + gaps.join("; ") + ".";
+      } else {
+        note = "Does not send. Opens compose on this thread (Re: · same To/CC).";
+      }
+    } else if (mail === "ready") {
+      primary = "Send";
+    } else if (pkt === "hold") {
+      primary = "Hold — packet incomplete";
+      disabled = true;
+      note = gaps.length ? ("Gaps: " + gaps.join("; ") + ".") : "Packet on hold.";
+    }
+    return { primary: primary, disabled: disabled, note: note, gaps: gaps };
+  }
+  function renderCase() {
+    var el = $("#case");
+    if (!el || !state.caseOpen) return;
+    var r = DATA.find(function (x) { return x.docNumber === state.selected; });
+    var rows = caseQueue();
+    var idx = caseIndex(rows);
+    if (!r) {
+      el.innerHTML = '<p class="note">No invoice selected.</p>';
+      return;
+    }
+    var addr = (r.service_address || "").trim() || "—";
+    var mail = mailStatus(r);
+    var pkt = packetStatus(r);
+    var acts = caseActs(r);
+    var evs = ledgerEvents(r);
+    if (!evs.some(function (e) { return e.today; })) {
+      evs = evs.concat([{ when: "Today", lab: "Today", what: "Still open " + money(r.balance) + (r.follow_up_due ? (". Follow-up due " + r.follow_up_due) : "."), today: true }]);
+    }
+    var chips = packetChips(r).map(function (c) {
+      return '<span class="chip' + (c.ok ? "" : " warn") + '">' + esc(c.t) + "</span>";
+    }).join("");
+    var note = standingNote(r);
+    el.innerHTML =
+      '<div class="case-top"><div>' +
+      '<div class="case-id">' + esc(r.docNumber) + " · " + esc(addr) + "</div>" +
+      '<div class="case-sub">' + esc(BUILDER_LABEL[r.parent] || r.parent || "") +
+      " · " + esc(r.customer || "") + " · " + esc(money(r.balance)) + " open · " +
+      esc(r.daysPastDue) + " days past due</div></div>" +
+      '<div class="case-nav">' +
+      '<button type="button" id="casePrev"' + (idx <= 0 ? " disabled" : "") + ">Prev</button>" +
+      '<button type="button" id="caseNext"' + (idx >= rows.length - 1 ? " disabled" : "") + ">Next</button>" +
+      '<button type="button" class="x" id="caseClose" aria-label="Close">✕</button>' +
+      "</div></div>" +
+      '<div class="status">' +
+      '<div class="schip"><lab>Issue</lab><val>' + esc(issueLabel(r)) + "</val></div>" +
+      '<div class="schip ' + (pkt === "complete" ? "ok" : "hold") + '"><lab>Packet</lab><val>' +
+      esc(packetLabel(r)) + "</val></div>" +
+      '<div class="schip' + (mail === "awaiting" ? " awaiting" : "") + '"><lab>Mail</lab><val>' +
+      esc(MAIL_LABEL[mail] || mail) + (mail === "awaiting" ? " · their court" : "") + "</val></div>" +
+      '<div class="schip"><lab>Next</lab><val>' + esc(nextAction(r)) + "</val></div></div>" +
+      (note ? '<p class="note"><b>' + esc(note.split(". ")[0] + (note.indexOf(".") >= 0 ? "." : "")) + "</b> " +
+        esc(note.split(". ").slice(1).join(". ")) + "</p>" : "") +
+      '<div class="pack-strip">' + chips + "</div>" +
+      '<div class="case-body"><div class="col"><div class="sec-h">Ledger</div><div class="card">' +
+      (evs.length ? evs.map(erowHtml).join("") : '<p class="note quiet">No labeled events on file. We do not invent missing events.</p>') +
+      '</div></div><div class="col"><div class="sec-h">Last letter</div><div class="card letter">' +
+      caseLetterHtml(r) + "</div></div></div>" +
+      '<div class="acts">' +
+      '<button class="act primary" type="button" data-case-act="primary"' + (acts.disabled ? " disabled" : "") + ">" +
+      esc(acts.primary) + "</button>" +
+      '<button class="act" type="button" data-case-act="hold">Hold</button>' +
+      '<button class="act" type="button" data-case-act="next">Next ticket</button>' +
+      (campaignMembers(r).length >= 2 ? '<button class="act" type="button" data-case-act="campaign">Campaign</button>' : "") +
+      (acts.note ? '<span class="act-note">' + esc(acts.note) + "</span>" : "") +
+      "</div>";
+    bindCaseChrome();
+  }
+  function bindCaseChrome() {
+    var prev = $("#casePrev");
+    var next = $("#caseNext");
+    var close = $("#caseClose");
+    if (prev) prev.addEventListener("click", function () { goCase(-1); });
+    if (next) next.addEventListener("click", function () { goCase(1); });
+    if (close) close.addEventListener("click", closeCase);
+    var cse = $("#case");
+    if (cse) {
+      cse.onclick = function (e) {
+        var btn = e.target.closest("[data-case-act]");
+        if (!btn) return;
+        var act = btn.getAttribute("data-case-act");
+        if (act === "next") { goCase(1); return; }
+        if (act === "hold") { closeCase(); return; }
+        if (act === "campaign") {
+          var cur = DATA.find(function (x) { return x.docNumber === state.selected; });
+          if (cur) openCampaign(campaignKeyOf(cur));
+          return;
+        }
+        if (act === "primary" && !btn.disabled) openCompose(state.selected);
+      };
+    }
+  }
+  function goCase(delta) {
+    var rows = caseQueue();
+    var idx = caseIndex(rows) + delta;
+    if (idx < 0 || idx >= rows.length) return;
+    openCase(rows[idx].docNumber);
+  }
+  function openCase(id) {
+    var r = DATA.find(function (x) { return x.docNumber === id; });
+    if (!r) return;
+    state.selected = id;
+    state.caseOpen = true;
+    state.campaignOpen = false;
+    $$("#tbody tr[data-id]").forEach(function (tr) {
+      tr.classList.toggle("sel", tr.dataset.id === id);
+    });
+    hidePanels();
+    state.caseOpen = true;
+    setAppOpen(true);
+    var el = $("#case");
+    if (el) {
+      el.classList.add("on");
+      el.setAttribute("aria-hidden", "false");
+    }
+    var drawer = $("#drawer");
+    if (drawer) {
+      drawer.classList.remove("on");
+      drawer.setAttribute("aria-hidden", "true");
+    }
+    renderCase();
+    try {
+      var url = new URL(location.href);
+      url.searchParams.set("open", id);
+      url.searchParams.delete("campaign");
+      history.replaceState(null, "", url);
+    } catch (e) {}
+  }
+  function closeCase() {
+    state.selected = null;
+    state.campaignHouse = null;
+    state.campaignKey = null;
+    hidePanels();
+    setAppOpen(false);
+    $("#scrim").classList.remove("on");
+    var drawer = $("#drawer");
+    if (drawer) {
+      drawer.classList.remove("on");
+      drawer.setAttribute("aria-hidden", "true");
+    }
+    $("#compose").classList.remove("on");
+    $("#compose").setAttribute("aria-hidden", "true");
+    $$("#tbody tr.sel").forEach(function (tr) { tr.classList.remove("sel"); });
+    try {
+      var url = new URL(location.href);
+      url.searchParams.delete("open");
+      url.searchParams.delete("campaign");
+      history.replaceState(null, "", url);
+    } catch (e) {}
+  }
+  function houseAtts(r) {
+    var atts = (r.chase_attachments || []).map(function (a) { return a.label || a.kind; }).filter(Boolean);
+    if (atts.length) return atts;
+    var out = [];
+    if (r.timeline && r.timeline.length) out.push("Timeline on file");
+    if (r.researched_notes) out.push("Research note");
+    return out;
+  }
+  function relatedStrip(r) {
+    var rel = r.related_visit;
+    if (!rel || !rel.second_client_ask) return "";
+    return '<div class="related"><h4>Related · visit 2 · not this bill</h4>' +
+      '<div class="erow rel"><div class="when">' + esc(prettyWhenShort(rel.ask_when || "").replace("<br>", " ")) +
+      '</div><div class="lab">Called in</div><div class="what"><span class="who">' +
+      esc(rel.ask_who || "") + "</span> called this lot again. Second client ask.</div></div>" +
+      (rel.serviced ? '<div class="erow rel"><div class="when">' + esc(prettyWhenShort(rel.serviced)) +
+      '</div><div class="lab">Serviced</div><div class="what">Second visit. ' + esc(rel.docNumber) + ".</div></div>" : "") +
+      (rel.po ? '<div class="erow rel"><div class="when"></div><div class="lab">Later PO</div><div class="what">' +
+      esc(rel.po) + " on the later ticket. Not this bill. " +
+      (rel.paid ? esc(rel.paid) : "") + "</div></div>" : "") +
+      '<div class="atts"><span class="att ok">2nd call-in on file</span>' +
+      '<span class="att miss">Not attached as payment on ' + esc(r.docNumber) + "</span></div></div>";
+  }
+  function campaignLetterHtml(inRows, leftRows) {
+    var seed = inRows[0];
+    var comm = (seed.customer || "").replace(/^\d+-/, "").replace(/\s*\(NEW\)\s*$/, "").trim();
+    var issue = issueLabel(seed);
+    var toName = seed.chase_to_name;
+    var toAddr = seed.chase_to;
+    if (!toAddr && /westridge/i.test(comm)) {
+      toName = "Brandon Pope";
+      toAddr = "brandon.pope@coventryhomes.com";
+    }
+    var openSum = inRows.reduce(function (s, r) { return s + (Number(r.balance) || 0); }, 0);
+    var html = '<div class="kind">Draft · not sent</div><div class="meta">';
+    html += "<div><b>From</b> billings@coastaltestinglabs.com</div>";
+    html += "<div><b>To</b> " + esc(toName || "Need project CM") + (toAddr ? " · " + esc(toAddr) : "") + "</div>";
+    html += "<div><b>Cc</b> " + esc(seed.email || "") + ", ryan@, maria@, veronica@, william@</div>";
+    html += "<div><b>Subj</b> PO needed · " + esc(comm) + " · " + inRows.length + " " + esc(issue.toLowerCase()) + " still open</div></div>";
+    html += "<p>" + esc((toName || "Hello").split(" ")[0]) + ", we still need Hyphen compaction POs for " +
+      inRows.length + " " + esc(issue.toLowerCase()) + " invoices at " + esc(comm) +
+      ", totaling " + esc(money(openSum)) + ". Please issue one PO per first visit.</p>";
+
+    var twoAsk = inRows.filter(function (r) { return r.related_visit && r.related_visit.second_client_ask; });
+    var noAskLater = inRows.filter(function (r) { return r.related_visit && !r.related_visit.second_client_ask; });
+    if (twoAsk.length) {
+      html += "<p>";
+      html += "Some of these lots were called in a second time. Letter names who called the first service in and when, and who called the second in and when. ";
+      html += "If one of the two call-outs was paid, we say only that one of the two call-outs was paid and the other was not. We do not infer which visit a check or PO hit. ";
+      html += "Two CTL schedule emails or two Ryan “added” emails are not two call-ins.";
+      html += "</p>";
+    }
+    if (noAskLater.length) {
+      noAskLater.forEach(function (r) {
+        html += "<p>" + esc(r.service_address) + " (" + esc(r.docNumber) + ") has a later visit on file (" +
+          esc(r.related_visit.docNumber) + "). " + esc(r.related_visit.note) + " It is not a second-call-out chase.</p>";
+      });
+    }
+
+    html += '<table class="mini"><thead><tr><th>Address</th><th>Invoice</th><th>Called in</th><th>Open</th></tr></thead><tbody>';
+    inRows.forEach(function (r) {
+      var evs = ledgerEvents(r);
+      var called = evs.filter(function (e) { return /called in/i.test(e.lab || e.what || ""); })[0];
+      html += "<tr><td>" + esc(r.service_address || "") + "</td><td>" + esc(r.docNumber) + "</td><td>" +
+        esc(called ? String(called.what || called.when).slice(0, 48) : "—") + "</td><td>" +
+        esc(money(r.balance)) + " · " + esc(r.daysPastDue) + "d</td></tr>";
+    });
+    html += "</tbody></table>";
+
+    inRows.forEach(function (r) {
+      html += "<h4>" + esc(r.service_address || "") + " · " + esc(r.docNumber) + " · this letter</h4>";
+      html += '<div class="htl">';
+      ledgerEvents(r).forEach(function (e) {
+        if (e.today) return;
+        html += "<div><span class=\"d\">" + prettyWhenShort(e.when).replace(/<br>.*/, "") +
+          "</span><span class=\"l\">" + esc(e.lab || "") + "</span><span>" + esc(noSibling(e.what || "")) + "</span></div>";
+      });
+      html += "<div><span class=\"d\">Today</span><span class=\"l\">Today</span><span>" +
+        esc(money(r.balance)) + " open, " + esc(r.daysPastDue) + " days, nothing in Hyphen on this first visit.</span></div></div>";
+      var atts = houseAtts(r);
+      html += '<p class="attline">Attached: ' + esc(atts.length ? atts.join(", ") : "invoice + research on file") + ".</p>";
+      var rel = r.related_visit;
+      if (rel && rel.second_client_ask) {
+        html += '<div class="htl rel">';
+        html += "<div><span class=\"d\">" + esc(prettyWhenShort(rel.ask_when || "").replace(/<br>.*/, "")) +
+          "</span><span class=\"l\">2nd call-in</span><span>" + esc(rel.ask_who || "") + " asked again for " +
+          esc(rel.address || r.service_address || "") + ".</span></div>";
+        if (rel.serviced) {
+          html += "<div><span class=\"d\">" + esc(prettyWhenShort(rel.serviced)) +
+            "</span><span class=\"l\">Serviced</span><span>Second visit. " + esc(rel.docNumber) + ".</span></div>";
+        }
+        html += "<div><span class=\"d\"></span><span class=\"l\">Paid</span><span>" +
+          esc(rel.paid || "one of the two call-outs was paid and the other was not") +
+          ". Do not infer which visit a check or PO hit.</span></div></div>";
+        html += '<p class="attline">Also attached: the second client ask, so both client asks are on the thread.</p>';
+      } else if (rel && !rel.second_client_ask) {
+        html += '<p class="relnote">Related later visit, not a second call-out: ' + esc(rel.docNumber) +
+          (rel.po ? " / PO " + esc(rel.po) : "") + ". " + esc(rel.note) + "</p>";
+      }
+    });
+    html += "<p>If you have any questions about these requests, we're happy to help address them.</p>";
+    html += '<div class="sig"><b>Coastal Testing Laboratories, Inc.</b><span>billings@coastaltestinglabs.com</span></div>';
+    return html;
+  }
+  function renderCampaign() {
+    var el = $("#campaign");
+    if (!el || !state.campaignOpen || !state.campaignKey) return;
+    var inRows = DATA.filter(function (x) { return campaignKeyOf(x) === state.campaignKey; })
+      .sort(function (a, b) { return (Number(b.daysPastDue) || 0) - (Number(a.daysPastDue) || 0); });
+    if (!inRows.length) {
+      el.innerHTML = '<p class="note">No campaign houses.</p>';
+      return;
+    }
+    var leftRows = leftOutOfCampaign(inRows);
+    var seed = inRows[0];
+    var comm = seed.customer || "";
+    var issue = issueLabel(seed);
+    var openSum = inRows.reduce(function (s, r) { return s + (Number(r.balance) || 0); }, 0);
+    var dpds = inRows.map(function (r) { return Number(r.daysPastDue) || 0; });
+    var houseId = state.campaignHouse || inRows[0].docNumber;
+    var house = DATA.find(function (x) { return x.docNumber === houseId; }) || inRows[0];
+    var completeN = inRows.filter(function (r) { return packetStatus(r) === "complete"; }).length;
+    var pktOk = completeN === inRows.length;
+    var evs = ledgerEvents(house);
+
+    function houseRow(r, inLetter) {
+      var rel = r.related_visit;
+      var relTxt = "—";
+      var pill = inLetter ? '<span class="pill in">In</span>' : ('<span class="pill out">' + esc(issueLabel(r)) + "</span>");
+      if (rel && rel.second_client_ask) {
+        relTxt = "2nd call-out · " + (rel.ask_who || "") + " · " + (rel.po || "");
+        if (inLetter) pill = '<span class="pill rel">In + 2nd visit</span>';
+      } else if (rel && !rel.second_client_ask) {
+        relTxt = rel.note || "Later visit · not a second call-out";
+      } else if (!inLetter) {
+        relTxt = "Not this ask";
+      }
+      return '<tr class="' + (inLetter ? "in" : "out") + (r.docNumber === house.docNumber ? " on" : "") +
+        '" data-house="' + esc(r.docNumber) + '"><td>' + esc(r.service_address || "") +
+        '<br><span class="rel">' + esc(r.docNumber) + " · " + esc(money(r.balance)) + "</span></td>" +
+        '<td class="inv">' + esc(r.docNumber) + "</td>" +
+        '<td class="dpd">' + esc(r.daysPastDue) + "</td>" +
+        '<td class="rel">' + esc(relTxt) + "</td><td>" + pill + "</td></tr>";
+    }
+
+    var atts = houseAtts(house).map(function (a) {
+      return '<span class="att ok">' + esc(a) + "</span>";
+    }).join("");
+    if (!atts) atts = '<span class="att miss">Named files not stored on this row</span>';
+
+    el.innerHTML =
+      '<div class="case-top"><div>' +
+      '<div class="case-id">' + esc(String(comm).replace(/^\d+-/, "").replace(/\s*\(NEW\)\s*$/, "").trim()) +
+      " · " + esc(issue.toLowerCase()) + "</div>" +
+      '<div class="case-sub">' + esc(BUILDER_LABEL[seed.parent] || seed.parent || "") +
+      " · " + inRows.length + " houses · " + esc(money(openSum)) + " · " +
+      Math.min.apply(null, dpds) + "–" + Math.max.apply(null, dpds) + " days past due</div></div>" +
+      '<div class="case-nav"><button type="button" id="campClose" class="x" aria-label="Close">✕</button></div></div>' +
+      '<div class="status">' +
+      '<div class="schip"><lab>Issue</lab><val>' + esc(issue) + "</val></div>" +
+      '<div class="schip ' + (pktOk ? "ok" : "hold") + '"><lab>Packet</lab><val>' +
+      (pktOk ? ("Complete · " + inRows.length + " of " + inRows.length) : ("Hold · " + completeN + " of " + inRows.length + " complete")) +
+      "</val></div>" +
+      '<div class="schip"><lab>Mail</lab><val>Not sent</val></div>' +
+      '<div class="schip"><lab>Next</lab><val>Put in Drafts · one thread</val></div></div>' +
+      '<p class="note quiet"><b>One ask, one Outlook thread.</b> Houses with a documented second client ask show a quieter related-visit strip. ' +
+      "A later visit without a second client ask is not a 2nd-callout chase. Write-off, paid-to-apply, and later retests with their own PO stay out of the letter.</p>" +
+      '<div class="wrap-inner"><div class="grid"><div class="leftcol">' +
+      '<div class="card" style="margin-bottom:12px"><div class="sec-h">Houses <span>Click a row for that house’s ledger and files</span></div>' +
+      '<table class="houses"><thead><tr><th>Address</th><th>Invoice</th><th>Days</th><th>Related visit</th><th>In letter</th></tr></thead><tbody>' +
+      inRows.map(function (r) { return houseRow(r, true); }).join("") +
+      leftRows.map(function (r) { return houseRow(r, false); }).join("") +
+      "</tbody></table></div>" +
+      '<div class="card"><div class="sec-h">Support · ' + esc(house.service_address || "") +
+      " <span>This bill " + esc(house.docNumber) + "</span></div><div class=\"house\">" +
+      "<h3>Visit 1 · the bill in this letter</h3>" +
+      (evs.length ? evs.map(erowHtml).join("") : '<p class="rel">No labeled events on file.</p>') +
+      '<div class="atts">' + atts + "</div>" +
+      relatedStrip(house) +
+      "</div></div></div>" +
+      '<div class="card letter-card"><div class="sec-h">Letter the CM gets <span>One thread · ' +
+      inRows.length + " house blocks</span></div><div class=\"letter\">" +
+      campaignLetterHtml(inRows, leftRows) +
+      "</div></div></div></div>" +
+      '<div class="acts">' +
+      '<button class="act primary" type="button" id="campDraft">Put in Drafts</button>' +
+      '<button class="act" type="button" id="campHold">Hold a house</button>' +
+      '<button class="act" type="button" id="campClose2">Close</button>' +
+      '<span class="act-note">One thread. Put in Drafts uses the existing Ready API. Packet gaps still block send.</span></div>';
+
+    var close = function () { closeCase(); };
+    if ($("#campClose")) $("#campClose").addEventListener("click", close);
+    if ($("#campClose2")) $("#campClose2").addEventListener("click", close);
+    if ($("#campHold")) $("#campHold").addEventListener("click", close);
+    $$("#campaign tr[data-house]").forEach(function (tr) {
+      tr.addEventListener("click", function () {
+        state.campaignHouse = tr.getAttribute("data-house");
+        renderCampaign();
+      });
+    });
+    if ($("#campDraft")) {
+      $("#campDraft").addEventListener("click", function () {
+        openCampaignCompose(inRows);
+      });
+    }
+  }
+  function openCampaign(nameOrKey) {
+    var camp = null;
+    if (nameOrKey && nameOrKey.indexOf("||") >= 0) {
+      var rows = DATA.filter(function (x) { return campaignKeyOf(x) === nameOrKey; });
+      if (rows.length) camp = { key: nameOrKey, rows: rows };
+    } else {
+      camp = campaignForCommunity(nameOrKey);
+      if (!camp && nameOrKey) {
+        var q = String(nameOrKey).toLowerCase();
+        var names = {};
+        DATA.forEach(function (x) { names[x.customer || "—"] = true; });
+        Object.keys(names).forEach(function (nm) {
+          if (camp) return;
+          if (nm.toLowerCase().indexOf(q) >= 0 || q.indexOf(String(nm).toLowerCase()) >= 0) {
+            camp = campaignForCommunity(nm);
+          }
+        });
+      }
+    }
+    if (!camp) return;
+    state.campaignKey = camp.key;
+    state.campaignHouse = camp.rows[0].docNumber;
+    state.selected = camp.rows[0].docNumber;
+    hidePanels();
+    state.campaignOpen = true;
+    setAppOpen(true);
+    var el = $("#campaign");
+    if (el) {
+      el.classList.add("on");
+      el.setAttribute("aria-hidden", "false");
+    }
+    renderCampaign();
+    try {
+      var url = new URL(location.href);
+      url.searchParams.set("campaign", camp.rows[0].customer);
+      url.searchParams.delete("open");
+      history.replaceState(null, "", url);
+    } catch (e) {}
+  }
+  function openCampaignCompose(inRows) {
+    var seed = inRows[0];
+    state.selected = seed.docNumber;
+    var toName = seed.chase_to_name;
+    var toAddr = seed.chase_to;
+    if (!toAddr && /westridge/i.test(seed.customer || "")) {
+      toName = "Brandon Pope";
+      toAddr = "brandon.pope@coventryhomes.com";
+    }
+    var comm = (seed.customer || "").replace(/^\d+-/, "").replace(/\s*\(NEW\)\s*$/, "").trim();
+    var openSum = inRows.reduce(function (s, r) { return s + (Number(r.balance) || 0); }, 0);
+    var subject = "PO needed · " + comm + " · " + inRows.length + " first visits still open";
+    var letter = campaignLetterHtml(inRows, leftOutOfCampaign(inRows));
+    var kind = "Builder";
+    var fake = {
+      chase_to: toAddr,
+      chase_to_name: toName,
+      chase_cc: [{ name: seed.email, email: seed.email }].filter(function (c) { return c.email; }),
+      chase_letter_lead: "Community campaign letter on file.",
+      chase_timeline: [{ when: "Today", what: "Called in — campaign" }],
+      chase_attachments: inRows.reduce(function (acc, r) { return acc.concat(r.chase_attachments || []); }, [])
+    };
+    var gaps = packetGaps(fake, kind);
+    $("#cTitle").textContent = gaps.length ? "Hold — packet incomplete" : "Community campaign";
+    $("#cKind").textContent = kind;
+    $("#cFrom").innerHTML = field("Billings", "billings@coastaltestinglabs.com");
+    $("#cTo").innerHTML = field(toName || "Need project CM", toAddr || "");
+    var ccList = [];
+    var seen = {};
+    function addCc(c) {
+      if (!c || !c.email) return;
+      var k = String(c.email).toLowerCase();
+      if (seen[k]) return;
+      seen[k] = true;
+      ccList.push(c);
+    }
+    if (seed.email) addCc({ name: seed.email, email: seed.email });
+    DEFAULT_CHASE_CC.forEach(addCc);
+    $("#cCc").innerHTML = ccList.map(function (c) { return field(c.name, c.email); }).join("");
+    $("#cSubj").innerHTML = '<div class="who">' + esc(subject) + "</div>";
+    $("#cLetter").innerHTML = letter;
+    $("#cChips").innerHTML = inRows.map(function (r) {
+      return '<span class="chip">' + esc(r.docNumber) + "</span>";
+    }).join("");
+    $("#compose").classList.add("on");
+    $("#compose").setAttribute("aria-hidden", "false");
+    $("#scrim").classList.add("on");
+    state.packetGaps = gaps;
+    syncReadyUi(seed.docNumber);
   }
 
   function bind() {
@@ -2643,6 +3288,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       state.hyphen.clear();
       state.days.clear();
       state.mail = "all";
+      state.followUpDue = false;
       $("#q").value = "";
       $$('.menu-pop input[type="checkbox"]').forEach((c) => {
         if (c.closest('[data-menu="cols"]')) return;
@@ -2752,6 +3398,12 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     $("#tbody").addEventListener("click", (e) => {
       const g = e.target.closest("tr.ghead");
       if (g) {
+        if (e.target.closest(".gcamp") || e.target.closest(".gname")) {
+          if (campaignForCommunity(g.dataset.comm)) {
+            openCampaign(g.dataset.comm);
+            return;
+          }
+        }
         toggleCommunity(g.dataset.comm);
         return;
       }
@@ -2978,12 +3630,25 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       closeReadyMenu();
     });
 
+    var fuDueBtn = $("#fuDueBtn");
+    if (fuDueBtn) {
+      fuDueBtn.addEventListener("click", function () {
+        state.followUpDue = !state.followUpDue;
+        render();
+      });
+    }
     document.addEventListener("keydown", (e) => {
+      var tag = (e.target && e.target.tagName) || "";
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
       if (e.key === "Escape") {
         if ($("#compose").classList.contains("on")) closeCompose();
+        else if (state.caseOpen || state.campaignOpen) closeCase();
         else if ($("#drawer").classList.contains("on")) closeDrawer();
         else closeMenus();
+        return;
       }
+      if ((e.key === "j" || e.key === "J") && (state.caseOpen || state.selected)) { e.preventDefault(); goCase(1); }
+      if ((e.key === "k" || e.key === "K") && (state.caseOpen || state.selected)) { e.preventDefault(); goCase(-1); }
     });
   }
 
@@ -3011,6 +3676,10 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       $("#q").value = openId;
       render();
       openDrawer(openId);
+    }
+    const campQ = new URLSearchParams(location.search).get("campaign");
+    if (campQ) {
+      openCampaign(campQ);
     }
     const composeId = new URLSearchParams(location.search).get("compose");
     if (composeId) {
