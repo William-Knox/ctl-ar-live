@@ -821,11 +821,16 @@ th:nth-child(5), td.addr { width: 14%; }
 .tl { margin: 12px 0 14px; padding: 0; list-style: none; }
 .tl li {
   position: relative;
-  padding: 0 0 10px 14px;
+  padding: 7px 10px 7px 14px;
   border-left: 2px solid var(--navy);
 }
-.tl li:last-child { padding-bottom: 0; }
-.tl li.today { border-left-color: var(--clay); }
+.tl li + li { margin-top: 2px; }
+.tl li.today {
+  border-left-color: var(--clay);
+  background: #FBF6F2;
+  border-radius: 0 6px 6px 0;
+}
+.tl li.today .when, .tl li.today .lab { color: var(--clay); }
 .tl .when {
   font-size: 11px;
   font-weight: 650;
@@ -1058,6 +1063,164 @@ th:nth-child(5), td.addr { width: 14%; }
   .d-foot .act { min-height: 40px; }
 }
 
+
+.toast {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy);
+  color: var(--cream);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  z-index: 80;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.18);
+  max-width: min(520px, 92vw);
+  text-align: center;
+}
+.toast.on { opacity: 1; }
+/* —— Apply box —— */
+.app.apply-on .stage .wrap,
+.app.apply-on .case,
+.app.apply-on .campaign { display: none !important; }
+.app.apply-on .stage { display: flex; }
+#applyBox { display: none; }
+.app.apply-on #applyBox {
+  display: grid;
+  grid-template-columns: minmax(340px, 1fr) minmax(380px, 1.05fr);
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+}
+#applyBox .pane-left {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  background: var(--paper);
+  border-right: 1px solid var(--line);
+}
+#applyBox .pane-right {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+}
+#applyBox .check { border-bottom: 1px solid var(--line); background: var(--paper); }
+#applyBox .check-row {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 14px 10px 12px;
+  cursor: pointer;
+  min-height: 52px;
+}
+#applyBox .check-row:hover { background: #F3EFE8; }
+#applyBox .check.open > .check-row { background: #EDE6DC; }
+#applyBox .check-row.on-letter { box-shadow: inset 2px 0 0 var(--navy); }
+#applyBox .check-row input[type="checkbox"] {
+  accent-color: var(--navy);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+#applyBox .check-client {
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+#applyBox .check-meta {
+  margin-top: 2px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--muted);
+}
+#applyBox .check-meta b { color: var(--navy); font-weight: 650; font-variant-numeric: tabular-nums; }
+#applyBox .check-tot { text-align: right; }
+#applyBox .check-tot .amt {
+  display: block;
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+#applyBox .check-tot .ninv {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+#applyBox .invs { display: none; padding: 0 10px 10px 38px; }
+#applyBox .check.open .invs { display: block; }
+#applyBox .ainv {
+  display: grid;
+  grid-template-columns: 108px 1fr auto;
+  gap: 8px 10px;
+  align-items: baseline;
+  padding: 7px 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#applyBox .ainv:hover { background: var(--cream-2); }
+#applyBox .ainv.lit { background: var(--clay-soft); border-color: #E4C4B2; }
+#applyBox .ainv .doc { font-size: 12px; font-weight: 650; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+#applyBox .ainv .addr { font-size: 12.5px; font-weight: 550; letter-spacing: -0.015em; min-width: 0; }
+#applyBox .ainv .comm { grid-column: 2; font-size: 11px; font-weight: 500; color: var(--muted); margin-top: -4px; }
+#applyBox .ainv .po { grid-column: 1 / -1; font-size: 11px; font-weight: 500; color: var(--muted-2); font-variant-numeric: tabular-nums; }
+#applyBox .ainv .open { font-size: 12.5px; font-weight: 650; font-variant-numeric: tabular-nums; letter-spacing: -0.015em; text-align: right; }
+#applyBox .c-kind.drafted {
+  border-color: var(--found-fg);
+  background: var(--found-bg);
+  color: var(--found-fg);
+}
+#applyBox .letter .empty { color: var(--muted); }
+#applyBox .block { margin: 16px 0 0; }
+#applyBox .block:first-of-type { margin-top: 14px; }
+#applyBox .block .client { font-size: 14px; font-weight: 650; letter-spacing: -0.02em; color: var(--navy); }
+#applyBox .block .ck { margin-top: 1px; font-size: 13px; font-weight: 550; color: var(--ink); }
+#applyBox .block .lab { margin: 10px 0 4px; font-size: 12px; font-weight: 650; color: var(--navy); }
+#applyBox .iline {
+  padding: 3px 6px;
+  margin: 0 -6px;
+  border-radius: 5px;
+  font-variant-numeric: tabular-nums;
+  scroll-margin: 48px;
+}
+#applyBox .iline.lit { background: var(--clay-soft); outline: 1px solid #E4C4B2; }
+#applyBox .c-foot .split { flex: 1.4 1 auto; }
+#applyBox .act.primary:disabled {
+  background: #9AA3B2;
+  border-color: #9AA3B2;
+  color: #F3F1EC;
+  cursor: not-allowed;
+}
+#applyBox .act:disabled { opacity: 0.55; cursor: not-allowed; }
+#applyBox .err {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--clay);
+}
+@media (max-width: 860px) {
+  .app.apply-on #applyBox { grid-template-columns: 1fr; }
+  #applyBox .pane-left { max-height: none; overflow: visible; border-right: 0; border-bottom: 1px solid var(--line); }
+  #applyBox .pane-right { min-height: 70vh; }
+  #applyBox .ainv { grid-template-columns: 1fr auto; }
+  #applyBox .ainv .doc, #applyBox .ainv .addr, #applyBox .ainv .comm { grid-column: 1; }
+  #applyBox .ainv .open { grid-column: 2; grid-row: 1 / span 2; }
+}
+
+
 </style>
 <link rel="stylesheet" href="case-view.css" />
 </head>
@@ -1092,6 +1255,7 @@ th:nth-child(5), td.addr { width: 14%; }
     <div class="seg" id="mailSeg" role="tablist" aria-label="Mail">
       <button type="button" data-mail="all" class="on">All <span class="n" data-n="all">0</span></button>
       <button type="button" data-mail="ready">Ready <span class="n" data-n="ready">0</span></button>
+      <button type="button" data-mail="apply">Apply <span class="n" data-n="apply">0</span></button>
       <button type="button" data-mail="awaiting" class="awaiting">Awaiting <span class="n" data-n="awaiting">0</span></button>
       <button type="button" data-mail="needs_you">Needs you <span class="n" data-n="needs_you">0</span></button>
       <button type="button" data-mail="drafted">Drafted <span class="n" data-n="drafted">0</span></button>
@@ -1215,6 +1379,40 @@ th:nth-child(5), td.addr { width: 14%; }
       <tbody id="tbody"></tbody>
     </table>
   </div>
+  <section class="apply-box" id="applyBox" aria-label="Apply box">
+    <div class="pane-left" id="applyList" aria-label="Checks"></div>
+    <aside class="pane-right" aria-label="Research note">
+      <div class="c-head">
+        <div>
+          <h2 id="applyTitle">Research note</h2>
+          <span class="c-kind" id="applyKind">Internal · not sent</span>
+        </div>
+      </div>
+      <div class="c-body">
+        <dl class="c-meta">
+          <div class="c-row"><dt>From</dt><dd class="c-field"><div class="who">William Knox</div><div class="addr">william@coastaltestinglabs.com</div></dd></div>
+          <div class="c-row"><dt>To</dt><dd class="c-field"><div class="who">Esmeralda</div><div class="addr">esmeralda@coastaltestinglabs.com</div></dd></div>
+          <div class="c-row"><dt>Subject</dt><dd class="c-field subj"><div class="who" id="applySubj"></div></dd></div>
+        </dl>
+        <div class="letter" id="applyLetter"></div>
+      </div>
+      <div class="c-foot">
+        <div class="actions">
+          <div class="split" id="applyReadySplit">
+            <button class="act primary" id="applyDraft" type="button">Put in Drafts</button>
+            <button class="act primary split-arrow" id="applyMore" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="More send options">
+              <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1.2L5 5l4-3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="split-menu" id="applyReadyMenu" hidden>
+              <button type="button" class="send" id="applySend">Send now<span class="hint">Sends this william@ note to Esmeralda. Does not wait in Drafts.</span></button>
+            </div>
+          </div>
+        </div>
+        <p class="act-note" id="applyNote">Put in Drafts creates a william@ draft to Esmeralda. We do not apply cash.</p>
+        <p class="err" id="applyErr" hidden></p>
+      </div>
+    </aside>
+  </section>
   <section class="case" id="case" aria-hidden="true" aria-label="Invoice case"></section>
   <section class="campaign" id="campaign" aria-hidden="true" aria-label="Community campaign"></section>
   </div>
@@ -1270,9 +1468,11 @@ th:nth-child(5), td.addr { width: 14%; }
   </div>
 </aside>
 
-<script src="data.js?v=case-campaign1"></script>
+<div class="toast" id="toast" role="status"></div>
+<script src="data.js?v=apply-box"></script>
+<script src="contacts.js?v=contacts1"></script>
 <script>
-window.HYPHEN_READY_API = "https://temporary-swift-silicon-bfeajj8.vercel.app/api/ready";
+window.HYPHEN_READY_API = (location.hostname==="127.0.0.1"||location.hostname==="localhost") ? "/api/ready" : "https://chatty-moles-share.loca.lt/api/ready";
 window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18eb7e6555a03fba7";
 </script>
 
@@ -1428,11 +1628,59 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   function notesCell(r) {
     return r.researched_notes ? "Yes" : "Not scraped";
   }
+  function mailOverlay() {
+    var legacy = {}, cur = {};
+    try { legacy = JSON.parse(localStorage.getItem("hyphen-mail") || "{}"); } catch (e) {}
+    try { cur = JSON.parse(localStorage.getItem("hyphen-mail-state") || "{}"); } catch (e) {}
+    return Object.assign({}, legacy, cur);
+  }
+  function saveMailOverlay(id, rec) {
+    var map = mailOverlay();
+    map[id] = Object.assign({}, map[id] || {}, rec);
+    var json = JSON.stringify(map);
+    localStorage.setItem("hyphen-mail-state", json);
+    localStorage.setItem("hyphen-mail", json);
+    var row = DATA.find(function (x) { return x.docNumber === id; });
+    if (row) {
+      if (rec.status) row.mail = rec.status;
+      if (rec.last_sent) row.last_sent = rec.last_sent;
+      if (rec.follow_up_due) row.follow_up_due = rec.follow_up_due;
+    }
+  }
+  function applyMailOverlay(r) {
+    if (!r) return r;
+    var o = mailOverlay()[r.docNumber];
+    if (!o) return r;
+    if (o.status) r.mail = o.status;
+    if (o.last_sent) r.last_sent = o.last_sent;
+    if (o.follow_up_due) r.follow_up_due = o.follow_up_due;
+    return r;
+  }
+  function addBusinessDays(iso, n) {
+    var d = iso ? new Date(iso + "T12:00:00") : new Date();
+    var left = n;
+    while (left > 0) {
+      d.setDate(d.getDate() + 1);
+      var day = d.getDay();
+      if (day !== 0 && day !== 6) left--;
+    }
+    return d.toISOString().slice(0, 10);
+  }
+  function todayISO() {
+    var now = new Date();
+    var ct = new Date(now.toLocaleString("en-US", { timeZone: "America/Chicago" }));
+    var y = ct.getFullYear();
+    var m = String(ct.getMonth() + 1).padStart(2, "0");
+    var day = String(ct.getDate()).padStart(2, "0");
+    return y + "-" + m + "-" + day;
+  }
   function mailStatus(r) {
+    applyMailOverlay(r);
     const v = r.mail || r.chase_mail || "not_sent";
     return MAIL_OK.has(v) ? v : "not_sent";
   }
   function lastSent(r) {
+    applyMailOverlay(r);
     return r.last_sent || r.chase_last_sent || "";
   }
   function waitingDays(r) {
@@ -1580,7 +1828,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     const filtered = n !== DATA.length || hasFilters();
     $("#countNLabel").textContent = filtered ? "invoices shown" : "invoices";
     const base = applyBaseFilters();
-    const tally = { all: base.length, ready: 0, not_sent: 0, drafted: 0, awaiting: 0, needs_you: 0 };
+    const tally = { all: base.length, ready: 0, not_sent: 0, drafted: 0, awaiting: 0, needs_you: 0, apply: applyOpenCount() };
     base.forEach((r) => { tally[mailStatus(r)] += 1; });
     $$("#mailSeg .n").forEach((el) => {
       el.textContent = tally[el.dataset.n] == null ? "0" : String(tally[el.dataset.n]);
@@ -1625,9 +1873,15 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       fuBtn.setAttribute("aria-pressed", state.followUpDue ? "true" : "false");
     }
     $$("#mailSeg button").forEach((b) => b.classList.toggle("on", b.dataset.mail === state.mail));
+    var appEl = document.querySelector(".app");
+    if (appEl) appEl.classList.toggle("apply-on", state.mail === "apply");
     const note = $("#mailNote");
     if (note) {
-      if (state.mail === "ready") {
+      if (state.mail === "apply") {
+        note.hidden = false;
+        note.classList.remove("ready-note");
+        note.innerHTML = "<b>Apply</b> = Paid-to-apply invoices still open. We do not apply cash. One william@ research note to Esmeralda.";
+      } else if (state.mail === "ready") {
         note.hidden = false;
         note.classList.add("ready-note");
         note.innerHTML = "<b>Ready</b> = 7:30 auto-drafts of complete packets. Nothing sent. Incomplete stays out.";
@@ -1805,6 +2059,13 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   }
 
   function render() {
+    if (state.mail === "apply") {
+      var applyRows = applyOpenRows();
+      updateCounts(applyRows);
+      syncChrome();
+      renderApply();
+      return;
+    }
     const filtered = sortRows(applyFilters());
     updateCounts(filtered);
     syncChrome();
@@ -2009,10 +2270,19 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   }
 
   function tlHtml(items) {
-    return '<ul class="tl">' + (items || []).map(function (it) {
-      return "<li" + (it.today ? ' class="today"' : "") + '><div class="when">' +
-        esc(it.when) + '</div><div class="what">' + esc(it.what) + "</div></li>";
-    }).join("") + "</ul>";
+    return '<div class="tl-h">Timeline of Events</div><div class="htl">' + (items || []).map(function (it) {
+      var lab = it.lab || it.label || "";
+      var what = String(it.what || "");
+      if (!lab) {
+        var m = what.match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Inquiry|Replied|Report sent|Report transmitted|Report transmittal|Completed|Read|Today)\b\s*[—–-]*\s*/i);
+        if (m) {
+          lab = /asked/i.test(m[1]) ? "Inquiry" : /report sent|report transmitted/i.test(m[1]) ? "Report transmittal" : m[1];
+          what = what.slice(m[0].length);
+        }
+      }
+      return "<div" + (it.today ? ' class="today"' : "") + '><span class="d">' +
+        esc(it.when || "") + '</span><span class="l">' + esc(lab) + "</span><span>" + esc(what) + "</span></div>";
+    }).join("") + "</div>";
   }
   function daysOpenPhrase(r) {
     var d = Number(r.daysPastDue);
@@ -2182,10 +2452,11 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       out.push({when: "Today", what: "Still open " + money(r.balance), today: true});
     }
     function isMust(it) {
-      return /^(Asked|Replied)\b/i.test(it.what || "");
+      return /^(Asked|Inquiry|Replied)\b/i.test(it.what || "") || /^(Asked|Inquiry|Replied)$/i.test(it.lab || "");
     }
     function isKeep(it) {
-      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent|Report transmitted|Report transmittal)\b/i.test(it.what || "");
+      var w = (it.lab || "") + " " + (it.what || "");
+      return /\b(Called in|Invoiced|Notes entered|Paid|Asked|Inquiry|Replied|Report sent|Report transmitted|Report transmittal|Completed|Read)\b/i.test(w);
     }
     var todayRows = out.filter(function (it) { return it.today; });
     var rest = out.filter(function (it) { return !it.today; });
@@ -2230,8 +2501,9 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   function letterWrap(lead, items, extraP, withClose) {
     var closeP = (withClose === false)
       ? ""
-      : "<p>If you have any questions about these requests, we&rsquo;re happy to help address them.</p>";
-    return "<p>" + lead + "</p>" + tlHtml(items) + (extraP || "") + closeP +
+      : "<p>If you have any questions about this invoice, please feel free to reach out for assistance.</p>";
+    var tl = (items == null) ? "" : tlHtml(items);
+    return "<p>" + lead + "</p>" + tl + (extraP || "") + closeP +
       '<p class="sig"><b>Hyphen</b><span>Coastal Testing Labs</span></p>';
   }
   function chipsFrom(r, extras) {
@@ -2245,7 +2517,51 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   function isCtlEmail(e) {
     return /@coastaltestinglabs\.com$/i.test(String(e || ""));
   }
+  function bannedContact(e) {
+    var addr = String(e || "").toLowerCase();
+    if (!addr) return false;
+    if (/hotttrucking\.com$/i.test(addr)) return true;
+    if (/hou\.acctspayable@/i.test(addr)) return true;
+    var never = (((window.CONTACTS || {}).never || {})["Tri Pointe"] || []);
+    return never.some(function (x) { return String(x).toLowerCase() === addr; });
+  }
+  function communityKey(name) {
+    return String(name || "").replace(/^\d+-/, "").replace(/\s*\(NEW\)\s*$/, "").trim();
+  }
+  function lookupContacts(r) {
+    var book = window.CONTACTS && window.CONTACTS.builders;
+    if (!book || !r) return null;
+    var cust = communityKey(r.customer);
+    var blob = [r.parent, r.email, r.customer, r.chase_letter_lead].join(" ").toLowerCase();
+    var builderName = null;
+    Object.keys(book).forEach(function (b) {
+      var aliases = [b].concat(book[b].aliases || []);
+      if (aliases.some(function (a) { return blob.indexOf(String(a).toLowerCase()) >= 0; })) builderName = b;
+    });
+    if (!builderName && /tripointe|tri pointe|trendmaker/i.test(blob)) builderName = "Tri Pointe";
+    if (!builderName) return null;
+    var comms = book[builderName].communities || {};
+    var hit = null;
+    Object.keys(comms).forEach(function (c) {
+      var aliases = [c].concat(comms[c].aliases || []);
+      if (aliases.some(function (a) { return cust.toLowerCase().indexOf(String(a).toLowerCase()) >= 0; })) hit = comms[c];
+    });
+    return hit;
+  }
+  function isPaidApply(r) {
+    if (!r) return false;
+    return String(r.first_pass_column || "").indexOf("Paid") === 0 || String(r.issue || "") === "Paid to apply";
+  }
   function packetGaps(r, kind) {
+    if (isPaidApply(r)) {
+      var gapsP = [];
+      var poP = r.builder_order_number || r.strata_po_num || "";
+      if (!poP) gapsP.push("Need Hyphen PO so we can prove this invoice is linked to a paid PO");
+      if (!r.check_number || !r.check_date || r.check_amount == null || r.check_amount === "") {
+        gapsP.push("Need Hyphen check number, date, and amount");
+      }
+      return gapsP;
+    }
     if (kind === "Internal") return [];
     var gaps = [];
     if (!r.chase_to || !/@/.test(String(r.chase_to))) {
@@ -2258,15 +2574,35 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var lead = String(r.chase_letter_lead || "");
     var dump = !lead || lead.length > 700 || /hyphen_pos|researched_notes|QBO \d+ txn|Supplier Order Number field|pre-Strata/i.test(lead);
     if (dump) gaps.push("No written background a CM can act on");
-    var tl = r.chase_timeline || [];
+    var tl = (r.ledger && r.ledger.length ? r.ledger : r.chase_timeline) || [];
     var labeled = tl.some(function (it) {
-      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent|Report transmitted|Report transmittal)\b/i.test(String(it.what || ""));
+      var w = String(it.lab || it.label || "") + " " + String(it.what || "");
+      return /\b(Called in|Invoiced|Notes entered|Paid|Asked|Inquiry|Replied|Report sent|Report transmitted|Report transmittal|Completed)\b/i.test(w);
     });
     if (!labeled) gaps.push("No labeled timeline");
     var atts = (r.chase_attachments || []).filter(function (a) {
       return a && a.mailbox && a.messageId;
     });
     if (!atts.length) gaps.push("No customer-facing attachments on file");
+    var emailLabs = { "called in": "callin", "report transmittal": "report", "inquiry": "asked", "asked": "asked", "replied": "replied" };
+    var kinds = {};
+    atts.forEach(function (a) { kinds[String(a.kind || "").toLowerCase()] = true; });
+    (r.ledger || []).forEach(function (ev) {
+      var lab = String(ev.lab || ev.label || "").toLowerCase();
+      var need = emailLabs[lab];
+      if (!need) return;
+      var has = kinds[need] || atts.some(function (a) {
+        return String(a.label || "").toLowerCase().indexOf(lab) >= 0;
+      });
+      if (!has) gaps.push("Timeline " + (ev.lab || lab) + " has no email on the case");
+    });
+    function isMaryKing(e) { return /mary\.king@/i.test(String(e || "")); }
+    if (isMaryKing(r.chase_to) || (r.chase_cc || []).some(function (c) { return c && isMaryKing(c.email); })) {
+      gaps.push("Mary King is on To or CC");
+    }
+    if (bannedContact(r.chase_to) || (r.chase_cc || []).some(function (c) { return c && bannedContact(c.email); })) {
+      gaps.push("Contractor or AP inbox is on To or CC");
+    }
     return gaps;
   }
   function openCompose(id) {
@@ -2298,26 +2634,19 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       kind = "Internal";
       fromName = "William Knox";
       fromAddr = "william@coastaltestinglabs.com";
-      toName = "Cash application";
-      toAddr = "Internal";
-      subject = "Paid, to apply — " + inv + " — " + addr;
-      var ck = r.check_number ? ("check " + r.check_number) : "a Hyphen payment";
-      var ckWhen = r.check_date ? (" dated " + r.check_date) : "";
-      var ckAmt = (r.check_amount != null && r.check_amount !== "") ? (" for " + money(r.check_amount)) : "";
-      var poBit = po ? (" on PO " + po) : "";
-      letter = letterWrap(
-        "Need this check applied to invoice " + esc(inv) + " at " + esc(addr) +
-          ". Hyphen shows " + esc(ck) + esc(ckWhen) + esc(ckAmt) + esc(poBit) +
-          ". Books still have " + esc(openAmt) + " open (" + esc(aging) +
-          "). The office applies in QBO.",
-        abbrevTimeline(r, "Books still open " + openAmt + " · apply this check"),
-        "<p>Do not apply cash from this screen.</p>",
-        false
-      );
-      chips = chipsFrom(r, [
-        '<span class="chip">' + esc(inv) + " invoice</span>",
-        '<span class="chip">Hyphen payment' + (r.check_number ? " " + esc(String(r.check_number)) : "") + "</span>"
-      ]);
+      toName = "Esmeralda";
+      toAddr = "esmeralda@coastaltestinglabs.com";
+      subject = po ? ("Apply · " + inv + " · PO " + po) : ("Apply · " + inv);
+      letter = "<p>" + esc(r.chase_letter_lead || "") + "</p>";
+      var ckOk = !!(r.check_number && r.check_date && r.check_amount != null && r.check_amount !== "");
+      var ckChip = r.check_number ? ("Check " + r.check_number) : "Need check";
+      if (r.check_date) ckChip += " · " + r.check_date;
+      if (r.check_amount != null && r.check_amount !== "") ckChip += " · " + money(r.check_amount);
+      chips = [
+        '<span class="chip' + (inv ? "" : " warn") + '">' + esc(inv ? ("Invoice · " + inv) : "Need invoice") + "</span>",
+        '<span class="chip' + (po ? "" : " warn") + '">' + esc(po ? ("Hyphen PO · " + po) : "Need Hyphen PO") + "</span>",
+        '<span class="chip' + (ckOk ? "" : " warn") + '">' + esc(ckChip) + "</span>"
+      ].join("");
     } else if (why.indexOf("2nd") === 0) {
       title = "Draft EPO chase";
       kind = "Builder";
@@ -2495,6 +2824,15 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       toName = r.chase_to_name || r.chase_to;
       toAddr = r.chase_to;
     }
+    var bookHit = lookupContacts(r);
+    if (kind !== "Internal" && bookHit && bookHit.to && bookHit.to[0] && !bannedContact(bookHit.to[0].email)) {
+      toName = bookHit.to[0].name || bookHit.to[0].email;
+      toAddr = bookHit.to[0].email;
+    }
+    if (bannedContact(toAddr)) {
+      toName = "";
+      toAddr = "";
+    }
     if (r.chase_from) {
       fromName = r.chase_from_name || "Billings";
       fromAddr = r.chase_from;
@@ -2504,21 +2842,22 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       subject = "Re: " + subject;
     }
     if (r.chase_letter_lead) {
-      var chaseTl;
-      if ((r.ledger && r.ledger.length) || (r.chase_timeline && r.chase_timeline.length)) {
-        chaseTl = [];
-        (r.ledger && r.ledger.length ? r.ledger : r.chase_timeline).forEach(function (it) {
-          var ev = formatExternalEvent(it, r);
-          if (ev) chaseTl.push(ev);
-        });
+      if (kind === "Internal") {
+        letter = "<p>" + esc(r.chase_letter_lead) + "</p>";
       } else {
-        chaseTl = abbrevTimeline(r);
+        var evsC = ledgerEvents(r);
+        var chaseTl = evsC.map(function (e) {
+          return { when: prettyWhenShort(e.when).replace(/<br\s*\/?>/gi, " "), lab: e.lab || "", what: noSibling(e.what || ""), today: !!e.today };
+        });
+        if (!chaseTl.length) chaseTl = abbrevTimeline(r);
+        var extra = "";
+        function isClosePara(t) { return /feel free to reach out|questions about these requests|questions about this invoice/i.test(String(t || "")); }
+        (r.chase_letter_paras || []).forEach(function (para) {
+          if (isClosePara(para)) return;
+          extra += "<p>" + esc(noSibling(para)) + "</p>";
+        });
+        letter = letterWrap(esc(r.chase_letter_lead), chaseTl, extra, true);
       }
-      var extra = "";
-      (r.chase_letter_paras || []).forEach(function (p) {
-        extra += "<p>" + esc(p) + "</p>";
-      });
-      letter = letterWrap(esc(r.chase_letter_lead), chaseTl, extra);
     }
     var ccSeen = {};
     var ccList = [];
@@ -2530,9 +2869,11 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       ccList.push({name: c.name || c.email, email: c.email});
     }
     (r.chase_cc || []).forEach(addCc);
+    if (bookHit && bookHit.cc) bookHit.cc.forEach(addCc);
     if (kind !== "Internal") {
       DEFAULT_CHASE_CC.forEach(addCc);
     }
+    ccList = ccList.filter(function (c) { return c && !bannedContact(c.email); });
     var ccHtml = ccList.length
       ? ccList.map(function (c) { return field(c.name, c.email); }).join("")
       : field("—", "");
@@ -2618,6 +2959,9 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     return WHY_LABEL[issueRaw(r)] || WHY_LABEL[w] || w;
   }
   function packetStatus(r) {
+    if (isPaidApply(r)) {
+      return packetGaps(r).length ? "hold" : "complete";
+    }
     if (r.packet === "complete") return "complete";
     if (r.packet === "hold" || r.packet === "incomplete") return "hold";
     var mail = mailStatus(r);
@@ -2637,6 +2981,9 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   function nextAction(r) {
     if (r.next) return noSibling(String(r.next));
     var mail = mailStatus(r);
+    var queued = composeRecord(r.docNumber) || {};
+    if (queued.status === "sent") mail = "awaiting";
+    if (queued.status === "ready" && mail === "not_sent") mail = "ready";
     var pkt = packetStatus(r);
     if (issueRaw(r) === "Write-off") return "Write-off";
     if (mail === "awaiting" && isFollowUpDue(r)) return "Follow up";
@@ -2683,21 +3030,50 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
         });
       }
       var today = !!ev.today || /^today$/i.test(String(ev.when || "")) || /^today$/i.test(lab);
-      var srcTxt = ev.source || ev.src || "";
-      if (srcTxt && typeof srcTxt === "object") {
-        srcTxt = [srcTxt.mailbox, srcTxt.subject, srcTxt.when || srcTxt.sent].filter(Boolean).join(" · ");
+      var isMail = /^(Called in|Report transmittal|Inquiry|Replied)$/i.test(lab);
+      var review = ev.reviewWebLink || "";
+      var preview = ev.bodyPreview || "";
+      var attIdx = -1;
+      if (isMail) {
+        (r.chase_attachments || []).forEach(function (a, i) {
+          if (!a) return;
+          var kind = String(a.kind || a.label || "").toLowerCase();
+          var match = (lab === "Called in" && /call/.test(kind))
+            || (lab === "Report transmittal" && /report/.test(kind))
+            || (lab === "Replied" && /repl/.test(kind))
+            || (lab === "Inquiry" && /inquiry|asked|esme|maria/.test(kind)
+                && ((/esme/i.test(what) && /esme/i.test(a.label||""))
+                  || (/maria/i.test(what) && /maria/i.test(a.label||""))
+                  || (!/esme|maria/i.test(what))));
+          if (match) {
+            if (a.reviewWebLink) review = a.reviewWebLink;
+            if (a.bodyPreview || a.askedWhat) preview = a.bodyPreview || a.askedWhat;
+            if (attIdx < 0) attIdx = i;
+          }
+        });
       }
       return {
         when: ev.when || "",
         lab: lab,
         who: ev.who || "",
         what: what,
-        src: srcTxt,
+        review: isMail ? review : "",
+        preview: isMail ? preview : "",
+        att: isMail ? attIdx : -1,
         today: today,
       };
     }).filter(Boolean);
   }
   function standingNote(r) {
+    if (isPaidApply(r)) {
+      if (r.standing_note) return noSibling(r.standing_note);
+      if (r.mail_states_note) {
+        var partsP = String(r.mail_states_note).split(/(?<=\.)\s+/);
+        return noSibling(partsP.slice(0, 3).join(" "));
+      }
+      if (r.write_off_reason) return noSibling(r.write_off_reason);
+      return "";
+    }
     if (r.standing_note) return noSibling(r.standing_note);
     if (r.mail_states_note) {
       var parts = String(r.mail_states_note).split(/(?<=\.)\s+/);
@@ -2708,6 +3084,21 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     return "";
   }
   function packetChips(r) {
+    if (isPaidApply(r)) {
+      var poC = r.builder_order_number || r.strata_po_num || "";
+      var ckOkC = !!(r.check_number && r.check_date && r.check_amount != null && r.check_amount !== "");
+      var ckT = r.check_number ? ("Check " + r.check_number) : "Need check";
+      if (r.check_date) ckT += " · " + r.check_date;
+      if (r.check_amount != null && r.check_amount !== "") ckT += " · " + money(r.check_amount);
+      if (!ckOkC && !r.check_number && !r.check_date && (r.check_amount == null || r.check_amount === "")) {
+        ckT = "Need check / date / amount";
+      }
+      return [
+        { t: r.docNumber ? ("Invoice · " + r.docNumber) : "Need invoice", ok: !!r.docNumber },
+        { t: poC ? ("Hyphen PO · " + poC) : "Need Hyphen PO", ok: !!poC },
+        { t: ckT, ok: ckOkC }
+      ];
+    }
     var items = [];
     var toOk = !!(r.chase_to && /@/.test(String(r.chase_to)));
     items.push({ t: toOk ? ("To · " + (r.chase_to_name || r.chase_to)) : "To · need project CM", ok: toOk });
@@ -2778,16 +3169,24 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   function erowHtml(ev) {
     var who = ev.who ? '<span class="who">' + esc(ev.who) + (ev.who.slice(-1) === "." ? "" : ".") + "</span> " : "";
     var when = prettyWhenShort(ev.when);
-    var src = ev.src
-      ? '<button type="button" class="src" title="' + esc(ev.src) + '">Source</button><span class="src-tip">' + esc(ev.src) + "</span>"
+    var canOpen = !!(ev.review || ev.preview || (ev.att != null && ev.att >= 0));
+    var src = canOpen
+      ? '<button type="button" class="src"' +
+        (ev.review ? ' data-review="' + esc(ev.review) + '"' : "") +
+        (ev.att != null && ev.att >= 0 ? ' data-att="' + ev.att + '"' : "") +
+        ">Source</button>" +
+        '<div class="src-tip">' +
+        (ev.preview ? "<p>" + esc(ev.preview) + "</p>" : "<p>Open the email.</p>") +
+        (ev.review ? '<a class="att-outlook" href="' + esc(ev.review) + '" target="_blank" rel="noopener">Open your copy in Outlook</a>' : "") +
+        "</div>"
       : "";
-    return '<div class="erow' + (ev.today ? " today" : "") + (ev.rel ? " rel" : "") + (ev.src ? " has-src" : "") + '">' +
+    return '<div class="erow' + (ev.today ? " today" : "") + (ev.rel ? " rel" : "") + (canOpen ? " has-src" : "") + '">' +
       '<div class="when">' + when + "</div>" +
       '<div class="lab">' + esc(ev.lab || "") + "</div>" +
       '<div class="what">' + who + esc(ev.what || "") + src + "</div></div>";
   }
   function caseQueue() {
-    var rows = sortRows(applyFilters());
+    var rows = sortRows(applyFilters()).filter(function (r) { return !isPaidApply(r); });
     if (state.selected && !rows.some(function (r) { return r.docNumber === state.selected; })) {
       var cur = DATA.find(function (x) { return x.docNumber === state.selected; });
       if (cur) rows = [cur].concat(rows);
@@ -2820,7 +3219,12 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     state.campaignOpen = false;
   }
   function chaseSubject(r) {
-    var subj = chaseSubject(r);
+    if (isPaidApply(r)) {
+      if (r.chase_subject) return r.chase_subject;
+      var poS = r.builder_order_number || r.strata_po_num || "";
+      return poS ? ("Apply · " + r.docNumber + " · PO " + poS) : ("Apply · " + r.docNumber);
+    }
+    var subj = r.chase_subject || "";
     var days = r.daysPastDue;
     if (days != null && days !== "" && !/days past due/i.test(subj)) {
       var bit = days + " days past due";
@@ -2834,13 +3238,19 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var html = '<div class="att-review"><div class="sec-h">On this email</div><div class="card">';
     atts.forEach(function (a, i) {
       var label = a.label || a.kind || a.subject || "file";
-      var href = a.webLink || a.url || "";
-      var meta = [a.subject, a.from, a.sent || a.mailbox].filter(Boolean).join(" · ");
-      html += '<button type="button" class="att-item" data-att="' + i + '"' +
-        (href ? ' data-href="' + esc(href) + '"' : "") + ">" +
+      var href = a.reviewWebLink || "";
+      var who = (a.fromName ? a.fromName + " · " : "") + (a.from || "");
+      var meta = [a.subject, who, a.sent || a.mailbox].filter(Boolean).join(" · ");
+      var preview = a.bodyPreview || a.askedWhat || "";
+      html += '<div class="att-item" data-att="' + i + '">' +
+        '<button type="button" class="att-open">' +
         '<span class="att-name">' + esc(label) + "</span>" +
         (meta ? '<span class="att-meta">' + esc(meta) + "</span>" : "") +
-        "</button>";
+        "</button>" +
+        '<div class="att-preview">' +
+        (preview ? "<p>" + esc(preview) + "</p>" : "<p>Source email is on the packet. Open it from your mailbox if you were on the thread.</p>") +
+        (href ? '<a class="att-outlook" href="' + esc(href) + '" target="_blank" rel="noopener">Open your copy in Outlook</a>' : "") +
+        "</div></div>";
     });
     html += "</div></div>";
     return html;
@@ -2866,23 +3276,25 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     if (subj) html += "<div><b>Subj</b> " + esc(subj) + "</div>";
     html += "</div>";
     if (lead) html += "<p>" + esc(lead) + "</p>";
+    if (isPaidApply(r)) {
+      return html;
+    }
     var evs = ledgerEvents(r);
     if (evs.length) {
       html += '<div class="tl-h">Timeline of Events</div><div class="htl">';
       evs.forEach(function (e) {
-        html += "<div><span class=\"d\">" + prettyWhenShort(e.when).replace(/<br\s*\/?>/gi, " ") +
+        html += "<div" + (e.today ? ' class="today"' : "") + "><span class=\"d\">" + prettyWhenShort(e.when).replace(/<br\s*\/?>/gi, " ") +
           "</span><span class=\"l\">" + esc(e.lab || "") + "</span><span>" + esc(noSibling(e.what || "")) + "</span></div>";
       });
       html += "</div>";
     }
     var close = "If you have any questions about this invoice, please feel free to reach out for assistance.";
     function isClose(s) { return /feel free to reach out|questions about these requests|questions about this invoice/i.test(String(s || "")); }
-    var hasClose = isClose(lead);
     paras.forEach(function (p) {
-      if (isClose(p)) { hasClose = true; return; }
+      if (isClose(p)) return;
       html += "<p>" + esc(noSibling(p)) + "</p>";
     });
-    if (!hasClose) html += "<p>" + close + "</p>";
+    html += "<p>" + close + "</p>";
     if (!lead && !paras.length && !evs.length) {
       html += '<p>Letter body is not stored on this row. Follow up on thread opens the existing compose with the same To/CC.</p>';
     }
@@ -2915,6 +3327,9 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       primary = "Hold — packet incomplete";
       disabled = true;
       note = gaps.length ? ("Gaps: " + gaps.join("; ") + ".") : "Packet on hold.";
+    }
+    if (isPaidApply(r) && !note) {
+      note = "Put in Drafts creates a william@ draft to Esmeralda.";
     }
     return { primary: primary, disabled: disabled, note: note, gaps: gaps };
   }
@@ -2966,12 +3381,21 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       '</div></div><div class="col"><div class="sec-h">' + ((mail === "awaiting" || lastSent(r)) ? "Last sent" : "Draft") + '</div><div class="card letter">' +
       caseLetterHtml(r) + "</div>" + caseAttsHtml(r) + "</div></div>" +
       '<div class="acts">' +
-      '<button class="act primary" type="button" data-case-act="primary"' + (acts.disabled ? " disabled" : "") + ">" +
-      esc(acts.primary) + "</button>" +
+      (acts.primary === "Draft" && !acts.disabled
+        ? '<div class="split" id="caseReadySplit">' +
+          '<button class="act primary" type="button" data-case-act="draft">Put in Drafts</button>' +
+          '<button class="act primary split-arrow" type="button" data-case-act="draft-more" aria-haspopup="menu" aria-expanded="false" aria-label="More send options">' +
+          '<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1.2L5 5l4-3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+          '</button>' +
+          '<div class="split-menu" id="caseReadyMenu" hidden>' +
+          '<button type="button" class="send" data-case-act="send">Send now<span class="hint">Sends this letter from billings@. Does not wait in Drafts.</span></button>' +
+          '</div></div>'
+        : '<button class="act primary" type="button" data-case-act="primary"' + (acts.disabled ? " disabled" : "") + ">" +
+          esc(acts.primary) + "</button>") +
       '<button class="act" type="button" data-case-act="hold">Hold</button>' +
       '<button class="act" type="button" data-case-act="next">Next ticket</button>' +
       (campaignMembers(r).length >= 2 ? '<button class="act" type="button" data-case-act="campaign">Campaign</button>' : "") +
-      (acts.note ? '<span class="act-note">' + esc(acts.note) + "</span>" : "") +
+      '<p class="act-note" id="caseNote">' + esc(acts.note || (isPaidApply(r) ? "Put in Drafts creates a william@ draft to Esmeralda." : "Put in Drafts creates a billings@ draft. The arrow sends it.")) + "</p>" +
       "</div>";
     bindCaseChrome();
   }
@@ -2985,11 +3409,23 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var cse = $("#case");
     if (cse) {
       cse.onclick = function (e) {
+        if (e.target.closest(".att-outlook")) return;
+        var srcBtn = e.target.closest(".src");
+        if (srcBtn) {
+          var href = srcBtn.getAttribute("data-review");
+          var attN = srcBtn.getAttribute("data-att");
+          if (href) window.open(href, "_blank", "noopener");
+          if (attN != null) {
+            var item = cse.querySelector('.att-item[data-att="' + attN + '"]');
+            if (item) item.classList.add("open");
+          }
+          var row = srcBtn.closest(".erow");
+          if (row && !href) row.classList.add("open");
+          return;
+        }
         var att = e.target.closest(".att-item");
         if (att) {
-          var href = att.getAttribute("data-href");
-          if (href) window.open(href, "_blank", "noopener");
-          else att.classList.toggle("open");
+          att.classList.toggle("open");
           return;
         }
         var btn = e.target.closest("[data-case-act]");
@@ -3002,6 +3438,16 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
           if (cur) openCampaign(campaignKeyOf(cur));
           return;
         }
+        if (act === "draft-more") {
+          var menu = $("#caseReadyMenu");
+          if (menu) {
+            var on = menu.classList.toggle("on");
+            menu.hidden = !on;
+            btn.setAttribute("aria-expanded", on ? "true" : "false");
+          }
+          return;
+        }
+        if (act === "draft" || act === "send") return;
         if (act === "primary" && !btn.disabled) openCompose(state.selected);
       };
     }
@@ -3015,6 +3461,10 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   function openCase(id) {
     var r = DATA.find(function (x) { return x.docNumber === id; });
     if (!r) return;
+    if (isPaidApply(r)) {
+      openApplyBox({ inv: id });
+      return;
+    }
     state.selected = id;
     state.caseOpen = true;
     state.campaignOpen = false;
@@ -3164,7 +3614,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
           (rel.po ? " / PO " + esc(rel.po) : "") + ". " + esc(rel.note) + "</p>";
       }
     });
-    html += "<p>If you have any questions about these requests, we're happy to help address them.</p>";
+    html += "<p>If you have any questions about this invoice, please feel free to reach out for assistance.</p>";
     html += '<div class="sig"><b>Coastal Testing Laboratories, Inc.</b><span>billings@coastaltestinglabs.com</span></div>';
     return html;
   }
@@ -3326,7 +3776,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var fake = {
       chase_to: toAddr,
       chase_to_name: toName,
-      chase_cc: [{ name: seed.email, email: seed.email }].filter(function (c) { return c.email; }),
+      chase_cc: (seed.chase_cc || []).slice(),
       chase_letter_lead: "Community campaign letter on file.",
       chase_timeline: [{ when: "Today", what: "Called in — campaign" }],
       chase_attachments: inRows.reduce(function (acc, r) { return acc.concat(r.chase_attachments || []); }, [])
@@ -3345,7 +3795,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       seen[k] = true;
       ccList.push(c);
     }
-    if (seed.email) addCc({ name: seed.email, email: seed.email });
+    (seed.chase_cc || []).forEach(addCc);
     DEFAULT_CHASE_CC.forEach(addCc);
     $("#cCc").innerHTML = ccList.map(function (c) { return field(c.name, c.email); }).join("");
     $("#cSubj").innerHTML = '<div class="who">' + esc(subject) + "</div>";
@@ -3358,6 +3808,415 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     $("#scrim").classList.add("on");
     state.packetGaps = gaps;
     syncReadyUi(seed.docNumber);
+  }
+
+
+  var APPLY_LABELS = {
+    "MHI HOMES": "Coventry",
+    "Toll Brothers, Inc.": "Toll Brothers",
+    "LENNAR HOMES": "Lennar"
+  };
+  var APPLY_CHECK_ORDER = ["00068971", "504006", "00060133", "1255333", "00054384", "506316", "520632"];
+  var applyUi = {
+    selected: {},
+    open: {},
+    drafted: false,
+    sent: false,
+    litInv: "0427-170897",
+    built: false,
+    bound: false
+  };
+
+  function applyClient(parent) {
+    return APPLY_LABELS[parent] || parent || "";
+  }
+  function applyPo(r) {
+    return r.builder_order_number || r.strata_po_num || "";
+  }
+  function applyAddr(r) {
+    return (r.service_address || r.address || "").trim();
+  }
+  function applyOpenRows() {
+    return DATA.filter(function (r) {
+      return isPaidApply(r) && (Number(r.balance) || 0) > 0;
+    });
+  }
+  function applyOpenCount() {
+    return applyOpenRows().length;
+  }
+  function applyChecks() {
+    var rows = applyOpenRows();
+    var map = {};
+    rows.forEach(function (r) {
+      var k = String(r.check_number || r.check || "");
+      if (!k) return;
+      if (!map[k]) {
+        map[k] = {
+          id: k,
+          check: k,
+          date: r.check_date || "",
+          parent: r.parent,
+          client: applyClient(r.parent),
+          invoices: []
+        };
+      }
+      map[k].invoices.push(r);
+    });
+    var list = APPLY_CHECK_ORDER.map(function (id) { return map[id]; }).filter(Boolean);
+    Object.keys(map).forEach(function (id) {
+      if (!APPLY_CHECK_ORDER.includes(id)) list.push(map[id]);
+    });
+    list.forEach(function (c) {
+      c.total = c.invoices.reduce(function (sum, r) { return sum + (Number(r.balance) || 0); }, 0);
+      c.invoices.sort(function (a, b) {
+        return String(a.docNumber).localeCompare(String(b.docNumber));
+      });
+    });
+    return list;
+  }
+  function ensureApplyUi() {
+    if (applyUi.built) return;
+    var list = applyChecks();
+    list.forEach(function (c) { applyUi.selected[c.id] = true; });
+    applyUi.open["00054384"] = true;
+    applyUi.built = true;
+  }
+  function selectedApplyChecks() {
+    return applyChecks().filter(function (c) { return applyUi.selected[c.id]; });
+  }
+  function selectedApplyInvoices() {
+    var out = [];
+    selectedApplyChecks().forEach(function (c) {
+      c.invoices.forEach(function (r) { out.push(r); });
+    });
+    return out;
+  }
+  function applyLead() {
+    return "Hyphen shows these checks paid. These CTL invoices are still open. Please research. We are not applying anything from this note.";
+  }
+  function applyLetterHtml() {
+    var sel = selectedApplyChecks();
+    if (!sel.length) {
+      return '<p class="empty">Select a check on the left. This note stays empty until at least one payment is included. We are not applying anything from this screen.</p>';
+    }
+    var html = "<p>" + esc(applyLead()) + "</p>";
+    sel.forEach(function (c) {
+      html += '<div class="block" data-check="' + esc(c.id) + '">';
+      html += '<div class="client">' + esc(c.client) + "</div>";
+      html += '<div class="ck">Check ' + esc(c.check) + " dated " + esc(c.date) + "</div>";
+      html += '<div class="lab">Open CTL invoices on this payment:</div>';
+      c.invoices.forEach(function (r) {
+        html += '<div class="iline' + (applyUi.litInv === r.docNumber ? " lit" : "") + '" id="apply-line-' + esc(r.docNumber) + '" data-inv="' + esc(r.docNumber) + '">' +
+          esc(r.docNumber) + " · " + esc(applyAddr(r)) + " · " + moneyShort(r.balance) + " · PO " + esc(applyPo(r)) +
+          "</div>";
+      });
+      html += "</div>";
+    });
+    html += '<div class="sig"><b>William Knox</b><span>william@coastaltestinglabs.com</span></div>';
+    return html;
+  }
+  function applyApiHtml() {
+    var sel = selectedApplyChecks();
+    if (!sel.length) return "";
+    var html = "<p>" + esc(applyLead()) + "</p>";
+    sel.forEach(function (c) {
+      html += "<p><b>" + esc(c.client) + "</b><br>Check " + esc(c.check) + " dated " + esc(c.date) + "</p>";
+      html += "<p>Open CTL invoices on this payment:</p>";
+      c.invoices.forEach(function (r) {
+        html += "<p>" + esc(r.docNumber) + " · " + esc(applyAddr(r)) + " · " + moneyShort(r.balance) + " · PO " + esc(applyPo(r)) + "</p>";
+      });
+    });
+    html += "<p><b>William Knox</b><br>william@coastaltestinglabs.com</p>";
+    return html;
+  }
+  function applySubject() {
+    var sel = selectedApplyChecks();
+    var nInv = sel.reduce(function (n, c) { return n + c.invoices.length; }, 0);
+    return sel.length
+      ? ("Hyphen payments to research · " + sel.length + " check" + (sel.length === 1 ? "" : "s") + " · " + nInv + " open invoice" + (nInv === 1 ? "" : "s"))
+      : "Hyphen payments to research · select a check";
+  }
+  function renderApplyList() {
+    var list = applyChecks();
+    var el = $("#applyList");
+    if (!el) return;
+    el.innerHTML = list.map(function (c) {
+      var invHtml = c.invoices.map(function (r) {
+        return '<div class="ainv' + (applyUi.litInv === r.docNumber ? " lit" : "") + '" data-inv="' + esc(r.docNumber) + '">' +
+          '<div class="doc">' + esc(r.docNumber) + "</div>" +
+          '<div class="addr">' + esc(applyAddr(r)) + "</div>" +
+          '<div class="open">' + moneyShort(r.balance) + "</div>" +
+          '<div class="comm">' + esc(String(r.customer || "").replace(/^\d{2}-\d{3}\s+/, "")) + "</div>" +
+          '<div class="po">PO ' + esc(applyPo(r)) + "</div>" +
+          "</div>";
+      }).join("");
+      return '<article class="check' + (applyUi.open[c.id] ? " open" : "") + '" data-check="' + esc(c.id) + '">' +
+        '<div class="check-row' + (applyUi.selected[c.id] ? " on-letter" : "") + '">' +
+          '<input type="checkbox" data-check="' + esc(c.id) + '"' + (applyUi.selected[c.id] ? " checked" : "") + ' aria-label="Include check ' + esc(c.check) + ' in the note" />' +
+          '<div class="check-main"><div class="check-client">' + esc(c.client) + "</div>" +
+            '<div class="check-meta">Check <b>' + esc(c.check) + "</b> · " + esc(c.date) + "</div></div>" +
+          '<div class="check-tot"><span class="amt">' + moneyShort(c.total) + '</span><span class="ninv">' + c.invoices.length +
+            (c.invoices.length === 1 ? " invoice" : " invoices") + "</span></div>" +
+        "</div>" +
+        '<div class="invs">' + invHtml + "</div>" +
+      "</article>";
+    }).join("");
+  }
+  function renderApplyLetter() {
+    var sel = selectedApplyChecks();
+    var subj = $("#applySubj");
+    var letter = $("#applyLetter");
+    var kind = $("#applyKind");
+    var title = $("#applyTitle");
+    var draft = $("#applyDraft");
+    var more = $("#applyMore");
+    var send = $("#applySend");
+    if (subj) subj.textContent = applySubject();
+    if (letter) letter.innerHTML = applyLetterHtml();
+    if (kind) {
+      kind.textContent = applyUi.sent ? "Sent · awaiting" : (applyUi.drafted ? "Drafted · not sent" : "Internal · not sent");
+      kind.classList.toggle("drafted", !!applyUi.drafted && !applyUi.sent);
+    }
+    if (title) title.textContent = applyUi.sent ? "Sent · awaiting" : (applyUi.drafted ? "Drafted · not sent" : "Research note");
+    var empty = sel.length === 0;
+    if (draft) draft.disabled = empty || applyUi.sent;
+    if (more) more.disabled = empty || applyUi.sent;
+    if (send) send.disabled = empty || applyUi.sent;
+    if (applyUi.litInv) {
+      var line = document.getElementById("apply-line-" + applyUi.litInv);
+      if (line) line.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  }
+  function renderApply() {
+    ensureApplyUi();
+    bindApply();
+    renderApplyList();
+    renderApplyLetter();
+  }
+  function openApplyBox(opts) {
+    opts = opts || {};
+    ensureApplyUi();
+    hidePanels();
+    setAppOpen(false);
+    state.mail = "apply";
+    state.caseOpen = false;
+    state.campaignOpen = false;
+    if (opts.inv) {
+      var rec = DATA.find(function (x) { return x.docNumber === opts.inv; });
+      if (rec && (rec.check_number || rec.check)) {
+        applyUi.litInv = rec.docNumber;
+        applyUi.open[String(rec.check_number || rec.check)] = true;
+      }
+    }
+    render();
+    try {
+      var url = new URL(location.href);
+      url.searchParams.delete("open");
+      url.searchParams.delete("campaign");
+      url.searchParams.set("box", "apply");
+      if (opts.inv) url.searchParams.set("inv", opts.inv);
+      history.replaceState(null, "", url);
+    } catch (e) {}
+  }
+  function closeApplyMenu() {
+    var menu = $("#applyReadyMenu");
+    var more = $("#applyMore");
+    if (menu) {
+      menu.classList.remove("on");
+      menu.hidden = true;
+    }
+    if (more) more.setAttribute("aria-expanded", "false");
+  }
+  function setApplyErr(msg) {
+    var err = $("#applyErr");
+    if (!err) return;
+    if (msg) {
+      err.hidden = false;
+      err.textContent = msg;
+    } else {
+      err.hidden = true;
+      err.textContent = "";
+    }
+  }
+  function setApplyNote(text, html) {
+    var n = $("#applyNote");
+    if (!n) return;
+    if (html) n.innerHTML = html;
+    else n.textContent = text || "Put in Drafts creates a william@ draft to Esmeralda. We do not apply cash.";
+  }
+  function collectApplyPayload() {
+    var rows = selectedApplyInvoices();
+    var checks = selectedApplyChecks().map(function (c) { return c.check; });
+    var ids = rows.map(function (r) { return r.docNumber; });
+    return {
+      kind: "apply",
+      invoice: ids.length ? ids.join(",") : "apply",
+      subject: applySubject(),
+      to: [{ name: "Esmeralda", email: "esmeralda@coastaltestinglabs.com" }],
+      cc: [],
+      from: { name: "William Knox", email: "william@coastaltestinglabs.com" },
+      html: applyApiHtml(),
+      attachments: [],
+      replaceExisting: true,
+      checks: checks
+    };
+  }
+  function persistApplyMail(ids, status) {
+    ids.forEach(function (id) {
+      if (status === "awaiting") {
+        saveMailOverlay(id, {
+          status: "awaiting",
+          last_sent: todayISO(),
+          follow_up_due: addBusinessDays(todayISO(), 3)
+        });
+      } else {
+        saveMailOverlay(id, { status: "drafted" });
+      }
+    });
+  }
+  function dropApply(action) {
+    var payload = collectApplyPayload();
+    if (!selectedApplyChecks().length) {
+      setApplyErr("Select a check first.");
+      return;
+    }
+    if (!payload.html) {
+      setApplyErr("Nothing to queue. Letter is empty.");
+      return;
+    }
+    if (!window.HYPHEN_READY_API || !window.HYPHEN_READY_SECRET) {
+      setApplyErr("Drop is not live yet. Try again in a moment.");
+      return;
+    }
+    closeApplyMenu();
+    setApplyErr("");
+    var draft = $("#applyDraft");
+    var more = $("#applyMore");
+    if (draft) {
+      draft.disabled = true;
+      draft.textContent = action === "send" ? "Sending…" : "Queuing…";
+    }
+    if (more) more.disabled = true;
+    setApplyNote(action === "send" ? "Sending the william@ note to Esmeralda…" : "Creating the william@ draft to Esmeralda. Nothing sends.");
+    var rec = {};
+    try { rec = JSON.parse(localStorage.getItem("hyphen-apply-compose") || "{}"); } catch (e) {}
+    fetch(window.HYPHEN_READY_API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Hyphen-Ready": window.HYPHEN_READY_SECRET,
+        "Bypass-Tunnel-Reminder": "true"
+      },
+      body: JSON.stringify({
+        secret: window.HYPHEN_READY_SECRET,
+        action: action,
+        kind: "apply",
+        mailbox: "william@coastaltestinglabs.com",
+        graphMessageId: rec.graphMessageId || "",
+        invoice: payload.invoice,
+        subject: payload.subject,
+        to: payload.to,
+        cc: payload.cc,
+        from: payload.from,
+        html: payload.html,
+        attachments: [],
+        replaceExisting: true,
+        checks: payload.checks
+      })
+    })
+      .then(function (res) {
+        return res.json().then(function (data) { return { res: res, data: data }; });
+      })
+      .then(function (x) {
+        if (!x.res.ok || !x.data.ok) {
+          throw new Error((x.data && (x.data.error || (x.data.misses && x.data.misses.join(", ")))) || ("HTTP " + x.res.status));
+        }
+        var ids = selectedApplyInvoices().map(function (r) { return r.docNumber; });
+        persistApplyMail(ids, action === "send" ? "awaiting" : "drafted");
+        applyUi.drafted = true;
+        applyUi.sent = action === "send";
+        try {
+          localStorage.setItem("hyphen-apply-compose", JSON.stringify({
+            status: action === "send" ? "sent" : "ready",
+            graphMessageId: x.data.id || rec.graphMessageId || "",
+            webLink: x.data.webLink || rec.webLink || ""
+          }));
+        } catch (e) {}
+        if (draft) draft.textContent = action === "send" ? "Sent" : "Queued";
+        if (x.data.webLink) {
+          setApplyNote("", (action === "send" ? "Sent from william@. " : "Queued in william@ Drafts. ") +
+            '<a href="' + x.data.webLink + '" target="_blank" rel="noopener">Open in Outlook</a>. We do not apply cash.');
+        } else {
+          setApplyNote(action === "send"
+            ? "Sent from william@. We do not apply cash."
+            : "Queued in william@ Drafts. We do not apply cash.");
+        }
+        renderApply();
+        updateCounts(applyOpenRows());
+        syncChrome();
+      })
+      .catch(function (err) {
+        if (draft) {
+          draft.disabled = false;
+          draft.textContent = "Put in Drafts";
+        }
+        if (more) more.disabled = false;
+        setApplyErr((action === "send" ? "Could not send. " : "Could not create the Outlook draft. ") +
+          ((err && err.message) ? err.message : "Try again."));
+        setApplyNote("Put in Drafts creates a william@ draft to Esmeralda. We do not apply cash.");
+      });
+  }
+  function bindApply() {
+    if (applyUi.bound) return;
+    applyUi.bound = true;
+    var list = $("#applyList");
+    if (list) {
+      list.addEventListener("click", function (e) {
+        var box = e.target.closest("input[type=checkbox]");
+        if (box) {
+          e.stopPropagation();
+          applyUi.selected[box.getAttribute("data-check")] = box.checked;
+          applyUi.drafted = false;
+          applyUi.sent = false;
+          renderApply();
+          return;
+        }
+        var inv = e.target.closest(".ainv");
+        if (inv) {
+          applyUi.litInv = inv.getAttribute("data-inv");
+          renderApply();
+          return;
+        }
+        var row = e.target.closest(".check-row");
+        if (row) {
+          var id = row.closest(".check").getAttribute("data-check");
+          applyUi.open[id] = !applyUi.open[id];
+          renderApplyList();
+        }
+      });
+    }
+    if ($("#applyDraft")) $("#applyDraft").addEventListener("click", function () { dropApply("draft"); });
+    if ($("#applyMore")) {
+      $("#applyMore").addEventListener("click", function (e) {
+        e.stopPropagation();
+        var menu = $("#applyReadyMenu");
+        var more = $("#applyMore");
+        if (!menu || !more || more.disabled) return;
+        var open = !menu.classList.contains("on");
+        if (open) {
+          menu.hidden = false;
+          menu.classList.add("on");
+          more.setAttribute("aria-expanded", "true");
+        } else {
+          closeApplyMenu();
+        }
+      });
+    }
+    if ($("#applySend")) $("#applySend").addEventListener("click", function () { dropApply("send"); });
+    document.addEventListener("click", function (e) {
+      if (!$("#applyReadySplit") || $("#applyReadySplit").contains(e.target)) return;
+      closeApplyMenu();
+    });
   }
 
   function bind() {
@@ -3434,6 +4293,10 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     $$("#mailSeg button").forEach((b) => {
       b.addEventListener("click", () => {
         state.mail = b.dataset.mail;
+        if (state.mail === "apply") {
+          hidePanels();
+          setAppOpen(false);
+        }
         render();
       });
     });
@@ -3498,17 +4361,32 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       if (state.selected === tr.dataset.id) closeDrawer();
       else openDrawer(tr.dataset.id);
     });
-    $("#scrim").addEventListener("click", () => {
-      if ($("#compose").classList.contains("on")) closeCompose();
+    if ($("#scrim")) $("#scrim").addEventListener("click", () => {
+      if ($("#compose") && $("#compose").classList.contains("on")) closeCompose();
       else closeDrawer();
     });
-    $("#dClose").addEventListener("click", closeDrawer);
-    $("#dFoot").addEventListener("click", (e) => {
+    if ($("#dClose")) $("#dClose").addEventListener("click", closeDrawer);
+    if ($("#dFoot")) $("#dFoot").addEventListener("click", (e) => {
       if (e.target.closest(".act.primary")) openCompose(state.selected);
     });
-    $("#cBack").addEventListener("click", closeCompose);
-    $("#cClose").addEventListener("click", closeCompose);
-    $("#cHold").addEventListener("click", closeCompose);
+    if ($("#cBack")) $("#cBack").addEventListener("click", closeCompose);
+    if ($("#cClose")) $("#cClose").addEventListener("click", closeCompose);
+    if ($("#cHold")) $("#cHold").addEventListener("click", closeCompose);
+    if (!window.__hyphenActsBound) {
+      window.__hyphenActsBound = true;
+      document.addEventListener("click", function (e) {
+        var btn = e.target.closest("[data-case-act]");
+        if (!btn || btn.disabled) return;
+        var act = btn.getAttribute("data-case-act");
+        if (act === "draft") {
+          e.preventDefault();
+          try { dropToOutlook("draft"); } catch (err) { setDropNote((err && err.message) || "Draft failed."); }
+        } else if (act === "send") {
+          e.preventDefault();
+          try { dropToOutlook("send"); } catch (err) { setDropNote((err && err.message) || "Send failed."); }
+        }
+      });
+    }
     if ($("#cSave")) {
       $("#cSave").addEventListener("click", function () {
         queueCompose("saved");
@@ -3530,8 +4408,49 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     }
     return out;
   }
+  function emlFilename(name) {
+    var s = String(name || "attachment")
+      .replace(/[\u2014\u2013]/g, "-")
+      .replace(/[\\/:*?"<>|]+/g, "-")
+      .replace(/\s+/g, " ")
+      .trim()
+      .replace(/\.eml$/i, "")
+      .replace(/\.+$/g, "");
+    if (!s) s = "attachment";
+    return s.slice(0, 120) + ".eml";
+  }
   function collectComposePayload() {
     var id = state.selected;
+    var rec0 = DATA.find(function (x) { return x.docNumber === id; }) || {};
+    var composeOpen = $("#compose") && $("#compose").classList.contains("on");
+    if (!composeOpen) {
+      var evs = ledgerEvents(rec0);
+      var paid = isPaidApply(rec0);
+      var html = paid
+        ? ("<p>" + esc(rec0.chase_letter_lead || "") + "</p>")
+        : letterWrap(esc(rec0.chase_letter_lead || ""), evs.map(function (e) {
+            return { when: prettyWhenShort(e.when).replace(/<br\s*\/?>/gi, " "), lab: e.lab || "", what: e.what || "", today: !!e.today };
+          }), "", true);
+      var toList = [];
+      if (rec0.chase_to) toList.push({ name: rec0.chase_to_name || rec0.chase_to, email: rec0.chase_to });
+      else if (paid) toList.push({ name: "Esmeralda", email: "esmeralda@coastaltestinglabs.com" });
+      var atts0 = (rec0.chase_attachments || []).filter(function (a) { return a && a.mailbox && a.messageId; }).map(function (a) {
+        return { mailbox: a.mailbox, messageId: a.messageId, filename: emlFilename(a.label), name: emlFilename(a.label) };
+      });
+      return {
+        invoice: id,
+        subject: chaseSubject(rec0),
+        to: toList,
+        cc: paid ? [] : (rec0.chase_cc || []),
+        from: paid
+          ? { name: rec0.chase_from_name || "William Knox", email: rec0.chase_from || "william@coastaltestinglabs.com" }
+          : { name: rec0.chase_from_name || "Billings", email: rec0.chase_from || "billings@coastaltestinglabs.com" },
+        html: html,
+        attachments: atts0,
+        replaceExisting: true,
+        ledgerCount: evs.length
+      };
+    }
     var to = parseFieldPeople($("#cTo"));
     var cc = parseFieldPeople($("#cCc"));
     var fromP = parseFieldPeople($("#cFrom"))[0] || {
@@ -3548,15 +4467,12 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       return {
         mailbox: a.mailbox,
         messageId: a.messageId,
-        filename: a.filename || a.name || a.label || "attachment.eml",
-        name: a.filename || a.name || a.label || "attachment.eml"
+        filename: emlFilename(a.filename || a.name || a.label),
+        name: emlFilename(a.filename || a.name || a.label)
       };
     });
-    var payload = { invoice: id, subject: subject, to: to, cc: cc, from: fromP, html: letter };
-    if (atts.length) {
-      payload.attachments = atts;
-      payload.replaceExisting = true;
-    }
+    var payload = { invoice: id, subject: subject, to: to, cc: cc, from: fromP, html: letter, replaceExisting: true, ledgerCount: ledgerEvents(rec).length };
+    if (atts.length) payload.attachments = atts;
     return payload;
   }
   function composeRecord(id) {
@@ -3629,39 +4545,69 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       btn.textContent = "Put in Drafts";
       btn.disabled = false;
       if (more) more.disabled = false;
-      if (note) note.textContent = "Put in Drafts drops a billings@ draft. The arrow is Send.";
+      if (note) {
+        var recSel = DATA.find(function (x) { return x.docNumber === id; }) || {};
+        note.textContent = isPaidApply(recSel)
+          ? "Put in Drafts creates a william@ draft to Esmeralda."
+          : "Put in Drafts drops a billings@ draft. The arrow is Send.";
+      }
     }
   }
+  function setDropNote(text, html) {
+    var nodes = [];
+    var caseN = $("#caseNote");
+    var composeN = $("#cNote");
+    var composeOpen = $("#compose") && $("#compose").classList.contains("on");
+    if (caseN) nodes.push(caseN);
+    if (composeN && (composeOpen || !caseN)) nodes.push(composeN);
+    if (!nodes.length) return;
+    nodes.forEach(function (n) {
+      if (html) n.innerHTML = html;
+      else n.textContent = text || "";
+    });
+  }
   function dropToOutlook(action) {
-    var btn = $("#cReady");
-    var more = $("#cReadyMore");
-    var n = $("#cNote");
-    if (state.packetGaps && state.packetGaps.length) {
-      if (n) n.textContent = "Packet incomplete: " + state.packetGaps.join(". ") + ".";
+    var paidGate = DATA.find(function (x) { return x.docNumber === state.selected; }) || {};
+    if (isPaidApply(paidGate)) {
+      openApplyBox({ inv: state.selected });
+      return;
+    }
+    setDropNote(action === "send" ? "Sending from billings@…" : "Creating the billings@ draft…");
+    var btn = $("#cReady") || document.querySelector("[data-case-act='draft']");
+    var more = $("#cReadyMore") || document.querySelector("[data-case-act='draft-more']");
+    var rec0 = DATA.find(function (x) { return x.docNumber === state.selected; }) || {};
+    var kind = (rec0.first_pass_column || "").indexOf("Paid") === 0 || issueRaw(rec0) === "Write-off" ? "Internal" : "Builder";
+    var gaps = packetGaps(rec0, kind);
+    if (gaps && gaps.length) {
+      setDropNote("Packet incomplete: " + gaps.join(". ") + ".");
       return;
     }
     var payload = collectComposePayload();
     if (!payload.invoice || !payload.html) {
-      if (n) n.textContent = "Nothing to queue — open a letter first.";
+      setDropNote("Nothing to queue. Letter is empty.");
+      return;
+    }
+    if (!(payload.to && payload.to.length)) {
+      setDropNote("Need a To address before this can go to Drafts.");
       return;
     }
     if (!window.HYPHEN_READY_API || !window.HYPHEN_READY_SECRET) {
-      if (n) n.textContent = "Drop is not live yet. Try again in a moment.";
+      setDropNote("Drop is not live yet. Try again in a moment.");
       return;
     }
     closeReadyMenu();
     var rec = composeRecord(payload.invoice);
-    btn.disabled = true;
+    if (btn) btn.disabled = true;
     if (more) more.disabled = true;
-    btn.textContent = action === "send" ? "Sending…" : "Queuing…";
-    if (n) n.textContent = action === "send"
-      ? "Sending from billings@."
-      : "Creating the billings@ draft. Nothing sends.";
+    if (btn && btn.id === "cReady") btn.textContent = action === "send" ? "Sending…" : "Queuing…";
+    if (btn && btn.getAttribute("data-case-act") === "draft") btn.textContent = action === "send" ? "Sending…" : "Queuing…";
+    setDropNote(action === "send" ? "Sending from billings@." : "Creating the billings@ draft. Nothing sends.");
     fetch(window.HYPHEN_READY_API, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-Hyphen-Ready": window.HYPHEN_READY_SECRET
+        "X-Hyphen-Ready": window.HYPHEN_READY_SECRET,
+        "Bypass-Tunnel-Reminder": "true"
       },
       body: JSON.stringify({
         secret: window.HYPHEN_READY_SECRET,
@@ -3692,13 +4638,38 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
           webLink: x.data.webLink || rec.webLink || ""
         };
         saveComposeRecord(payload.invoice, next);
+        if (action === "send") {
+          saveMailOverlay(payload.invoice, {
+            status: "awaiting",
+            last_sent: todayISO(),
+            follow_up_due: addBusinessDays(todayISO(), 3),
+            webLink: next.webLink || ""
+          });
+        } else {
+          saveMailOverlay(payload.invoice, { status: "drafted", webLink: next.webLink || "" });
+        }
         syncReadyUi(payload.invoice);
+        if (typeof render === "function") render();
+        if (state.caseOpen) renderCase();
       })
-      .catch(function () {
+      .then(function () {
+        var rec2 = composeRecord(payload.invoice);
+        if (rec2.webLink) {
+          setDropNote("", (action === "send" ? "Sent from billings@. " : "Queued in billings@ Drafts. ") +
+            '<a href="' + rec2.webLink + '" target="_blank" rel="noopener">Open in Outlook</a>.');
+        } else {
+          setDropNote(action === "send" ? "Sent from billings@." : "Queued in billings@ Drafts.");
+        }
+        if (btn && btn.getAttribute("data-case-act") === "draft") btn.textContent = action === "send" ? "Sent" : "Queued";
+      })
+      .catch(function (err) {
         syncReadyUi(payload.invoice);
-        if (n) n.textContent = action === "send"
-          ? "Could not send. Draft is unchanged."
-          : "Could not create the Outlook draft. Try again.";
+        setDropNote((action === "send" ? "Could not send. " : "Could not create the Outlook draft. ") +
+          ((err && err.message) ? err.message : "Try again."));
+        if (btn && btn.getAttribute("data-case-act") === "draft") {
+          btn.disabled = false;
+          btn.textContent = "Put in Drafts";
+        }
       });
   }
     if ($("#cReady")) {
@@ -3751,6 +4722,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     }
     el.innerHTML = 'Books Mon Aug 17 3:18am CT · Scrape <span class="scrape">' + scrape + "</span>";
   }
+  DATA.forEach(applyMailOverlay);
   bind();
   render();
   setAsof();
@@ -3773,6 +4745,11 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       render();
       openDrawer(composeId);
       openCompose(composeId);
+    }
+    const boxQ = new URLSearchParams(location.search).get("box");
+    const invQ = new URLSearchParams(location.search).get("inv");
+    if (boxQ === "apply" || (invQ && DATA.some(function (x) { return x.docNumber === invQ && isPaidApply(x); }))) {
+      openApplyBox({ inv: invQ || undefined });
     }
   } catch (e) {}
 })();
