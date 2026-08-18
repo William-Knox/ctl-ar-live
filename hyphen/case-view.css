@@ -445,3 +445,28 @@
   .htl div { grid-template-columns: 1fr 1fr; }
   .acts .act { flex: 1 1 auto; min-width: 120px; min-height: 40px; }
 }
+
+.letter .tl-h {
+  margin: 14px 0 6px;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+  color: var(--navy);
+}
+.att-review { margin-top: 14px; }
+.att-review .card { padding: 8px 10px; }
+.att-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 8px 6px;
+  cursor: pointer;
+  font: inherit;
+  border-bottom: 1px solid #E8E4DC;
+}
+.att-item:last-child { border-bottom: 0; }
+.att-name { display: block; font-size: 12.5px; font-weight: 650; color: var(--navy); text-decoration: underline; }
+.att-meta { display: none; margin-top: 4px; font-size: 11px; color: #5B564E; }
+.att-item.open .att-meta, .att-item:focus .att-meta { display: block; }
