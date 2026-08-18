@@ -2050,19 +2050,21 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       "asked": "Asked",
       "replied": "Replied",
       "prior request": "Asked",
-      "report sent": "Report transmitted",
-      "report transmitted": "Report transmitted",
+      "report sent": "Report transmittal",
+      "report transmitted": "Report transmittal",
+      "report transmittal": "Report transmittal",
+      "report transmission": "Report transmittal",
       "today": "Today"
     };
     function dashLabel(label, rest) {
       rest = String(rest || "").replace(/^\s*[:—–-]+\s*/, "").trim();
       return label + " — " + rest;
     }
-    var lab = what.match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Prior request|Today|Report sent|Report transmitted)\b\s*[:—–-]?\s*(.*)$/i);
+    var lab = what.match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Prior request|Today|Report sent|Report transmitted|Report transmittal|Report transmission)\b\s*[:—–-]?\s*(.*)$/i);
     if (lab) {
       var name = CANON[lab[1].toLowerCase()] || lab[1];
       var rest = lab[2] || "";
-      if (name === "Asked" && /report|transmitt|Laverne|compaction report/i.test(rest)) name = "Report transmitted";
+      if (name === "Asked" && /report|transmitt|Laverne|compaction report/i.test(rest)) name = "Report transmittal";
       if (name === "Paid" && /internal|William to Maria|Maria to William|please review/i.test(rest + " " + what)) name = "Notes entered";
       if (name === "Today" || it.today) {
         return {when: "Today", what: rest || what.replace(/^Today\b\s*[:—–-]?\s*/i, ""), today: true};
@@ -2120,7 +2122,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       return {when: when, what: paid, today: false};
     }
     if (/Laverne|report transmitted|sent (the )?(compaction )?reports?/i.test(what) && !/PO needed|EPO|payment needed/i.test(what)) {
-      return {when: when, what: "Report transmitted — " + what.replace(/^(Asked|Report sent|Report transmitted)\s*[:—–-]?\s*/i, ""), today: false};
+      return {when: when, what: "Report transmittal — " + what.replace(/^(Asked|Report sent|Report transmitted|Report transmittal)\s*[:—–-]?\s*/i, ""), today: false};
     }
     m = what.match(/^(Maria|William|Veronica|Esme|Esmeralda)\b(.*)$/i);
     if (m && /PO|EPO|request|asked/i.test(what) && !/report/i.test(what)) {
@@ -2180,7 +2182,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       return /^(Asked|Replied)\b/i.test(it.what || "");
     }
     function isKeep(it) {
-      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent|Report transmitted)\b/i.test(it.what || "");
+      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent|Report transmitted|Report transmittal)\b/i.test(it.what || "");
     }
     var todayRows = out.filter(function (it) { return it.today; });
     var rest = out.filter(function (it) { return !it.today; });
@@ -2255,7 +2257,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     if (dump) gaps.push("No written background a CM can act on");
     var tl = r.chase_timeline || [];
     var labeled = tl.some(function (it) {
-      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent|Report transmitted)\b/i.test(String(it.what || ""));
+      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent|Report transmitted|Report transmittal)\b/i.test(String(it.what || ""));
     });
     if (!labeled) gaps.push("No labeled timeline");
     var atts = (r.chase_attachments || []).filter(function (a) {
@@ -2500,9 +2502,9 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     }
     if (r.chase_letter_lead) {
       var chaseTl;
-      if (r.chase_timeline && r.chase_timeline.length) {
+      if ((r.ledger && r.ledger.length) || (r.chase_timeline && r.chase_timeline.length)) {
         chaseTl = [];
-        r.chase_timeline.forEach(function (it) {
+        (r.ledger && r.ledger.length ? r.ledger : r.chase_timeline).forEach(function (it) {
           var ev = formatExternalEvent(it, r);
           if (ev) chaseTl.push(ev);
         });
@@ -2643,58 +2645,72 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   }
   function prettyWhenShort(when) {
     var s = String(when || "").trim();
-    var m = s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{1,2}):(\d{2})(?:\s*([AaPp][Mm]))?)?/);
+    var forcePm = /\bP\.?M\.?\b/i.test(s);
+    var forceAm = /\bA\.?M\.?\b/i.test(s) && !forcePm;
+    var m = s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{1,2}):(\d{2})(?:\s*([AaPp]\.?[Mm]\.?))?)?/);
     if (!m) return s.replace(/\s+CT$/i, "");
     var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     var out = months[Number(m[2]) - 1] + " " + Number(m[3]);
     if (m[4] != null) {
       var h = Number(m[4]);
       var ap;
-      if (m[6]) {
-        ap = m[6].toLowerCase();
+      if (forcePm || (m[6] && /p/i.test(m[6]))) {
+        ap = "PM";
+        if (h === 0) h = 12;
+        else if (h > 12) h = h % 12;
+      } else if (forceAm || (m[6] && /a/i.test(m[6]))) {
+        ap = "AM";
         if (h === 0) h = 12;
         else if (h > 12) h = h % 12;
       } else {
-        ap = h >= 12 ? "pm" : "am";
+        ap = h >= 12 ? "PM" : "AM";
         h = h % 12;
         if (!h) h = 12;
       }
-      out += "<br>" + h + ":" + m[5] + ap;
+      out += "<br>" + h + ":" + m[5] + " " + ap;
     }
     return out;
   }
   function ledgerEvents(r) {
     var src = r.ledger || r.chase_timeline || r.timeline || [];
     if (!src.length) return [];
+    var paidOk = !!(r.check_number || r.check_date || (r.payment_sidebar && r.payment_sidebar.check));
     return src.map(function (ev) {
       var what = noSibling(ev.what || "");
       var lab = ev.label || ev.lab || "";
       if (!lab && what) {
-        var mm = String(what).match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Prior request|Today|Report sent|Report transmitted|2nd call-in)\b/i);
+        var mm = String(what).match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Prior request|Today|Report sent|Report transmitted|Report transmittal|Report transmission|2nd call-in)\b/i);
         if (mm) {
           if (/prior request/i.test(mm[1])) lab = "Asked";
-          else if (/report sent/i.test(mm[1])) lab = "Report transmitted";
+          else if (/report sent|report transmitted|report transmittal|report transmission/i.test(mm[1])) lab = "Report transmittal";
           else lab = mm[1];
         }
       }
-      if (/^report sent$/i.test(lab)) lab = "Report transmitted";
+      if (/report sent|report transmitted|report transmission/i.test(lab)) lab = "Report transmittal";
+      if (/asked/i.test(lab) && /report|laverne|transmitt/i.test(what)) lab = "Report transmittal";
+      if (/paid/i.test(lab) && !paidOk) lab = "";
+      if (/william to maria|maria to william|please review/i.test(what) && !/asked|notes entered/i.test(lab)) return null;
       if (lab && what) {
-        var stripLabs = [lab, "Report sent", "Report transmitted"];
+        var stripLabs = [lab, "Report sent", "Report transmitted", "Report transmittal", "Report transmission"];
         stripLabs.forEach(function (name) {
           var labRe = new RegExp("^" + String(name).replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b\\s*[:—–-]*\\s*", "i");
           what = String(what).replace(labRe, "");
         });
       }
       var today = !!ev.today || /^today$/i.test(String(ev.when || "")) || /^today$/i.test(lab);
+      var srcTxt = ev.source || ev.src || "";
+      if (srcTxt && typeof srcTxt === "object") {
+        srcTxt = [srcTxt.mailbox, srcTxt.subject, srcTxt.when || srcTxt.sent].filter(Boolean).join(" · ");
+      }
       return {
         when: ev.when || "",
         lab: lab,
         who: ev.who || "",
         what: what,
-        src: ev.source || ev.src || "",
+        src: srcTxt,
         today: today,
       };
-    });
+    }).filter(Boolean);
   }
   function standingNote(r) {
     if (r.standing_note) return noSibling(r.standing_note);
@@ -2717,7 +2733,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     items.push({ t: r.chase_letter_lead ? "Background" : "Need background", ok: !!r.chase_letter_lead });
     var tl = r.chase_timeline || r.timeline || [];
     var labeled = tl.some(function (it) {
-      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent|Report transmitted)\b/i.test(String(it.what || ""));
+      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent|Report transmitted|Report transmittal)\b/i.test(String(it.what || ""));
     });
     items.push({ t: labeled ? "Labeled timeline" : "Need timeline", ok: labeled });
     var atts = (r.chase_attachments || []).filter(function (a) {
@@ -2777,10 +2793,13 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   function erowHtml(ev) {
     var who = ev.who ? '<span class="who">' + esc(ev.who) + (ev.who.slice(-1) === "." ? "" : ".") + "</span> " : "";
     var when = prettyWhenShort(ev.when);
-    return '<div class="erow' + (ev.today ? " today" : "") + (ev.rel ? " rel" : "") + '">' +
+    var src = ev.src
+      ? '<button type="button" class="src" title="' + esc(ev.src) + '">Source</button><span class="src-tip">' + esc(ev.src) + "</span>"
+      : "";
+    return '<div class="erow' + (ev.today ? " today" : "") + (ev.rel ? " rel" : "") + (ev.src ? " has-src" : "") + '">' +
       '<div class="when">' + when + "</div>" +
       '<div class="lab">' + esc(ev.lab || "") + "</div>" +
-      '<div class="what">' + who + esc(ev.what || "") + "</div></div>";
+      '<div class="what">' + who + esc(ev.what || "") + src + "</div></div>";
   }
   function caseQueue() {
     var rows = sortRows(applyFilters());
@@ -2853,6 +2872,12 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       html += "<p>" + esc(noSibling(p)) + "</p>";
     });
     if (!hasClose) html += "<p>" + close + "</p>";
+    var atts = (r.chase_attachments || []).filter(function (a) { return a && (a.label || a.kind || a.subject); });
+    if (atts.length) {
+      html += '<div class="att-used"><b>Attachments</b> ' + atts.map(function (a) {
+        return esc(a.label || a.kind || a.subject || "file");
+      }).join(" · ") + "</div>";
+    }
     if (!lead && !paras.length && !evs.length) {
       html += '<p>Letter body is not stored on this row. Follow up on thread opens the existing compose with the same To/CC.</p>';
     }
