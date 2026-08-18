@@ -2050,13 +2050,15 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       "asked": "Asked",
       "replied": "Replied",
       "prior request": "Asked",
+      "report sent": "Report transmitted",
+      "report transmitted": "Report transmitted",
       "today": "Today"
     };
     function dashLabel(label, rest) {
       rest = String(rest || "").replace(/^\s*[:—–-]+\s*/, "").trim();
       return label + " — " + rest;
     }
-    var lab = what.match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Prior request|Today)\b\s*[:—–-]?\s*(.*)$/i);
+    var lab = what.match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Prior request|Today|Report sent|Report transmitted)\b\s*[:—–-]?\s*(.*)$/i);
     if (lab) {
       var name = CANON[lab[1].toLowerCase()] || lab[1];
       var rest = lab[2] || "";
@@ -2173,7 +2175,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       return /^(Asked|Replied)\b/i.test(it.what || "");
     }
     function isKeep(it) {
-      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied)\b/i.test(it.what || "");
+      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent|Report transmitted)\b/i.test(it.what || "");
     }
     var todayRows = out.filter(function (it) { return it.today; });
     var rest = out.filter(function (it) { return !it.today; });
@@ -2246,7 +2248,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     if (!r.chase_letter_lead) gaps.push("No written background a CM can act on");
     var tl = r.chase_timeline || [];
     var labeled = tl.some(function (it) {
-      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied)\b/i.test(String(it.what || ""));
+      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent|Report transmitted)\b/i.test(String(it.what || ""));
     });
     if (!labeled) gaps.push("No labeled timeline");
     var atts = (r.chase_attachments || []).filter(function (a) {
@@ -2634,16 +2636,23 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   }
   function prettyWhenShort(when) {
     var s = String(when || "").trim();
-    var m = s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{1,2}):(\d{2}))?/);
+    var m = s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{1,2}):(\d{2})(?:\s*([AaPp][Mm]))?)?/);
     if (!m) return s.replace(/\s+CT$/i, "");
     var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
     var out = months[Number(m[2]) - 1] + " " + Number(m[3]);
     if (m[4] != null) {
       var h = Number(m[4]);
-      var ap = h >= 12 ? "pm" : "am";
-      var h12 = h % 12;
-      if (!h12) h12 = 12;
-      out += "<br>" + h12 + ":" + m[5] + ap;
+      var ap;
+      if (m[6]) {
+        ap = m[6].toLowerCase();
+        if (h === 0) h = 12;
+        else if (h > 12) h = h % 12;
+      } else {
+        ap = h >= 12 ? "pm" : "am";
+        h = h % 12;
+        if (!h) h = 12;
+      }
+      out += "<br>" + h + ":" + m[5] + ap;
     }
     return out;
   }
@@ -2654,8 +2663,20 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       var what = noSibling(ev.what || "");
       var lab = ev.label || ev.lab || "";
       if (!lab && what) {
-        var mm = String(what).match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Prior request|Today|Report sent|2nd call-in)\b/i);
-        if (mm) lab = /prior request/i.test(mm[1]) ? "Asked" : mm[1];
+        var mm = String(what).match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Prior request|Today|Report sent|Report transmitted|2nd call-in)\b/i);
+        if (mm) {
+          if (/prior request/i.test(mm[1])) lab = "Asked";
+          else if (/report sent/i.test(mm[1])) lab = "Report transmitted";
+          else lab = mm[1];
+        }
+      }
+      if (/^report sent$/i.test(lab)) lab = "Report transmitted";
+      if (lab && what) {
+        var stripLabs = [lab, "Report sent", "Report transmitted"];
+        stripLabs.forEach(function (name) {
+          var labRe = new RegExp("^" + String(name).replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b\\s*[:—–-]*\\s*", "i");
+          what = String(what).replace(labRe, "");
+        });
       }
       var today = !!ev.today || /^today$/i.test(String(ev.when || "")) || /^today$/i.test(lab);
       return {
@@ -2689,7 +2710,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     items.push({ t: r.chase_letter_lead ? "Background" : "Need background", ok: !!r.chase_letter_lead });
     var tl = r.chase_timeline || r.timeline || [];
     var labeled = tl.some(function (it) {
-      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent)\b/i.test(String(it.what || ""));
+      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent|Report transmitted)\b/i.test(String(it.what || ""));
     });
     items.push({ t: labeled ? "Labeled timeline" : "Need timeline", ok: labeled });
     var atts = (r.chase_attachments || []).filter(function (a) {
@@ -2790,11 +2811,15 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   function caseLetterHtml(r) {
     var lead = r.chase_letter_lead ? noSibling(r.chase_letter_lead) : "";
     var paras = r.chase_letter_paras || [];
-    var kind = lastSent(r) ? ("Last sent · " + lastSent(r)) : (lead ? "Draft · not sent" : "No letter on file");
+    var mail = mailStatus(r);
+    var sent = lastSent(r);
+    var kind = (mail === "awaiting" || sent)
+      ? (sent ? ("Last sent · " + sent) : "Last sent")
+      : "Draft · not sent";
     var to = r.chase_to_name || r.chase_to || "";
     var cc = (r.chase_cc || []).map(function (c) { return c.name || c.email; }).filter(Boolean).join(", ");
     var subj = r.chase_subject || "";
-    if (mailStatus(r) === "awaiting" && subj && !/^re\s*:/i.test(subj)) subj = "Re: " + subj;
+    if (mail === "awaiting" && subj && !/^re\s*:/i.test(subj)) subj = "Re: " + subj;
     var html = '<div class="kind">' + esc(kind) + "</div><div class=\"meta\">";
     if (r.chase_from || r.chase_from_name) {
       html += "<div><b>From</b> " + esc(r.chase_from_name || r.chase_from) + "</div>";
@@ -2804,8 +2829,24 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     if (subj) html += "<div><b>Subj</b> " + esc(subj) + "</div>";
     html += "</div>";
     if (lead) html += "<p>" + esc(lead) + "</p>";
-    paras.forEach(function (p) { html += "<p>" + esc(noSibling(p)) + "</p>"; });
-    if (!lead && !paras.length) {
+    var evs = ledgerEvents(r);
+    if (evs.length) {
+      html += '<div class="htl">';
+      evs.forEach(function (e) {
+        html += "<div><span class=\"d\">" + prettyWhenShort(e.when).replace(/<br\s*\/?>/gi, " ") +
+          "</span><span class=\"l\">" + esc(e.lab || "") + "</span><span>" + esc(noSibling(e.what || "")) + "</span></div>";
+      });
+      html += "</div>";
+    }
+    var close = "If you have any questions about these requests, we're happy to help address them.";
+    function isClose(s) { return /questions about these requests/i.test(String(s || "")); }
+    var hasClose = isClose(lead);
+    paras.forEach(function (p) {
+      if (isClose(p)) { hasClose = true; return; }
+      html += "<p>" + esc(noSibling(p)) + "</p>";
+    });
+    if (!hasClose) html += "<p>" + close + "</p>";
+    if (!lead && !paras.length && !evs.length) {
       html += '<p>Letter body is not stored on this row. Follow up on thread opens the existing compose with the same To/CC.</p>';
     }
     html += '<div class="sig"><b>Coastal Testing Laboratories, Inc.</b><span>billings@coastaltestinglabs.com</span></div>';
@@ -2885,7 +2926,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       '<div class="pack-strip">' + chips + "</div>" +
       '<div class="case-body"><div class="col"><div class="sec-h">Ledger</div><div class="card">' +
       (evs.length ? evs.map(erowHtml).join("") : '<p class="note quiet">No labeled events on file. We do not invent missing events.</p>') +
-      '</div></div><div class="col"><div class="sec-h">Last letter</div><div class="card letter">' +
+      '</div></div><div class="col"><div class="sec-h">' + ((mail === "awaiting" || lastSent(r)) ? "Last sent" : "Draft") + '</div><div class="card letter">' +
       caseLetterHtml(r) + "</div></div></div>" +
       '<div class="acts">' +
       '<button class="act primary" type="button" data-case-act="primary"' + (acts.disabled ? " disabled" : "") + ">" +
