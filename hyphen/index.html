@@ -2047,7 +2047,10 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       "invoiced": "Invoiced",
       "notes entered": "Notes entered",
       "paid": "Paid",
-      "asked": "Asked",
+      "asked": "Inquiry",
+      "inquiry": "Inquiry",
+      "completed": "Completed",
+      "read": "Read",
       "replied": "Replied",
       "prior request": "Asked",
       "report sent": "Report transmittal",
@@ -2060,7 +2063,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       rest = String(rest || "").replace(/^\s*[:—–-]+\s*/, "").trim();
       return label + " — " + rest;
     }
-    var lab = what.match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Prior request|Today|Report sent|Report transmitted|Report transmittal|Report transmission)\b\s*[:—–-]?\s*(.*)$/i);
+    var lab = what.match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Inquiry|Replied|Prior request|Today|Report sent|Report transmitted|Report transmittal|Report transmission|Completed|Read)\b\s*[:—–-]?\s*(.*)$/i);
     if (lab) {
       var name = CANON[lab[1].toLowerCase()] || lab[1];
       var rest = lab[2] || "";
@@ -2679,15 +2682,16 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       var what = noSibling(ev.what || "");
       var lab = ev.label || ev.lab || "";
       if (!lab && what) {
-        var mm = String(what).match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Prior request|Today|Report sent|Report transmitted|Report transmittal|Report transmission|2nd call-in)\b/i);
+        var mm = String(what).match(/^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Inquiry|Replied|Prior request|Today|Report sent|Report transmitted|Report transmittal|Report transmission|Completed|Read|2nd call-in)\b/i);
         if (mm) {
-          if (/prior request/i.test(mm[1])) lab = "Asked";
+          if (/prior request|asked/i.test(mm[1])) lab = "Inquiry";
           else if (/report sent|report transmitted|report transmittal|report transmission/i.test(mm[1])) lab = "Report transmittal";
           else lab = mm[1];
         }
       }
       if (/report sent|report transmitted|report transmission/i.test(lab)) lab = "Report transmittal";
-      if (/asked/i.test(lab) && /report|laverne|transmitt/i.test(what)) lab = "Report transmittal";
+      if (/asked|inquiry/i.test(lab) && /report|laverne|transmitt/i.test(what)) lab = "Report transmittal";
+      if (/^asked$/i.test(lab)) lab = "Inquiry";
       if (/paid/i.test(lab) && !paidOk) lab = "";
       if (/william to maria|maria to william|please review/i.test(what) && !/asked|notes entered/i.test(lab)) return null;
       if (lab && what) {
