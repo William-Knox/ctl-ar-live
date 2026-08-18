@@ -2062,6 +2062,8 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     if (lab) {
       var name = CANON[lab[1].toLowerCase()] || lab[1];
       var rest = lab[2] || "";
+      if (name === "Asked" && /report|transmitt|Laverne|compaction report/i.test(rest)) name = "Report transmitted";
+      if (name === "Paid" && /internal|William to Maria|Maria to William|please review/i.test(rest + " " + what)) name = "Notes entered";
       if (name === "Today" || it.today) {
         return {when: "Today", what: rest || what.replace(/^Today\b\s*[:—–-]?\s*/i, ""), today: true};
       }
@@ -2117,8 +2119,11 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       if (covers) paid += "; covers " + covers;
       return {when: when, what: paid, today: false};
     }
+    if (/Laverne|report transmitted|sent (the )?(compaction )?reports?/i.test(what) && !/PO needed|EPO|payment needed/i.test(what)) {
+      return {when: when, what: "Report transmitted — " + what.replace(/^(Asked|Report sent|Report transmitted)\s*[:—–-]?\s*/i, ""), today: false};
+    }
     m = what.match(/^(Maria|William|Veronica|Esme|Esmeralda)\b(.*)$/i);
-    if (m && /PO|EPO|request|asked/i.test(what)) {
+    if (m && /PO|EPO|request|asked/i.test(what) && !/report/i.test(what)) {
       var whoA = /Esmeralda/i.test(m[1]) ? "Esme" : m[1];
       var tail = m[2].replace(/\s+/g, " ").trim();
       var cm = "";
@@ -2245,7 +2250,9 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       return c && c.email && !isCtlEmail(c.email);
     });
     if (!clientCc) gaps.push("CC has no builder or community manager");
-    if (!r.chase_letter_lead) gaps.push("No written background a CM can act on");
+    var lead = String(r.chase_letter_lead || "");
+    var dump = !lead || lead.length > 700 || /hyphen_pos|researched_notes|QBO \d+ txn|Supplier Order Number field|pre-Strata/i.test(lead);
+    if (dump) gaps.push("No written background a CM can act on");
     var tl = r.chase_timeline || [];
     var labeled = tl.some(function (it) {
       return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent|Report transmitted)\b/i.test(String(it.what || ""));
