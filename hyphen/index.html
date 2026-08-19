@@ -1241,7 +1241,7 @@ th:nth-child(5), td.addr { width: 14%; }
   font-weight: 600;
 }
 </style>
-<link rel="stylesheet" href="case-view.css" />
+<link rel="stylesheet" href="case-view.css?v=20260819-0935" />
 </head>
 <body>
 <div class="app" id="app">
@@ -1252,7 +1252,7 @@ th:nth-child(5), td.addr { width: 14%; }
       </svg>
       <div class="brand-text">
         <h1>Hyphen review</h1>
-        <p class="asof">Books Tue Aug 18 3:18am CT· Scrape <span class="scrape">Sat Aug 15 4:43pm CT</span></p>
+        <p class="asof">Books Wed Aug 19 3:49am CT · Scrape <span class="scrape">Order Payments file</span></p>
       </div>
     </div>
     <div class="counts">
@@ -1492,8 +1492,8 @@ th:nth-child(5), td.addr { width: 14%; }
 </aside>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="data.js?v=20260819-0730"></script>
-<script src="contacts.js?v=20260819-0730"></script>
+<script src="data.js?v=20260819-0935"></script>
+<script src="contacts.js?v=20260819-0935"></script>
 <script>
 window.HYPHEN_READY_API = (location.hostname==="127.0.0.1"||location.hostname==="localhost") ? "/api/ready" : "https://chatty-moles-share.loca.lt/api/ready";
 window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18eb7e6555a03fba7";
@@ -2592,7 +2592,9 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   }
   function needsCaseAnalysis(r) {
     if (!r) return false;
-    var iss = String(r.issue || r.first_pass_column || "");
+    if (caseAnalysisText(r)) return true;
+    var iss = String(r.issue || r.first_pass_column || "").trim();
+    if (/^(Unpaid complete|Review|No PO|Pending client acceptance|Amount off|Leftover lab|Quantity shortfall|Notes error)$/i.test(iss)) return true;
     return /2nd callout|write-?off/i.test(iss) || !!r.write_off_reason;
   }
   function hasCaseAnalysis(r) {
@@ -3422,10 +3424,41 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     }
     return { primary: primary, disabled: disabled, note: note, gaps: gaps };
   }
+  function paintCaseFallback(r, err) {
+    var el = $("#case");
+    if (!el) return;
+    r = r || {};
+    var doc = "", addr = "—", issue = "—", pkt = "—", mail = "—", analysis = "";
+    try { doc = String(r.docNumber || state.selected || ""); } catch (e0) { doc = String(state.selected || ""); }
+    try { addr = String((r.service_address || "").trim() || "—"); } catch (e0) {}
+    try { issue = issueLabel(r); } catch (e0) { try { issue = String(r.issue || "—"); } catch (e1) {} }
+    try { pkt = packetLabel(r); } catch (e0) { try { pkt = String(r.packet || "—"); } catch (e1) {} }
+    try { mail = MAIL_LABEL[mailStatus(r)] || String(r.mail || "—"); } catch (e0) { try { mail = String(r.mail || "—"); } catch (e1) {} }
+    try { analysis = caseAnalysisText(r); } catch (e0) { try { analysis = String((r && r.chase_analysis) || ""); } catch (e1) {} }
+    var html = '<div class="case-top"><div>' +
+      '<div class="case-id">' + esc(doc) + " · " + esc(addr) + "</div>" +
+      '<div class="case-sub">' + esc((BUILDER_LABEL[r.parent] || r.parent || "") + (r.customer ? (" · " + r.customer) : "")) + "</div></div>" +
+      '<div class="case-nav"><button type="button" class="x" id="caseClose" aria-label="Close">✕</button></div></div>' +
+      '<div class="status">' +
+      '<div class="schip"><lab>Issue</lab><val>' + esc(issue) + "</val></div>" +
+      '<div class="schip hold"><lab>Packet</lab><val>' + esc(pkt) + "</val></div>" +
+      '<div class="schip"><lab>Mail</lab><val>' + esc(mail) + "</val></div></div>";
+    if (analysis) html += '<div class="analysis"><div class="sec-h">Analysis</div><p>' + esc(analysis) + "</p></div>";
+    if (err) html += '<p class="note">' + esc(err) + "</p>";
+    try {
+      el.innerHTML = html;
+    } catch (e2) {
+      el.textContent = [doc, addr, issue, pkt, mail, analysis, err].filter(Boolean).join(" · ");
+    }
+    var close = $("#caseClose");
+    if (close) close.addEventListener("click", closeCase);
+  }
   function renderCase() {
     var el = $("#case");
     if (!el || !state.caseOpen) return;
-    var r = DATA.find(function (x) { return x.docNumber === state.selected; });
+    var r = null;
+    try {
+    r = DATA.find(function (x) { return x.docNumber === state.selected; });
     var rows = caseQueue();
     var idx = caseIndex(rows);
     if (!r) {
@@ -3495,7 +3528,11 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       (campaignMembers(r).length >= 2 ? '<button class="act" type="button" data-case-act="campaign">Campaign</button>' : "") +
       '<p class="act-note" id="caseNote">' + esc(acts.note || (isPaidApply(r) ? "Put in Drafts creates a william@ draft to Esmeralda." : "Put in Drafts creates a billings@ draft. The arrow sends it.")) + "</p>" +
       "</div>";
-    bindCaseChrome();
+    } catch (err) {
+      paintCaseFallback(r, "Case view failed: " + ((err && err.message) || String(err)));
+      return;
+    }
+    try { bindCaseChrome(); } catch (eBind) {}
   }
   function bindCaseChrome() {
     var prev = $("#casePrev");
@@ -3583,6 +3620,9 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       drawer.setAttribute("aria-hidden", "true");
     }
     renderCase();
+    if (el && !String(el.innerHTML || "").trim()) {
+      paintCaseFallback(r, "Case view failed: pane stayed empty.");
+    }
     try {
       var url = new URL(location.href);
       url.searchParams.set("open", id);
@@ -4846,7 +4886,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     const el = document.querySelector(".asof");
     if (!el || !DATA.length) return;
     const raw = DATA[0].scrape_as_of;
-    let scrape = "Not scraped";
+    let scrape = "Order Payments file";
     if (raw) {
       const d = new Date(raw);
       if (!isNaN(d)) {
@@ -4854,7 +4894,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
         scrape = d.toLocaleString("en-US", { timeZone: "America/Chicago", ...opts }) + " CT";
       } else scrape = raw;
     }
-    el.innerHTML = 'Books Mon Aug 17 3:18am CT · Scrape <span class="scrape">' + scrape + "</span>";
+    el.innerHTML = 'Books Wed Aug 19 3:49am CT · Scrape <span class="scrape">' + scrape + "</span>";
   }
   DATA.forEach(applyMailOverlay);
   bind();
