@@ -1241,7 +1241,7 @@ th:nth-child(5), td.addr { width: 14%; }
   font-weight: 600;
 }
 </style>
-<link rel="stylesheet" href="case-view.css?v=20260819-0935" />
+<link rel="stylesheet" href="case-view.css?v=20260819-0948" />
 </head>
 <body>
 <div class="app" id="app">
@@ -1492,8 +1492,8 @@ th:nth-child(5), td.addr { width: 14%; }
 </aside>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="data.js?v=20260819-0935"></script>
-<script src="contacts.js?v=20260819-0935"></script>
+<script src="data.js?v=20260819-0948"></script>
+<script src="contacts.js?v=20260819-0948"></script>
 <script>
 window.HYPHEN_READY_API = (location.hostname==="127.0.0.1"||location.hostname==="localhost") ? "/api/ready" : "https://chatty-moles-share.loca.lt/api/ready";
 window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18eb7e6555a03fba7";
@@ -3046,10 +3046,23 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var w = waitingDays(r);
     return w != null && w >= 3;
   }
+  function composeRecord(id) {
+    try {
+      var map = JSON.parse(localStorage.getItem("hyphen-compose") || "{}");
+      return map[id] || {};
+    } catch (e) { return {}; }
+  }
+  function saveComposeRecord(id, rec) {
+    var map = {};
+    try { map = JSON.parse(localStorage.getItem("hyphen-compose") || "{}"); } catch (e) {}
+    map[id] = rec;
+    localStorage.setItem("hyphen-compose", JSON.stringify(map));
+  }
   function nextAction(r) {
     if (r.next) return noSibling(String(r.next));
     var mail = mailStatus(r);
-    var queued = composeRecord(r.docNumber) || {};
+    var queued = {};
+    try { queued = composeRecord(r.docNumber) || {}; } catch (e) { queued = {}; }
     if (queued.status === "sent") mail = "awaiting";
     if (queued.status === "ready" && mail === "not_sent") mail = "ready";
     var pkt = packetStatus(r);
@@ -4634,18 +4647,6 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var payload = { invoice: id, subject: subject, to: to, cc: cc, from: fromP, html: letter, replaceExisting: true, ledgerCount: ledgerEvents(rec).length };
     if (atts.length) payload.attachments = atts;
     return payload;
-  }
-  function composeRecord(id) {
-    try {
-      var map = JSON.parse(localStorage.getItem("hyphen-compose") || "{}");
-      return map[id] || {};
-    } catch (e) { return {}; }
-  }
-  function saveComposeRecord(id, rec) {
-    var map = {};
-    try { map = JSON.parse(localStorage.getItem("hyphen-compose") || "{}"); } catch (e) {}
-    map[id] = rec;
-    localStorage.setItem("hyphen-compose", JSON.stringify(map));
   }
   function closeReadyMenu() {
     var menu = $("#cReadyMenu");
