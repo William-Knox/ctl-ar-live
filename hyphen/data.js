@@ -29,14 +29,14 @@ window.DATA = [
       {
         "when": "2026-07-20",
         "lab": "Invoiced",
-        "what": "0715-174035 $1,188. Still fully open."
+        "what": "0715-174035 $1,188."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-20",
         "lab": "Invoiced",
-        "what": "0715-174035 $1,188. Still fully open."
+        "what": "0715-174035 $1,188."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a 0715-174035 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -71,14 +71,14 @@ window.DATA = [
       {
         "when": "2026-07-20",
         "lab": "Invoiced",
-        "what": "0715-174036 $1,188. Still fully open."
+        "what": "0715-174036 $1,188."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-20",
         "lab": "Invoiced",
-        "what": "0715-174036 $1,188. Still fully open."
+        "what": "0715-174036 $1,188."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a 0715-174036 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -113,12 +113,12 @@ window.DATA = [
       {
         "when": "2026-07-31",
         "lab": "Called in",
-        "what": "Megan Rath asked for compaction at 4206 White Springs, Westland Ranch. Joe said he would send someone."
+        "what": "Megan Rath asked for compaction at 4206 White Springs, Westland Ranch."
       },
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "0731-174161 $1,188. Still fully open."
+        "what": "0731-174161 $1,188."
       },
       {
         "when": "2026-08-05",
@@ -128,7 +128,7 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Completed",
-        "what": "System: Order Completed By Builder on PO 7118095-000."
+        "what": "Builder marked PO 7118095-000 complete."
       },
       {
         "when": "Today",
@@ -141,12 +141,12 @@ window.DATA = [
       {
         "when": "2026-07-31",
         "lab": "Called in",
-        "what": "Megan Rath asked for compaction at 4206 White Springs, Westland Ranch. Joe said he would send someone."
+        "what": "Megan Rath asked for compaction at 4206 White Springs, Westland Ranch."
       },
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "0731-174161 $1,188. Still fully open."
+        "what": "0731-174161 $1,188."
       },
       {
         "when": "2026-08-05",
@@ -156,7 +156,7 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Completed",
-        "what": "System: Order Completed By Builder on PO 7118095-000."
+        "what": "Builder marked PO 7118095-000 complete."
       },
       {
         "when": "Today",
@@ -168,7 +168,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved under a 0731-174161 case folder. Call-in and report dates are from the 2026-08-17 Graph mail research. Hyphen notes from the 2026-08-17 scrape (Received / empty notes / builder Complete).",
     "chase_letter_lead": "Builder marked PO 7118095-000 complete on 2026-08-06. Hyphen still has no payment. Invoice 0731-174161 is $1,188 at 4206 White Springs Lane. Please update that unpaid PO and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "Builder marked PO 7118095-000 complete on 2026-08-06. Hyphen still has no payment. Invoice 0731-174161 is $1,188 at 4206 White Springs Lane. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-07-31  Called in  Megan Rath asked for compaction at 4206 White Springs, Westland Ranch. Joe said he would send someone.\n2026-08-05  Invoiced  0731-174161 $1,188. Still fully open.\n2026-08-05  Report transmittal  Maria sent the Westland Ranch 4206 White Springs report.\n2026-08-06  Completed  System: Order Completed By Builder on PO 7118095-000.\nToday  Open $1,188. 16 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Builder marked PO 7118095-000 complete on 2026-08-06. Hyphen still has no payment. Invoice 0731-174161 is $1,188 at 4206 White Springs Lane. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-07-31  Called in  Megan Rath asked for compaction at 4206 White Springs, Westland Ranch.\n2026-08-05  Invoiced  0731-174161 $1,188.\n2026-08-05  Report transmittal  Maria sent the Westland Ranch 4206 White Springs report.\n2026-08-06  Completed  Builder marked PO 7118095-000 complete.\nToday  Open $1,188. 16 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 4206 White Springs Lane \u00b7 0731-174161 \u00b7 16 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -201,55 +201,55 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-05-05",
-        "lab": "",
-        "what": "Tom Whetstine"
+        "lab": "Called in",
+        "what": "Tom Whetstine asked at 21602 Colonial Meadow."
       },
       {
         "when": "2026-05-06",
-        "lab": "",
-        "what": "QBO first visit 0506-171295 $522"
+        "lab": "Invoiced",
+        "what": "0506-171295 $522."
       },
       {
         "when": "2026-05-12",
-        "lab": "",
-        "what": "Tom Whetstine"
+        "lab": "Called in",
+        "what": "Tom Whetstine asked at 21602 Colonial Meadow."
       },
       {
         "when": "2026-05-13",
-        "lab": "",
-        "what": "QBO 0513-171546 $522"
+        "lab": "Invoiced",
+        "what": "0513-171546 $522."
       },
       {
         "when": "2026-05-26",
-        "lab": "",
-        "what": "Lennar check 1263130 0506-171295 $522"
+        "lab": "Paid",
+        "what": "Check 1263130 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-05-05",
-        "lab": "",
-        "what": "Tom Whetstine"
+        "lab": "Called in",
+        "what": "Tom Whetstine asked at 21602 Colonial Meadow."
       },
       {
         "when": "2026-05-06",
-        "lab": "",
-        "what": "QBO first visit 0506-171295 $522"
+        "lab": "Invoiced",
+        "what": "0506-171295 $522."
       },
       {
         "when": "2026-05-12",
-        "lab": "",
-        "what": "Tom Whetstine"
+        "lab": "Called in",
+        "what": "Tom Whetstine asked at 21602 Colonial Meadow."
       },
       {
         "when": "2026-05-13",
-        "lab": "",
-        "what": "QBO 0513-171546 $522"
+        "lab": "Invoiced",
+        "what": "0513-171546 $522."
       },
       {
         "when": "2026-05-26",
-        "lab": "",
-        "what": "Lennar check 1263130 0506-171295 $522"
+        "lab": "Paid",
+        "what": "Check 1263130 $522."
       }
     ],
     "workup_attachments_note": "Graph: Tom 2026-05-05 'Need compaction test. One lift in the front one left in the back'; Tom 2026-05-12 'Need testing. 1 lift front and 1 in the back'; Ryan Got it both times. Maria 5/22 report send. No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
@@ -298,12 +298,12 @@ window.DATA = [
       {
         "when": "2026-03-16",
         "lab": "Invoiced",
-        "what": "180131 $783. Still fully open."
+        "what": "180131 $783."
       },
       {
         "when": "2026-03-17",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 12527/12523 Alligator Lake 180131 3 lifts 783.00"
+        "what": "Maria Lerma entered 3 lifts $783."
       },
       {
         "when": "2026-03-19",
@@ -336,12 +336,12 @@ window.DATA = [
       {
         "when": "2026-03-16",
         "lab": "Invoiced",
-        "what": "180131 $783. Still fully open."
+        "what": "180131 $783."
       },
       {
         "when": "2026-03-17",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 12527/12523 Alligator Lake 180131 3 lifts 783.00"
+        "what": "Maria Lerma entered 3 lifts $783."
       },
       {
         "when": "2026-03-19",
@@ -394,7 +394,7 @@ window.DATA = [
     "chase_subject": "Payment needed \u2014 180131 \u2014 12523/12527 Alligator Lake Court \u00b7 126 days past due",
     "chase_letter_lead": "Please release payment on PO 70276926-000 / invoice 180131. You marked this order complete on March 19. Our note (3 lifts, $783 at 12523 and 12527 Alligator Lake Court) has been on the PO since March 17, and nothing has been paid in the five months since.",
     "chase_letter_paras": [],
-    "chase_letter": "Please release payment on PO 70276926-000 / invoice 180131. You marked this order complete on March 19. Our note (3 lifts, $783 at 12523 and 12527 Alligator Lake Court) has been on the PO since March 17, and nothing has been paid in the five months since.\n\nTimeline of Events\n\n2026-03-04  Inquiry  Steven Ayala asked Esme for Bridgeland Alligator Lake reports including 12523/12527.\n2026-03-10  Called in  Jen Polasek asked Ryan and Joe to add 12523/12527 Alligator Lake Court.\n2026-03-16  Invoiced  180131 $783. Still fully open.\n2026-03-17  Notes entered  Maria Lerma: 12527/12523 Alligator Lake 180131 3 lifts 783.00\n2026-03-19  Completed  Steven Ayala marked PO 70276926-000 complete.\n2026-03-26  Report transmittal  Laverne sent the 12523-12527 Alligator Lake Court reports.\nToday  Open $783. 126 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Please release payment on PO 70276926-000 / invoice 180131. You marked this order complete on March 19. Our note (3 lifts, $783 at 12523 and 12527 Alligator Lake Court) has been on the PO since March 17, and nothing has been paid in the five months since.\n\nTimeline of Events\n\n2026-03-04  Inquiry  Steven Ayala asked Esme for Bridgeland Alligator Lake reports including 12523/12527.\n2026-03-10  Called in  Jen Polasek asked Ryan and Joe to add 12523/12527 Alligator Lake Court.\n2026-03-16  Invoiced  180131 $783.\n2026-03-17  Notes entered  Maria Lerma entered 3 lifts $783.\n2026-03-19  Completed  Steven Ayala marked PO 70276926-000 complete.\n2026-03-26  Report transmittal  Laverne sent the 12523-12527 Alligator Lake Court reports.\nToday  Open $783. 126 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "last_sent": "2026-08-17 10:49 CT",
     "chase_last_sent": "2026-08-17 10:49 CT",
     "follow_up_due": "Wed 2026-08-19",
@@ -455,14 +455,14 @@ window.DATA = [
       {
         "when": "2026-07-28",
         "lab": "Invoiced",
-        "what": "CTL-26-00216 $522. Still fully open."
+        "what": "CTL-26-00216 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-28",
         "lab": "Invoiced",
-        "what": "CTL-26-00216 $522. Still fully open."
+        "what": "CTL-26-00216 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00216 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -497,14 +497,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00217 $522. Still fully open."
+        "what": "CTL-26-00217 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00217 $522. Still fully open."
+        "what": "CTL-26-00217 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00217 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -538,13 +538,13 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 13560 Bay Springs."
       },
       {
         "when": "2026-05-19",
-        "lab": "",
-        "what": "QBO 0519-171828 $261"
+        "lab": "Invoiced",
+        "what": "0519-171828 $261."
       },
       {
         "when": "Today",
@@ -556,13 +556,13 @@ window.DATA = [
     "chase_timeline": [
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 13560 Bay Springs."
       },
       {
         "when": "2026-05-19",
-        "lab": "",
-        "what": "QBO 0519-171828 $261"
+        "lab": "Invoiced",
+        "what": "0519-171828 $261."
       },
       {
         "when": "Today",
@@ -574,7 +574,7 @@ window.DATA = [
     "workup_attachments_note": "Graph: Brandi 2026-05-18 pads to ryan/joe. Maria PO Request 13560 Bay Springs 5/26 and 2nd request 5/27. Esme 6/15 report send. No client ask file saved. ",
     "chase_letter_lead": "We performed the work at 13560 Bay Springs and issued invoice 0519-171828 for $261. This has been 62 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 13560 Bay Springs and issued invoice 0519-171828 for $261. This has been 62 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-18  Brandi Cook\n2026-05-19  QBO 0519-171828 $261\nToday  Open $261. 62 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 13560 Bay Springs and issued invoice 0519-171828 for $261. This has been 62 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-18  Called in  Brandi Cook asked at 13560 Bay Springs.\n2026-05-19  Invoiced  0519-171828 $261.\nToday  Open $261. 62 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 13560 Bay Springs \u00b7 0519-171828 \u00b7 62 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -608,18 +608,13 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 13568 Bay Springs."
       },
       {
         "when": "2026-05-19",
-        "lab": "",
-        "what": "QBO 0519-171829 $261"
-      },
-      {
-        "when": "2026-06-08",
-        "lab": "",
-        "what": "Jordan Beakley (released \u2014 not in scrape)"
+        "lab": "Invoiced",
+        "what": "0519-171829 $261."
       },
       {
         "when": "Today",
@@ -631,18 +626,13 @@ window.DATA = [
     "chase_timeline": [
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 13568 Bay Springs."
       },
       {
         "when": "2026-05-19",
-        "lab": "",
-        "what": "QBO 0519-171829 $261"
-      },
-      {
-        "when": "2026-06-08",
-        "lab": "",
-        "what": "Jordan Beakley (released \u2014 not in scrape)"
+        "lab": "Invoiced",
+        "what": "0519-171829 $261."
       },
       {
         "when": "Today",
@@ -654,7 +644,7 @@ window.DATA = [
     "workup_attachments_note": "Graph: Brandi 5/18 pads; Maria PO request 5/27; Bailey 5/27 not loaded; Jordan 6/8 released. Esme 6/22 report send. No ask file on disk.",
     "chase_letter_lead": "We performed the work at 13568 Bay Springs and issued invoice 0519-171829 for $261. This has been 62 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 13568 Bay Springs and issued invoice 0519-171829 for $261. This has been 62 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-18  Brandi Cook\n2026-05-19  QBO 0519-171829 $261\n2026-06-08  Jordan Beakley (released \u2014 not in scrape)\nToday  Open $261. 62 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 13568 Bay Springs and issued invoice 0519-171829 for $261. This has been 62 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-18  Called in  Brandi Cook asked at 13568 Bay Springs.\n2026-05-19  Invoiced  0519-171829 $261.\nToday  Open $261. 62 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 13568 Bay Springs \u00b7 0519-171829 \u00b7 62 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -689,14 +679,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00494 $522. Still fully open."
+        "what": "CTL-26-00494 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00494 $522. Still fully open."
+        "what": "CTL-26-00494 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00494 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -731,14 +721,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00605 $522. Still fully open."
+        "what": "CTL-26-00605 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00605 $522. Still fully open."
+        "what": "CTL-26-00605 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00605 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -979,14 +969,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00495 $522. Still fully open."
+        "what": "CTL-26-00495 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00495 $522. Still fully open."
+        "what": "CTL-26-00495 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00495 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -1020,14 +1010,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00496 $522. Still fully open."
+        "what": "CTL-26-00496 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00496 $522. Still fully open."
+        "what": "CTL-26-00496 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00496 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -1061,14 +1051,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00632 $783. Still fully open."
+        "what": "CTL-26-00632 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00632 $783. Still fully open."
+        "what": "CTL-26-00632 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00632 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -1102,14 +1092,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00633 $783. Still fully open."
+        "what": "CTL-26-00633 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00633 $783. Still fully open."
+        "what": "CTL-26-00633 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00633 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -1143,14 +1133,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00634 $522. Still fully open."
+        "what": "CTL-26-00634 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00634 $522. Still fully open."
+        "what": "CTL-26-00634 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00634 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -1185,14 +1175,14 @@ window.DATA = [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00587 $522. Still fully open."
+        "what": "CTL-26-00587 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00587 $522. Still fully open."
+        "what": "CTL-26-00587 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00587 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -1227,14 +1217,14 @@ window.DATA = [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00588 $522. Still fully open."
+        "what": "CTL-26-00588 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00588 $522. Still fully open."
+        "what": "CTL-26-00588 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00588 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -1269,7 +1259,7 @@ window.DATA = [
       {
         "when": "2026-07-08",
         "lab": "Invoiced",
-        "what": "0708-173788 $783. Still fully open."
+        "what": "0708-173788 $783."
       },
       {
         "when": "2026-07-14",
@@ -1284,7 +1274,7 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0708-173788 - 3 lifts - 783.00"
+        "what": "Maria Lerma entered 3 lifts $783."
       },
       {
         "when": "2026-08-06",
@@ -1302,7 +1292,7 @@ window.DATA = [
       {
         "when": "2026-07-08",
         "lab": "Invoiced",
-        "what": "0708-173788 $783. Still fully open."
+        "what": "0708-173788 $783."
       },
       {
         "when": "2026-07-14",
@@ -1317,7 +1307,7 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0708-173788 - 3 lifts - 783.00"
+        "what": "Maria Lerma entered 3 lifts $783."
       },
       {
         "when": "2026-08-06",
@@ -1334,7 +1324,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved under a 0708-173788 case folder. Report date is from the 2026-08-17 Graph mail research. Hyphen notes from the 2026-08-17 scrape (Received / builder Complete). No first-visit Ryan/Joe call-in found in that mail pass.",
     "chase_letter_lead": "Paul Davis marked PO 11651261-000 complete on 2026-08-06. Hyphen still has no payment. Invoice 0708-173788 is $783 at 19127 Torrione Dr. Please update that unpaid PO and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "Paul Davis marked PO 11651261-000 complete on 2026-08-06. Hyphen still has no payment. Invoice 0708-173788 is $783 at 19127 Torrione Dr. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-07-08  Invoiced  0708-173788 $783. Still fully open.\n2026-07-14  Inquiry  Paul Davis asked for Cypress Green reports including 19127 Torrione.\n2026-07-14  Report transmittal  Esme sent the 19127 Torrione reports.\n2026-08-06  Notes entered  Maria Lerma: 0708-173788 - 3 lifts - 783.00\n2026-08-06  Completed  Paul Davis marked PO 11651261-000 complete.\nToday  Open $783. 12 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Paul Davis marked PO 11651261-000 complete on 2026-08-06. Hyphen still has no payment. Invoice 0708-173788 is $783 at 19127 Torrione Dr. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-07-08  Invoiced  0708-173788 $783.\n2026-07-14  Inquiry  Paul Davis asked for Cypress Green reports including 19127 Torrione.\n2026-07-14  Report transmittal  Esme sent the 19127 Torrione reports.\n2026-08-06  Notes entered  Maria Lerma entered 3 lifts $783.\n2026-08-06  Completed  Paul Davis marked PO 11651261-000 complete.\nToday  Open $783. 12 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 19127 Torrione Dr \u00b7 0708-173788 \u00b7 12 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -1369,7 +1359,7 @@ window.DATA = [
       {
         "when": "2026-07-08",
         "lab": "Invoiced",
-        "what": "0708-173823 $783 first visit. Still fully open."
+        "what": "0708-173823 $783 first visit."
       },
       {
         "when": "2026-08-05",
@@ -1379,12 +1369,12 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0708-173823 - 3 lifts - 783.00"
+        "what": "Maria Lerma entered 3 lifts $783."
       },
       {
         "when": "2026-08-06",
         "lab": "Notes entered",
-        "what": "Lennar received: 0708-173823 - 3 lifts - 783.00"
+        "what": "Lennar received 3 lifts $783."
       },
       {
         "when": "2026-08-06",
@@ -1402,7 +1392,7 @@ window.DATA = [
       {
         "when": "2026-07-08",
         "lab": "Invoiced",
-        "what": "0708-173823 $783 first visit. Still fully open."
+        "what": "0708-173823 $783 first visit."
       },
       {
         "when": "2026-08-05",
@@ -1412,12 +1402,12 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0708-173823 - 3 lifts - 783.00"
+        "what": "Maria Lerma entered 3 lifts $783."
       },
       {
         "when": "2026-08-06",
         "lab": "Notes entered",
-        "what": "Lennar received: 0708-173823 - 3 lifts - 783.00"
+        "what": "Lennar received 3 lifts $783."
       },
       {
         "when": "2026-08-06",
@@ -1434,7 +1424,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved under a 0708-173823 case folder. Report date is from the 2026-08-17 Graph mail research (8/5 send). Hyphen notes from the 2026-08-17 scrape (Received / builder Complete). No first-visit Ryan/Joe call-in found. Sibling CTL-26-00437 is a different invoice.",
     "chase_letter_lead": "Hector Melchor marked PO 13749472-000 complete on 2026-08-06. Hyphen still has no payment. Invoice 0708-173823 is $783 at 19227 Torrione Dr. Please update that unpaid PO and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "Hector Melchor marked PO 13749472-000 complete on 2026-08-06. Hyphen still has no payment. Invoice 0708-173823 is $783 at 19227 Torrione Dr. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-07-08  Invoiced  0708-173823 $783 first visit. Still fully open.\n2026-08-05  Report transmittal  Maria sent 19227 and 19231 Torrione reports.\n2026-08-05  Notes entered  Maria Lerma: 0708-173823 - 3 lifts - 783.00\n2026-08-06  Notes entered  Lennar received: 0708-173823 - 3 lifts - 783.00\n2026-08-06  Completed  Hector Melchor marked PO 13749472-000 complete.\nToday  Open $783. 12 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Hector Melchor marked PO 13749472-000 complete on 2026-08-06. Hyphen still has no payment. Invoice 0708-173823 is $783 at 19227 Torrione Dr. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-07-08  Invoiced  0708-173823 $783 first visit.\n2026-08-05  Report transmittal  Maria sent 19227 and 19231 Torrione reports.\n2026-08-05  Notes entered  Maria Lerma entered 3 lifts $783.\n2026-08-06  Notes entered  Lennar received 3 lifts $783.\n2026-08-06  Completed  Hector Melchor marked PO 13749472-000 complete.\nToday  Open $783. 12 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 19227 Torrione Dr \u00b7 0708-173823 \u00b7 12 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -1469,7 +1459,7 @@ window.DATA = [
       {
         "when": "2026-07-08",
         "lab": "Invoiced",
-        "what": "0708-173826 $522 first visit. Still fully open."
+        "what": "0708-173826 $522 first visit."
       },
       {
         "when": "2026-08-05",
@@ -1479,12 +1469,12 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0708-173826 - 2 lifts - 522.00"
+        "what": "Maria Lerma entered 2 lifts $522."
       },
       {
         "when": "2026-08-06",
         "lab": "Notes entered",
-        "what": "Lennar received: 0708-173826 - 2 lifts - 522.00"
+        "what": "Lennar received 2 lifts $522."
       },
       {
         "when": "2026-08-06",
@@ -1507,7 +1497,7 @@ window.DATA = [
       {
         "when": "2026-07-08",
         "lab": "Invoiced",
-        "what": "0708-173826 $522 first visit. Still fully open."
+        "what": "0708-173826 $522 first visit."
       },
       {
         "when": "2026-08-05",
@@ -1517,12 +1507,12 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0708-173826 - 2 lifts - 522.00"
+        "what": "Maria Lerma entered 2 lifts $522."
       },
       {
         "when": "2026-08-06",
         "lab": "Notes entered",
-        "what": "Lennar received: 0708-173826 - 2 lifts - 522.00"
+        "what": "Lennar received 2 lifts $522."
       },
       {
         "when": "2026-08-06",
@@ -1544,7 +1534,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved under a 0708-173826 case folder. Report date is from the 2026-08-17 Graph mail research (8/5 send). Hyphen notes from the 2026-08-17 scrape (Received / builder Complete). No first-visit Ryan/Joe call-in found. Sibling CTL-26-00438 is a different invoice.",
     "chase_letter_lead": "Hector Melchor marked PO 13751425-000 complete on 2026-08-06. Hyphen still has no payment. Invoice 0708-173826 is $522 at 19231 Torrione Dr. Please update that unpaid PO and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "Hector Melchor marked PO 13751425-000 complete on 2026-08-06. Hyphen still has no payment. Invoice 0708-173826 is $522 at 19231 Torrione Dr. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-07-08  Invoiced  0708-173826 $522 first visit. Still fully open.\n2026-08-05  Report transmittal  Maria sent 19227 and 19231 Torrione reports.\n2026-08-05  Notes entered  Maria Lerma: 0708-173826 - 2 lifts - 522.00\n2026-08-06  Notes entered  Lennar received: 0708-173826 - 2 lifts - 522.00\n2026-08-06  Completed  Hector Melchor marked PO 13751425-000 complete.\n2026-08-14  Inquiry  Maria asked Hector Melchor for a PO on the 2nd request at 19231.\nToday  Open $522. 12 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Hector Melchor marked PO 13751425-000 complete on 2026-08-06. Hyphen still has no payment. Invoice 0708-173826 is $522 at 19231 Torrione Dr. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-07-08  Invoiced  0708-173826 $522 first visit.\n2026-08-05  Report transmittal  Maria sent 19227 and 19231 Torrione reports.\n2026-08-05  Notes entered  Maria Lerma entered 2 lifts $522.\n2026-08-06  Notes entered  Lennar received 2 lifts $522.\n2026-08-06  Completed  Hector Melchor marked PO 13751425-000 complete.\n2026-08-14  Inquiry  Maria asked Hector Melchor for a PO on the 2nd request at 19231.\nToday  Open $522. 12 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 19231 Torrione Dr \u00b7 0708-173826 \u00b7 12 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -1579,14 +1569,14 @@ window.DATA = [
       {
         "when": "2026-08-03",
         "lab": "Invoiced",
-        "what": "CTL-26-00157 $783. Still fully open."
+        "what": "CTL-26-00157 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-03",
         "lab": "Invoiced",
-        "what": "CTL-26-00157 $783. Still fully open."
+        "what": "CTL-26-00157 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00157 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -1620,25 +1610,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Hector Melchor"
+        "lab": "Called in",
+        "what": "Hector Melchor asked at 19227 Torrione."
       },
       {
         "when": "2026-08-05",
-        "lab": "",
-        "what": "QBO CTL-26-00437 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00437 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Hector Melchor"
+        "lab": "Called in",
+        "what": "Hector Melchor asked at 19227 Torrione."
       },
       {
         "when": "2026-08-05",
-        "lab": "",
-        "what": "QBO CTL-26-00437 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00437 $783."
       }
     ],
     "workup_attachments_note": "Graph: Hector 8/3 Cypress Green list names 19227 Torrione 3 lifts; Maria 8/5 report; Billings 8/5 invoice CTL-26-00437. Hector 7/8 list is 19131, not 19227. No request .eml on disk."
@@ -1672,25 +1662,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Hector Melchor"
+        "lab": "Called in",
+        "what": "Hector Melchor asked at 19231 Torrione."
       },
       {
         "when": "2026-08-05",
-        "lab": "",
-        "what": "QBO CTL-26-00438 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00438 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Hector Melchor"
+        "lab": "Called in",
+        "what": "Hector Melchor asked at 19231 Torrione."
       },
       {
         "when": "2026-08-05",
-        "lab": "",
-        "what": "QBO CTL-26-00438 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00438 $522."
       }
     ],
     "workup_attachments_note": "Graph: Hector 8/3 Cypress Green list names 19231 Torrione 2 lifts; Maria 8/5 report; Billings 8/5 invoice CTL-26-00438. No request .eml on disk."
@@ -1725,14 +1715,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00457 $783. Still fully open."
+        "what": "CTL-26-00457 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00457 $783. Still fully open."
+        "what": "CTL-26-00457 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00457 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -1767,14 +1757,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00458 $783. Still fully open."
+        "what": "CTL-26-00458 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00458 $783. Still fully open."
+        "what": "CTL-26-00458 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00458 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -1809,14 +1799,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00425 $783. Still fully open."
+        "what": "CTL-26-00425 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00425 $783. Still fully open."
+        "what": "CTL-26-00425 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00425 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -1851,14 +1841,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00493 $522. Still fully open."
+        "what": "CTL-26-00493 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00493 $522. Still fully open."
+        "what": "CTL-26-00493 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00493 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -1893,14 +1883,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00502 $783. Still fully open."
+        "what": "CTL-26-00502 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00502 $783. Still fully open."
+        "what": "CTL-26-00502 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00502 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -1935,14 +1925,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00543 $783. Still fully open."
+        "what": "CTL-26-00543 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00543 $783. Still fully open."
+        "what": "CTL-26-00543 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00543 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -1977,14 +1967,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00559 $783. Still fully open."
+        "what": "CTL-26-00559 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00559 $783. Still fully open."
+        "what": "CTL-26-00559 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00559 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -2018,25 +2008,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-06",
-        "lab": "",
-        "what": "Matt Cleary"
+        "lab": "Called in",
+        "what": "Matt Cleary asked at 19219 Saint Green Dr."
       },
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "QBO CTL-26-00560 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00560 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
-        "lab": "",
-        "what": "Matt Cleary"
+        "lab": "Called in",
+        "what": "Matt Cleary asked at 19219 Saint Green Dr."
       },
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "QBO CTL-26-00560 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00560 $783."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-06 Matt Cleary Compaction Test: Cypress Green. No request .eml on disk."
@@ -2070,18 +2060,18 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-06-13",
-        "lab": "",
-        "what": "ryan_kkdirt@yahoo.com"
+        "lab": "Called in",
+        "what": "ryan_kkdirt@yahoo.com asked at 19054 Style."
       },
       {
         "when": "2026-06-19",
-        "lab": "",
-        "what": "QBO 0619-172720 $783"
+        "lab": "Invoiced",
+        "what": "0619-172720 $783."
       },
       {
         "when": "2026-07-27",
-        "lab": "",
-        "what": "Lennar check 1319014 neighbor 19058 0619-172723 $783"
+        "lab": "Paid",
+        "what": "Check 1319014 $783."
       },
       {
         "when": "Today",
@@ -2093,18 +2083,18 @@ window.DATA = [
     "chase_timeline": [
       {
         "when": "2026-06-13",
-        "lab": "",
-        "what": "ryan_kkdirt@yahoo.com"
+        "lab": "Called in",
+        "what": "ryan_kkdirt@yahoo.com asked at 19054 Style."
       },
       {
         "when": "2026-06-19",
-        "lab": "",
-        "what": "QBO 0619-172720 $783"
+        "lab": "Invoiced",
+        "what": "0619-172720 $783."
       },
       {
         "when": "2026-07-27",
-        "lab": "",
-        "what": "Lennar check 1319014 neighbor 19058 0619-172723 $783"
+        "lab": "Paid",
+        "what": "Check 1319014 $783."
       },
       {
         "when": "Today",
@@ -2116,7 +2106,7 @@ window.DATA = [
     "workup_attachments_note": "Graph: ryan_kkdirt 2026-06-13 19054 and 19058 style. Montana 6/30 PO-released note is on the Barrichello/19058 report thread, not a 19054 Hyphen row. No ask file on disk.",
     "chase_letter_lead": "We performed the work at 19054 Style and issued invoice 0619-172720 for $783. This has been 31 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 19054 Style and issued invoice 0619-172720 for $783. This has been 31 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-13  ryan_kkdirt@yahoo.com\n2026-06-19  QBO 0619-172720 $783\n2026-07-27  Lennar check 1319014 neighbor 19058 0619-172723 $783\nToday  Open $783. 31 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 19054 Style and issued invoice 0619-172720 for $783. This has been 31 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-13  Called in  ryan_kkdirt@yahoo.com asked at 19054 Style.\n2026-06-19  Invoiced  0619-172720 $783.\n2026-07-27  Paid  Check 1319014 $783.\nToday  Open $783. 31 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 19054 Style \u00b7 0619-172720 \u00b7 31 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -2151,12 +2141,12 @@ window.DATA = [
       {
         "when": "2026-07-02",
         "lab": "Called in",
-        "what": "Ryan Potter asked for 3 lifts at 19046 Style (with 19050/19051/19055)."
+        "what": "Ryan Potter asked for 3 lifts at 19046 Style (with 19050/19051/19055)"
       },
       {
         "when": "2026-07-06",
         "lab": "Invoiced",
-        "what": "0706-173582 $783. Still fully open."
+        "what": "0706-173582 $783."
       },
       {
         "when": "2026-07-29",
@@ -2171,7 +2161,7 @@ window.DATA = [
       {
         "when": "2026-08-14",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0706-173582 - 3 lifts - 783.00"
+        "what": "Maria Lerma entered 3 lifts $783."
       },
       {
         "when": "2026-08-14",
@@ -2189,12 +2179,12 @@ window.DATA = [
       {
         "when": "2026-07-02",
         "lab": "Called in",
-        "what": "Ryan Potter asked for 3 lifts at 19046 Style (with 19050/19051/19055)."
+        "what": "Ryan Potter asked for 3 lifts at 19046 Style (with 19050/19051/19055)"
       },
       {
         "when": "2026-07-06",
         "lab": "Invoiced",
-        "what": "0706-173582 $783. Still fully open."
+        "what": "0706-173582 $783."
       },
       {
         "when": "2026-07-29",
@@ -2209,7 +2199,7 @@ window.DATA = [
       {
         "when": "2026-08-14",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0706-173582 - 3 lifts - 783.00"
+        "what": "Maria Lerma entered 3 lifts $783."
       },
       {
         "when": "2026-08-14",
@@ -2226,7 +2216,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved under a 0706-173582 case folder. Call-in and report dates are from the 2026-08-17 Graph mail research. Hyphen notes from the 2026-08-17 scrape (Received / builder Complete).",
     "chase_letter_lead": "Benjamin Jimenez marked PO 11994589-000 complete on 2026-08-14. Hyphen still has no payment. Invoice 0706-173582 is $783 at 19046 Style. Please update that unpaid PO and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "Benjamin Jimenez marked PO 11994589-000 complete on 2026-08-14. Hyphen still has no payment. Invoice 0706-173582 is $783 at 19046 Style. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-07-02  Called in  Ryan Potter asked for 3 lifts at 19046 Style (with 19050/19051/19055).\n2026-07-06  Invoiced  0706-173582 $783. Still fully open.\n2026-07-29  Inquiry  Ben Jimenez asked for 19046/19051 results.\n2026-07-29  Report transmittal  Maria sent the 19046 Style report.\n2026-08-14  Notes entered  Maria Lerma: 0706-173582 - 3 lifts - 783.00\n2026-08-14  Completed  Benjamin Jimenez marked PO 11994589-000 complete.\nToday  Open $783. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Benjamin Jimenez marked PO 11994589-000 complete on 2026-08-14. Hyphen still has no payment. Invoice 0706-173582 is $783 at 19046 Style. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-07-02  Called in  Ryan Potter asked for 3 lifts at 19046 Style (with 19050/19051/19055)\n2026-07-06  Invoiced  0706-173582 $783.\n2026-07-29  Inquiry  Ben Jimenez asked for 19046/19051 results.\n2026-07-29  Report transmittal  Maria sent the 19046 Style report.\n2026-08-14  Notes entered  Maria Lerma entered 3 lifts $783.\n2026-08-14  Completed  Benjamin Jimenez marked PO 11994589-000 complete.\nToday  Open $783. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 19046 Style \u00b7 0706-173582 \u00b7 14 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -2261,14 +2251,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00591 $522. Still fully open."
+        "what": "CTL-26-00591 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00591 $522. Still fully open."
+        "what": "CTL-26-00591 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00591 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -2303,14 +2293,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00592 $522. Still fully open."
+        "what": "CTL-26-00592 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00592 $522. Still fully open."
+        "what": "CTL-26-00592 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00592 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -2345,14 +2335,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00594 $522. Still fully open."
+        "what": "CTL-26-00594 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00594 $522. Still fully open."
+        "what": "CTL-26-00594 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00594 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -2386,35 +2376,35 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-07",
-        "lab": "",
-        "what": "Ryan Potter"
+        "lab": "Called in",
+        "what": "Ryan Potter asked."
       },
       {
         "when": "2026-08-11",
-        "lab": "",
-        "what": "Ben Jimenez"
+        "lab": "Called in",
+        "what": "Ben Jimenez asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00593 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00593 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
-        "lab": "",
-        "what": "Ryan Potter"
+        "lab": "Called in",
+        "what": "Ryan Potter asked."
       },
       {
         "when": "2026-08-11",
-        "lab": "",
-        "what": "Ben Jimenez"
+        "lab": "Called in",
+        "what": "Ben Jimenez asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00593 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00593 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-07 Ryan Potter For Lennar in the enclave at spring branch; 2026-08-11 Ben Jimenez 2 compaction tests. No request .eml on disk."
@@ -2449,14 +2439,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00505 $1,044. Still fully open."
+        "what": "CTL-26-00505 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00505 $1,044. Still fully open."
+        "what": "CTL-26-00505 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00505 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -2491,14 +2481,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00506 $1,044. Still fully open."
+        "what": "CTL-26-00506 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00506 $1,044. Still fully open."
+        "what": "CTL-26-00506 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00506 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -2533,14 +2523,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00507 $1,044. Still fully open."
+        "what": "CTL-26-00507 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00507 $1,044. Still fully open."
+        "what": "CTL-26-00507 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00507 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -2575,14 +2565,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00508 $1,044. Still fully open."
+        "what": "CTL-26-00508 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00508 $1,044. Still fully open."
+        "what": "CTL-26-00508 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00508 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -2617,14 +2607,14 @@ window.DATA = [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00595 $1,044. Still fully open."
+        "what": "CTL-26-00595 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00595 $1,044. Still fully open."
+        "what": "CTL-26-00595 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00595 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -2659,14 +2649,14 @@ window.DATA = [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00596 $1,044. Still fully open."
+        "what": "CTL-26-00596 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00596 $1,044. Still fully open."
+        "what": "CTL-26-00596 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00596 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -2701,14 +2691,14 @@ window.DATA = [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00597 $1,044. Still fully open."
+        "what": "CTL-26-00597 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00597 $1,044. Still fully open."
+        "what": "CTL-26-00597 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00597 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -2743,14 +2733,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00598 $1,044. Still fully open."
+        "what": "CTL-26-00598 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00598 $1,044. Still fully open."
+        "what": "CTL-26-00598 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00598 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -2785,14 +2775,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00599 $1,044. Still fully open."
+        "what": "CTL-26-00599 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00599 $1,044. Still fully open."
+        "what": "CTL-26-00599 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00599 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -2831,7 +2821,7 @@ window.DATA = [
       {
         "when": "2026-05-06",
         "lab": "Invoiced",
-        "what": "0506-171310 $522. Rodney Shewell asked Ryan for results."
+        "what": "0506-171310 $522."
       },
       {
         "when": "2026-05-07",
@@ -2864,7 +2854,7 @@ window.DATA = [
       {
         "when": "2026-05-06",
         "lab": "Invoiced",
-        "what": "0506-171310 $522. Rodney Shewell asked Ryan for results."
+        "what": "0506-171310 $522."
       },
       {
         "when": "2026-05-07",
@@ -2889,7 +2879,7 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "On disk under cases/0506-171310: John Helms 5/1 call-in, Rodney 5/6 and 5/7 inquiries, Jocelyne 5/7 report send plus two-lift PDF. Invoice send not found. Hyphen notes not found in the 17-order scrape or prior dumps.",
-    "chase_letter": "We tested and reported two compaction lifts at 1220 Charlotte Way. Invoice 0506-171310 billed $522. Lennar paid check 1255333 $261 on 5/18/2026 on PO 90007977-000, which covers one lift. The paid PO is exhausted. $261 remains open for the second lift. Please issue an EPO for the remaining unpaid lift.\n\nTimeline of Events\n\n2026-05-01  Called in  John Helms asked Esme for a compaction test at 1220 Charlotte Way.\n2026-05-06  Invoiced  0506-171310 $522. Rodney Shewell asked Ryan for results.\n2026-05-07  Inquiry  Rodney Shewell asked Jocelyne again for results.\n2026-05-07  Report transmittal  Jocelyne sent Rodney the 1220 Charlotte Way report. The PDF shows two lifts.\n2026-05-18  Paid  Lennar check 1255333 $261 on PO 90007977-000.\nToday  Open $261. 75 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We tested and reported two compaction lifts at 1220 Charlotte Way. Invoice 0506-171310 billed $522. Lennar paid check 1255333 $261 on 5/18/2026 on PO 90007977-000, which covers one lift. The paid PO is exhausted. $261 remains open for the second lift. Please issue an EPO for the remaining unpaid lift.\n\nTimeline of Events\n\n2026-05-01  Called in  John Helms asked Esme for a compaction test at 1220 Charlotte Way.\n2026-05-06  Invoiced  0506-171310 $522.\n2026-05-07  Inquiry  Rodney Shewell asked Jocelyne again for results.\n2026-05-07  Report transmittal  Jocelyne sent Rodney the 1220 Charlotte Way report. The PDF shows two lifts.\n2026-05-18  Paid  Lennar check 1255333 $261 on PO 90007977-000.\nToday  Open $261. 75 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_letter_lead": "We tested and reported two compaction lifts at 1220 Charlotte Way. Invoice 0506-171310 billed $522. Lennar paid check 1255333 $261 on 5/18/2026 on PO 90007977-000, which covers one lift. The paid PO is exhausted. $261 remains open for the second lift. Please issue an EPO for the remaining unpaid lift.",
     "chase_letter_paras": [],
     "chase_subject": "EPO needed \u00b7 1220 Charlotte Way \u00b7 0506-171310 \u00b7 75 days past due",
@@ -2998,25 +2988,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-07-29",
-        "lab": "",
-        "what": "Cesar Tijerina"
+        "lab": "Called in",
+        "what": "Cesar Tijerina asked at 172 Cotton Cove."
       },
       {
         "when": "2026-07-31",
-        "lab": "",
-        "what": "QBO CTL-26-00330-R2 $872"
+        "lab": "Invoiced",
+        "what": "CTL-26-00330-R2 $872."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-29",
-        "lab": "",
-        "what": "Cesar Tijerina"
+        "lab": "Called in",
+        "what": "Cesar Tijerina asked at 172 Cotton Cove."
       },
       {
         "when": "2026-07-31",
-        "lab": "",
-        "what": "QBO CTL-26-00330-R2 $872"
+        "lab": "Invoiced",
+        "what": "CTL-26-00330-R2 $872."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-07-29 Cesar Tijerina Compaction tests Grand Lake Snook. No request .eml on disk."
@@ -3051,14 +3041,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00423 $522. Still fully open."
+        "what": "CTL-26-00423 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00423 $522. Still fully open."
+        "what": "CTL-26-00423 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00423 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -3093,14 +3083,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00589 $522. Still fully open."
+        "what": "CTL-26-00589 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00589 $522. Still fully open."
+        "what": "CTL-26-00589 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00589 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -3135,14 +3125,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00590 $522. Still fully open."
+        "what": "CTL-26-00590 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00590 $522. Still fully open."
+        "what": "CTL-26-00590 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00590 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -3176,23 +3166,23 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-07-01",
-        "lab": "",
-        "what": "Anthony Lamas"
+        "lab": "Called in",
+        "what": "Anthony Lamas asked at 27221 Hazel Grove."
       },
       {
         "when": "2026-07-09",
-        "lab": "",
-        "what": "Anthony Lamas"
+        "lab": "Called in",
+        "what": "Anthony Lamas asked at 27221 Hazel Grove."
       },
       {
         "when": "2026-07-13",
-        "lab": "",
-        "what": "QBO dry run 0707-173694 $250"
+        "lab": "Invoiced",
+        "what": "0707-173694 $250."
       },
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Lennar check 1325381 later compaction 0710-173908 $522"
+        "lab": "Paid",
+        "what": "Check 1325381 $522."
       },
       {
         "when": "Today",
@@ -3204,23 +3194,23 @@ window.DATA = [
     "chase_timeline": [
       {
         "when": "2026-07-01",
-        "lab": "",
-        "what": "Anthony Lamas"
+        "lab": "Called in",
+        "what": "Anthony Lamas asked at 27221 Hazel Grove."
       },
       {
         "when": "2026-07-09",
-        "lab": "",
-        "what": "Anthony Lamas"
+        "lab": "Called in",
+        "what": "Anthony Lamas asked at 27221 Hazel Grove."
       },
       {
         "when": "2026-07-13",
-        "lab": "",
-        "what": "QBO dry run 0707-173694 $250"
+        "lab": "Invoiced",
+        "what": "0707-173694 $250."
       },
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Lennar check 1325381 later compaction 0710-173908 $522"
+        "lab": "Paid",
+        "what": "Check 1325381 $522."
       },
       {
         "when": "Today",
@@ -3232,7 +3222,7 @@ window.DATA = [
     "workup_attachments_note": "Graph: Anthony 2026-07-01 and 2026-07-09 schedule emails (no attachments). Maria 7/14/7/20 dry-run / report thread. No .eml on disk.",
     "chase_letter_lead": "We performed the work at 27221 Hazel Grove and issued invoice 0707-173694 for $250. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 27221 Hazel Grove and issued invoice 0707-173694 for $250. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-01  Anthony Lamas\n2026-07-09  Anthony Lamas\n2026-07-13  QBO dry run 0707-173694 $250\n2026-08-03  Lennar check 1325381 later compaction 0710-173908 $522\nToday  Open $250. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 27221 Hazel Grove and issued invoice 0707-173694 for $250. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-01  Called in  Anthony Lamas asked at 27221 Hazel Grove.\n2026-07-09  Called in  Anthony Lamas asked at 27221 Hazel Grove.\n2026-07-13  Invoiced  0707-173694 $250.\n2026-08-03  Paid  Check 1325381 $522.\nToday  Open $250. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 27221 Hazel Grove \u00b7 0707-173694 \u00b7 7 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -3266,14 +3256,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00467 $522. Still fully open."
+        "what": "CTL-26-00467 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00467 $522. Still fully open."
+        "what": "CTL-26-00467 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00467 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -3307,14 +3297,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00552 $522. Still fully open."
+        "what": "CTL-26-00552 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00552 $522. Still fully open."
+        "what": "CTL-26-00552 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00552 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -3347,25 +3337,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "Jared Davis"
+        "lab": "Called in",
+        "what": "Jared Davis asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00637 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00637 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "Jared Davis"
+        "lab": "Called in",
+        "what": "Jared Davis asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00637 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00637 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-12 Jared Davis 629 Old Mining Ln - need 2 lift test. No request .eml on disk."
@@ -3399,14 +3389,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00618 $522. Still fully open."
+        "what": "CTL-26-00618 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00618 $522. Still fully open."
+        "what": "CTL-26-00618 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00618 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -3440,14 +3430,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00619 $522. Still fully open."
+        "what": "CTL-26-00619 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00619 $522. Still fully open."
+        "what": "CTL-26-00619 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00619 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -3481,14 +3471,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00620 $522. Still fully open."
+        "what": "CTL-26-00620 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00620 $522. Still fully open."
+        "what": "CTL-26-00620 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00620 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -3522,14 +3512,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00473 $783. Still fully open."
+        "what": "CTL-26-00473 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00473 $783. Still fully open."
+        "what": "CTL-26-00473 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00473 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -3563,14 +3553,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00474 $1,133. Still fully open."
+        "what": "CTL-26-00474 $1,133."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00474 $1,133. Still fully open."
+        "what": "CTL-26-00474 $1,133."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00474 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -3605,14 +3595,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00460 $522. Still fully open."
+        "what": "CTL-26-00460 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00460 $522. Still fully open."
+        "what": "CTL-26-00460 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00460 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -3647,14 +3637,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00159 $522. Still fully open."
+        "what": "CTL-26-00159 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00159 $522. Still fully open."
+        "what": "CTL-26-00159 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00159 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -3689,14 +3679,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00459 $522. Still fully open."
+        "what": "CTL-26-00459 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00459 $522. Still fully open."
+        "what": "CTL-26-00459 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00459 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -3736,22 +3726,22 @@ window.DATA = [
       {
         "when": "2026-04-30",
         "lab": "Invoiced",
-        "what": "0430-171079 $261 first visit. Still fully open."
+        "what": "0430-171079 $261 first visit."
       },
       {
         "when": "2026-05-04",
         "lab": "Inquiry",
-        "what": "Ryan told Brandi 11946/11942/11935 did not pass. Brandi asked for a retest that night."
+        "what": "Brandi asked for a retest."
       },
       {
         "when": "2026-05-06",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0430-171079 1 lift 261.00"
+        "what": "Maria Lerma entered 1 lift $261."
       },
       {
         "when": "2026-05-06",
         "lab": "Notes entered",
-        "what": "Lennar received: Waiting for additional lifts to be added to notes for reinspection. First one failed."
+        "what": "Lennar asked for additional lift notes after the first failed."
       },
       {
         "when": "2026-05-08",
@@ -3766,7 +3756,7 @@ window.DATA = [
       {
         "when": "2026-05-14",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0505-171249 261.00 1 lift - Retest"
+        "what": "Maria Lerma entered 1 lift $261 retest."
       },
       {
         "when": "Today",
@@ -3784,22 +3774,22 @@ window.DATA = [
       {
         "when": "2026-04-30",
         "lab": "Invoiced",
-        "what": "0430-171079 $261 first visit. Still fully open."
+        "what": "0430-171079 $261 first visit."
       },
       {
         "when": "2026-05-04",
         "lab": "Inquiry",
-        "what": "Ryan told Brandi 11946/11942/11935 did not pass. Brandi asked for a retest that night."
+        "what": "Brandi asked for a retest."
       },
       {
         "when": "2026-05-06",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0430-171079 1 lift 261.00"
+        "what": "Maria Lerma entered 1 lift $261."
       },
       {
         "when": "2026-05-06",
         "lab": "Notes entered",
-        "what": "Lennar received: Waiting for additional lifts to be added to notes for reinspection. First one failed."
+        "what": "Lennar asked for additional lift notes after the first failed."
       },
       {
         "when": "2026-05-08",
@@ -3814,7 +3804,7 @@ window.DATA = [
       {
         "when": "2026-05-14",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0505-171249 261.00 1 lift - Retest"
+        "what": "Maria Lerma entered 1 lift $261 retest."
       },
       {
         "when": "Today",
@@ -3826,7 +3816,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing call-in or report .eml saved under a 0430-171079 case folder. Call-in and report dates are from the 2026-08-17 Graph mail research. Hyphen notes from the 2026-08-17 scrape (Received / builder Complete). Sibling 0505-171249 is a different invoice.",
     "chase_letter_lead": "Jacob Chavana marked PO 84113642-000 complete on 2026-05-13. Hyphen still has no payment. Invoice 0430-171079 is $261 at 11946 Noble Wood. Please update that unpaid PO and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "Jacob Chavana marked PO 84113642-000 complete on 2026-05-13. Hyphen still has no payment. Invoice 0430-171079 is $261 at 11946 Noble Wood. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-04-29  Called in  Brandi Cook asked Ryan and Joe for one lift at 11946 Noble Wood.\n2026-04-30  Invoiced  0430-171079 $261 first visit. Still fully open.\n2026-05-04  Inquiry  Ryan told Brandi 11946/11942/11935 did not pass. Brandi asked for a retest that night.\n2026-05-06  Notes entered  Maria Lerma: 0430-171079 1 lift 261.00\n2026-05-06  Notes entered  Lennar received: Waiting for additional lifts to be added to notes for reinspection. First one failed.\n2026-05-08  Report transmittal  Esme sent the Moore Landing 11946 report.\n2026-05-13  Completed  Jacob Chavana marked PO 84113642-000 complete.\n2026-05-14  Notes entered  Maria Lerma: 0505-171249 261.00 1 lift - Retest\nToday  Open $261. 81 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Jacob Chavana marked PO 84113642-000 complete on 2026-05-13. Hyphen still has no payment. Invoice 0430-171079 is $261 at 11946 Noble Wood. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-04-29  Called in  Brandi Cook asked Ryan and Joe for one lift at 11946 Noble Wood.\n2026-04-30  Invoiced  0430-171079 $261 first visit.\n2026-05-04  Inquiry  Brandi asked for a retest.\n2026-05-06  Notes entered  Maria Lerma entered 1 lift $261.\n2026-05-06  Notes entered  Lennar asked for additional lift notes after the first failed.\n2026-05-08  Report transmittal  Esme sent the Moore Landing 11946 report.\n2026-05-13  Completed  Jacob Chavana marked PO 84113642-000 complete.\n2026-05-14  Notes entered  Maria Lerma entered 1 lift $261 retest.\nToday  Open $261. 81 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 11946 Noble Wood \u00b7 0430-171079 \u00b7 81 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -3970,45 +3960,45 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-04-29",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 11946 Noble Wood."
       },
       {
         "when": "2026-05-04",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 11946 Noble Wood."
       },
       {
         "when": "2026-05-05",
-        "lab": "",
-        "what": "QBO 0505-171249 $261"
+        "lab": "Invoiced",
+        "what": "0505-171249 $261."
       },
       {
         "when": "2026-04-30",
-        "lab": "",
-        "what": "QBO first visit still open 0430-171079 $261"
+        "lab": "Invoiced",
+        "what": "0430-171079 $261."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-04-29",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 11946 Noble Wood."
       },
       {
         "when": "2026-05-04",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 11946 Noble Wood."
       },
       {
         "when": "2026-05-05",
-        "lab": "",
-        "what": "QBO 0505-171249 $261"
+        "lab": "Invoiced",
+        "what": "0505-171249 $261."
       },
       {
         "when": "2026-04-30",
-        "lab": "",
-        "what": "QBO first visit still open 0430-171079 $261"
+        "lab": "Invoiced",
+        "what": "0430-171079 $261."
       }
     ],
     "workup_attachments_note": "Graph: Brandi 2026-04-29 'pads' to ryan/joe (11946/11942/11935 1 lift); Brandi 2026-05-04 20:54 CT 'ready to be retested'; Ryan fail 5/4 and retest-pass 5/5. Esme report sends 5/5 and 5/8. No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
@@ -4046,55 +4036,55 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-04-29",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 11942 Noble Wood."
       },
       {
         "when": "2026-04-30",
-        "lab": "",
-        "what": "QBO first visit 0430-171078 $261"
+        "lab": "Invoiced",
+        "what": "0430-171078 $261."
       },
       {
         "when": "2026-05-04",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 11942 Noble Wood."
       },
       {
         "when": "2026-05-05",
-        "lab": "",
-        "what": "QBO 0505-171250 $261"
+        "lab": "Invoiced",
+        "what": "0505-171250 $261."
       },
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "Lennar check 1255333 0430-171078 $261"
+        "lab": "Paid",
+        "what": "Check 1255333 $261."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-04-29",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 11942 Noble Wood."
       },
       {
         "when": "2026-04-30",
-        "lab": "",
-        "what": "QBO first visit 0430-171078 $261"
+        "lab": "Invoiced",
+        "what": "0430-171078 $261."
       },
       {
         "when": "2026-05-04",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 11942 Noble Wood."
       },
       {
         "when": "2026-05-05",
-        "lab": "",
-        "what": "QBO 0505-171250 $261"
+        "lab": "Invoiced",
+        "what": "0505-171250 $261."
       },
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "Lennar check 1255333 0430-171078 $261"
+        "lab": "Paid",
+        "what": "Check 1255333 $261."
       }
     ],
     "workup_attachments_note": "Graph: same Brandi 4/29 + 5/4 retest thread as 11946. Cole Jenkins asked for reports 5/3 and 5/8 (not a PO). No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
@@ -4132,55 +4122,55 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-04-29",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 11935 Noble Wood."
       },
       {
         "when": "2026-05-04",
-        "lab": "",
-        "what": "QBO first visit 0430-171077 $871"
+        "lab": "Invoiced",
+        "what": "0430-171077 $871."
       },
       {
         "when": "2026-05-04",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 11935 Noble Wood."
       },
       {
         "when": "2026-05-05",
-        "lab": "",
-        "what": "QBO 0505-171251 $261"
+        "lab": "Invoiced",
+        "what": "0505-171251 $261."
       },
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "Lennar check 1255333 0430-171077 $522"
+        "lab": "Paid",
+        "what": "Check 1255333 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-04-29",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 11935 Noble Wood."
       },
       {
         "when": "2026-05-04",
-        "lab": "",
-        "what": "QBO first visit 0430-171077 $871"
+        "lab": "Invoiced",
+        "what": "0430-171077 $871."
       },
       {
         "when": "2026-05-04",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 11935 Noble Wood."
       },
       {
         "when": "2026-05-05",
-        "lab": "",
-        "what": "QBO 0505-171251 $261"
+        "lab": "Invoiced",
+        "what": "0505-171251 $261."
       },
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "Lennar check 1255333 0430-171077 $522"
+        "lab": "Paid",
+        "what": "Check 1255333 $522."
       }
     ],
     "workup_attachments_note": "Graph: same Brandi 4/29 + 5/4 thread. Cole asked 5/3 and 5/8. No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
@@ -4224,7 +4214,7 @@ window.DATA = [
       {
         "when": "2026-06-23",
         "lab": "Invoiced",
-        "what": "0623-173021 $783. Still fully open."
+        "what": "0623-173021 $783."
       },
       {
         "when": "2026-06-29",
@@ -4234,7 +4224,7 @@ window.DATA = [
       {
         "when": "2026-06-30",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0623-173021 783.00 3 lifts"
+        "what": "Maria Lerma entered 3 lifts $783."
       },
       {
         "when": "2026-06-30",
@@ -4257,7 +4247,7 @@ window.DATA = [
       {
         "when": "2026-06-23",
         "lab": "Invoiced",
-        "what": "0623-173021 $783. Still fully open."
+        "what": "0623-173021 $783."
       },
       {
         "when": "2026-06-29",
@@ -4267,7 +4257,7 @@ window.DATA = [
       {
         "when": "2026-06-30",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0623-173021 783.00 3 lifts"
+        "what": "Maria Lerma entered 3 lifts $783."
       },
       {
         "when": "2026-06-30",
@@ -4284,7 +4274,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved under a 0623-173021 case folder. Call-in and report dates are from the 2026-08-17 Graph mail research. Hyphen notes from the 2026-08-17 scrape (Received / builder Complete).",
     "chase_letter_lead": "Jacob Chavana marked PO 99883199-000 complete on 2026-06-30. Hyphen still has no payment. Invoice 0623-173021 is $783 at 11926 Noble Wood. Please update that unpaid PO and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "Jacob Chavana marked PO 99883199-000 complete on 2026-06-30. Hyphen still has no payment. Invoice 0623-173021 is $783 at 11926 Noble Wood. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-06-20  Called in  Brandi Cook asked Ryan and Joe for 3 lifts at 11926 Noble Wood.\n2026-06-23  Invoiced  0623-173021 $783. Still fully open.\n2026-06-29  Report transmittal  Esme sent 11926 and 11922 Noble Wood reports. Jacob Chavana thanked.\n2026-06-30  Notes entered  Maria Lerma: 0623-173021 783.00 3 lifts\n2026-06-30  Completed  Jacob Chavana marked PO 99883199-000 complete.\nToday  Open $783. 27 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Jacob Chavana marked PO 99883199-000 complete on 2026-06-30. Hyphen still has no payment. Invoice 0623-173021 is $783 at 11926 Noble Wood. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-06-20  Called in  Brandi Cook asked Ryan and Joe for 3 lifts at 11926 Noble Wood.\n2026-06-23  Invoiced  0623-173021 $783.\n2026-06-29  Report transmittal  Esme sent 11926 and 11922 Noble Wood reports. Jacob Chavana thanked.\n2026-06-30  Notes entered  Maria Lerma entered 3 lifts $783.\n2026-06-30  Completed  Jacob Chavana marked PO 99883199-000 complete.\nToday  Open $783. 27 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 11926 Noble Wood \u00b7 0623-173021 \u00b7 27 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -4319,14 +4309,14 @@ window.DATA = [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00336 $522. Still fully open."
+        "what": "CTL-26-00336 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00336 $522. Still fully open."
+        "what": "CTL-26-00336 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00336 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -4361,14 +4351,14 @@ window.DATA = [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00337 $522. Still fully open."
+        "what": "CTL-26-00337 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00337 $522. Still fully open."
+        "what": "CTL-26-00337 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00337 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -4403,14 +4393,14 @@ window.DATA = [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00338 $261. Still fully open."
+        "what": "CTL-26-00338 $261."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00338 $261. Still fully open."
+        "what": "CTL-26-00338 $261."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00338 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -4445,14 +4435,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00470 $522. Still fully open."
+        "what": "CTL-26-00470 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00470 $522. Still fully open."
+        "what": "CTL-26-00470 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00470 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -4487,14 +4477,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00471 $522. Still fully open."
+        "what": "CTL-26-00471 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00471 $522. Still fully open."
+        "what": "CTL-26-00471 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00471 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -4528,25 +4518,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00639 $261"
+        "lab": "Invoiced",
+        "what": "CTL-26-00639 $261."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00639 $261"
+        "lab": "Invoiced",
+        "what": "CTL-26-00639 $261."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-12 Brandi Cook pads. No request .eml on disk."
@@ -4580,25 +4570,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00640 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00640 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00640 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00640 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-12 Brandi Cook pads. No request .eml on disk."
@@ -4633,14 +4623,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00424 $522. Still fully open."
+        "what": "CTL-26-00424 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00424 $522. Still fully open."
+        "what": "CTL-26-00424 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00424 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -4675,14 +4665,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00518 $522. Still fully open."
+        "what": "CTL-26-00518 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00518 $522. Still fully open."
+        "what": "CTL-26-00518 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00518 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -4717,14 +4707,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00475 $522. Still fully open."
+        "what": "CTL-26-00475 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00475 $522. Still fully open."
+        "what": "CTL-26-00475 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00475 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -4759,14 +4749,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00476 $522. Still fully open."
+        "what": "CTL-26-00476 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00476 $522. Still fully open."
+        "what": "CTL-26-00476 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00476 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -4801,14 +4791,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00477 $522. Still fully open."
+        "what": "CTL-26-00477 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00477 $522. Still fully open."
+        "what": "CTL-26-00477 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00477 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -4843,14 +4833,14 @@ window.DATA = [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00582 $522. Still fully open."
+        "what": "CTL-26-00582 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00582 $522. Still fully open."
+        "what": "CTL-26-00582 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00582 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -4885,14 +4875,14 @@ window.DATA = [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00583 $522. Still fully open."
+        "what": "CTL-26-00583 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00583 $522. Still fully open."
+        "what": "CTL-26-00583 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00583 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -4926,35 +4916,35 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-06",
-        "lab": "",
-        "what": "Klayton Trice"
+        "lab": "Called in",
+        "what": "Klayton Trice asked at 2713 Taggart."
       },
       {
         "when": "2026-08-07",
-        "lab": "",
-        "what": "Klayton Trice"
+        "lab": "Called in",
+        "what": "Klayton Trice asked at 2713 Taggart."
       },
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "QBO CTL-26-00575 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00575 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
-        "lab": "",
-        "what": "Klayton Trice"
+        "lab": "Called in",
+        "what": "Klayton Trice asked at 2713 Taggart."
       },
       {
         "when": "2026-08-07",
-        "lab": "",
-        "what": "Klayton Trice"
+        "lab": "Called in",
+        "what": "Klayton Trice asked at 2713 Taggart."
       },
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "QBO CTL-26-00575 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00575 $522."
       }
     ],
     "workup_attachments_note": "Graph: Klayton 8/6 2713/2715/2737 Chippewa; 8/7 2713 Taggart then No Chippewa; 8/18 report should be Chippewa. Billings 8/5 invoiced sibling CTL-26-00475. No request .eml on disk."
@@ -4988,55 +4978,55 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-04-28",
-        "lab": "",
-        "what": "Jason Wagner"
+        "lab": "Called in",
+        "what": "Jason Wagner asked at 4228 Centennial Ridge."
       },
       {
         "when": "2026-04-29",
-        "lab": "",
-        "what": "QBO first visit 0429-171027 $522"
+        "lab": "Invoiced",
+        "what": "0429-171027 $522."
       },
       {
         "when": "2026-05-04",
-        "lab": "",
-        "what": "Jason Wagner"
+        "lab": "Called in",
+        "what": "Jason Wagner asked at 4228 Centennial Ridge."
       },
       {
         "when": "2026-05-04",
-        "lab": "",
-        "what": "QBO 0504-171210 $522"
+        "lab": "Invoiced",
+        "what": "0504-171210 $522."
       },
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "Lennar check 1255333 0429-171027 $522"
+        "lab": "Paid",
+        "what": "Check 1255333 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-04-28",
-        "lab": "",
-        "what": "Jason Wagner"
+        "lab": "Called in",
+        "what": "Jason Wagner asked at 4228 Centennial Ridge."
       },
       {
         "when": "2026-04-29",
-        "lab": "",
-        "what": "QBO first visit 0429-171027 $522"
+        "lab": "Invoiced",
+        "what": "0429-171027 $522."
       },
       {
         "when": "2026-05-04",
-        "lab": "",
-        "what": "Jason Wagner"
+        "lab": "Called in",
+        "what": "Jason Wagner asked at 4228 Centennial Ridge."
       },
       {
         "when": "2026-05-04",
-        "lab": "",
-        "what": "QBO 0504-171210 $522"
+        "lab": "Invoiced",
+        "what": "0504-171210 $522."
       },
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "Lennar check 1255333 0429-171027 $522"
+        "lab": "Paid",
+        "what": "Check 1255333 $522."
       }
     ],
     "workup_attachments_note": "Graph: Jason 2026-04-28 Compaction Tests; Jason 2026-05-04 Compaction Tests; Ryan Added / Got it. Esme 5/29 asked Jason for additional-testing PO (CTL ask, not a client ask file). No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
@@ -5074,65 +5064,65 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-04-28",
-        "lab": "",
-        "what": "Jason Wagner"
+        "lab": "Called in",
+        "what": "Jason Wagner asked at 4304 Centennial Ridge."
       },
       {
         "when": "2026-04-29",
-        "lab": "",
-        "what": "QBO first visit 0429-171029 $522"
+        "lab": "Invoiced",
+        "what": "0429-171029 $522."
       },
       {
         "when": "2026-05-04",
-        "lab": "",
-        "what": "Jason Wagner"
+        "lab": "Called in",
+        "what": "Jason Wagner asked at 4304 Centennial Ridge."
       },
       {
         "when": "2026-05-11",
-        "lab": "",
-        "what": "QBO 0504-171213 $522"
+        "lab": "Invoiced",
+        "what": "0504-171213 $522."
       },
       {
         "when": "2026-05-14",
-        "lab": "",
-        "what": "William Knox / Jason Wagner"
+        "lab": "Called in",
+        "what": "Jason Wagner asked at 4304 Centennial Ridge."
       },
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "Lennar check 1255333 0429-171029 $522"
+        "lab": "Paid",
+        "what": "Check 1255333 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-04-28",
-        "lab": "",
-        "what": "Jason Wagner"
+        "lab": "Called in",
+        "what": "Jason Wagner asked at 4304 Centennial Ridge."
       },
       {
         "when": "2026-04-29",
-        "lab": "",
-        "what": "QBO first visit 0429-171029 $522"
+        "lab": "Invoiced",
+        "what": "0429-171029 $522."
       },
       {
         "when": "2026-05-04",
-        "lab": "",
-        "what": "Jason Wagner"
+        "lab": "Called in",
+        "what": "Jason Wagner asked at 4304 Centennial Ridge."
       },
       {
         "when": "2026-05-11",
-        "lab": "",
-        "what": "QBO 0504-171213 $522"
+        "lab": "Invoiced",
+        "what": "0504-171213 $522."
       },
       {
         "when": "2026-05-14",
-        "lab": "",
-        "what": "William Knox / Jason Wagner"
+        "lab": "Called in",
+        "what": "Jason Wagner asked at 4304 Centennial Ridge."
       },
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "Lennar check 1255333 0429-171029 $522"
+        "lab": "Paid",
+        "what": "Check 1255333 $522."
       }
     ],
     "workup_attachments_note": "Graph: same two Jason Compaction Tests emails; William 2026-05-14 13:58 CT 2nd-call letter then 13:19 CT disregard; Jason 13:20 CT '10/4 thank you!'. No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
@@ -5170,55 +5160,55 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-06-29",
-        "lab": "",
-        "what": "Derek Stauffer"
+        "lab": "Called in",
+        "what": "Derek Stauffer asked at 2623 Enchanted Maple."
       },
       {
         "when": "2026-07-06",
-        "lab": "",
-        "what": "QBO first visit 0706-173512 $522"
+        "lab": "Invoiced",
+        "what": "0706-173512 $522."
       },
       {
         "when": "2026-07-08",
-        "lab": "",
-        "what": "Jason Wagner"
+        "lab": "Called in",
+        "what": "Jason Wagner asked at 2623 Enchanted Maple."
       },
       {
         "when": "2026-07-13",
-        "lab": "",
-        "what": "QBO 0708-173802 $522"
+        "lab": "Invoiced",
+        "what": "0708-173802 $522."
       },
       {
         "when": "2026-07-27",
-        "lab": "",
-        "what": "Lennar check 1319014 0706-173512 $522"
+        "lab": "Paid",
+        "what": "Check 1319014 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-06-29",
-        "lab": "",
-        "what": "Derek Stauffer"
+        "lab": "Called in",
+        "what": "Derek Stauffer asked at 2623 Enchanted Maple."
       },
       {
         "when": "2026-07-06",
-        "lab": "",
-        "what": "QBO first visit 0706-173512 $522"
+        "lab": "Invoiced",
+        "what": "0706-173512 $522."
       },
       {
         "when": "2026-07-08",
-        "lab": "",
-        "what": "Jason Wagner"
+        "lab": "Called in",
+        "what": "Jason Wagner asked at 2623 Enchanted Maple."
       },
       {
         "when": "2026-07-13",
-        "lab": "",
-        "what": "QBO 0708-173802 $522"
+        "lab": "Invoiced",
+        "what": "0708-173802 $522."
       },
       {
         "when": "2026-07-27",
-        "lab": "",
-        "what": "Lennar check 1319014 0706-173512 $522"
+        "lab": "Paid",
+        "what": "Check 1319014 $522."
       }
     ],
     "workup_attachments_note": "Graph: Derek 2026-06-29 '2623 enchanted maple and 4016 mossy oak'; Jason 2026-07-08 Compaction Test (2623 Enchanted Maple Dr - Derek). Derek 7/27 is a status/report ask, not a third visit file. No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
@@ -5257,14 +5247,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00504 $522. Still fully open."
+        "what": "CTL-26-00504 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00504 $522. Still fully open."
+        "what": "CTL-26-00504 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00504 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -5299,14 +5289,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00524 $522. Still fully open."
+        "what": "CTL-26-00524 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00524 $522. Still fully open."
+        "what": "CTL-26-00524 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00524 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -5341,14 +5331,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00230 $522. Still fully open."
+        "what": "CTL-26-00230 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00230 $522. Still fully open."
+        "what": "CTL-26-00230 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00230 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -5383,14 +5373,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00612 $522. Still fully open."
+        "what": "CTL-26-00612 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00612 $522. Still fully open."
+        "what": "CTL-26-00612 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00612 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -5425,14 +5415,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00601 $522. Still fully open."
+        "what": "CTL-26-00601 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00601 $522. Still fully open."
+        "what": "CTL-26-00601 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00601 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -5466,17 +5456,17 @@ window.DATA = [
       {
         "when": "2026-06-09",
         "lab": "Called in",
-        "what": "Bikram asked Ryan and Joe for 205 Cassius Blue (2 front / 4 back)."
+        "what": "Bikram asked Ryan and Joe for 205 Cassius Blue (2 front / 4 back)"
       },
       {
         "when": "2026-06-10",
         "lab": "Invoiced",
-        "what": "0610-172435 $1,044. Still fully open."
+        "what": "0610-172435 $1,044."
       },
       {
         "when": "2026-06-18",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0610-172435 1044.00 4 lifts"
+        "what": "Maria Lerma entered 4 lifts $1,044."
       },
       {
         "when": "2026-06-19",
@@ -5499,17 +5489,17 @@ window.DATA = [
       {
         "when": "2026-06-09",
         "lab": "Called in",
-        "what": "Bikram asked Ryan and Joe for 205 Cassius Blue (2 front / 4 back)."
+        "what": "Bikram asked Ryan and Joe for 205 Cassius Blue (2 front / 4 back)"
       },
       {
         "when": "2026-06-10",
         "lab": "Invoiced",
-        "what": "0610-172435 $1,044. Still fully open."
+        "what": "0610-172435 $1,044."
       },
       {
         "when": "2026-06-18",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0610-172435 1044.00 4 lifts"
+        "what": "Maria Lerma entered 4 lifts $1,044."
       },
       {
         "when": "2026-06-19",
@@ -5531,7 +5521,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved under a 0610-172435 case folder. Call-in and report dates are from the 2026-08-17 Graph mail research. Hyphen notes from the 2026-08-17 scrape (Received / builder not complete).",
     "chase_letter_lead": "Please complete this order in Hyphen so payment can be issued. Invoice 0610-172435 is $1,044 at 205 Cassius Blue on PO 2363401-000. Bikram asked Ryan and Joe for 205 Cassius Blue (2 front / 4 back). The report went: Maria sent Reserve at Huntsville reports including 205. This has been 40 days past due.",
     "chase_letter_paras": [],
-    "chase_letter": "Please complete this order in Hyphen so payment can be issued. Invoice 0610-172435 is $1,044 at 205 Cassius Blue on PO 2363401-000. Bikram asked Ryan and Joe for 205 Cassius Blue (2 front / 4 back). The report went: Maria sent Reserve at Huntsville reports including 205. This has been 40 days past due.\n\nTimeline of Events\n\n2026-06-09  Called in  Bikram asked Ryan and Joe for 205 Cassius Blue (2 front / 4 back).\n2026-06-10  Invoiced  0610-172435 $1,044. Still fully open.\n2026-06-18  Notes entered  Maria Lerma: 0610-172435 1044.00 4 lifts\n2026-06-19  Inquiry  Aaron Lewis asked for 205/207/209/212 Cassius Blue reports.\n2026-06-19  Report transmittal  Maria sent Reserve at Huntsville reports including 205.\nToday  Open $1,044. 40 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Please complete this order in Hyphen so payment can be issued. Invoice 0610-172435 is $1,044 at 205 Cassius Blue on PO 2363401-000. Bikram asked Ryan and Joe for 205 Cassius Blue (2 front / 4 back). The report went: Maria sent Reserve at Huntsville reports including 205. This has been 40 days past due.\n\nTimeline of Events\n\n2026-06-09  Called in  Bikram asked Ryan and Joe for 205 Cassius Blue (2 front / 4 back)\n2026-06-10  Invoiced  0610-172435 $1,044.\n2026-06-18  Notes entered  Maria Lerma entered 4 lifts $1,044.\n2026-06-19  Inquiry  Aaron Lewis asked for 205/207/209/212 Cassius Blue reports.\n2026-06-19  Report transmittal  Maria sent Reserve at Huntsville reports including 205.\nToday  Open $1,044. 40 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 205 Cassius Blue \u00b7 0610-172435 \u00b7 40 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -5565,12 +5555,12 @@ window.DATA = [
       {
         "when": "2026-07-11",
         "lab": "Called in",
-        "what": "Ryan Potter asked for 202 and 204 Cassius Blue (2 back / 3 front)."
+        "what": "Ryan Potter asked for 202 and 204 Cassius Blue (2 back / 3 front)"
       },
       {
         "when": "2026-07-13",
         "lab": "Invoiced",
-        "what": "0713-174021 $783. Still fully open."
+        "what": "0713-174021 $783."
       },
       {
         "when": "2026-07-20",
@@ -5585,7 +5575,7 @@ window.DATA = [
       {
         "when": "2026-07-22",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0713-174021 - 3 lifts - 783.00"
+        "what": "Maria Lerma entered 3 lifts $783."
       },
       {
         "when": "Today",
@@ -5598,12 +5588,12 @@ window.DATA = [
       {
         "when": "2026-07-11",
         "lab": "Called in",
-        "what": "Ryan Potter asked for 202 and 204 Cassius Blue (2 back / 3 front)."
+        "what": "Ryan Potter asked for 202 and 204 Cassius Blue (2 back / 3 front)"
       },
       {
         "when": "2026-07-13",
         "lab": "Invoiced",
-        "what": "0713-174021 $783. Still fully open."
+        "what": "0713-174021 $783."
       },
       {
         "when": "2026-07-20",
@@ -5618,7 +5608,7 @@ window.DATA = [
       {
         "when": "2026-07-22",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0713-174021 - 3 lifts - 783.00"
+        "what": "Maria Lerma entered 3 lifts $783."
       },
       {
         "when": "Today",
@@ -5630,7 +5620,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved under a 0713-174021 case folder. Call-in and report dates are from the 2026-08-17 Graph mail research. Hyphen notes from the 2026-08-17 scrape (Received / builder not complete).",
     "chase_letter_lead": "Please complete this order in Hyphen so payment can be issued. Invoice 0713-174021 is $783 at 202 Cassius Blue on PO 8123483-000. Ryan Potter asked for 202 and 204 Cassius Blue (2 back / 3 front). The report went: Maria sent the 202 Cassius Blue report. This has been 7 days past due.",
     "chase_letter_paras": [],
-    "chase_letter": "Please complete this order in Hyphen so payment can be issued. Invoice 0713-174021 is $783 at 202 Cassius Blue on PO 8123483-000. Ryan Potter asked for 202 and 204 Cassius Blue (2 back / 3 front). The report went: Maria sent the 202 Cassius Blue report. This has been 7 days past due.\n\nTimeline of Events\n\n2026-07-11  Called in  Ryan Potter asked for 202 and 204 Cassius Blue (2 back / 3 front).\n2026-07-13  Invoiced  0713-174021 $783. Still fully open.\n2026-07-20  Report transmittal  Maria sent the 202 Cassius Blue report.\n2026-07-21  Report transmittal  Maria resent the 202 Cassius Blue report after Aaron asked again.\n2026-07-22  Notes entered  Maria Lerma: 0713-174021 - 3 lifts - 783.00\nToday  Open $783. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Please complete this order in Hyphen so payment can be issued. Invoice 0713-174021 is $783 at 202 Cassius Blue on PO 8123483-000. Ryan Potter asked for 202 and 204 Cassius Blue (2 back / 3 front). The report went: Maria sent the 202 Cassius Blue report. This has been 7 days past due.\n\nTimeline of Events\n\n2026-07-11  Called in  Ryan Potter asked for 202 and 204 Cassius Blue (2 back / 3 front)\n2026-07-13  Invoiced  0713-174021 $783.\n2026-07-20  Report transmittal  Maria sent the 202 Cassius Blue report.\n2026-07-21  Report transmittal  Maria resent the 202 Cassius Blue report after Aaron asked again.\n2026-07-22  Notes entered  Maria Lerma entered 3 lifts $783.\nToday  Open $783. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 202 Cassius Blue \u00b7 0713-174021 \u00b7 7 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -5664,14 +5654,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00447 $783. Still fully open."
+        "what": "CTL-26-00447 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00447 $783. Still fully open."
+        "what": "CTL-26-00447 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00447 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -5705,14 +5695,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00448 $783. Still fully open."
+        "what": "CTL-26-00448 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00448 $783. Still fully open."
+        "what": "CTL-26-00448 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00448 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -5747,14 +5737,14 @@ window.DATA = [
       {
         "when": "2026-07-27",
         "lab": "Invoiced",
-        "what": "CTL-26-00161 $1,044. Still fully open."
+        "what": "CTL-26-00161 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-27",
         "lab": "Invoiced",
-        "what": "CTL-26-00161 $1,044. Still fully open."
+        "what": "CTL-26-00161 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00161 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -5789,14 +5779,14 @@ window.DATA = [
       {
         "when": "2026-07-27",
         "lab": "Invoiced",
-        "what": "CTL-26-00162 $1,044. Still fully open."
+        "what": "CTL-26-00162 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-27",
         "lab": "Invoiced",
-        "what": "CTL-26-00162 $1,044. Still fully open."
+        "what": "CTL-26-00162 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00162 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -5831,14 +5821,14 @@ window.DATA = [
       {
         "when": "2026-08-04",
         "lab": "Invoiced",
-        "what": "CTL-26-00428 $1,044. Still fully open."
+        "what": "CTL-26-00428 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-04",
         "lab": "Invoiced",
-        "what": "CTL-26-00428 $1,044. Still fully open."
+        "what": "CTL-26-00428 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00428 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -5873,14 +5863,14 @@ window.DATA = [
       {
         "when": "2026-08-04",
         "lab": "Invoiced",
-        "what": "CTL-26-00429 $1,044. Still fully open."
+        "what": "CTL-26-00429 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-04",
         "lab": "Invoiced",
-        "what": "CTL-26-00429 $1,044. Still fully open."
+        "what": "CTL-26-00429 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00429 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -5915,14 +5905,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00498 $1,044. Still fully open."
+        "what": "CTL-26-00498 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00498 $1,044. Still fully open."
+        "what": "CTL-26-00498 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00498 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -5957,14 +5947,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00499 $1,044. Still fully open."
+        "what": "CTL-26-00499 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00499 $1,044. Still fully open."
+        "what": "CTL-26-00499 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00499 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -5999,14 +5989,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00500 $1,044. Still fully open."
+        "what": "CTL-26-00500 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00500 $1,044. Still fully open."
+        "what": "CTL-26-00500 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00500 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -6041,14 +6031,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00501 $1,044. Still fully open."
+        "what": "CTL-26-00501 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00501 $1,044. Still fully open."
+        "what": "CTL-26-00501 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00501 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -6083,14 +6073,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00489 $522. Still fully open."
+        "what": "CTL-26-00489 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00489 $522. Still fully open."
+        "what": "CTL-26-00489 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00489 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -6297,45 +6287,45 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-05-17",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 2116 Hidden Hills."
       },
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "QBO first visit 0518-171750 $522"
+        "lab": "Invoiced",
+        "what": "0518-171750 $522."
       },
       {
         "when": "2026-05-26",
-        "lab": "",
-        "what": "QBO 0526-171916 $522"
+        "lab": "Invoiced",
+        "what": "0526-171916 $522."
       },
       {
         "when": "2026-06-08",
-        "lab": "",
-        "what": "Lennar check 1274186 0518-171750 $522"
+        "lab": "Paid",
+        "what": "Check 1274186 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-05-17",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 2116 Hidden Hills."
       },
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "QBO first visit 0518-171750 $522"
+        "lab": "Invoiced",
+        "what": "0518-171750 $522."
       },
       {
         "when": "2026-05-26",
-        "lab": "",
-        "what": "QBO 0526-171916 $522"
+        "lab": "Invoiced",
+        "what": "0526-171916 $522."
       },
       {
         "when": "2026-06-08",
-        "lab": "",
-        "what": "Lennar check 1274186 0518-171750 $522"
+        "lab": "Paid",
+        "what": "Check 1274186 $522."
       }
     ],
     "workup_attachments_note": "Graph: Brandi 5/17 Pads (first ask). Brandi 5/22 status check, not a retest ask. Kenny 5/26 status. Drew 6/2 report/PO quantity thread. No second client schedule .eml. No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
@@ -6377,45 +6367,45 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-05-17",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 2120 Hidden Hills."
       },
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "QBO first visit 0518-171759 $522"
+        "lab": "Invoiced",
+        "what": "0518-171759 $522."
       },
       {
         "when": "2026-05-26",
-        "lab": "",
-        "what": "QBO 0526-171918 $522"
+        "lab": "Invoiced",
+        "what": "0526-171918 $522."
       },
       {
         "when": "2026-06-08",
-        "lab": "",
-        "what": "Lennar check 1274186 0518-171759 $522"
+        "lab": "Paid",
+        "what": "Check 1274186 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-05-17",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 2120 Hidden Hills."
       },
       {
         "when": "2026-05-18",
-        "lab": "",
-        "what": "QBO first visit 0518-171759 $522"
+        "lab": "Invoiced",
+        "what": "0518-171759 $522."
       },
       {
         "when": "2026-05-26",
-        "lab": "",
-        "what": "QBO 0526-171918 $522"
+        "lab": "Invoiced",
+        "what": "0526-171918 $522."
       },
       {
         "when": "2026-06-08",
-        "lab": "",
-        "what": "Lennar check 1274186 0518-171759 $522"
+        "lab": "Paid",
+        "what": "Check 1274186 $522."
       }
     ],
     "workup_attachments_note": "Graph: Brandi 5/17 first ask covers 2120. No Friday client retest ask. No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
@@ -6457,35 +6447,35 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-06-10",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 2096 Hidden Hills."
       },
       {
         "when": "2026-07-20",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 2096 Hidden Hills."
       },
       {
         "when": "2026-07-23",
-        "lab": "",
-        "what": "QBO CTL-26-00085 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00085 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-06-10",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 2096 Hidden Hills."
       },
       {
         "when": "2026-07-20",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked at 2096 Hidden Hills."
       },
       {
         "when": "2026-07-23",
-        "lab": "",
-        "what": "QBO CTL-26-00085 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00085 $783."
       }
     ],
     "workup_attachments_note": "Graph: Brandi 6/10 pads (2 lifts) and Brandi 7/20 Pads (3 lifts) to ryan/joe. Drew 8/4\u20138/14 replied on the first-visit PO request (already paid / poured). No request .eml on disk."
@@ -6519,14 +6509,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00533 $783. Still fully open."
+        "what": "CTL-26-00533 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00533 $783. Still fully open."
+        "what": "CTL-26-00533 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00533 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -6560,14 +6550,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00539 $522. Still fully open."
+        "what": "CTL-26-00539 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00539 $522. Still fully open."
+        "what": "CTL-26-00539 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00539 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -6601,14 +6591,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00540 $783. Still fully open."
+        "what": "CTL-26-00540 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00540 $783. Still fully open."
+        "what": "CTL-26-00540 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00540 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -6642,14 +6632,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00532 $783. Still fully open."
+        "what": "CTL-26-00532 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00532 $783. Still fully open."
+        "what": "CTL-26-00532 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00532 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -6683,14 +6673,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00604 $522. Still fully open."
+        "what": "CTL-26-00604 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00604 $522. Still fully open."
+        "what": "CTL-26-00604 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00604 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -6724,14 +6714,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00461 $522. Still fully open."
+        "what": "CTL-26-00461 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00461 $522. Still fully open."
+        "what": "CTL-26-00461 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00461 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -6765,14 +6755,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00462 $522. Still fully open."
+        "what": "CTL-26-00462 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00462 $522. Still fully open."
+        "what": "CTL-26-00462 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00462 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -6806,14 +6796,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00468 $522. Still fully open."
+        "what": "CTL-26-00468 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00468 $522. Still fully open."
+        "what": "CTL-26-00468 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00468 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -6847,14 +6837,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00469 $522. Still fully open."
+        "what": "CTL-26-00469 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00469 $522. Still fully open."
+        "what": "CTL-26-00469 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00469 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -6888,14 +6878,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00484 $522. Still fully open."
+        "what": "CTL-26-00484 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00484 $522. Still fully open."
+        "what": "CTL-26-00484 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00484 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -6955,14 +6945,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00521 $522. Still fully open."
+        "what": "CTL-26-00521 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00521 $522. Still fully open."
+        "what": "CTL-26-00521 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00521 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -6995,25 +6985,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-04",
-        "lab": "",
-        "what": "Ismael Adame"
+        "lab": "Called in",
+        "what": "Ismael Adame asked at 6152 Gunn Ridge."
       },
       {
         "when": "2026-08-10",
-        "lab": "",
-        "what": "QBO CTL-26-00482-R2 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00482-R2 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-04",
-        "lab": "",
-        "what": "Ismael Adame"
+        "lab": "Called in",
+        "what": "Ismael Adame asked at 6152 Gunn Ridge."
       },
       {
         "when": "2026-08-10",
-        "lab": "",
-        "what": "QBO CTL-26-00482-R2 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00482-R2 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-04 Ismael Adame Southern Pointe. No request .eml on disk."
@@ -7046,25 +7036,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-04",
-        "lab": "",
-        "what": "Ismael Adame"
+        "lab": "Called in",
+        "what": "Ismael Adame asked at 6144 Gunn Ridge."
       },
       {
         "when": "2026-08-10",
-        "lab": "",
-        "what": "QBO CTL-26-00483-R2 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00483-R2 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-04",
-        "lab": "",
-        "what": "Ismael Adame"
+        "lab": "Called in",
+        "what": "Ismael Adame asked at 6144 Gunn Ridge."
       },
       {
         "when": "2026-08-10",
-        "lab": "",
-        "what": "QBO CTL-26-00483-R2 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00483-R2 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-04 Ismael Adame Southern Pointe. No request .eml on disk."
@@ -7098,14 +7088,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00517 $522. Still fully open."
+        "what": "CTL-26-00517 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00517 $522. Still fully open."
+        "what": "CTL-26-00517 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00517 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -7139,14 +7129,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00522 $522. Still fully open."
+        "what": "CTL-26-00522 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00522 $522. Still fully open."
+        "what": "CTL-26-00522 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00522 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -7180,14 +7170,14 @@ window.DATA = [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00580 $522. Still fully open."
+        "what": "CTL-26-00580 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00580 $522. Still fully open."
+        "what": "CTL-26-00580 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00580 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -7221,14 +7211,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00626 $522. Still fully open."
+        "what": "CTL-26-00626 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00626 $522. Still fully open."
+        "what": "CTL-26-00626 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00626 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -7684,18 +7674,13 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-06-09",
-        "lab": "",
-        "what": "Bikram / ryan potter icloud"
+        "lab": "Called in",
+        "what": "Bikram / Ryan Potter asked at 18580 Barrichello."
       },
       {
         "when": "2026-06-10",
-        "lab": "",
-        "what": "QBO 0610-172476 $783"
-      },
-      {
-        "when": "2026-06-30",
-        "lab": "",
-        "what": "Montana Grove (said PO released \u2014 not in scrape)"
+        "lab": "Invoiced",
+        "what": "0610-172476 $783."
       },
       {
         "when": "Today",
@@ -7707,18 +7692,13 @@ window.DATA = [
     "chase_timeline": [
       {
         "when": "2026-06-09",
-        "lab": "",
-        "what": "Bikram / ryan potter icloud"
+        "lab": "Called in",
+        "what": "Bikram / Ryan Potter asked at 18580 Barrichello."
       },
       {
         "when": "2026-06-10",
-        "lab": "",
-        "what": "QBO 0610-172476 $783"
-      },
-      {
-        "when": "2026-06-30",
-        "lab": "",
-        "what": "Montana Grove (said PO released \u2014 not in scrape)"
+        "lab": "Invoiced",
+        "what": "0610-172476 $783."
       },
       {
         "when": "Today",
@@ -7730,7 +7710,7 @@ window.DATA = [
     "workup_attachments_note": "Graph: Bikram 2026-06-09 Multiple addresses spring branch crossing. Montana 6/30 hasAttachments=true on a report thread, not a schedule-ask file for this invoice. No ask .eml on disk.",
     "chase_letter_lead": "We performed the work at 18580 Barrichello and issued invoice 0610-172476 for $783. This has been 40 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 18580 Barrichello and issued invoice 0610-172476 for $783. This has been 40 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-09  Bikram / ryan potter icloud\n2026-06-10  QBO 0610-172476 $783\n2026-06-30  Montana Grove (said PO released \u2014 not in scrape)\nToday  Open $783. 40 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 18580 Barrichello and issued invoice 0610-172476 for $783. This has been 40 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-09  Called in  Bikram / Ryan Potter asked at 18580 Barrichello.\n2026-06-10  Invoiced  0610-172476 $783.\nToday  Open $783. 40 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 18580 Barrichello \u00b7 0610-172476 \u00b7 40 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -7764,13 +7744,13 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-07-02",
-        "lab": "",
-        "what": "ryan_kkdirt@yahoo.com"
+        "lab": "Called in",
+        "what": "ryan_kkdirt@yahoo.com asked at 15868 Barrichello."
       },
       {
         "when": "2026-07-06",
-        "lab": "",
-        "what": "QBO 0706-173580 $522"
+        "lab": "Invoiced",
+        "what": "0706-173580 $522."
       },
       {
         "when": "Today",
@@ -7782,13 +7762,13 @@ window.DATA = [
     "chase_timeline": [
       {
         "when": "2026-07-02",
-        "lab": "",
-        "what": "ryan_kkdirt@yahoo.com"
+        "lab": "Called in",
+        "what": "ryan_kkdirt@yahoo.com asked at 15868 Barrichello."
       },
       {
         "when": "2026-07-06",
-        "lab": "",
-        "what": "QBO 0706-173580 $522"
+        "lab": "Invoiced",
+        "what": "0706-173580 $522."
       },
       {
         "when": "Today",
@@ -7800,7 +7780,7 @@ window.DATA = [
     "workup_attachments_note": "Graph: ryan_kkdirt 2026-07-02 15868 barrichello to ryan/joe. Veronica 7/15 missing-PO blast (community list). No ask file on disk.",
     "chase_letter_lead": "We performed the work at 15868 Barrichello and issued invoice 0706-173580 for $522. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 15868 Barrichello and issued invoice 0706-173580 for $522. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-02  ryan_kkdirt@yahoo.com\n2026-07-06  QBO 0706-173580 $522\nToday  Open $522. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 15868 Barrichello and issued invoice 0706-173580 for $522. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-02  Called in  ryan_kkdirt@yahoo.com asked at 15868 Barrichello.\n2026-07-06  Invoiced  0706-173580 $522.\nToday  Open $522. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 15868 Barrichello \u00b7 0706-173580 \u00b7 14 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -7840,17 +7820,17 @@ window.DATA = [
       {
         "when": "2026-06-23",
         "lab": "Invoiced",
-        "what": "0623-173040 $522. Still fully open."
+        "what": "0623-173040 $522."
       },
       {
         "when": "2026-06-24",
         "lab": "Inquiry",
-        "what": "Erastus asked for an ETA; Joe said after lunch."
+        "what": "Erastus asked for an ETA."
       },
       {
         "when": "2026-06-30",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0623-173040 522.00 2 lifts"
+        "what": "Maria Lerma entered 2 lifts $522."
       },
       {
         "when": "2026-07-01",
@@ -7860,17 +7840,17 @@ window.DATA = [
       {
         "when": "2026-07-23",
         "lab": "Notes entered",
-        "what": "Lennar received: I need notes to pay testing please."
+        "what": "Lennar asked for vendor notes."
       },
       {
         "when": "2026-07-29",
         "lab": "Notes entered",
-        "what": "Lennar received: Waiting on vendor notes."
+        "what": "Lennar asked for vendor notes."
       },
       {
         "when": "2026-08-07",
         "lab": "Notes entered",
-        "what": "Lennar received: Please send vendor notes to complete payment"
+        "what": "Lennar asked for vendor notes."
       },
       {
         "when": "2026-08-10",
@@ -7893,17 +7873,17 @@ window.DATA = [
       {
         "when": "2026-06-23",
         "lab": "Invoiced",
-        "what": "0623-173040 $522. Still fully open."
+        "what": "0623-173040 $522."
       },
       {
         "when": "2026-06-24",
         "lab": "Inquiry",
-        "what": "Erastus asked for an ETA; Joe said after lunch."
+        "what": "Erastus asked for an ETA."
       },
       {
         "when": "2026-06-30",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0623-173040 522.00 2 lifts"
+        "what": "Maria Lerma entered 2 lifts $522."
       },
       {
         "when": "2026-07-01",
@@ -7913,17 +7893,17 @@ window.DATA = [
       {
         "when": "2026-07-23",
         "lab": "Notes entered",
-        "what": "Lennar received: I need notes to pay testing please."
+        "what": "Lennar asked for vendor notes."
       },
       {
         "when": "2026-07-29",
         "lab": "Notes entered",
-        "what": "Lennar received: Waiting on vendor notes."
+        "what": "Lennar asked for vendor notes."
       },
       {
         "when": "2026-08-07",
         "lab": "Notes entered",
-        "what": "Lennar received: Please send vendor notes to complete payment"
+        "what": "Lennar asked for vendor notes."
       },
       {
         "when": "2026-08-10",
@@ -7940,7 +7920,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved under a 0623-173040 case folder. Call-in and report dates are from the 2026-08-17 Graph mail research. Hyphen notes from the 2026-08-17 scrape (Received / builder Complete).",
     "chase_letter_lead": "Erastus Togba marked PO 2076410-000 complete on 2026-08-10. Hyphen still has no payment. Invoice 0623-173040 is $522 at 8203 Rustic Pine Trail. Please update that unpaid PO and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "Erastus Togba marked PO 2076410-000 complete on 2026-08-10. Hyphen still has no payment. Invoice 0623-173040 is $522 at 8203 Rustic Pine Trail. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-06-22  Called in  Erastus Togba asked Joe to schedule Still Creek Ranch pads including Rustic Pine.\n2026-06-23  Invoiced  0623-173040 $522. Still fully open.\n2026-06-24  Inquiry  Erastus asked for an ETA; Joe said after lunch.\n2026-06-30  Notes entered  Maria Lerma: 0623-173040 522.00 2 lifts\n2026-07-01  Report transmittal  Esme sent 8203/8207/8211/8215 Rustic Pine reports.\n2026-07-23  Notes entered  Lennar received: I need notes to pay testing please.\n2026-07-29  Notes entered  Lennar received: Waiting on vendor notes.\n2026-08-07  Notes entered  Lennar received: Please send vendor notes to complete payment\n2026-08-10  Completed  Erastus Togba marked PO 2076410-000 complete.\nToday  Open $522. 27 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Erastus Togba marked PO 2076410-000 complete on 2026-08-10. Hyphen still has no payment. Invoice 0623-173040 is $522 at 8203 Rustic Pine Trail. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-06-22  Called in  Erastus Togba asked Joe to schedule Still Creek Ranch pads including Rustic Pine.\n2026-06-23  Invoiced  0623-173040 $522.\n2026-06-24  Inquiry  Erastus asked for an ETA.\n2026-06-30  Notes entered  Maria Lerma entered 2 lifts $522.\n2026-07-01  Report transmittal  Esme sent 8203/8207/8211/8215 Rustic Pine reports.\n2026-07-23  Notes entered  Lennar asked for vendor notes.\n2026-07-29  Notes entered  Lennar asked for vendor notes.\n2026-08-07  Notes entered  Lennar asked for vendor notes.\n2026-08-10  Completed  Erastus Togba marked PO 2076410-000 complete.\nToday  Open $522. 27 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 8203 Rustic Pine Trail \u00b7 0623-173040 \u00b7 27 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -7975,14 +7955,14 @@ window.DATA = [
       {
         "when": "2026-07-21",
         "lab": "Invoiced",
-        "what": "CTL-26-00033 $522. Still fully open."
+        "what": "CTL-26-00033 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-21",
         "lab": "Invoiced",
-        "what": "CTL-26-00033 $522. Still fully open."
+        "what": "CTL-26-00033 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00033 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -8017,14 +7997,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00407 $522. Still fully open."
+        "what": "CTL-26-00407 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00407 $522. Still fully open."
+        "what": "CTL-26-00407 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00407 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -8059,14 +8039,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00408 $522. Still fully open."
+        "what": "CTL-26-00408 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00408 $522. Still fully open."
+        "what": "CTL-26-00408 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00408 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -8101,14 +8081,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00409 $522. Still fully open."
+        "what": "CTL-26-00409 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00409 $522. Still fully open."
+        "what": "CTL-26-00409 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00409 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -8143,14 +8123,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00525 $522. Still fully open."
+        "what": "CTL-26-00525 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00525 $522. Still fully open."
+        "what": "CTL-26-00525 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00525 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -8185,14 +8165,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00526 $522. Still fully open."
+        "what": "CTL-26-00526 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00526 $522. Still fully open."
+        "what": "CTL-26-00526 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00526 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -8227,14 +8207,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00527 $522. Still fully open."
+        "what": "CTL-26-00527 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00527 $522. Still fully open."
+        "what": "CTL-26-00527 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00527 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -8267,23 +8247,23 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-06-10",
-        "lab": "",
-        "what": "Patrick McCoy"
+        "lab": "Called in",
+        "what": "Patrick McCoy asked at 3036 Sunset Glory Dr."
       },
       {
         "when": "2026-06-11",
-        "lab": "",
-        "what": "QBO first visit 0611-172551 $783"
+        "lab": "Invoiced",
+        "what": "0611-172551 $783."
       },
       {
         "when": "2026-06-19",
-        "lab": "",
-        "what": "QBO 0619-172781 $1305"
+        "lab": "Invoiced",
+        "what": "0619-172781 $1,305."
       },
       {
         "when": "2026-06-29",
-        "lab": "",
-        "what": "Lennar check 1293044 0611-172551 $783"
+        "lab": "Paid",
+        "what": "Check 1293044 $783."
       },
       {
         "when": "Today",
@@ -8295,23 +8275,23 @@ window.DATA = [
     "chase_timeline": [
       {
         "when": "2026-06-10",
-        "lab": "",
-        "what": "Patrick McCoy"
+        "lab": "Called in",
+        "what": "Patrick McCoy asked at 3036 Sunset Glory Dr."
       },
       {
         "when": "2026-06-11",
-        "lab": "",
-        "what": "QBO first visit 0611-172551 $783"
+        "lab": "Invoiced",
+        "what": "0611-172551 $783."
       },
       {
         "when": "2026-06-19",
-        "lab": "",
-        "what": "QBO 0619-172781 $1305"
+        "lab": "Invoiced",
+        "what": "0619-172781 $1,305."
       },
       {
         "when": "2026-06-29",
-        "lab": "",
-        "what": "Lennar check 1293044 0611-172551 $783"
+        "lab": "Paid",
+        "what": "Check 1293044 $783."
       },
       {
         "when": "Today",
@@ -8323,7 +8303,7 @@ window.DATA = [
     "workup_attachments_note": "Graph: Patrick 2026-06-10 schedule ask; Patrick 6/15 confirm-tested. Great Lawn lists in this search do not name 3036 as a second call-in. No ask file on disk.",
     "chase_letter_lead": "We performed the work at 3036 Sunset Glory Dr and issued invoice 0619-172781 for $1,305. This has been 31 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 3036 Sunset Glory Dr and issued invoice 0619-172781 for $1,305. This has been 31 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Patrick McCoy\n2026-06-11  QBO first visit 0611-172551 $783\n2026-06-19  QBO 0619-172781 $1305\n2026-06-29  Lennar check 1293044 0611-172551 $783\nToday  Open $1,305. 31 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 3036 Sunset Glory Dr and issued invoice 0619-172781 for $1,305. This has been 31 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Called in  Patrick McCoy asked at 3036 Sunset Glory Dr.\n2026-06-11  Invoiced  0611-172551 $783.\n2026-06-19  Invoiced  0619-172781 $1,305.\n2026-06-29  Paid  Check 1293044 $783.\nToday  Open $1,305. 31 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 3036 Sunset Glory Dr \u00b7 0619-172781 \u00b7 31 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -8362,12 +8342,12 @@ window.DATA = [
       {
         "when": "2026-07-06",
         "lab": "Invoiced",
-        "what": "0706-173537 $1,566. Still fully open."
+        "what": "0706-173537 $1,566."
       },
       {
         "when": "2026-07-15",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0706-173537 1566.00 6 lifts"
+        "what": "Maria Lerma entered 6 lifts $1,566."
       },
       {
         "when": "2026-07-17",
@@ -8377,17 +8357,17 @@ window.DATA = [
       {
         "when": "2026-07-22",
         "lab": "Notes entered",
-        "what": "Lennar received: Need to review lifts - error"
+        "what": "Lennar asked to review the notes."
       },
       {
         "when": "2026-08-06",
         "lab": "Notes entered",
-        "what": "Lennar received: Did we review notes"
+        "what": "Lennar asked to review the notes."
       },
       {
         "when": "2026-08-11",
         "lab": "Notes entered",
-        "what": "Lennar received: Adjust notes"
+        "what": "Lennar asked to review the notes."
       },
       {
         "when": "Today",
@@ -8405,12 +8385,12 @@ window.DATA = [
       {
         "when": "2026-07-06",
         "lab": "Invoiced",
-        "what": "0706-173537 $1,566. Still fully open."
+        "what": "0706-173537 $1,566."
       },
       {
         "when": "2026-07-15",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0706-173537 1566.00 6 lifts"
+        "what": "Maria Lerma entered 6 lifts $1,566."
       },
       {
         "when": "2026-07-17",
@@ -8420,17 +8400,17 @@ window.DATA = [
       {
         "when": "2026-07-22",
         "lab": "Notes entered",
-        "what": "Lennar received: Need to review lifts - error"
+        "what": "Lennar asked to review the notes."
       },
       {
         "when": "2026-08-06",
         "lab": "Notes entered",
-        "what": "Lennar received: Did we review notes"
+        "what": "Lennar asked to review the notes."
       },
       {
         "when": "2026-08-11",
         "lab": "Notes entered",
-        "what": "Lennar received: Adjust notes"
+        "what": "Lennar asked to review the notes."
       },
       {
         "when": "Today",
@@ -8442,7 +8422,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved under a 0706-173537 case folder. Call-in and report dates are from the 2026-08-17 Graph mail research. Hyphen notes from the 2026-08-17 scrape (Received / builder not complete).",
     "chase_letter_lead": "Please complete this order in Hyphen so payment can be issued. Invoice 0706-173537 is $1,566 at 27106 Reef Coast on PO 12361353-000. Great Lawn asked Ryan to schedule 27106 Reef Coast pad 2.6. The report went: Esme sent the Sunterra 27106 Reef Coast report. This has been 14 days past due.",
     "chase_letter_paras": [],
-    "chase_letter": "Please complete this order in Hyphen so payment can be issued. Invoice 0706-173537 is $1,566 at 27106 Reef Coast on PO 12361353-000. Great Lawn asked Ryan to schedule 27106 Reef Coast pad 2.6. The report went: Esme sent the Sunterra 27106 Reef Coast report. This has been 14 days past due.\n\nTimeline of Events\n\n2026-07-02  Called in  Great Lawn asked Ryan to schedule 27106 Reef Coast pad 2.6.\n2026-07-06  Invoiced  0706-173537 $1,566. Still fully open.\n2026-07-15  Notes entered  Maria Lerma: 0706-173537 1566.00 6 lifts\n2026-07-17  Report transmittal  Esme sent the Sunterra 27106 Reef Coast report.\n2026-07-22  Notes entered  Lennar received: Need to review lifts - error\n2026-08-06  Notes entered  Lennar received: Did we review notes\n2026-08-11  Notes entered  Lennar received: Adjust notes\nToday  Open $1,566. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Please complete this order in Hyphen so payment can be issued. Invoice 0706-173537 is $1,566 at 27106 Reef Coast on PO 12361353-000. Great Lawn asked Ryan to schedule 27106 Reef Coast pad 2.6. The report went: Esme sent the Sunterra 27106 Reef Coast report. This has been 14 days past due.\n\nTimeline of Events\n\n2026-07-02  Called in  Great Lawn asked Ryan to schedule 27106 Reef Coast pad 2.6.\n2026-07-06  Invoiced  0706-173537 $1,566.\n2026-07-15  Notes entered  Maria Lerma entered 6 lifts $1,566.\n2026-07-17  Report transmittal  Esme sent the Sunterra 27106 Reef Coast report.\n2026-07-22  Notes entered  Lennar asked to review the notes.\n2026-08-06  Notes entered  Lennar asked to review the notes.\n2026-08-11  Notes entered  Lennar asked to review the notes.\nToday  Open $1,566. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 27106 Reef Coast \u00b7 0706-173537 \u00b7 14 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -8475,13 +8455,8 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-07-06",
-        "lab": "",
-        "what": "QBO 0706-173557 $1566"
-      },
-      {
-        "when": "2026-07-15",
-        "lab": "",
-        "what": "Great Lawn (status after invoice)"
+        "lab": "Invoiced",
+        "what": "0706-173557 $1,566."
       },
       {
         "when": "Today",
@@ -8493,13 +8468,8 @@ window.DATA = [
     "chase_timeline": [
       {
         "when": "2026-07-06",
-        "lab": "",
-        "what": "QBO 0706-173557 $1566"
-      },
-      {
-        "when": "2026-07-15",
-        "lab": "",
-        "what": "Great Lawn (status after invoice)"
+        "lab": "Invoiced",
+        "what": "0706-173557 $1,566."
       },
       {
         "when": "Today",
@@ -8511,7 +8481,7 @@ window.DATA = [
     "workup_attachments_note": "Graph: no schedule email names 3069 Highbank before 7/6. Esme 7/27 report send to Kenny. No ask file on disk.",
     "chase_letter_lead": "We performed the work at 3069 Highbank Dr and issued invoice 0706-173557 for $1,566. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 3069 Highbank Dr and issued invoice 0706-173557 for $1,566. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-06  QBO 0706-173557 $1566\n2026-07-15  Great Lawn (status after invoice)\nToday  Open $1,566. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 3069 Highbank Dr and issued invoice 0706-173557 for $1,566. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-06  Invoiced  0706-173557 $1,566.\nToday  Open $1,566. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 3069 Highbank Dr \u00b7 0706-173557 \u00b7 14 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -8544,13 +8514,8 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-07-06",
-        "lab": "",
-        "what": "QBO 0706-173563 $1305"
-      },
-      {
-        "when": "2026-07-15",
-        "lab": "",
-        "what": "Great Lawn (status after invoice)"
+        "lab": "Invoiced",
+        "what": "0706-173563 $1,305."
       },
       {
         "when": "Today",
@@ -8562,13 +8527,8 @@ window.DATA = [
     "chase_timeline": [
       {
         "when": "2026-07-06",
-        "lab": "",
-        "what": "QBO 0706-173563 $1305"
-      },
-      {
-        "when": "2026-07-15",
-        "lab": "",
-        "what": "Great Lawn (status after invoice)"
+        "lab": "Invoiced",
+        "what": "0706-173563 $1,305."
       },
       {
         "when": "Today",
@@ -8580,7 +8540,7 @@ window.DATA = [
     "workup_attachments_note": "Graph: no schedule email names 3073 before 7/6. Esme 7/17 report send to Tino. No ask file on disk.",
     "chase_letter_lead": "We performed the work at 3073 Highbank Dr and issued invoice 0706-173563 for $1,305. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 3073 Highbank Dr and issued invoice 0706-173563 for $1,305. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-06  QBO 0706-173563 $1305\n2026-07-15  Great Lawn (status after invoice)\nToday  Open $1,305. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 3073 Highbank Dr and issued invoice 0706-173563 for $1,305. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-06  Invoiced  0706-173563 $1,305.\nToday  Open $1,305. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 3073 Highbank Dr \u00b7 0706-173563 \u00b7 14 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -8614,14 +8574,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00267 $522. Still fully open."
+        "what": "CTL-26-00267 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00267 $522. Still fully open."
+        "what": "CTL-26-00267 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00267 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -8655,14 +8615,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00555 $1,044. Still fully open."
+        "what": "CTL-26-00555 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00555 $1,044. Still fully open."
+        "what": "CTL-26-00555 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00555 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -8696,14 +8656,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00537 $1,044. Still fully open."
+        "what": "CTL-26-00537 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00537 $1,044. Still fully open."
+        "what": "CTL-26-00537 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00537 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -8743,7 +8703,7 @@ window.DATA = [
       {
         "when": "2026-02-16",
         "lab": "Invoiced",
-        "what": "179593 $1,044. Still fully open."
+        "what": "179593 $1,044."
       },
       {
         "when": "2026-02-25",
@@ -8753,7 +8713,7 @@ window.DATA = [
       {
         "when": "2026-03-24",
         "lab": "Notes entered",
-        "what": "Esmeralda Cantu: 179593 lifts 3 total 1044.00"
+        "what": "Esmeralda Cantu entered 3 lifts $1,044."
       },
       {
         "when": "2026-03-27",
@@ -8763,7 +8723,7 @@ window.DATA = [
       {
         "when": "2026-04-06",
         "lab": "Notes entered",
-        "what": "Lennar received: 179593 lifts 3 total 1044.00"
+        "what": "Lennar received 3 lifts $1,044."
       },
       {
         "when": "2026-04-07",
@@ -8773,7 +8733,7 @@ window.DATA = [
       {
         "when": "2026-08-14",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 179593 - 4 lifts - 1044.00"
+        "what": "Maria Lerma entered 4 lifts $1,044."
       },
       {
         "when": "2026-08-14",
@@ -8796,7 +8756,7 @@ window.DATA = [
       {
         "when": "2026-02-16",
         "lab": "Invoiced",
-        "what": "179593 $1,044. Still fully open."
+        "what": "179593 $1,044."
       },
       {
         "when": "2026-02-25",
@@ -8806,7 +8766,7 @@ window.DATA = [
       {
         "when": "2026-03-24",
         "lab": "Notes entered",
-        "what": "Esmeralda Cantu: 179593 lifts 3 total 1044.00"
+        "what": "Esmeralda Cantu entered 3 lifts $1,044."
       },
       {
         "when": "2026-03-27",
@@ -8816,7 +8776,7 @@ window.DATA = [
       {
         "when": "2026-04-06",
         "lab": "Notes entered",
-        "what": "Lennar received: 179593 lifts 3 total 1044.00"
+        "what": "Lennar received 3 lifts $1,044."
       },
       {
         "when": "2026-04-07",
@@ -8826,7 +8786,7 @@ window.DATA = [
       {
         "when": "2026-08-14",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 179593 - 4 lifts - 1044.00"
+        "what": "Maria Lerma entered 4 lifts $1,044."
       },
       {
         "when": "2026-08-14",
@@ -8878,7 +8838,7 @@ window.DATA = [
     "chase_subject": "Payment needed \u00b7 3071 Huntersville \u00b7 179593 \u00b7 154 days past due",
     "chase_letter_lead": "Gary, you marked PO 61457910-000 complete on April 7. Four months later Hyphen still has no payment (no check date and no amount). Invoice 179593 is $1,044 for four lifts at 3071 Huntersville. The original Hyphen note said three lifts / $783 on the PO face; Maria corrected it to four lifts / $1,044 on August 14. Please update that unpaid PO to $1,044 and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "Gary, you marked PO 61457910-000 complete on April 7. Four months later Hyphen still has no payment (no check date and no amount). Invoice 179593 is $1,044 for four lifts at 3071 Huntersville. The original Hyphen note said three lifts / $783 on the PO face; Maria corrected it to four lifts / $1,044 on August 14. Please update that unpaid PO to $1,044 and release payment.\n\nTimeline of Events\n\n2026-02-09  Called in  Jen Polasek asked Ryan and Joe for pad height 1.8 at 3071 Huntersville.\n2026-02-16  Invoiced  179593 $1,044. Still fully open.\n2026-02-25  Report transmittal  Laverne sent the Sunterra 3071 Huntersville reports to Gary Keto.\n2026-03-24  Notes entered  Esmeralda Cantu: 179593 lifts 3 total 1044.00\n2026-03-27  Inquiry  Esme sent a PO Approval Request that included this PO.\n2026-04-06  Notes entered  Lennar received: 179593 lifts 3 total 1044.00\n2026-04-07  Completed  Gary Keto marked PO 61457910-000 complete.\n2026-08-14  Notes entered  Maria Lerma: 179593 - 4 lifts - 1044.00\n2026-08-14  Inquiry  Maria wrote Jeff Adams and Gary Keto that notes said 3 lifts and the work was 4 / $1,044.\nToday  Open $1,044. 154 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Gary, you marked PO 61457910-000 complete on April 7. Four months later Hyphen still has no payment (no check date and no amount). Invoice 179593 is $1,044 for four lifts at 3071 Huntersville. The original Hyphen note said three lifts / $783 on the PO face; Maria corrected it to four lifts / $1,044 on August 14. Please update that unpaid PO to $1,044 and release payment.\n\nTimeline of Events\n\n2026-02-09  Called in  Jen Polasek asked Ryan and Joe for pad height 1.8 at 3071 Huntersville.\n2026-02-16  Invoiced  179593 $1,044.\n2026-02-25  Report transmittal  Laverne sent the Sunterra 3071 Huntersville reports to Gary Keto.\n2026-03-24  Notes entered  Esmeralda Cantu entered 3 lifts $1,044.\n2026-03-27  Inquiry  Esme sent a PO Approval Request that included this PO.\n2026-04-06  Notes entered  Lennar received 3 lifts $1,044.\n2026-04-07  Completed  Gary Keto marked PO 61457910-000 complete.\n2026-08-14  Notes entered  Maria Lerma entered 4 lifts $1,044.\n2026-08-14  Inquiry  Maria wrote Jeff Adams and Gary Keto that notes said 3 lifts and the work was 4 / $1,044.\nToday  Open $1,044. 154 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "last_sent": "2026-08-18",
     "chase_last_sent": "2026-08-18",
     "follow_up_due": "2026-08-21"
@@ -8913,14 +8873,14 @@ window.DATA = [
       {
         "when": "2026-08-03",
         "lab": "Invoiced",
-        "what": "CTL-26-00273 $1,044. Still fully open."
+        "what": "CTL-26-00273 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-03",
         "lab": "Invoiced",
-        "what": "CTL-26-00273 $1,044. Still fully open."
+        "what": "CTL-26-00273 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00273 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -8955,14 +8915,14 @@ window.DATA = [
       {
         "when": "2026-08-03",
         "lab": "Invoiced",
-        "what": "CTL-26-00319 $1,044. Still fully open."
+        "what": "CTL-26-00319 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-03",
         "lab": "Invoiced",
-        "what": "CTL-26-00319 $1,044. Still fully open."
+        "what": "CTL-26-00319 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00319 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -8997,14 +8957,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00412 $522. Still fully open."
+        "what": "CTL-26-00412 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00412 $522. Still fully open."
+        "what": "CTL-26-00412 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00412 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9039,14 +8999,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00270 $1,044. Still fully open."
+        "what": "CTL-26-00270 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00270 $1,044. Still fully open."
+        "what": "CTL-26-00270 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00270 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9081,14 +9041,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00271 $1,044. Still fully open."
+        "what": "CTL-26-00271 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00271 $1,044. Still fully open."
+        "what": "CTL-26-00271 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00271 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9123,14 +9083,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00275 $1,044. Still fully open."
+        "what": "CTL-26-00275 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00275 $1,044. Still fully open."
+        "what": "CTL-26-00275 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00275 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9165,14 +9125,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00411 $1,044. Still fully open."
+        "what": "CTL-26-00411 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00411 $1,044. Still fully open."
+        "what": "CTL-26-00411 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00411 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9207,14 +9167,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00546 $1,044. Still fully open."
+        "what": "CTL-26-00546 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00546 $1,044. Still fully open."
+        "what": "CTL-26-00546 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00546 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9249,14 +9209,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00551 $1,044. Still fully open."
+        "what": "CTL-26-00551 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00551 $1,044. Still fully open."
+        "what": "CTL-26-00551 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00551 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9291,14 +9251,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00272 $1,044. Still fully open."
+        "what": "CTL-26-00272 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00272 $1,044. Still fully open."
+        "what": "CTL-26-00272 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00272 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9333,14 +9293,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00410 $1,044. Still fully open."
+        "what": "CTL-26-00410 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00410 $1,044. Still fully open."
+        "what": "CTL-26-00410 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00410 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9375,14 +9335,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00547 $783. Still fully open."
+        "what": "CTL-26-00547 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00547 $783. Still fully open."
+        "what": "CTL-26-00547 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00547 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9417,14 +9377,14 @@ window.DATA = [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00268 $1,044. Still fully open."
+        "what": "CTL-26-00268 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00268 $1,044. Still fully open."
+        "what": "CTL-26-00268 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00268 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9459,14 +9419,14 @@ window.DATA = [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00269 $1,044. Still fully open."
+        "what": "CTL-26-00269 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00269 $1,044. Still fully open."
+        "what": "CTL-26-00269 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00269 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9501,14 +9461,14 @@ window.DATA = [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00544 $1,044. Still fully open."
+        "what": "CTL-26-00544 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00544 $1,044. Still fully open."
+        "what": "CTL-26-00544 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00544 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9543,14 +9503,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00274 $1,044. Still fully open."
+        "what": "CTL-26-00274 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00274 $1,044. Still fully open."
+        "what": "CTL-26-00274 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00274 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9585,14 +9545,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00276 $1,044. Still fully open."
+        "what": "CTL-26-00276 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00276 $1,044. Still fully open."
+        "what": "CTL-26-00276 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00276 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9626,35 +9586,35 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-07-29",
-        "lab": "",
-        "what": "Great Lawn and landscape Inc"
+        "lab": "Called in",
+        "what": "Great Lawn and landscape Inc asked at 3008 Lone Pecan."
       },
       {
         "when": "2026-07-29",
-        "lab": "",
-        "what": "Great Lawn and landscape Inc"
+        "lab": "Called in",
+        "what": "Great Lawn and landscape Inc asked at 3008 Lone Pecan."
       },
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "QBO CTL-26-00320 $1044"
+        "lab": "Invoiced",
+        "what": "CTL-26-00320 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-29",
-        "lab": "",
-        "what": "Great Lawn and landscape Inc"
+        "lab": "Called in",
+        "what": "Great Lawn and landscape Inc asked at 3008 Lone Pecan."
       },
       {
         "when": "2026-07-29",
-        "lab": "",
-        "what": "Great Lawn and landscape Inc"
+        "lab": "Called in",
+        "what": "Great Lawn and landscape Inc asked at 3008 Lone Pecan."
       },
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "QBO CTL-26-00320 $1044"
+        "lab": "Invoiced",
+        "what": "CTL-26-00320 $1,044."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-07-29 Great Lawn and landscape Inc Re: Pad Tests; 2026-07-29 Great Lawn and landscape Inc Pad Tests. No request .eml on disk."
@@ -9689,14 +9649,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00545 $1,044. Still fully open."
+        "what": "CTL-26-00545 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00545 $1,044. Still fully open."
+        "what": "CTL-26-00545 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00545 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9730,15 +9690,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "QBO CTL-26-00549 $1044"
+        "lab": "Invoiced",
+        "what": "CTL-26-00549 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "QBO CTL-26-00549 $1044"
+        "lab": "Invoiced",
+        "what": "CTL-26-00549 $1,044."
       }
     ],
     "workup_attachments_note": "No named client ask file. Graph ids in _current-nf-graph.json. No request .eml on disk."
@@ -9773,14 +9733,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00550 $1,044. Still fully open."
+        "what": "CTL-26-00550 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00550 $1,044. Still fully open."
+        "what": "CTL-26-00550 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00550 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9815,14 +9775,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00316 $1,044. Still fully open."
+        "what": "CTL-26-00316 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00316 $1,044. Still fully open."
+        "what": "CTL-26-00316 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00316 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9857,14 +9817,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00317 $1,044. Still fully open."
+        "what": "CTL-26-00317 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00317 $1,044. Still fully open."
+        "what": "CTL-26-00317 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00317 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9899,14 +9859,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00065 $522. Still fully open."
+        "what": "CTL-26-00065 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00065 $522. Still fully open."
+        "what": "CTL-26-00065 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00065 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9941,14 +9901,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00066 $522. Still fully open."
+        "what": "CTL-26-00066 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00066 $522. Still fully open."
+        "what": "CTL-26-00066 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00066 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -9982,18 +9942,13 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-05-22",
-        "lab": "",
-        "what": "Angel Gonzalez"
+        "lab": "Called in",
+        "what": "Angel Gonzalez asked at 215 Violet Crown."
       },
       {
         "when": "2026-05-22",
-        "lab": "",
-        "what": "QBO 0522-171908 $522"
-      },
-      {
-        "when": "2026-06-08",
-        "lab": "",
-        "what": "David Gebauer (said PO visible \u2014 not in scrape)"
+        "lab": "Invoiced",
+        "what": "0522-171908 $522."
       },
       {
         "when": "Today",
@@ -10005,18 +9960,13 @@ window.DATA = [
     "chase_timeline": [
       {
         "when": "2026-05-22",
-        "lab": "",
-        "what": "Angel Gonzalez"
+        "lab": "Called in",
+        "what": "Angel Gonzalez asked at 215 Violet Crown."
       },
       {
         "when": "2026-05-22",
-        "lab": "",
-        "what": "QBO 0522-171908 $522"
-      },
-      {
-        "when": "2026-06-08",
-        "lab": "",
-        "what": "David Gebauer (said PO visible \u2014 not in scrape)"
+        "lab": "Invoiced",
+        "what": "0522-171908 $522."
       },
       {
         "when": "Today",
@@ -10028,7 +9978,7 @@ window.DATA = [
     "workup_attachments_note": "Graph: Angel 2026-05-22 The Trails compaction test (215 violet crown - 2 lifts). Maria 6/3 EPO request. Esme 6/8 report send. No ask file on disk.",
     "chase_letter_lead": "We performed the work at 215 Violet Crown and issued invoice 0522-171908 for $522. This has been 59 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 215 Violet Crown and issued invoice 0522-171908 for $522. This has been 59 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-22  Angel Gonzalez\n2026-05-22  QBO 0522-171908 $522\n2026-06-08  David Gebauer (said PO visible \u2014 not in scrape)\nToday  Open $522. 59 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 215 Violet Crown and issued invoice 0522-171908 for $522. This has been 59 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-22  Called in  Angel Gonzalez asked at 215 Violet Crown.\n2026-05-22  Invoiced  0522-171908 $522.\nToday  Open $522. 59 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 215 Violet Crown \u00b7 0522-171908 \u00b7 59 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -10062,45 +10012,45 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-05-26",
-        "lab": "",
-        "what": "Angel Gonzalez"
+        "lab": "Called in",
+        "what": "Angel Gonzalez asked at 217 Violet Crown."
       },
       {
         "when": "2026-05-26",
-        "lab": "",
-        "what": "QBO first visit 0526-171938 $783"
+        "lab": "Invoiced",
+        "what": "0526-171938 $783."
       },
       {
         "when": "2026-06-08",
-        "lab": "",
-        "what": "Lennar check 1274186 0526-171938 $783"
+        "lab": "Paid",
+        "what": "Check 1274186 $783."
       },
       {
         "when": "2026-06-09",
-        "lab": "",
-        "what": "QBO 0609-172331 $783"
+        "lab": "Invoiced",
+        "what": "0609-172331 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-05-26",
-        "lab": "",
-        "what": "Angel Gonzalez"
+        "lab": "Called in",
+        "what": "Angel Gonzalez asked at 217 Violet Crown."
       },
       {
         "when": "2026-05-26",
-        "lab": "",
-        "what": "QBO first visit 0526-171938 $783"
+        "lab": "Invoiced",
+        "what": "0526-171938 $783."
       },
       {
         "when": "2026-06-08",
-        "lab": "",
-        "what": "Lennar check 1274186 0526-171938 $783"
+        "lab": "Paid",
+        "what": "Check 1274186 $783."
       },
       {
         "when": "2026-06-09",
-        "lab": "",
-        "what": "QBO 0609-172331 $783"
+        "lab": "Invoiced",
+        "what": "0609-172331 $783."
       }
     ],
     "workup_attachments_note": "Graph: Angel 2026-05-26 The Trails / Compaction test (217 + 28624). David 6/5 report request. No second 217 schedule ask. No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
@@ -10143,13 +10093,13 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-06-03",
-        "lab": "",
-        "what": "Angel Gonzalez"
+        "lab": "Called in",
+        "what": "Angel Gonzalez asked at 28620 Escarpment."
       },
       {
         "when": "2026-06-09",
-        "lab": "",
-        "what": "QBO 0609-172334 $783"
+        "lab": "Invoiced",
+        "what": "0609-172334 $783."
       },
       {
         "when": "Today",
@@ -10161,13 +10111,13 @@ window.DATA = [
     "chase_timeline": [
       {
         "when": "2026-06-03",
-        "lab": "",
-        "what": "Angel Gonzalez"
+        "lab": "Called in",
+        "what": "Angel Gonzalez asked at 28620 Escarpment."
       },
       {
         "when": "2026-06-09",
-        "lab": "",
-        "what": "QBO 0609-172334 $783"
+        "lab": "Invoiced",
+        "what": "0609-172334 $783."
       },
       {
         "when": "Today",
@@ -10179,7 +10129,7 @@ window.DATA = [
     "workup_attachments_note": "Graph: Angel 2026-06-03 The Trails compaction test (28620 Escarpment- 3 lifts). David 6/30 report ask. Donna 6/30 schedule ask on that thread is for the 218 Violet Crown side. No ask file on disk.",
     "chase_letter_lead": "We performed the work at 28620 Escarpment and issued invoice 0609-172334 for $783. This has been 41 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 28620 Escarpment and issued invoice 0609-172334 for $783. This has been 41 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-03  Angel Gonzalez\n2026-06-09  QBO 0609-172334 $783\nToday  Open $783. 41 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 28620 Escarpment and issued invoice 0609-172334 for $783. This has been 41 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-03  Called in  Angel Gonzalez asked at 28620 Escarpment.\n2026-06-09  Invoiced  0609-172334 $783.\nToday  Open $783. 41 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 28620 Escarpment \u00b7 0609-172334 \u00b7 41 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -10213,45 +10163,45 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-05-26",
-        "lab": "",
-        "what": "Angel Gonzalez"
+        "lab": "Called in",
+        "what": "Angel Gonzalez asked at 28624 Escarpment."
       },
       {
         "when": "2026-05-26",
-        "lab": "",
-        "what": "QBO first visit 0526-171941 $783"
+        "lab": "Invoiced",
+        "what": "0526-171941 $783."
       },
       {
         "when": "2026-06-09",
-        "lab": "",
-        "what": "QBO 0609-172337 $783"
+        "lab": "Invoiced",
+        "what": "0609-172337 $783."
       },
       {
         "when": "2026-06-15",
-        "lab": "",
-        "what": "Lennar check 1280746 0526-171941 $783"
+        "lab": "Paid",
+        "what": "Check 1280746 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-05-26",
-        "lab": "",
-        "what": "Angel Gonzalez"
+        "lab": "Called in",
+        "what": "Angel Gonzalez asked at 28624 Escarpment."
       },
       {
         "when": "2026-05-26",
-        "lab": "",
-        "what": "QBO first visit 0526-171941 $783"
+        "lab": "Invoiced",
+        "what": "0526-171941 $783."
       },
       {
         "when": "2026-06-09",
-        "lab": "",
-        "what": "QBO 0609-172337 $783"
+        "lab": "Invoiced",
+        "what": "0609-172337 $783."
       },
       {
         "when": "2026-06-15",
-        "lab": "",
-        "what": "Lennar check 1280746 0526-171941 $783"
+        "lab": "Paid",
+        "what": "Check 1280746 $783."
       }
     ],
     "workup_attachments_note": "Graph: Angel 5/26 list includes 28624. No second 28624 schedule ask. No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
@@ -10300,7 +10250,7 @@ window.DATA = [
       {
         "when": "2026-07-01",
         "lab": "Invoiced",
-        "what": "0701-173352 $522. Still fully open."
+        "what": "0701-173352 $522."
       },
       {
         "when": "2026-07-07",
@@ -10310,7 +10260,7 @@ window.DATA = [
       {
         "when": "2026-07-08",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0701-173352 522.00 2 lifts"
+        "what": "Maria Lerma entered 2 lifts $522."
       },
       {
         "when": "2026-07-08",
@@ -10333,7 +10283,7 @@ window.DATA = [
       {
         "when": "2026-07-01",
         "lab": "Invoiced",
-        "what": "0701-173352 $522. Still fully open."
+        "what": "0701-173352 $522."
       },
       {
         "when": "2026-07-07",
@@ -10343,7 +10293,7 @@ window.DATA = [
       {
         "when": "2026-07-08",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0701-173352 522.00 2 lifts"
+        "what": "Maria Lerma entered 2 lifts $522."
       },
       {
         "when": "2026-07-08",
@@ -10360,7 +10310,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved under a 0701-173352 case folder. Call-in and report dates are from the 2026-08-17 Graph mail research. Hyphen notes from the 2026-08-17 scrape (Received / builder Complete).",
     "chase_letter_lead": "Donna Smith marked PO 5481795-000 complete on 2026-07-08. Hyphen still has no payment. Invoice 0701-173352 is $522 at 218 Violet Crown. Please update that unpaid PO and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "Donna Smith marked PO 5481795-000 complete on 2026-07-08. Hyphen still has no payment. Invoice 0701-173352 is $522 at 218 Violet Crown. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-06-30  Called in  Angel asked Ryan for 2 lifts at 218 Violet Crown, The Trails. Donna Smith had asked earlier that day whether it was tested.\n2026-07-01  Invoiced  0701-173352 $522. Still fully open.\n2026-07-07  Report transmittal  Esme sent The Trails 218 Violet Crown report. Donna thanked.\n2026-07-08  Notes entered  Maria Lerma: 0701-173352 522.00 2 lifts\n2026-07-08  Completed  Donna Smith marked PO 5481795-000 complete.\nToday  Open $522. 19 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Donna Smith marked PO 5481795-000 complete on 2026-07-08. Hyphen still has no payment. Invoice 0701-173352 is $522 at 218 Violet Crown. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-06-30  Called in  Angel asked Ryan for 2 lifts at 218 Violet Crown, The Trails. Donna Smith had asked earlier that day whether it was tested.\n2026-07-01  Invoiced  0701-173352 $522.\n2026-07-07  Report transmittal  Esme sent The Trails 218 Violet Crown report. Donna thanked.\n2026-07-08  Notes entered  Maria Lerma entered 2 lifts $522.\n2026-07-08  Completed  Donna Smith marked PO 5481795-000 complete.\nToday  Open $522. 19 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 218 Violet Crown \u00b7 0701-173352 \u00b7 19 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -10394,25 +10344,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-07-21",
-        "lab": "",
-        "what": "Angel Gonzalez"
+        "lab": "Called in",
+        "what": "Angel Gonzalez asked at 225 Violet Crown."
       },
       {
         "when": "2026-08-07",
-        "lab": "",
-        "what": "QBO CTL-26-00106 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00106 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-21",
-        "lab": "",
-        "what": "Angel Gonzalez"
+        "lab": "Called in",
+        "what": "Angel Gonzalez asked at 225 Violet Crown."
       },
       {
         "when": "2026-08-07",
-        "lab": "",
-        "what": "QBO CTL-26-00106 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00106 $783."
       }
     ],
     "workup_attachments_note": "Graph: Angel 7/21 The Trails list names 225 violet crown 3 lifts. April 21 list is 225 Yellow Rosewood. Billings 8/7 invoice CTL-26-00106. No request .eml on disk."
@@ -10447,14 +10397,14 @@ window.DATA = [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00225 $522. Still fully open."
+        "what": "CTL-26-00225 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00225 $522. Still fully open."
+        "what": "CTL-26-00225 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00225 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -10488,14 +10438,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00617 $522. Still fully open."
+        "what": "CTL-26-00617 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00617 $522. Still fully open."
+        "what": "CTL-26-00617 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00617 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -10529,17 +10479,17 @@ window.DATA = [
       {
         "when": "2026-07-06",
         "lab": "Invoiced",
-        "what": "0706-173638 $783. Still fully open."
+        "what": "0706-173638 $783."
       },
       {
         "when": "2026-07-14",
         "lab": "Notes entered",
-        "what": "Lennar received: Need notes"
+        "what": "Lennar asked for vendor notes."
       },
       {
         "when": "2026-07-15",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0706-173638 783.00 3 lifts"
+        "what": "Maria Lerma entered 3 lifts $783."
       },
       {
         "when": "2026-07-16",
@@ -10549,12 +10499,12 @@ window.DATA = [
       {
         "when": "2026-07-24",
         "lab": "Notes entered",
-        "what": "Lennar received: Need notes"
+        "what": "Lennar asked for vendor notes."
       },
       {
         "when": "2026-08-14",
         "lab": "Notes entered",
-        "what": "Lennar received: Need nites"
+        "what": "Lennar asked for vendor notes."
       },
       {
         "when": "Today",
@@ -10567,17 +10517,17 @@ window.DATA = [
       {
         "when": "2026-07-06",
         "lab": "Invoiced",
-        "what": "0706-173638 $783. Still fully open."
+        "what": "0706-173638 $783."
       },
       {
         "when": "2026-07-14",
         "lab": "Notes entered",
-        "what": "Lennar received: Need notes"
+        "what": "Lennar asked for vendor notes."
       },
       {
         "when": "2026-07-15",
         "lab": "Notes entered",
-        "what": "Maria Lerma: 0706-173638 783.00 3 lifts"
+        "what": "Maria Lerma entered 3 lifts $783."
       },
       {
         "when": "2026-07-16",
@@ -10587,12 +10537,12 @@ window.DATA = [
       {
         "when": "2026-07-24",
         "lab": "Notes entered",
-        "what": "Lennar received: Need notes"
+        "what": "Lennar asked for vendor notes."
       },
       {
         "when": "2026-08-14",
         "lab": "Notes entered",
-        "what": "Lennar received: Need nites"
+        "what": "Lennar asked for vendor notes."
       },
       {
         "when": "Today",
@@ -10604,7 +10554,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved under a 0706-173638 case folder. Report date is from the 2026-08-17 Graph mail research. Hyphen notes from the 2026-08-17 scrape (Received / builder not complete). No Ryan/Joe call-in found in that mail pass.",
     "chase_letter_lead": "Please complete this order in Hyphen so payment can be issued. Invoice 0706-173638 is $783 at 17238 Cymbal Lane on PO 9763440-000. The report went: Esme sent 17238 and 17234 Cymbal reports. This has been 14 days past due.",
     "chase_letter_paras": [],
-    "chase_letter": "Please complete this order in Hyphen so payment can be issued. Invoice 0706-173638 is $783 at 17238 Cymbal Lane on PO 9763440-000. The report went: Esme sent 17238 and 17234 Cymbal reports. This has been 14 days past due.\n\nTimeline of Events\n\n2026-07-06  Invoiced  0706-173638 $783. Still fully open.\n2026-07-14  Notes entered  Lennar received: Need notes\n2026-07-15  Notes entered  Maria Lerma: 0706-173638 783.00 3 lifts\n2026-07-16  Report transmittal  Esme sent 17238 and 17234 Cymbal reports.\n2026-07-24  Notes entered  Lennar received: Need notes\n2026-08-14  Notes entered  Lennar received: Need nites\nToday  Open $783. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Please complete this order in Hyphen so payment can be issued. Invoice 0706-173638 is $783 at 17238 Cymbal Lane on PO 9763440-000. The report went: Esme sent 17238 and 17234 Cymbal reports. This has been 14 days past due.\n\nTimeline of Events\n\n2026-07-06  Invoiced  0706-173638 $783.\n2026-07-14  Notes entered  Lennar asked for vendor notes.\n2026-07-15  Notes entered  Maria Lerma entered 3 lifts $783.\n2026-07-16  Report transmittal  Esme sent 17238 and 17234 Cymbal reports.\n2026-07-24  Notes entered  Lennar asked for vendor notes.\n2026-08-14  Notes entered  Lennar asked for vendor notes.\nToday  Open $783. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 17238 Cymbal Lane \u00b7 0706-173638 \u00b7 14 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -10638,14 +10588,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00523 $783. Still fully open."
+        "what": "CTL-26-00523 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00523 $783. Still fully open."
+        "what": "CTL-26-00523 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00523 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -10679,14 +10629,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00534 $783. Still fully open."
+        "what": "CTL-26-00534 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00534 $783. Still fully open."
+        "what": "CTL-26-00534 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00534 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -10720,14 +10670,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00535 $783. Still fully open."
+        "what": "CTL-26-00535 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00535 $783. Still fully open."
+        "what": "CTL-26-00535 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00535 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -10761,14 +10711,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00536 $783. Still fully open."
+        "what": "CTL-26-00536 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00536 $783. Still fully open."
+        "what": "CTL-26-00536 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00536 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -10802,55 +10752,55 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-06-15",
-        "lab": "",
-        "what": "Aaron Ratliff"
+        "lab": "Called in",
+        "what": "Aaron Ratliff asked at 1443 Parks Edge Lane."
       },
       {
         "when": "2026-06-18",
-        "lab": "",
-        "what": "QBO first visit 0618-172837 $522"
+        "lab": "Invoiced",
+        "what": "0618-172837 $522."
       },
       {
         "when": "2026-06-23",
-        "lab": "",
-        "what": "Aaron Ratliff"
+        "lab": "Called in",
+        "what": "Aaron Ratliff asked at 1443 Parks Edge Lane."
       },
       {
         "when": "2026-06-23",
-        "lab": "",
-        "what": "QBO 0623-173032 $522"
+        "lab": "Invoiced",
+        "what": "0623-173032 $522."
       },
       {
         "when": "2026-07-06",
-        "lab": "",
-        "what": "Lennar check 1298587 0618-172837 $522"
+        "lab": "Paid",
+        "what": "Check 1298587 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-06-15",
-        "lab": "",
-        "what": "Aaron Ratliff"
+        "lab": "Called in",
+        "what": "Aaron Ratliff asked at 1443 Parks Edge Lane."
       },
       {
         "when": "2026-06-18",
-        "lab": "",
-        "what": "QBO first visit 0618-172837 $522"
+        "lab": "Invoiced",
+        "what": "0618-172837 $522."
       },
       {
         "when": "2026-06-23",
-        "lab": "",
-        "what": "Aaron Ratliff"
+        "lab": "Called in",
+        "what": "Aaron Ratliff asked at 1443 Parks Edge Lane."
       },
       {
         "when": "2026-06-23",
-        "lab": "",
-        "what": "QBO 0623-173032 $522"
+        "lab": "Invoiced",
+        "what": "0623-173032 $522."
       },
       {
         "when": "2026-07-06",
-        "lab": "",
-        "what": "Lennar check 1298587 0618-172837 $522"
+        "lab": "Paid",
+        "what": "Check 1298587 $522."
       }
     ],
     "workup_attachments_note": "Graph: Aaron 2026-06-15 Windrose Green - Compaction Test; Aaron 2026-06-23 1443 Parks Edge Lane; Ryan Will do. Maria 7/2 PO request. Aaron 2026-08-11 hasAttachments=true EPO under 1435 Parks Edge (wrong lot; home given to Eric Fore). The two schedule asks themselves have no attachments. No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
@@ -10889,14 +10839,14 @@ window.DATA = [
       {
         "when": "2026-07-30",
         "lab": "Invoiced",
-        "what": "CTL-26-00259 $522. Still fully open."
+        "what": "CTL-26-00259 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-30",
         "lab": "Invoiced",
-        "what": "CTL-26-00259 $522. Still fully open."
+        "what": "CTL-26-00259 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00259 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -10931,14 +10881,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00203 $522. Still fully open."
+        "what": "CTL-26-00203 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00203 $522. Still fully open."
+        "what": "CTL-26-00203 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00203 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -10973,14 +10923,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00204 $522. Still fully open."
+        "what": "CTL-26-00204 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00204 $522. Still fully open."
+        "what": "CTL-26-00204 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00204 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11015,14 +10965,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00463 $522. Still fully open."
+        "what": "CTL-26-00463 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00463 $522. Still fully open."
+        "what": "CTL-26-00463 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00463 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11057,14 +11007,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00464 $522. Still fully open."
+        "what": "CTL-26-00464 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00464 $522. Still fully open."
+        "what": "CTL-26-00464 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00464 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11099,14 +11049,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00465 $522. Still fully open."
+        "what": "CTL-26-00465 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00465 $522. Still fully open."
+        "what": "CTL-26-00465 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00465 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11141,14 +11091,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00466 $522. Still fully open."
+        "what": "CTL-26-00466 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00466 $522. Still fully open."
+        "what": "CTL-26-00466 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00466 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11183,14 +11133,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00088 $522. Still fully open."
+        "what": "CTL-26-00088 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00088 $522. Still fully open."
+        "what": "CTL-26-00088 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00088 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11223,8 +11173,8 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-07-02",
-        "lab": "",
-        "what": "QBO 0702-173599 $522"
+        "lab": "Invoiced",
+        "what": "0702-173599 $522."
       },
       {
         "when": "Today",
@@ -11236,8 +11186,8 @@ window.DATA = [
     "chase_timeline": [
       {
         "when": "2026-07-02",
-        "lab": "",
-        "what": "QBO 0702-173599 $522"
+        "lab": "Invoiced",
+        "what": "0702-173599 $522."
       },
       {
         "when": "Today",
@@ -11249,7 +11199,7 @@ window.DATA = [
     "workup_attachments_note": "Graph: no email names 1156 Thistlewood. Nearby Brandi/Ryan thread is 1156 Mossy Glade vs Oak Shade. No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
     "chase_letter_lead": "We performed the work at 1156 Thistlewood and issued invoice 0702-173599 for $522. This has been 18 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 1156 Thistlewood and issued invoice 0702-173599 for $522. This has been 18 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-02  QBO 0702-173599 $522\nToday  Open $522. 18 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 1156 Thistlewood and issued invoice 0702-173599 for $522. This has been 18 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-02  Invoiced  0702-173599 $522.\nToday  Open $522. 18 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 1156 Thistlewood \u00b7 0702-173599 \u00b7 18 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -11283,14 +11233,14 @@ window.DATA = [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00299 $522. Still fully open."
+        "what": "CTL-26-00299 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00299 $522. Still fully open."
+        "what": "CTL-26-00299 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00299 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11324,14 +11274,14 @@ window.DATA = [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00302 $783. Still fully open."
+        "what": "CTL-26-00302 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00302 $783. Still fully open."
+        "what": "CTL-26-00302 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00302 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11365,14 +11315,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00557 $783. Still fully open."
+        "what": "CTL-26-00557 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00557 $783. Still fully open."
+        "what": "CTL-26-00557 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00557 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11406,14 +11356,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00558 $783. Still fully open."
+        "what": "CTL-26-00558 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00558 $783. Still fully open."
+        "what": "CTL-26-00558 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00558 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11447,14 +11397,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00562 $783. Still fully open."
+        "what": "CTL-26-00562 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00562 $783. Still fully open."
+        "what": "CTL-26-00562 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00562 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11488,14 +11438,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00569 $783. Still fully open."
+        "what": "CTL-26-00569 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00569 $783. Still fully open."
+        "what": "CTL-26-00569 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00569 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11529,14 +11479,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00571 $1,044. Still fully open."
+        "what": "CTL-26-00571 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00571 $1,044. Still fully open."
+        "what": "CTL-26-00571 $1,044."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00571 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11570,14 +11520,14 @@ window.DATA = [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00584 $783. Still fully open."
+        "what": "CTL-26-00584 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00584 $783. Still fully open."
+        "what": "CTL-26-00584 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00584 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11611,14 +11561,14 @@ window.DATA = [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00600 $522. Still fully open."
+        "what": "CTL-26-00600 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
         "lab": "Invoiced",
-        "what": "CTL-26-00600 $522. Still fully open."
+        "what": "CTL-26-00600 $522."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00600 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11652,14 +11602,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00570 $783. Still fully open."
+        "what": "CTL-26-00570 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00570 $783. Still fully open."
+        "what": "CTL-26-00570 $783."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00570 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11721,14 +11671,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00441 $350. Still fully open."
+        "what": "CTL-26-00441 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00441 $350. Still fully open."
+        "what": "CTL-26-00441 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00441 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -11988,14 +11938,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00479 $350. Still fully open."
+        "what": "CTL-26-00479 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00479 $350. Still fully open."
+        "what": "CTL-26-00479 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00479 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -12030,14 +11980,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00480 $350. Still fully open."
+        "what": "CTL-26-00480 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00480 $350. Still fully open."
+        "what": "CTL-26-00480 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00480 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -12084,11 +12034,6 @@ window.DATA = [
         "what": "Maria sent a report. Cody asked whether the pad passed."
       },
       {
-        "when": "2026-05-15",
-        "lab": "Inquiry",
-        "what": "Joe told Cody the PI retest and pads were good."
-      },
-      {
         "when": "2026-06-15",
         "lab": "Paid",
         "what": "MHI check 00061817 $350 on PO 91KBRG10_004032."
@@ -12109,11 +12054,6 @@ window.DATA = [
         "when": "2026-05-12",
         "lab": "Report transmittal",
         "what": "Maria sent a report. Cody asked whether the pad passed."
-      },
-      {
-        "when": "2026-05-15",
-        "lab": "Inquiry",
-        "what": "Joe told Cody the PI retest and pads were good."
       },
       {
         "when": "2026-06-15",
@@ -12208,14 +12148,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00328 $350. Still fully open."
+        "what": "CTL-26-00328 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00328 $350. Still fully open."
+        "what": "CTL-26-00328 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00328 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -12249,14 +12189,14 @@ window.DATA = [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00206 $350. Still fully open."
+        "what": "CTL-26-00206 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
         "lab": "Invoiced",
-        "what": "CTL-26-00206 $350. Still fully open."
+        "what": "CTL-26-00206 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00206 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -12362,25 +12302,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-07-15",
-        "lab": "",
-        "what": "Evan Brown"
+        "lab": "Called in",
+        "what": "Evan Brown asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00025 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00025 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-15",
-        "lab": "",
-        "what": "Evan Brown"
+        "lab": "Called in",
+        "what": "Evan Brown asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00025 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00025 $350."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-07-15 Evan Brown 10415 Melida Dawn (Coventry candela). No request .eml on disk."
@@ -12576,25 +12516,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-11",
-        "lab": "",
-        "what": "Binh Tran"
+        "lab": "Called in",
+        "what": "Binh Tran asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00607 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00607 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
-        "lab": "",
-        "what": "Binh Tran"
+        "lab": "Called in",
+        "what": "Binh Tran asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00607 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00607 $350."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-11 Binh Tran 1703 Dumas St. No request .eml on disk."
@@ -12628,25 +12568,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-11",
-        "lab": "",
-        "what": "Binh Tran"
+        "lab": "Called in",
+        "what": "Binh Tran asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00608 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00608 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
-        "lab": "",
-        "what": "Binh Tran"
+        "lab": "Called in",
+        "what": "Binh Tran asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00608 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00608 $350."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-11 Binh Tran 1618 Leona Ln. No request .eml on disk."
@@ -12681,14 +12621,14 @@ window.DATA = [
       {
         "when": "2026-07-24",
         "lab": "Invoiced",
-        "what": "CTL-26-00114 $350. Still fully open."
+        "what": "CTL-26-00114 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-24",
         "lab": "Invoiced",
-        "what": "CTL-26-00114 $350. Still fully open."
+        "what": "CTL-26-00114 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00114 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -12723,14 +12663,14 @@ window.DATA = [
       {
         "when": "2026-07-24",
         "lab": "Invoiced",
-        "what": "CTL-26-00115 $350. Still fully open."
+        "what": "CTL-26-00115 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-24",
         "lab": "Invoiced",
-        "what": "CTL-26-00115 $350. Still fully open."
+        "what": "CTL-26-00115 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00115 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -12765,14 +12705,14 @@ window.DATA = [
       {
         "when": "2026-07-24",
         "lab": "Invoiced",
-        "what": "CTL-26-00116 $350. Still fully open."
+        "what": "CTL-26-00116 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-24",
         "lab": "Invoiced",
-        "what": "CTL-26-00116 $350. Still fully open."
+        "what": "CTL-26-00116 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00116 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -12807,14 +12747,14 @@ window.DATA = [
       {
         "when": "2026-07-24",
         "lab": "Invoiced",
-        "what": "CTL-26-00117 $350. Still fully open."
+        "what": "CTL-26-00117 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-24",
         "lab": "Invoiced",
-        "what": "CTL-26-00117 $350. Still fully open."
+        "what": "CTL-26-00117 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00117 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -12849,14 +12789,14 @@ window.DATA = [
       {
         "when": "2026-07-24",
         "lab": "Invoiced",
-        "what": "CTL-26-00118 $350. Still fully open."
+        "what": "CTL-26-00118 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-24",
         "lab": "Invoiced",
-        "what": "CTL-26-00118 $350. Still fully open."
+        "what": "CTL-26-00118 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00118 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -12891,14 +12831,14 @@ window.DATA = [
       {
         "when": "2026-07-24",
         "lab": "Invoiced",
-        "what": "CTL-26-00119 $350. Still fully open."
+        "what": "CTL-26-00119 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-24",
         "lab": "Invoiced",
-        "what": "CTL-26-00119 $350. Still fully open."
+        "what": "CTL-26-00119 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00119 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -12932,35 +12872,35 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-06-26",
-        "lab": "",
-        "what": "Matthew Moore"
+        "lab": "Called in",
+        "what": "Matthew Moore asked at 2918 Wind Cave."
       },
       {
         "when": "2026-07-27",
-        "lab": "",
-        "what": "Matthew Moore"
+        "lab": "Called in",
+        "what": "Matthew Moore asked at 2918 Wind Cave."
       },
       {
         "when": "2026-07-29",
-        "lab": "",
-        "what": "QBO CTL-26-00245 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00245 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-06-26",
-        "lab": "",
-        "what": "Matthew Moore"
+        "lab": "Called in",
+        "what": "Matthew Moore asked at 2918 Wind Cave."
       },
       {
         "when": "2026-07-27",
-        "lab": "",
-        "what": "Matthew Moore"
+        "lab": "Called in",
+        "what": "Matthew Moore asked at 2918 Wind Cave."
       },
       {
         "when": "2026-07-29",
-        "lab": "",
-        "what": "QBO CTL-26-00245 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00245 $350."
       }
     ],
     "workup_attachments_note": "Graph: Matt 6/26 Creekhaven Monday + BuildPro PO 91CRKHV4_005287; Matt 7/27 creekhaven pad testing tuesday names 2918 again. No request .eml on disk."
@@ -12995,14 +12935,14 @@ window.DATA = [
       {
         "when": "2026-07-30",
         "lab": "Invoiced",
-        "what": "CTL-26-00246 $350. Still fully open."
+        "what": "CTL-26-00246 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-30",
         "lab": "Invoiced",
-        "what": "CTL-26-00246 $350. Still fully open."
+        "what": "CTL-26-00246 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00246 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -13037,14 +12977,14 @@ window.DATA = [
       {
         "when": "2026-07-30",
         "lab": "Invoiced",
-        "what": "CTL-26-00247 $350. Still fully open."
+        "what": "CTL-26-00247 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-30",
         "lab": "Invoiced",
-        "what": "CTL-26-00247 $350. Still fully open."
+        "what": "CTL-26-00247 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00247 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -13079,14 +13019,14 @@ window.DATA = [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00326 $350. Still fully open."
+        "what": "CTL-26-00326 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00326 $350. Still fully open."
+        "what": "CTL-26-00326 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00326 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -13121,14 +13061,14 @@ window.DATA = [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00327 $350. Still fully open."
+        "what": "CTL-26-00327 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00327 $350. Still fully open."
+        "what": "CTL-26-00327 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00327 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -13384,14 +13324,14 @@ window.DATA = [
       {
         "when": "2026-07-30",
         "lab": "Invoiced",
-        "what": "CTL-26-00278 $350. Still fully open."
+        "what": "CTL-26-00278 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-30",
         "lab": "Invoiced",
-        "what": "CTL-26-00278 $350. Still fully open."
+        "what": "CTL-26-00278 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00278 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -13426,14 +13366,14 @@ window.DATA = [
       {
         "when": "2026-07-30",
         "lab": "Invoiced",
-        "what": "CTL-26-00279 $350. Still fully open."
+        "what": "CTL-26-00279 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-30",
         "lab": "Invoiced",
-        "what": "CTL-26-00279 $350. Still fully open."
+        "what": "CTL-26-00279 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00279 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -13468,14 +13408,14 @@ window.DATA = [
       {
         "when": "2026-08-03",
         "lab": "Invoiced",
-        "what": "CTL-26-00155 $350. Still fully open."
+        "what": "CTL-26-00155 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-03",
         "lab": "Invoiced",
-        "what": "CTL-26-00155 $350. Still fully open."
+        "what": "CTL-26-00155 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00155 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -13542,7 +13482,7 @@ window.DATA = [
       {
         "when": "2026-06-11",
         "lab": "Inquiry",
-        "what": "Dylan asked if it was done. Ryan said it passed. Maria sent the report."
+        "what": "Dylan asked if the work was done."
       },
       {
         "when": "2026-06-15",
@@ -13552,7 +13492,7 @@ window.DATA = [
       {
         "when": "2026-06-19",
         "lab": "Inquiry",
-        "what": "Maria emailed the $410 invoice."
+        "what": "Maria sent invoice 0609-172393 $410."
       },
       {
         "when": "2026-07-15",
@@ -13569,7 +13509,7 @@ window.DATA = [
       {
         "when": "2026-06-11",
         "lab": "Inquiry",
-        "what": "Dylan asked if it was done. Ryan said it passed. Maria sent the report."
+        "what": "Dylan asked if the work was done."
       },
       {
         "when": "2026-06-15",
@@ -13579,7 +13519,7 @@ window.DATA = [
       {
         "when": "2026-06-19",
         "lab": "Inquiry",
-        "what": "Maria emailed the $410 invoice."
+        "what": "Maria sent invoice 0609-172393 $410."
       },
       {
         "when": "2026-07-15",
@@ -13812,14 +13752,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00616 $350. Still fully open."
+        "what": "CTL-26-00616 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00616 $350. Still fully open."
+        "what": "CTL-26-00616 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00616 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -13853,14 +13793,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00490 $350. Still fully open."
+        "what": "CTL-26-00490 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00490 $350. Still fully open."
+        "what": "CTL-26-00490 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00490 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -13894,14 +13834,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00491 $350. Still fully open."
+        "what": "CTL-26-00491 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00491 $350. Still fully open."
+        "what": "CTL-26-00491 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00491 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -13935,14 +13875,14 @@ window.DATA = [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00450 $350. Still fully open."
+        "what": "CTL-26-00450 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-10",
         "lab": "Invoiced",
-        "what": "CTL-26-00450 $350. Still fully open."
+        "what": "CTL-26-00450 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00450 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -14146,14 +14086,14 @@ window.DATA = [
       {
         "when": "2026-07-27",
         "lab": "Invoiced",
-        "what": "CTL-26-00177 $350. Still fully open."
+        "what": "CTL-26-00177 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-27",
         "lab": "Invoiced",
-        "what": "CTL-26-00177 $350. Still fully open."
+        "what": "CTL-26-00177 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00177 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -14187,14 +14127,14 @@ window.DATA = [
       {
         "when": "2026-07-27",
         "lab": "Invoiced",
-        "what": "CTL-26-00178 $350. Still fully open."
+        "what": "CTL-26-00178 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-27",
         "lab": "Invoiced",
-        "what": "CTL-26-00178 $350. Still fully open."
+        "what": "CTL-26-00178 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00178 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -14358,14 +14298,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00413 $350. Still fully open."
+        "what": "CTL-26-00413 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00413 $350. Still fully open."
+        "what": "CTL-26-00413 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00413 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -14399,14 +14339,14 @@ window.DATA = [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00602 $350. Still fully open."
+        "what": "CTL-26-00602 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
         "lab": "Invoiced",
-        "what": "CTL-26-00602 $350. Still fully open."
+        "what": "CTL-26-00602 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00602 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -14563,14 +14503,14 @@ window.DATA = [
       {
         "when": "2026-07-29",
         "lab": "Invoiced",
-        "what": "CTL-26-00249 $350. Still fully open."
+        "what": "CTL-26-00249 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-29",
         "lab": "Invoiced",
-        "what": "CTL-26-00249 $350. Still fully open."
+        "what": "CTL-26-00249 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00249 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -14605,14 +14545,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00426 $350. Still fully open."
+        "what": "CTL-26-00426 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00426 $350. Still fully open."
+        "what": "CTL-26-00426 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00426 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -14647,14 +14587,14 @@ window.DATA = [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00538 $350. Still fully open."
+        "what": "CTL-26-00538 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
         "lab": "Invoiced",
-        "what": "CTL-26-00538 $350. Still fully open."
+        "what": "CTL-26-00538 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00538 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -14797,14 +14737,14 @@ window.DATA = [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00043 $350. Still fully open."
+        "what": "CTL-26-00043 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00043 $350. Still fully open."
+        "what": "CTL-26-00043 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00043 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -14919,25 +14859,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-04",
-        "lab": "",
-        "what": "David P. Amaya"
+        "lab": "Called in",
+        "what": "David P. Amaya asked at 5107 Mulberry Shrubs Lane."
       },
       {
         "when": "2026-08-05",
-        "lab": "",
-        "what": "QBO CTL-26-00485 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00485 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-04",
-        "lab": "",
-        "what": "David P. Amaya"
+        "lab": "Called in",
+        "what": "David P. Amaya asked at 5107 Mulberry Shrubs Lane."
       },
       {
         "when": "2026-08-05",
-        "lab": "",
-        "what": "QBO CTL-26-00485 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00485 $350."
       }
     ],
     "workup_attachments_note": "Graph: David Amaya 8/4 5107 Mulberry to joe. Billings 8/6 invoice CTL-26-00485 Pomona. Reports 8/7 Pomona PO request. No request .eml on disk."
@@ -14997,14 +14937,14 @@ window.DATA = [
       {
         "when": "2026-07-29",
         "lab": "Invoiced",
-        "what": "CTL-26-00237 $350. Still fully open."
+        "what": "CTL-26-00237 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-29",
         "lab": "Invoiced",
-        "what": "CTL-26-00237 $350. Still fully open."
+        "what": "CTL-26-00237 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00237 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15038,14 +14978,14 @@ window.DATA = [
       {
         "when": "2026-07-29",
         "lab": "Invoiced",
-        "what": "CTL-26-00238 $350. Still fully open."
+        "what": "CTL-26-00238 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-29",
         "lab": "Invoiced",
-        "what": "CTL-26-00238 $350. Still fully open."
+        "what": "CTL-26-00238 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00238 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15079,14 +15019,14 @@ window.DATA = [
       {
         "when": "2026-07-29",
         "lab": "Invoiced",
-        "what": "CTL-26-00239 $350. Still fully open."
+        "what": "CTL-26-00239 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-29",
         "lab": "Invoiced",
-        "what": "CTL-26-00239 $350. Still fully open."
+        "what": "CTL-26-00239 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00239 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15120,14 +15060,14 @@ window.DATA = [
       {
         "when": "2026-07-29",
         "lab": "Invoiced",
-        "what": "CTL-26-00240 $350. Still fully open."
+        "what": "CTL-26-00240 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-29",
         "lab": "Invoiced",
-        "what": "CTL-26-00240 $350. Still fully open."
+        "what": "CTL-26-00240 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00240 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15161,14 +15101,14 @@ window.DATA = [
       {
         "when": "2026-07-29",
         "lab": "Invoiced",
-        "what": "CTL-26-00241 $350. Still fully open."
+        "what": "CTL-26-00241 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-29",
         "lab": "Invoiced",
-        "what": "CTL-26-00241 $350. Still fully open."
+        "what": "CTL-26-00241 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00241 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15202,14 +15142,14 @@ window.DATA = [
       {
         "when": "2026-08-03",
         "lab": "Invoiced",
-        "what": "CTL-26-00280 $350. Still fully open."
+        "what": "CTL-26-00280 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-03",
         "lab": "Invoiced",
-        "what": "CTL-26-00280 $350. Still fully open."
+        "what": "CTL-26-00280 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00280 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15478,14 +15418,14 @@ window.DATA = [
       {
         "when": "2026-07-30",
         "lab": "Invoiced",
-        "what": "CTL-26-00307 $350. Still fully open."
+        "what": "CTL-26-00307 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-30",
         "lab": "Invoiced",
-        "what": "CTL-26-00307 $350. Still fully open."
+        "what": "CTL-26-00307 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00307 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15520,14 +15460,14 @@ window.DATA = [
       {
         "when": "2026-08-03",
         "lab": "Invoiced",
-        "what": "CTL-26-00308 $350. Still fully open."
+        "what": "CTL-26-00308 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-03",
         "lab": "Invoiced",
-        "what": "CTL-26-00308 $350. Still fully open."
+        "what": "CTL-26-00308 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00308 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15670,14 +15610,14 @@ window.DATA = [
       {
         "when": "2026-07-20",
         "lab": "Invoiced",
-        "what": "0713-173967 $350. Still fully open."
+        "what": "0713-173967 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-20",
         "lab": "Invoiced",
-        "what": "0713-173967 $350. Still fully open."
+        "what": "0713-173967 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a 0713-173967 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15712,14 +15652,14 @@ window.DATA = [
       {
         "when": "2026-07-20",
         "lab": "Invoiced",
-        "what": "0713-173968 $350. Still fully open."
+        "what": "0713-173968 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-20",
         "lab": "Invoiced",
-        "what": "0713-173968 $350. Still fully open."
+        "what": "0713-173968 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a 0713-173968 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15754,14 +15694,14 @@ window.DATA = [
       {
         "when": "2026-07-20",
         "lab": "Invoiced",
-        "what": "0713-173969 $350. Still fully open."
+        "what": "0713-173969 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-20",
         "lab": "Invoiced",
-        "what": "0713-173969 $350. Still fully open."
+        "what": "0713-173969 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a 0713-173969 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15796,14 +15736,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00417 $350. Still fully open."
+        "what": "CTL-26-00417 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00417 $350. Still fully open."
+        "what": "CTL-26-00417 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00417 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15838,14 +15778,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00418 $350. Still fully open."
+        "what": "CTL-26-00418 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00418 $350. Still fully open."
+        "what": "CTL-26-00418 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00418 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15880,14 +15820,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00419 $350. Still fully open."
+        "what": "CTL-26-00419 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00419 $350. Still fully open."
+        "what": "CTL-26-00419 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00419 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15922,14 +15862,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00420 $350. Still fully open."
+        "what": "CTL-26-00420 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00420 $350. Still fully open."
+        "what": "CTL-26-00420 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00420 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -15964,14 +15904,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00421 $350. Still fully open."
+        "what": "CTL-26-00421 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00421 $350. Still fully open."
+        "what": "CTL-26-00421 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00421 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -16166,12 +16106,12 @@ window.DATA = [
       {
         "when": "2026-06-29",
         "lab": "Invoiced",
-        "what": "0625-173126 $350. Still fully open."
+        "what": "0625-173126 $350."
       },
       {
         "when": "2026-07-02",
         "lab": "Inquiry",
-        "what": "Maria sent MHI Valencia June invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "Today",
@@ -16189,12 +16129,12 @@ window.DATA = [
       {
         "when": "2026-06-29",
         "lab": "Invoiced",
-        "what": "0625-173126 $350. Still fully open."
+        "what": "0625-173126 $350."
       },
       {
         "when": "2026-07-02",
         "lab": "Inquiry",
-        "what": "Maria sent MHI Valencia June invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "Today",
@@ -16206,7 +16146,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved under a 0625-173126 case folder. Report date is from the 2026-08-17 Graph mail research. Hyphen notes from the 2026-08-17 scrape (Received / empty notes / builder not complete). No Ryan/Joe call-in found in that mail pass.",
     "chase_letter_lead": "Please complete this order in Hyphen so payment can be issued. Invoice 0625-173126 is $350 at 6707 Davis Field on PO 91VL5S15_000200. The report went: Maria sent the MHI Valencia 6707 Davis Field report. This has been 21 days past due.",
     "chase_letter_paras": [],
-    "chase_letter": "Please complete this order in Hyphen so payment can be issued. Invoice 0625-173126 is $350 at 6707 Davis Field on PO 91VL5S15_000200. The report went: Maria sent the MHI Valencia 6707 Davis Field report. This has been 21 days past due.\n\nTimeline of Events\n\n2026-06-26  Report transmittal  Maria sent the MHI Valencia 6707 Davis Field report.\n2026-06-29  Invoiced  0625-173126 $350. Still fully open.\n2026-07-02  Inquiry  Maria sent MHI Valencia June invoices.\nToday  Open $350. 21 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Please complete this order in Hyphen so payment can be issued. Invoice 0625-173126 is $350 at 6707 Davis Field on PO 91VL5S15_000200. The report went: Maria sent the MHI Valencia 6707 Davis Field report. This has been 21 days past due.\n\nTimeline of Events\n\n2026-06-26  Report transmittal  Maria sent the MHI Valencia 6707 Davis Field report.\n2026-06-29  Invoiced  0625-173126 $350.\n2026-07-02  Inquiry  Maria sent invoices.\nToday  Open $350. 21 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 6707 Davis Field \u00b7 0625-173126 \u00b7 21 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -16246,17 +16186,17 @@ window.DATA = [
       {
         "when": "2026-06-29",
         "lab": "Invoiced",
-        "what": "0625-173127 $350. Still fully open."
+        "what": "0625-173127 $350."
       },
       {
         "when": "2026-07-02",
         "lab": "Inquiry",
-        "what": "Maria sent MHI Valencia June invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "2026-08-04",
         "lab": "Completed",
-        "what": "System: Order Completed By Builder on PO 91VL5S15_000333."
+        "what": "Builder marked PO 91VL5S15_000333 complete."
       },
       {
         "when": "Today",
@@ -16274,17 +16214,17 @@ window.DATA = [
       {
         "when": "2026-06-29",
         "lab": "Invoiced",
-        "what": "0625-173127 $350. Still fully open."
+        "what": "0625-173127 $350."
       },
       {
         "when": "2026-07-02",
         "lab": "Inquiry",
-        "what": "Maria sent MHI Valencia June invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "2026-08-04",
         "lab": "Completed",
-        "what": "System: Order Completed By Builder on PO 91VL5S15_000333."
+        "what": "Builder marked PO 91VL5S15_000333 complete."
       },
       {
         "when": "Today",
@@ -16296,7 +16236,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved under a 0625-173127 case folder. Report date is from the 2026-08-17 Graph mail research. Hyphen notes from the 2026-08-17 scrape (Received / empty notes / builder Complete). No Ryan/Joe call-in found in that mail pass.",
     "chase_letter_lead": "Builder marked PO 91VL5S15_000333 complete on 2026-08-04. Hyphen still has no payment. Invoice 0625-173127 is $350 at 6735 Davis Field. Please update that unpaid PO and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "Builder marked PO 91VL5S15_000333 complete on 2026-08-04. Hyphen still has no payment. Invoice 0625-173127 is $350 at 6735 Davis Field. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-06-26  Report transmittal  Maria sent the MHI Valencia 6735 Davis Field report.\n2026-06-29  Invoiced  0625-173127 $350. Still fully open.\n2026-07-02  Inquiry  Maria sent MHI Valencia June invoices.\n2026-08-04  Completed  System: Order Completed By Builder on PO 91VL5S15_000333.\nToday  Open $350. 21 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Builder marked PO 91VL5S15_000333 complete on 2026-08-04. Hyphen still has no payment. Invoice 0625-173127 is $350 at 6735 Davis Field. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-06-26  Report transmittal  Maria sent the MHI Valencia 6735 Davis Field report.\n2026-06-29  Invoiced  0625-173127 $350.\n2026-07-02  Inquiry  Maria sent invoices.\n2026-08-04  Completed  Builder marked PO 91VL5S15_000333 complete.\nToday  Open $350. 21 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 6735 Davis Field \u00b7 0625-173127 \u00b7 21 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -16574,14 +16514,14 @@ window.DATA = [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00089 $350. Still fully open."
+        "what": "CTL-26-00089 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-31",
         "lab": "Invoiced",
-        "what": "CTL-26-00089 $350. Still fully open."
+        "what": "CTL-26-00089 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00089 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -16615,15 +16555,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00049 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00049 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00049 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00049 $350."
       }
     ],
     "workup_attachments_note": "No named client ask file. Graph ids in _current-nf-graph.json. No request .eml on disk."
@@ -17250,14 +17190,14 @@ window.DATA = [
       {
         "when": "2026-07-28",
         "lab": "Invoiced",
-        "what": "CTL-26-00173 $350. Still fully open."
+        "what": "CTL-26-00173 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-28",
         "lab": "Invoiced",
-        "what": "CTL-26-00173 $350. Still fully open."
+        "what": "CTL-26-00173 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00173 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -17292,14 +17232,14 @@ window.DATA = [
       {
         "when": "2026-07-29",
         "lab": "Invoiced",
-        "what": "CTL-26-00248 $350. Still fully open."
+        "what": "CTL-26-00248 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-29",
         "lab": "Invoiced",
-        "what": "CTL-26-00248 $350. Still fully open."
+        "what": "CTL-26-00248 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00248 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -17334,14 +17274,14 @@ window.DATA = [
       {
         "when": "2026-08-04",
         "lab": "Invoiced",
-        "what": "CTL-26-00168 $350. Still fully open."
+        "what": "CTL-26-00168 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-04",
         "lab": "Invoiced",
-        "what": "CTL-26-00168 $350. Still fully open."
+        "what": "CTL-26-00168 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00168 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -17376,14 +17316,14 @@ window.DATA = [
       {
         "when": "2026-08-04",
         "lab": "Invoiced",
-        "what": "CTL-26-00170 $350. Still fully open."
+        "what": "CTL-26-00170 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-04",
         "lab": "Invoiced",
-        "what": "CTL-26-00170 $350. Still fully open."
+        "what": "CTL-26-00170 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00170 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -17418,14 +17358,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00433 $350. Still fully open."
+        "what": "CTL-26-00433 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00433 $350. Still fully open."
+        "what": "CTL-26-00433 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00433 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -17460,14 +17400,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00434 $350. Still fully open."
+        "what": "CTL-26-00434 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00434 $350. Still fully open."
+        "what": "CTL-26-00434 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00434 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -17502,14 +17442,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00435 $350. Still fully open."
+        "what": "CTL-26-00435 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00435 $350. Still fully open."
+        "what": "CTL-26-00435 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00435 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -17570,15 +17510,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00646 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00646 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00646 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00646 $350."
       }
     ],
     "workup_attachments_note": "No named client ask file. Graph ids in _current-nf-graph.json. No request .eml on disk."
@@ -17612,15 +17552,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00647 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00647 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00647 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00647 $350."
       }
     ],
     "workup_attachments_note": "No named client ask file. Graph ids in _current-nf-graph.json. No request .eml on disk."
@@ -17654,15 +17594,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00648 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00648 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00648 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00648 $350."
       }
     ],
     "workup_attachments_note": "No named client ask file. Graph ids in _current-nf-graph.json. No request .eml on disk."
@@ -17696,14 +17636,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00451 $350. Still fully open."
+        "what": "CTL-26-00451 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00451 $350. Still fully open."
+        "what": "CTL-26-00451 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00451 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -17736,15 +17676,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-05",
-        "lab": "",
-        "what": "QBO CTL-26-00452 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00452 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
-        "lab": "",
-        "what": "QBO CTL-26-00452 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00452 $350."
       }
     ],
     "workup_attachments_note": "No named client ask file. Graph ids in _current-nf-graph.json. No request .eml on disk."
@@ -17778,14 +17718,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00453 $350. Still fully open."
+        "what": "CTL-26-00453 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00453 $350. Still fully open."
+        "what": "CTL-26-00453 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00453 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -17819,14 +17759,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00454 $350. Still fully open."
+        "what": "CTL-26-00454 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00454 $350. Still fully open."
+        "what": "CTL-26-00454 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00454 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -17860,14 +17800,14 @@ window.DATA = [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00455 $350. Still fully open."
+        "what": "CTL-26-00455 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-05",
         "lab": "Invoiced",
-        "what": "CTL-26-00455 $350. Still fully open."
+        "what": "CTL-26-00455 $350."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00455 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -18097,7 +18037,7 @@ window.DATA = [
       {
         "when": "2026-05-29",
         "lab": "Inquiry",
-        "what": "Maria emailed the $620 invoice."
+        "what": "Maria sent invoice 0506-171278 $620."
       },
       {
         "when": "2026-06-01",
@@ -18129,7 +18069,7 @@ window.DATA = [
       {
         "when": "2026-05-29",
         "lab": "Inquiry",
-        "what": "Maria emailed the $620 invoice."
+        "what": "Maria sent invoice 0506-171278 $620."
       },
       {
         "when": "2026-06-01",
@@ -18504,7 +18444,7 @@ window.DATA = [
       {
         "when": "2026-06-11",
         "lab": "Called in",
-        "what": "Nicole Love's list to Ryan includes 14222 Arden Hill Circle."
+        "what": "Nicole Love asked for work at 14222 Arden Hill Circle."
       },
       {
         "when": "2026-06-12",
@@ -18526,7 +18466,7 @@ window.DATA = [
       {
         "when": "2026-06-11",
         "lab": "Called in",
-        "what": "Nicole Love's list to Ryan includes 14222 Arden Hill Circle."
+        "what": "Nicole Love asked for work at 14222 Arden Hill Circle."
       },
       {
         "when": "2026-06-12",
@@ -19211,14 +19151,14 @@ window.DATA = [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00628 $416. Still fully open."
+        "what": "CTL-26-00628 $416."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
         "lab": "Invoiced",
-        "what": "CTL-26-00628 $416. Still fully open."
+        "what": "CTL-26-00628 $416."
       }
     ],
     "workup_attachments_note": "No customer-facing files saved under a CTL-26-00628 case folder. Hyphen notes were never scraped for this SON (not in unpaid-found-19 or paid-mismatch notes files). No request .eml on disk. Do not draft a builder letter while the invoice is current."
@@ -19252,25 +19192,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "Javier Salazar"
+        "lab": "Called in",
+        "what": "Javier Salazar asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00629 $416"
+        "lab": "Invoiced",
+        "what": "CTL-26-00629 $416."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "Javier Salazar"
+        "lab": "Called in",
+        "what": "Javier Salazar asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00629 $416"
+        "lab": "Invoiced",
+        "what": "CTL-26-00629 $416."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-12 Javier Salazar Compaction test needed for two starts in Revera Comunity. No request .eml on disk."
@@ -19518,7 +19458,7 @@ window.DATA = [
       {
         "when": "2026-06-05",
         "lab": "Paid",
-        "what": "Toll check 515807 $610 on PO 19526775-000 (and $416 on sibling 0504-171172)."
+        "what": "Toll check 515807 $610 on PO 19526775-000 (and $416 on sibling 0504-171172)"
       }
     ],
     "chase_timeline": [
@@ -19550,7 +19490,7 @@ window.DATA = [
       {
         "when": "2026-06-05",
         "lab": "Paid",
-        "what": "Toll check 515807 $610 on PO 19526775-000 (and $416 on sibling 0504-171172)."
+        "what": "Toll check 515807 $610 on PO 19526775-000 (and $416 on sibling 0504-171172)"
       }
     ],
     "workup_attachments_note": "No customer-facing files saved on a 0522-171895 case folder. Notes scrape is empty. Sibling pad 0504-171172 is not in Wednesday open AR. Need invoice line items to name the $656.50.",
@@ -19675,12 +19615,12 @@ window.DATA = [
       {
         "when": "2026-05-13",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Bridgeland / 22115 Dion Skipper."
+        "what": "Maria sent the 22115 Dion Skipper report."
       },
       {
         "when": "2026-05-22",
         "lab": "Inquiry",
-        "what": "Maria emailed invoice 0512-171556."
+        "what": "Maria sent invoice 0512-171556 $350."
       },
       {
         "when": "Today",
@@ -19698,12 +19638,12 @@ window.DATA = [
       {
         "when": "2026-05-13",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Bridgeland / 22115 Dion Skipper."
+        "what": "Maria sent the 22115 Dion Skipper report."
       },
       {
         "when": "2026-05-22",
         "lab": "Inquiry",
-        "what": "Maria emailed invoice 0512-171556."
+        "what": "Maria sent invoice 0512-171556 $350."
       },
       {
         "when": "Today",
@@ -19715,7 +19655,7 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "chase_letter_lead": "We performed the work at 22115 Dion Skipper and issued invoice 0512-171556 for $350. This has been 69 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 22115 Dion Skipper and issued invoice 0512-171556 for $350. This has been 69 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-12  Invoiced  0512-171556 $350.\n2026-05-13  Report transmittal  Maria \u2014 Bridgeland / 22115 Dion Skipper.\n2026-05-22  Inquiry  Maria emailed invoice 0512-171556.\nToday  Open $350. 69 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 22115 Dion Skipper and issued invoice 0512-171556 for $350. This has been 69 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-12  Invoiced  0512-171556 $350.\n2026-05-13  Report transmittal  Maria sent the 22115 Dion Skipper report.\n2026-05-22  Inquiry  Maria sent invoice 0512-171556 $350.\nToday  Open $350. 69 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 22115 Dion Skipper \u00b7 0512-171556 \u00b7 69 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -19750,17 +19690,12 @@ window.DATA = [
       {
         "when": "2026-06-24",
         "lab": "Called in",
-        "what": "Ty Cooley: 22103 Dion Skipper and 22002 Open Marsh Friday afternoon."
-      },
-      {
-        "when": "2026-06-24",
-        "lab": "Called in",
-        "what": "Ty: Bridgeland. Ryan: Got it."
+        "what": "Ty Cooley asked for 22103 Dion Skipper and 22002 Open Marsh."
       },
       {
         "when": "2026-06-29",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Bridgeland / 22002 Open Marsh."
+        "what": "Maria sent the 22002 Open Marsh report."
       },
       {
         "when": "2026-06-29",
@@ -19770,7 +19705,7 @@ window.DATA = [
       {
         "when": "2026-07-02",
         "lab": "Inquiry",
-        "what": "Maria Bridgeland June invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "Today",
@@ -19783,17 +19718,12 @@ window.DATA = [
       {
         "when": "2026-06-24",
         "lab": "Called in",
-        "what": "Ty Cooley: 22103 Dion Skipper and 22002 Open Marsh Friday afternoon."
-      },
-      {
-        "when": "2026-06-24",
-        "lab": "Called in",
-        "what": "Ty: Bridgeland. Ryan: Got it."
+        "what": "Ty Cooley asked for 22103 Dion Skipper and 22002 Open Marsh."
       },
       {
         "when": "2026-06-29",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Bridgeland / 22002 Open Marsh."
+        "what": "Maria sent the 22002 Open Marsh report."
       },
       {
         "when": "2026-06-29",
@@ -19803,7 +19733,7 @@ window.DATA = [
       {
         "when": "2026-07-02",
         "lab": "Inquiry",
-        "what": "Maria Bridgeland June invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "Today",
@@ -19815,7 +19745,7 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "chase_letter_lead": "We performed the work at 22002 Open Marsh and issued invoice 0626-173144 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 22002 Open Marsh and issued invoice 0626-173144 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-24  Called in  Ty Cooley: 22103 Dion Skipper and 22002 Open Marsh Friday afternoon.\n2026-06-24  Called in  Ty: Bridgeland. Ryan: Got it.\n2026-06-29  Report transmittal  Maria \u2014 Bridgeland / 22002 Open Marsh.\n2026-06-29  Invoiced  0626-173144 $350.\n2026-07-02  Inquiry  Maria Bridgeland June invoices.\nToday  Open $350. 21 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 22002 Open Marsh and issued invoice 0626-173144 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-24  Called in  Ty Cooley asked for 22103 Dion Skipper and 22002 Open Marsh.\n2026-06-29  Report transmittal  Maria sent the 22002 Open Marsh report.\n2026-06-29  Invoiced  0626-173144 $350.\n2026-07-02  Inquiry  Maria sent invoices.\nToday  Open $350. 21 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 22002 Open Marsh \u00b7 0626-173144 \u00b7 21 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -19850,27 +19780,22 @@ window.DATA = [
       {
         "when": "2026-06-10",
         "lab": "Called in",
-        "what": "Scott Caron: proctors at 6027 Everwillow Drive and 6019 Sunset Grove Loop."
-      },
-      {
-        "when": "2026-06-10",
-        "lab": "Called in",
-        "what": "Ryan: Received and added to schedule."
+        "what": "Scott Caron asked for proctors at 6027 Everwillow Drive and 6019 Sunset Grove Loop."
       },
       {
         "when": "2026-06-15",
         "lab": "Invoiced",
-        "what": "0611-172575 $680 open."
+        "what": "0611-172575."
       },
       {
         "when": "2026-06-22",
         "lab": "Inquiry",
-        "what": "Maria emailed invoice 0611-172575."
+        "what": "Maria sent invoice 0611-172575 $680."
       },
       {
         "when": "2026-06-26",
         "lab": "Report transmittal",
-        "what": "Veronica \u2014 6027 Everwillow (after the $680 was already invoiced)."
+        "what": "Veronica sent the 6027 Everwillow report."
       },
       {
         "when": "Today",
@@ -19883,27 +19808,22 @@ window.DATA = [
       {
         "when": "2026-06-10",
         "lab": "Called in",
-        "what": "Scott Caron: proctors at 6027 Everwillow Drive and 6019 Sunset Grove Loop."
-      },
-      {
-        "when": "2026-06-10",
-        "lab": "Called in",
-        "what": "Ryan: Received and added to schedule."
+        "what": "Scott Caron asked for proctors at 6027 Everwillow Drive and 6019 Sunset Grove Loop."
       },
       {
         "when": "2026-06-15",
         "lab": "Invoiced",
-        "what": "0611-172575 $680 open."
+        "what": "0611-172575."
       },
       {
         "when": "2026-06-22",
         "lab": "Inquiry",
-        "what": "Maria emailed invoice 0611-172575."
+        "what": "Maria sent invoice 0611-172575 $680."
       },
       {
         "when": "2026-06-26",
         "lab": "Report transmittal",
-        "what": "Veronica \u2014 6027 Everwillow (after the $680 was already invoiced)."
+        "what": "Veronica sent the 6027 Everwillow report."
       },
       {
         "when": "Today",
@@ -19915,7 +19835,7 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "chase_letter_lead": "We performed the work at 6027 Everwillow Dr and issued invoice 0611-172575 for $680. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 6027 Everwillow Dr and issued invoice 0611-172575 for $680. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Called in  Scott Caron: proctors at 6027 Everwillow Drive and 6019 Sunset Grove Loop.\n2026-06-10  Called in  Ryan: Received and added to schedule.\n2026-06-15  Invoiced  0611-172575 $680 open.\n2026-06-22  Inquiry  Maria emailed invoice 0611-172575.\n2026-06-26  Report transmittal  Veronica \u2014 6027 Everwillow (after the $680 was already invoiced).\nToday  Open $680. 35 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 6027 Everwillow Dr and issued invoice 0611-172575 for $680. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Called in  Scott Caron asked for proctors at 6027 Everwillow Drive and 6019 Sunset Grove Loop.\n2026-06-15  Invoiced  0611-172575.\n2026-06-22  Inquiry  Maria sent invoice 0611-172575 $680.\n2026-06-26  Report transmittal  Veronica sent the 6027 Everwillow report.\nToday  Open $680. 35 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 6027 Everwillow Dr \u00b7 0611-172575 \u00b7 35 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -19950,7 +19870,7 @@ window.DATA = [
       {
         "when": "2026-06-10",
         "lab": "Called in",
-        "what": "Only 6027 ask on file: Scott Caron proctors (billed as 0611-172575 $680). Not proven as this $350."
+        "what": "Scott Caron asked for proctors at 6027 Everwillow (billed as 0611-172575 $680). Not proven as this $350."
       },
       {
         "when": "2026-06-22",
@@ -19960,17 +19880,17 @@ window.DATA = [
       {
         "when": "2026-06-26",
         "lab": "Report transmittal",
-        "what": "Veronica 6027 Everwillow report \u2014 not a callout."
+        "what": "Veronica sent the 6027 Everwillow report."
       },
       {
         "when": "2026-06-29",
         "lab": "Invoiced",
-        "what": "0623-173080 $350 open."
+        "what": "0623-173080."
       },
       {
         "when": "2026-07-02",
         "lab": "Inquiry",
-        "what": "Maria Evergrove June invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "Today",
@@ -19983,7 +19903,7 @@ window.DATA = [
       {
         "when": "2026-06-10",
         "lab": "Called in",
-        "what": "Only 6027 ask on file: Scott Caron proctors (billed as 0611-172575 $680). Not proven as this $350."
+        "what": "Scott Caron asked for proctors at 6027 Everwillow (billed as 0611-172575 $680). Not proven as this $350."
       },
       {
         "when": "2026-06-22",
@@ -19993,17 +19913,17 @@ window.DATA = [
       {
         "when": "2026-06-26",
         "lab": "Report transmittal",
-        "what": "Veronica 6027 Everwillow report \u2014 not a callout."
+        "what": "Veronica sent the 6027 Everwillow report."
       },
       {
         "when": "2026-06-29",
         "lab": "Invoiced",
-        "what": "0623-173080 $350 open."
+        "what": "0623-173080."
       },
       {
         "when": "2026-07-02",
         "lab": "Inquiry",
-        "what": "Maria Evergrove June invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "Today",
@@ -20015,7 +19935,7 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "chase_letter_lead": "We performed the work at 6027 Everwillow Dr and issued invoice 0623-173080 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 6027 Everwillow Dr and issued invoice 0623-173080 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Called in  Only 6027 ask on file: Scott Caron proctors (billed as 0611-172575 $680). Not proven as this $350.\n2026-06-22  Inquiry  Maria already sent 0611-172575 $680.\n2026-06-26  Report transmittal  Veronica 6027 Everwillow report \u2014 not a callout.\n2026-06-29  Invoiced  0623-173080 $350 open.\n2026-07-02  Inquiry  Maria Evergrove June invoices.\nToday  Open $350. 21 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 6027 Everwillow Dr and issued invoice 0623-173080 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Called in  Scott Caron asked for proctors at 6027 Everwillow (billed as 0611-172575 $680). Not proven as this $350.\n2026-06-22  Inquiry  Maria already sent 0611-172575 $680.\n2026-06-26  Report transmittal  Veronica sent the 6027 Everwillow report.\n2026-06-29  Invoiced  0623-173080.\n2026-07-02  Inquiry  Maria sent invoices.\nToday  Open $350. 21 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 6027 Everwillow Dr \u00b7 0623-173080 \u00b7 21 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -20050,7 +19970,7 @@ window.DATA = [
       {
         "when": "2026-06-24",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Evergrove / 6035 Ever Willow Dr."
+        "what": "Maria sent the 6035 Ever Willow Dr report."
       },
       {
         "when": "2026-06-29",
@@ -20060,7 +19980,7 @@ window.DATA = [
       {
         "when": "2026-07-02",
         "lab": "Inquiry",
-        "what": "Maria June Evergrove invoices."
+        "what": "Maria sent June invoices."
       },
       {
         "when": "Today",
@@ -20073,7 +19993,7 @@ window.DATA = [
       {
         "when": "2026-06-24",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Evergrove / 6035 Ever Willow Dr."
+        "what": "Maria sent the 6035 Ever Willow Dr report."
       },
       {
         "when": "2026-06-29",
@@ -20083,7 +20003,7 @@ window.DATA = [
       {
         "when": "2026-07-02",
         "lab": "Inquiry",
-        "what": "Maria June Evergrove invoices."
+        "what": "Maria sent June invoices."
       },
       {
         "when": "Today",
@@ -20095,7 +20015,7 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "chase_letter_lead": "We performed the work at 6035 Ever Willow Dr and issued invoice 0623-173081 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 6035 Ever Willow Dr and issued invoice 0623-173081 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-24  Report transmittal  Maria \u2014 Evergrove / 6035 Ever Willow Dr.\n2026-06-29  Invoiced  0623-173081 $350.\n2026-07-02  Inquiry  Maria June Evergrove invoices.\nToday  Open $350. 21 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 6035 Ever Willow Dr and issued invoice 0623-173081 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-24  Report transmittal  Maria sent the 6035 Ever Willow Dr report.\n2026-06-29  Invoiced  0623-173081 $350.\n2026-07-02  Inquiry  Maria sent June invoices.\nToday  Open $350. 21 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 6035 Ever Willow Dr \u00b7 0623-173081 \u00b7 21 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -20130,7 +20050,7 @@ window.DATA = [
       {
         "when": "2026-07-02",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Evergrove / 3614 Misty Cedar."
+        "what": "Maria sent the 3614 Misty Cedar report."
       },
       {
         "when": "2026-07-06",
@@ -20140,7 +20060,7 @@ window.DATA = [
       {
         "when": "2026-07-13",
         "lab": "Inquiry",
-        "what": "Maria July Evergrove invoices."
+        "what": "Maria sent July invoices."
       },
       {
         "when": "Today",
@@ -20153,7 +20073,7 @@ window.DATA = [
       {
         "when": "2026-07-02",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Evergrove / 3614 Misty Cedar."
+        "what": "Maria sent the 3614 Misty Cedar report."
       },
       {
         "when": "2026-07-06",
@@ -20163,7 +20083,7 @@ window.DATA = [
       {
         "when": "2026-07-13",
         "lab": "Inquiry",
-        "what": "Maria July Evergrove invoices."
+        "what": "Maria sent July invoices."
       },
       {
         "when": "Today",
@@ -20175,7 +20095,7 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "chase_letter_lead": "We performed the work at 3614 Misty Cedar and issued invoice 0701-173393 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 3614 Misty Cedar and issued invoice 0701-173393 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-02  Report transmittal  Maria \u2014 Evergrove / 3614 Misty Cedar.\n2026-07-06  Invoiced  0701-173393 $350.\n2026-07-13  Inquiry  Maria July Evergrove invoices.\nToday  Open $350. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 3614 Misty Cedar and issued invoice 0701-173393 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-02  Report transmittal  Maria sent the 3614 Misty Cedar report.\n2026-07-06  Invoiced  0701-173393 $350.\n2026-07-13  Inquiry  Maria sent July invoices.\nToday  Open $350. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 3614 Misty Cedar \u00b7 0701-173393 \u00b7 14 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -20210,7 +20130,7 @@ window.DATA = [
       {
         "when": "2026-07-02",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Evergrove / 3623 Misty Cedar."
+        "what": "Maria sent the 3623 Misty Cedar report."
       },
       {
         "when": "2026-07-06",
@@ -20220,7 +20140,7 @@ window.DATA = [
       {
         "when": "2026-07-13",
         "lab": "Inquiry",
-        "what": "Maria July Evergrove invoices."
+        "what": "Maria sent July invoices."
       },
       {
         "when": "Today",
@@ -20233,7 +20153,7 @@ window.DATA = [
       {
         "when": "2026-07-02",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Evergrove / 3623 Misty Cedar."
+        "what": "Maria sent the 3623 Misty Cedar report."
       },
       {
         "when": "2026-07-06",
@@ -20243,7 +20163,7 @@ window.DATA = [
       {
         "when": "2026-07-13",
         "lab": "Inquiry",
-        "what": "Maria July Evergrove invoices."
+        "what": "Maria sent July invoices."
       },
       {
         "when": "Today",
@@ -20255,7 +20175,7 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "chase_letter_lead": "We performed the work at 3623 Misty Cedar Grove and issued invoice 0701-173394 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 3623 Misty Cedar Grove and issued invoice 0701-173394 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-02  Report transmittal  Maria \u2014 Evergrove / 3623 Misty Cedar.\n2026-07-06  Invoiced  0701-173394 $350.\n2026-07-13  Inquiry  Maria July Evergrove invoices.\nToday  Open $350. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 3623 Misty Cedar Grove and issued invoice 0701-173394 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-02  Report transmittal  Maria sent the 3623 Misty Cedar report.\n2026-07-06  Invoiced  0701-173394 $350.\n2026-07-13  Inquiry  Maria sent July invoices.\nToday  Open $350. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 3623 Misty Cedar Grove \u00b7 0701-173394 \u00b7 14 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -20290,7 +20210,7 @@ window.DATA = [
       {
         "when": "2026-07-09",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Evergrove / 5326 Maple Stream."
+        "what": "Maria sent the 5326 Maple Stream report."
       },
       {
         "when": "2026-07-13",
@@ -20300,7 +20220,7 @@ window.DATA = [
       {
         "when": "2026-07-20",
         "lab": "Inquiry",
-        "what": "Maria July Evergrove invoices."
+        "what": "Maria sent July invoices."
       },
       {
         "when": "Today",
@@ -20313,7 +20233,7 @@ window.DATA = [
       {
         "when": "2026-07-09",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Evergrove / 5326 Maple Stream."
+        "what": "Maria sent the 5326 Maple Stream report."
       },
       {
         "when": "2026-07-13",
@@ -20323,7 +20243,7 @@ window.DATA = [
       {
         "when": "2026-07-20",
         "lab": "Inquiry",
-        "what": "Maria July Evergrove invoices."
+        "what": "Maria sent July invoices."
       },
       {
         "when": "Today",
@@ -20335,7 +20255,7 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "chase_letter_lead": "We performed the work at 5326 Maple Stream and issued invoice 0708-173849 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 5326 Maple Stream and issued invoice 0708-173849 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-09  Report transmittal  Maria \u2014 Evergrove / 5326 Maple Stream.\n2026-07-13  Invoiced  0708-173849 $350.\n2026-07-20  Inquiry  Maria July Evergrove invoices.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 5326 Maple Stream and issued invoice 0708-173849 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-09  Report transmittal  Maria sent the 5326 Maple Stream report.\n2026-07-13  Invoiced  0708-173849 $350.\n2026-07-20  Inquiry  Maria sent July invoices.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 5326 Maple Stream \u00b7 0708-173849 \u00b7 7 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -20370,7 +20290,7 @@ window.DATA = [
       {
         "when": "2026-07-09",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Evergrove / 5330 Maple Stream."
+        "what": "Maria sent the 5330 Maple Stream report."
       },
       {
         "when": "2026-07-13",
@@ -20380,7 +20300,7 @@ window.DATA = [
       {
         "when": "2026-07-20",
         "lab": "Inquiry",
-        "what": "Maria July Evergrove invoices."
+        "what": "Maria sent July invoices."
       },
       {
         "when": "Today",
@@ -20393,7 +20313,7 @@ window.DATA = [
       {
         "when": "2026-07-09",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Evergrove / 5330 Maple Stream."
+        "what": "Maria sent the 5330 Maple Stream report."
       },
       {
         "when": "2026-07-13",
@@ -20403,7 +20323,7 @@ window.DATA = [
       {
         "when": "2026-07-20",
         "lab": "Inquiry",
-        "what": "Maria July Evergrove invoices."
+        "what": "Maria sent July invoices."
       },
       {
         "when": "Today",
@@ -20415,7 +20335,7 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "chase_letter_lead": "We performed the work at 5330 Maple Stream and issued invoice 0708-173850 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 5330 Maple Stream and issued invoice 0708-173850 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-09  Report transmittal  Maria \u2014 Evergrove / 5330 Maple Stream.\n2026-07-13  Invoiced  0708-173850 $350.\n2026-07-20  Inquiry  Maria July Evergrove invoices.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 5330 Maple Stream and issued invoice 0708-173850 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-09  Report transmittal  Maria sent the 5330 Maple Stream report.\n2026-07-13  Invoiced  0708-173850 $350.\n2026-07-20  Inquiry  Maria sent July invoices.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 5330 Maple Stream \u00b7 0708-173850 \u00b7 7 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -20449,25 +20369,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-07-28",
-        "lab": "",
-        "what": "Scott Caron"
+        "lab": "Called in",
+        "what": "Scott Caron asked at 5414 Gless Park."
       },
       {
         "when": "2026-07-31",
-        "lab": "",
-        "what": "QBO CTL-26-00306 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00306 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-28",
-        "lab": "",
-        "what": "Scott Caron"
+        "lab": "Called in",
+        "what": "Scott Caron asked at 5414 Gless Park."
       },
       {
         "when": "2026-07-31",
-        "lab": "",
-        "what": "QBO CTL-26-00306 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00306 $350."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-07-28 Scott Caron two lots for compaction tests for tomorrow. No request .eml on disk."
@@ -20501,25 +20421,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-07-28",
-        "lab": "",
-        "what": "Scott Caron"
+        "lab": "Called in",
+        "what": "Scott Caron asked at 5410 Gless Park."
       },
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "QBO CTL-26-00305 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00305 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-28",
-        "lab": "",
-        "what": "Scott Caron"
+        "lab": "Called in",
+        "what": "Scott Caron asked at 5410 Gless Park."
       },
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "QBO CTL-26-00305 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00305 $350."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-07-28 Scott Caron two lots for compaction tests for tomorrow. No request .eml on disk."
@@ -20554,17 +20474,7 @@ window.DATA = [
       {
         "when": "2026-04-27",
         "lab": "Called in",
-        "what": "Jake Matcheski: schedule compaction tomorrow \u2014 3003 Heritage Grove Ct Legacy Grove."
-      },
-      {
-        "when": "2026-04-27",
-        "lab": "Called in",
-        "what": "Joe: Got it."
-      },
-      {
-        "when": "2026-04-28",
-        "lab": "Called in",
-        "what": "Ryan: trying to make it this afternoon."
+        "what": "Jake Matcheski asked for compaction at 3003 Heritage Grove Ct."
       },
       {
         "when": "2026-04-28",
@@ -20574,17 +20484,17 @@ window.DATA = [
       {
         "when": "2026-04-30",
         "lab": "Report transmittal",
-        "what": "Maria to Jake (also 5/1)."
+        "what": "Maria sent the report to Jake."
       },
       {
         "when": "2026-05-18",
         "lab": "Inquiry",
-        "what": "Maria emailed the $610 invoice to Jake."
+        "what": "Maria sent invoice 0428-170954 $610 to Jake."
       },
       {
         "when": "2026-06-26",
         "lab": "Inquiry",
-        "what": "Maria Proctor PO Request to Jake and Chris. No reply."
+        "what": "Maria asked Jake and Chris for a PO."
       },
       {
         "when": "Today",
@@ -20597,17 +20507,7 @@ window.DATA = [
       {
         "when": "2026-04-27",
         "lab": "Called in",
-        "what": "Jake Matcheski: schedule compaction tomorrow \u2014 3003 Heritage Grove Ct Legacy Grove."
-      },
-      {
-        "when": "2026-04-27",
-        "lab": "Called in",
-        "what": "Joe: Got it."
-      },
-      {
-        "when": "2026-04-28",
-        "lab": "Called in",
-        "what": "Ryan: trying to make it this afternoon."
+        "what": "Jake Matcheski asked for compaction at 3003 Heritage Grove Ct."
       },
       {
         "when": "2026-04-28",
@@ -20617,17 +20517,17 @@ window.DATA = [
       {
         "when": "2026-04-30",
         "lab": "Report transmittal",
-        "what": "Maria to Jake (also 5/1)."
+        "what": "Maria sent the report to Jake."
       },
       {
         "when": "2026-05-18",
         "lab": "Inquiry",
-        "what": "Maria emailed the $610 invoice to Jake."
+        "what": "Maria sent invoice 0428-170954 $610 to Jake."
       },
       {
         "when": "2026-06-26",
         "lab": "Inquiry",
-        "what": "Maria Proctor PO Request to Jake and Chris. No reply."
+        "what": "Maria asked Jake and Chris for a PO."
       },
       {
         "when": "Today",
@@ -20665,7 +20565,7 @@ window.DATA = [
     "chase_from_name": "Billings",
     "chase_letter_lead": "We performed the work at 3003 Heritage Grove Ct and issued invoice 0428-170954 for $610. This has been 83 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 3003 Heritage Grove Ct and issued invoice 0428-170954 for $610. This has been 83 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-04-27  Called in  Jake Matcheski: schedule compaction tomorrow \u2014 3003 Heritage Grove Ct Legacy Grove.\n2026-04-27  Called in  Joe: Got it.\n2026-04-28  Called in  Ryan: trying to make it this afternoon.\n2026-04-28  Invoiced  0428-170954 $610.\n2026-04-30  Report transmittal  Maria to Jake (also 5/1).\n2026-05-18  Inquiry  Maria emailed the $610 invoice to Jake.\n2026-06-26  Inquiry  Maria Proctor PO Request to Jake and Chris. No reply.\nToday  Open $610. 83 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 3003 Heritage Grove Ct and issued invoice 0428-170954 for $610. This has been 83 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-04-27  Called in  Jake Matcheski asked for compaction at 3003 Heritage Grove Ct.\n2026-04-28  Invoiced  0428-170954 $610.\n2026-04-30  Report transmittal  Maria sent the report to Jake.\n2026-05-18  Inquiry  Maria sent invoice 0428-170954 $610 to Jake.\n2026-06-26  Inquiry  Maria asked Jake and Chris for a PO.\nToday  Open $610. 83 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 3003 Heritage Grove Ct \u00b7 0428-170954 \u00b7 83 days past due",
     "chase_attachments": [
       {
@@ -20748,17 +20648,17 @@ window.DATA = [
       {
         "when": "2026-06-25",
         "lab": "Called in",
-        "what": "Esme FW Andrew Miller request for 22414 Topaz Harbor Lane to Joe/Ryan."
+        "what": "Andrew Miller asked for 22414 Topaz Harbor Lane."
       },
       {
         "when": "2026-06-29",
         "lab": "Called in",
-        "what": "Andrew: confirm still on for 6/30. Ryan: yes. Andrew: Confirmed."
+        "what": "Andrew confirmed the visit."
       },
       {
         "when": "2026-07-02",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Oak Hill Reserve / 22414 Topaz Harbor Lane."
+        "what": "Maria sent the 22414 Topaz Harbor Lane report."
       },
       {
         "when": "2026-07-06",
@@ -20768,7 +20668,7 @@ window.DATA = [
       {
         "when": "2026-07-13",
         "lab": "Inquiry",
-        "what": "Maria emailed invoice 0630-173247."
+        "what": "Maria sent invoice 0630-173247 $350."
       },
       {
         "when": "Today",
@@ -20781,17 +20681,17 @@ window.DATA = [
       {
         "when": "2026-06-25",
         "lab": "Called in",
-        "what": "Esme FW Andrew Miller request for 22414 Topaz Harbor Lane to Joe/Ryan."
+        "what": "Andrew Miller asked for 22414 Topaz Harbor Lane."
       },
       {
         "when": "2026-06-29",
         "lab": "Called in",
-        "what": "Andrew: confirm still on for 6/30. Ryan: yes. Andrew: Confirmed."
+        "what": "Andrew confirmed the visit."
       },
       {
         "when": "2026-07-02",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Oak Hill Reserve / 22414 Topaz Harbor Lane."
+        "what": "Maria sent the 22414 Topaz Harbor Lane report."
       },
       {
         "when": "2026-07-06",
@@ -20801,7 +20701,7 @@ window.DATA = [
       {
         "when": "2026-07-13",
         "lab": "Inquiry",
-        "what": "Maria emailed invoice 0630-173247."
+        "what": "Maria sent invoice 0630-173247 $350."
       },
       {
         "when": "Today",
@@ -20813,7 +20713,7 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "chase_letter_lead": "We performed the work at 22414 Topaz Harbor Lane and issued invoice 0630-173247 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 22414 Topaz Harbor Lane and issued invoice 0630-173247 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-25  Called in  Esme FW Andrew Miller request for 22414 Topaz Harbor Lane to Joe/Ryan.\n2026-06-29  Called in  Andrew: confirm still on for 6/30. Ryan: yes. Andrew: Confirmed.\n2026-07-02  Report transmittal  Maria \u2014 Oak Hill Reserve / 22414 Topaz Harbor Lane.\n2026-07-06  Invoiced  0630-173247 $350.\n2026-07-13  Inquiry  Maria emailed invoice 0630-173247.\nToday  Open $350. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 22414 Topaz Harbor Lane and issued invoice 0630-173247 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-25  Called in  Andrew Miller asked for 22414 Topaz Harbor Lane.\n2026-06-29  Called in  Andrew confirmed the visit.\n2026-07-02  Report transmittal  Maria sent the 22414 Topaz Harbor Lane report.\n2026-07-06  Invoiced  0630-173247 $350.\n2026-07-13  Inquiry  Maria sent invoice 0630-173247 $350.\nToday  Open $350. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 22414 Topaz Harbor Lane \u00b7 0630-173247 \u00b7 14 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings"
@@ -20853,47 +20753,53 @@ window.DATA = [
       {
         "when": "2026-04-17",
         "lab": "Report transmittal",
-        "what": "Maria to Chad/Keith/Josh/Jerry + compactiontests@trendmakerhomes.com."
+        "what": "Maria sent the report to Chad, Keith, Josh, Jerry."
       },
       {
         "when": "2026-04-20",
         "lab": "Invoiced",
-        "what": "0415-170614 $350. Still $350 open."
+        "what": "0415-170614 $350."
       },
       {
         "when": "2026-04-27",
         "lab": "Inquiry",
-        "what": "Maria April Pecan Ridge invoice batch included this PDF."
+        "what": "Maria sent April invoices."
       },
       {
         "when": "2026-06-25",
         "lab": "Inquiry",
-        "what": "Maria PO request to Chad and Josh."
+        "what": "Maria asked Chad and Josh for a PO."
       },
       {
         "when": "2026-08-14",
         "lab": "Inquiry",
-        "what": "Billings follow-up to Chad and Josh. Still no PO then."
+        "what": "Billings asked Chad and Josh for a PO."
       },
       {
         "when": "2026-08-17",
-        "lab": "Builder reply",
-        "what": "Chad: not his house; given to the correct person."
+        "lab": "Replied",
+        "what": "Chad said this is not his house."
       },
       {
         "when": "2026-08-17",
-        "lab": "Builder reply",
-        "what": "Chad: Keith and he remain; Victor will make this PO then move."
+        "lab": "Replied",
+        "what": "Chad said Victor will make the PO."
       },
       {
         "when": "2026-08-18",
         "lab": "Hyphen PO",
-        "what": "EPO 1271603-000 issued. SKU: invoice 0415-170614 compaction test $350."
+        "what": "EPO 1271603-000 issued for invoice 0415-170614 $350."
       },
       {
         "when": "2026-08-18",
         "lab": "Hyphen complete",
         "what": "1271603-000 completed. Submitted by Victor Umana. No check found."
+      },
+      {
+        "when": "Today",
+        "lab": "Today",
+        "what": "Open $350. 91 days past due.",
+        "today": true
       }
     ],
     "chase_timeline": [
@@ -20905,53 +20811,59 @@ window.DATA = [
       {
         "when": "2026-04-17",
         "lab": "Report transmittal",
-        "what": "Maria to Chad/Keith/Josh/Jerry + compactiontests@trendmakerhomes.com."
+        "what": "Maria sent the report to Chad, Keith, Josh, Jerry."
       },
       {
         "when": "2026-04-20",
         "lab": "Invoiced",
-        "what": "0415-170614 $350. Still $350 open."
+        "what": "0415-170614 $350."
       },
       {
         "when": "2026-04-27",
         "lab": "Inquiry",
-        "what": "Maria April Pecan Ridge invoice batch included this PDF."
+        "what": "Maria sent April invoices."
       },
       {
         "when": "2026-06-25",
         "lab": "Inquiry",
-        "what": "Maria PO request to Chad and Josh."
+        "what": "Maria asked Chad and Josh for a PO."
       },
       {
         "when": "2026-08-14",
         "lab": "Inquiry",
-        "what": "Billings follow-up to Chad and Josh. Still no PO then."
+        "what": "Billings asked Chad and Josh for a PO."
       },
       {
         "when": "2026-08-17",
-        "lab": "Builder reply",
-        "what": "Chad: not his house; given to the correct person."
+        "lab": "Replied",
+        "what": "Chad said this is not his house."
       },
       {
         "when": "2026-08-17",
-        "lab": "Builder reply",
-        "what": "Chad: Keith and he remain; Victor will make this PO then move."
+        "lab": "Replied",
+        "what": "Chad said Victor will make the PO."
       },
       {
         "when": "2026-08-18",
         "lab": "Hyphen PO",
-        "what": "EPO 1271603-000 issued. SKU: invoice 0415-170614 compaction test $350."
+        "what": "EPO 1271603-000 issued for invoice 0415-170614 $350."
       },
       {
         "when": "2026-08-18",
         "lab": "Hyphen complete",
         "what": "1271603-000 completed. Submitted by Victor Umana. No check found."
+      },
+      {
+        "when": "Today",
+        "lab": "Today",
+        "what": "Open $350. 91 days past due.",
+        "today": true
       }
     ],
     "workup_attachments_note": "Prior research/atts under 0415-170614-atts and 0415-170614-research.json. New EPO events in _tp-1271603-events.json.",
     "chase_letter_lead": "Chad, invoice 0415-170614 is $350 at 32147 Sky Branch. This is a Tri Pointe reverse PO \u2014 enter the invoice in Hyphen so a PO can generate. Never send this to hou.acctspayable.",
     "chase_letter_paras": [],
-    "chase_letter": "Chad, invoice 0415-170614 is $350 at 32147 Sky Branch. This is a Tri Pointe reverse PO \u2014 enter the invoice in Hyphen so a PO can generate. Never send this to hou.acctspayable.\n\nTimeline of Events\n\n2026-04-17  Report transmittal  Report transmittal \u2014 Maria emailed the compaction report to Chad Luedke and the Pecan Ridge CMs.\n2026-04-20  Invoiced  Invoiced \u2014 0415-170614 $350. Still open.\nToday  Today  Today \u2014 $350 open, 91 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Chad, invoice 0415-170614 is $350 at 32147 Sky Branch. This is a Tri Pointe reverse PO \u2014 enter the invoice in Hyphen so a PO can generate. Never send this to hou.acctspayable.\n\nTimeline of Events\n\n2026-04-15  Serviced  House pad nuclear density. No email call-in in the five Graph boxes.\n2026-04-17  Report transmittal  Maria sent the report to Chad, Keith, Josh, Jerry.\n2026-04-20  Invoiced  0415-170614 $350.\n2026-04-27  Inquiry  Maria sent April invoices.\n2026-06-25  Inquiry  Maria asked Chad and Josh for a PO.\n2026-08-14  Inquiry  Billings asked Chad and Josh for a PO.\n2026-08-17  Replied  Chad said this is not his house.\n2026-08-17  Replied  Chad said Victor will make the PO.\n2026-08-18  Hyphen PO  EPO 1271603-000 issued for invoice 0415-170614 $350.\n2026-08-18  Hyphen complete  1271603-000 completed. Submitted by Victor Umana. No check found.\nToday  Open $350. 91 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Hyphen entry \u00b7 32147 Sky Branch \u00b7 0415-170614 \u00b7 91 days past due",
     "chase_to": "chad.luedke@tripointehomes.com",
     "chase_to_name": "Chad Luedke",
@@ -21025,17 +20937,17 @@ window.DATA = [
       {
         "when": "2026-05-04",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Pecan Ridge / 32143 Sky Branch."
+        "what": "Maria sent the 32143 Sky Branch report."
       },
       {
         "when": "2026-05-11",
         "lab": "Inquiry",
-        "what": "Maria May Pecan Ridge invoice batch."
+        "what": "Maria sent May invoices."
       },
       {
         "when": "2026-06-26",
         "lab": "Inquiry",
-        "what": "Maria PO request. No builder reply."
+        "what": "Maria asked for a PO."
       },
       {
         "when": "Today",
@@ -21053,17 +20965,17 @@ window.DATA = [
       {
         "when": "2026-05-04",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Pecan Ridge / 32143 Sky Branch."
+        "what": "Maria sent the 32143 Sky Branch report."
       },
       {
         "when": "2026-05-11",
         "lab": "Inquiry",
-        "what": "Maria May Pecan Ridge invoice batch."
+        "what": "Maria sent May invoices."
       },
       {
         "when": "2026-06-26",
         "lab": "Inquiry",
-        "what": "Maria PO request. No builder reply."
+        "what": "Maria asked for a PO."
       },
       {
         "when": "Today",
@@ -21109,7 +21021,7 @@ window.DATA = [
     "chase_from_name": "Billings",
     "chase_letter_lead": "We performed the work at 32143 Sky Branch Dr. and issued invoice 0430-171118 for $350. This has been 81 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 32143 Sky Branch Dr. and issued invoice 0430-171118 for $350. This has been 81 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-04-30  Invoiced  0430-171118 $350.\n2026-05-04  Report transmittal  Maria \u2014 Pecan Ridge / 32143 Sky Branch.\n2026-05-11  Inquiry  Maria May Pecan Ridge invoice batch.\n2026-06-26  Inquiry  Maria PO request. No builder reply.\nToday  Open $350. 81 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 32143 Sky Branch Dr. and issued invoice 0430-171118 for $350. This has been 81 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-04-30  Invoiced  0430-171118 $350.\n2026-05-04  Report transmittal  Maria sent the 32143 Sky Branch report.\n2026-05-11  Inquiry  Maria sent May invoices.\n2026-06-26  Inquiry  Maria asked for a PO.\nToday  Open $350. 81 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 32143 Sky Branch Dr. \u00b7 0430-171118 \u00b7 81 days past due"
   },
   {
@@ -21147,12 +21059,12 @@ window.DATA = [
       {
         "when": "2026-05-15",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Pecan Ridge / 7910 Oakside Court."
+        "what": "Maria sent the 7910 Oakside Court report."
       },
       {
         "when": "2026-05-22",
         "lab": "Inquiry",
-        "what": "Maria May Pecan Ridge invoice batch."
+        "what": "Maria sent May invoices."
       },
       {
         "when": "Today",
@@ -21170,12 +21082,12 @@ window.DATA = [
       {
         "when": "2026-05-15",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Pecan Ridge / 7910 Oakside Court."
+        "what": "Maria sent the 7910 Oakside Court report."
       },
       {
         "when": "2026-05-22",
         "lab": "Inquiry",
-        "what": "Maria May Pecan Ridge invoice batch."
+        "what": "Maria sent May invoices."
       },
       {
         "when": "Today",
@@ -21221,7 +21133,7 @@ window.DATA = [
     "chase_from_name": "Billings",
     "chase_letter_lead": "We performed the work at 7910 Oakside Court and issued invoice 0514-171597 for $350. This has been 67 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 7910 Oakside Court and issued invoice 0514-171597 for $350. This has been 67 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-14  Invoiced  0514-171597 $350.\n2026-05-15  Report transmittal  Maria \u2014 Pecan Ridge / 7910 Oakside Court.\n2026-05-22  Inquiry  Maria May Pecan Ridge invoice batch.\nToday  Open $350. 67 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 7910 Oakside Court and issued invoice 0514-171597 for $350. This has been 67 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-14  Invoiced  0514-171597 $350.\n2026-05-15  Report transmittal  Maria sent the 7910 Oakside Court report.\n2026-05-22  Inquiry  Maria sent May invoices.\nToday  Open $350. 67 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 7910 Oakside Court \u00b7 0514-171597 \u00b7 67 days past due"
   },
   {
@@ -21259,12 +21171,12 @@ window.DATA = [
       {
         "when": "2026-05-15",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Pecan Ridge / 8011 Leaf Drift Court."
+        "what": "Maria sent the 8011 Leaf Drift Court report."
       },
       {
         "when": "2026-05-22",
         "lab": "Inquiry",
-        "what": "Maria May Pecan Ridge invoice batch."
+        "what": "Maria sent May invoices."
       },
       {
         "when": "Today",
@@ -21282,12 +21194,12 @@ window.DATA = [
       {
         "when": "2026-05-15",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Pecan Ridge / 8011 Leaf Drift Court."
+        "what": "Maria sent the 8011 Leaf Drift Court report."
       },
       {
         "when": "2026-05-22",
         "lab": "Inquiry",
-        "what": "Maria May Pecan Ridge invoice batch."
+        "what": "Maria sent May invoices."
       },
       {
         "when": "Today",
@@ -21333,7 +21245,7 @@ window.DATA = [
     "chase_from_name": "Billings",
     "chase_letter_lead": "We performed the work at 8011 Leaf Drift Court and issued invoice 0514-171600 for $350. This has been 67 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 8011 Leaf Drift Court and issued invoice 0514-171600 for $350. This has been 67 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-14  Invoiced  0514-171600 $350.\n2026-05-15  Report transmittal  Maria \u2014 Pecan Ridge / 8011 Leaf Drift Court.\n2026-05-22  Inquiry  Maria May Pecan Ridge invoice batch.\nToday  Open $350. 67 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 8011 Leaf Drift Court and issued invoice 0514-171600 for $350. This has been 67 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-14  Invoiced  0514-171600 $350.\n2026-05-15  Report transmittal  Maria sent the 8011 Leaf Drift Court report.\n2026-05-22  Inquiry  Maria sent May invoices.\nToday  Open $350. 67 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 8011 Leaf Drift Court \u00b7 0514-171600 \u00b7 67 days past due"
   },
   {
@@ -21366,27 +21278,22 @@ window.DATA = [
       {
         "when": "2026-06-02",
         "lab": "Called in",
-        "what": "Chad Luedke: pad test this afternoon 8039 Leaf Drift, Pecan Ridge."
-      },
-      {
-        "when": "2026-06-02",
-        "lab": "Called in",
-        "what": "Ryan: Added to schedule."
+        "what": "Chad Luedke asked for pad test at 8039 Leaf Drift, Pecan Ridge."
       },
       {
         "when": "2026-06-04",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 8039 Leaf Drift."
+        "what": "Maria sent the 8039 Leaf Drift report."
       },
       {
         "when": "2026-06-08",
         "lab": "Invoiced",
-        "what": "0602-172200 $350 open."
+        "what": "0602-172200."
       },
       {
         "when": "2026-06-15",
         "lab": "Inquiry",
-        "what": "Maria emailed invoice 0602-172200."
+        "what": "Maria sent invoice 0602-172200 $350."
       },
       {
         "when": "Today",
@@ -21399,27 +21306,22 @@ window.DATA = [
       {
         "when": "2026-06-02",
         "lab": "Called in",
-        "what": "Chad Luedke: pad test this afternoon 8039 Leaf Drift, Pecan Ridge."
-      },
-      {
-        "when": "2026-06-02",
-        "lab": "Called in",
-        "what": "Ryan: Added to schedule."
+        "what": "Chad Luedke asked for pad test at 8039 Leaf Drift, Pecan Ridge."
       },
       {
         "when": "2026-06-04",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 8039 Leaf Drift."
+        "what": "Maria sent the 8039 Leaf Drift report."
       },
       {
         "when": "2026-06-08",
         "lab": "Invoiced",
-        "what": "0602-172200 $350 open."
+        "what": "0602-172200."
       },
       {
         "when": "2026-06-15",
         "lab": "Inquiry",
-        "what": "Maria emailed invoice 0602-172200."
+        "what": "Maria sent invoice 0602-172200 $350."
       },
       {
         "when": "Today",
@@ -21465,7 +21367,7 @@ window.DATA = [
     "chase_from_name": "Billings",
     "chase_letter_lead": "We performed the work at 8039 Leaf Drift and issued invoice 0602-172200 for $350. This has been 42 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 8039 Leaf Drift and issued invoice 0602-172200 for $350. This has been 42 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-02  Called in  Chad Luedke: pad test this afternoon 8039 Leaf Drift, Pecan Ridge.\n2026-06-02  Called in  Ryan: Added to schedule.\n2026-06-04  Report transmittal  Maria \u2014 8039 Leaf Drift.\n2026-06-08  Invoiced  0602-172200 $350 open.\n2026-06-15  Inquiry  Maria emailed invoice 0602-172200.\nToday  Open $350. 42 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 8039 Leaf Drift and issued invoice 0602-172200 for $350. This has been 42 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-02  Called in  Chad Luedke asked for pad test at 8039 Leaf Drift, Pecan Ridge.\n2026-06-04  Report transmittal  Maria sent the 8039 Leaf Drift report.\n2026-06-08  Invoiced  0602-172200.\n2026-06-15  Inquiry  Maria sent invoice 0602-172200 $350.\nToday  Open $350. 42 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 8039 Leaf Drift \u00b7 0602-172200 \u00b7 42 days past due"
   },
   {
@@ -21498,22 +21400,17 @@ window.DATA = [
       {
         "when": "2026-06-10",
         "lab": "Called in",
-        "what": "Jerry Battle: 32171 and 32175 Sky Branch tomorrow."
-      },
-      {
-        "when": "2026-06-10",
-        "lab": "Called in",
-        "what": "Jerry: Pecan Ridge. Ryan: Got it."
+        "what": "Jerry Battle asked for 32171 and 32175 Sky Branch."
       },
       {
         "when": "2026-06-11",
-        "lab": "Builder reply",
-        "what": "Jerry: Both passed compaction. Not a PO."
+        "lab": "Replied",
+        "what": "Jerry said both pads passed."
       },
       {
         "when": "2026-06-12",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 32171 Sky Branch."
+        "what": "Maria sent the 32171 Sky Branch report."
       },
       {
         "when": "2026-06-15",
@@ -21523,7 +21420,7 @@ window.DATA = [
       {
         "when": "2026-06-22",
         "lab": "Inquiry",
-        "what": "Maria Pecan Ridge June invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "Today",
@@ -21536,22 +21433,17 @@ window.DATA = [
       {
         "when": "2026-06-10",
         "lab": "Called in",
-        "what": "Jerry Battle: 32171 and 32175 Sky Branch tomorrow."
-      },
-      {
-        "when": "2026-06-10",
-        "lab": "Called in",
-        "what": "Jerry: Pecan Ridge. Ryan: Got it."
+        "what": "Jerry Battle asked for 32171 and 32175 Sky Branch."
       },
       {
         "when": "2026-06-11",
-        "lab": "Builder reply",
-        "what": "Jerry: Both passed compaction. Not a PO."
+        "lab": "Replied",
+        "what": "Jerry said both pads passed."
       },
       {
         "when": "2026-06-12",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 32171 Sky Branch."
+        "what": "Maria sent the 32171 Sky Branch report."
       },
       {
         "when": "2026-06-15",
@@ -21561,7 +21453,7 @@ window.DATA = [
       {
         "when": "2026-06-22",
         "lab": "Inquiry",
-        "what": "Maria Pecan Ridge June invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "Today",
@@ -21607,7 +21499,7 @@ window.DATA = [
     "chase_from_name": "Billings",
     "chase_letter_lead": "We performed the work at 32171 Sky Branch Dr and issued invoice 0611-172549 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 32171 Sky Branch Dr and issued invoice 0611-172549 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Called in  Jerry Battle: 32171 and 32175 Sky Branch tomorrow.\n2026-06-10  Called in  Jerry: Pecan Ridge. Ryan: Got it.\n2026-06-11  Builder reply  Jerry: Both passed compaction. Not a PO.\n2026-06-12  Report transmittal  Maria \u2014 32171 Sky Branch.\n2026-06-15  Invoiced  0611-172549 $350.\n2026-06-22  Inquiry  Maria Pecan Ridge June invoices.\nToday  Open $350. 35 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 32171 Sky Branch Dr and issued invoice 0611-172549 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Called in  Jerry Battle asked for 32171 and 32175 Sky Branch.\n2026-06-11  Replied  Jerry said both pads passed.\n2026-06-12  Report transmittal  Maria sent the 32171 Sky Branch report.\n2026-06-15  Invoiced  0611-172549 $350.\n2026-06-22  Inquiry  Maria sent invoices.\nToday  Open $350. 35 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 32171 Sky Branch Dr \u00b7 0611-172549 \u00b7 35 days past due"
   },
   {
@@ -21640,17 +21532,17 @@ window.DATA = [
       {
         "when": "2026-06-10",
         "lab": "Called in",
-        "what": "Jerry Battle: 32171 and 32175 Sky Branch tomorrow."
+        "what": "Jerry Battle asked for 32171 and 32175 Sky Branch."
       },
       {
         "when": "2026-06-11",
-        "lab": "Builder reply",
-        "what": "Jerry: Both passed."
+        "lab": "Replied",
+        "what": "Jerry said both pads passed."
       },
       {
         "when": "2026-06-12",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 32175 Sky Branch."
+        "what": "Maria sent the 32175 Sky Branch report."
       },
       {
         "when": "2026-06-15",
@@ -21660,7 +21552,7 @@ window.DATA = [
       {
         "when": "2026-06-22",
         "lab": "Inquiry",
-        "what": "Maria Pecan Ridge June invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "Today",
@@ -21673,17 +21565,17 @@ window.DATA = [
       {
         "when": "2026-06-10",
         "lab": "Called in",
-        "what": "Jerry Battle: 32171 and 32175 Sky Branch tomorrow."
+        "what": "Jerry Battle asked for 32171 and 32175 Sky Branch."
       },
       {
         "when": "2026-06-11",
-        "lab": "Builder reply",
-        "what": "Jerry: Both passed."
+        "lab": "Replied",
+        "what": "Jerry said both pads passed."
       },
       {
         "when": "2026-06-12",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 32175 Sky Branch."
+        "what": "Maria sent the 32175 Sky Branch report."
       },
       {
         "when": "2026-06-15",
@@ -21693,7 +21585,7 @@ window.DATA = [
       {
         "when": "2026-06-22",
         "lab": "Inquiry",
-        "what": "Maria Pecan Ridge June invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "Today",
@@ -21739,7 +21631,7 @@ window.DATA = [
     "chase_from_name": "Billings",
     "chase_letter_lead": "We performed the work at 32175 Sky Branch Dr and issued invoice 0611-172550 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 32175 Sky Branch Dr and issued invoice 0611-172550 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Called in  Jerry Battle: 32171 and 32175 Sky Branch tomorrow.\n2026-06-11  Builder reply  Jerry: Both passed.\n2026-06-12  Report transmittal  Maria \u2014 32175 Sky Branch.\n2026-06-15  Invoiced  0611-172550 $350.\n2026-06-22  Inquiry  Maria Pecan Ridge June invoices.\nToday  Open $350. 35 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 32175 Sky Branch Dr and issued invoice 0611-172550 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Called in  Jerry Battle asked for 32171 and 32175 Sky Branch.\n2026-06-11  Replied  Jerry said both pads passed.\n2026-06-12  Report transmittal  Maria sent the 32175 Sky Branch report.\n2026-06-15  Invoiced  0611-172550 $350.\n2026-06-22  Inquiry  Maria sent invoices.\nToday  Open $350. 35 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 32175 Sky Branch Dr \u00b7 0611-172550 \u00b7 35 days past due"
   },
   {
@@ -21772,17 +21664,12 @@ window.DATA = [
       {
         "when": "2026-06-11",
         "lab": "Called in",
-        "what": "Chad: pad tests tomorrow \u2014 8018 and 8022 Sun Leaf."
-      },
-      {
-        "when": "2026-06-11",
-        "lab": "Called in",
-        "what": "Chad: Pecan Ridge."
+        "what": "Chad asked for pad tests at 8018 and 8022 Sun Leaf."
       },
       {
         "when": "2026-06-15",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 8018 Sun Leaf."
+        "what": "Maria sent the 8018 Sun Leaf report."
       },
       {
         "when": "2026-06-15",
@@ -21792,7 +21679,7 @@ window.DATA = [
       {
         "when": "2026-06-22",
         "lab": "Inquiry",
-        "what": "Maria Pecan Ridge June invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "Today",
@@ -21805,17 +21692,12 @@ window.DATA = [
       {
         "when": "2026-06-11",
         "lab": "Called in",
-        "what": "Chad: pad tests tomorrow \u2014 8018 and 8022 Sun Leaf."
-      },
-      {
-        "when": "2026-06-11",
-        "lab": "Called in",
-        "what": "Chad: Pecan Ridge."
+        "what": "Chad asked for pad tests at 8018 and 8022 Sun Leaf."
       },
       {
         "when": "2026-06-15",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 8018 Sun Leaf."
+        "what": "Maria sent the 8018 Sun Leaf report."
       },
       {
         "when": "2026-06-15",
@@ -21825,7 +21707,7 @@ window.DATA = [
       {
         "when": "2026-06-22",
         "lab": "Inquiry",
-        "what": "Maria Pecan Ridge June invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "Today",
@@ -21871,7 +21753,7 @@ window.DATA = [
     "chase_from_name": "Billings",
     "chase_letter_lead": "We performed the work at 8018 Sun Leaf and issued invoice 0611-172588 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 8018 Sun Leaf and issued invoice 0611-172588 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-11  Called in  Chad: pad tests tomorrow \u2014 8018 and 8022 Sun Leaf.\n2026-06-11  Called in  Chad: Pecan Ridge.\n2026-06-15  Report transmittal  Maria \u2014 8018 Sun Leaf.\n2026-06-15  Invoiced  0611-172588 $350.\n2026-06-22  Inquiry  Maria Pecan Ridge June invoices.\nToday  Open $350. 35 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 8018 Sun Leaf and issued invoice 0611-172588 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-11  Called in  Chad asked for pad tests at 8018 and 8022 Sun Leaf.\n2026-06-15  Report transmittal  Maria sent the 8018 Sun Leaf report.\n2026-06-15  Invoiced  0611-172588 $350.\n2026-06-22  Inquiry  Maria sent invoices.\nToday  Open $350. 35 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 8018 Sun Leaf \u00b7 0611-172588 \u00b7 35 days past due"
   },
   {
@@ -21903,25 +21785,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-06",
-        "lab": "",
-        "what": "Chad Luedke"
+        "lab": "Called in",
+        "what": "Chad Luedke asked at 32110 Nutleaf Bend."
       },
       {
         "when": "2026-08-10",
-        "lab": "",
-        "what": "QBO CTL-26-00556 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00556 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-06",
-        "lab": "",
-        "what": "Chad Luedke"
+        "lab": "Called in",
+        "what": "Chad Luedke asked at 32110 Nutleaf Bend."
       },
       {
         "when": "2026-08-10",
-        "lab": "",
-        "what": "QBO CTL-26-00556 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00556 $350."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-06 Chad Luedke Pad test. No request .eml on disk."
@@ -21956,32 +21838,27 @@ window.DATA = [
       {
         "when": "2026-04-15",
         "lab": "Called in",
-        "what": "Hunter Hott to Ryan/Joe: 28502 Pebble Springs house pad. Timeline only \u2014 contractor not a chase recipient."
-      },
-      {
-        "when": "2026-04-16",
-        "lab": "Called in",
-        "what": "Ryan: Added to schedule."
+        "what": "Hunter Hott asked for a house pad at 28502 Pebble Springs."
       },
       {
         "when": "2026-04-17",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Woodson's Reserve / 28502 Pebble Springs."
+        "what": "Maria sent the 28502 Pebble Springs report."
       },
       {
         "when": "2026-04-20",
         "lab": "Invoiced",
-        "what": "0416-170658 $350 open."
+        "what": "0416-170658."
       },
       {
         "when": "2026-06-26",
         "lab": "Inquiry",
-        "what": "Maria PO request to Chris Tschumperlin and Woodson's CMs. No reply."
+        "what": "Maria asked Chris Tschumperlin for a PO."
       },
       {
         "when": "2026-08-18",
         "lab": "Inquiry",
-        "what": "Billings letter to Chris already went (yesterday). Not re-sent."
+        "what": "Billings asked Chris for a PO."
       },
       {
         "when": "Today",
@@ -21994,32 +21871,27 @@ window.DATA = [
       {
         "when": "2026-04-15",
         "lab": "Called in",
-        "what": "Hunter Hott to Ryan/Joe: 28502 Pebble Springs house pad. Timeline only \u2014 contractor not a chase recipient."
-      },
-      {
-        "when": "2026-04-16",
-        "lab": "Called in",
-        "what": "Ryan: Added to schedule."
+        "what": "Hunter Hott asked for a house pad at 28502 Pebble Springs."
       },
       {
         "when": "2026-04-17",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 Woodson's Reserve / 28502 Pebble Springs."
+        "what": "Maria sent the 28502 Pebble Springs report."
       },
       {
         "when": "2026-04-20",
         "lab": "Invoiced",
-        "what": "0416-170658 $350 open."
+        "what": "0416-170658."
       },
       {
         "when": "2026-06-26",
         "lab": "Inquiry",
-        "what": "Maria PO request to Chris Tschumperlin and Woodson's CMs. No reply."
+        "what": "Maria asked Chris Tschumperlin for a PO."
       },
       {
         "when": "2026-08-18",
         "lab": "Inquiry",
-        "what": "Billings letter to Chris already went (yesterday). Not re-sent."
+        "what": "Billings asked Chris for a PO."
       },
       {
         "when": "Today",
@@ -22078,7 +21950,7 @@ window.DATA = [
     "chase_subject": "PO needed \u00b7 28502 Pebble Springs \u00b7 0416-170658 \u00b7 91 days past due",
     "chase_letter_lead": "Hunter Hott called us on April 15 for pad work at 28502 Pebble Springs. We sent the report April 17 and invoice 0416-170658 for $350 on April 20. It is 91 days past due. There is no PO in Hyphen to bill against. Please create that PO.",
     "chase_letter_paras": [],
-    "chase_letter": "Hunter Hott called us on April 15 for pad work at 28502 Pebble Springs. We sent the report April 17 and invoice 0416-170658 for $350 on April 20. It is 91 days past due. There is no PO in Hyphen to bill against. Please create that PO.\n\nTimeline of Events\n\n2026-04-15  Called in  Hunter Hott to Ryan/Joe: 28502 Pebble Springs house pad. Timeline only \u2014 contractor not a chase recipient.\n2026-04-16  Called in  Ryan: Added to schedule.\n2026-04-17  Report transmittal  Maria \u2014 Woodson's Reserve / 28502 Pebble Springs.\n2026-04-20  Invoiced  0416-170658 $350 open.\n2026-06-26  Inquiry  Maria PO request to Chris Tschumperlin and Woodson's CMs. No reply.\n2026-08-18  Inquiry  Billings letter to Chris already went (yesterday). Not re-sent.\nToday  Open $350. 91 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Hunter Hott called us on April 15 for pad work at 28502 Pebble Springs. We sent the report April 17 and invoice 0416-170658 for $350 on April 20. It is 91 days past due. There is no PO in Hyphen to bill against. Please create that PO.\n\nTimeline of Events\n\n2026-04-15  Called in  Hunter Hott asked for a house pad at 28502 Pebble Springs.\n2026-04-17  Report transmittal  Maria sent the 28502 Pebble Springs report.\n2026-04-20  Invoiced  0416-170658.\n2026-06-26  Inquiry  Maria asked Chris Tschumperlin for a PO.\n2026-08-18  Inquiry  Billings asked Chris for a PO.\nToday  Open $350. 91 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "last_sent": "2026-08-18 11:59 CT",
     "chase_last_sent": "2026-08-18 11:59 CT"
   },
@@ -22112,12 +21984,7 @@ window.DATA = [
       {
         "when": "2026-07-05",
         "lab": "Called in",
-        "what": "Hunter Hott list includes 28243 Serene Point. Timeline only \u2014 contractor not a chase recipient."
-      },
-      {
-        "when": "2026-07-06",
-        "lab": "Called in",
-        "what": "Ryan: Added to schedule."
+        "what": "Hunter Hott asked for 28243 Serene Point."
       },
       {
         "when": "2026-07-13",
@@ -22127,7 +21994,7 @@ window.DATA = [
       {
         "when": "2026-07-20",
         "lab": "Inquiry",
-        "what": "Maria July Woodson's invoices."
+        "what": "Maria sent July invoices."
       },
       {
         "when": "2026-07-28",
@@ -22145,12 +22012,7 @@ window.DATA = [
       {
         "when": "2026-07-05",
         "lab": "Called in",
-        "what": "Hunter Hott list includes 28243 Serene Point. Timeline only \u2014 contractor not a chase recipient."
-      },
-      {
-        "when": "2026-07-06",
-        "lab": "Called in",
-        "what": "Ryan: Added to schedule."
+        "what": "Hunter Hott asked for 28243 Serene Point."
       },
       {
         "when": "2026-07-13",
@@ -22160,7 +22022,7 @@ window.DATA = [
       {
         "when": "2026-07-20",
         "lab": "Inquiry",
-        "what": "Maria July Woodson's invoices."
+        "what": "Maria sent July invoices."
       },
       {
         "when": "2026-07-28",
@@ -22223,7 +22085,7 @@ window.DATA = [
     "chase_from_name": "Billings",
     "chase_letter_lead": "We performed the work at 28243 Serene Point and issued invoice 0707-173658 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 28243 Serene Point and issued invoice 0707-173658 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-05  Called in  Hunter Hott list includes 28243 Serene Point. Timeline only \u2014 contractor not a chase recipient.\n2026-07-06  Called in  Ryan: Added to schedule.\n2026-07-13  Invoiced  0707-173658 $350.\n2026-07-20  Inquiry  Maria July Woodson's invoices.\n2026-07-28  Inquiry  Maria asked Chris to confirm 28243 is the correct address.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 28243 Serene Point and issued invoice 0707-173658 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-05  Called in  Hunter Hott asked for 28243 Serene Point.\n2026-07-13  Invoiced  0707-173658 $350.\n2026-07-20  Inquiry  Maria sent July invoices.\n2026-07-28  Inquiry  Maria asked Chris to confirm 28243 is the correct address.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 28243 Serene Point \u00b7 0707-173658 \u00b7 7 days past due"
   },
   {
@@ -22256,17 +22118,12 @@ window.DATA = [
       {
         "when": "2026-07-05",
         "lab": "Called in",
-        "what": "Hunter Hott list includes 4544 Sterling Springs lot 23. Timeline only."
-      },
-      {
-        "when": "2026-07-06",
-        "lab": "Called in",
-        "what": "Ryan: Added to schedule."
+        "what": "Hunter Hott asked for 4544 Sterling Springs lot 23."
       },
       {
         "when": "2026-07-09",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 4544 Sterling Springs."
+        "what": "Maria sent the 4544 Sterling Springs report."
       },
       {
         "when": "2026-07-13",
@@ -22276,7 +22133,7 @@ window.DATA = [
       {
         "when": "2026-07-20",
         "lab": "Inquiry",
-        "what": "Maria July Woodson's invoices."
+        "what": "Maria sent July invoices."
       },
       {
         "when": "Today",
@@ -22289,17 +22146,12 @@ window.DATA = [
       {
         "when": "2026-07-05",
         "lab": "Called in",
-        "what": "Hunter Hott list includes 4544 Sterling Springs lot 23. Timeline only."
-      },
-      {
-        "when": "2026-07-06",
-        "lab": "Called in",
-        "what": "Ryan: Added to schedule."
+        "what": "Hunter Hott asked for 4544 Sterling Springs lot 23."
       },
       {
         "when": "2026-07-09",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 4544 Sterling Springs."
+        "what": "Maria sent the 4544 Sterling Springs report."
       },
       {
         "when": "2026-07-13",
@@ -22309,7 +22161,7 @@ window.DATA = [
       {
         "when": "2026-07-20",
         "lab": "Inquiry",
-        "what": "Maria July Woodson's invoices."
+        "what": "Maria sent July invoices."
       },
       {
         "when": "Today",
@@ -22367,7 +22219,7 @@ window.DATA = [
     "chase_from_name": "Billings",
     "chase_letter_lead": "We performed the work at 4544 Sterling Springs and issued invoice 0707-173676 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 4544 Sterling Springs and issued invoice 0707-173676 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-05  Called in  Hunter Hott list includes 4544 Sterling Springs lot 23. Timeline only.\n2026-07-06  Called in  Ryan: Added to schedule.\n2026-07-09  Report transmittal  Maria \u2014 4544 Sterling Springs.\n2026-07-13  Invoiced  0707-173676 $350.\n2026-07-20  Inquiry  Maria July Woodson's invoices.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 4544 Sterling Springs and issued invoice 0707-173676 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-05  Called in  Hunter Hott asked for 4544 Sterling Springs lot 23.\n2026-07-09  Report transmittal  Maria sent the 4544 Sterling Springs report.\n2026-07-13  Invoiced  0707-173676 $350.\n2026-07-20  Inquiry  Maria sent July invoices.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 4544 Sterling Springs \u00b7 0707-173676 \u00b7 7 days past due"
   },
   {
@@ -22400,12 +22252,12 @@ window.DATA = [
       {
         "when": "2026-04-15",
         "lab": "Called in",
-        "what": "Hunter 1st ask: 28103 Sand Valley (sibling 0416-170656, later paid)."
+        "what": "Hunter Hott asked for 28103 Sand Valley (first visit)"
       },
       {
         "when": "2026-04-17",
         "lab": "Report transmittal",
-        "what": "Maria first-visit report \u2014 28103 Sand Valley."
+        "what": "Maria sent the first-visit report for 28103 Sand Valley."
       },
       {
         "when": "2026-04-30 / 2026-05-13",
@@ -22415,39 +22267,34 @@ window.DATA = [
       {
         "when": "2026-07-06",
         "lab": "Called in",
-        "what": "Hunter 2nd ask list includes 28103 sand valley."
-      },
-      {
-        "when": "2026-07-07",
-        "lab": "Called in",
-        "what": "Ryan: Added to schedule."
+        "what": "Hunter Hott asked for 28103 Sand Valley (second visit)."
       },
       {
         "when": "2026-07-08",
         "lab": "Report transmittal",
-        "what": "Maria second report \u2014 28103 Sand Valley."
+        "what": "Maria sent the second report for 28103 Sand Valley."
       },
       {
         "when": "2026-07-09",
-        "lab": "Builder reply",
+        "lab": "Replied",
         "what": "Bart Mills cited the April/May first-visit payments \u2014 not a second PO."
       },
       {
         "when": "2026-07-13",
         "lab": "Invoiced",
-        "what": "0707-173717 $350 still open."
+        "what": "0707-173717 $350 still."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-04-15",
         "lab": "Called in",
-        "what": "Hunter 1st ask: 28103 Sand Valley (sibling 0416-170656, later paid)."
+        "what": "Hunter Hott asked for 28103 Sand Valley (first visit)"
       },
       {
         "when": "2026-04-17",
         "lab": "Report transmittal",
-        "what": "Maria first-visit report \u2014 28103 Sand Valley."
+        "what": "Maria sent the first-visit report for 28103 Sand Valley."
       },
       {
         "when": "2026-04-30 / 2026-05-13",
@@ -22457,27 +22304,22 @@ window.DATA = [
       {
         "when": "2026-07-06",
         "lab": "Called in",
-        "what": "Hunter 2nd ask list includes 28103 sand valley."
-      },
-      {
-        "when": "2026-07-07",
-        "lab": "Called in",
-        "what": "Ryan: Added to schedule."
+        "what": "Hunter Hott asked for 28103 Sand Valley (second visit)."
       },
       {
         "when": "2026-07-08",
         "lab": "Report transmittal",
-        "what": "Maria second report \u2014 28103 Sand Valley."
+        "what": "Maria sent the second report for 28103 Sand Valley."
       },
       {
         "when": "2026-07-09",
-        "lab": "Builder reply",
+        "lab": "Replied",
         "what": "Bart Mills cited the April/May first-visit payments \u2014 not a second PO."
       },
       {
         "when": "2026-07-13",
         "lab": "Invoiced",
-        "what": "0707-173717 $350 still open."
+        "what": "0707-173717 $350 still."
       }
     ],
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
@@ -22516,7 +22358,7 @@ window.DATA = [
       {
         "when": "2026-07-08",
         "lab": "Called in",
-        "what": "Hunter Hott asked Ryan to schedule 27603 Lago Springs (with 27702 Blue Springs)."
+        "what": "Hunter Hott asked Ryan to schedule 27603 Lago Springs (with 27702 Blue Springs)"
       },
       {
         "when": "2026-07-10",
@@ -22526,12 +22368,12 @@ window.DATA = [
       {
         "when": "2026-07-13",
         "lab": "Invoiced",
-        "what": "0709-173870 $350. Still fully open."
+        "what": "0709-173870 $350."
       },
       {
         "when": "2026-07-20",
         "lab": "Inquiry",
-        "what": "Maria sent TriPointe Woodson's July invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "2026-08-14",
@@ -22549,7 +22391,7 @@ window.DATA = [
       {
         "when": "2026-07-08",
         "lab": "Called in",
-        "what": "Hunter Hott asked Ryan to schedule 27603 Lago Springs (with 27702 Blue Springs)."
+        "what": "Hunter Hott asked Ryan to schedule 27603 Lago Springs (with 27702 Blue Springs)"
       },
       {
         "when": "2026-07-10",
@@ -22559,12 +22401,12 @@ window.DATA = [
       {
         "when": "2026-07-13",
         "lab": "Invoiced",
-        "what": "0709-173870 $350. Still fully open."
+        "what": "0709-173870 $350."
       },
       {
         "when": "2026-07-20",
         "lab": "Inquiry",
-        "what": "Maria sent TriPointe Woodson's July invoices."
+        "what": "Maria sent invoices."
       },
       {
         "when": "2026-08-14",
@@ -22627,7 +22469,7 @@ window.DATA = [
     "chase_from_name": "Billings",
     "chase_letter_lead": "Darron Thomas marked PO 1263395-000 complete on 2026-08-14. Hyphen still has no payment. Invoice 0709-173870 is $350 at 27603 Lago Springs Ct. Please update that unpaid PO and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "Darron Thomas marked PO 1263395-000 complete on 2026-08-14. Hyphen still has no payment. Invoice 0709-173870 is $350 at 27603 Lago Springs Ct. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-07-08  Called in  Hunter Hott asked Ryan to schedule 27603 Lago Springs (with 27702 Blue Springs).\n2026-07-10  Report transmittal  Maria sent the TriPointe Woodson's 27603 Lago Springs report.\n2026-07-13  Invoiced  0709-173870 $350. Still fully open.\n2026-07-20  Inquiry  Maria sent TriPointe Woodson's July invoices.\n2026-08-14  Completed  Darron Thomas marked PO 1263395-000 complete.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Darron Thomas marked PO 1263395-000 complete on 2026-08-14. Hyphen still has no payment. Invoice 0709-173870 is $350 at 27603 Lago Springs Ct. Please update that unpaid PO and release payment.\n\nTimeline of Events\n\n2026-07-08  Called in  Hunter Hott asked Ryan to schedule 27603 Lago Springs (with 27702 Blue Springs)\n2026-07-10  Report transmittal  Maria sent the TriPointe Woodson's 27603 Lago Springs report.\n2026-07-13  Invoiced  0709-173870 $350.\n2026-07-20  Inquiry  Maria sent invoices.\n2026-08-14  Completed  Darron Thomas marked PO 1263395-000 complete.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "Payment needed \u00b7 27603 Lago Springs Ct \u00b7 0709-173870 \u00b7 7 days past due"
   },
   {
@@ -22660,12 +22502,7 @@ window.DATA = [
       {
         "when": "2026-07-09",
         "lab": "Called in",
-        "what": "Hunter Hott: schedule 28428 Woodward Creek (Woodson's / Tri Pointe). Timeline only."
-      },
-      {
-        "when": "2026-07-10",
-        "lab": "Called in",
-        "what": "Ryan: Will do, thank you."
+        "what": "Hunter Hott asked for 28428 Woodward Creek (Woodson's / Tri Pointe)"
       },
       {
         "when": "2026-07-13",
@@ -22675,12 +22512,12 @@ window.DATA = [
       {
         "when": "2026-07-15",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 28428 Woodward Creek."
+        "what": "Maria sent the 28428 Woodward Creek report."
       },
       {
         "when": "2026-07-20",
         "lab": "Inquiry",
-        "what": "Maria July Woodson's invoices."
+        "what": "Maria sent July invoices."
       },
       {
         "when": "Today",
@@ -22693,12 +22530,7 @@ window.DATA = [
       {
         "when": "2026-07-09",
         "lab": "Called in",
-        "what": "Hunter Hott: schedule 28428 Woodward Creek (Woodson's / Tri Pointe). Timeline only."
-      },
-      {
-        "when": "2026-07-10",
-        "lab": "Called in",
-        "what": "Ryan: Will do, thank you."
+        "what": "Hunter Hott asked for 28428 Woodward Creek (Woodson's / Tri Pointe)"
       },
       {
         "when": "2026-07-13",
@@ -22708,12 +22540,12 @@ window.DATA = [
       {
         "when": "2026-07-15",
         "lab": "Report transmittal",
-        "what": "Maria \u2014 28428 Woodward Creek."
+        "what": "Maria sent the 28428 Woodward Creek report."
       },
       {
         "when": "2026-07-20",
         "lab": "Inquiry",
-        "what": "Maria July Woodson's invoices."
+        "what": "Maria sent July invoices."
       },
       {
         "when": "Today",
@@ -22771,7 +22603,7 @@ window.DATA = [
     "chase_from_name": "Billings",
     "chase_letter_lead": "We performed the work at 28428 Woodward Creek and issued invoice 0710-173949 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 28428 Woodward Creek and issued invoice 0710-173949 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-09  Called in  Hunter Hott: schedule 28428 Woodward Creek (Woodson's / Tri Pointe). Timeline only.\n2026-07-10  Called in  Ryan: Will do, thank you.\n2026-07-13  Invoiced  0710-173949 $350.\n2026-07-15  Report transmittal  Maria \u2014 28428 Woodward Creek.\n2026-07-20  Inquiry  Maria July Woodson's invoices.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 28428 Woodward Creek and issued invoice 0710-173949 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-09  Called in  Hunter Hott asked for 28428 Woodward Creek (Woodson's / Tri Pointe)\n2026-07-13  Invoiced  0710-173949 $350.\n2026-07-15  Report transmittal  Maria sent the 28428 Woodward Creek report.\n2026-07-20  Inquiry  Maria sent July invoices.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
     "chase_subject": "PO needed \u00b7 28428 Woodward Creek \u00b7 0710-173949 \u00b7 7 days past due"
   },
   {
@@ -22803,25 +22635,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Hunter Hott"
+        "lab": "Called in",
+        "what": "Hunter Hott asked at 28190 Serene Point."
       },
       {
         "when": "2026-08-06",
-        "lab": "",
-        "what": "QBO CTL-26-00511 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00511 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Hunter Hott"
+        "lab": "Called in",
+        "what": "Hunter Hott asked at 28190 Serene Point."
       },
       {
         "when": "2026-08-06",
-        "lab": "",
-        "what": "QBO CTL-26-00511 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00511 $350."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-03 Hunter Hott compaction testing. No request .eml on disk."
@@ -22855,25 +22687,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Hunter Hott"
+        "lab": "Called in",
+        "what": "Hunter Hott asked at 28550 Lightcatcher Place."
       },
       {
         "when": "2026-08-06",
-        "lab": "",
-        "what": "QBO CTL-26-00514 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00514 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Hunter Hott"
+        "lab": "Called in",
+        "what": "Hunter Hott asked at 28550 Lightcatcher Place."
       },
       {
         "when": "2026-08-06",
-        "lab": "",
-        "what": "QBO CTL-26-00514 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00514 $350."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-03 Hunter Hott compaction testing. No request .eml on disk."
@@ -22907,25 +22739,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Hunter Hott"
+        "lab": "Called in",
+        "what": "Hunter Hott asked at 5711 Skipping Stone."
       },
       {
         "when": "2026-08-06",
-        "lab": "",
-        "what": "QBO CTL-26-00515 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00515 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Hunter Hott"
+        "lab": "Called in",
+        "what": "Hunter Hott asked at 5711 Skipping Stone."
       },
       {
         "when": "2026-08-06",
-        "lab": "",
-        "what": "QBO CTL-26-00515 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00515 $350."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-03 Hunter Hott compaction testing. No request .eml on disk."
@@ -22959,25 +22791,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Hunter Hott"
+        "lab": "Called in",
+        "what": "Hunter Hott asked at 28424 Woodward Creek."
       },
       {
         "when": "2026-08-06",
-        "lab": "",
-        "what": "QBO CTL-26-00516 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00516 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Hunter Hott"
+        "lab": "Called in",
+        "what": "Hunter Hott asked at 28424 Woodward Creek."
       },
       {
         "when": "2026-08-06",
-        "lab": "",
-        "what": "QBO CTL-26-00516 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00516 $350."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-03 Hunter Hott compaction testing. No request .eml on disk."
@@ -23011,15 +22843,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00635 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00635 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00635 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00635 $350."
       }
     ],
     "workup_attachments_note": "Graph: Billings 8/14 invoice CTL-26-00635 Artavia $350. Jimmy 8/12 Artavia Compaction Test has no house in the Graph preview. No request .eml on disk."
@@ -23053,15 +22885,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00636 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00636 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "QBO CTL-26-00636 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00636 $350."
       }
     ],
     "workup_attachments_note": "Graph: Billings 8/14 invoice CTL-26-00636 Artavia $350. No house on the invoice search. No request .eml on disk."
@@ -23095,35 +22927,35 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-07-31",
-        "lab": "",
-        "what": "Gabriel Gomez"
+        "lab": "Called in",
+        "what": "Gabriel Gomez asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "Coltton Erickson"
+        "lab": "Called in",
+        "what": "Coltton Erickson asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00422 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00422 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-31",
-        "lab": "",
-        "what": "Gabriel Gomez"
+        "lab": "Called in",
+        "what": "Gabriel Gomez asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "Coltton Erickson"
+        "lab": "Called in",
+        "what": "Coltton Erickson asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00422 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00422 $350."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-07-31 Gabriel Gomez Re: The trails new Caney - compact test; 2026-08-17 Coltton Erickson Re: Compaction test - 219 Rugged Rock, 28805 Balance Rock, 4. No request .eml on disk."
@@ -23157,35 +22989,35 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-07-31",
-        "lab": "",
-        "what": "Brandon Pope"
+        "lab": "Called in",
+        "what": "Brandon Pope asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Gabriel Gomez"
+        "lab": "Called in",
+        "what": "Gabriel Gomez asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00436 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00436 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-31",
-        "lab": "",
-        "what": "Brandon Pope"
+        "lab": "Called in",
+        "what": "Brandon Pope asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Gabriel Gomez"
+        "lab": "Called in",
+        "what": "Gabriel Gomez asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00436 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00436 $350."
       }
     ],
     "workup_attachments_note": "Graph: Brandon 7/31 West ridge cove names 12101 then Disregard not ready. Gabriel 8/14 schedule all Monday includes 12101 moonlight. No request .eml on disk."
@@ -23218,25 +23050,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Ryan Potter"
+        "lab": "Called in",
+        "what": "Ryan Potter asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00442 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00442 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Ryan Potter"
+        "lab": "Called in",
+        "what": "Ryan Potter asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00442 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00442 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-03 Ryan Potter Multiple addresses reserve at Huntsville. No request .eml on disk."
@@ -23269,25 +23101,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Ryan Potter"
+        "lab": "Called in",
+        "what": "Ryan Potter asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00446 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00446 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-03",
-        "lab": "",
-        "what": "Ryan Potter"
+        "lab": "Called in",
+        "what": "Ryan Potter asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00446 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00446 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-03 Ryan Potter Multiple addresses reserve at Huntsville. No request .eml on disk."
@@ -23321,15 +23153,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00548 $1044"
+        "lab": "Invoiced",
+        "what": "CTL-26-00548 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00548 $1044"
+        "lab": "Invoiced",
+        "what": "CTL-26-00548 $1,044."
       }
     ],
     "workup_attachments_note": "No named client ask file. Graph ids in _current-nf-graph.json. No request .eml on disk."
@@ -23362,15 +23194,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00567 $611"
+        "lab": "Invoiced",
+        "what": "CTL-26-00567 $611."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00567 $611"
+        "lab": "Invoiced",
+        "what": "CTL-26-00567 $611."
       }
     ],
     "workup_attachments_note": "Graph: CTL-26-00567 invoice 8/17 $611 Southern Pointe. Payton 8/13 and Veronica 8/13 on Purchase Order Request \u2014 Southern Pointe \u2014 1 service address (Indirects). No house in those previews. No request .eml on disk."
@@ -23403,25 +23235,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-11",
-        "lab": "",
-        "what": "Payton Walker"
+        "lab": "Called in",
+        "what": "Payton Walker asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00621 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00621 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
-        "lab": "",
-        "what": "Payton Walker"
+        "lab": "Called in",
+        "what": "Payton Walker asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00621 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00621 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-11 Payton Walker Compaction Tests. No request .eml on disk."
@@ -23454,25 +23286,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-11",
-        "lab": "",
-        "what": "Payton Walker"
+        "lab": "Called in",
+        "what": "Payton Walker asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00622 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00622 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-11",
-        "lab": "",
-        "what": "Payton Walker"
+        "lab": "Called in",
+        "what": "Payton Walker asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00622 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00622 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-11 Payton Walker Compaction Tests. No request .eml on disk."
@@ -23506,15 +23338,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00630 $416"
+        "lab": "Invoiced",
+        "what": "CTL-26-00630 $416."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00630 $416"
+        "lab": "Invoiced",
+        "what": "CTL-26-00630 $416."
       }
     ],
     "workup_attachments_note": "No named client ask file. Graph ids in _current-nf-graph.json. No request .eml on disk."
@@ -23548,35 +23380,35 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-05-28",
-        "lab": "",
-        "what": "Derek Bird"
+        "lab": "Called in",
+        "what": "Derek Bird asked."
       },
       {
         "when": "2026-08-11",
-        "lab": "",
-        "what": "Javier Salazar"
+        "lab": "Called in",
+        "what": "Javier Salazar asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00631 $416"
+        "lab": "Invoiced",
+        "what": "CTL-26-00631 $416."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-05-28",
-        "lab": "",
-        "what": "Derek Bird"
+        "lab": "Called in",
+        "what": "Derek Bird asked."
       },
       {
         "when": "2026-08-11",
-        "lab": "",
-        "what": "Javier Salazar"
+        "lab": "Called in",
+        "what": "Javier Salazar asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00631 $416"
+        "lab": "Invoiced",
+        "what": "CTL-26-00631 $416."
       }
     ],
     "workup_attachments_note": "Graph: Javier 8/11 Need another Compaction test for 7802 Hundson River. Derek 5/28 first-visit ask is on the 0529-172002 workup. Billings 8/17 invoiced CTL-26-00631. No request .eml on disk."
@@ -23610,25 +23442,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-13",
-        "lab": "",
-        "what": "Kenneth Pustejovsky"
+        "lab": "Called in",
+        "what": "Kenneth Pustejovsky asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00645 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00645 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
-        "lab": "",
-        "what": "Kenneth Pustejovsky"
+        "lab": "Called in",
+        "what": "Kenneth Pustejovsky asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00645 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00645 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-13 Kenneth Pustejovsky THE HIGHLANDS - PADS. No request .eml on disk."
@@ -23662,25 +23494,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-13",
-        "lab": "",
-        "what": "Nick Gaspard"
+        "lab": "Called in",
+        "what": "Nick Gaspard asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00653 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00653 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
-        "lab": "",
-        "what": "Nick Gaspard"
+        "lab": "Called in",
+        "what": "Nick Gaspard asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00653 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00653 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-13 Nick Gaspard Pad Tests - Still Creek. No request .eml on disk."
@@ -23714,25 +23546,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-13",
-        "lab": "",
-        "what": "Nick Gaspard"
+        "lab": "Called in",
+        "what": "Nick Gaspard asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00654 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00654 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
-        "lab": "",
-        "what": "Nick Gaspard"
+        "lab": "Called in",
+        "what": "Nick Gaspard asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00654 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00654 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-13 Nick Gaspard Pad Tests - Still Creek. No request .eml on disk."
@@ -23765,25 +23597,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-13",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00656 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00656 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00656 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00656 $783."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-13 Brandi Cook pads. No request .eml on disk."
@@ -23816,25 +23648,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-13",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00657 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00657 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-13",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00657 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00657 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-13 Brandi Cook pads. No request .eml on disk."
@@ -23868,15 +23700,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00658 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00658 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00658 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00658 $350."
       }
     ],
     "workup_attachments_note": "Graph: Billings 8/17 invoice CTL-26-00658 Harvest Green $350. Hunter 8/13 827 Lily Haven is a different Graph hit, not linked to this docNumber. No request .eml on disk."
@@ -23910,15 +23742,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00659 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00659 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00659 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00659 $350."
       }
     ],
     "workup_attachments_note": "Graph: Billings 8/17 invoice CTL-26-00659 Mason Woods $350. Todd 8/14 and Brian 8/14 name other lots. No request .eml on disk."
@@ -23952,15 +23784,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00660 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00660 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00660 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00660 $350."
       }
     ],
     "workup_attachments_note": "Graph: Billings 8/17 invoice CTL-26-00660 Mason Woods $350. No house on the invoice search. No request .eml on disk."
@@ -23994,25 +23826,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Jennifer Polasek"
+        "lab": "Called in",
+        "what": "Jennifer Polasek asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00661 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00661 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Jennifer Polasek"
+        "lab": "Called in",
+        "what": "Jennifer Polasek asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00661 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00661 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-14 Jennifer Polasek Testing. No request .eml on disk."
@@ -24046,15 +23878,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00664 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00664 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00664 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00664 $350."
       }
     ],
     "workup_attachments_note": "Graph: Billings 8/17 invoice CTL-26-00664 Mason Woods $350. No house on the invoice search. No request .eml on disk."
@@ -24088,25 +23920,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Angel Gonzalez"
+        "lab": "Called in",
+        "what": "Angel Gonzalez asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00665 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00665 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Angel Gonzalez"
+        "lab": "Called in",
+        "what": "Angel Gonzalez asked."
       },
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00665 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00665 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-14 Angel Gonzalez Artavia compaction test. No request .eml on disk."
@@ -24140,15 +23972,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00669 $1044"
+        "lab": "Invoiced",
+        "what": "CTL-26-00669 $1,044."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-17",
-        "lab": "",
-        "what": "QBO CTL-26-00669 $1044"
+        "lab": "Invoiced",
+        "what": "CTL-26-00669 $1,044."
       }
     ],
     "workup_attachments_note": "No named client ask file. Graph ids in _current-nf-graph.json. No request .eml on disk."
@@ -24181,35 +24013,35 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-07-31",
-        "lab": "",
-        "what": "Brandon Pope"
+        "lab": "Called in",
+        "what": "Brandon Pope asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Gabriel Gomez"
+        "lab": "Called in",
+        "what": "Gabriel Gomez asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00432 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00432 $350."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-07-31",
-        "lab": "",
-        "what": "Brandon Pope"
+        "lab": "Called in",
+        "what": "Brandon Pope asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Gabriel Gomez"
+        "lab": "Called in",
+        "what": "Gabriel Gomez asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00432 $350"
+        "lab": "Invoiced",
+        "what": "CTL-26-00432 $350."
       }
     ],
     "workup_attachments_note": "Graph: Brandon 7/31 names 12122 then Disregard not ready. Gabriel 8/14 schedule all Monday leads with 12122 Moonlight Path Drive. No request .eml on disk."
@@ -24242,15 +24074,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00611 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00611 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00611 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00611 $522."
       }
     ],
     "workup_attachments_note": "No named client ask file. Graph ids in _current-nf-graph.json. No request .eml on disk."
@@ -24283,35 +24115,35 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-07",
-        "lab": "",
-        "what": "Steve Speer"
+        "lab": "Called in",
+        "what": "Steve Speer asked."
       },
       {
         "when": "2026-08-07",
-        "lab": "",
-        "what": "Steve Speer"
+        "lab": "Called in",
+        "what": "Steve Speer asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00613 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00613 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
-        "lab": "",
-        "what": "Steve Speer"
+        "lab": "Called in",
+        "what": "Steve Speer asked."
       },
       {
         "when": "2026-08-07",
-        "lab": "",
-        "what": "Steve Speer"
+        "lab": "Called in",
+        "what": "Steve Speer asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00613 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00613 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-07 Steve Speer Re: Compaction Test x2 Southern Pointe; 2026-08-07 Steve Speer Compaction Test x2 Southern Pointe. No request .eml on disk."
@@ -24344,35 +24176,35 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-07",
-        "lab": "",
-        "what": "Steve Speer"
+        "lab": "Called in",
+        "what": "Steve Speer asked."
       },
       {
         "when": "2026-08-07",
-        "lab": "",
-        "what": "Steve Speer"
+        "lab": "Called in",
+        "what": "Steve Speer asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00614 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00614 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-07",
-        "lab": "",
-        "what": "Steve Speer"
+        "lab": "Called in",
+        "what": "Steve Speer asked."
       },
       {
         "when": "2026-08-07",
-        "lab": "",
-        "what": "Steve Speer"
+        "lab": "Called in",
+        "what": "Steve Speer asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00614 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00614 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-07 Steve Speer Re: Compaction Test x2 Southern Pointe; 2026-08-07 Steve Speer Compaction Test x2 Southern Pointe. No request .eml on disk."
@@ -24405,25 +24237,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00641 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00641 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-12",
-        "lab": "",
-        "what": "Brandi Cook"
+        "lab": "Called in",
+        "what": "Brandi Cook asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00641 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00641 $783."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-12 Brandi Cook pads. No request .eml on disk."
@@ -24456,25 +24288,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Aaron Ratliff"
+        "lab": "Called in",
+        "what": "Aaron Ratliff asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00677 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00677 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Aaron Ratliff"
+        "lab": "Called in",
+        "what": "Aaron Ratliff asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00677 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00677 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-14 Aaron Ratliff 1830 New Dawn Drive. No request .eml on disk."
@@ -24507,25 +24339,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Aaron Ratliff"
+        "lab": "Called in",
+        "what": "Aaron Ratliff asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00678 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00678 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Aaron Ratliff"
+        "lab": "Called in",
+        "what": "Aaron Ratliff asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00678 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00678 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-14 Aaron Ratliff 1518 Parks Edge & 1514 Parks Edge. No request .eml on disk."
@@ -24558,25 +24390,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Aaron Ratliff"
+        "lab": "Called in",
+        "what": "Aaron Ratliff asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00679 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00679 $522."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Aaron Ratliff"
+        "lab": "Called in",
+        "what": "Aaron Ratliff asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00679 $522"
+        "lab": "Invoiced",
+        "what": "CTL-26-00679 $522."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-14 Aaron Ratliff 1518 Parks Edge & 1514 Parks Edge. No request .eml on disk."
@@ -24609,35 +24441,35 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Bradley Adams"
+        "lab": "Called in",
+        "what": "Bradley Adams asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Derek Bird"
+        "lab": "Called in",
+        "what": "Derek Bird asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00684 $416"
+        "lab": "Invoiced",
+        "what": "CTL-26-00684 $416."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Bradley Adams"
+        "lab": "Called in",
+        "what": "Bradley Adams asked."
       },
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Derek Bird"
+        "lab": "Called in",
+        "what": "Derek Bird asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00684 $416"
+        "lab": "Invoiced",
+        "what": "CTL-26-00684 $416."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-14 Bradley Adams Re: 5722 Watercrest Oak Dr.; 2026-08-14 Derek Bird Compaction Tests - Evergrove. No request .eml on disk."
@@ -24670,25 +24502,25 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Derek Bird"
+        "lab": "Called in",
+        "what": "Derek Bird asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00685 $416"
+        "lab": "Invoiced",
+        "what": "CTL-26-00685 $416."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-14",
-        "lab": "",
-        "what": "Derek Bird"
+        "lab": "Called in",
+        "what": "Derek Bird asked."
       },
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00685 $416"
+        "lab": "Invoiced",
+        "what": "CTL-26-00685 $416."
       }
     ],
     "workup_attachments_note": "Graph client: 2026-08-14 Derek Bird Compaction Tests - Evergrove. No request .eml on disk."
@@ -24721,15 +24553,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00692 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00692 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00692 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00692 $783."
       }
     ],
     "workup_attachments_note": "No named client ask file. Graph ids in _current-nf-graph.json. No request .eml on disk."
@@ -24762,15 +24594,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00693 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00693 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00693 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00693 $783."
       }
     ],
     "workup_attachments_note": "No named client ask file. Graph ids in _current-nf-graph.json. No request .eml on disk."
@@ -24803,15 +24635,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00694 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00694 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00694 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00694 $783."
       }
     ],
     "workup_attachments_note": "No named client ask file. Graph ids in _current-nf-graph.json. No request .eml on disk."
@@ -24844,15 +24676,15 @@ window.DATA = [
     "ledger": [
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00695 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00695 $783."
       }
     ],
     "chase_timeline": [
       {
         "when": "2026-08-18",
-        "lab": "",
-        "what": "QBO CTL-26-00695 $783"
+        "lab": "Invoiced",
+        "what": "CTL-26-00695 $783."
       }
     ],
     "workup_attachments_note": "No named client ask file. Graph ids in _current-nf-graph.json. No request .eml on disk."
