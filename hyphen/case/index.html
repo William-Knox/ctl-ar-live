@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#F8F6F2" />
+<title>Hyphen review · click mock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --cream: #F8F6F2;
+  --cream-2: #EFEDE7;
+  --cream-3: #E7E3DB;
+  --paper: #FFFDF8;
+  --navy: #0F172A;
+  --navy-2: #1E293B;
+  --ink: #161410;
+  --muted: #6F6A62;
+  --muted-2: #8A847A;
+  --line: #E4E0D8;
+  --line-2: #D6D1C7;
+  --clay: #C2410C;
+  --clay-soft: #F3E6DE;
+  --found-bg: #E3EBE5;
+  --found-fg: #3A5648;
+  --not-bg: #F3E6DE;
+  --not-fg: #B45309;
+  --header-h: 46px;
+  --toolbar-h: 38px;
+  --thead-h: 30px;
+  --row-h: 42px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--cream); color: var(--navy); font-family: Inter, system-ui, sans-serif; font-feature-settings: "cv02","cv03","cv04","tnum"; -webkit-font-smoothing: antialiased; }
+body { overflow: hidden; }
+button { font-family: inherit; color: inherit; cursor: pointer; background: none; border: 0; }
+::selection { background: #E8D5C8; }
+
+.app { height: 100%; display: flex; flex-direction: column; min-width: 1280px; }
+
+.hdr {
+  height: var(--header-h); flex: 0 0 var(--header-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16px 0 14px; border-bottom: 1px solid var(--line); background: var(--cream); gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand-text h1 { font-size: 15px; font-weight: 650; letter-spacing: -0.03em; line-height: 1.15; }
+.mock-tag {
+  display: inline-flex; align-items: center; height: 16px; margin-left: 7px;
+  padding: 0 6px; border: 1px solid var(--line-2); border-radius: 999px;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); vertical-align: 2px;
+}
+.asof { margin-top: 2px; font-size: 11px; font-weight: 500; color: var(--muted); }
+.counts { display: flex; align-items: baseline; gap: 16px; }
+.count { text-align: right; }
+.count b { display: block; font-size: 15px; font-weight: 650; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.count span { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+.bar {
+  height: var(--toolbar-h); flex: 0 0 var(--toolbar-h);
+  display: flex; align-items: center; gap: 6px; padding: 0 12px;
+  border-bottom: 1px solid var(--line); background: var(--cream);
+}
+.search {
+  width: 200px; height: 26px; border: 1px solid var(--line-2); background: var(--paper);
+  border-radius: 4px; padding: 0 8px 0 26px; font-size: 12px; font-weight: 500;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%236F6A62' stroke-width='1.6'><circle cx='5.2' cy='5.2' r='3.6'/><path d='M8 8l3 3'/></svg>");
+  background-repeat: no-repeat; background-position: 8px 50%;
+}
+.seg-lab { font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin: 0 2px 0 8px; }
+.seg { display: inline-flex; height: 26px; border: 1px solid var(--line-2); border-radius: 4px; overflow: hidden; background: var(--paper); }
+.seg button {
+  height: 26px; padding: 0 9px; font-size: 11.5px; font-weight: 550; color: var(--navy);
+  display: inline-flex; align-items: center; gap: 5px; border-right: 1px solid var(--line-2);
+}
+.seg button:last-child { border-right: 0; }
+.seg button.on { background: var(--navy); color: var(--cream); }
+.seg .n { font-variant-numeric: tabular-nums; font-size: 10.5px; font-weight: 650; opacity: 0.72; }
+.menu-btn {
+  height: 26px; padding: 0 8px; border: 1px solid var(--line-2); border-radius: 4px; background: var(--paper);
+  font-size: 11.5px; font-weight: 550; display: inline-flex; align-items: center; gap: 5px;
+}
+.bar-spacer { flex: 1; }
+.hint { font-size: 11.5px; font-weight: 500; color: var(--muted); }
+
+.stage { flex: 1; min-height: 0; display: flex; background: var(--paper); }
+
+.list { flex: 1; min-width: 0; overflow: auto; }
+.app.open .list { flex: 0 0 420px; border-right: 1px solid var(--line); }
+
+table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 12.5px; font-weight: 500; letter-spacing: -0.011em; table-layout: fixed; }
+thead th {
+  position: sticky; top: 0; z-index: 8; height: var(--thead-h); background: var(--cream-2);
+  border-bottom: 1px solid var(--line-2); font-size: 10px; font-weight: 650; letter-spacing: 0.055em;
+  text-transform: uppercase; color: var(--muted); text-align: left; padding: 0 8px; white-space: nowrap;
+}
+thead th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+td {
+  height: var(--row-h); padding: 0 8px; border-bottom: 1px solid var(--line); vertical-align: middle;
+  white-space: nowrap; background: var(--paper); overflow: hidden; text-overflow: ellipsis;
+}
+tbody tr.alt td { background: #FBF9F5; }
+tbody tr:hover td { background: #F3EFE8; }
+tbody tr.sel td { background: #EDE6DC; }
+tbody tr.sel td:first-child { box-shadow: inset 2px 0 0 var(--navy); }
+tbody tr { cursor: pointer; }
+.dpd { font-variant-numeric: tabular-nums; font-weight: 600; }
+.dpd.late { color: var(--clay); }
+.inv { font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.money { font-variant-numeric: tabular-nums; font-weight: 600; }
+.addr { color: var(--navy-2); }
+.pill {
+  display: inline-flex; align-items: center; height: 20px; padding: 0 7px; border-radius: 999px;
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.01em; white-space: nowrap;
+}
+.pill.why { background: var(--cream); color: var(--navy); border: 1px solid #C9C3B8; }
+.pill.awaiting { background: var(--clay-soft); color: var(--clay); }
+.pill.not_sent { background: transparent; color: var(--muted); border: 1px dashed var(--line-2); }
+.pill.notfound { background: var(--not-bg); color: var(--not-fg); }
+.pill.unpaid { background: var(--cream); color: var(--navy); border: 1px solid #C9C3B8; }
+.wide-only {}
+.app.open .wide-only { display: none; }
+
+.case {
+  display: none; flex: 1; min-width: 0; background: var(--cream);
+  flex-direction: column; overflow: hidden;
+}
+.app.open .case { display: flex; }
+
+.case-top {
+  flex: 0 0 auto; display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 12px; padding: 12px 16px 10px; border-bottom: 1px solid var(--line); background: var(--cream);
+}
+.case-id { font-size: 18px; font-weight: 650; letter-spacing: -0.035em; }
+.case-sub { margin-top: 3px; font-size: 12.5px; font-weight: 500; color: var(--navy-2); }
+.case-nav { display: flex; gap: 6px; flex-shrink: 0; }
+.case-nav button {
+  min-width: 40px; min-height: 36px; padding: 0 10px; border: 1px solid var(--line-2);
+  border-radius: 6px; background: var(--paper); font-size: 12px; font-weight: 650;
+}
+.case-nav .x { min-width: 36px; color: var(--muted); }
+
+.status {
+  flex: 0 0 auto; display: grid; grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 8px; padding: 12px 16px 0;
+}
+.schip { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; background: var(--paper); min-height: 54px; }
+.schip lab { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.schip val { display: block; font-size: 13px; font-weight: 650; letter-spacing: -0.015em; line-height: 1.25; }
+.schip.awaiting { background: var(--clay-soft); border-color: transparent; }
+.schip.awaiting val { color: var(--clay); }
+.schip.ok { background: var(--found-bg); border-color: transparent; }
+.schip.ok val { color: var(--found-fg); }
+
+.note {
+  margin: 12px 16px 0; padding: 9px 11px; background: var(--clay-soft); border-radius: 7px;
+  font-size: 12.5px; font-weight: 500; line-height: 1.4;
+}
+.note b { font-weight: 650; }
+
+.case-body {
+  flex: 1; min-height: 0; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 12px;
+  padding: 12px 16px 0; overflow: hidden;
+}
+.col { min-width: 0; display: flex; flex-direction: column; overflow: hidden; }
+.sec-h { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 0 2px 8px; }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; overflow: auto; flex: 1; }
+
+.erow {
+  display: grid; grid-template-columns: 86px 78px 1fr; gap: 6px 10px; align-items: start;
+  padding: 8px 12px; border-left: 2px solid var(--navy); margin: 0 10px;
+}
+.erow + .erow { margin-top: 2px; }
+.erow.today { border-left-color: var(--clay); background: #FBF6F2; border-radius: 0 6px 6px 0; }
+.erow .when { font-size: 11px; font-weight: 650; letter-spacing: -0.01em; }
+.erow.today .when { color: var(--clay); }
+.erow .lab { font-size: 11.5px; font-weight: 700; }
+.erow .what { font-size: 12px; font-weight: 500; color: var(--ink); line-height: 1.4; }
+.erow .who { font-weight: 650; color: var(--navy); }
+
+.letter { padding: 14px 16px 16px; font-size: 13px; font-weight: 500; line-height: 1.5; letter-spacing: -0.011em; color: var(--ink); }
+.letter .kind {
+  display: inline-flex; height: 18px; padding: 0 7px; margin-bottom: 10px; border: 1px solid #C9C3B8;
+  border-radius: 999px; font-size: 10px; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase;
+}
+.letter .meta { font-size: 11.5px; font-weight: 550; color: var(--navy-2); margin-bottom: 10px; line-height: 1.45; }
+.letter .meta b {
+  display: inline-block; width: 34px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  font-size: 10px; color: var(--muted);
+}
+.letter p { margin: 0 0 10px; }
+.letter .sig { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+.letter .sig b { display: block; font-weight: 650; letter-spacing: -0.02em; }
+.letter .sig span { display: block; font-size: 12px; }
+
+.pack-strip {
+  flex: 0 0 auto; display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 16px 0;
+}
+.chip {
+  display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 999px;
+  font-size: 10.5px; font-weight: 650; background: var(--found-bg); color: var(--found-fg);
+}
+.chip.warn { background: var(--not-bg); color: var(--not-fg); }
+
+.acts {
+  flex: 0 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  padding: 12px 16px 14px; border-top: 1px solid var(--line); margin-top: 12px; background: var(--cream);
+}
+.act {
+  min-height: 40px; padding: 0 14px; border: 1px solid var(--line-2); border-radius: 6px;
+  background: var(--paper); font-size: 13px; font-weight: 650; letter-spacing: -0.015em;
+}
+.act.primary { background: var(--navy); border-color: var(--navy); color: var(--cream); }
+.act-note { font-size: 11.5px; font-weight: 500; color: var(--muted); margin-left: 4px; }
+
+.cursor {
+  position: absolute; width: 18px; height: 22px; pointer-events: none; z-index: 50;
+  filter: drop-shadow(0 1px 1px rgba(15,23,42,0.28));
+  display: none;
+}
+.app.list-only .cursor { display: block; }
+</style>
+</head>
+<body>
+<div class="app open" id="app">
+  <header class="hdr">
+    <div class="brand">
+      <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="#0F172A" d="M8 1.8L14.9 14.4H1.1L8 1.8Z"/></svg>
+      <div class="brand-text">
+        <h1>Hyphen review <span class="mock-tag">Mock</span></h1>
+        <p class="asof">Desktop click · live queue unchanged</p>
+      </div>
+    </div>
+    <div class="counts">
+      <div class="count"><b>6</b><span>awaiting</span></div>
+      <div class="count"><b>0</b><span>ready</span></div>
+      <div class="count"><b>$2,421</b><span>open shown</span></div>
+    </div>
+  </header>
+
+  <div class="bar">
+    <input class="search" value="" placeholder="Invoice, address, PO…" readonly />
+    <span class="seg-lab">Mail</span>
+    <div class="seg">
+      <button type="button" class="on">All <span class="n">461</span></button>
+      <button type="button">Ready <span class="n">0</span></button>
+      <button type="button">Awaiting <span class="n">6</span></button>
+      <button type="button">Needs you <span class="n">0</span></button>
+      <button type="button">Not sent</button>
+    </div>
+    <button class="menu-btn" type="button">Days ▾</button>
+    <button class="menu-btn" type="button">Follow-up ▾</button>
+    <span class="bar-spacer"></span>
+    <span class="hint" id="barHint">Click a row · J / K moves tickets</span>
+  </div>
+
+  <div class="stage">
+    <div class="list" id="list">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:54px" class="num">Days</th>
+            <th style="width:108px">Invoice</th>
+            <th class="num wide-only" style="width:72px">Open $</th>
+            <th class="wide-only">Community</th>
+            <th>Address</th>
+            <th class="wide-only" style="width:92px">Hyphen</th>
+            <th style="width:118px">Issue</th>
+            <th style="width:86px">Mail</th>
+            <th class="wide-only" style="width:92px">Last sent</th>
+            <th class="wide-only" style="width:92px">Last reply</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="num"><span class="dpd late">152</span></td>
+            <td class="inv">179586</td>
+            <td class="num money wide-only">261.00</td>
+            <td class="wide-only">Spring Branch</td>
+            <td class="addr">11974 Hedley Court</td>
+            <td class="wide-only"><span class="pill unpaid">Unpaid</span></td>
+            <td><span class="pill why">Notes error</span></td>
+            <td><span class="pill awaiting">Awaiting</span></td>
+            <td class="wide-only">Mon 8/17</td>
+            <td class="wide-only">—</td>
+          </tr>
+          <tr class="alt">
+            <td class="num"><span class="dpd late">152</span></td>
+            <td class="inv">179587</td>
+            <td class="num money wide-only">261.00</td>
+            <td class="wide-only">Spring Branch</td>
+            <td class="addr">11975 Hedley Court</td>
+            <td class="wide-only"><span class="pill unpaid">Unpaid</span></td>
+            <td><span class="pill why">Notes error</span></td>
+            <td><span class="pill awaiting">Awaiting</span></td>
+            <td class="wide-only">Mon 8/17</td>
+            <td class="wide-only">—</td>
+          </tr>
+          <tr>
+            <td class="num"><span class="dpd late">124</span></td>
+            <td class="inv">180131</td>
+            <td class="num money wide-only">783.00</td>
+            <td class="wide-only">Bridgeland</td>
+            <td class="addr">12527 Alligator Lake</td>
+            <td class="wide-only"><span class="pill unpaid">Unpaid</span></td>
+            <td><span class="pill why">Payment</span></td>
+            <td><span class="pill awaiting">Awaiting</span></td>
+            <td class="wide-only">Mon 8/17</td>
+            <td class="wide-only">—</td>
+          </tr>
+          <tr class="sel" id="skyRow">
+            <td class="num"><span class="dpd late">89</span></td>
+            <td class="inv">0415-170614</td>
+            <td class="num money wide-only">350.00</td>
+            <td class="wide-only">Pecan Ridge</td>
+            <td class="addr">32147 Sky Branch</td>
+            <td class="wide-only"><span class="pill notfound">Not found</span></td>
+            <td><span class="pill why">Hyphen entry</span></td>
+            <td><span class="pill awaiting">Awaiting</span></td>
+            <td class="wide-only">Mon 8/17</td>
+            <td class="wide-only">Chad 10:38</td>
+          </tr>
+          <tr class="alt">
+            <td class="num"><span class="dpd late">89</span></td>
+            <td class="inv">0416-170670</td>
+            <td class="num money wide-only">416.00</td>
+            <td class="wide-only">Woodson's Reserve</td>
+            <td class="addr">3903 Sandhills Pine</td>
+            <td class="wide-only"><span class="pill notfound">Not found</span></td>
+            <td><span class="pill why">Broken link</span></td>
+            <td><span class="pill awaiting">Awaiting</span></td>
+            <td class="wide-only">Fri 8/14</td>
+            <td class="wide-only">—</td>
+          </tr>
+          <tr>
+            <td class="num"><span class="dpd late">79</span></td>
+            <td class="inv">0410-170532</td>
+            <td class="num money wide-only">350.00</td>
+            <td class="wide-only">Sugar Mill</td>
+            <td class="addr">Sugar Mill proctor / PI</td>
+            <td class="wide-only"><span class="pill unpaid">Unpaid</span></td>
+            <td><span class="pill why">EPO</span></td>
+            <td><span class="pill awaiting">Awaiting</span></td>
+            <td class="wide-only">Mon 8/17</td>
+            <td class="wide-only">—</td>
+          </tr>
+          <tr class="alt">
+            <td class="num"><span class="dpd late">66</span></td>
+            <td class="inv">0513-171546</td>
+            <td class="num money wide-only">522.00</td>
+            <td class="wide-only">Colonial Meadow</td>
+            <td class="addr">21602 Colonial Meadow</td>
+            <td class="wide-only"><span class="pill notfound">Not found</span></td>
+            <td><span class="pill why">No PO</span></td>
+            <td><span class="pill not_sent">Not sent</span></td>
+            <td class="wide-only">—</td>
+            <td class="wide-only">—</td>
+          </tr>
+          <tr>
+            <td class="num"><span class="dpd late">54</span></td>
+            <td class="inv">0612-172884</td>
+            <td class="num money wide-only">261.00</td>
+            <td class="wide-only">Bridgeland</td>
+            <td class="addr">example row</td>
+            <td class="wide-only"><span class="pill notfound">Not found</span></td>
+            <td><span class="pill why">No PO</span></td>
+            <td><span class="pill not_sent">Not sent</span></td>
+            <td class="wide-only">—</td>
+            <td class="wide-only">—</td>
+          </tr>
+        </tbody>
+      </table>
+      <svg class="cursor" id="cursor" viewBox="0 0 18 22" aria-hidden="true">
+        <path fill="#fff" stroke="#111" stroke-width="1.2" d="M1.4 1.2l15 13.2-7.1 1.1 3.3 5.8-2.3 1.3-3.4-5.9-5.5 4.2z"/>
+      </svg>
+    </div>
+
+    <section class="case" aria-label="Invoice case">
+      <div class="case-top">
+        <div>
+          <div class="case-id">0415-170614 · 32147 Sky Branch</div>
+          <div class="case-sub">Tri Pointe · 21-506 Pecan Ridge · $350 open · 89 days past due</div>
+        </div>
+        <div class="case-nav">
+          <button type="button">Prev</button>
+          <button type="button">Next</button>
+          <button type="button" class="x" aria-label="Close">✕</button>
+        </div>
+      </div>
+
+      <div class="status">
+        <div class="schip">
+          <lab>Issue</lab>
+          <val>Hyphen entry</val>
+        </div>
+        <div class="schip ok">
+          <lab>Packet</lab>
+          <val>Complete</val>
+        </div>
+        <div class="schip awaiting">
+          <lab>Mail</lab>
+          <val>Awaiting · their court</val>
+        </div>
+        <div class="schip">
+          <lab>Next</lab>
+          <val>Thu 8/20 · Hyphen</val>
+        </div>
+      </div>
+
+      <p class="note"><b>Chad replied Mon.</b> Not his house. Victor will enter it, then they move. Keith and Chad stay on Pecan Ridge. Still nothing in Hyphen, so the ball is still theirs. Do not chase hou.acctspayable.</p>
+
+      <div class="pack-strip">
+        <span class="chip">To · Chad / Josh</span>
+        <span class="chip">Client on CC</span>
+        <span class="chip">Background</span>
+        <span class="chip">Labeled timeline</span>
+        <span class="chip">Report + invoice</span>
+        <span class="chip">Asked + replied .eml</span>
+        <span class="chip warn">Call-in · phone, none on file</span>
+      </div>
+
+      <div class="case-body">
+        <div class="col">
+          <div class="sec-h">Ledger</div>
+          <div class="card">
+            <div class="erow">
+              <div class="when">Before Apr 15</div>
+              <div class="lab">Called in</div>
+              <div class="what"><span class="who">Phone.</span> No ryan@ or joe@ email for 32147. Do not invent a caller.</div>
+            </div>
+            <div class="erow">
+              <div class="when">Wed Apr 15</div>
+              <div class="lab">Serviced</div>
+              <div class="what"><span class="who">Chase Tanner.</span> House pad final lift, $350. Report 260415-63737.</div>
+            </div>
+            <div class="erow">
+              <div class="when">Fri Apr 17</div>
+              <div class="lab">Report sent</div>
+              <div class="what"><span class="who">Maria</span> to Chad, Keith, Josh, Jerry + compactiontests@.</div>
+            </div>
+            <div class="erow">
+              <div class="when">Mon Apr 27</div>
+              <div class="lab">Invoiced</div>
+              <div class="what"><span class="who">Maria.</span> April Pecan Ridge batch. Created Apr 20.</div>
+            </div>
+            <div class="erow">
+              <div class="when">Thu Jun 25</div>
+              <div class="lab">Asked</div>
+              <div class="what"><span class="who">Maria</span> to Chad + Josh. Enter in Hyphen.</div>
+            </div>
+            <div class="erow">
+              <div class="when">Fri Aug 14</div>
+              <div class="lab">Asked</div>
+              <div class="what"><span class="who">billings@</span> follow-up on Maria’s thread. Still no PO.</div>
+            </div>
+            <div class="erow">
+              <div class="when">Mon Aug 17</div>
+              <div class="lab">Replied</div>
+              <div class="what"><span class="who">Chad.</span> Not his house. Victor will make the PO, then they move.</div>
+            </div>
+            <div class="erow">
+              <div class="when">Mon 11:16</div>
+              <div class="lab">Asked</div>
+              <div class="what"><span class="who">billings@</span> asked Chad to copy Keith and Victor.</div>
+            </div>
+            <div class="erow today">
+              <div class="when">Today</div>
+              <div class="lab">Today</div>
+              <div class="what"><span class="who">Theirs.</span> Still unpaid, nothing in Hyphen. Follow-up due Thu 8/20.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="sec-h">Last letter</div>
+          <div class="card letter">
+            <div class="kind">Last sent · Mon Aug 17 11:16 CT</div>
+            <div class="meta">
+              <div><b>From</b> billings@coastaltestinglabs.com</div>
+              <div><b>To</b> Chad Luedke, Josh Runnells</div>
+              <div><b>Cc</b> william@, maria@, veronica@, esmeralda@</div>
+              <div><b>Subj</b> Re: PO request · 32147 Sky Branch · 0415-170614</div>
+            </div>
+            <p>Chad, thank you for the note this morning.</p>
+            <p>Please copy Keith Barrett and Victor on this thread, or send their addresses, so we can follow the Hyphen entry with them. Invoice 0415-170614 at 32147 Sky Branch is still not in Hyphen.</p>
+            <p>Tri Pointe creates the PO after the invoice is entered. Neighbor 32151 Sky Branch from the same April 27 batch was entered and paid. We will not write hou.acctspayable.</p>
+            <p>If you have any questions about these requests, we're happy to help address them.</p>
+            <div class="sig">
+              <b>Coastal Testing Laboratories, Inc.</b>
+              <span>billings@coastaltestinglabs.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acts">
+        <button class="act primary" type="button">Follow up on thread</button>
+        <button class="act" type="button">Hold</button>
+        <button class="act" type="button">Next ticket</button>
+        <span class="act-note">Does not send. Thursday 7:30 drafts the silence follow-up on this thread.</span>
+      </div>
+    </section>
+  </div>
+</div>
+<script>
+(function () {
+  var app = document.getElementById('app');
+  var q = new URLSearchParams(location.search).get('view');
+  if (q === 'list') {
+    app.classList.remove('open');
+    app.classList.add('list-only');
+    document.getElementById('barHint').textContent = 'Click 0415-170614 · Sky Branch';
+    requestAnimationFrame(function () {
+      var row = document.getElementById('skyRow');
+      var box = row.getBoundingClientRect();
+      var c = document.getElementById('cursor');
+      c.style.left = (box.left + 210) + 'px';
+      c.style.top = (box.top + 18) + 'px';
+    });
+  }
+  document.querySelectorAll('tbody tr').forEach(function (tr) {
+    tr.addEventListener('click', function () {
+      document.querySelectorAll('tbody tr').forEach(function (r) { r.classList.remove('sel'); });
+      tr.classList.add('sel');
+      app.classList.add('open');
+      app.classList.remove('list-only');
+    });
+  });
+  document.querySelector('.case-nav .x').addEventListener('click', function () {
+    app.classList.remove('open');
+  });
+})();
+</script>
+</body>
+</html>

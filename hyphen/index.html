@@ -1221,6 +1221,25 @@ th:nth-child(5), td.addr { width: 14%; }
 }
 
 
+
+.analysis {
+  margin: 0 16px 10px;
+  padding: 12px 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.analysis .sec-h { margin: 0 0 6px; }
+.analysis p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--navy);
+  font-weight: 500;
+}
+.analysis .miss {
+  color: var(--clay);
+  font-weight: 600;
+}
 </style>
 <link rel="stylesheet" href="case-view.css" />
 </head>
@@ -1297,14 +1316,18 @@ th:nth-child(5), td.addr { width: 14%; }
     </div>
 
     <div class="menu" data-menu="why">
-      <button class="menu-btn" type="button"><span class="t">Why</span><i class="caret"></i></button>
+      <button class="menu-btn" type="button"><span class="t">Issue</span><i class="caret"></i></button>
       <div class="menu-pop" hidden>
         <label><input type="checkbox" value="No PO" /> No PO</label>
         <label><input type="checkbox" value="2nd callout" /> 2nd callout</label>
+        <label><input type="checkbox" value="Write-off" /> Write-off</label>
+        <label><input type="checkbox" value="Unpaid complete" /> Unpaid complete</label>
         <label><input type="checkbox" value="Amount off / unpaid PO" /> Amount off</label>
         <label><input type="checkbox" value="Paid, to apply" /> Paid to apply</label>
         <label><input type="checkbox" value="Broken link" /> Broken link</label>
         <label><input type="checkbox" value="Linked, needs detail" /> Linked needs detail</label>
+        <label><input type="checkbox" value="Leftover lab" /> Leftover lab</label>
+        <label><input type="checkbox" value="Quantity shortfall" /> Quantity shortfall</label>
         <div class="menu-foot"><button type="button" class="all">Clear</button></div>
       </div>
     </div>
@@ -1469,8 +1492,8 @@ th:nth-child(5), td.addr { width: 14%; }
 </aside>
 
 <div class="toast" id="toast" role="status"></div>
-<script src="data.js?v=apply-box"></script>
-<script src="contacts.js?v=contacts1"></script>
+<script src="data.js?v=20260819-0730"></script>
+<script src="contacts.js?v=20260819-0730"></script>
 <script>
 window.HYPHEN_READY_API = (location.hostname==="127.0.0.1"||location.hostname==="localhost") ? "/api/ready" : "https://chatty-moles-share.loca.lt/api/ready";
 window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18eb7e6555a03fba7";
@@ -1502,10 +1525,14 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   const WHYS = [
     { id: "No PO", label: "No PO" },
     { id: "2nd callout", label: "2nd callout" },
+    { id: "Write-off", label: "Write-off" },
+    { id: "Unpaid complete", label: "Unpaid complete" },
     { id: "Amount off / unpaid PO", label: "Amount off" },
     { id: "Paid, to apply", label: "Paid to apply" },
     { id: "Broken link", label: "Broken link" },
     { id: "Linked, needs detail", label: "Linked needs detail" },
+    { id: "Leftover lab", label: "Leftover lab" },
+    { id: "Quantity shortfall", label: "Quantity shortfall" },
   ];
   const WHY_LABEL = Object.fromEntries(WHYS.map((w) => [w.id, w.label]));
   const WHY_HOT = new Set(["2nd callout", "Amount off / unpaid PO", "consumed/cutoff"]);
@@ -1704,7 +1731,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     return DATA.filter((r) => {
       if (state.builders.size && !state.builders.has(r.parent)) return false;
       if (state.eras.size && !state.eras.has(r.era)) return false;
-      if (state.whys.size && !state.whys.has(r.first_pass_column)) return false;
+      if (state.whys.size && !state.whys.has(issueRaw(r)) && !state.whys.has(r.first_pass_column)) return false;
       if (state.hyphen.size) {
         const tag = payStatus(r);
         if (!state.hyphen.has(tag)) return false;
@@ -1738,7 +1765,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       if (state.followUpDue && !isFollowUpDue(r)) return false;
       if (state.builders.size && !state.builders.has(r.parent)) return false;
       if (state.eras.size && !state.eras.has(r.era)) return false;
-      if (state.whys.size && !state.whys.has(r.first_pass_column)) return false;
+      if (state.whys.size && !state.whys.has(issueRaw(r)) && !state.whys.has(r.first_pass_column)) return false;
       if (state.hyphen.size) {
         const tag = payStatus(r);
         if (!state.hyphen.has(tag)) return false;
@@ -1864,7 +1891,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     $("#expandBtn").textContent = state.expandAll ? "Collapse packets" : "Expand packets";
     markMenu("builder", state.builders.size, "Builder");
     markMenu("era", state.eras.size, "Era");
-    markMenu("why", state.whys.size, "Why");
+    markMenu("why", state.whys.size, "Issue");
     markMenu("hyphen", state.hyphen.size, "Hyphen");
     markMenu("days", state.days.size, "Days");
     var fuBtn = $("#fuDueBtn");
@@ -1979,7 +2006,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       '">' +
       esc(payLabel(r)) +
       "</span></td>" +
-      '<td data-label="Why"><span class="pill why' +
+      '<td data-label="Issue"><span class="pill why' +
       (whyHot(issueRaw(r)) || whyHot(r.first_pass_column) ? " hot" : "") +
       '">' +
       esc(issueLabel(r)) +
@@ -2163,6 +2190,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
 
   function actionFooter(r) {
     const why = r.first_pass_column || "";
+    const iss = String(r.issue || "").trim();
     let hint = "";
     let primary = "Draft a chase";
     let secondary = "Hold";
@@ -2176,10 +2204,12 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       hint = "No PO on this invoice. Chase goes in billings@ Drafts.";
       primary = "Draft a chase";
       secondary = "Add to community packet";
-    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "notes_error") {
-      hint = "We uploaded the wrong 2-lift notes. That caused the underpay. Notes now show 3 lifts. Ask the builder for an EPO on the leftover lift.";
+    } else if (iss === "Quantity shortfall" || (why.indexOf("Amount") === 0 && r.amount_off_kind === "notes_error")) {
+      hint = iss === "Quantity shortfall"
+        ? "Ask the builder for an EPO on the leftover lift."
+        : "We uploaded the wrong 2-lift notes. That caused the underpay. Notes now show 3 lifts. Ask the builder for an EPO on the leftover lift.";
       primary = "Draft EPO chase";
-    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "proctor_pi") {
+    } else if (iss === "Leftover lab" || iss === "EPO" || (why.indexOf("Amount") === 0 && r.amount_off_kind === "proctor_pi")) {
       hint = "They paid the lifts. Leftover is Proctor and PI. Builder EPO from billings@, not an internal cash-app note.";
       primary = "Draft EPO chase";
     } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "unpaid_po") {
@@ -2552,6 +2582,25 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     if (!r) return false;
     return String(r.first_pass_column || "").indexOf("Paid") === 0 || String(r.issue || "") === "Paid to apply";
   }
+  function isWriteOff(r) {
+    if (!r) return false;
+    var iss = String(r.issue || r.first_pass_column || "");
+    return /^write-?off$/i.test(iss.trim()) || iss === "Write-off";
+  }
+  function caseAnalysisText(r) {
+    return String((r && r.chase_analysis) || "").trim();
+  }
+  function needsCaseAnalysis(r) {
+    if (!r) return false;
+    var iss = String(r.issue || r.first_pass_column || "");
+    return /2nd callout|write-?off/i.test(iss) || !!r.write_off_reason;
+  }
+  function hasCaseAnalysis(r) {
+    var t = caseAnalysisText(r);
+    if (!t) return false;
+    var bits = t.split(/[.!?]+/).map(function (s) { return s.trim(); }).filter(Boolean);
+    return bits.length >= 2 && t.length >= 80;
+  }
   function packetGaps(r, kind) {
     if (isPaidApply(r)) {
       var gapsP = [];
@@ -2562,7 +2611,11 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       }
       return gapsP;
     }
-    if (kind === "Internal") return [];
+    var analysisGaps = [];
+    if (needsCaseAnalysis(r) && !hasCaseAnalysis(r)) {
+      analysisGaps.push("Need 2–3 sentence analysis of what we found and what we did not");
+    }
+    if (kind === "Internal" || isWriteOff(r)) return analysisGaps;
     var gaps = [];
     if (!r.chase_to || !/@/.test(String(r.chase_to))) {
       gaps.push("To is not a real PO person or project CM");
@@ -2603,12 +2656,13 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     if (bannedContact(r.chase_to) || (r.chase_cc || []).some(function (c) { return c && bannedContact(c.email); })) {
       gaps.push("Contractor or AP inbox is on To or CC");
     }
-    return gaps;
+    return gaps.concat(analysisGaps);
   }
   function openCompose(id) {
     const r = DATA.find((x) => x.docNumber === id);
     if (!r) return;
     const why = r.first_pass_column || "";
+    const iss = String(r.issue || "").trim();
     const addr = (r.service_address || "").trim() || "—";
     const comm = r.customer || "";
     const builder = BUILDER_LABEL[r.parent] || r.parent || "";
@@ -2689,7 +2743,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
           '<span class="chip">' + esc(inv) + " invoice</span>"
         ]);
       }
-    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "notes_error") {
+    } else if (iss === "Quantity shortfall" || (why.indexOf("Amount") === 0 && r.amount_off_kind === "notes_error")) {
       title = "Draft EPO chase";
       kind = "Builder";
       subject = "EPO needed — " + inv + " — " + addr;
@@ -2724,7 +2778,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
         '<span class="chip">Corrected Hyphen notes</span>',
         '<span class="chip">Three reports</span>'
       ]);
-    } else if (why.indexOf("Amount") === 0 && r.amount_off_kind === "proctor_pi") {
+    } else if (iss === "Leftover lab" || iss === "EPO" || (why.indexOf("Amount") === 0 && r.amount_off_kind === "proctor_pi")) {
       title = "Draft EPO chase";
       kind = "Builder";
       subject = "EPO needed — " + inv + " — " + addr;
@@ -2951,7 +3005,19 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     });
   }
   function issueRaw(r) {
-    return r.issue || r.first_pass_column || "";
+    var closed = {
+      "Paid to apply": 1, "Pending Notes": 1, "Pending client acceptance": 1,
+      "Unpaid complete": 1, "No PO": 1, "2nd callout": 1, "Write-off": 1,
+      "Amount off": 1, "Notes error": 1, "Leftover lab": 1, "Quantity shortfall": 1, "Review": 1
+    };
+    var iss = String(r.issue || "").trim();
+    if (closed[iss]) return iss;
+    var fp = String(r.first_pass_column || "").trim();
+    if (fp === "Paid, to apply" || fp.indexOf("Paid") === 0) return "Paid to apply";
+    if (fp === "Amount off / unpaid PO") return "Amount off";
+    if (fp === "Payment") return "Unpaid complete";
+    if (closed[fp]) return fp;
+    return iss || "";
   }
   function issueLabel(r) {
     var w = noSibling(issueRaw(r)).trim();
@@ -3065,6 +3131,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     }).filter(Boolean);
   }
   function standingNote(r) {
+    if (r && r.chase_analysis) return "";
     if (isPaidApply(r)) {
       if (r.standing_note) return noSibling(r.standing_note);
       if (r.mail_states_note) {
@@ -3107,9 +3174,10 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     });
     items.push({ t: clientCc ? "Client on CC" : "Need client CC", ok: clientCc });
     items.push({ t: r.chase_letter_lead ? "Background" : "Need background", ok: !!r.chase_letter_lead });
-    var tl = r.chase_timeline || r.timeline || [];
+    var tl = (r.ledger && r.ledger.length ? r.ledger : r.chase_timeline) || r.timeline || [];
     var labeled = tl.some(function (it) {
-      return /^(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Replied|Report sent|Report transmitted|Report transmittal)\b/i.test(String(it.what || ""));
+      var w = String(it.lab || it.label || "") + " " + String(it.what || "");
+      return /\b(Called in|Serviced|Invoiced|Notes entered|Paid|Asked|Inquiry|Replied|Report sent|Report transmitted|Report transmittal)\b/i.test(w);
     });
     items.push({ t: labeled ? "Labeled timeline" : "Need timeline", ok: labeled });
     var atts = (r.chase_attachments || []).filter(function (a) {
@@ -3125,7 +3193,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     return String(r.email || "").toLowerCase();
   }
   function chaseableIssue(issue) {
-    return /^(No PO|Hyphen entry|Notes error|Payment|EPO|2nd callout)$/i.test(String(issue || ""));
+    return /^(No PO|Hyphen entry|Notes error|Payment|EPO|2nd callout|Leftover lab|Quantity shortfall|Amount off|Unpaid complete)$/i.test(String(issue || ""));
   }
   function campaignKeyOf(r) {
     return (r.customer || "—") + "||" + issueLabel(r) + "||" + cmKey(r);
@@ -3219,6 +3287,10 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     state.campaignOpen = false;
   }
   function chaseSubject(r) {
+    if (isWriteOff(r)) {
+      if (r.chase_subject) return r.chase_subject;
+      return "Write-off · " + ((r.service_address || "").trim() || "invoice") + " · " + r.docNumber;
+    }
     if (isPaidApply(r)) {
       if (r.chase_subject) return r.chase_subject;
       var poS = r.builder_order_number || r.strata_po_num || "";
@@ -3268,15 +3340,26 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var subj = r.chase_subject || "";
     if (mail === "awaiting" && subj && !/^re\s*:/i.test(subj)) subj = "Re: " + subj;
     var html = '<div class="kind">' + esc(kind) + "</div><div class=\"meta\">";
-    if (r.chase_from || r.chase_from_name) {
-      html += "<div><b>From</b> " + esc(r.chase_from_name || r.chase_from) + "</div>";
+    if (r.chase_from || r.chase_from_name || isWriteOff(r)) {
+      html += "<div><b>From</b> " + esc(r.chase_from_name || r.chase_from || "William Knox") + (isWriteOff(r) ? " · william@coastaltestinglabs.com" : "") + "</div>";
     }
-    if (to) html += "<div><b>To</b> " + esc(to) + (r.chase_to && r.chase_to_name ? " · " + esc(r.chase_to) : "") + "</div>";
+    if (to || isWriteOff(r)) html += "<div><b>To</b> " + esc(to || "Esmeralda") + (isWriteOff(r) ? " · esmeralda@coastaltestinglabs.com" : (r.chase_to && r.chase_to_name ? " · " + esc(r.chase_to) : "")) + "</div>";
     if (cc) html += "<div><b>Cc</b> " + esc(cc) + "</div>";
     if (subj) html += "<div><b>Subj</b> " + esc(subj) + "</div>";
     html += "</div>";
+    if (!isPaidApply(r) && !isWriteOff(r) && (!r.chase_to || packetStatus(r) === "hold") && !lead) {
+      html += "<p>No letter yet. Packet is Hold until To, CC, and the timeline emails are on the case.</p>";
+      return html;
+    }
     if (lead) html += "<p>" + esc(lead) + "</p>";
     if (isPaidApply(r)) {
+      return html;
+    }
+    if (isWriteOff(r)) {
+      html += "<p>Please write this invoice off in QBO. We are not chasing the builder.</p>";
+      var analysisL = caseAnalysisText(r);
+      if (analysisL) html += "<p>" + esc(analysisL) + "</p>";
+      html += '<div class="sig"><b>William Knox</b><span>william@coastaltestinglabs.com</span></div>';
       return html;
     }
     var evs = ledgerEvents(r);
@@ -3309,10 +3392,16 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var primary = "Draft";
     var disabled = false;
     var note = "";
-    if (issueRaw(r) === "Write-off") {
-      primary = "Hold — write-off";
-      disabled = true;
-      note = r.write_off_reason || "Missing two client call-ins. Not a builder chase.";
+    if (isWriteOff(r)) {
+      if (!hasCaseAnalysis(r)) {
+        primary = "Hold — write-off";
+        disabled = true;
+        note = "Need 2–3 sentence analysis before we can draft Esmeralda.";
+      } else {
+        primary = "Draft";
+        disabled = false;
+        note = "Put in Drafts creates a william@ note to Esmeralda asking her to write this off.";
+      }
     } else if (mail === "awaiting") {
       primary = "Follow up on thread";
       if (pkt === "hold" && gaps.length) {
@@ -3376,6 +3465,13 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       (note ? '<p class="note"><b>' + esc(note.split(". ")[0] + (note.indexOf(".") >= 0 ? "." : "")) + "</b> " +
         esc(note.split(". ").slice(1).join(". ")) + "</p>" : "") +
       '<div class="pack-strip">' + chips + "</div>" +
+      ((needsCaseAnalysis(r) || caseAnalysisText(r))
+        ? '<div class="analysis"><div class="sec-h">Analysis</div>' +
+          (caseAnalysisText(r)
+            ? "<p>" + esc(caseAnalysisText(r)) + "</p>"
+            : '<p class="miss">Need two to three sentences: what we found, what we did not, and the recommendation.</p>') +
+          "</div>"
+        : "") +
       '<div class="case-body"><div class="col"><div class="sec-h">Ledger</div><div class="card">' +
       (evs.length ? evs.map(erowHtml).join("") : '<p class="note quiet">No labeled events on file. We do not invent missing events.</p>') +
       '</div></div><div class="col"><div class="sec-h">' + ((mail === "awaiting" || lastSent(r)) ? "Last sent" : "Draft") + '</div><div class="card letter">' +
@@ -3388,7 +3484,9 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
           '<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1.2L5 5l4-3.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
           '</button>' +
           '<div class="split-menu" id="caseReadyMenu" hidden>' +
-          '<button type="button" class="send" data-case-act="send">Send now<span class="hint">Sends this letter from billings@. Does not wait in Drafts.</span></button>' +
+          '<button type="button" class="send" data-case-act="send">Send now<span class="hint">' +
+          (isWriteOff(r) ? "Sends this note from william@ to Esmeralda. Does not wait in Drafts." : "Sends this letter from billings@. Does not wait in Drafts.") +
+          "</span></button>" +
           '</div></div>'
         : '<button class="act primary" type="button" data-case-act="primary"' + (acts.disabled ? " disabled" : "") + ">" +
           esc(acts.primary) + "</button>") +
@@ -4048,6 +4146,16 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     var rows = selectedApplyInvoices();
     var checks = selectedApplyChecks().map(function (c) { return c.check; });
     var ids = rows.map(function (r) { return r.docNumber; });
+    var checkBlocks = selectedApplyChecks().map(function (c) {
+      return {
+        client: c.client,
+        check: c.check,
+        date: c.date,
+        invoices: c.invoices.map(function (r) {
+          return { doc: r.docNumber, addr: applyAddr(r), amount: moneyShort(r.balance), po: applyPo(r) };
+        })
+      };
+    });
     return {
       kind: "apply",
       invoice: ids.length ? ids.join(",") : "apply",
@@ -4058,7 +4166,8 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       html: applyApiHtml(),
       attachments: [],
       replaceExisting: true,
-      checks: checks
+      checks: checks,
+      checkBlocks: checkBlocks
     };
   }
   function persistApplyMail(ids, status) {
@@ -4426,29 +4535,40 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     if (!composeOpen) {
       var evs = ledgerEvents(rec0);
       var paid = isPaidApply(rec0);
-      var html = paid
-        ? ("<p>" + esc(rec0.chase_letter_lead || "") + "</p>")
+      var wo = isWriteOff(rec0);
+      var html = (paid || wo)
+        ? ("<p>Please write this invoice off in QBO. We are not chasing the builder.</p><p>" + esc(caseAnalysisText(rec0) || rec0.chase_letter_lead || "") + "</p><p>" + esc(rec0.docNumber) + " · " + esc(rec0.service_address || "") + " · " + money(rec0.balance) + "</p>")
         : letterWrap(esc(rec0.chase_letter_lead || ""), evs.map(function (e) {
             return { when: prettyWhenShort(e.when).replace(/<br\s*\/?>/gi, " "), lab: e.lab || "", what: e.what || "", today: !!e.today };
           }), "", true);
+      if (paid && !wo) {
+        html = "<p>" + esc(rec0.chase_letter_lead || "") + "</p>";
+      }
       var toList = [];
-      if (rec0.chase_to) toList.push({ name: rec0.chase_to_name || rec0.chase_to, email: rec0.chase_to });
-      else if (paid) toList.push({ name: "Esmeralda", email: "esmeralda@coastaltestinglabs.com" });
-      var atts0 = (rec0.chase_attachments || []).filter(function (a) { return a && a.mailbox && a.messageId; }).map(function (a) {
+      if (wo || paid) toList.push({ name: "Esmeralda", email: "esmeralda@coastaltestinglabs.com" });
+      else if (rec0.chase_to) toList.push({ name: rec0.chase_to_name || rec0.chase_to, email: rec0.chase_to });
+      var atts0 = (wo || paid) ? [] : (rec0.chase_attachments || []).filter(function (a) { return a && a.mailbox && a.messageId; }).map(function (a) {
         return { mailbox: a.mailbox, messageId: a.messageId, filename: emlFilename(a.label), name: emlFilename(a.label) };
       });
       return {
         invoice: id,
         subject: chaseSubject(rec0),
         to: toList,
-        cc: paid ? [] : (rec0.chase_cc || []),
-        from: paid
+        cc: (paid || wo) ? [] : (rec0.chase_cc || []),
+        from: (paid || wo)
           ? { name: rec0.chase_from_name || "William Knox", email: rec0.chase_from || "william@coastaltestinglabs.com" }
           : { name: rec0.chase_from_name || "Billings", email: rec0.chase_from || "billings@coastaltestinglabs.com" },
         html: html,
         attachments: atts0,
         replaceExisting: true,
-        ledgerCount: evs.length
+        ledgerCount: evs.length,
+        kind: wo ? "writeoff" : (paid ? "apply" : ""),
+        writeoff: wo ? {
+          analysis: caseAnalysisText(rec0),
+          doc: rec0.docNumber,
+          addr: rec0.service_address || "",
+          amount: money(rec0.balance)
+        } : null
       };
     }
     var to = parseFieldPeople($("#cTo"));
@@ -4568,11 +4688,17 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
   }
   function dropToOutlook(action) {
     var paidGate = DATA.find(function (x) { return x.docNumber === state.selected; }) || {};
-    if (isPaidApply(paidGate)) {
+    if (isPaidApply(paidGate) && !isWriteOff(paidGate)) {
       openApplyBox({ inv: state.selected });
       return;
     }
-    setDropNote(action === "send" ? "Sending from billings@…" : "Creating the billings@ draft…");
+    if (isWriteOff(paidGate) && !hasCaseAnalysis(paidGate)) {
+      setDropNote("Need 2–3 sentence analysis before we can draft Esmeralda.");
+      return;
+    }
+    setDropNote(action === "send"
+      ? (isWriteOff(paidGate) ? "Sending the william@ write-off note…" : "Sending from billings@…")
+      : (isWriteOff(paidGate) ? "Creating the william@ write-off note…" : "Creating the billings@ draft…"));
     var btn = $("#cReady") || document.querySelector("[data-case-act='draft']");
     var more = $("#cReadyMore") || document.querySelector("[data-case-act='draft-more']");
     var rec0 = DATA.find(function (x) { return x.docNumber === state.selected; }) || {};
@@ -4587,7 +4713,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       setDropNote("Nothing to queue. Letter is empty.");
       return;
     }
-    if (!(payload.to && payload.to.length)) {
+    if (!(payload.to && payload.to.length) && !isWriteOff(rec0)) {
       setDropNote("Need a To address before this can go to Drafts.");
       return;
     }
@@ -4601,7 +4727,9 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
     if (more) more.disabled = true;
     if (btn && btn.id === "cReady") btn.textContent = action === "send" ? "Sending…" : "Queuing…";
     if (btn && btn.getAttribute("data-case-act") === "draft") btn.textContent = action === "send" ? "Sending…" : "Queuing…";
-    setDropNote(action === "send" ? "Sending from billings@." : "Creating the billings@ draft. Nothing sends.");
+    setDropNote(action === "send"
+      ? (isWriteOff(rec0) ? "Sending from william@ to Esmeralda." : "Sending from billings@.")
+      : (isWriteOff(rec0) ? "Creating the william@ draft to Esmeralda. Nothing sends." : "Creating the billings@ draft. Nothing sends."));
     fetch(window.HYPHEN_READY_API, {
       method: "POST",
       headers: {
@@ -4612,6 +4740,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       body: JSON.stringify({
         secret: window.HYPHEN_READY_SECRET,
         action: action,
+        kind: payload.kind || (isWriteOff(rec0) ? "writeoff" : ""),
         mailbox: payload.from && payload.from.email ? payload.from.email : "billings@coastaltestinglabs.com",
         graphMessageId: rec.graphMessageId || "",
         invoice: payload.invoice,
@@ -4621,7 +4750,8 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
         from: payload.from,
         html: payload.html,
         attachments: payload.attachments || [],
-        replaceExisting: !!payload.replaceExisting
+        replaceExisting: !!payload.replaceExisting,
+        writeoff: payload.writeoff || null
       })
     })
       .then(function (res) {
@@ -4642,7 +4772,7 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
           saveMailOverlay(payload.invoice, {
             status: "awaiting",
             last_sent: todayISO(),
-            follow_up_due: addBusinessDays(todayISO(), 3),
+            follow_up_due: isWriteOff(rec0) ? null : addBusinessDays(todayISO(), 3),
             webLink: next.webLink || ""
           });
         } else {
@@ -4655,10 +4785,14 @@ window.HYPHEN_READY_SECRET = "b7eb419b22838a366016e02ea83e7ba7b99be5ee8fa5eff18e
       .then(function () {
         var rec2 = composeRecord(payload.invoice);
         if (rec2.webLink) {
-          setDropNote("", (action === "send" ? "Sent from billings@. " : "Queued in billings@ Drafts. ") +
+          setDropNote("", (action === "send"
+            ? (isWriteOff(rec0) ? "Sent from william@ to Esmeralda. " : "Sent from billings@. ")
+            : (isWriteOff(rec0) ? "Queued in william@ Drafts. " : "Queued in billings@ Drafts. ")) +
             '<a href="' + rec2.webLink + '" target="_blank" rel="noopener">Open in Outlook</a>.');
         } else {
-          setDropNote(action === "send" ? "Sent from billings@." : "Queued in billings@ Drafts.");
+          setDropNote(action === "send"
+            ? (isWriteOff(rec0) ? "Sent from william@ to Esmeralda." : "Sent from billings@.")
+            : (isWriteOff(rec0) ? "Queued in william@ Drafts." : "Queued in billings@ Drafts."));
         }
         if (btn && btn.getAttribute("data-case-act") === "draft") btn.textContent = action === "send" ? "Sent" : "Queued";
       })
