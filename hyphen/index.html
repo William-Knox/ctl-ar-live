@@ -31,7 +31,7 @@
   --toolbar-h: 38px;
   --thead-h: 30px;
   --row-h: 42px;
-  --drawer-w: 400px;
+  --drawer-w: 880px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
@@ -470,7 +470,7 @@ tbody tr { cursor: pointer; }
 .drawer {
   position: fixed;
   top: 0; right: 0; bottom: 0;
-  width: min(var(--drawer-w), 42vw);
+  width: min(var(--drawer-w), 92vw);
   background: var(--cream);
   border-left: 1px solid var(--line-2);
   z-index: 60;
@@ -521,6 +521,94 @@ tbody tr { cursor: pointer; }
   line-height: 1.45;
   color: var(--ink);
 }
+
+.d-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+}
+.d-note {
+  flex: 0 0 auto;
+  padding: 9px 11px;
+  background: var(--cream-2);
+  border-radius: 7px;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.d-split {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 12px;
+  overflow: hidden;
+}
+.d-split .col {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.sec-h {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 2px 8px;
+}
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: auto;
+  flex: 1;
+}
+.erow {
+  display: grid;
+  grid-template-columns: 86px 78px 1fr;
+  gap: 6px 10px;
+  align-items: start;
+  padding: 8px 12px;
+  border-left: 2px solid var(--navy);
+  margin: 0 10px;
+}
+.erow + .erow { margin-top: 2px; }
+.erow.today {
+  background: var(--cream);
+  border-radius: 0 6px 6px 0;
+  border-left-color: var(--clay);
+}
+.erow .when { font-size: 11px; font-weight: 650; letter-spacing: -0.01em; }
+.erow.today .when { color: var(--clay); }
+.erow .lab { font-size: 11.5px; font-weight: 700; }
+.erow .what { font-size: 12px; font-weight: 500; color: var(--ink); line-height: 1.4; }
+.letter {
+  padding: 14px 16px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.011em;
+  color: var(--ink);
+}
+.letter p { margin: 0 0 10px; }
+.letter .tl-h {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  margin: 14px 0 8px;
+}
+.letter .tl { margin: 0 -6px 12px; }
+.letter .tl .erow { margin: 0 6px; }
+@media (max-width: 900px) {
+  .d-split { grid-template-columns: 1fr; overflow: auto; }
+  .erow { grid-template-columns: 1fr 1fr; }
+}
+
 .d-meta {
   display: grid;
   grid-template-columns: 72px 1fr;
@@ -896,7 +984,11 @@ tbody tr { cursor: pointer; }
       href: leftover ? ("leftover-case.html#" + d.docNumber) : "",
       po: d.builder_order_number || "",
       due: d.dueDate || "",
-      analysis: d.chase_analysis || ""
+      analysis: d.chase_analysis || "",
+      ledger: d.ledger || d.chase_timeline || [],
+      letter: d.chase_letter || "",
+      last_sent: d.last_sent || "",
+      chaseTo: d.chase_to_name || d.chase_to || ""
     };
   }
   ROWS.forEach(function (r) {
@@ -969,6 +1061,7 @@ tbody tr { cursor: pointer; }
   function filtered() {
     var q = state.search.trim().toLowerCase();
     return ROWS.filter(function (r) {
+      if (r.mail === "awaiting") return false;
       if (state.leftover && !r.leftover) return false;
       if (state.view === "leftover" && !r.leftover) return false;
       if (state.view === "writeoff" && r.issue !== "Write-off") return false;
@@ -999,7 +1092,9 @@ tbody tr { cursor: pointer; }
     return '<span class="pill ' + esc(h) + '">' + esc(HY_LAB[h] || h) + "</span>";
   }
   function mailPill(m) {
-    return '<span class="pill ' + esc(m) + '">' + esc(MAIL_LAB[m] || m) + "</span>";
+    var html = '<span class="pill ' + esc(m) + '">' + esc(MAIL_LAB[m] || m) + "</span>";
+    if (m === "awaiting") return '<a href="awaiting/index.html">' + html + "</a>";
+    return html;
   }
 
   function render() {
@@ -1059,6 +1154,38 @@ tbody tr { cursor: pointer; }
   }
   function rowBy(id) { return ROWS.filter(function (r) { return r.id === id; })[0]; }
 
+  var LEDGER_LABS = {
+    "Called in": 1,
+    "Report transmittal": 1,
+    "Invoiced": 1,
+    "Inquiry": 1,
+    "Replied": 1,
+    "Paid": 1,
+    "Completed": 1,
+    "Notes entered": 1,
+    "Today": 1
+  };
+  function signedLedger(list) {
+    return (list || []).filter(function (e) {
+      return e && LEDGER_LABS[e.lab];
+    }).map(function (e) {
+      return {
+        when: e.when || "",
+        lab: e.lab,
+        what: e.what || "",
+        today: !!(e.today || e.lab === "Today")
+      };
+    });
+  }
+  function erowsHtml(list) {
+    return signedLedger(list).map(function (e) {
+      return '<div class="erow' + (e.today ? " today" : "") + '">' +
+        '<div class="when">' + esc(e.when) + "</div>" +
+        '<div class="lab">' + esc(e.lab) + "</div>" +
+        '<div class="what">' + esc(e.what) + "</div></div>";
+    }).join("");
+  }
+
   function openCase(r) {
     if (r.href) {
       location.href = r.href;
@@ -1067,43 +1194,79 @@ tbody tr { cursor: pointer; }
     state.selected = r.id;
     $("dTitle").textContent = r.id + " · " + r.addr;
     $("dSub").textContent = r.parent + " · " + r.community + " · " + money(r.open) + " open";
+    var events = erowsHtml(r.ledger);
+    var left =
+      '<div class="col"><div class="sec-h">Timeline of Events</div><div class="card">' +
+      events +
+      "</div></div>";
+    var rightInner;
+    if (r.letter) {
+      rightInner =
+        '<div class="letter">' +
+        "<p>" + esc(r.letter) + "</p>" +
+        '<div class="tl-h">Timeline of Events</div><div class="tl">' + events + "</div>" +
+        "</div>";
+    } else if (r.mail === "awaiting") {
+      rightInner = '<div class="letter"><p>Already sent. Do not rewrite.</p></div>';
+    } else {
+      rightInner = '<div class="letter"><p>' + esc(r.analysis || "") + "</p></div>";
+    }
+    var rightLab = r.letter ? "Letter" : "Analysis";
+    var right = '<div class="col"><div class="sec-h">' + rightLab + '</div><div class="card">' + rightInner + "</div></div>";
     $("dBody").innerHTML =
-      '<dl class="d-meta">' +
-      "<dt>Issue</dt><dd>" + esc(r.issue) + "</dd>" +
-      "<dt>Mail</dt><dd>" + esc(MAIL_LAB[r.mail] || r.mail) + "</dd>" +
-      "<dt>Days</dt><dd><span class=\"dpd" + (r.days > 0 ? " late" : "") + '">' + r.days + "</span></dd>" +
-      "<dt>Hyphen</dt><dd>" + esc(HY_LAB[r.hyphen] || r.hyphen) + "</dd>" +
-      "</dl><div class=\"analysis\">" + esc(r.analysis) + "</div>";
-    $("dFoot").innerHTML =
-      '<div class="actions">' +
-      '<div class="split">' +
-      '<button class="act primary" type="button" id="cDraft">Put in Drafts</button>' +
-      '<button class="act primary split-arrow" type="button" id="cMore" aria-haspopup="menu" aria-expanded="false" aria-label="More send options">▾</button>' +
-      '<div class="split-menu" id="cReadyMenu" hidden>' +
-      '<button type="button" class="send" id="cSend">Send now<span class="hint">Sends this letter from billings@. Does not wait in Drafts.</span></button>' +
-      "</div></div>" +
-      '<button class="act ghost" type="button" id="cHold">Hold</button>' +
-      "</div>" +
-      '<p class="act-note">Chase Draft split. Put in Drafts + 40px Send now. Mock only. Nothing is sent.</p>';
+      (r.analysis ? '<p class="d-note">' + esc(r.analysis) + "</p>" : "") +
+      '<div class="d-split">' + left + right + "</div>";
+    var awaiting = r.mail === "awaiting";
+    if (awaiting) {
+      $("dFoot").innerHTML =
+        '<div class="actions">' +
+        '<button class="act ghost" type="button" id="cHold">Hold</button>' +
+        '<button class="act ghost" type="button" id="cNext">Next</button>' +
+        "</div>" +
+        '<p class="act-note">Hold / Next only. No Draft. No Send.</p>';
+    } else {
+      $("dFoot").innerHTML =
+        '<div class="actions">' +
+        '<div class="split">' +
+        '<button class="act primary" type="button" id="cDraft">Put in Drafts</button>' +
+        '<button class="act primary split-arrow" type="button" id="cMore" aria-haspopup="menu" aria-expanded="false" aria-label="More send options">▾</button>' +
+        '<div class="split-menu" id="cReadyMenu" hidden>' +
+        '<button type="button" class="send" id="cSend">Send now<span class="hint">Sends this letter from billings@. Does not wait in Drafts.</span></button>' +
+        "</div></div>" +
+        '<button class="act ghost" type="button" id="cHold">Hold</button>' +
+        '<button class="act ghost" type="button" id="cNext">Next</button>' +
+        "</div>" +
+        '<p class="act-note">Chase Draft split. Put in Drafts + 40px Send now.</p>';
+    }
     $("drawer").classList.add("on");
     $("drawer").setAttribute("aria-hidden", "false");
     $("scrim").classList.add("on");
     render();
-    $("cDraft").addEventListener("click", function () {
-      toast("Mock only. Put in Drafts. Nothing was sent.");
-    });
-    $("cMore").addEventListener("click", function () {
-      var m = $("cReadyMenu");
-      m.hidden = !m.hidden;
-      $("cMore").setAttribute("aria-expanded", m.hidden ? "false" : "true");
-    });
-    $("cSend").addEventListener("click", function () {
-      $("cReadyMenu").hidden = true;
-      toast("Mock only. Send now. Nothing was sent.");
-    });
-    $("cHold").addEventListener("click", function () {
-      toast("Mock only. Hold.");
-    });
+    function goNext() {
+      var rows = filtered();
+      var idx = -1;
+      rows.forEach(function (x, i) { if (x.id === r.id) idx = i; });
+      if (idx >= 0 && idx < rows.length - 1) openCase(rows[idx + 1]);
+      else toast("End of this Chase strip.");
+    }
+    if ($("cDraft")) {
+      $("cDraft").addEventListener("click", function () { toast("Put in Drafts."); });
+    }
+    if ($("cMore")) {
+      $("cMore").addEventListener("click", function () {
+        var m = $("cReadyMenu");
+        m.hidden = !m.hidden;
+        $("cMore").setAttribute("aria-expanded", m.hidden ? "false" : "true");
+      });
+    }
+    if ($("cSend")) {
+      $("cSend").addEventListener("click", function () {
+        $("cReadyMenu").hidden = true;
+        toast("Send now.");
+      });
+    }
+    $("cHold").addEventListener("click", function () { toast("Hold."); });
+    $("cNext").addEventListener("click", goNext);
   }
   function closeCase() {
     state.selected = null;

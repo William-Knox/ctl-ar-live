@@ -660,99 +660,7 @@ tbody tr { cursor: pointer; }
     "No PO": 1,
     "Paid to apply": 1
   };
-  var ROWS = [
-    {
-      id: "0430-171077",
-      community: "Moore's Landing",
-      addr: "11935 Noble Wood",
-      issue: "Leftover lab",
-      last_sent: "2026-08-11",
-      open: 349,
-      parent: "LENNAR HOMES",
-      court: "theirs",
-      to: "Lennar AP",
-      analysis: "Maria's 5/7 note on this PO matches billed $871 (Proctor and PI $349 plus two lifts $522). Check 1255333 paid $522; leftover $349 is the named lab.",
-      sent: "We performed compaction plus Proctor and PI at 11935 Noble Wood and billed invoice 0430-171077 for $871. Lennar paid $522 on check 1255333. The leftover $349 is the named lab. Please issue the remaining amount."
-    },
-    {
-      id: "0506-171310",
-      community: "Grand Lake",
-      addr: "1220 Charlotte Way",
-      issue: "Quantity shortfall",
-      last_sent: "2026-08-12",
-      open: 261,
-      parent: "LENNAR HOMES",
-      court: "theirs",
-      to: "Rodney Shewell",
-      analysis: "No Hyphen note text was found for this SON, so notes are clean. PO 90007977-000 paid check 1255333 $261 against billed $522; $261 remains. The 5/7 report PDF shows two lifts; the paid PO covers one.",
-      sent: "We tested and reported two compaction lifts at 1220 Charlotte Way. Invoice 0506-171310 billed $522. Lennar paid check 1255333 $261 on PO 90007977-000. Please release the unpaid lift."
-    },
-    {
-      id: "179587",
-      community: "Spring Branch Crossing",
-      addr: "11975 Hedley Court",
-      issue: "Notes error",
-      last_sent: "2026-08-13",
-      open: 261,
-      parent: "LENNAR HOMES",
-      court: "theirs",
-      to: "Montana Grove",
-      analysis: "We first wrote two lifts $522 on PO 61894458-000; invoice 179587 billed $783. Lennar paid check 1205773 $522 against that first number. Esme corrected the notes on 3/24 to three lifts $783.",
-      sent: "We originally uploaded the wrong notes into Hyphen on PO 61894458-000 for the work at 11975 Hedley Court. The first note said two lifts for $522; the corrected note is three lifts $783. Please release the leftover $261."
-    },
-    {
-      id: "179586",
-      community: "Spring Branch Crossing",
-      addr: "11974 Hedley Court",
-      issue: "Notes error",
-      last_sent: "2026-08-14",
-      open: 261,
-      parent: "LENNAR HOMES",
-      court: "theirs",
-      to: "Montana Grove",
-      analysis: "We first wrote two lifts $522 on PO 61893156-000; invoice 179586 billed $783. Lennar paid check 1217932 $522 against that first number. Later notes were corrected to three lifts $783.",
-      sent: "We originally uploaded the wrong notes into Hyphen on PO 61893156-000 for the work at 11974 Hedley Court. The first note said two lifts for $522; the corrected note is three lifts $783. Please release the leftover $261."
-    },
-    {
-      id: "0416-170658",
-      community: "Woodson's Reserve",
-      addr: "28502 Pebble Springs",
-      issue: "No PO",
-      last_sent: "2026-08-14",
-      open: 350,
-      parent: "TriPointe Homes",
-      court: "theirs",
-      to: "Chris Tschumperlin",
-      analysis: "Hunter Hott 4/15 listed 28502 Pebble Springs house pad to Ryan/Joe. Ryan 4/16 added to schedule. Invoice 4/20 $350. Still no PO.",
-      sent: "Hunter Hott called us on April 15 for pad work at 28502 Pebble Springs. We sent the report April 17 and invoice 0416-170658 for $350 on April 20. Please create a PO so this can close."
-    },
-    {
-      id: "180131",
-      community: "Bridgeland",
-      addr: "12527/12523 Alligator Lake",
-      issue: "Unpaid complete",
-      last_sent: "2026-08-17",
-      open: 783,
-      parent: "LENNAR HOMES",
-      court: "theirs",
-      to: "Steven Ayala",
-      analysis: "Lennar marked PO 70276926-000 complete on 2026-03-19. Wednesday payments have no check on this SON, and no paid first visit at 12523 or 12527 Alligator Lake. Invoice 180131 is $783 open.",
-      sent: "Please release payment on PO 70276926-000 / invoice 180131. You marked this order complete on March 19. Three lifts, $783 at 12523 and 12527 Alligator Lake."
-    },
-    {
-      id: "179593",
-      community: "Sunterra-Katy",
-      addr: "3071 Huntersville Dr",
-      issue: "Unpaid complete",
-      last_sent: "2026-08-18",
-      open: 1044,
-      parent: "LENNAR HOMES",
-      court: "theirs",
-      to: "Gary Keto",
-      analysis: "Lennar marked PO 61457910-000 complete on 2026-04-07. Wednesday payments have no check on this SON. Invoice 179593 is $1,044 open.",
-      sent: "Gary, you marked PO 61457910-000 complete on April 7. Hyphen still has no payment. Invoice 179593 is $1,044 for 3071 Huntersville Dr. Please release payment."
-    }
-  ];
+  var ROWS = [];
 
   var LOCKED_TREE = {
     "Leftover lab": 1,
@@ -788,13 +696,13 @@ tbody tr { cursor: pointer; }
         community: d.customer || "",
         addr: d.service_address || "",
         issue: lockIssue(d.issue, d.docNumber),
-        last_sent: d.scrape_as_of || "",
+        last_sent: d.last_sent || "",
         open: Number(d.balance != null ? d.balance : d.open_balance) || 0,
         parent: d.parent || "",
         court: "theirs",
-        to: d.email || "",
+        to: (d.chase_to_name || d.chase_to || "not recorded"),
         analysis: d.chase_analysis || "",
-        sent: "",
+        sent: d.chase_letter || d.chase_letter_lead || "",
         due: false
       };
     });
@@ -837,11 +745,15 @@ tbody tr { cursor: pointer; }
   }
   function pad(n) { return (n < 10 ? "0" : "") + n; }
   function fmtYMD(p) { return p[0] + "-" + pad(p[1]) + "-" + pad(p[2]); }
-  function fmtSent(iso) {
-    var p = ymd(iso);
+  function fmtSent(stamp) {
+    var s = String(stamp || "");
+    var m = s.match(/(\d{4}-\d{2}-\d{2})(?:\s+(\d{1,2}:\d{2})\s*CT)?/);
+    if (!m) return s;
     var names = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    return names[wd(p)] + " " + months[p[1] - 1] + " " + p[2];
+    var p = ymd(m[1]);
+    var day = names[wd(p)];
+    if (m[2]) return day + " " + m[1] + " " + m[2] + " CT";
+    return day + " " + m[1];
   }
 
   ROWS.forEach(function (r) {
@@ -977,7 +889,7 @@ tbody tr { cursor: pointer; }
       '<span class="kind">Sent · their court</span>' +
       '<div class="meta">Sent ' + esc(r.sent_lab) + " · To " + esc(r.to) + " · Follow-up " + esc(r.follow_up_on) +
       (r.due ? " · due" : " · not yet") + "</div>" +
-      "<p>" + esc(r.sent) + "</p>" +
+      "<p>" + (r.sent ? esc(r.sent) : "Already sent. Do not rewrite.") + "</p>" +
       '<div class="sig"><b>William Knox</b><span>william@coastaltestinglabs.com</span></div>' +
       "</div></div>" +
       '<div class="acts">' +
