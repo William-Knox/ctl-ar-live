@@ -591,14 +591,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "Graph: Brandi 2026-05-18 pads to ryan/joe. Maria PO Request 13560 Bay Springs 5/26 and 2nd request 5/27. Esme 6/15 report send. No client ask file saved. ",
-    "chase_letter_lead": "We performed the work at 13560 Bay Springs and issued invoice 0519-171828 for $261. This has been 62 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 13560 Bay Springs and issued invoice 0519-171828 for $261. This has been 63 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 13560 Bay Springs and issued invoice 0519-171828 for $261. This has been 62 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-18  Called in  Brandi Cook asked at 13560 Bay Springs.\n2026-05-19  Invoiced  0519-171828 $261.\nToday  Open $261. 62 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 13560 Bay Springs · 0519-171828 · 62 days past due",
+    "chase_letter": "We performed the work at 13560 Bay Springs and issued invoice 0519-171828 for $261. This has been 63 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 13560 Bay Springs · 0519-171828 · 63 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 13560 Bay Springs, the $261 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0519-171829",
@@ -663,14 +664,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "Graph: Brandi 5/18 pads; Maria PO request 5/27; Bailey 5/27 not loaded; Jordan 6/8 released. Esme 6/22 report send. No ask file on disk.",
-    "chase_letter_lead": "We performed the work at 13568 Bay Springs and issued invoice 0519-171829 for $261. This has been 62 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 13568 Bay Springs and issued invoice 0519-171829 for $261. This has been 63 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 13568 Bay Springs and issued invoice 0519-171829 for $261. This has been 62 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-18  Called in  Brandi Cook asked at 13568 Bay Springs.\n2026-05-19  Invoiced  0519-171829 $261.\nToday  Open $261. 62 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 13568 Bay Springs · 0519-171829 · 62 days past due",
+    "chase_letter": "We performed the work at 13568 Bay Springs and issued invoice 0519-171829 for $261. This has been 63 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 13568 Bay Springs · 0519-171829 · 63 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 13568 Bay Springs, the $261 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00494",
@@ -938,13 +940,13 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_subject": "EPO needed · 10478 Sugar Mill Dr · 0410-170532 · 101 days past due",
-    "chase_letter_lead": "We performed two compaction lifts plus Proctor and PI at 10478 Sugar Mill Dr and billed invoice 0410-170532 for $871. Lennar paid $522 on check 1236227 (April 27) on PO 82258936-000 for the two lifts. The remaining $349 is the Proctor and PI. Maria emailed Montana Grove and Jordan Beakley on June 25 asking for a PO covering that $349; Jordan replied June 26 asking if it had been created. Nothing has been issued. This has been 101 days past due.",
+    "chase_subject": "EPO needed · 10478 Sugar Mill Dr · 0410-170532 · 102 days past due",
+    "chase_letter_lead": "We performed two compaction lifts plus Proctor and PI at 10478 Sugar Mill Dr and billed invoice 0410-170532 for $871. Lennar paid $522 on check 1236227 (April 27) on PO 82258936-000 for the two lifts. The remaining $349 is the Proctor and PI. Maria emailed Montana Grove and Jordan Beakley on June 25 asking for a PO covering that $349; Jordan replied June 26 asking if it had been created. Nothing has been issued. This has been 102 days past due.\n\nPlease issue an EPO or supplemental purchase order for the Proctor and PI ($349) on 10478 Sugar Mill Dr so we can close invoice 0410-170532. Do not park this remainder on another lot.\nThe April 9 call-in, the reports, Maria's June 25 request, and Jordan's June 26 reply are attached.",
     "chase_letter_paras": [
       "Please issue an EPO or supplemental purchase order for the Proctor and PI ($349) on 10478 Sugar Mill Dr so we can close invoice 0410-170532. Do not park this remainder on another lot.",
       "The April 9 call-in, the reports, Maria's June 25 request, and Jordan's June 26 reply are attached."
     ],
-    "chase_letter": "We performed two compaction lifts plus Proctor and PI at 10478 Sugar Mill Dr and billed invoice 0410-170532 for $871. Lennar paid $522 on check 1236227 (April 27) on PO 82258936-000 for the two lifts. The remaining $349 is the Proctor and PI. Maria emailed Montana Grove and Jordan Beakley on June 25 asking for a PO covering that $349; Jordan replied June 26 asking if it had been created. Nothing has been issued. This has been 101 days past due.\n\nTimeline of Events\n\n2026-04-09  Called in  Brandi Cook asked Ryan and Joe for two compaction lifts at 10478 Sugar Mill Dr.\n2026-04-10  Invoiced  0410-170532 $871. Open leftover later $349.\n2026-04-17  Notes entered  Maria entered notes on PO 82258936-000 that match the $871 bill (lifts $522, lab $349).\n2026-04-27  Paid  Lennar check 1236227 $522 on PO 82258936-000.\n2026-04-28  Report transmittal  Jocelyne sent the two-lift reports to Montana Grove.\n2026-06-25  Inquiry  Maria asked Montana Grove and Jordan Beakley for a PO on the leftover $349.\n2026-06-26  Inquiry  Jordan Beakley asked Montana whether that PO had been created. No PO found after that.\nToday  Open $349. 101 days past due.\n\nPlease issue an EPO or supplemental purchase order for the Proctor and PI ($349) on 10478 Sugar Mill Dr so we can close invoice 0410-170532. Do not park this remainder on another lot.\nThe April 9 call-in, the reports, Maria's June 25 request, and Jordan's June 26 reply are attached.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed two compaction lifts plus Proctor and PI at 10478 Sugar Mill Dr and billed invoice 0410-170532 for $871. Lennar paid $522 on check 1236227 (April 27) on PO 82258936-000 for the two lifts. The remaining $349 is the Proctor and PI. Maria emailed Montana Grove and Jordan Beakley on June 25 asking for a PO covering that $349; Jordan replied June 26 asking if it had been created. Nothing has been issued. This has been 102 days past due.\n\nPlease issue an EPO or supplemental purchase order for the Proctor and PI ($349) on 10478 Sugar Mill Dr so we can close invoice 0410-170532. Do not park this remainder on another lot.\nThe April 9 call-in, the reports, Maria's June 25 request, and Jordan's June 26 reply are attached.",
     "last_sent": "2026-08-17 14:47 CT",
     "chase_last_sent": "2026-08-17 14:47 CT",
     "follow_up_due": "Wed 2026-08-19",
@@ -1003,7 +1005,8 @@ window.DATA = [
     "payments_stale": true,
     "scrape_as_of": "2026-08-19",
     "hyphen_notes": "[4/17/2026] Maria Lerma: Note Sent: 0410-170532 2 lifts 522.00 Please issue EPO for Proctor and PI 349.00",
-    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT"
+    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT",
+    "chase_letter_close": "If you have any questions or concerns about the work at 10478 Sugar Mill Dr, the $871 invoice, or the remaining $349 / EPO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00495",
@@ -2542,14 +2545,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "Graph: ryan_kkdirt 2026-06-13 19054 and 19058 style. Montana 6/30 PO-released note is on the Barrichello/19058 report thread, not a 19054 Hyphen row. No ask file on disk.",
-    "chase_letter_lead": "We performed the work at 19054 Style and issued invoice 0619-172720 for $783. This has been 31 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 19054 Style and issued invoice 0619-172720 for $783. This has been 32 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 19054 Style and issued invoice 0619-172720 for $783. This has been 31 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-13  Called in  ryan_kkdirt@yahoo.com asked at 19054 Style.\n2026-06-19  Invoiced  0619-172720 $783.\n2026-07-27  Paid  Check 1319014 $783.\nToday  Open $783. 31 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 19054 Style · 0619-172720 · 31 days past due",
+    "chase_letter": "We performed the work at 19054 Style and issued invoice 0619-172720 for $783. This has been 32 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 19054 Style · 0619-172720 · 32 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 19054 Style, the $783 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0706-173582",
@@ -3545,7 +3549,7 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "On disk under cases/0506-171310: John Helms 5/1 call-in, Rodney 5/6 and 5/7 inquiries, Jocelyne 5/7 report send plus two-lift PDF. Invoice send not found. Hyphen notes not found in the 17-order scrape or prior dumps.",
-    "chase_letter": "We tested and reported two compaction lifts at 1220 Charlotte Way. Invoice 0506-171310 billed $522. Lennar paid check 1255333 $261 on 5/18/2026 on PO 90007977-000, which covers one lift. The paid PO is exhausted. $261 remains open for the second lift. Please issue an EPO for the remaining unpaid lift.\n\nTimeline of Events\n\n2026-05-01  Called in  John Helms asked Esme for a compaction test at 1220 Charlotte Way.\n2026-05-06  Invoiced  0506-171310 $522.\n2026-05-07  Inquiry  Rodney Shewell asked Jocelyne again for results.\n2026-05-07  Report transmittal  Jocelyne sent Rodney the 1220 Charlotte Way report. The PDF shows two lifts.\n2026-05-18  Paid  Lennar check 1255333 $261 on PO 90007977-000.\nToday  Open $261. 76 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We tested and reported two compaction lifts at 1220 Charlotte Way. Invoice 0506-171310 billed $522. Lennar paid check 1255333 $261 on 5/18/2026 on PO 90007977-000, which covers one lift. The paid PO is exhausted. $261 remains open for the second lift. Please issue an EPO for the remaining unpaid lift.",
     "chase_letter_lead": "We tested and reported two compaction lifts at 1220 Charlotte Way. Invoice 0506-171310 billed $522. Lennar paid check 1255333 $261 on 5/18/2026 on PO 90007977-000, which covers one lift. The paid PO is exhausted. $261 remains open for the second lift. Please issue an EPO for the remaining unpaid lift.",
     "chase_letter_paras": [],
     "chase_subject": "EPO needed · 1220 Charlotte Way · 0506-171310 · 76 days past due",
@@ -3630,7 +3634,8 @@ window.DATA = [
     "payments_stale": true,
     "scrape_as_of": "2026-08-19",
     "hyphen_notes": "[5/4/2026] Lennar Homes LLC - Lennar - Houston Operations: Note Received: Compaction test\n[5/14/2026] Maria Lerma: Note Sent: 0506-171310 522.00 2 lifts",
-    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT"
+    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT",
+    "chase_letter_close": "If you have any questions or concerns about the work at 1220 Charlotte Way, the $522 invoice, or the remaining $261 / EPO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00330-R2",
@@ -3955,14 +3960,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "Graph: Anthony 2026-07-01 and 2026-07-09 schedule emails (no attachments). Maria 7/14/7/20 dry-run / report thread. No .eml on disk.",
-    "chase_letter_lead": "We performed the work at 27221 Hazel Grove and issued invoice 0707-173694 for $250. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 27221 Hazel Grove and issued invoice 0707-173694 for $250. This has been 8 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 27221 Hazel Grove and issued invoice 0707-173694 for $250. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-01  Called in  Anthony Lamas asked at 27221 Hazel Grove.\n2026-07-09  Called in  Anthony Lamas asked at 27221 Hazel Grove.\n2026-07-13  Invoiced  0707-173694 $250.\n2026-08-03  Paid  Check 1325381 $522.\nToday  Open $250. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 27221 Hazel Grove · 0707-173694 · 7 days past due",
+    "chase_letter": "We performed the work at 27221 Hazel Grove and issued invoice 0707-173694 for $250. This has been 8 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 27221 Hazel Grove · 0707-173694 · 8 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 27221 Hazel Grove, the $250 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00467",
@@ -4879,15 +4885,16 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing call-in, report, or leftover-lab ask saved under a 0430-171077 case folder. Notes are from the 17-order scrape. Sibling 0505-171251 remains fully open $261 on the same PO and is not this $349.",
     "chase_letter_lead": "We performed compaction plus Proctor and PI at 11935 Noble Wood and billed invoice 0430-171077 for $871. Lennar paid $522 on check 1255333 (5/18/2026) on PO 89685762-000 for the lifts. The remaining $349 is the Proctor and PI. Please issue an EPO for the leftover Proctor/PI.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed compaction plus Proctor and PI at 11935 Noble Wood and billed invoice 0430-171077 for $871. Lennar paid $522 on check 1255333 (5/18/2026) on PO 89685762-000 for the lifts. The remaining $349 is the Proctor and PI. Please issue an EPO for the leftover Proctor/PI.\n\nTimeline of Events\n\n2026-04-29  Called in  Brandi Cook asked Ryan and Joe for compaction at 11935 Noble Wood.\n2026-05-03  Inquiry  Cole Jenkins asked for compaction results.\n2026-05-04  Invoiced  0430-171077 $871.\n2026-05-05  Report transmittal  Esme sent Moore Landing 11935 reports.\n2026-05-07  Notes entered  Maria entered notes on PO 89685762-000 that match the $871 bill (lab $349, lifts $522).\n2026-05-18  Paid  Lennar check 1255333 $522 on PO 89685762-000.\nToday  Open $349. 77 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "EPO needed · 11935 Noble Wood · 0430-171077 · 77 days past due",
+    "chase_letter": "We performed compaction plus Proctor and PI at 11935 Noble Wood and billed invoice 0430-171077 for $871. Lennar paid $522 on check 1255333 (5/18/2026) on PO 89685762-000 for the lifts. The remaining $349 is the Proctor and PI. Please issue an EPO for the leftover Proctor/PI.",
+    "chase_subject": "EPO needed · 11935 Noble Wood · 0430-171077 · 78 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "leftover_set": true,
     "payments_stale": true,
     "scrape_as_of": "2026-08-19",
     "hyphen_notes": "[5/7/2026] Maria Lerma: Note Sent: 0430-171077 349.00 Proctor and PI 2 lifts 522.00\n[5/14/2026] Maria Lerma: Note Sent: 0505-171251 261.00 1 lift\n[5/14/2026] Maria Lerma: Note Sent: 0505-171251 Retest",
-    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT"
+    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT",
+    "chase_letter_close": "If you have any questions or concerns about the work at 11935 Noble Wood, the $871 invoice, or the remaining $349 / EPO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0505-171249",
@@ -7770,8 +7777,8 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved on a 0518-171733 case folder. Notes are from the 17-order scrape. No leftover-lab chase email found after the 5/21 report.",
     "chase_letter_lead": "We performed compaction plus Proctor and PI at 31519 San Floro and billed invoice 0518-171733 for $871. Lennar paid $522 on check 1286405 (6/22/2026) on PO 87800771-000 for the lifts. The remaining $349 is the Proctor and PI. Please issue an EPO for the leftover Proctor/PI.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed compaction plus Proctor and PI at 31519 San Floro and billed invoice 0518-171733 for $871. Lennar paid $522 on check 1286405 (6/22/2026) on PO 87800771-000 for the lifts. The remaining $349 is the Proctor and PI. Please issue an EPO for the leftover Proctor/PI.\n\nTimeline of Events\n\n2026-05-15  Called in  Angel Gonzalez asked Ryan and Joe for two compaction lifts at 31519 San Floro.\n2026-05-18  Invoiced  0518-171733 $871.\n2026-05-21  Report transmittal  Maria sent the 31519 San Floro report.\n2026-05-27  Notes entered  Maria entered notes on PO 87800771-000 that match the $871 bill (lab $349, lifts $522).\n2026-06-22  Paid  Lennar check 1286405 $522 on PO 87800771-000.\nToday  Open $349. 63 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "EPO needed · 31519 San Floro · 0518-171733 · 63 days past due",
+    "chase_letter": "We performed compaction plus Proctor and PI at 31519 San Floro and billed invoice 0518-171733 for $871. Lennar paid $522 on check 1286405 (6/22/2026) on PO 87800771-000 for the lifts. The remaining $349 is the Proctor and PI. Please issue an EPO for the leftover Proctor/PI.",
+    "chase_subject": "EPO needed · 31519 San Floro · 0518-171733 · 64 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "email": null,
@@ -7779,7 +7786,8 @@ window.DATA = [
     "payments_stale": true,
     "scrape_as_of": "2026-08-19",
     "hyphen_notes": "[5/27/2026] Maria Lerma: Note Sent: 0518-171733 349.00 Proctor 522.00 2 lifts Total Due 871.00",
-    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT"
+    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT",
+    "chase_letter_close": "If you have any questions or concerns about the work at 31519 San Floro, the $871 invoice, or the remaining $349 / EPO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0518-171744",
@@ -7870,7 +7878,8 @@ window.DATA = [
     "payments_stale": true,
     "scrape_as_of": "2026-08-19",
     "hyphen_notes": "[5/27/2026] Maria Lerma: Note Sent: 0518-171744 349.00 Proctor 522.00 2 lifts Total Due 871.00\n[6/2/2026] Lennar Homes LLC - Lennar - Houston Operations: Note Received: Wrong",
-    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT"
+    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT",
+    "chase_letter_close": "If you have any questions or concerns about the work at 1040 Moss Vista Lane, the $871 invoice, or the correction, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0526-171916",
@@ -9400,13 +9409,13 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_subject": "EPO needed — 179586 — 11974 Hedley Court · 154 days past due",
-    "chase_letter_lead": "We originally uploaded the wrong notes into Hyphen on PO 61893156-000 for the work at 11974 Hedley Court. The first note, entered March 11, said two lifts for $522. That was our error, and we apologize. Those incorrect notes caused the underpayment: Lennar paid $522 on check 1217932 (April 6) against invoice 179586, which billed $783 for three lifts. We corrected the notes on March 24. The corrective notes now show three lifts for $783.",
+    "chase_subject": "EPO needed — 179586 — 11974 Hedley Court · 155 days past due",
+    "chase_letter_lead": "We originally uploaded the wrong notes into Hyphen on PO 61893156-000 for the work at 11974 Hedley Court. The first note, entered March 11, said two lifts for $522. That was our error, and we apologize. Those incorrect notes caused the underpayment: Lennar paid $522 on check 1217932 (April 6) against invoice 179586, which billed $783 for three lifts. We corrected the notes on March 24. The corrective notes now show three lifts for $783.\n\nThree lifts were performed at this address on February 10, and three separate reports were issued: 260210-61527 (1st lift), 260210-61528 (2nd lift), and 260210-61529 (3rd / final). Those reports were sent to you on March 5. After the $522 check, $261 remains open on invoice 179586. This has been 155 days past due. Please issue an EPO or supplemental purchase order for the remaining $261 so we can close the balance.\nMaria asked Montana Grove and Brian Maerz for an updated PO on May 13 and again on May 29. We have not received a reply. The Hyphen PO is still sitting at the original two-lift quantity / $522.",
     "chase_letter_paras": [
       "Three lifts were performed at this address on February 10, and three separate reports were issued: 260210-61527 (1st lift), 260210-61528 (2nd lift), and 260210-61529 (3rd / final). Those reports were sent to you on March 5. After the $522 check, $261 remains open on invoice 179586. This has been 154 days past due. Please issue an EPO or supplemental purchase order for the remaining $261 so we can close the balance.",
       "Maria asked Montana Grove and Brian Maerz for an updated PO on May 13 and again on May 29. We have not received a reply. The Hyphen PO is still sitting at the original two-lift quantity / $522."
     ],
-    "chase_letter": "We originally uploaded the wrong notes into Hyphen on PO 61893156-000 for the work at 11974 Hedley Court. The first note, entered March 11, said two lifts for $522. That was our error, and we apologize. Those incorrect notes caused the underpayment: Lennar paid $522 on check 1217932 (April 6) against invoice 179586, which billed $783 for three lifts. We corrected the notes on March 24. The corrective notes now show three lifts for $783.\n\nTimeline of Events\n\n2026-02-09  Called in  Ryan Potter asked Ryan, Esme, and Joe for three compaction lifts at 11974 Hedley Court.\n2026-02-16  Invoiced  179586 $783.\n2026-03-05  Report transmittal  Esme sent Montana Grove the 11974 Hedley reports. The PDF shows three lifts.\n2026-03-11  Notes entered  Maria entered notes on PO 61893156-000 for two lifts $522, which does not match billed $783.\n2026-03-24  Notes entered  Esme corrected the notes to three lifts $783.\n2026-04-06  Paid  Lennar check 1217932 $522 on PO 61893156-000.\n2026-05-13  Inquiry  Maria asked Montana Grove and Brian Maerz to update the PO for the leftover $261.\n2026-05-29  Inquiry  Maria sent a second request. No builder reply found.\nToday  Open $261. 154 days past due.\n\nThree lifts were performed at this address on February 10, and three separate reports were issued: 260210-61527 (1st lift), 260210-61528 (2nd lift), and 260210-61529 (3rd / final). Those reports were sent to you on March 5. After the $522 check, $261 remains open on invoice 179586. This has been 154 days past due. Please issue an EPO or supplemental purchase order for the remaining $261 so we can close the balance.\nMaria asked Montana Grove and Brian Maerz for an updated PO on May 13 and again on May 29. We have not received a reply. The Hyphen PO is still sitting at the original two-lift quantity / $522.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We originally uploaded the wrong notes into Hyphen on PO 61893156-000 for the work at 11974 Hedley Court. The first note, entered March 11, said two lifts for $522. That was our error, and we apologize. Those incorrect notes caused the underpayment: Lennar paid $522 on check 1217932 (April 6) against invoice 179586, which billed $783 for three lifts. We corrected the notes on March 24. The corrective notes now show three lifts for $783.\n\nThree lifts were performed at this address on February 10, and three separate reports were issued: 260210-61527 (1st lift), 260210-61528 (2nd lift), and 260210-61529 (3rd / final). Those reports were sent to you on March 5. After the $522 check, $261 remains open on invoice 179586. This has been 155 days past due. Please issue an EPO or supplemental purchase order for the remaining $261 so we can close the balance.\nMaria asked Montana Grove and Brian Maerz for an updated PO on May 13 and again on May 29. We have not received a reply. The Hyphen PO is still sitting at the original two-lift quantity / $522.",
     "last_sent": "2026-08-17 11:39 CT",
     "chase_last_sent": "2026-08-17 11:39 CT",
     "follow_up_due": "Wed 2026-08-19",
@@ -9464,7 +9473,8 @@ window.DATA = [
     "payments_stale": true,
     "scrape_as_of": "2026-08-19",
     "hyphen_notes": "[3/11/2026] Maria Lerma: Note Sent: 179586 2 lifts 522.00\n[3/24/2026] Esmeralda Cantu: Note Sent: 179586 2 lifts 522.00\n[3/24/2026] Esmeralda Cantu: Note Sent: Correction 179586 3 lifts 783.00\n[4/10/2026] Esmeralda Cantu: Note Sent: Correction 179586 3 lifts 783.00 please issue epo for short paid lift 1 261.00",
-    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT"
+    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT",
+    "chase_letter_close": "If you have any questions or concerns about the work at 11974 Hedley Court, the $783 invoice, or the correction, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "179587",
@@ -9633,13 +9643,13 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_subject": "EPO needed — 179587 — 11975 Hedley Court · 154 days past due",
-    "chase_letter_lead": "We originally uploaded the wrong notes into Hyphen on PO 61894458-000 for the work at 11975 Hedley Court. The first note, entered March 11, said two lifts for $522. That was our error, and we apologize. Those incorrect notes caused the underpayment: Lennar paid $522 on check 1205773 (March 23) against invoice 179587, which billed $783 for three lifts. We corrected the notes on March 24. The corrective notes now show three lifts for $783.",
+    "chase_subject": "EPO needed — 179587 — 11975 Hedley Court · 155 days past due",
+    "chase_letter_lead": "We originally uploaded the wrong notes into Hyphen on PO 61894458-000 for the work at 11975 Hedley Court. The first note, entered March 11, said two lifts for $522. That was our error, and we apologize. Those incorrect notes caused the underpayment: Lennar paid $522 on check 1205773 (March 23) against invoice 179587, which billed $783 for three lifts. We corrected the notes on March 24. The corrective notes now show three lifts for $783.\n\nThree lifts were performed at this address on February 10, and three separate reports were issued: 260210-61530 (1st lift), 260210-61531 (2nd lift), and 260210-61532 (3rd / final). Those reports were sent to you on March 5. After the $522 check, $261 remains open on invoice 179587. This has been 155 days past due. Please issue an EPO or supplemental purchase order for the remaining $261 on this house, 11975 Hedley Court, so we can close the balance.\nMaria asked for an updated PO on May 14 and again on May 29. William followed up on June 25, and Veronica asked again on July 16. That same day the reply was to add this lift to another address that still has an open PO. We need the leftover lift on 11975 Hedley itself. Moving it onto another lot would leave this invoice open and mix two houses.",
     "chase_letter_paras": [
       "Three lifts were performed at this address on February 10, and three separate reports were issued: 260210-61530 (1st lift), 260210-61531 (2nd lift), and 260210-61532 (3rd / final). Those reports were sent to you on March 5. After the $522 check, $261 remains open on invoice 179587. This has been 154 days past due. Please issue an EPO or supplemental purchase order for the remaining $261 on this house, 11975 Hedley Court, so we can close the balance.",
       "Maria asked for an updated PO on May 14 and again on May 29. William followed up on June 25, and Veronica asked again on July 16. That same day the reply was to add this lift to another address that still has an open PO. We need the leftover lift on 11975 Hedley itself. Moving it onto another lot would leave this invoice open and mix two houses."
     ],
-    "chase_letter": "We originally uploaded the wrong notes into Hyphen on PO 61894458-000 for the work at 11975 Hedley Court. The first note, entered March 11, said two lifts for $522. That was our error, and we apologize. Those incorrect notes caused the underpayment: Lennar paid $522 on check 1205773 (March 23) against invoice 179587, which billed $783 for three lifts. We corrected the notes on March 24. The corrective notes now show three lifts for $783.\n\nTimeline of Events\n\n2026-02-09  Called in  Ryan Potter asked Ryan, Esme, and Joe for three compaction lifts at 11975 Hedley Court.\n2026-02-16  Invoiced  179587 $783.\n2026-03-05  Report transmittal  Esme sent Montana Grove the 11975 Hedley reports. The PDF shows three lifts.\n2026-03-11  Notes entered  Maria entered notes on PO 61894458-000 for two lifts $522, which does not match billed $783.\n2026-03-23  Paid  Lennar check 1205773 $522 on PO 61894458-000.\n2026-03-24  Notes entered  Esme corrected the notes to three lifts $783.\n2026-05-14  Inquiry  Maria asked Montana Grove to update the PO for the leftover $261.\n2026-05-29  Inquiry  Maria sent a second request.\n2026-07-16  Inquiry  Montana Grove asked to add this leftover to another address with an open PO. No new PO found for 11975.\nToday  Open $261. 154 days past due.\n\nThree lifts were performed at this address on February 10, and three separate reports were issued: 260210-61530 (1st lift), 260210-61531 (2nd lift), and 260210-61532 (3rd / final). Those reports were sent to you on March 5. After the $522 check, $261 remains open on invoice 179587. This has been 154 days past due. Please issue an EPO or supplemental purchase order for the remaining $261 on this house, 11975 Hedley Court, so we can close the balance.\nMaria asked for an updated PO on May 14 and again on May 29. William followed up on June 25, and Veronica asked again on July 16. That same day the reply was to add this lift to another address that still has an open PO. We need the leftover lift on 11975 Hedley itself. Moving it onto another lot would leave this invoice open and mix two houses.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We originally uploaded the wrong notes into Hyphen on PO 61894458-000 for the work at 11975 Hedley Court. The first note, entered March 11, said two lifts for $522. That was our error, and we apologize. Those incorrect notes caused the underpayment: Lennar paid $522 on check 1205773 (March 23) against invoice 179587, which billed $783 for three lifts. We corrected the notes on March 24. The corrective notes now show three lifts for $783.\n\nThree lifts were performed at this address on February 10, and three separate reports were issued: 260210-61530 (1st lift), 260210-61531 (2nd lift), and 260210-61532 (3rd / final). Those reports were sent to you on March 5. After the $522 check, $261 remains open on invoice 179587. This has been 155 days past due. Please issue an EPO or supplemental purchase order for the remaining $261 on this house, 11975 Hedley Court, so we can close the balance.\nMaria asked for an updated PO on May 14 and again on May 29. William followed up on June 25, and Veronica asked again on July 16. That same day the reply was to add this lift to another address that still has an open PO. We need the leftover lift on 11975 Hedley itself. Moving it onto another lot would leave this invoice open and mix two houses.",
     "last_sent": "2026-08-17 13:09 CT",
     "chase_last_sent": "2026-08-17 13:09 CT",
     "follow_up_due": "Wed 2026-08-19",
@@ -9673,7 +9683,8 @@ window.DATA = [
     "payments_stale": true,
     "scrape_as_of": "2026-08-19",
     "hyphen_notes": "[3/11/2026] Maria Lerma: Note Sent: 179587 2 lifts 522.00\n[3/24/2026] Esmeralda Cantu: Note Sent: Correction 179587 3 lifts 783.00",
-    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT"
+    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT",
+    "chase_letter_close": "If you have any questions or concerns about the work at 11975 Hedley Court, the $783 invoice, or the correction, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0610-172476",
@@ -9738,14 +9749,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "Graph: Bikram 2026-06-09 Multiple addresses spring branch crossing. Montana 6/30 hasAttachments=true on a report thread, not a schedule-ask file for this invoice. No ask .eml on disk.",
-    "chase_letter_lead": "We performed the work at 18580 Barrichello and issued invoice 0610-172476 for $783. This has been 40 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 18580 Barrichello and issued invoice 0610-172476 for $783. This has been 41 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 18580 Barrichello and issued invoice 0610-172476 for $783. This has been 40 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-09  Called in  Bikram / Ryan Potter asked at 18580 Barrichello.\n2026-06-10  Invoiced  0610-172476 $783.\nToday  Open $783. 40 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 18580 Barrichello · 0610-172476 · 40 days past due",
+    "chase_letter": "We performed the work at 18580 Barrichello and issued invoice 0610-172476 for $783. This has been 41 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 18580 Barrichello · 0610-172476 · 41 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 18580 Barrichello, the $783 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0706-173580",
@@ -9810,14 +9822,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "Graph: ryan_kkdirt 2026-07-02 15868 barrichello to ryan/joe. Veronica 7/15 missing-PO blast (community list). No ask file on disk.",
-    "chase_letter_lead": "We performed the work at 15868 Barrichello and issued invoice 0706-173580 for $522. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 15868 Barrichello and issued invoice 0706-173580 for $522. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 15868 Barrichello and issued invoice 0706-173580 for $522. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-02  Called in  ryan_kkdirt@yahoo.com asked at 15868 Barrichello.\n2026-07-06  Invoiced  0706-173580 $522.\nToday  Open $522. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 15868 Barrichello · 0706-173580 · 14 days past due",
+    "chase_letter": "We performed the work at 15868 Barrichello and issued invoice 0706-173580 for $522. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 15868 Barrichello · 0706-173580 · 15 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 15868 Barrichello, the $522 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0623-173040",
@@ -10532,15 +10545,16 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "Graph: Patrick 2026-06-10 schedule ask; Patrick 6/15 confirm-tested. Great Lawn lists in this search do not name 3036 as a second call-in. No ask file on disk.",
-    "chase_letter_lead": "We performed the work at 3036 Sunset Glory Dr and issued invoice 0619-172781 for $1,305. This has been 31 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 3036 Sunset Glory Dr and issued invoice 0619-172781 for $1,305. This has been 32 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 3036 Sunset Glory Dr and issued invoice 0619-172781 for $1,305. This has been 31 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Called in  Patrick McCoy asked at 3036 Sunset Glory Dr.\n2026-06-11  Invoiced  0611-172551 $783.\n2026-06-19  Invoiced  0619-172781 $1,305.\n2026-06-29  Paid  Check 1293044 $783.\nToday  Open $1,305. 31 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 3036 Sunset Glory Dr · 0619-172781 · 31 days past due",
+    "chase_letter": "We performed the work at 3036 Sunset Glory Dr and issued invoice 0619-172781 for $1,305. This has been 32 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 3036 Sunset Glory Dr · 0619-172781 · 32 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "email": null,
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 3036 Sunset Glory Dr, the $1305 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0706-173537",
@@ -10712,15 +10726,16 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "Graph: no schedule email names 3069 Highbank before 7/6. Esme 7/27 report send to Kenny. No ask file on disk.",
-    "chase_letter_lead": "We performed the work at 3069 Highbank Dr and issued invoice 0706-173557 for $1,566. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 3069 Highbank Dr and issued invoice 0706-173557 for $1,566. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 3069 Highbank Dr and issued invoice 0706-173557 for $1,566. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-06  Invoiced  0706-173557 $1,566.\nToday  Open $1,566. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 3069 Highbank Dr · 0706-173557 · 14 days past due",
+    "chase_letter": "We performed the work at 3069 Highbank Dr and issued invoice 0706-173557 for $1,566. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 3069 Highbank Dr · 0706-173557 · 15 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "email": null,
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 3069 Highbank Dr, the $1566 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0706-173563",
@@ -10774,15 +10789,16 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "Graph: no schedule email names 3073 before 7/6. Esme 7/17 report send to Tino. No ask file on disk.",
-    "chase_letter_lead": "We performed the work at 3073 Highbank Dr and issued invoice 0706-173563 for $1,305. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 3073 Highbank Dr and issued invoice 0706-173563 for $1,305. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 3073 Highbank Dr and issued invoice 0706-173563 for $1,305. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-06  Invoiced  0706-173563 $1,305.\nToday  Open $1,305. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 3073 Highbank Dr · 0706-173563 · 14 days past due",
+    "chase_letter": "We performed the work at 3073 Highbank Dr and issued invoice 0706-173563 for $1,305. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 3073 Highbank Dr · 0706-173563 · 15 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "email": null,
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 3073 Highbank Dr, the $1305 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00267",
@@ -12746,14 +12762,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "Graph: Angel 2026-05-22 The Trails compaction test (215 violet crown - 2 lifts). Maria 6/3 EPO request. Esme 6/8 report send. No ask file on disk.",
-    "chase_letter_lead": "We performed the work at 215 Violet Crown and issued invoice 0522-171908 for $522. This has been 59 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 215 Violet Crown and issued invoice 0522-171908 for $522. This has been 60 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 215 Violet Crown and issued invoice 0522-171908 for $522. This has been 59 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-22  Called in  Angel Gonzalez asked at 215 Violet Crown.\n2026-05-22  Invoiced  0522-171908 $522.\nToday  Open $522. 59 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 215 Violet Crown · 0522-171908 · 59 days past due",
+    "chase_letter": "We performed the work at 215 Violet Crown and issued invoice 0522-171908 for $522. This has been 60 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 215 Violet Crown · 0522-171908 · 60 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 215 Violet Crown, the $522 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0609-172331",
@@ -12902,14 +12919,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "Graph: Angel 2026-06-03 The Trails compaction test (28620 Escarpment- 3 lifts). David 6/30 report ask. Donna 6/30 schedule ask on that thread is for the 218 Violet Crown side. No ask file on disk.",
-    "chase_letter_lead": "We performed the work at 28620 Escarpment and issued invoice 0609-172334 for $783. This has been 41 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 28620 Escarpment and issued invoice 0609-172334 for $783. This has been 42 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 28620 Escarpment and issued invoice 0609-172334 for $783. This has been 41 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-03  Called in  Angel Gonzalez asked at 28620 Escarpment.\n2026-06-09  Invoiced  0609-172334 $783.\nToday  Open $783. 41 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 28620 Escarpment · 0609-172334 · 41 days past due",
+    "chase_letter": "We performed the work at 28620 Escarpment and issued invoice 0609-172334 for $783. This has been 42 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 28620 Escarpment · 0609-172334 · 42 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 28620 Escarpment, the $783 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0609-172337",
@@ -14282,15 +14300,16 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "Graph: no email names 1156 Thistlewood. Nearby Brandi/Ryan thread is 1156 Mossy Glade vs Oak Shade. No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
-    "chase_letter_lead": "We performed the work at 1156 Thistlewood and issued invoice 0702-173599 for $522. This has been 18 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 1156 Thistlewood and issued invoice 0702-173599 for $522. This has been 19 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 1156 Thistlewood and issued invoice 0702-173599 for $522. This has been 18 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-02  Invoiced  0702-173599 $522.\nToday  Open $522. 18 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 1156 Thistlewood · 0702-173599 · 18 days past due",
+    "chase_letter": "We performed the work at 1156 Thistlewood and issued invoice 0702-173599 for $522. This has been 19 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 1156 Thistlewood · 0702-173599 · 19 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "email": null,
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 1156 Thistlewood, the $522 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00299",
@@ -15213,7 +15232,8 @@ window.DATA = [
     "hyphen_notes_scrape": "2026-08-20 06:49:04 CT",
     "chase_to": null,
     "packet_status": "hold",
-    "flagged": false
+    "flagged": false,
+    "chase_letter_close": "If you have any questions or concerns about the work at 12507 Nueces River Dr, the $610 invoice, or the remaining $260 / EPO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00328",
@@ -16253,14 +16273,15 @@ window.DATA = [
         "today": true
       }
     ],
-    "chase_letter_lead": "We performed the work at 19031 Cetara Villa and issued invoice 0703-173508 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 19031 Cetara Villa and issued invoice 0703-173508 for $350. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 19031 Cetara Villa and issued invoice 0703-173508 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\nToday  Open $350. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 19031 Cetara Villa · 0703-173508 · 14 days past due",
+    "chase_letter": "We performed the work at 19031 Cetara Villa and issued invoice 0703-173508 for $350. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 19031 Cetara Villa · 0703-173508 · 15 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 19031 Cetara Villa, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00278",
@@ -16523,7 +16544,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved on a 0609-172393 case folder. Notes scrape is empty.",
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
     "chase_letter_paras": [],
-    "chase_letter": "Do not send a builder letter. Issue is Write-off (Dominus). Packet is an Esme table, not a Timeline of Events. No builder chase.",
+    "chase_letter": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
     "chase_subject": "",
     "leftover_set": true,
     "payments_stale": true,
@@ -17051,14 +17072,15 @@ window.DATA = [
         "today": true
       }
     ],
-    "chase_letter_lead": "We performed the work at 613 Coal Creek and issued invoice 0529-172013 for $350. This has been 49 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 613 Coal Creek and issued invoice 0529-172013 for $350. This has been 50 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 613 Coal Creek and issued invoice 0529-172013 for $350. This has been 49 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\nToday  Open $350. 49 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 613 Coal Creek · 0529-172013 · 49 days past due",
+    "chase_letter": "We performed the work at 613 Coal Creek and issued invoice 0529-172013 for $350. This has been 50 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 613 Coal Creek · 0529-172013 · 50 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 613 Coal Creek, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00249",
@@ -18363,7 +18385,8 @@ window.DATA = [
     "payments_stale": true,
     "scrape_as_of": "2026-08-19",
     "hyphen_notes": "[6/11/2026] Dream Finders Homes, LLC - Coventry - Houston Divi: Note Received: invoice 0515-171642\n[7/2/2026] Esmeralda Cantu: Note Sent: Good morning, Hope all is well can you please issue an EPO for the short paid amount of $ 70.00. The invoice is for $ 350.00\n[7/2/2026] Esmeralda Cantu: Note Sent: Please disregard my notes. Thank you\n[7/2/2026] Esmeralda Cantu: Note Sent: Correct invoice number 0511-171460 Thank you",
-    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT"
+    "hyphen_notes_scrape": "2026-08-20 06:49:04 CT",
+    "chase_letter_close": "If you have any questions or concerns about the work at 6707 Sweet Orange, the $350 invoice, or the correction, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0515-171642",
@@ -18407,14 +18430,15 @@ window.DATA = [
         "today": true
       }
     ],
-    "chase_letter_lead": "We performed the work at 19010 Apple Fritter and issued invoice 0515-171642 for $230. This has been 66 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 19010 Apple Fritter and issued invoice 0515-171642 for $230. This has been 67 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 19010 Apple Fritter and issued invoice 0515-171642 for $230. This has been 66 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\nToday  Open $230. 66 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 19010 Apple Fritter · 0515-171642 · 66 days past due",
+    "chase_letter": "We performed the work at 19010 Apple Fritter and issued invoice 0515-171642 for $230. This has been 67 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 19010 Apple Fritter · 0515-171642 · 67 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 19010 Apple Fritter, the $230 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0625-173126",
@@ -18734,14 +18758,15 @@ window.DATA = [
         "today": true
       }
     ],
-    "chase_letter_lead": "We performed the work at 12064 Moonlight Path and issued invoice 0626-173160 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 12064 Moonlight Path and issued invoice 0626-173160 for $350. This has been 22 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 12064 Moonlight Path and issued invoice 0626-173160 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\nToday  Open $350. 21 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 12064 Moonlight Path · 0626-173160 · 21 days past due",
+    "chase_letter": "We performed the work at 12064 Moonlight Path and issued invoice 0626-173160 for $350. This has been 22 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 12064 Moonlight Path · 0626-173160 · 22 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 12064 Moonlight Path, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0701-173362",
@@ -18785,14 +18810,15 @@ window.DATA = [
         "today": true
       }
     ],
-    "chase_letter_lead": "We performed the work at 12105 Moonlight and issued invoice 0701-173362 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 12105 Moonlight and issued invoice 0701-173362 for $350. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 12105 Moonlight and issued invoice 0701-173362 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\nToday  Open $350. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 12105 Moonlight · 0701-173362 · 14 days past due",
+    "chase_letter": "We performed the work at 12105 Moonlight and issued invoice 0701-173362 for $350. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 12105 Moonlight · 0701-173362 · 15 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 12105 Moonlight, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0701-173363",
@@ -18836,14 +18862,15 @@ window.DATA = [
         "today": true
       }
     ],
-    "chase_letter_lead": "We performed the work at 12109 Moonlight and issued invoice 0701-173363 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 12109 Moonlight and issued invoice 0701-173363 for $350. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 12109 Moonlight and issued invoice 0701-173363 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\nToday  Open $350. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 12109 Moonlight · 0701-173363 · 14 days past due",
+    "chase_letter": "We performed the work at 12109 Moonlight and issued invoice 0701-173363 for $350. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 12109 Moonlight · 0701-173363 · 15 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 12109 Moonlight, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0701-173364",
@@ -18887,14 +18914,15 @@ window.DATA = [
         "today": true
       }
     ],
-    "chase_letter_lead": "We performed the work at 12121 Moonlight and issued invoice 0701-173364 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 12121 Moonlight and issued invoice 0701-173364 for $350. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 12121 Moonlight and issued invoice 0701-173364 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\nToday  Open $350. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 12121 Moonlight · 0701-173364 · 14 days past due",
+    "chase_letter": "We performed the work at 12121 Moonlight and issued invoice 0701-173364 for $350. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 12121 Moonlight · 0701-173364 · 15 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 12121 Moonlight, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00173",
@@ -19927,7 +19955,8 @@ window.DATA = [
     "hyphen_notes_scrape": "2026-08-20 06:49:04 CT",
     "chase_to": null,
     "packet_status": "hold",
-    "flagged": false
+    "flagged": false,
+    "chase_letter_close": "If you have any questions or concerns about the work at 19035 Cetara Villa, the $620 invoice, or the remaining $270 / EPO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00530",
@@ -20031,7 +20060,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved on a 0511-171458 case folder. Notes scrape is empty. Mail dump did not find a house-specific report send.",
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
     "chase_letter_paras": [],
-    "chase_letter": "Do not send a builder letter. Issue is Write-off (Dominus). Packet is an Esme table, not a Timeline of Events. No builder chase.",
+    "chase_letter": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
     "chase_subject": "",
     "leftover_set": true,
     "payments_stale": true,
@@ -20123,7 +20152,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved on a 0511-171459 case folder. Notes scrape is empty.",
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
     "chase_letter_paras": [],
-    "chase_letter": "Do not send a builder letter. Issue is Write-off (Dominus). Packet is an Esme table, not a Timeline of Events. No builder chase.",
+    "chase_letter": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
     "chase_subject": "",
     "leftover_set": true,
     "payments_stale": true,
@@ -20215,7 +20244,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved on a 0611-172568 case folder. Notes scrape is empty.",
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
     "chase_letter_paras": [],
-    "chase_letter": "Do not send a builder letter. Issue is Write-off (Dominus). Packet is an Esme table, not a Timeline of Events. No builder chase.",
+    "chase_letter": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
     "chase_subject": "",
     "leftover_set": true,
     "payments_stale": true,
@@ -20317,7 +20346,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved on a 0611-172620 case folder. Notes scrape is empty. Esme 7/2 short-pay mail is in the 8/17 graph dump, not saved here.",
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
     "chase_letter_paras": [],
-    "chase_letter": "Do not send a builder letter. Issue is Write-off (Dominus). Packet is an Esme table, not a Timeline of Events. No builder chase.",
+    "chase_letter": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
     "chase_subject": "",
     "leftover_set": true,
     "payments_stale": true,
@@ -20409,7 +20438,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved on a 0611-172621 case folder. Notes scrape is empty. Lift count on the call-in line was not readable in the mail preview.",
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
     "chase_letter_paras": [],
-    "chase_letter": "Do not send a builder letter. Issue is Write-off (Dominus). Packet is an Esme table, not a Timeline of Events. No builder chase.",
+    "chase_letter": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
     "chase_subject": "",
     "leftover_set": true,
     "payments_stale": true,
@@ -20559,14 +20588,15 @@ window.DATA = [
         "today": true
       }
     ],
-    "chase_letter_lead": "We performed the work at 29614 Grassland Prairie Dr and issued invoice 0612-172625 for $416. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 29614 Grassland Prairie Dr and issued invoice 0612-172625 for $416. This has been 36 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 29614 Grassland Prairie Dr and issued invoice 0612-172625 for $416. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\nToday  Open $416. 35 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 29614 Grassland Prairie Dr · 0612-172625 · 35 days past due",
+    "chase_letter": "We performed the work at 29614 Grassland Prairie Dr and issued invoice 0612-172625 for $416. This has been 36 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 29614 Grassland Prairie Dr · 0612-172625 · 36 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 29614 Grassland Prairie Dr, the $416 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00145",
@@ -21044,14 +21074,15 @@ window.DATA = [
         "today": true
       }
     ],
-    "chase_letter_lead": "We performed the work at 7802 Hundson River and issued invoice 0529-172002 for $416. This has been 49 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 7802 Hundson River and issued invoice 0529-172002 for $416. This has been 50 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 7802 Hundson River and issued invoice 0529-172002 for $416. This has been 49 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\nToday  Open $416. 49 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 7802 Hundson River · 0529-172002 · 49 days past due",
+    "chase_letter": "We performed the work at 7802 Hundson River and issued invoice 0529-172002 for $416. This has been 50 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 7802 Hundson River · 0529-172002 · 50 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 7802 Hundson River, the $416 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00430",
@@ -21244,14 +21275,15 @@ window.DATA = [
         "today": true
       }
     ],
-    "chase_letter_lead": "We performed the work at 2614 Crown Ridge and issued invoice 0430-171119 for $416. This has been 81 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 2614 Crown Ridge and issued invoice 0430-171119 for $416. This has been 82 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 2614 Crown Ridge and issued invoice 0430-171119 for $416. This has been 81 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\nToday  Open $416. 81 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 2614 Crown Ridge · 0430-171119 · 81 days past due",
+    "chase_letter": "We performed the work at 2614 Crown Ridge and issued invoice 0430-171119 for $416. This has been 82 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 2614 Crown Ridge · 0430-171119 · 82 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 2614 Crown Ridge, the $416 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00568",
@@ -21353,14 +21385,15 @@ window.DATA = [
         "today": true
       }
     ],
-    "chase_letter_lead": "We performed the work at 5322 Gilded Estates and issued invoice 0529-172011 for $610. This has been 49 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 5322 Gilded Estates and issued invoice 0529-172011 for $610. This has been 50 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 5322 Gilded Estates and issued invoice 0529-172011 for $610. This has been 49 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\nToday  Open $610. 49 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 5322 Gilded Estates · 0529-172011 · 49 days past due",
+    "chase_letter": "We performed the work at 5322 Gilded Estates and issued invoice 0529-172011 for $610. This has been 50 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 5322 Gilded Estates · 0529-172011 · 50 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 5322 Gilded Estates, the $610 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0710-173930",
@@ -21493,7 +21526,7 @@ window.DATA = [
     "workup_attachments_note": "No customer-facing files saved on a 0522-171895 case folder. Notes scrape is empty. Sibling pad 0504-171172 is not in Wednesday open AR. Need invoice line items to name the $656.50.",
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
     "chase_letter_paras": [],
-    "chase_letter": "Do not send a builder letter. Issue is Write-off (Dominus). Packet is an Esme table, not a Timeline of Events. No builder chase.",
+    "chase_letter": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
     "chase_subject": "",
     "leftover_set": true,
     "payments_stale": true,
@@ -21662,14 +21695,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
-    "chase_letter_lead": "We performed the work at 22115 Dion Skipper and issued invoice 0512-171556 for $350. This has been 69 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 22115 Dion Skipper and issued invoice 0512-171556 for $350. This has been 70 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 22115 Dion Skipper and issued invoice 0512-171556 for $350. This has been 69 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-12  Invoiced  0512-171556 $350.\n2026-05-13  Report transmittal  Maria sent the 22115 Dion Skipper report.\n2026-05-22  Inquiry  Maria sent invoice 0512-171556 $350.\nToday  Open $350. 69 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 22115 Dion Skipper · 0512-171556 · 69 days past due",
+    "chase_letter": "We performed the work at 22115 Dion Skipper and issued invoice 0512-171556 for $350. This has been 70 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 22115 Dion Skipper · 0512-171556 · 70 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 22115 Dion Skipper, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0626-173144",
@@ -21754,14 +21788,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
-    "chase_letter_lead": "We performed the work at 22002 Open Marsh and issued invoice 0626-173144 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 22002 Open Marsh and issued invoice 0626-173144 for $350. This has been 22 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 22002 Open Marsh and issued invoice 0626-173144 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-24  Called in  Ty Cooley asked for 22103 Dion Skipper and 22002 Open Marsh.\n2026-06-29  Report transmittal  Maria sent the 22002 Open Marsh report.\n2026-06-29  Invoiced  0626-173144 $350.\n2026-07-02  Inquiry  Maria sent invoices.\nToday  Open $350. 21 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 22002 Open Marsh · 0626-173144 · 21 days past due",
+    "chase_letter": "We performed the work at 22002 Open Marsh and issued invoice 0626-173144 for $350. This has been 22 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 22002 Open Marsh · 0626-173144 · 22 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 22002 Open Marsh, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0611-172575",
@@ -21846,14 +21881,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
-    "chase_letter_lead": "We performed the work at 6027 Everwillow Dr and issued invoice 0611-172575 for $680. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 6027 Everwillow Dr and issued invoice 0611-172575 for $680. This has been 36 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 6027 Everwillow Dr and issued invoice 0611-172575 for $680. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Called in  Scott Caron asked for proctors at 6027 Everwillow Drive and 6019 Sunset Grove Loop.\n2026-06-15  Invoiced  0611-172575.\n2026-06-22  Inquiry  Maria sent invoice 0611-172575 $680.\n2026-06-26  Report transmittal  Veronica sent the 6027 Everwillow report.\nToday  Open $680. 35 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 6027 Everwillow Dr · 0611-172575 · 35 days past due",
+    "chase_letter": "We performed the work at 6027 Everwillow Dr and issued invoice 0611-172575 for $680. This has been 36 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 6027 Everwillow Dr · 0611-172575 · 36 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 6027 Everwillow Dr, the $680 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0623-173080",
@@ -21948,14 +21984,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
-    "chase_letter_lead": "We performed the work at 6027 Everwillow Dr and issued invoice 0623-173080 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 6027 Everwillow Dr and issued invoice 0623-173080 for $350. This has been 22 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 6027 Everwillow Dr and issued invoice 0623-173080 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Called in  Scott Caron asked for proctors at 6027 Everwillow (billed as 0611-172575 $680). Not proven as this $350.\n2026-06-22  Inquiry  Maria already sent 0611-172575 $680.\n2026-06-26  Report transmittal  Veronica sent the 6027 Everwillow report.\n2026-06-29  Invoiced  0623-173080.\n2026-07-02  Inquiry  Maria sent invoices.\nToday  Open $350. 21 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 6027 Everwillow Dr · 0623-173080 · 21 days past due",
+    "chase_letter": "We performed the work at 6027 Everwillow Dr and issued invoice 0623-173080 for $350. This has been 22 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 6027 Everwillow Dr · 0623-173080 · 22 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 6027 Everwillow Dr, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0623-173081",
@@ -22030,14 +22067,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
-    "chase_letter_lead": "We performed the work at 6035 Ever Willow Dr and issued invoice 0623-173081 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 6035 Ever Willow Dr and issued invoice 0623-173081 for $350. This has been 22 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 6035 Ever Willow Dr and issued invoice 0623-173081 for $350. This has been 21 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-24  Report transmittal  Maria sent the 6035 Ever Willow Dr report.\n2026-06-29  Invoiced  0623-173081 $350.\n2026-07-02  Inquiry  Maria sent June invoices.\nToday  Open $350. 21 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 6035 Ever Willow Dr · 0623-173081 · 21 days past due",
+    "chase_letter": "We performed the work at 6035 Ever Willow Dr and issued invoice 0623-173081 for $350. This has been 22 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 6035 Ever Willow Dr · 0623-173081 · 22 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 6035 Ever Willow Dr, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0701-173393",
@@ -22112,14 +22150,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
-    "chase_letter_lead": "We performed the work at 3614 Misty Cedar and issued invoice 0701-173393 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 3614 Misty Cedar and issued invoice 0701-173393 for $350. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 3614 Misty Cedar and issued invoice 0701-173393 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-02  Report transmittal  Maria sent the 3614 Misty Cedar report.\n2026-07-06  Invoiced  0701-173393 $350.\n2026-07-13  Inquiry  Maria sent July invoices.\nToday  Open $350. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 3614 Misty Cedar · 0701-173393 · 14 days past due",
+    "chase_letter": "We performed the work at 3614 Misty Cedar and issued invoice 0701-173393 for $350. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 3614 Misty Cedar · 0701-173393 · 15 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 3614 Misty Cedar, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0701-173394",
@@ -22194,14 +22233,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
-    "chase_letter_lead": "We performed the work at 3623 Misty Cedar Grove and issued invoice 0701-173394 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 3623 Misty Cedar Grove and issued invoice 0701-173394 for $350. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 3623 Misty Cedar Grove and issued invoice 0701-173394 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-02  Report transmittal  Maria sent the 3623 Misty Cedar report.\n2026-07-06  Invoiced  0701-173394 $350.\n2026-07-13  Inquiry  Maria sent July invoices.\nToday  Open $350. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 3623 Misty Cedar Grove · 0701-173394 · 14 days past due",
+    "chase_letter": "We performed the work at 3623 Misty Cedar Grove and issued invoice 0701-173394 for $350. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 3623 Misty Cedar Grove · 0701-173394 · 15 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 3623 Misty Cedar Grove, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0708-173849",
@@ -22276,14 +22316,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
-    "chase_letter_lead": "We performed the work at 5326 Maple Stream and issued invoice 0708-173849 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 5326 Maple Stream and issued invoice 0708-173849 for $350. This has been 8 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 5326 Maple Stream and issued invoice 0708-173849 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-09  Report transmittal  Maria sent the 5326 Maple Stream report.\n2026-07-13  Invoiced  0708-173849 $350.\n2026-07-20  Inquiry  Maria sent July invoices.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 5326 Maple Stream · 0708-173849 · 7 days past due",
+    "chase_letter": "We performed the work at 5326 Maple Stream and issued invoice 0708-173849 for $350. This has been 8 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 5326 Maple Stream · 0708-173849 · 8 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 5326 Maple Stream, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0708-173850",
@@ -22358,14 +22399,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
-    "chase_letter_lead": "We performed the work at 5330 Maple Stream and issued invoice 0708-173850 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 5330 Maple Stream and issued invoice 0708-173850 for $350. This has been 8 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 5330 Maple Stream and issued invoice 0708-173850 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-09  Report transmittal  Maria sent the 5330 Maple Stream report.\n2026-07-13  Invoiced  0708-173850 $350.\n2026-07-20  Inquiry  Maria sent July invoices.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 5330 Maple Stream · 0708-173850 · 7 days past due",
+    "chase_letter": "We performed the work at 5330 Maple Stream and issued invoice 0708-173850 for $350. This has been 8 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 5330 Maple Stream · 0708-173850 · 8 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 5330 Maple Stream, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00306",
@@ -22614,10 +22656,10 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_letter_lead": "We performed the work at 3003 Heritage Grove Ct and issued invoice 0428-170954 for $610. This has been 83 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 3003 Heritage Grove Ct and issued invoice 0428-170954 for $610. This has been 84 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 3003 Heritage Grove Ct and issued invoice 0428-170954 for $610. This has been 83 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-04-27  Called in  Jake Matcheski asked for compaction at 3003 Heritage Grove Ct.\n2026-04-28  Invoiced  0428-170954 $610.\n2026-04-30  Report transmittal  Maria sent the report to Jake.\n2026-05-18  Inquiry  Maria sent invoice 0428-170954 $610 to Jake.\n2026-06-26  Inquiry  Maria asked Jake and Chris for a PO.\nToday  Open $610. 83 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 3003 Heritage Grove Ct · 0428-170954 · 83 days past due",
+    "chase_letter": "We performed the work at 3003 Heritage Grove Ct and issued invoice 0428-170954 for $610. This has been 84 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 3003 Heritage Grove Ct · 0428-170954 · 84 days past due",
     "chase_attachments": [
       {
         "kind": "callin",
@@ -22669,7 +22711,8 @@ window.DATA = [
       }
     ],
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 3003 Heritage Grove Ct, the $610 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0630-173247",
@@ -22764,14 +22807,15 @@ window.DATA = [
       }
     ],
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
-    "chase_letter_lead": "We performed the work at 22414 Topaz Harbor Lane and issued invoice 0630-173247 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 22414 Topaz Harbor Lane and issued invoice 0630-173247 for $350. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 22414 Topaz Harbor Lane and issued invoice 0630-173247 for $350. This has been 14 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-25  Called in  Andrew Miller asked for 22414 Topaz Harbor Lane.\n2026-06-29  Called in  Andrew confirmed the visit.\n2026-07-02  Report transmittal  Maria sent the 22414 Topaz Harbor Lane report.\n2026-07-06  Invoiced  0630-173247 $350.\n2026-07-13  Inquiry  Maria sent invoice 0630-173247 $350.\nToday  Open $350. 14 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 22414 Topaz Harbor Lane · 0630-173247 · 14 days past due",
+    "chase_letter": "We performed the work at 22414 Topaz Harbor Lane and issued invoice 0630-173247 for $350. This has been 15 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 22414 Topaz Harbor Lane · 0630-173247 · 15 days past due",
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 22414 Topaz Harbor Lane, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0415-170614",
@@ -22890,7 +22934,7 @@ window.DATA = [
     "scrape_as_of": "2026-08-19",
     "chase_letter_lead": "We performed the work at 32147 Sky Branch and issued invoice 0415-170614 for $350. This has been 92 days past due. The order was marked complete. No payment has landed. Please update that same unpaid order and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 32147 Sky Branch and issued invoice 0415-170614 for $350. This has been 92 days past due. The order was marked complete. No payment has landed. Please update that same unpaid order and release payment.\n\nTimeline of Events\n\n2026-04-17  Report transmittal  Maria sent the report to Chad, Keith, Josh, and Jerry.\n2026-04-20  Invoiced  0415-170614 $350.\n2026-04-27  Inquiry  Maria sent April invoices.\n2026-06-25  Inquiry  Maria asked Chad and Josh for a PO.\n2026-08-14  Inquiry  Billings asked Chad and Josh for a PO.\n2026-08-17  Replied  Chad Luedke, 0415-170614 $350.\n2026-08-18  Completed  Victor Umana marked 1271603-000 complete.\nToday  Open $350. 92 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "We performed the work at 32147 Sky Branch and issued invoice 0415-170614 for $350. This has been 92 days past due. The order was marked complete. No payment has landed. Please update that same unpaid order and release payment.",
     "chase_subject": "Payment needed · 32147 Sky Branch · 0415-170614 · 92 days past due",
     "chase_to": "chad.luedke@tripointehomes.com",
     "chase_to_name": "Chad Luedke",
@@ -22925,7 +22969,8 @@ window.DATA = [
         "name": "William Knox",
         "email": "william@coastaltestinglabs.com"
       }
-    ]
+    ],
+    "chase_letter_close": "If you have any questions or concerns about the work at 32147 Sky Branch, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0430-171118",
@@ -23044,12 +23089,13 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_letter_lead": "We performed the work at 32143 Sky Branch Dr. and issued invoice 0430-171118 for $350. This has been 81 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 32143 Sky Branch Dr. and issued invoice 0430-171118 for $350. This has been 82 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 32143 Sky Branch Dr. and issued invoice 0430-171118 for $350. This has been 81 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-04-30  Invoiced  0430-171118 $350.\n2026-05-04  Report transmittal  Maria sent the 32143 Sky Branch report.\n2026-05-11  Inquiry  Maria sent May invoices.\n2026-06-26  Inquiry  Maria asked for a PO.\nToday  Open $350. 81 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 32143 Sky Branch Dr. · 0430-171118 · 81 days past due",
+    "chase_letter": "We performed the work at 32143 Sky Branch Dr. and issued invoice 0430-171118 for $350. This has been 82 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 32143 Sky Branch Dr. · 0430-171118 · 82 days past due",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 32143 Sky Branch Dr., the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0514-171597",
@@ -23158,12 +23204,13 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_letter_lead": "We performed the work at 7910 Oakside Court and issued invoice 0514-171597 for $350. This has been 67 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 7910 Oakside Court and issued invoice 0514-171597 for $350. This has been 68 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 7910 Oakside Court and issued invoice 0514-171597 for $350. This has been 67 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-14  Invoiced  0514-171597 $350.\n2026-05-15  Report transmittal  Maria sent the 7910 Oakside Court report.\n2026-05-22  Inquiry  Maria sent May invoices.\nToday  Open $350. 67 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 7910 Oakside Court · 0514-171597 · 67 days past due",
+    "chase_letter": "We performed the work at 7910 Oakside Court and issued invoice 0514-171597 for $350. This has been 68 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 7910 Oakside Court · 0514-171597 · 68 days past due",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 7910 Oakside Court, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0514-171600",
@@ -23272,12 +23319,13 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_letter_lead": "We performed the work at 8011 Leaf Drift Court and issued invoice 0514-171600 for $350. This has been 67 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 8011 Leaf Drift Court and issued invoice 0514-171600 for $350. This has been 68 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 8011 Leaf Drift Court and issued invoice 0514-171600 for $350. This has been 67 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-05-14  Invoiced  0514-171600 $350.\n2026-05-15  Report transmittal  Maria sent the 8011 Leaf Drift Court report.\n2026-05-22  Inquiry  Maria sent May invoices.\nToday  Open $350. 67 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 8011 Leaf Drift Court · 0514-171600 · 67 days past due",
+    "chase_letter": "We performed the work at 8011 Leaf Drift Court and issued invoice 0514-171600 for $350. This has been 68 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 8011 Leaf Drift Court · 0514-171600 · 68 days past due",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 8011 Leaf Drift Court, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0602-172200",
@@ -23396,12 +23444,13 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_letter_lead": "We performed the work at 8039 Leaf Drift and issued invoice 0602-172200 for $350. This has been 42 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 8039 Leaf Drift and issued invoice 0602-172200 for $350. This has been 43 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 8039 Leaf Drift and issued invoice 0602-172200 for $350. This has been 42 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-02  Called in  Chad Luedke asked for pad test at 8039 Leaf Drift, Pecan Ridge.\n2026-06-04  Report transmittal  Maria sent the 8039 Leaf Drift report.\n2026-06-08  Invoiced  0602-172200.\n2026-06-15  Inquiry  Maria sent invoice 0602-172200 $350.\nToday  Open $350. 42 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 8039 Leaf Drift · 0602-172200 · 42 days past due",
+    "chase_letter": "We performed the work at 8039 Leaf Drift and issued invoice 0602-172200 for $350. This has been 43 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 8039 Leaf Drift · 0602-172200 · 43 days past due",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 8039 Leaf Drift, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0611-172549",
@@ -23530,12 +23579,13 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_letter_lead": "We performed the work at 32171 Sky Branch Dr and issued invoice 0611-172549 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 32171 Sky Branch Dr and issued invoice 0611-172549 for $350. This has been 36 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 32171 Sky Branch Dr and issued invoice 0611-172549 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Called in  Jerry Battle asked for 32171 and 32175 Sky Branch.\n2026-06-11  Replied  Jerry said both pads passed.\n2026-06-12  Report transmittal  Maria sent the 32171 Sky Branch report.\n2026-06-15  Invoiced  0611-172549 $350.\n2026-06-22  Inquiry  Maria sent invoices.\nToday  Open $350. 35 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 32171 Sky Branch Dr · 0611-172549 · 35 days past due",
+    "chase_letter": "We performed the work at 32171 Sky Branch Dr and issued invoice 0611-172549 for $350. This has been 36 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 32171 Sky Branch Dr · 0611-172549 · 36 days past due",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 32171 Sky Branch Dr, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0611-172550",
@@ -23664,12 +23714,13 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_letter_lead": "We performed the work at 32175 Sky Branch Dr and issued invoice 0611-172550 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 32175 Sky Branch Dr and issued invoice 0611-172550 for $350. This has been 36 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 32175 Sky Branch Dr and issued invoice 0611-172550 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-10  Called in  Jerry Battle asked for 32171 and 32175 Sky Branch.\n2026-06-11  Replied  Jerry said both pads passed.\n2026-06-12  Report transmittal  Maria sent the 32175 Sky Branch report.\n2026-06-15  Invoiced  0611-172550 $350.\n2026-06-22  Inquiry  Maria sent invoices.\nToday  Open $350. 35 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 32175 Sky Branch Dr · 0611-172550 · 35 days past due",
+    "chase_letter": "We performed the work at 32175 Sky Branch Dr and issued invoice 0611-172550 for $350. This has been 36 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 32175 Sky Branch Dr · 0611-172550 · 36 days past due",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 32175 Sky Branch Dr, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0611-172588",
@@ -23788,12 +23839,13 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_letter_lead": "We performed the work at 8018 Sun Leaf and issued invoice 0611-172588 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 8018 Sun Leaf and issued invoice 0611-172588 for $350. This has been 36 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 8018 Sun Leaf and issued invoice 0611-172588 for $350. This has been 35 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-06-11  Called in  Chad asked for pad tests at 8018 and 8022 Sun Leaf.\n2026-06-15  Report transmittal  Maria sent the 8018 Sun Leaf report.\n2026-06-15  Invoiced  0611-172588 $350.\n2026-06-22  Inquiry  Maria sent invoices.\nToday  Open $350. 35 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 8018 Sun Leaf · 0611-172588 · 35 days past due",
+    "chase_letter": "We performed the work at 8018 Sun Leaf and issued invoice 0611-172588 for $350. This has been 36 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 8018 Sun Leaf · 0611-172588 · 36 days past due",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 8018 Sun Leaf, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00556",
@@ -23998,14 +24050,15 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_subject": "PO needed · 28502 Pebble Springs · 0416-170658 · 91 days past due",
-    "chase_letter_lead": "Hunter Hott called us on April 15 for pad work at 28502 Pebble Springs. We sent the report April 17 and invoice 0416-170658 for $350 on April 20. It is 91 days past due. There is no PO in Hyphen to bill against. Please create that PO.",
+    "chase_subject": "PO needed · 28502 Pebble Springs · 0416-170658 · 92 days past due",
+    "chase_letter_lead": "Hunter Hott called us on April 15 for pad work at 28502 Pebble Springs. We sent the report April 17 and invoice 0416-170658 for $350 on April 20. It is 92 days past due. There is no PO in Hyphen to bill against. Please create that PO.",
     "chase_letter_paras": [],
-    "chase_letter": "Hunter Hott called us on April 15 for pad work at 28502 Pebble Springs. We sent the report April 17 and invoice 0416-170658 for $350 on April 20. It is 91 days past due. There is no PO in Hyphen to bill against. Please create that PO.\n\nTimeline of Events\n\n2026-04-15  Called in  Hunter Hott asked for a house pad at 28502 Pebble Springs.\n2026-04-17  Report transmittal  Maria sent the 28502 Pebble Springs report.\n2026-04-20  Invoiced  0416-170658.\n2026-06-26  Inquiry  Maria asked Chris Tschumperlin for a PO.\n2026-08-18  Inquiry  Billings asked Chris for a PO.\nToday  Open $350. 91 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
+    "chase_letter": "Hunter Hott called us on April 15 for pad work at 28502 Pebble Springs. We sent the report April 17 and invoice 0416-170658 for $350 on April 20. It is 92 days past due. There is no PO in Hyphen to bill against. Please create that PO.",
     "last_sent": "2026-08-18 11:59 CT",
     "chase_last_sent": "2026-08-18 11:59 CT",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 28502 Pebble Springs, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0707-173658",
@@ -24136,12 +24189,13 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_letter_lead": "We performed the work at 28243 Serene Point and issued invoice 0707-173658 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 28243 Serene Point and issued invoice 0707-173658 for $350. This has been 8 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 28243 Serene Point and issued invoice 0707-173658 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-05  Called in  Hunter Hott asked for 28243 Serene Point.\n2026-07-13  Invoiced  0707-173658 $350.\n2026-07-20  Inquiry  Maria sent July invoices.\n2026-07-28  Inquiry  Maria asked Chris to confirm 28243 is the correct address.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 28243 Serene Point · 0707-173658 · 7 days past due",
+    "chase_letter": "We performed the work at 28243 Serene Point and issued invoice 0707-173658 for $350. This has been 8 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 28243 Serene Point · 0707-173658 · 8 days past due",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 28243 Serene Point, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0707-173676",
@@ -24272,12 +24326,13 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_letter_lead": "We performed the work at 4544 Sterling Springs and issued invoice 0707-173676 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 4544 Sterling Springs and issued invoice 0707-173676 for $350. This has been 8 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 4544 Sterling Springs and issued invoice 0707-173676 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-05  Called in  Hunter Hott asked for 4544 Sterling Springs lot 23.\n2026-07-09  Report transmittal  Maria sent the 4544 Sterling Springs report.\n2026-07-13  Invoiced  0707-173676 $350.\n2026-07-20  Inquiry  Maria sent July invoices.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 4544 Sterling Springs · 0707-173676 · 7 days past due",
+    "chase_letter": "We performed the work at 4544 Sterling Springs and issued invoice 0707-173676 for $350. This has been 8 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 4544 Sterling Springs · 0707-173676 · 8 days past due",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 4544 Sterling Springs, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "0707-173717",
@@ -24622,12 +24677,13 @@ window.DATA = [
     ],
     "chase_from": "billings@coastaltestinglabs.com",
     "chase_from_name": "Billings",
-    "chase_letter_lead": "We performed the work at 28428 Woodward Creek and issued invoice 0710-173949 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_letter_lead": "We performed the work at 28428 Woodward Creek and issued invoice 0710-173949 for $350. This has been 8 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "chase_letter_paras": [],
-    "chase_letter": "We performed the work at 28428 Woodward Creek and issued invoice 0710-173949 for $350. This has been 7 days past due with no purchase order on file. Please create a PO for this visit and release payment.\n\nTimeline of Events\n\n2026-07-09  Called in  Hunter Hott asked for 28428 Woodward Creek (Woodson's / Tri Pointe)\n2026-07-13  Invoiced  0710-173949 $350.\n2026-07-15  Report transmittal  Maria sent the 28428 Woodward Creek report.\n2026-07-20  Inquiry  Maria sent July invoices.\nToday  Open $350. 7 days past due.\n\nIf you have any questions about this invoice, please feel free to reach out for assistance.",
-    "chase_subject": "PO needed · 28428 Woodward Creek · 0710-173949 · 7 days past due",
+    "chase_letter": "We performed the work at 28428 Woodward Creek and issued invoice 0710-173949 for $350. This has been 8 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
+    "chase_subject": "PO needed · 28428 Woodward Creek · 0710-173949 · 8 days past due",
     "payments_stale": true,
-    "scrape_as_of": "2026-08-19"
+    "scrape_as_of": "2026-08-19",
+    "chase_letter_close": "If you have any questions or concerns about the work at 28428 Woodward Creek, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "docNumber": "CTL-26-00511",
