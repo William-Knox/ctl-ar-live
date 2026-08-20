@@ -126,7 +126,7 @@ button { cursor: pointer; background: none; border: 0; }
   overflow: hidden;
   background: var(--paper);
 }
-.seg button {
+.seg button, .seg a {
   height: 26px;
   padding: 0 9px;
   font-size: 11.5px;
@@ -137,10 +137,11 @@ button { cursor: pointer; background: none; border: 0; }
   align-items: center;
   gap: 5px;
   border-right: 1px solid var(--line-2);
+  text-decoration: none;
 }
-.seg button:last-child { border-right: 0; }
-.seg button.on { background: var(--navy); color: var(--cream); }
-.seg button.on:hover { background: var(--navy-2); }
+.seg button:last-child, .seg a:last-child { border-right: 0; }
+.seg button.on, .seg a.on { background: var(--navy); color: var(--cream); }
+.seg button.on:hover, .seg a.on:hover { background: var(--navy-2); }
 .seg .n {
   font-variant-numeric: tabular-nums;
   font-size: 10.5px;
@@ -663,7 +664,7 @@ tbody tr { cursor: pointer; }
   .counts { width: 100%; justify-content: space-between; }
   .bar { height: auto; flex-wrap: wrap; white-space: normal; padding: 8px 10px; }
   .seg { flex-wrap: wrap; height: auto; width: 100%; }
-  .seg button { min-height: 36px; height: 36px; flex: 1 1 auto; }
+  .seg button, .seg a { min-height: 36px; height: 36px; flex: 1 1 auto; }
   .stage { flex-direction: column; }
   .wrap {
     flex: 0 0 auto;

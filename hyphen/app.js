@@ -483,10 +483,10 @@
       if (on) b.setAttribute("aria-current", "page");
       else b.removeAttribute("aria-current");
     });
-    $("nChase").textContent = String(boxCount("chase"));
-    $("nApply").textContent = String(boxCount("apply"));
-    $("nWrite").textContent = String(boxCount("writeoff"));
-    $("nAwait").textContent = String(boxCount("awaiting"));
+    if ($("nChase")) $("nChase").textContent = String(boxCount("chase"));
+    if ($("nApply")) $("nApply").textContent = String(boxCount("apply"));
+    if ($("nWrite")) $("nWrite").textContent = String(boxCount("writeoff"));
+    if ($("nAwait")) $("nAwait").textContent = String(boxCount("awaiting"));
     var asof = $("asof");
     var boxLab = { chase: "Chase", apply: "Apply", writeoff: "Write-off", awaiting: "Awaiting" }[state.box];
     asof.textContent = boxLab + " · Thursday 2026-08-20";
