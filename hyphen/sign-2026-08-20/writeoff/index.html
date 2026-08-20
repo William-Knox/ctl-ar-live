@@ -428,6 +428,8 @@ button { cursor: pointer; background: none; border: 0; }
   border-top: 1px solid var(--line-2);
   background: #F3EFE8;
   box-shadow: 0 -8px 16px rgba(15,23,42,0.04);
+  position: relative;
+  z-index: 90;
 }
 .actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .act {
@@ -455,7 +457,8 @@ button { cursor: pointer; background: none; border: 0; }
 
 .toast {
   position: fixed;
-  bottom: 18px;
+  top: 16px;
+  bottom: auto;
   left: 50%;
   transform: translateX(-50%);
   background: var(--navy);
