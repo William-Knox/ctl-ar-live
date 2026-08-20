@@ -8071,6 +8071,11 @@ window.DATA = [
         "what": "Brandi Cook asked at 2096 Hidden Hills."
       },
       {
+        "when": "2026-07-13",
+        "lab": "Paid",
+        "what": "0611-172580 $522."
+      },
+      {
         "when": "2026-07-20",
         "lab": "Called in",
         "what": "Brandi Cook asked at 2096 Hidden Hills."
@@ -8093,6 +8098,11 @@ window.DATA = [
         "what": "Brandi Cook asked at 2096 Hidden Hills."
       },
       {
+        "when": "2026-07-13",
+        "lab": "Paid",
+        "what": "0611-172580 $522."
+      },
+      {
         "when": "2026-07-20",
         "lab": "Called in",
         "what": "Brandi Cook asked at 2096 Hidden Hills."
@@ -8108,11 +8118,37 @@ window.DATA = [
         "what": "CTL-26-00085 open $783.00 · -2 days past due."
       }
     ],
-    "workup_attachments_note": "Graph: Brandi 6/10 pads (2 lifts) and Brandi 7/20 Pads (3 lifts) to ryan/joe. Drew 8/4–8/14 replied on the first-visit PO request (already paid / poured). No request .eml on disk.",
+    "workup_attachments_note": "Both Brandi request .emls stay on disk under cases/CTL-26-00085 (6/10 2 lifts, 7/20 3 lifts, ryan@ copies). Issue Write-off: 2026-08-14 client-facing void. Not missing-.eml. Packet hold. Mail not_sent. No builder letter. No Esme note. No publish. Not leftover.",
     "email": null,
     "payments_stale": true,
     "scrape_as_of": "2026-08-19",
-    "chase_analysis": "Found: Brandi Cook 2026-06-10 asked 2 lifts at 2096 Hidden Hills (paid 0611-172580) and Brandi 2026-07-20 asked 3 lifts (this $783). Not found: request .eml on disk for either client ask. Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda."
+    "chase_analysis": "Found: Brandi Cook 2026-06-10 asked two lifts at 2096 Hidden Hills; that visit is 0611-172580 $522, paid check 1305861 on 2026-07-13. Brandi 2026-07-20 asked three lifts at the same house; this invoice is that July visit, $783, and both request emails are on the case. On 2026-08-14 William told Drew Piercy we would correct this and Maria to void and delete the invoice (July work after the house was poured and framed; Jeff Adams was told we dropped the ball). Write-off is that client-facing void, not a missing request file. First-visit payment is research only, not Apply, not leftover. Packet hold. No builder letter.",
+    "chase_attachments": [
+      {
+        "kind": "callin",
+        "label": "Called in · Brandi Cook 2026-06-10",
+        "mailbox": "ryan@coastaltestinglabs.com",
+        "messageId": "AAMkADBjYjk0MzMxLTFmYTYtNDIzNS04ZDMwLWY5NTQ5Y2VkMDQxNABGAAAAAAAFVpL-v6qsT61M9PyKzuK6BwC9a3335iNDTbbRGjik9z3yAAAAAAEMAAC9a3335iNDTbbRGjik9z3yAAPw1lqIAAA=",
+        "path": "/workspace/hyphen-board/cases/CTL-26-00085/2026-06-10_Brandi-Cook_pads-2096-Hidden-Hills-2-lifts.eml",
+        "fromName": "Brandi Cook",
+        "from": "brandiaplusconstruction17.cc@gmail.com",
+        "subject": "pads",
+        "sent": "2026-06-10T16:33:36-05:00",
+        "bodyPreview": "Builder: Lennar Neighborhood: Sofi Lakes 2096 Hidden Hills Ln- 2 lifts"
+      },
+      {
+        "kind": "callin",
+        "label": "Called in · Brandi Cook 2026-07-20",
+        "mailbox": "ryan@coastaltestinglabs.com",
+        "messageId": "AAMkADBjYjk0MzMxLTFmYTYtNDIzNS04ZDMwLWY5NTQ5Y2VkMDQxNABGAAAAAAAFVpL-v6qsT61M9PyKzuK6BwC9a3335iNDTbbRGjik9z3yAAAAAAEMAAC9a3335iNDTbbRGjik9z3yAAQLth3yAAA=",
+        "path": "/workspace/hyphen-board/cases/CTL-26-00085/2026-07-20_Brandi-Cook_Pads-2096-hidden-hills-3-lifts.eml",
+        "fromName": "Brandi Cook",
+        "from": "brandiaplusconstruction17.cc@gmail.com",
+        "subject": "Pads",
+        "sent": "2026-07-20T15:46:38-05:00",
+        "bodyPreview": "Builder: Lennar Neighborhood: Sofi Lakes 2096 hidden hills- 3 lifts"
+      }
+    ]
   },
   {
     "docNumber": "CTL-26-00533",
