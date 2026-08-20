@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#F8F6F2" />
-<title>Hyphen review · Awaiting mock</title>
+<title>Hyphen review · Awaiting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
@@ -592,8 +592,8 @@ tbody tr { cursor: pointer; }
     <div class="brand">
       <img class="mark" src="../ctl-mark-on-white.png" width="22" height="22" alt="" />
       <div class="brand-text">
-        <h1>Hyphen review <span class="mock-tag">Mock</span></h1>
-        <p class="asof">Awaiting box · sent correspondence · their court · as of Wed Aug 19 CT</p>
+        <h1>Hyphen review</h1>
+        <p class="asof">Awaiting box · sent correspondence · Thursday 2026-08-20</p>
       </div>
     </div>
     <div class="counts">
@@ -619,7 +619,7 @@ tbody tr { cursor: pointer; }
   </div>
 
   <div class="mail-note">
-    <b>Mock only.</b> Sent correspondence. Their court. No auto-send. No follow-up button.
+    Sent correspondence. Their court. No auto-send. No follow-up button.
   </div>
 
   <div class="stage">
@@ -644,11 +644,12 @@ tbody tr { cursor: pointer; }
   </div>
 </div>
 <div class="toast" id="toast" role="status"></div>
+<script src="../data.js"></script>
 <script>
 (function () {
   "use strict";
-  /* Frozen as-of: Wednesday 2026-08-19, America/Chicago. Date-only; Sat/Sun skipped. */
-  var AS_OF = "2026-08-19";
+  /* Frozen as-of: Thursday 2026-08-20, America/Chicago. Date-only; Sat/Sun skipped. */
+  var AS_OF = "2026-08-20";
   var LOCKED = {
     "Leftover lab": 1,
     "Quantity shortfall": 1,
@@ -753,6 +754,53 @@ tbody tr { cursor: pointer; }
     }
   ];
 
+  var LOCKED_TREE = {
+    "Leftover lab": 1,
+    "Quantity shortfall": 1,
+    "Notes error": 1,
+    "Amount off": 1,
+    "Write-off": 1,
+    "Unpaid complete": 1,
+    "No PO": 1,
+    "Paid to apply": 1
+  };
+  var KEEP_LEFTOVER = { "0508-171401": 1, "0506-171278": 1 };
+  function lockIssue(raw, doc) {
+    var id = String(doc || "");
+    if (KEEP_LEFTOVER[id]) return "Leftover lab";
+    var iss = String(raw == null ? "" : raw);
+    var low = iss.toLowerCase();
+    if (low === "billed-wrong" || low === "billed wrong" || low === "flagged") return "Write-off";
+    return iss;
+  }
+  function mailLabel(m) {
+    if (m === "awaiting") return "Awaiting";
+    if (m === "not_sent" || !m) return "Not sent";
+    return String(m);
+  }
+  var liveAW = [];
+  if (typeof window.DATA !== "undefined" && window.DATA && window.DATA.length) {
+    liveAW = window.DATA.filter(function (d) {
+      return (d.mail || "") === "awaiting";
+    }).map(function (d) {
+      return {
+        id: d.docNumber,
+        community: d.customer || "",
+        addr: d.service_address || "",
+        issue: lockIssue(d.issue, d.docNumber),
+        last_sent: d.scrape_as_of || "",
+        open: Number(d.balance != null ? d.balance : d.open_balance) || 0,
+        parent: d.parent || "",
+        court: "theirs",
+        to: d.email || "",
+        analysis: d.chase_analysis || "",
+        sent: "",
+        due: false
+      };
+    });
+    if (liveAW.length) ROWS = liveAW;
+  }
+
   function ymd(s) {
     var m = String(s).match(/(\d{4})-(\d{2})-(\d{2})/);
     return [Number(m[1]), Number(m[2]), Number(m[3])];
@@ -798,7 +846,14 @@ tbody tr { cursor: pointer; }
 
   ROWS.forEach(function (r) {
     if (!LOCKED[r.issue]) throw new Error("unlocked issue " + r.issue);
-    if (String(r.id).indexOf("0410") !== -1) throw new Error("0410 must stay out");
+    if (!liveAW.length && String(r.id).indexOf("0410") !== -1) throw new Error("0410 must stay out");
+    if (!r.last_sent) {
+      r.waiting = 0;
+      r.follow_up_on = "";
+      r.due = false;
+      r.sent_lab = "";
+      return;
+    }
     r.waiting = bizDaysSince(r.last_sent, AS_OF);
     r.follow_up_on = fmtYMD(addBizDays(r.last_sent, 3));
     r.due = cmp(addBizDays(r.last_sent, 3), ymd(AS_OF)) <= 0;

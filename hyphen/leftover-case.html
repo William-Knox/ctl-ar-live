@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#F8F6F2" />
-<title>Hyphen review · Leftover-review mock</title>
+<title>Hyphen review · Leftover-review</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
@@ -580,13 +580,13 @@ tbody tr { cursor: pointer; }
     <div class="brand">
       <img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" />
       <div class="brand-text">
-        <h1>Hyphen review <span class="mock-tag">Mock</span></h1>
-        <p class="asof">Leftover-review · 0611-172568 billed-wrong · mock only</p>
+        <h1>Hyphen review</h1>
+        <p class="asof">Leftover-review · Thursday 2026-08-20</p>
       </div>
     </div>
     <div class="counts">
-      <div class="count"><b>1</b><span>open case</span></div>
-      <div class="count"><b>18</b><span>leftover set</span></div>
+      <div class="count"><b id="loOpenN">1</b><span>open case</span></div>
+      <div class="count"><b id="loSetN">—</b><span>leftover set</span></div>
     </div>
   </header>
 
@@ -598,11 +598,11 @@ tbody tr { cursor: pointer; }
       <a href="writeoff/index.html">Write-off</a>
       <a href="awaiting/index.html">Awaiting</a>
     </div>
-    <button type="button" class="lo-chip on" aria-pressed="true">Leftover <span class="n">18</span></button>
+    <button type="button" class="lo-chip on" aria-pressed="true">Leftover <span class="n" id="loN">—</span></button>
   </div>
 
   <div class="mail-note">
-    <b>Mock only.</b> Leftover-review. Footer is Write off / Hold / Next only. No Issue picker. Write off stamps Issue Write-off and turns the packet into an Esme note. We do not write off in QBO.
+    Leftover-review. Footer is Write off / Hold / Next only. No Issue picker. Write off stamps Issue Write-off and turns the packet into an Esme note. We do not write off in QBO.
   </div>
 
   <div class="stage">
@@ -624,6 +624,7 @@ tbody tr { cursor: pointer; }
   </div>
 </div>
 <div class="toast" id="toast" role="status"></div>
+<script src="data.js"></script>
 <script>
 (function () {
   "use strict";
@@ -636,7 +637,7 @@ tbody tr { cursor: pointer; }
       community: "Dunham Pointe",
       open: 104,
       billed: 520,
-      issue0: "billed-wrong",
+      issue0: "Write-off",
       mail: "Not sent",
       canStamp: true,
       analysis: "Found: Hyphen PO 25444638-000 face $416; Toll check 527809 $416 applied 7/10. QBO billed $520, $104 still open. Not found: no second visit — leftover is billed wrong (Dominus named Write-off). Recommend write-off of $104. No EPO. Not a builder chase.",
@@ -660,13 +661,13 @@ tbody tr { cursor: pointer; }
       community: "Dunham Pointe",
       open: 52,
       billed: 468,
-      issue0: "flagged",
+      issue0: "Write-off",
       mail: "Not sent",
       canStamp: true,
       analysis: "Hyphen notes are empty. Toll check 523114 paid $416 of billed $468; leftover $52. Esme's 7/2 email named additional density and asked for an EPO; that email is not a Hyphen note and EPO is not an Issue. Nothing they must issue is a named lab or unpaid lift we can prove from reports on disk.",
       found: "Toll check 523114 paid $416 of billed $468 on this pad-density order. Leftover $52.",
       notFound: "Esme 7/2 named additional density and asked for an EPO; that email is not a Hyphen note. EPO is not an Issue. No named lab or unpaid lift on reports.",
-      rec: "Leftover-human flagged. Write off stamps Issue Write-off for the Esme note. We do not write off in QBO from this screen.",
+      rec: "Write off stamps Issue Write-off for the Esme note. We do not write off in QBO from this screen.",
       ledger: [
         { when: "6/11", lab: "Called in", what: "Nicole Love asked Ryan for compaction at 19922 Winding Angelica Way." },
         { when: "6/12", lab: "Report", what: "Maria sent the report." },
@@ -684,7 +685,7 @@ tbody tr { cursor: pointer; }
       community: "MHI HOMES",
       open: 270,
       billed: 620,
-      issue0: "blank",
+      issue0: "Leftover lab",
       mail: "Not sent",
       canStamp: true,
       analysis: "Hyphen notes are empty. Check 00060133 paid $350 of billed $620; leftover $270. Maria sent a Proctor-titled report on 5/15, but $270 is not the $349 lab rate and no note names the leftover they must issue. Cannot prove Leftover lab or Amount off. Leave Issue blank.",
@@ -708,7 +709,7 @@ tbody tr { cursor: pointer; }
       community: "Bridgeland",
       open: 260,
       billed: 610,
-      issue0: "blank",
+      issue0: "Leftover lab",
       mail: "Not sent",
       canStamp: true,
       analysis: "Hyphen notes on this order are empty. Check 00061817 paid $350 of billed $610; leftover $260. Mail research names a proctor/PI retest thread, but $260 is not the $349 lab rate and no note names the leftover they must issue. Portal line was $700, not $610. Cannot prove Leftover lab, Quantity shortfall, or Amount off. Leave Issue blank.",
@@ -725,11 +726,79 @@ tbody tr { cursor: pointer; }
     }
   ];
 
-  var selected = "0611-172568";
+  var LOCKED_TREE = {
+    "Leftover lab": 1,
+    "Quantity shortfall": 1,
+    "Notes error": 1,
+    "Amount off": 1,
+    "Write-off": 1,
+    "Unpaid complete": 1,
+    "No PO": 1,
+    "Paid to apply": 1
+  };
+  var KEEP_LEFTOVER = { "0508-171401": 1, "0506-171278": 1 };
+  function lockIssue(raw, doc) {
+    var id = String(doc || "");
+    if (KEEP_LEFTOVER[id]) return "Leftover lab";
+    var iss = String(raw == null ? "" : raw);
+    var low = iss.toLowerCase();
+    if (low === "billed-wrong" || low === "billed wrong" || low === "flagged") return "Write-off";
+    return iss;
+  }
+  function mailLabel(m) {
+    if (m === "awaiting") return "Awaiting";
+    if (m === "not_sent" || !m) return "Not sent";
+    return String(m);
+  }
+  function mapLeftoverRow(d) {
+    var analysis = d.chase_analysis || "";
+    var ledger = (d.ledger || d.chase_timeline || []).map(function (e) {
+      return { when: e.when, lab: e.lab, what: e.what, today: !!e.today };
+    });
+    if (!ledger.length) {
+      ledger = [{ when: "Today", lab: "Today", what: analysis || (d.docNumber + " leftover lab"), today: true }];
+    }
+    return {
+      id: d.docNumber,
+      days: Number(d.daysPastDue) || 0,
+      addr: d.service_address || "",
+      parent: d.parent || "",
+      community: d.customer || "",
+      open: Number(d.balance != null ? d.balance : d.open_balance) || 0,
+      billed: Number(d.totalAmt) || 0,
+      issue0: "Leftover lab",
+      mail: mailLabel(d.mail || "not_sent"),
+      canStamp: true,
+      analysis: analysis,
+      found: analysis,
+      notFound: analysis,
+      rec: analysis,
+      leftoverHuman: false,
+      ledger: ledger
+    };
+  }
+  ROWS.forEach(function (r) {
+    r.issue0 = lockIssue(r.issue0, r.id);
+    r.leftoverHuman = false;
+  });
+  ROWS = ROWS.filter(function (r) { return r.issue0 === "Leftover lab"; });
+  if (typeof window.DATA !== "undefined" && window.DATA && window.DATA.length) {
+    var liveLO = window.DATA.filter(function (d) {
+      return lockIssue(d.issue, d.docNumber) === "Leftover lab";
+    }).map(mapLeftoverRow);
+    if (liveLO.length) ROWS = liveLO;
+  }
+
+  var selected = ROWS[0] ? ROWS[0].id : "";
   var stamped = {};
   ROWS.forEach(function (r) { stamped[r.id] = !!r.stamped0; });
   var hash = (location.hash || "").replace("#", "");
   if (hash && ROWS.some(function (r) { return r.id === hash; })) selected = hash;
+  (function () {
+    var n = String(ROWS.length);
+    var a = document.getElementById("loN"); if (a) a.textContent = n;
+    var b = document.getElementById("loSetN"); if (b) b.textContent = n;
+  })();
 
   function $(id) { return document.getElementById(id); }
   function esc(s) {
@@ -779,7 +848,7 @@ tbody tr { cursor: pointer; }
     } else if (done) {
       chips = '<span class="chip">Issue Write-off</span><span class="chip">Esme · not sent</span><span class="chip">Not chase</span>';
     } else {
-      chips = '<span class="chip warn">' + esc(r.issue0) + '</span><span class="chip warn">Leftover-human</span><span class="chip warn">Not chase until stamped</span>';
+      chips = '<span class="chip warn">' + esc(r.issue0) + '</span><span class="chip warn">Leftover-review</span><span class="chip warn">Not chase until stamped</span>';
     }
     var note;
     if (!r.analysis) {

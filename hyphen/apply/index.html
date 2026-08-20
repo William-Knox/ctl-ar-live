@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#F8F6F2" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-title" content="Hyphen Apply" />
-<title>Hyphen review · Apply mock</title>
+<title>Hyphen review · Apply</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
@@ -521,8 +521,8 @@ button { cursor: pointer; background: none; border: 0; }
     <div class="brand">
       <img class="mark" src="../ctl-mark-on-white.png" width="22" height="22" alt="" />
       <div class="brand-text">
-        <h1>Hyphen review <span class="mock-tag">Mock</span></h1>
-        <p class="asof">Apply box · Issue Paid to apply · not sent · not the live queue</p>
+        <h1>Hyphen review</h1>
+        <p class="asof">Apply box · Paid to apply · Thursday 2026-08-20</p>
       </div>
     </div>
     <div class="counts">
@@ -543,7 +543,7 @@ button { cursor: pointer; background: none; border: 0; }
   </div>
 
   <div class="mail-note">
-    <b>Mock only.</b> Paid-to-apply invoices live in this box. We do not apply cash here. One internal research note to Esmeralda. Live chase queue is unchanged. Nothing is sent. Nothing posts in QBO.
+    Paid-to-apply invoices live in this box. We do not apply cash here. One internal research note to Esmeralda. Live chase queue is unchanged. Nothing is sent. Nothing posts in QBO.
   </div>
 
   <div class="stage">
@@ -667,6 +667,7 @@ button { cursor: pointer; background: none; border: 0; }
     "days": -17
   }
 ]</script>
+<script src="../data.js"></script>
 <script>
 (function () {
   "use strict";
@@ -677,6 +678,59 @@ button { cursor: pointer; background: none; border: 0; }
   };
   var CHECK_ORDER = ["00068971", "542086", "1325381"];
   var rows = JSON.parse(document.getElementById("rows-json").textContent);
+  var LOCKED_TREE = {
+    "Leftover lab": 1,
+    "Quantity shortfall": 1,
+    "Notes error": 1,
+    "Amount off": 1,
+    "Write-off": 1,
+    "Unpaid complete": 1,
+    "No PO": 1,
+    "Paid to apply": 1
+  };
+  var KEEP_LEFTOVER = { "0508-171401": 1, "0506-171278": 1 };
+  function lockIssue(raw, doc) {
+    var id = String(doc || "");
+    if (KEEP_LEFTOVER[id]) return "Leftover lab";
+    var iss = String(raw == null ? "" : raw);
+    var low = iss.toLowerCase();
+    if (low === "billed-wrong" || low === "billed wrong" || low === "flagged") return "Write-off";
+    return iss;
+  }
+  function mailLabel(m) {
+    if (m === "awaiting") return "Awaiting";
+    if (m === "not_sent" || !m) return "Not sent";
+    return String(m);
+  }
+  if (typeof window.DATA !== "undefined" && window.DATA && window.DATA.length) {
+    var liveApply = window.DATA.filter(function (d) {
+      return lockIssue(d.issue, d.docNumber) === "Paid to apply";
+    }).map(function (d) {
+      return {
+        docNumber: d.docNumber,
+        address: d.service_address || "",
+        customer: d.customer || "",
+        parent: d.parent || "",
+        balance: d.balance,
+        totalAmt: d.totalAmt,
+        po: d.builder_order_number || "",
+        check: d.check_number,
+        check_date: d.check_date,
+        check_amount: d.check_amount,
+        days: d.daysPastDue
+      };
+    });
+    if (liveApply.length) {
+      rows = liveApply;
+      var seenCk = {};
+      CHECK_ORDER = [];
+      rows.forEach(function (r) {
+        var k = String(r.check);
+        if (!seenCk[k]) { seenCk[k] = 1; CHECK_ORDER.push(k); }
+      });
+    }
+  }
+
   var checks = {};
   rows.forEach(function (r) {
     var k = String(r.check);
@@ -832,6 +886,10 @@ button { cursor: pointer; background: none; border: 0; }
     e.preventDefault();
   });
 
+  $("hdrInv").textContent = String(rows.length);
+  $("hdrOpen").textContent = money(rows.reduce(function (s, r) { return s + Number(r.balance || 0); }, 0));
+  $("hdrChecks").textContent = String(list.length);
+  $("apN").textContent = String(rows.length);
   render();
 })();
 </script>

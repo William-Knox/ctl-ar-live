@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#F8F6F2" />
-<title>Hyphen review · Chase mock</title>
+<title>Hyphen review · Chase</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
@@ -708,8 +708,8 @@ tbody tr { cursor: pointer; }
     <div class="brand">
       <img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" />
       <div class="brand-text">
-        <h1>Hyphen review <span class="mock-tag">Mock</span></h1>
-        <p class="asof">Chase queue · leftover set 18 · not the live queue</p>
+        <h1>Hyphen review</h1>
+        <p class="asof">Chase queue · Thursday 2026-08-20</p>
       </div>
     </div>
     <div class="counts">
@@ -729,7 +729,7 @@ tbody tr { cursor: pointer; }
       <a href="awaiting/index.html">Awaiting</a>
     </div>
 
-    <button type="button" class="lo-chip" id="loChip" aria-pressed="false">Leftover <span class="n">18</span></button>
+    <button type="button" class="lo-chip" id="loChip" aria-pressed="false">Leftover <span class="n" id="loN">—</span></button>
 
     <div class="menu" data-menu="why">
       <button class="menu-btn" type="button"><span class="t">Issue</span><i class="caret"></i></button>
@@ -763,6 +763,7 @@ tbody tr { cursor: pointer; }
         <label><input type="checkbox" value="MHI HOMES" /> MHI</label>
         <label><input type="checkbox" value="Toll Brothers, Inc." /> Toll</label>
         <label><input type="checkbox" value="K. Hovnanian of Houston" /> K. Hovnanian</label>
+        <label><input type="checkbox" value="TriPointe Homes" /> TriPointe Homes</label>
         <div class="menu-foot"><button type="button" class="all" data-select="builders">Select all</button><button type="button" class="all" data-clear="builders">Clear</button></div>
       </div>
     </div>
@@ -834,6 +835,7 @@ tbody tr { cursor: pointer; }
 </aside>
 <div class="toast" id="toast" role="status"></div>
 
+<script src="data.js"></script>
 <script>
 (function () {
   "use strict";
@@ -854,6 +856,84 @@ tbody tr { cursor: pointer; }
     { id:"0609-172393", days:35, open:60, billed:410, community:"Escondido", addr:"42628 Mystery Lane", parent:"MHI HOMES", hyphen:"short", issue:"Amount off", mail:"not_sent", packet:"hold", leftover:false, leftoverHuman:false, po:"91K5ESC4_005246", due:"2026-07-15", analysis:"Hyphen notes are empty, so notes are clean. Check 00065328 paid $350 of billed $410; leftover $60. Mail and notes do not name a lab or lift they must issue. Tree step 6 is Amount off." },
     { id:"0731-174161", days:16, open:1188, billed:1188, community:"Westland Ranch", addr:"4206 White Springs Lane", parent:"K. Hovnanian of Houston", hyphen:"unpaid", issue:"Unpaid complete", mail:"not_sent", packet:"hold", leftover:false, leftoverHuman:false, po:"7118095-000", due:"2026-08-03", analysis:"Builder marked PO 7118095-000 complete on 2026-08-06. Wednesday payments have no check on this SON and no paid visit at 4206 White Springs (4221/4249 paid on other POs). Invoice $1,188 matches the PO face." }
   ];
+
+  var LOCKED_TREE = {
+    "Leftover lab": 1,
+    "Quantity shortfall": 1,
+    "Notes error": 1,
+    "Amount off": 1,
+    "Write-off": 1,
+    "Unpaid complete": 1,
+    "No PO": 1,
+    "Paid to apply": 1
+  };
+  var KEEP_LEFTOVER = { "0508-171401": 1, "0506-171278": 1 };
+  function lockIssue(raw, doc) {
+    var id = String(doc || "");
+    if (KEEP_LEFTOVER[id]) return "Leftover lab";
+    var iss = String(raw == null ? "" : raw);
+    var low = iss.toLowerCase();
+    if (low === "billed-wrong" || low === "billed wrong" || low === "flagged") return "Write-off";
+    return iss;
+  }
+  function mailLabel(m) {
+    if (m === "awaiting") return "Awaiting";
+    if (m === "not_sent" || !m) return "Not sent";
+    return String(m);
+  }
+  function mapChaseRow(d) {
+    var issue = lockIssue(d.issue, d.docNumber);
+    var leftover = issue === "Leftover lab";
+    var hyphen;
+    if (issue === "Unpaid complete") hyphen = "unpaid";
+    else if (d.status === "partial") hyphen = "short";
+    else if (d.found) hyphen = "found";
+    else hyphen = "notfound";
+    return {
+      id: d.docNumber,
+      days: Number(d.daysPastDue) || 0,
+      open: Number(d.balance != null ? d.balance : d.open_balance) || 0,
+      billed: Number(d.totalAmt) || 0,
+      community: d.customer || "",
+      addr: d.service_address || "",
+      parent: d.parent || "",
+      hyphen: hyphen,
+      issue: issue,
+      mail: d.mail || "not_sent",
+      packet: d.packet || "hold",
+      leftover: leftover,
+      leftoverHuman: false,
+      href: leftover ? ("leftover-case.html#" + d.docNumber) : "",
+      po: d.builder_order_number || "",
+      due: d.dueDate || "",
+      analysis: d.chase_analysis || ""
+    };
+  }
+  ROWS.forEach(function (r) {
+    r.issue = lockIssue(r.issue, r.id);
+    r.leftover = r.issue === "Leftover lab";
+    r.leftoverHuman = false;
+    r.href = r.leftover ? ("leftover-case.html#" + r.id) : (r.href || "");
+  });
+  if (typeof window.DATA !== "undefined" && window.DATA && window.DATA.length) {
+    ROWS = window.DATA.map(mapChaseRow);
+  }
+  function refreshLiveCounts() {
+    var counts = {};
+    var lo = 0;
+    ROWS.forEach(function (r) {
+      counts[r.issue] = (counts[r.issue] || 0) + 1;
+      if (r.leftover) lo++;
+    });
+    document.querySelectorAll('.menu[data-menu="why"] label').forEach(function (lab) {
+      var inp = lab.querySelector("input");
+      var n = lab.querySelector(".n");
+      if (inp && n) n.textContent = String(counts[inp.value] || 0);
+    });
+    var el = document.getElementById("loN");
+    if (el) el.textContent = String(lo);
+  }
+  refreshLiveCounts();
 
   var CHASE = { "Leftover lab":1, "Quantity shortfall":1, "Notes error":1, "Amount off":1, "Write-off":1, "Unpaid complete":1, "No PO":1, "Paid to apply":1 };
   var HY_LAB = { short:"Short", unpaid:"Unpaid", notfound:"Not found", paid:"Paid", found:"Found" };
