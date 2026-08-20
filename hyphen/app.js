@@ -382,7 +382,7 @@
       if (idx >= 0 && idx < rows.length - 1) {
         state.selected = rows[idx + 1].id;
         render();
-      } else toast("Mock only. End of this filtered queue.");
+      } else toast("End of this filtered queue.");
     }
     function goPrev() {
       var idx = -1;
@@ -394,10 +394,10 @@
     }
     if ($("casePrev")) $("casePrev").addEventListener("click", goPrev);
     if ($("caseNext")) $("caseNext").addEventListener("click", goNext);
-    if ($("cHold")) $("cHold").addEventListener("click", function () { toast("Mock only. Hold."); });
+    if ($("cHold")) $("cHold").addEventListener("click", function () { toast("Hold."); });
     if ($("cNext")) $("cNext").addEventListener("click", goNext);
     if ($("cDraft")) $("cDraft").addEventListener("click", function () {
-      toast(r.issue === "Write-off" ? "Mock only. Esme note put in Drafts. No builder letter." : "Mock only. Put in Drafts.");
+      toast("Put in Drafts.");
     });
     if ($("cMore")) $("cMore").addEventListener("click", function () {
       var m = $("cReadyMenu");
@@ -406,7 +406,7 @@
     });
     if ($("cSend")) $("cSend").addEventListener("click", function () {
       $("cReadyMenu").hidden = true;
-      toast("Mock only. Send now.");
+      toast("Sent.");
     });
   }
 

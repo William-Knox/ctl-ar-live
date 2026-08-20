@@ -557,6 +557,8 @@ tbody tr { cursor: pointer; }
   margin-top: 12px;
   background: #F3EFE8;
   box-shadow: 0 -8px 16px rgba(15,23,42,0.04);
+  position: relative;
+  z-index: 90;
 }
 .act {
   height: 34px;
@@ -631,7 +633,8 @@ tbody tr { cursor: pointer; }
 
 .toast {
   position: fixed;
-  bottom: 18px;
+  top: 16px;
+  bottom: auto;
   left: 50%;
   transform: translateX(-50%);
   background: var(--navy);
