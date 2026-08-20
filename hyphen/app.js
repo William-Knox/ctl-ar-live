@@ -1,7 +1,7 @@
 /* Hyphen review · Thursday 2026-08-20. Signed frame. Actions toast only — do not post. */
 (function () {
   "use strict";
-  var START_ID = "0506-171310";
+  var START_ID = "0428-170954";
 
   var LEDGER_LABS = {
     "Called in": 1,
@@ -72,6 +72,52 @@
       };
     });
   }
+  function todayWhat(open, days) {
+    return "Open " + money(open) + ". " + days + " days past due.";
+  }
+  function ensureToday(list, open, days) {
+    var what = todayWhat(open, days);
+    var out = (list || []).map(function (e) {
+      if (e.today || e.lab === "Today") {
+        return { when: "Today", lab: "Today", what: what, today: true };
+      }
+      return e;
+    });
+    if (!out.some(function (e) { return e.today || e.lab === "Today"; })) {
+      out.push({ when: "Today", lab: "Today", what: what, today: true });
+    }
+    return out;
+  }
+  function stripTimeline(s) {
+    s = String(s == null ? "" : s);
+    var i = s.search(/Timeline of Events/i);
+    if (i >= 0) s = s.slice(0, i);
+    s = s.replace(/\s*If you have any questions[\s\S]*$/i, "");
+    s = s.replace(/\s*please feel free[\s\S]*$/i, "");
+    return s.replace(/\s+$/g, "").trim();
+  }
+  function isTimelineDump(s) {
+    s = String(s == null ? "" : s);
+    if (!/Timeline of Events/i.test(s)) return false;
+    return s.split(/\n/).length > 2 || /Called in|Invoiced|Report transmittal/i.test(s);
+  }
+  function standingPara(r) {
+    var lead = stripTimeline(r.letterLead || "");
+    if (lead) return lead;
+    var paras = r.paras || [];
+    var i, p;
+    for (i = 0; i < paras.length; i++) {
+      p = String(paras[i] || "").trim();
+      if (!p) continue;
+      if (isTimelineDump(p)) continue;
+      if (/feel free/i.test(p)) continue;
+      p = stripTimeline(p);
+      if (p) return p;
+    }
+    var raw = stripTimeline(r.letter || "");
+    if (!raw) return "";
+    return raw.split(/\n\n+/)[0].trim();
+  }
   function letterAllowed(issue, mail, letter) {
     if (!letter) return false;
     if (issue === "Paid to apply" || issue === "Write-off") return false;
@@ -106,8 +152,9 @@
       po: d.builder_order_number || "",
       due: d.dueDate || "",
       analysis: d.chase_analysis || "",
-      ledger: signedLedger(d.ledger || d.chase_timeline || []),
+      ledger: ensureToday(signedLedger(d.ledger || d.chase_timeline || []), open, Number(d.daysPastDue) || 0),
       letter: letter,
+      letterLead: d.chase_letter_lead || "",
       letterOk: letterAllowed(issue, d.mail || "not_sent", letter),
       subject: d.chase_subject || "",
       fromName: d.chase_from_name || d.chase_from || "",
@@ -117,7 +164,8 @@
       cc: d.chase_cc || [],
       last_sent: d.last_sent || d.chase_last_sent || "",
       attachments: d.chase_attachments || [],
-      paras: d.chase_letter_paras || []
+      paras: d.chase_letter_paras || [],
+      close: d.chase_letter_close || ""
     };
   }
 
@@ -222,7 +270,10 @@
     return r.issue === "Write-off" && !!r.analysis;
   }
   function showLetterCol(r) {
-    return r.letterOk || showEsme(r) || (r.attachments && r.attachments.length) || (r.mail === "awaiting" && !!r.letter);
+    if (showEsme(r)) return true;
+    if (r.letterOk) return true;
+    if (r.mail === "awaiting" && !!(r.letter || r.letterLead || (r.paras && r.paras.length))) return true;
+    return false;
   }
 
   function erowsHtml(list) {
@@ -233,13 +284,41 @@
         '<div class="what">' + esc(e.what) + "</div></div>";
     }).join("");
   }
-  function attsHtml(list) {
-    if (!list || !list.length) return "";
-    return '<div class="atts"><div class="sec-h">Attachments</div>' +
-      list.map(function (a) {
-        return '<div class="att"><b>' + esc(a.kind || "file") + "</b> " +
-          esc(a.label || a.subject || "") + "</div>";
-      }).join("") + "</div>";
+  function letterMeta(r) {
+    var to = (r.toName ? r.toName + " · " : "") + (r.toEmail || "");
+    var fr = (r.fromName ? r.fromName + " · " : "") + (r.fromEmail || "billings@coastaltestinglabs.com");
+    var cc = (r.cc || []).map(function (c) { return c.name || c.email; }).filter(Boolean).join(", ");
+    return '<div class="meta">' +
+      "<div><b>From</b> " + esc(fr) + "</div>" +
+      "<div><b>To</b> " + esc(to || "—") + "</div>" +
+      (r.subject ? "<div><b>Subj</b> " + esc(r.subject) + "</div>" : "") +
+      (cc ? "<div><b>CC</b> " + esc(cc) + "</div>" : "") +
+      "</div>";
+  }
+  function closeNeed(issue) {
+    if (issue === "No PO") return "a PO";
+    if (issue === "Unpaid complete") return "payment";
+    if (issue === "Leftover lab" || issue === "Quantity shortfall" || issue === "Amount off" || issue === "Notes error") return "an EPO";
+    return "payment";
+  }
+  function fallbackClose(r) {
+    return "If you have any questions or concerns about the work at " +
+      (r.addr || "") + ", the " + money(r.open) + " invoice, or " +
+      closeNeed(r.issue) + ", reply to this email. We will work it with you from there.";
+  }
+  function letterClose(r) {
+    var c = String(r.close || "").replace(/\s+/g, " ").trim();
+    if (c && !/feel free/i.test(c)) return c;
+    return fallbackClose(r);
+  }
+  function letterAskAndLedger(r) {
+    var standing = standingPara(r);
+    var closer = letterClose(r);
+    return (standing ? "<p>" + esc(standing) + "</p>" : "") +
+      '<div class="tl-h">Timeline of Events</div>' +
+      '<div class="tl">' + erowsHtml(r.ledger) + "</div>" +
+      (closer ? "<p>" + esc(closer) + "</p>" : "") +
+      '<div class="sig"><b>Billings</b><span>billings@coastaltestinglabs.com</span></div>';
   }
   function letterHtml(r) {
     if (showEsme(r)) {
@@ -251,21 +330,10 @@
         '<div class="sig"><b>William Knox</b><span>william@coastaltestinglabs.com</span></div>';
     }
     if (r.letterOk) {
-      var to = (r.toName ? r.toName + " · " : "") + (r.toEmail || "");
-      var fr = (r.fromName ? r.fromName + " · " : "") + (r.fromEmail || "billings@coastaltestinglabs.com");
-      var cc = (r.cc || []).map(function (c) { return c.name || c.email; }).filter(Boolean).join(", ");
-      var paras = (r.paras && r.paras.length) ? r.paras : [r.letter];
-      return '<span class="kind">Builder · not sent</span>' +
-        (r.subject ? "<p><b>" + esc(r.subject) + "</b></p>" : "") +
-        '<div class="meta"><b>From</b> ' + esc(fr) + "<br><b>To</b> " + esc(to || "—") +
-        (cc ? "<br><b>CC</b> " + esc(cc) : "") + "</div>" +
-        paras.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") +
-        '<div class="sig"><b>Billings</b><span>billings@coastaltestinglabs.com</span></div>';
+      return '<span class="kind">Builder · not sent</span>' + letterMeta(r) + letterAskAndLedger(r);
     }
-    if (r.mail === "awaiting" && r.letter) {
-      return '<span class="kind sent">Already sent</span>' +
-        '<div class="meta">Do not rewrite. Awaiting reply.</div>' +
-        "<p>" + esc(r.letter) + "</p>";
+    if (r.mail === "awaiting" && (r.letter || r.letterLead || (r.paras && r.paras.length))) {
+      return '<span class="kind sent">Already sent</span>' + letterMeta(r) + letterAskAndLedger(r);
     }
     return "";
   }
@@ -374,7 +442,6 @@
     var hasLed = r.ledger.length > 0;
     var hasLet = showLetterCol(r);
     var letterInner = letterHtml(r);
-    var atts = attsHtml(r.attachments);
     var analysis = r.analysis
       ? '<p class="note"><b>Analysis.</b> ' + esc(r.analysis) + "</p>"
       : '<p class="note missing"><b>No analysis.</b> Empty analysis stays Hold. Do not invent.</p>';
@@ -393,8 +460,8 @@
       cols.push('<div class="col"><div class="sec-h">Timeline of Events</div><div class="card">' + erowsHtml(r.ledger) + "</div></div>");
     }
     if (hasLet) {
-      var rlab = showEsme(r) ? "Esme note" : (r.letterOk ? "Letter" : (r.mail === "awaiting" && r.letter ? "Letter" : "Attachments"));
-      cols.push('<div class="col"><div class="sec-h">' + rlab + '</div><div class="card letter">' + letterInner + atts + "</div></div>");
+      var rlab = showEsme(r) ? "Esme note" : "Letter";
+      cols.push('<div class="col"><div class="sec-h">' + rlab + '</div><div class="card letter">' + letterInner + "</div></div>");
     }
     var cls = "case-body" + (cols.length === 1 ? " one" : "") + (cols.length === 0 ? " empty" : "");
     var body = '<div class="' + cls + '">' + cols.join("") + "</div>";

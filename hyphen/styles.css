@@ -506,6 +506,25 @@ tbody tr { cursor: pointer; }
   line-height: 1.45;
 }
 .letter p { margin: 0 0 10px; }
+.letter .meta b {
+  display: inline-block;
+  width: 52px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: var(--muted);
+}
+.letter .tl-h {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  margin: 14px 0 8px;
+}
+.letter .tl { margin: 0 -6px 12px; }
+.letter .tl .erow { margin: 0 6px; }
+.letter .help { margin: 4px 0 0; }
 .letter .sig { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
 .letter .sig b { display: block; font-weight: 650; letter-spacing: -0.02em; }
 .letter .sig span { display: block; font-size: 12px; }
