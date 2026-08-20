@@ -162,8 +162,8 @@ button { cursor: pointer; background: none; border: 0; }
   text-decoration: none;
 }
 .seg button:last-child, .seg a:last-child { border-right: 0; }
-.seg button.on { background: var(--navy); color: var(--cream); }
-.seg button.on:hover { background: var(--navy-2); }
+.seg button.on, .seg a.on { background: var(--navy); color: var(--cream); }
+.seg button.on:hover, .seg a.on:hover { background: var(--navy-2); }
 .seg button:disabled, .seg a.is-off {
   color: var(--muted-2);
   cursor: not-allowed;
@@ -436,6 +436,8 @@ button { cursor: pointer; background: none; border: 0; }
   border-top: 1px solid var(--line-2);
   background: #F3EFE8;
   box-shadow: 0 -8px 16px rgba(15,23,42,0.04);
+  position: relative;
+  z-index: 90;
 }
 .actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .act {
@@ -464,7 +466,8 @@ button { cursor: pointer; background: none; border: 0; }
 
 .toast {
   position: fixed;
-  bottom: 18px;
+  top: 16px;
+  bottom: auto;
   left: 50%;
   transform: translateX(-50%);
   background: var(--navy);
@@ -522,7 +525,7 @@ button { cursor: pointer; background: none; border: 0; }
       <img class="mark" src="../ctl-mark-on-white.png" width="22" height="22" alt="" />
       <div class="brand-text">
         <h1>Hyphen review</h1>
-        <p class="asof">Apply box · Paid to apply · Thursday 2026-08-20</p>
+        <p class="asof">Apply · Thursday 2026-08-20</p>
       </div>
     </div>
     <div class="counts">
@@ -536,7 +539,7 @@ button { cursor: pointer; background: none; border: 0; }
     <span class="seg-lab">Box</span>
     <div class="seg" role="tablist" aria-label="Hyphen boxes">
       <a href="../index.html">Chase</a>
-      <button type="button" class="on" aria-current="page">Apply <span class="n" id="apN">7</span></button>
+      <a class="on" href="index.html" aria-current="page">Apply</a>
       <a href="../writeoff/index.html">Write-off</a>
       <a href="../awaiting/index.html">Awaiting</a>
     </div>
@@ -566,9 +569,8 @@ button { cursor: pointer; background: none; border: 0; }
       <div class="c-foot">
         <div class="actions">
           <button class="act primary" id="btnDraft" type="button">Put in Drafts</button>
-          <button class="act ghost" id="btnSend" type="button" disabled title="Send stays off until the live queue">Send stays off until the live queue</button>
         </div>
-        <p class="act-note">We do not apply cash here. This only drafts the research note. Does not call /api/ready. Does not send.</p>
+        <p class="act-note">We do not apply cash here. Put in Drafts drafts the william@ research note to Esmeralda. Not a builder letter. Does not send. Nothing posts in QBO.</p>
       </div>
     </aside>
   </div>
@@ -668,6 +670,7 @@ button { cursor: pointer; background: none; border: 0; }
   }
 ]</script>
 <script src="../data.js"></script>
+<script src="/data.js"></script>
 <script>
 (function () {
   "use strict";
@@ -701,6 +704,28 @@ button { cursor: pointer; background: none; border: 0; }
     if (m === "awaiting") return "Awaiting";
     if (m === "not_sent" || !m) return "Not sent";
     return String(m);
+  }
+
+  function boxCount(kind) {
+    var src = (window.DATA || []);
+    return src.filter(function (d) {
+      var iss = lockIssue(d.issue, d.docNumber);
+      if (kind === "chase") return (d.mail || "") !== "awaiting" && iss !== "Paid to apply" && iss !== "Write-off";
+      if (kind === "apply") return iss === "Paid to apply";
+      if (kind === "writeoff") return iss === "Write-off" && (d.mail || "") !== "awaiting";
+      if (kind === "awaiting") return (d.mail || "") === "awaiting";
+      return false;
+    }).length;
+  }
+  function paintBoxCounts() {
+    function set(id, n) { var el = $(id); if (el) el.textContent = String(n); }
+    set("nChase", boxCount("chase"));
+    set("nApply", boxCount("apply"));
+    set("apN", boxCount("apply"));
+    set("nWrite", boxCount("writeoff"));
+    set("woN", boxCount("writeoff"));
+    set("nAwait", boxCount("awaiting"));
+    set("awN", boxCount("awaiting"));
   }
   if (typeof window.DATA !== "undefined" && window.DATA && window.DATA.length) {
     var liveApply = window.DATA.filter(function (d) {
@@ -879,17 +904,14 @@ button { cursor: pointer; background: none; border: 0; }
     if (!selectedChecks().length) return;
     drafted = true;
     renderLetter();
-    toast("Mock only. Would drop a william@ draft to Esmeralda. Nothing was sent.");
+    toast("Put in Drafts.");
   });
 
-  $("btnSend").addEventListener("click", function (e) {
-    e.preventDefault();
-  });
 
   $("hdrInv").textContent = String(rows.length);
   $("hdrOpen").textContent = money(rows.reduce(function (s, r) { return s + Number(r.balance || 0); }, 0));
   $("hdrChecks").textContent = String(list.length);
-  $("apN").textContent = String(rows.length);
+  paintBoxCounts();
   render();
 })();
 </script>
