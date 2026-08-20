@@ -644,7 +644,6 @@ tbody tr { cursor: pointer; }
   </div>
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="../data.js"></script>
 <script>
 (function () {
   "use strict";
@@ -753,30 +752,6 @@ tbody tr { cursor: pointer; }
       sent: "Gary, you marked PO 61457910-000 complete on April 7. Hyphen still has no payment. Invoice 179593 is $1,044 for 3071 Huntersville Dr. Please release payment."
     }
   ];
-
-  function ymdOf(s) {
-    var m = String(s || "").match(/(\d{4}-\d{2}-\d{2})/);
-    return m ? m[1] : "";
-  }
-  if (window.DATA && window.DATA.length) {
-    ROWS = window.DATA.filter(function (d) { return d.mail === "awaiting"; }).map(function (d) {
-      var iss = d.issue || "";
-      if (!LOCKED[iss]) iss = "";
-      return {
-        id: d.docNumber,
-        community: d.customer || "",
-        addr: d.service_address || "",
-        issue: iss,
-        last_sent: ymdOf(d.last_sent || d.chase_last_sent),
-        open: Number(d.balance != null ? d.balance : d.open_balance) || 0,
-        parent: d.parent || "",
-        court: "theirs",
-        to: (d.chase_to_name || d.chase_to || ""),
-        analysis: d.chase_analysis || "",
-        sent: d.chase_letter_lead || ""
-      };
-    });
-  }
 
   function ymd(s) {
     var m = String(s).match(/(\d{4})-(\d{2})-(\d{2})/);

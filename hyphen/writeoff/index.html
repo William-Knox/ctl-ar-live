@@ -576,7 +576,6 @@ button { cursor: pointer; background: none; border: 0; }
   </div>
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="../data.js"></script>
 <script>
 (function () {
   "use strict";
@@ -619,23 +618,6 @@ button { cursor: pointer; background: none; border: 0; }
       checked0: false
     }
   ];
-
-  if (window.DATA && window.DATA.length) {
-    ROWS = window.DATA.filter(function (d) {
-      return d.issue === "Write-off" && (d.mail === "not_sent" || !d.mail);
-    }).map(function (d) {
-      return {
-        id: d.docNumber,
-        parent: d.parent || "",
-        community: d.customer || "",
-        addr: d.service_address || "",
-        open: Number(d.balance != null ? d.balance : d.open_balance) || 0,
-        analysis: d.chase_analysis || d.write_off_reason || d.chase_letter_lead || "",
-        checked0: !!(d.chase_analysis || d.write_off_reason),
-        href: "case.html"
-      };
-    });
-  }
 
   var selected = {};
   var mail = {};

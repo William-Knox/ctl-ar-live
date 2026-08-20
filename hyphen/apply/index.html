@@ -574,7 +574,6 @@ button { cursor: pointer; background: none; border: 0; }
   </div>
 </div>
 <div class="toast" id="toast" role="status"></div>
-<script src="../data.js"></script>
 <script type="application/json" id="rows-json">[
   {
     "docNumber": "CTL-26-00520",
@@ -670,29 +669,6 @@ button { cursor: pointer; background: none; border: 0; }
 ]</script>
 <script>
 (function () {
-  var APPLY_LIVE_ROWS = null;
-
-  if (window.DATA && window.DATA.length) {
-    var liveApply = window.DATA.filter(function (d) { return d.issue === "Paid to apply"; }).map(function (d) {
-      return {
-        docNumber: d.docNumber,
-        address: d.service_address || "",
-        customer: d.customer || "",
-        parent: d.parent || "",
-        balance: Number(d.balance != null ? d.balance : d.open_balance) || 0,
-        totalAmt: Number(d.totalAmt) || 0,
-        po: d.builder_order_number || "",
-        check: d.check_number || "",
-        check_date: d.check_date || "",
-        check_amount: d.check_amount || "",
-        days: Number(d.daysPastDue) || 0
-      };
-    });
-    if (liveApply.length) {
-      APPLY_LIVE_ROWS = liveApply;
-    }
-  }
-
   "use strict";
   var LABELS = {
     "MHI HOMES": "Coventry",
@@ -701,7 +677,6 @@ button { cursor: pointer; background: none; border: 0; }
   };
   var CHECK_ORDER = ["00068971", "542086", "1325381"];
   var rows = JSON.parse(document.getElementById("rows-json").textContent);
-  if (APPLY_LIVE_ROWS && APPLY_LIVE_ROWS.length) rows = APPLY_LIVE_ROWS;
   var checks = {};
   rows.forEach(function (r) {
     var k = String(r.check);

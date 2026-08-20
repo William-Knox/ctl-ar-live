@@ -834,7 +834,6 @@ tbody tr { cursor: pointer; }
 </aside>
 <div class="toast" id="toast" role="status"></div>
 
-<script src="data.js"></script>
 <script>
 (function () {
   "use strict";
@@ -855,43 +854,6 @@ tbody tr { cursor: pointer; }
     { id:"0609-172393", days:35, open:60, billed:410, community:"Escondido", addr:"42628 Mystery Lane", parent:"MHI HOMES", hyphen:"short", issue:"Amount off", mail:"not_sent", packet:"hold", leftover:false, leftoverHuman:false, po:"91K5ESC4_005246", due:"2026-07-15", analysis:"Hyphen notes are empty, so notes are clean. Check 00065328 paid $350 of billed $410; leftover $60. Mail and notes do not name a lab or lift they must issue. Tree step 6 is Amount off." },
     { id:"0731-174161", days:16, open:1188, billed:1188, community:"Westland Ranch", addr:"4206 White Springs Lane", parent:"K. Hovnanian of Houston", hyphen:"unpaid", issue:"Unpaid complete", mail:"not_sent", packet:"hold", leftover:false, leftoverHuman:false, po:"7118095-000", due:"2026-08-03", analysis:"Builder marked PO 7118095-000 complete on 2026-08-06. Wednesday payments have no check on this SON and no paid visit at 4206 White Springs (4221/4249 paid on other POs). Invoice $1,188 matches the PO face." }
   ];
-
-  var LOCKED_ISSUE = {"Leftover lab":1,"Quantity shortfall":1,"Notes error":1,"Amount off":1,"Write-off":1,"Unpaid complete":1,"No PO":1,"Paid to apply":1};
-  function hyphenKey(s) {
-    s = String(s || "").toLowerCase();
-    if (s.indexOf("short") >= 0) return "short";
-    if (s.indexOf("unpaid") >= 0 || s.indexOf("received") >= 0) return "unpaid";
-    if (s.indexOf("not") >= 0) return "notfound";
-    if (s.indexOf("paid") >= 0 || s.indexOf("found") >= 0) return "found";
-    return "";
-  }
-  function mapChase(d) {
-    var iss = d.issue || "";
-    if (!LOCKED_ISSUE[iss]) iss = "";
-    var leftover = iss === "Leftover lab";
-    return {
-      id: d.docNumber,
-      days: Number(d.daysPastDue) || 0,
-      open: Number(d.balance != null ? d.balance : d.open_balance) || 0,
-      billed: Number(d.totalAmt) || 0,
-      community: d.customer || "",
-      addr: d.service_address || "",
-      parent: d.parent || "",
-      hyphen: hyphenKey(d.hyphen_status),
-      issue: iss,
-      mail: d.mail || "not_sent",
-      packet: d.packet || "",
-      leftover: leftover,
-      leftoverHuman: false,
-      href: iss === "Write-off" ? "writeoff/case.html" : (leftover ? "leftover-case.html" : ""),
-      po: d.builder_order_number || d.supplier_order_number || "",
-      due: d.dueDate || "",
-      analysis: d.chase_analysis || d.researched_notes || d.chase_letter_lead || ""
-    };
-  }
-  if (window.DATA && window.DATA.length) {
-    ROWS = window.DATA.map(mapChase);
-  }
 
   var CHASE = { "Leftover lab":1, "Quantity shortfall":1, "Notes error":1, "Amount off":1, "Write-off":1, "Unpaid complete":1, "No PO":1, "Paid to apply":1 };
   var HY_LAB = { short:"Short", unpaid:"Unpaid", notfound:"Not found", paid:"Paid", found:"Found" };
@@ -1004,7 +966,7 @@ tbody tr { cursor: pointer; }
       var s = th.querySelector(".s");
       if (s) s.textContent = on ? (state.sortDir === "desc" ? "▼" : "▲") : "";
     });
-    if (window.DATA && window.DATA.length) { var _ln = ROWS.filter(function(r){return r.leftover;}).length; var _n = $("loChip").querySelector(".n"); if (_n) _n.textContent = String(_ln); } $("loChip").classList.toggle("on", state.leftover);
+    $("loChip").classList.toggle("on", state.leftover);
     $("loChip").setAttribute("aria-pressed", state.leftover ? "true" : "false");
     document.querySelectorAll(".view-chip").forEach(function (b) {
       b.classList.toggle("on", b.getAttribute("data-view") === state.view);
