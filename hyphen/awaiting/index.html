@@ -700,7 +700,7 @@ tbody tr { cursor: pointer; }
         open: Number(d.balance != null ? d.balance : d.open_balance) || 0,
         parent: d.parent || "",
         court: "theirs",
-        to: (d.chase_to_name || d.chase_to || "not recorded"),
+        to: (d.chase_to_name || d.chase_to || ""),
         analysis: d.chase_analysis || "",
         sent: d.chase_letter || d.chase_letter_lead || "",
         due: false
