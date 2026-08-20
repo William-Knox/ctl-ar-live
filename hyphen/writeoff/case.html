@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F8F6F2" />
+<title>Hyphen review · Write-off case mock</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --cream: #F8F6F2;
+  --cream-2: #EFEDE7;
+  --cream-3: #E7E3DB;
+  --paper: #FFFdf8;
+  --navy: #0F172A;
+  --navy-2: #1E293B;
+  --ink: #161410;
+  --muted: #6F6A62;
+  --muted-2: #8A847A;
+  --line: #E4E0D8;
+  --line-2: #D6D1C7;
+  --clay: #C2410C;
+  --clay-soft: #F3E6DE;
+  --found-bg: #E3EBE5;
+  --found-fg: #3A5648;
+  --not-bg: #F3E6DE;
+  --not-fg: #B45309;
+  --header-h: 46px;
+  --toolbar-h: 38px;
+  --thead-h: 30px;
+  --row-h: 42px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  background: var(--cream);
+  color: var(--navy);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "tnum";
+  -webkit-font-smoothing: antialiased;
+}
+body { overflow: hidden; }
+button, input { font-family: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; }
+::selection { background: #E8D5C8; }
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.hdr {
+  height: var(--header-h);
+  flex: 0 0 var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 0 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.mark {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  object-fit: contain;
+}
+.brand-text { min-width: 0; }
+.brand-text h1 {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.mock-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 16px;
+  margin-left: 7px;
+  padding: 0 6px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  vertical-align: 2px;
+}
+.asof {
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.counts { display: flex; align-items: baseline; gap: 14px; flex-shrink: 0; }
+.count { text-align: right; }
+.count b {
+  display: block;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.count span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.bar {
+  height: var(--toolbar-h);
+  flex: 0 0 var(--toolbar-h);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  white-space: nowrap;
+}
+.seg-lab {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 2px 0 6px;
+}
+.seg {
+  display: inline-flex;
+  height: 26px;
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.seg button, .seg a {
+  height: 26px;
+  padding: 0 9px;
+  font-size: 11.5px;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-right: 1px solid var(--line-2);
+  text-decoration: none;
+}
+.seg button:last-child, .seg a:last-child { border-right: 0; }
+.seg button.on, .seg a.on { background: var(--navy); color: var(--cream); }
+.seg button:disabled, .seg a.is-off {
+  color: var(--muted-2);
+  cursor: not-allowed;
+  background: var(--cream-2);
+}
+.seg .n {
+  font-variant-numeric: tabular-nums;
+  font-size: 10.5px;
+  font-weight: 650;
+  opacity: 0.72;
+}
+
+.mail-note {
+  flex: 0 0 auto;
+  padding: 7px 14px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--navy);
+  background: #E4E8F0;
+  border-bottom: 1px solid var(--line);
+  letter-spacing: -0.01em;
+}
+.mail-note b { font-weight: 650; }
+
+.stage {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  background: var(--paper);
+}
+.wrap {
+  flex: 0 0 420px;
+  min-width: 0;
+  overflow: auto;
+  background: var(--paper);
+  border-right: 1px solid var(--line);
+}
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: -0.011em;
+}
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  height: var(--thead-h);
+  background: var(--cream-2);
+  border-bottom: 1px solid var(--line-2);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  padding: 0 8px;
+  white-space: nowrap;
+}
+thead th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+td {
+  height: var(--row-h);
+  padding: 0 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--paper);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+tbody tr.alt td { background: #FBF9F5; }
+tbody tr:hover td { background: #F3EFE8; }
+tbody tr.sel td { background: #EDE6DC; }
+tbody tr.sel td:first-child { box-shadow: inset 2px 0 0 var(--navy); }
+tbody tr { cursor: pointer; }
+.dpd { font-variant-numeric: tabular-nums; font-weight: 600; }
+.dpd.late { color: var(--clay); }
+.inv {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.addr { color: var(--navy-2); }
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.pill.why {
+  background: var(--cream);
+  color: var(--navy);
+  border: 1px solid #C9C3B8;
+}
+.pill.not_sent { background: transparent; color: var(--muted); border: 1px dashed var(--line-2); }
+.pill.awaiting {
+  background: var(--cream-2);
+  color: var(--navy);
+  border: 1px solid var(--line-2);
+}
+.w-dpd { width: 52px; }
+.w-inv { width: 108px; }
+.w-why { width: 92px; }
+.w-mail { width: 78px; }
+
+.case {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  background: var(--cream);
+  flex-direction: column;
+  overflow: hidden;
+}
+.case-top {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+}
+.case-id { font-size: 18px; font-weight: 650; letter-spacing: -0.035em; }
+.case-sub { margin-top: 3px; font-size: 12.5px; font-weight: 500; color: var(--navy-2); }
+.case-sub .dpd { font-weight: 650; }
+.case-nav { display: flex; gap: 6px; flex-shrink: 0; }
+.case-nav button {
+  min-width: 40px;
+  min-height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--navy);
+}
+.case-nav button:hover { border-color: #C4BDB2; }
+.case-nav button:disabled { opacity: 0.38; cursor: default; }
+.case-nav .x { min-width: 36px; color: var(--muted); }
+
+.status {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  padding: 12px 16px 0;
+}
+.schip {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--paper);
+  min-height: 54px;
+}
+.schip lab {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.schip val {
+  display: block;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+.schip.ok { background: var(--found-bg); border-color: transparent; }
+.schip.ok val { color: var(--found-fg); }
+.schip.hold { background: var(--cream-2); border-color: transparent; }
+
+.note {
+  margin: 12px 16px 0;
+  padding: 9px 11px;
+  background: var(--cream-2);
+  border-radius: 7px;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.note b { font-weight: 650; color: var(--navy); }
+
+.pack-strip {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 16px 0;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 650;
+  background: var(--found-bg);
+  color: var(--found-fg);
+  border: 0;
+}
+.chip.warn {
+  background: var(--cream-2);
+  color: var(--navy-2);
+}
+
+.case-body {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 12px;
+  padding: 12px 16px 0;
+  overflow: hidden;
+}
+.col {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.sec-h {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 2px 8px;
+}
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: auto;
+  flex: 1;
+}
+
+.erow {
+  display: grid;
+  grid-template-columns: 86px 78px 1fr;
+  gap: 6px 10px;
+  align-items: start;
+  padding: 8px 12px;
+  border-left: 2px solid var(--navy);
+  margin: 0 10px;
+}
+.erow + .erow { margin-top: 2px; }
+.erow.today {
+  background: var(--cream);
+  border-radius: 0 6px 6px 0;
+}
+.erow .when { font-size: 11px; font-weight: 650; letter-spacing: -0.01em; }
+.erow .lab { font-size: 11.5px; font-weight: 700; }
+.erow .what { font-size: 12px; font-weight: 500; color: var(--ink); line-height: 1.4; }
+
+.letter {
+  padding: 14px 16px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.011em;
+  color: var(--ink);
+}
+.letter .kind {
+  display: inline-flex;
+  height: 18px;
+  padding: 0 7px;
+  margin-bottom: 10px;
+  border: 1px solid #C9C3B8;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.letter .kind.esme {
+  border-color: var(--found-fg);
+  background: var(--found-bg);
+  color: var(--found-fg);
+}
+.letter .meta {
+  font-size: 11.5px;
+  font-weight: 550;
+  color: var(--navy-2);
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+.letter p { margin: 0 0 10px; }
+.letter .sig { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+.letter .sig b { display: block; font-weight: 650; letter-spacing: -0.02em; }
+.letter .sig span { display: block; font-size: 12px; }
+
+.acts {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px 14px;
+  border-top: 1px solid var(--line-2);
+  margin-top: 12px;
+  background: #F3EFE8;
+  box-shadow: 0 -8px 16px rgba(15,23,42,0.04);
+}
+.act {
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  cursor: pointer;
+}
+.act.primary { background: var(--navy); border-color: var(--navy); color: var(--cream); }
+.act.primary:hover { background: var(--navy-2); }
+.act.ghost:hover { border-color: #C4BDB2; background: #FFFdf8; }
+.act.pressed,
+.act.pressed:hover {
+  background: var(--cream-2);
+  border-color: var(--line);
+  color: var(--muted);
+  cursor: default;
+}
+.act:disabled { opacity: 0.45; cursor: default; }
+.act-note { font-size: 11.5px; font-weight: 500; color: var(--muted); margin-left: 4px; }
+
+.toast {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy);
+  color: var(--cream);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  z-index: 80;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.18);
+  max-width: min(520px, 92vw);
+  text-align: center;
+}
+.toast.on { opacity: 1; }
+
+@media (max-width: 860px) {
+  html, body { overflow: auto; }
+  .app { height: auto; min-height: 100%; }
+  .hdr {
+    height: auto;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    padding: calc(10px + env(safe-area-inset-top)) 12px 8px;
+    gap: 8px;
+  }
+  .asof { white-space: normal; }
+  .counts { width: 100%; justify-content: space-between; }
+  .bar { height: auto; flex-wrap: wrap; white-space: normal; padding: 8px 10px; }
+  .seg { flex-wrap: wrap; height: auto; width: 100%; }
+  .seg button, .seg a { min-height: 36px; height: 36px; flex: 1 1 auto; }
+  .stage { flex-direction: column; }
+  .wrap {
+    flex: 0 0 auto;
+    max-height: 28vh;
+    width: 100%;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .status { grid-template-columns: 1fr 1fr; }
+  .case-body { grid-template-columns: 1fr; overflow: auto; }
+  .erow { grid-template-columns: 1fr 1fr; }
+  .acts .act { flex: 1 1 auto; min-width: 120px; min-height: 40px; height: auto; }
+}
+</style>
+</head>
+<body>
+<div class="app open" id="app">
+  <header class="hdr">
+    <div class="brand">
+      <img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" />
+      <div class="brand-text">
+        <h1>Hyphen review <span class="mock-tag">Mock</span></h1>
+        <p class="asof">Write-off case · 0611-172568 · mock only, not live</p>
+      </div>
+    </div>
+    <div class="counts">
+      <div class="count"><b>1</b><span>open case</span></div>
+      <div class="count"><b>$104</b><span>leftover</span></div>
+    </div>
+  </header>
+
+  <div class="bar">
+    <span class="seg-lab">Box</span>
+    <div class="seg" role="tablist" aria-label="Hyphen boxes">
+      <a href="../index.html">Chase</a>
+      <a href="../apply/index.html">Apply</a>
+      <a class="on" href="index.html" aria-current="page">Write-off <span class="n">4</span></a>
+      <a href="../awaiting/index.html">Awaiting</a>
+    </div>
+  </div>
+
+  <div class="mail-note">
+    <b>Mock only.</b> Not live. Write off stamps Issue Write-off and turns the packet into an Esme note. No builder letter. No EPO. We do not write off in QBO.
+  </div>
+
+  <div class="stage">
+    <div class="wrap" id="list" aria-label="Queue">
+      <table id="grid">
+        <thead>
+          <tr>
+            <th class="num w-dpd">Days</th>
+            <th class="w-inv">Invoice #</th>
+            <th>Address</th>
+            <th class="w-why">Issue</th>
+            <th class="w-mail">Mail</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <section class="case on" id="case" aria-label="Invoice case"></section>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script>
+(function () {
+  "use strict";
+  var ROWS = [
+    {
+      id: "0611-172568",
+      days: 34,
+      addr: "19607 Paseo Corso Lane",
+      parent: "Toll",
+      community: "Dunham Pointe",
+      open: 104,
+      billed: 520,
+      issue0: "billed-wrong",
+      mail: "Not sent",
+      canStamp: true,
+      analysis: "Found: Hyphen PO 25444638-000 face $416; Toll check 527809 $416 applied 7/10. QBO billed $520, $104 still open. Not found: no second visit — leftover is billed wrong (Dominus named Write-off). Recommend write-off of $104. No EPO. Not a builder chase.",
+      found: "Hyphen PO 25444638-000 face $416. Toll check 527809 $416 applied 7/10. QBO billed $520; $104 leftover.",
+      notFound: "No second visit on file. Leftover is billed wrong — same extra-density pattern as the $52 Toll siblings, doubled. Dominus named Write-off.",
+      rec: "Write off $104 internally. No EPO. Do not chase Toll. We do not write off in QBO from this screen.",
+      ledger: [
+        { when: "6/10 2:16p", lab: "Called in", what: "Nicole Love to Ryan: 19607 Paseo Corso Lane – 2 Lift" },
+        { when: "6/12 3:49p", lab: "Report", what: "Maria sent report" },
+        { when: "6/15", lab: "Invoiced", what: "QBO 0611-172568 $520 issued; $104 still open" },
+        { when: "7/8", lab: "Completed", what: "Hunter Ustynik marked the order complete." },
+        { when: "7/10", lab: "Paid", what: "Toll check 527809 $416 applied. PO face $416." },
+        { when: "Today", lab: "Today", what: "$104 leftover still open, 34 days past due. Billed wrong.", today: true }
+      ]
+    },
+    {
+      id: "0609-172331",
+      days: 40,
+      addr: "217 Violet Crown",
+      parent: "Lennar",
+      community: "The Trails",
+      open: 783,
+      billed: 783,
+      issue0: "Write-off",
+      mail: "Not sent",
+      canStamp: false,
+      stamped0: true,
+      analysis: "Found: first visit at 217 Violet Crown paid as 0526-171938 (Angel 5/26 asked 3 lifts). This invoice is the 6/9 second visit. Not found: no Ryan/Joe email asking for that June 9 callout — one of two client asks missing. 3 AM stamped Write-off. Internal only. No EPO.",
+      found: "First visit paid as 0526-171938. Angel 5/26 asked 3 lifts at 217 Violet Crown.",
+      notFound: "No Ryan/Joe email requesting the June 9 visit. One of two client asks is missing.",
+      rec: "Write-off already stamped (missing-ask 2nd-callout). Esme note, not a builder letter. No EPO.",
+      ledger: [
+        { when: "5/26", lab: "Called in", what: "Angel Gonzalez: 217 Violet Crown 3 lifts + 28624 Escarpment" },
+        { when: "5/26", lab: "Paid", what: "First visit billed/paid as 0526-171938" },
+        { when: "6/9", lab: "Invoiced", what: "QBO 0609-172331 $783 — second visit, 3 lifts" },
+        { when: "Today", lab: "Today", what: "Missing-ask 2nd-callout. 3 AM stamped Write-off.", today: true }
+      ]
+    },
+    {
+      id: "0515-171663",
+      days: 65,
+      addr: "31837 Pecan Cottage",
+      parent: "MHI HOMES",
+      community: "MHI HOMES",
+      open: 350,
+      billed: 350,
+      issue0: "Write-off",
+      mail: "Not sent",
+      canStamp: false,
+      stamped0: true,
+      analysis: "Same pad twice. Jake Fisher 5/6 asked Ryan/Joe (paid 0507-171335 / 91KMDI18_006326 check 00060133 6/1 $350). Open 0515-171663 is a later report 260515-64785. No second CLIENT call-in .eml. Two Maria report emails are not two call-ins. Internal only. No EPO.",
+      found: "Jake Fisher 5/6 10:35 AM CT listed 31837 Pecan Cottage. First visit paid as 0507-171335 / PO 91KMDI18_006326 check 00060133 6/1 $350.",
+      notFound: "No second CLIENT call-in .eml to Ryan/Joe. Maria reports 5/8, 5/13, and 5/18 are not two asks.",
+      rec: "Write-off already stamped (missing-ask 2nd-callout). Esme note, not a builder letter. No EPO.",
+      ledger: [
+        { when: "5/6 10:35a", lab: "Called in", what: "Jake Fisher: schedule 31837 Pecan Cottage (1st call; this visit paid as 0507-171335)" },
+        { when: "5/7", lab: "Paid", what: "Same-address 0507-171335 $350 paid 6/1 on 91KMDI18_006326 check 00060133" },
+        { when: "5/8 4:14p", lab: "Report", what: "Maria sent first report" },
+        { when: "5/13 4:00p", lab: "Report", what: "Maria resent report" },
+        { when: "5/15", lab: "Invoiced", what: "QBO 0515-171663 $350; memo 260515-64785" },
+        { when: "Today", lab: "Today", what: "Missing the second named ask. 3 AM stamped Write-off.", today: true }
+      ]
+    },
+    {
+      id: "0515-171664",
+      days: 65,
+      addr: "32435 Poplar Grove",
+      parent: "MHI",
+      community: "Poplar Grove",
+      open: 350,
+      billed: 350,
+      issue0: "Write-off",
+      mail: "Not sent",
+      canStamp: false,
+      stamped0: true,
+      analysis: "",
+      found: "",
+      notFound: "",
+      rec: "",
+      ledger: [
+        { when: "5/15", lab: "Invoiced", what: "QBO 0515-171664 $350 open. Issue Write-off." },
+        { when: "Today", lab: "Today", what: "No 2–3 sentence analysis on file. Packet Hold. Cannot go on the Esme note.", today: true }
+      ]
+    }
+  ];
+
+  var selected = "0611-172568";
+  var stamped = {};
+  ROWS.forEach(function (r) { stamped[r.id] = !!r.stamped0; });
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+  function money(n) {
+    return "$" + Math.round(Number(n) || 0).toLocaleString("en-US");
+  }
+  function toast(msg) {
+    var el = $("toast");
+    el.textContent = msg;
+    el.classList.add("on");
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function () { el.classList.remove("on"); }, 3200);
+  }
+  function row(id) {
+    return ROWS.filter(function (r) { return r.id === id; })[0];
+  }
+  function issueOf(r) { return stamped[r.id] ? "Write-off" : r.issue0; }
+
+  function renderList() {
+    $("tbody").innerHTML = ROWS.map(function (r, i) {
+      var iss = issueOf(r);
+      return '<tr class="' + (i % 2 ? "alt" : "") + (r.id === selected ? " sel" : "") + '" data-id="' + esc(r.id) + '">' +
+        '<td class="num"><span class="dpd late">' + r.days + "</span></td>" +
+        '<td class="inv">' + esc(r.id) + "</td>" +
+        '<td class="addr">' + esc(r.addr) + "</td>" +
+        '<td><span class="pill why">' + esc(iss) + "</span></td>" +
+        '<td><span class="pill not_sent">' + esc(r.mail) + "</span></td>" +
+        "</tr>";
+    }).join("");
+  }
+
+  function renderCase() {
+    var r = row(selected);
+    var idx = ROWS.indexOf(r);
+    var done = stamped[r.id];
+    var issue = issueOf(r);
+    var pktOk = done && r.analysis;
+    var pkt = !r.analysis ? "Hold" : (done ? "Esme · not sent" : "Hold");
+    var next = !r.analysis ? "Hold — no analysis" : (done ? "Esme note" : "Write off");
+    var chips;
+    if (!r.analysis) {
+      chips = '<span class="chip warn">Analysis missing</span><span class="chip warn">Packet Hold</span><span class="chip warn">Not on Esme note</span>';
+    } else if (done) {
+      chips = '<span class="chip">Issue Write-off</span><span class="chip">Esme · not sent</span><span class="chip">Not chase</span>';
+    } else {
+      chips = '<span class="chip">Hyphen found</span><span class="chip">PO on file</span><span class="chip warn">Still chase until stamped</span>';
+    }
+    var note;
+    if (!r.analysis) {
+      note = "<b>No analysis.</b> Empty analysis stays Hold. This row cannot go on the william@ note. Do not invent one.";
+    } else {
+      note = "<b>Found vs not-found.</b> " + esc(r.analysis);
+    }
+    var letter;
+    if (!r.analysis) {
+      letter =
+        '<span class="kind">Internal · Hold</span>' +
+        '<div class="meta">From william@ · To Esmeralda · not a builder letter</div>' +
+        '<p>No 2–3 sentence analysis on file (found vs not-found vs recommendation). Packet stays Hold. This invoice does not go on the Esme note.</p>';
+    } else if (done) {
+      letter =
+        '<span class="kind esme">Esme · not sent</span>' +
+        '<div class="meta"><b>From</b> William Knox · william@coastaltestinglabs.com<br><b>To</b> Esmeralda · esmeralda@coastaltestinglabs.com<br>No builder CC. Not a builder letter.</div>' +
+        "<p>" + esc(r.id) + " · " + esc(r.parent) + " · " + esc(r.community) + " · " + money(r.open) + " open</p>" +
+        "<p>" + esc(r.found) + "</p>" +
+        "<p>" + esc(r.notFound) + "</p>" +
+        "<p>" + esc(r.rec) + "</p>" +
+        '<div class="sig"><b>William Knox</b><span>william@coastaltestinglabs.com</span></div>';
+    } else {
+      letter =
+        '<span class="kind">Internal · analysis</span>' +
+        '<div class="meta">Not a builder letter. No EPO. No help-close. Stamp Write off to make this an Esme note.</div>' +
+        "<p><b>Found.</b> " + esc(r.found) + "</p>" +
+        "<p><b>Not found.</b> " + esc(r.notFound) + "</p>" +
+        "<p><b>Recommend.</b> " + esc(r.rec) + "</p>" +
+        '<div class="sig"><b>William Knox</b><span>william@coastaltestinglabs.com</span></div>';
+    }
+    var woBtn;
+    if (done) {
+      woBtn = '<button class="act pressed" type="button" id="cWrite" aria-pressed="true">Write-off</button>';
+    } else if (!r.canStamp || !r.analysis) {
+      woBtn = '<button class="act primary" type="button" id="cWrite" disabled title="Needs analysis, or already in the bucket">Write off</button>';
+    } else {
+      woBtn = '<button class="act primary" type="button" id="cWrite">Write off</button>';
+    }
+    var woNote = done
+      ? "Stamped. Issue Write-off. Packet is an Esme note, not a builder letter. Row left chase. We do not write off in QBO."
+      : (r.analysis
+        ? "Write off stamps Issue Write-off and turns the packet into an Esme note. Compact — not the builder Draft split."
+        : "Hold. Empty analysis cannot be stamped onto the Esme note.");
+
+    $("case").innerHTML =
+      '<div class="case-top"><div>' +
+      '<div class="case-id">' + esc(r.id) + " · " + esc(r.addr) + "</div>" +
+      '<div class="case-sub">' + esc(r.parent) + " · " + esc(r.community) + " · " + money(r.open) + " open · " +
+      '<span class="dpd late">' + r.days + "</span> days past due</div></div>" +
+      '<div class="case-nav">' +
+      '<button type="button" id="casePrev"' + (idx <= 0 ? " disabled" : "") + ">Prev</button>" +
+      '<button type="button" id="caseNext"' + (idx >= ROWS.length - 1 ? " disabled" : "") + ">Next</button>" +
+      '<button type="button" class="x" id="caseClose" aria-label="Close">✕</button>' +
+      "</div></div>" +
+      '<div class="status">' +
+      '<div class="schip' + (done ? " ok" : "") + '"><lab>Issue</lab><val>' + esc(issue) + "</val></div>" +
+      '<div class="schip ' + (pktOk ? "ok" : "hold") + '"><lab>Packet</lab><val>' + esc(pkt) + "</val></div>" +
+      '<div class="schip"><lab>Mail</lab><val>' + esc(r.mail) + "</val></div>" +
+      '<div class="schip"><lab>Next</lab><val>' + esc(next) + "</val></div></div>" +
+      '<p class="note">' + note + "</p>" +
+      '<div class="pack-strip">' + chips + "</div>" +
+      '<div class="case-body"><div class="col"><div class="sec-h">Ledger</div><div class="card">' +
+      r.ledger.map(function (e) {
+        return '<div class="erow' + (e.today ? " today" : "") + '">' +
+          '<div class="when">' + esc(e.when) + "</div>" +
+          '<div class="lab">' + esc(e.lab) + "</div>" +
+          '<div class="what">' + esc(e.what) + "</div></div>";
+      }).join("") +
+      '</div></div><div class="col"><div class="sec-h">' + (done ? "Esme note" : "Analysis") + '</div><div class="card letter">' +
+      letter + "</div></div></div>" +
+      '<div class="acts">' +
+      woBtn +
+      '<button class="act ghost" type="button" id="cHold">Hold</button>' +
+      '<button class="act ghost" type="button" id="cNextTicket">Next ticket</button>' +
+      '<p class="act-note" id="caseNote">' + esc(woNote) + "</p>" +
+      "</div>";
+
+    $("casePrev").addEventListener("click", function () { if (idx > 0) { selected = ROWS[idx - 1].id; render(); } });
+    $("caseNext").addEventListener("click", function () { if (idx < ROWS.length - 1) { selected = ROWS[idx + 1].id; render(); } });
+    $("caseClose").addEventListener("click", function () {
+      toast("Mock only. Close would return to the Write-off bucket.");
+    });
+    $("cWrite").addEventListener("click", function () {
+      if (done || !r.canStamp || !r.analysis) return;
+      stamped[r.id] = true;
+      render();
+      toast("Mock only. Stamped Issue Write-off. Packet is now an Esme note. Left chase. Nothing posted in QBO.");
+    });
+    $("cHold").addEventListener("click", function () {
+      toast("Mock only. Hold. Stays out of chase until the Esme note is drafted.");
+    });
+    $("cNextTicket").addEventListener("click", function () {
+      if (idx < ROWS.length - 1) { selected = ROWS[idx + 1].id; render(); }
+      else toast("Mock only. End of this Write-off strip.");
+    });
+  }
+
+  function render() {
+    renderList();
+    renderCase();
+  }
+
+  $("tbody").addEventListener("click", function (e) {
+    var tr = e.target.closest("tr");
+    if (!tr) return;
+    selected = tr.getAttribute("data-id");
+    render();
+  });
+
+
+  render();
+})();
+</script>
+</body>
+</html>

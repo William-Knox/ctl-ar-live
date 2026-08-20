@@ -4,9 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#F8F6F2" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-title" content="Hyphen Apply" />
-<title>Hyphen review · Apply mock</title>
+<title>Hyphen review · Write-off mock</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
@@ -100,7 +98,6 @@ button { cursor: pointer; background: none; border: 0; }
   letter-spacing: -0.01em;
   white-space: nowrap;
 }
-.asof .scrape { color: var(--clay); font-weight: 600; }
 .counts { display: flex; align-items: baseline; gap: 14px; flex-shrink: 0; }
 .count { text-align: right; }
 .count b {
@@ -162,7 +159,7 @@ button { cursor: pointer; background: none; border: 0; }
   text-decoration: none;
 }
 .seg button:last-child, .seg a:last-child { border-right: 0; }
-.seg button.on { background: var(--navy); color: var(--cream); }
+.seg button.on, .seg a.on { background: var(--navy); color: var(--cream); }
 .seg button.on:hover { background: var(--navy-2); }
 .seg button:disabled, .seg a.is-off {
   color: var(--muted-2);
@@ -210,109 +207,114 @@ button { cursor: pointer; background: none; border: 0; }
   background: var(--cream);
 }
 
-.check {
+.list-head {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: 28px 118px minmax(120px, 1fr) 72px 1fr;
+  gap: 8px 10px;
+  align-items: center;
+  height: 30px;
+  padding: 0 14px 0 12px;
+  background: var(--cream-2);
+  border-bottom: 1px solid var(--line-2);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.list-head .num { text-align: right; }
+
+.row {
+  display: grid;
+  grid-template-columns: 28px 118px minmax(120px, 1fr) 72px 1fr;
+  gap: 8px 10px;
+  align-items: start;
+  padding: 10px 14px 10px 12px;
   border-bottom: 1px solid var(--line);
   background: var(--paper);
+  min-height: 42px;
 }
-.check.open { background: #FFFdf8; }
-.check-row {
-  display: grid;
-  grid-template-columns: 28px 1fr auto;
-  gap: 8px;
-  align-items: center;
-  padding: 10px 14px 10px 12px;
-  cursor: pointer;
-  min-height: 52px;
-}
-.check-row:hover { background: #F3EFE8; }
-.check.open > .check-row { background: #EDE6DC; }
-.check-row.on-letter { box-shadow: inset 2px 0 0 var(--navy); }
-.check-row input[type="checkbox"] {
+.row:hover { background: #F3EFE8; }
+.row.on-letter { box-shadow: inset 2px 0 0 var(--navy); background: #FFFdf8; }
+.row.hold { background: #FBF9F5; }
+.row input[type="checkbox"] {
   accent-color: var(--navy);
   width: 14px;
   height: 14px;
   cursor: pointer;
+  margin-top: 3px;
 }
-.check-main { min-width: 0; }
-.check-client {
-  font-size: 13px;
-  font-weight: 650;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+.row input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
 }
-.check-meta {
-  margin-top: 2px;
-  font-size: 11.5px;
-  font-weight: 500;
-  color: var(--muted);
-  letter-spacing: -0.01em;
-}
-.check-meta b { color: var(--navy); font-weight: 650; font-variant-numeric: tabular-nums; }
-.check-tot { text-align: right; }
-.check-tot .amt {
-  display: block;
-  font-size: 14px;
-  font-weight: 650;
-  letter-spacing: -0.03em;
-  font-variant-numeric: tabular-nums;
-  line-height: 1.1;
-}
-.check-tot .ninv {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.invs { display: none; padding: 0 10px 10px 38px; }
-.check.open .invs { display: block; }
-.inv {
-  display: grid;
-  grid-template-columns: 108px 1fr auto;
-  gap: 8px 10px;
-  align-items: baseline;
-  padding: 7px 8px;
-  border: 1px solid transparent;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.inv:hover { background: var(--cream-2); }
-.inv.lit {
-  background: var(--clay-soft);
-  border-color: #E4C4B2;
-}
-.inv .doc {
-  font-size: 12px;
+.doc {
+  font-size: 12.5px;
   font-weight: 650;
   letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
+  line-height: 1.25;
 }
-.inv .addr {
+.doc a { color: inherit; text-decoration: none; }
+.doc a:hover { text-decoration: underline; }
+.parent {
   font-size: 12.5px;
   font-weight: 550;
   letter-spacing: -0.015em;
-  min-width: 0;
+  line-height: 1.25;
 }
-.inv .comm {
-  grid-column: 2;
+.parent .sub {
+  display: block;
+  margin-top: 1px;
   font-size: 11px;
   font-weight: 500;
   color: var(--muted);
-  margin-top: -4px;
 }
-.inv .po {
-  grid-column: 1 / -1;
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--muted-2);
-  font-variant-numeric: tabular-nums;
-}
-.inv .open {
-  font-size: 12.5px;
+.open {
+  font-size: 13px;
   font-weight: 650;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   text-align: right;
+  line-height: 1.25;
+}
+.analysis {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.4;
+  letter-spacing: -0.011em;
+}
+.analysis.empty { color: var(--muted); font-style: normal; }
+.row-mail {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  margin-top: 4px;
+  padding: 0 7px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.row-mail.not_sent {
+  background: transparent;
+  color: var(--muted);
+  border: 1px dashed var(--line-2);
+}
+.row-mail.awaiting {
+  background: var(--cream-2);
+  color: var(--navy);
+  border: 1px solid var(--line-2);
+}
+.row-mail.hold {
+  background: var(--cream-2);
+  color: var(--navy-2);
+  border: 0;
 }
 
 .c-head {
@@ -393,34 +395,24 @@ button { cursor: pointer; background: none; border: 0; }
 .letter .empty { color: var(--muted); }
 .block { margin: 16px 0 0; }
 .block:first-of-type { margin-top: 14px; }
-.block .client {
+.block .inv {
   font-size: 14px;
   font-weight: 650;
   letter-spacing: -0.02em;
   color: var(--navy);
+  font-variant-numeric: tabular-nums;
 }
-.block .ck {
+.block .meta {
   margin-top: 1px;
   font-size: 13px;
   font-weight: 550;
   color: var(--ink);
 }
-.block .lab {
-  margin: 10px 0 4px;
-  font-size: 12px;
+.block .ask {
+  margin-top: 8px;
+  font-size: 12.5px;
   font-weight: 650;
   color: var(--navy);
-}
-.iline {
-  padding: 3px 6px;
-  margin: 0 -6px;
-  border-radius: 5px;
-  font-variant-numeric: tabular-nums;
-  scroll-margin: 48px;
-}
-.iline.lit {
-  background: var(--clay-soft);
-  outline: 1px solid #E4C4B2;
 }
 .sig {
   margin-top: 16px;
@@ -437,7 +429,7 @@ button { cursor: pointer; background: none; border: 0; }
   background: #F3EFE8;
   box-shadow: 0 -8px 16px rgba(15,23,42,0.04);
 }
-.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .act {
   height: 34px;
   padding: 0 12px;
@@ -449,7 +441,7 @@ button { cursor: pointer; background: none; border: 0; }
   letter-spacing: -0.015em;
   color: var(--navy);
 }
-.act.primary { background: var(--navy); border-color: var(--navy); color: var(--cream); flex: 1.4 1 auto; }
+.act.primary { background: var(--navy); border-color: var(--navy); color: var(--cream); }
 .act.primary:hover { background: var(--navy-2); }
 .act.primary:disabled {
   background: #9AA3B2;
@@ -457,9 +449,8 @@ button { cursor: pointer; background: none; border: 0; }
   color: #F3F1EC;
   cursor: not-allowed;
 }
-.act:disabled { opacity: 0.55; cursor: not-allowed; }
-.act.ghost { flex: 1 1 auto; }
 .act.ghost:hover:not(:disabled) { border-color: #C4BDB2; background: #FFFdf8; }
+.act:disabled { opacity: 0.55; cursor: not-allowed; }
 .act-note { font-size: 11px; font-weight: 500; color: var(--muted); margin-top: 8px; }
 
 .toast {
@@ -506,12 +497,14 @@ button { cursor: pointer; background: none; border: 0; }
   .stage { grid-template-columns: 1fr; }
   .pane-left { max-height: none; overflow: visible; border-right: 0; border-bottom: 1px solid var(--line); }
   .pane-right { min-height: 70vh; }
-  .inv { grid-template-columns: 1fr auto; }
-  .inv .doc { grid-column: 1; }
-  .inv .addr { grid-column: 1; }
-  .inv .comm { grid-column: 1; }
-  .inv .open { grid-column: 2; grid-row: 1 / span 2; }
-  .c-foot .act { width: 100%; min-height: 40px; }
+  .list-head, .row {
+    grid-template-columns: 28px 1fr auto;
+  }
+  .list-head span:nth-child(3),
+  .list-head span:nth-child(5),
+  .row .parent { display: none; }
+  .row .analysis { grid-column: 2 / -1; }
+  .c-foot .act { width: auto; min-height: 40px; }
 }
 </style>
 </head>
@@ -519,16 +512,16 @@ button { cursor: pointer; background: none; border: 0; }
 <div class="app">
   <header class="hdr">
     <div class="brand">
-      <img class="mark" src="../ctl-mark-on-white.png" width="22" height="22" alt="" />
+      <img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" />
       <div class="brand-text">
         <h1>Hyphen review <span class="mock-tag">Mock</span></h1>
-        <p class="asof">Apply box · Issue Paid to apply · not sent · not the live queue</p>
+        <p class="asof">Write-off box · Issue Write-off · mail not sent · not the live queue</p>
       </div>
     </div>
     <div class="counts">
-      <div class="count"><b id="hdrInv">7</b><span>invoices</span></div>
-      <div class="count"><b id="hdrOpen">$2,754</b><span>open</span></div>
-      <div class="count"><b id="hdrChecks">3</b><span>checks</span></div>
+      <div class="count"><b id="hdrInv">4</b><span>invoices</span></div>
+      <div class="count"><b id="hdrOpen">$1,586</b><span>open</span></div>
+      <div class="count"><b id="hdrOn">3</b><span>on note</span></div>
     </div>
   </header>
 
@@ -536,18 +529,27 @@ button { cursor: pointer; background: none; border: 0; }
     <span class="seg-lab">Box</span>
     <div class="seg" role="tablist" aria-label="Hyphen boxes">
       <a href="../index.html">Chase</a>
-      <button type="button" class="on" aria-current="page">Apply <span class="n" id="apN">7</span></button>
-      <a href="../writeoff/index.html">Write-off</a>
+      <a href="../apply/index.html">Apply</a>
+      <button type="button" class="on" aria-current="page">Write-off <span class="n" id="woN">4</span></button>
       <a href="../awaiting/index.html">Awaiting</a>
     </div>
   </div>
 
   <div class="mail-note">
-    <b>Mock only.</b> Paid-to-apply invoices live in this box. We do not apply cash here. One internal research note to Esmeralda. Live chase queue is unchanged. Nothing is sent. Nothing posts in QBO.
+    <b>Mock only.</b> Write-off invoices live in this box. One internal william@ note to Esmeralda. We do not write off in QBO. Live chase queue unchanged.
   </div>
 
   <div class="stage">
-    <div class="pane-left" id="list" aria-label="Checks"></div>
+    <div class="pane-left" id="list" aria-label="Write-off invoices">
+      <div class="list-head">
+        <span></span>
+        <span>Invoice</span>
+        <span>Parent</span>
+        <span class="num">Open $</span>
+        <span>Analysis</span>
+      </div>
+      <div id="rows"></div>
+    </div>
     <aside class="pane-right" aria-label="Research note">
       <div class="c-head">
         <div>
@@ -566,170 +568,82 @@ button { cursor: pointer; background: none; border: 0; }
       <div class="c-foot">
         <div class="actions">
           <button class="act primary" id="btnDraft" type="button">Put in Drafts</button>
-          <button class="act ghost" id="btnSend" type="button" disabled title="Send stays off until the live queue">Send stays off until the live queue</button>
+          <button class="act ghost" id="btnSend" type="button" title="Mock only. Send marks checked invoices Awaiting. Unchecked stay Not sent. Does not write off in QBO.">Send (mock)</button>
         </div>
-        <p class="act-note">We do not apply cash here. This only drafts the research note. Does not call /api/ready. Does not send.</p>
+        <p class="act-note">One compact Put in Drafts — not the builder Draft split. Drafts the william@ note. Does not send. Does not write off in QBO. Send (mock) only demonstrates Awaiting vs Not sent.</p>
       </div>
     </aside>
   </div>
 </div>
 <div class="toast" id="toast" role="status"></div>
 <script src="../data.js"></script>
-<script type="application/json" id="rows-json">[
-  {
-    "docNumber": "CTL-26-00520",
-    "address": "1249 Samantha Lane",
-    "customer": "98-639 Southern Pointe",
-    "parent": "LENNAR HOMES",
-    "balance": 522,
-    "totalAmt": 522,
-    "po": "15460883-000",
-    "check": "1325381",
-    "check_date": "8/3/2026",
-    "check_amount": 522,
-    "days": -18
-  },
-  {
-    "docNumber": "CTL-26-00071",
-    "address": "5403 Elk Canyon",
-    "customer": "05-621 Arabella on The Prairie",
-    "parent": "MHI HOMES",
-    "balance": 350,
-    "totalAmt": 350,
-    "po": "91ARB610_002334",
-    "check": "00068971",
-    "check_date": "8/15/2026",
-    "check_amount": 350,
-    "days": -1
-  },
-  {
-    "docNumber": "0630-173248",
-    "address": "10546 Blue Indigo",
-    "customer": "05-621 Chambers Creek",
-    "parent": "MHI HOMES",
-    "balance": 350,
-    "totalAmt": 350,
-    "po": "91KCHBC9_004048",
-    "check": "00068971",
-    "check_date": "8/15/2026",
-    "check_amount": 350,
-    "days": 14
-  },
-  {
-    "docNumber": "0630-173249",
-    "address": "10402 Painted Brush",
-    "customer": "05-621 Chambers Creek",
-    "parent": "MHI HOMES",
-    "balance": 350,
-    "totalAmt": 350,
-    "po": "91KCHBC9_003917",
-    "check": "00068971",
-    "check_date": "8/15/2026",
-    "check_amount": 350,
-    "days": 14
-  },
-  {
-    "docNumber": "0630-173250",
-    "address": "15144 Myrtle Berry",
-    "customer": "05-621 Chambers Creek",
-    "parent": "MHI HOMES",
-    "balance": 350,
-    "totalAmt": 350,
-    "po": "91KCHBC9_004181",
-    "check": "00068971",
-    "check_date": "8/15/2026",
-    "check_amount": 350,
-    "days": 14
-  },
-  {
-    "docNumber": "CTL-26-00530",
-    "address": "14803 Wild Bloom",
-    "customer": "09-679 Chambers Creek",
-    "parent": "Toll Brothers, Inc.",
-    "balance": 416,
-    "totalAmt": 416,
-    "po": "52224032-000",
-    "check": "542086",
-    "check_date": "8/14/2026",
-    "check_amount": 416,
-    "days": -21
-  },
-  {
-    "docNumber": "CTL-26-00431",
-    "address": "14326  Flowering Sage Way",
-    "customer": "09-679 Dunham Pointe",
-    "parent": "Toll Brothers, Inc.",
-    "balance": 416,
-    "totalAmt": 416,
-    "po": "45550376-000",
-    "check": "542086",
-    "check_date": "8/14/2026",
-    "check_amount": 416,
-    "days": -17
-  }
-]</script>
 <script>
 (function () {
-  var APPLY_LIVE_ROWS = null;
+  "use strict";
+  var ROWS = [
+    {
+      id: "0611-172568",
+      parent: "Toll",
+      community: "Dunham Pointe",
+      addr: "19607 Paseo Corso Lane",
+      open: 104,
+      analysis: "Found: Hyphen PO 25444638-000 face $416; Toll check 527809 $416 applied 7/10. QBO billed $520, $104 leftover. Not found: no second visit — leftover is billed wrong (Dominus named Write-off). Recommend write-off of $104. No EPO.",
+      checked0: true,
+      href: "case.html"
+    },
+    {
+      id: "0609-172331",
+      parent: "Lennar",
+      community: "The Trails",
+      addr: "217 Violet Crown",
+      open: 783,
+      analysis: "Found: first visit at 217 Violet Crown paid as 0526-171938 (Angel 5/26, 3 lifts). This invoice is the 6/9 second visit. Not found: no Ryan/Joe email asking for that June 9 callout — one of two client asks missing. 3 AM stamped Write-off. Internal only. No EPO.",
+      checked0: true
+    },
+    {
+      id: "0515-171663",
+      parent: "MHI HOMES",
+      community: "31837 Pecan Cottage",
+      addr: "31837 Pecan Cottage",
+      open: 350,
+      analysis: "Same pad twice. Jake Fisher 5/6 asked Ryan/Joe (paid 0507-171335 / 91KMDI18_006326 check 00060133 6/1 $350). Open 0515-171663 is a later report 260515-64785. No second CLIENT call-in .eml. Two Maria report emails are not two call-ins. Internal only. No EPO.",
+      checked0: true
+    },
+    {
+      id: "0515-171664",
+      parent: "MHI",
+      community: "32435 Poplar Grove",
+      addr: "32435 Poplar Grove",
+      open: 350,
+      analysis: "",
+      checked0: false
+    }
+  ];
 
   if (window.DATA && window.DATA.length) {
-    var liveApply = window.DATA.filter(function (d) { return d.issue === "Paid to apply"; }).map(function (d) {
+    ROWS = window.DATA.filter(function (d) {
+      return d.issue === "Write-off" && (d.mail === "not_sent" || !d.mail);
+    }).map(function (d) {
       return {
-        docNumber: d.docNumber,
-        address: d.service_address || "",
-        customer: d.customer || "",
+        id: d.docNumber,
         parent: d.parent || "",
-        balance: Number(d.balance != null ? d.balance : d.open_balance) || 0,
-        totalAmt: Number(d.totalAmt) || 0,
-        po: d.builder_order_number || "",
-        check: d.check_number || "",
-        check_date: d.check_date || "",
-        check_amount: d.check_amount || "",
-        days: Number(d.daysPastDue) || 0
+        community: d.customer || "",
+        addr: d.service_address || "",
+        open: Number(d.balance != null ? d.balance : d.open_balance) || 0,
+        analysis: d.chase_analysis || d.write_off_reason || d.chase_letter_lead || "",
+        checked0: !!(d.chase_analysis || d.write_off_reason),
+        href: "case.html"
       };
     });
-    if (liveApply.length) {
-      APPLY_LIVE_ROWS = liveApply;
-    }
   }
 
-  "use strict";
-  var LABELS = {
-    "MHI HOMES": "Coventry",
-    "Toll Brothers, Inc.": "Toll Brothers",
-    "LENNAR HOMES": "Lennar"
-  };
-  var CHECK_ORDER = ["00068971", "542086", "1325381"];
-  var rows = JSON.parse(document.getElementById("rows-json").textContent);
-  if (APPLY_LIVE_ROWS && APPLY_LIVE_ROWS.length) rows = APPLY_LIVE_ROWS;
-  var checks = {};
-  rows.forEach(function (r) {
-    var k = String(r.check);
-    if (!checks[k]) {
-      checks[k] = {
-        id: k,
-        check: k,
-        date: r.check_date,
-        parent: r.parent,
-        client: LABELS[r.parent] || r.parent,
-        invoices: []
-      };
-    }
-    checks[k].invoices.push(r);
-  });
-  var list = CHECK_ORDER.map(function (id) { return checks[id]; }).filter(Boolean);
-  list.forEach(function (c) {
-    c.total = c.invoices.reduce(function (s, r) { return s + Number(r.balance || 0); }, 0);
-    c.invoices.sort(function (a, b) {
-      return String(a.docNumber).localeCompare(String(b.docNumber));
-    });
-  });
-
   var selected = {};
-  list.forEach(function (c) { selected[c.id] = true; });
-  var open = {};
+  var mail = {};
+  ROWS.forEach(function (r) {
+    selected[r.id] = !!r.checked0 && !!r.analysis;
+    mail[r.id] = "not_sent";
+  });
   var drafted = false;
-  var litInv = null;
 
   function $(id) { return document.getElementById(id); }
   function esc(s) {
@@ -738,63 +652,52 @@ button { cursor: pointer; background: none; border: 0; }
       .replace(/"/g, "&quot;");
   }
   function money(n) {
-    var x = Math.round(Number(n) || 0);
-    return "$" + x.toLocaleString("en-US");
+    return "$" + Math.round(Number(n) || 0).toLocaleString("en-US");
   }
-  function comm(s) {
-    return String(s || "").replace(/^\d{2}-\d{3}\s+/, "");
-  }
-  function selectedChecks() {
-    return list.filter(function (c) { return selected[c.id]; });
+  function checkedRows() {
+    return ROWS.filter(function (r) { return selected[r.id]; });
   }
   function toast(msg) {
     var el = $("toast");
     el.textContent = msg;
     el.classList.add("on");
     clearTimeout(toast._t);
-    toast._t = setTimeout(function () { el.classList.remove("on"); }, 3200);
+    toast._t = setTimeout(function () { el.classList.remove("on"); }, 3400);
   }
 
   function renderList() {
-    $("list").innerHTML = list.map(function (c) {
-      var invHtml = c.invoices.map(function (r) {
-        return '<div class="inv' + (litInv === r.docNumber ? " lit" : "") + '" data-inv="' + esc(r.docNumber) + '">' +
-          '<div class="doc">' + esc(r.docNumber) + "</div>" +
-          '<div class="addr">' + esc(r.address) + "</div>" +
-          '<div class="open">' + money(r.balance) + "</div>" +
-          '<div class="comm">' + esc(comm(r.customer)) + "</div>" +
-          '<div class="po">PO ' + esc(r.po) + "</div>" +
-          "</div>";
-      }).join("");
-      return '<article class="check' + (open[c.id] ? " open" : "") + '" data-check="' + esc(c.id) + '">' +
-        '<div class="check-row' + (selected[c.id] ? " on-letter" : "") + '">' +
-          '<input type="checkbox" data-check="' + esc(c.id) + '"' + (selected[c.id] ? " checked" : "") + ' aria-label="Include check ' + esc(c.check) + ' in the note" />' +
-          '<div class="check-main"><div class="check-client">' + esc(c.client) + "</div>" +
-            '<div class="check-meta">Check <b>' + esc(c.check) + "</b> · " + esc(c.date) + "</div></div>" +
-          '<div class="check-tot"><span class="amt">' + money(c.total) + '</span><span class="ninv">' + c.invoices.length +
-            (c.invoices.length === 1 ? " invoice" : " invoices") + "</span></div>" +
-        "</div>" +
-        '<div class="invs">' + invHtml + "</div>" +
-      "</article>";
+    $("rows").innerHTML = ROWS.map(function (r) {
+      var empty = !r.analysis;
+      var m = mail[r.id];
+      var mailLab = m === "awaiting" ? "Awaiting" : "Not sent";
+      var mailCls = m === "awaiting" ? "awaiting" : "not_sent";
+      var inv = r.href
+        ? '<a href="' + esc(r.href) + '">' + esc(r.id) + "</a>"
+        : esc(r.id);
+      return '<article class="row' + (selected[r.id] ? " on-letter" : "") + (empty ? " hold" : "") + '" data-id="' + esc(r.id) + '">' +
+        '<input type="checkbox" data-id="' + esc(r.id) + '"' + (selected[r.id] ? " checked" : "") + (empty ? " disabled" : "") +
+          ' aria-label="' + (empty ? "Hold — no analysis" : ("Include " + esc(r.id) + " on the note")) + '" />' +
+        '<div><div class="doc">' + inv + '</div><span class="row-mail ' + mailCls + '">' + esc(mailLab) + "</span></div>" +
+        '<div class="parent">' + esc(r.parent) + '<span class="sub">' + esc(r.community) + "</span></div>" +
+        '<div class="open">' + money(r.open) + "</div>" +
+        '<div class="analysis' + (empty ? " empty" : "") + '">' +
+          (empty ? "No analysis — Hold. Cannot go on the note." : esc(r.analysis)) +
+        "</div></article>";
     }).join("");
   }
 
   function letterHtml() {
-    var sel = selectedChecks();
+    var sel = checkedRows();
     if (!sel.length) {
-      return '<p class="empty">Select a check on the left. This note stays empty until at least one payment is included. We are not applying anything from this screen.</p>';
+      return '<p class="empty">Check a Write-off invoice with analysis. Empty-analysis rows stay Hold and never join this note. We do not write off from this screen.</p>';
     }
-    var html = "<p>Hyphen shows these checks paid. The CTL invoices below are still open. Please research each payment. We are not applying anything from this note.</p>";
-    sel.forEach(function (c) {
-      html += '<div class="block" data-check="' + esc(c.id) + '">';
-      html += '<div class="client">' + esc(c.client) + "</div>";
-      html += '<div class="ck">Check ' + esc(c.check) + " dated " + esc(c.date) + "</div>";
-      html += '<div class="lab">Open CTL invoices on this payment:</div>';
-      c.invoices.forEach(function (r) {
-        html += '<div class="iline' + (litInv === r.docNumber ? " lit" : "") + '" id="line-' + esc(r.docNumber) + '" data-inv="' + esc(r.docNumber) + '">' +
-          esc(r.docNumber) + " · " + esc(r.address) + " · " + money(r.balance) + " · PO " + esc(r.po) +
-          "</div>";
-      });
+    var html = "<p>Hyphen recommends these invoices for write-off. Each row has a short found / not-found. Please review. We do not write off in QBO from this note.</p>";
+    sel.forEach(function (r) {
+      html += '<div class="block">';
+      html += '<div class="inv">' + esc(r.id) + "</div>";
+      html += '<div class="meta">' + esc(r.parent) + " · " + esc(r.community) + " · " + money(r.open) + " open</div>";
+      html += "<p>" + esc(r.analysis) + "</p>";
+      html += '<div class="ask">Request: write off. Do not post this in QBO from Hyphen.</div>';
       html += "</div>";
     });
     html += '<div class="sig"><b>William Knox</b><span>william@coastaltestinglabs.com</span></div>';
@@ -802,60 +705,69 @@ button { cursor: pointer; background: none; border: 0; }
   }
 
   function renderLetter() {
-    var sel = selectedChecks();
-    var nInv = sel.reduce(function (s, c) { return s + c.invoices.length; }, 0);
+    var sel = checkedRows();
+    var tot = sel.reduce(function (s, r) { return s + r.open; }, 0);
     $("cSubj").textContent = sel.length
-      ? ("Hyphen payments to research · " + sel.length + " check" + (sel.length === 1 ? "" : "s") + " · " + nInv + " open invoice" + (nInv === 1 ? "" : "s"))
-      : "Hyphen payments to research · select a check";
+      ? ("Hyphen write-off · " + sel.length + " invoice" + (sel.length === 1 ? "" : "s") + " · " + money(tot))
+      : "Hyphen write-off · select invoices with analysis";
     $("cLetter").innerHTML = letterHtml();
     $("cKind").textContent = drafted ? "Drafted · not sent" : "Internal · not sent";
     $("cKind").classList.toggle("drafted", drafted);
     $("cTitle").textContent = drafted ? "Drafted · not sent" : "Research note";
     $("btnDraft").disabled = sel.length === 0;
-    if (litInv) {
-      var el = document.getElementById("line-" + litInv);
-      if (el) el.scrollIntoView({ block: "center", behavior: "smooth" });
-    }
+    var canSend = sel.length > 0 && sel.some(function (r) { return mail[r.id] !== "awaiting"; });
+    $("btnSend").disabled = !canSend;
+  }
+
+  function renderCounts() {
+    var notSent = ROWS.filter(function (r) { return mail[r.id] === "not_sent"; }).length;
+    var onNote = checkedRows().length;
+    var openAll = ROWS.reduce(function (s, r) { return s + r.open; }, 0);
+    $("hdrInv").textContent = String(ROWS.length);
+    $("hdrOpen").textContent = money(openAll);
+    $("hdrOn").textContent = String(onNote);
+    $("woN").textContent = String(notSent);
   }
 
   function render() {
     renderList();
     renderLetter();
+    renderCounts();
   }
 
-  $("list").addEventListener("click", function (e) {
+  $("rows").addEventListener("click", function (e) {
     var box = e.target.closest("input[type=checkbox]");
-    if (box) {
-      e.stopPropagation();
-      selected[box.getAttribute("data-check")] = box.checked;
-      drafted = false;
-      render();
+    if (!box) return;
+    var id = box.getAttribute("data-id");
+    var r = ROWS.filter(function (x) { return x.id === id; })[0];
+    if (!r || !r.analysis) {
+      box.checked = false;
+      selected[id] = false;
+      toast("Empty analysis stays Hold. That row cannot go on the note.");
       return;
     }
-    var inv = e.target.closest(".inv");
-    if (inv) {
-      litInv = inv.getAttribute("data-inv");
-      render();
-      return;
-    }
-    var row = e.target.closest(".check-row");
-    if (row) {
-      var id = row.closest(".check").getAttribute("data-check");
-      open[id] = !open[id];
-      renderList();
-    }
+    selected[id] = box.checked;
+    drafted = false;
+    render();
   });
 
   $("btnDraft").addEventListener("click", function () {
-    if (!selectedChecks().length) return;
+    if (!checkedRows().length) return;
     drafted = true;
     renderLetter();
-    toast("Mock only. Would drop a william@ draft to Esmeralda. Nothing was sent.");
+    toast("Mock only. Drafted a william@ note to Esmeralda. Nothing was sent. Nothing written off in QBO.");
   });
 
-  $("btnSend").addEventListener("click", function (e) {
-    e.preventDefault();
+  $("btnSend").addEventListener("click", function () {
+    var sel = checkedRows();
+    if (!sel.length) return;
+    sel.forEach(function (r) { mail[r.id] = "awaiting"; });
+    drafted = true;
+    render();
+    toast("Mock only. Checked invoices marked Awaiting. Unchecked stay Not sent. We do not write off in QBO.");
   });
+
+
 
   render();
 })();
