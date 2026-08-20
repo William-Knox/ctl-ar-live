@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F8F6F2" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Hyphen Apply" />
+<title>Hyphen review · Apply</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --cream: #F8F6F2;
+  --cream-2: #EFEDE7;
+  --cream-3: #E7E3DB;
+  --paper: #FFFdf8;
+  --navy: #0F172A;
+  --navy-2: #1E293B;
+  --ink: #161410;
+  --muted: #6F6A62;
+  --muted-2: #8A847A;
+  --line: #E4E0D8;
+  --line-2: #D6D1C7;
+  --clay: #C2410C;
+  --clay-soft: #F3E6DE;
+  --found-bg: #E3EBE5;
+  --found-fg: #3A5648;
+  --header-h: 46px;
+  --toolbar-h: 38px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  background: var(--cream);
+  color: var(--navy);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "tnum";
+  -webkit-font-smoothing: antialiased;
+}
+body { overflow: hidden; }
+button, input { font-family: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; }
+::selection { background: #E8D5C8; }
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.hdr {
+  height: var(--header-h);
+  flex: 0 0 var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 0 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.mark {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  object-fit: contain;
+}
+.brand-text { min-width: 0; }
+.brand-text h1 {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.mock-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 16px;
+  margin-left: 7px;
+  padding: 0 6px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  vertical-align: 2px;
+}
+.asof {
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.asof .scrape { color: var(--clay); font-weight: 600; }
+.counts { display: flex; align-items: baseline; gap: 14px; flex-shrink: 0; }
+.count { text-align: right; }
+.count b {
+  display: block;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.count span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.bar {
+  height: var(--toolbar-h);
+  flex: 0 0 var(--toolbar-h);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  position: relative;
+  z-index: 20;
+  white-space: nowrap;
+}
+.seg-lab {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 2px 0 6px;
+}
+.seg {
+  display: inline-flex;
+  height: 26px;
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.seg button, .seg a {
+  height: 26px;
+  padding: 0 9px;
+  font-size: 11.5px;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-right: 1px solid var(--line-2);
+  text-decoration: none;
+}
+.seg button:last-child, .seg a:last-child { border-right: 0; }
+.seg button.on, .seg a.on { background: var(--navy); color: var(--cream); }
+.seg button.on:hover, .seg a.on:hover { background: var(--navy-2); }
+.seg button:disabled, .seg a.is-off {
+  color: var(--muted-2);
+  cursor: not-allowed;
+  background: var(--cream-2);
+}
+.seg .n {
+  font-variant-numeric: tabular-nums;
+  font-size: 10.5px;
+  font-weight: 650;
+  opacity: 0.72;
+}
+
+.mail-note {
+  flex: 0 0 auto;
+  padding: 7px 14px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--navy);
+  background: var(--clay-soft);
+  border-bottom: 1px solid var(--line);
+  letter-spacing: -0.01em;
+}
+.mail-note b { font-weight: 650; }
+
+.stage {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(340px, 1fr) minmax(380px, 1.05fr);
+}
+
+.pane-left {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  background: var(--paper);
+  border-right: 1px solid var(--line);
+}
+.pane-right {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+}
+
+.check {
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+.check.open { background: #FFFdf8; }
+.check-row {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 14px 10px 12px;
+  cursor: pointer;
+  min-height: 52px;
+}
+.check-row:hover { background: #F3EFE8; }
+.check.open > .check-row { background: #EDE6DC; }
+.check-row.on-letter { box-shadow: inset 2px 0 0 var(--navy); }
+.check-row input[type="checkbox"] {
+  accent-color: var(--navy);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+.check-main { min-width: 0; }
+.check-client {
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.check-meta {
+  margin-top: 2px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: -0.01em;
+}
+.check-meta b { color: var(--navy); font-weight: 650; font-variant-numeric: tabular-nums; }
+.check-tot { text-align: right; }
+.check-tot .amt {
+  display: block;
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.check-tot .ninv {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.invs { display: none; padding: 0 10px 10px 38px; }
+.check.open .invs { display: block; }
+.inv {
+  display: grid;
+  grid-template-columns: 108px 1fr auto;
+  gap: 8px 10px;
+  align-items: baseline;
+  padding: 7px 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.inv:hover { background: var(--cream-2); }
+.inv.lit {
+  background: var(--clay-soft);
+  border-color: #E4C4B2;
+}
+.inv .doc {
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.inv .addr {
+  font-size: 12.5px;
+  font-weight: 550;
+  letter-spacing: -0.015em;
+  min-width: 0;
+}
+.inv .comm {
+  grid-column: 2;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-top: -4px;
+}
+.inv .po {
+  grid-column: 1 / -1;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted-2);
+  font-variant-numeric: tabular-nums;
+}
+.inv .open {
+  font-size: 12.5px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.015em;
+  text-align: right;
+}
+
+.c-head {
+  flex: 0 0 auto;
+  padding: 10px 14px 10px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.c-head h2 {
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.c-kind {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  margin-top: 5px;
+  padding: 0 7px;
+  border: 1px solid #C9C3B8;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.c-kind.drafted {
+  border-color: var(--found-fg);
+  background: var(--found-bg);
+  color: var(--found-fg);
+}
+.c-body { flex: 1; min-height: 0; overflow: auto; padding: 0 0 12px; }
+.c-meta { padding: 10px 16px 8px; }
+.c-row {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 8px;
+  align-items: start;
+  padding: 5px 0;
+}
+.c-row dt {
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 7px;
+}
+.c-field {
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 5px;
+  padding: 6px 9px;
+  min-height: 32px;
+}
+.c-field .who { font-size: 12.5px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; }
+.c-field .addr { margin-top: 1px; font-size: 11px; font-weight: 500; color: var(--navy-2); }
+.c-field.subj .who { font-weight: 550; }
+.letter {
+  margin: 4px 16px 0;
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  padding: 16px 16px 14px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.011em;
+}
+.letter p { margin: 0 0 10px; }
+.letter p:last-child { margin-bottom: 0; }
+.letter .empty { color: var(--muted); }
+.block { margin: 16px 0 0; }
+.block:first-of-type { margin-top: 14px; }
+.block .client {
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+}
+.block .ck {
+  margin-top: 1px;
+  font-size: 13px;
+  font-weight: 550;
+  color: var(--ink);
+}
+.block .lab {
+  margin: 10px 0 4px;
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--navy);
+}
+.iline {
+  padding: 3px 6px;
+  margin: 0 -6px;
+  border-radius: 5px;
+  font-variant-numeric: tabular-nums;
+  scroll-margin: 48px;
+}
+.iline.lit {
+  background: var(--clay-soft);
+  outline: 1px solid #E4C4B2;
+}
+.sig {
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.sig b { display: block; font-weight: 650; letter-spacing: -0.02em; }
+.sig span { display: block; font-size: 12px; font-weight: 500; }
+
+.c-foot {
+  flex: 0 0 auto;
+  padding: 12px 16px 14px;
+  border-top: 1px solid var(--line-2);
+  background: #F3EFE8;
+  box-shadow: 0 -8px 16px rgba(15,23,42,0.04);
+}
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.act {
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+}
+.act.primary { background: var(--navy); border-color: var(--navy); color: var(--cream); flex: 1.4 1 auto; }
+.act.primary:hover { background: var(--navy-2); }
+.act.primary:disabled {
+  background: #9AA3B2;
+  border-color: #9AA3B2;
+  color: #F3F1EC;
+  cursor: not-allowed;
+}
+.act:disabled { opacity: 0.55; cursor: not-allowed; }
+.act.ghost { flex: 1 1 auto; }
+.act.ghost:hover:not(:disabled) { border-color: #C4BDB2; background: #FFFdf8; }
+.act-note { font-size: 11px; font-weight: 500; color: var(--muted); margin-top: 8px; }
+
+.toast {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy);
+  color: var(--cream);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  z-index: 80;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.18);
+  max-width: min(520px, 92vw);
+  text-align: center;
+}
+.toast.on { opacity: 1; }
+
+@media (max-width: 860px) {
+  html, body { overflow: auto; }
+  .app { height: auto; min-height: 100%; }
+  .hdr {
+    height: auto;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    padding: calc(10px + env(safe-area-inset-top)) 12px 8px;
+    gap: 8px;
+  }
+  .asof { white-space: normal; }
+  .counts { width: 100%; justify-content: space-between; }
+  .bar {
+    height: auto;
+    flex-wrap: wrap;
+    white-space: normal;
+    padding: 8px 10px;
+  }
+  .seg { flex-wrap: wrap; height: auto; width: 100%; }
+  .seg button, .seg a { min-height: 36px; height: 36px; flex: 1 1 auto; }
+  .stage { grid-template-columns: 1fr; }
+  .pane-left { max-height: none; overflow: visible; border-right: 0; border-bottom: 1px solid var(--line); }
+  .pane-right { min-height: 70vh; }
+  .inv { grid-template-columns: 1fr auto; }
+  .inv .doc { grid-column: 1; }
+  .inv .addr { grid-column: 1; }
+  .inv .comm { grid-column: 1; }
+  .inv .open { grid-column: 2; grid-row: 1 / span 2; }
+  .c-foot .act { width: 100%; min-height: 40px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="brand">
+      <img class="mark" src="../ctl-mark-on-white.png" width="22" height="22" alt="" />
+      <div class="brand-text">
+        <h1>Hyphen review</h1>
+        <p class="asof">Apply · Thursday 2026-08-20</p>
+      </div>
+    </div>
+    <div class="counts">
+      <div class="count"><b id="hdrInv">7</b><span>invoices</span></div>
+      <div class="count"><b id="hdrOpen">$2,754</b><span>open</span></div>
+      <div class="count"><b id="hdrChecks">3</b><span>checks</span></div>
+    </div>
+  </header>
+
+  <div class="bar">
+    <span class="seg-lab">Box</span>
+    <div class="seg" role="tablist" aria-label="Hyphen boxes">
+      <a href="../index.html">Chase</a>
+      <a class="on" href="index.html" aria-current="page">Apply</a>
+      <a href="../writeoff/index.html">Write-off</a>
+      <a href="../awaiting/index.html">Awaiting</a>
+    </div>
+  </div>
+
+  <div class="mail-note">
+    Paid-to-apply invoices live in this box. We do not apply cash here. One internal research note to Esmeralda. Live chase queue is unchanged. Nothing is sent. Nothing posts in QBO.
+  </div>
+
+  <div class="stage">
+    <div class="pane-left" id="list" aria-label="Checks"></div>
+    <aside class="pane-right" aria-label="Research note">
+      <div class="c-head">
+        <div>
+          <h2 id="cTitle">Research note</h2>
+          <span class="c-kind" id="cKind">Internal · not sent</span>
+        </div>
+      </div>
+      <div class="c-body">
+        <dl class="c-meta">
+          <div class="c-row"><dt>From</dt><dd class="c-field"><div class="who">William Knox</div><div class="addr">william@coastaltestinglabs.com</div></dd></div>
+          <div class="c-row"><dt>To</dt><dd class="c-field"><div class="who">Esmeralda</div><div class="addr">esmeralda@coastaltestinglabs.com</div></dd></div>
+          <div class="c-row"><dt>Subject</dt><dd class="c-field subj"><div class="who" id="cSubj"></div></dd></div>
+        </dl>
+        <div class="letter" id="cLetter"></div>
+      </div>
+      <div class="c-foot">
+        <div class="actions">
+          <button class="act primary" id="btnDraft" type="button">Put in Drafts</button>
+        </div>
+        <p class="act-note">We do not apply cash here. Put in Drafts drafts the william@ research note to Esmeralda. Not a builder letter. Does not send. Nothing posts in QBO.</p>
+      </div>
+    </aside>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script type="application/json" id="rows-json">[
+  {
+    "docNumber": "CTL-26-00520",
+    "address": "1249 Samantha Lane",
+    "customer": "98-639 Southern Pointe",
+    "parent": "LENNAR HOMES",
+    "balance": 522,
+    "totalAmt": 522,
+    "po": "15460883-000",
+    "check": "1325381",
+    "check_date": "8/3/2026",
+    "check_amount": 522,
+    "days": -18
+  },
+  {
+    "docNumber": "CTL-26-00071",
+    "address": "5403 Elk Canyon",
+    "customer": "05-621 Arabella on The Prairie",
+    "parent": "MHI HOMES",
+    "balance": 350,
+    "totalAmt": 350,
+    "po": "91ARB610_002334",
+    "check": "00068971",
+    "check_date": "8/15/2026",
+    "check_amount": 350,
+    "days": -1
+  },
+  {
+    "docNumber": "0630-173248",
+    "address": "10546 Blue Indigo",
+    "customer": "05-621 Chambers Creek",
+    "parent": "MHI HOMES",
+    "balance": 350,
+    "totalAmt": 350,
+    "po": "91KCHBC9_004048",
+    "check": "00068971",
+    "check_date": "8/15/2026",
+    "check_amount": 350,
+    "days": 14
+  },
+  {
+    "docNumber": "0630-173249",
+    "address": "10402 Painted Brush",
+    "customer": "05-621 Chambers Creek",
+    "parent": "MHI HOMES",
+    "balance": 350,
+    "totalAmt": 350,
+    "po": "91KCHBC9_003917",
+    "check": "00068971",
+    "check_date": "8/15/2026",
+    "check_amount": 350,
+    "days": 14
+  },
+  {
+    "docNumber": "0630-173250",
+    "address": "15144 Myrtle Berry",
+    "customer": "05-621 Chambers Creek",
+    "parent": "MHI HOMES",
+    "balance": 350,
+    "totalAmt": 350,
+    "po": "91KCHBC9_004181",
+    "check": "00068971",
+    "check_date": "8/15/2026",
+    "check_amount": 350,
+    "days": 14
+  },
+  {
+    "docNumber": "CTL-26-00530",
+    "address": "14803 Wild Bloom",
+    "customer": "09-679 Chambers Creek",
+    "parent": "Toll Brothers, Inc.",
+    "balance": 416,
+    "totalAmt": 416,
+    "po": "52224032-000",
+    "check": "542086",
+    "check_date": "8/14/2026",
+    "check_amount": 416,
+    "days": -21
+  },
+  {
+    "docNumber": "CTL-26-00431",
+    "address": "14326  Flowering Sage Way",
+    "customer": "09-679 Dunham Pointe",
+    "parent": "Toll Brothers, Inc.",
+    "balance": 416,
+    "totalAmt": 416,
+    "po": "45550376-000",
+    "check": "542086",
+    "check_date": "8/14/2026",
+    "check_amount": 416,
+    "days": -17
+  }
+]</script>
+<script src="../data.js"></script>
+<script src="/data.js"></script>
+<script>
+(function () {
+  "use strict";
+  var LABELS = {
+    "MHI HOMES": "Coventry",
+    "Toll Brothers, Inc.": "Toll Brothers",
+    "LENNAR HOMES": "Lennar"
+  };
+  var CHECK_ORDER = ["00068971", "542086", "1325381"];
+  var rows = JSON.parse(document.getElementById("rows-json").textContent);
+  var LOCKED_TREE = {
+    "Leftover lab": 1,
+    "Quantity shortfall": 1,
+    "Notes error": 1,
+    "Amount off": 1,
+    "Write-off": 1,
+    "Unpaid complete": 1,
+    "No PO": 1,
+    "Paid to apply": 1
+  };
+  var KEEP_LEFTOVER = { "0508-171401": 1, "0506-171278": 1 };
+  function lockIssue(raw, doc) {
+    var id = String(doc || "");
+    if (KEEP_LEFTOVER[id]) return "Leftover lab";
+    var iss = String(raw == null ? "" : raw);
+    var low = iss.toLowerCase();
+    if (low === "billed-wrong" || low === "billed wrong" || low === "flagged") return "Write-off";
+    return iss;
+  }
+  function mailLabel(m) {
+    if (m === "awaiting") return "Awaiting";
+    if (m === "not_sent" || !m) return "Not sent";
+    return String(m);
+  }
+
+  function boxCount(kind) {
+    var src = (window.DATA || []);
+    return src.filter(function (d) {
+      var iss = lockIssue(d.issue, d.docNumber);
+      if (kind === "chase") return (d.mail || "") !== "awaiting" && iss !== "Paid to apply" && iss !== "Write-off";
+      if (kind === "apply") return iss === "Paid to apply";
+      if (kind === "writeoff") return iss === "Write-off" && (d.mail || "") !== "awaiting";
+      if (kind === "awaiting") return (d.mail || "") === "awaiting";
+      return false;
+    }).length;
+  }
+  function paintBoxCounts() {
+    function set(id, n) { var el = $(id); if (el) el.textContent = String(n); }
+    set("nChase", boxCount("chase"));
+    set("nApply", boxCount("apply"));
+    set("apN", boxCount("apply"));
+    set("nWrite", boxCount("writeoff"));
+    set("woN", boxCount("writeoff"));
+    set("nAwait", boxCount("awaiting"));
+    set("awN", boxCount("awaiting"));
+  }
+  if (typeof window.DATA !== "undefined" && window.DATA && window.DATA.length) {
+    var liveApply = window.DATA.filter(function (d) {
+      return lockIssue(d.issue, d.docNumber) === "Paid to apply";
+    }).map(function (d) {
+      return {
+        docNumber: d.docNumber,
+        address: d.service_address || "",
+        customer: d.customer || "",
+        parent: d.parent || "",
+        balance: d.balance,
+        totalAmt: d.totalAmt,
+        po: d.builder_order_number || "",
+        check: d.check_number,
+        check_date: d.check_date,
+        check_amount: d.check_amount,
+        days: d.daysPastDue
+      };
+    });
+    if (liveApply.length) {
+      rows = liveApply;
+      var seenCk = {};
+      CHECK_ORDER = [];
+      rows.forEach(function (r) {
+        var k = String(r.check);
+        if (!seenCk[k]) { seenCk[k] = 1; CHECK_ORDER.push(k); }
+      });
+    }
+  }
+
+  var checks = {};
+  rows.forEach(function (r) {
+    var k = String(r.check);
+    if (!checks[k]) {
+      checks[k] = {
+        id: k,
+        check: k,
+        date: r.check_date,
+        parent: r.parent,
+        client: LABELS[r.parent] || r.parent,
+        invoices: []
+      };
+    }
+    checks[k].invoices.push(r);
+  });
+  var list = CHECK_ORDER.map(function (id) { return checks[id]; }).filter(Boolean);
+  list.forEach(function (c) {
+    c.total = c.invoices.reduce(function (s, r) { return s + Number(r.balance || 0); }, 0);
+    c.invoices.sort(function (a, b) {
+      return String(a.docNumber).localeCompare(String(b.docNumber));
+    });
+  });
+
+  var selected = {};
+  list.forEach(function (c) { selected[c.id] = true; });
+  var open = {};
+  var drafted = false;
+  var litInv = null;
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+  function money(n) {
+    var x = Math.round(Number(n) || 0);
+    return "$" + x.toLocaleString("en-US");
+  }
+  function comm(s) {
+    return String(s || "").replace(/^\d{2}-\d{3}\s+/, "");
+  }
+  function selectedChecks() {
+    return list.filter(function (c) { return selected[c.id]; });
+  }
+  function toast(msg) {
+    var el = $("toast");
+    el.textContent = msg;
+    el.classList.add("on");
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function () { el.classList.remove("on"); }, 3200);
+  }
+
+  function renderList() {
+    $("list").innerHTML = list.map(function (c) {
+      var invHtml = c.invoices.map(function (r) {
+        return '<div class="inv' + (litInv === r.docNumber ? " lit" : "") + '" data-inv="' + esc(r.docNumber) + '">' +
+          '<div class="doc">' + esc(r.docNumber) + "</div>" +
+          '<div class="addr">' + esc(r.address) + "</div>" +
+          '<div class="open">' + money(r.balance) + "</div>" +
+          '<div class="comm">' + esc(comm(r.customer)) + "</div>" +
+          '<div class="po">PO ' + esc(r.po) + "</div>" +
+          "</div>";
+      }).join("");
+      return '<article class="check' + (open[c.id] ? " open" : "") + '" data-check="' + esc(c.id) + '">' +
+        '<div class="check-row' + (selected[c.id] ? " on-letter" : "") + '">' +
+          '<input type="checkbox" data-check="' + esc(c.id) + '"' + (selected[c.id] ? " checked" : "") + ' aria-label="Include check ' + esc(c.check) + ' in the note" />' +
+          '<div class="check-main"><div class="check-client">' + esc(c.client) + "</div>" +
+            '<div class="check-meta">Check <b>' + esc(c.check) + "</b> · " + esc(c.date) + "</div></div>" +
+          '<div class="check-tot"><span class="amt">' + money(c.total) + '</span><span class="ninv">' + c.invoices.length +
+            (c.invoices.length === 1 ? " invoice" : " invoices") + "</span></div>" +
+        "</div>" +
+        '<div class="invs">' + invHtml + "</div>" +
+      "</article>";
+    }).join("");
+  }
+
+  function letterHtml() {
+    var sel = selectedChecks();
+    if (!sel.length) {
+      return '<p class="empty">Select a check on the left. This note stays empty until at least one payment is included. We are not applying anything from this screen.</p>';
+    }
+    var html = "<p>Hyphen shows these checks paid. The CTL invoices below are still open. Please research each payment. We are not applying anything from this note.</p>";
+    sel.forEach(function (c) {
+      html += '<div class="block" data-check="' + esc(c.id) + '">';
+      html += '<div class="client">' + esc(c.client) + "</div>";
+      html += '<div class="ck">Check ' + esc(c.check) + " dated " + esc(c.date) + "</div>";
+      html += '<div class="lab">Open CTL invoices on this payment:</div>';
+      c.invoices.forEach(function (r) {
+        html += '<div class="iline' + (litInv === r.docNumber ? " lit" : "") + '" id="line-' + esc(r.docNumber) + '" data-inv="' + esc(r.docNumber) + '">' +
+          esc(r.docNumber) + " · " + esc(r.address) + " · " + money(r.balance) + " · PO " + esc(r.po) +
+          "</div>";
+      });
+      html += "</div>";
+    });
+    html += '<div class="sig"><b>William Knox</b><span>william@coastaltestinglabs.com</span></div>';
+    return html;
+  }
+
+  function renderLetter() {
+    var sel = selectedChecks();
+    var nInv = sel.reduce(function (s, c) { return s + c.invoices.length; }, 0);
+    $("cSubj").textContent = sel.length
+      ? ("Hyphen payments to research · " + sel.length + " check" + (sel.length === 1 ? "" : "s") + " · " + nInv + " open invoice" + (nInv === 1 ? "" : "s"))
+      : "Hyphen payments to research · select a check";
+    $("cLetter").innerHTML = letterHtml();
+    $("cKind").textContent = drafted ? "Drafted · not sent" : "Internal · not sent";
+    $("cKind").classList.toggle("drafted", drafted);
+    $("cTitle").textContent = drafted ? "Drafted · not sent" : "Research note";
+    $("btnDraft").disabled = sel.length === 0;
+    if (litInv) {
+      var el = document.getElementById("line-" + litInv);
+      if (el) el.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  }
+
+  function render() {
+    renderList();
+    renderLetter();
+  }
+
+  $("list").addEventListener("click", function (e) {
+    var box = e.target.closest("input[type=checkbox]");
+    if (box) {
+      e.stopPropagation();
+      selected[box.getAttribute("data-check")] = box.checked;
+      drafted = false;
+      render();
+      return;
+    }
+    var inv = e.target.closest(".inv");
+    if (inv) {
+      litInv = inv.getAttribute("data-inv");
+      render();
+      return;
+    }
+    var row = e.target.closest(".check-row");
+    if (row) {
+      var id = row.closest(".check").getAttribute("data-check");
+      open[id] = !open[id];
+      renderList();
+    }
+  });
+
+  $("btnDraft").addEventListener("click", function () {
+    if (!selectedChecks().length) return;
+    drafted = true;
+    renderLetter();
+    toast("Put in Drafts.");
+  });
+
+
+  $("hdrInv").textContent = String(rows.length);
+  $("hdrOpen").textContent = money(rows.reduce(function (s, r) { return s + Number(r.balance || 0); }, 0));
+  $("hdrChecks").textContent = String(list.length);
+  paintBoxCounts();
+  render();
+})();
+</script>
+</body>
+</html>
