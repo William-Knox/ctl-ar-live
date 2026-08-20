@@ -839,23 +839,7 @@ tbody tr { cursor: pointer; }
 <script>
 (function () {
   "use strict";
-  var ROWS = [
-    { id:"179586", days:154, open:261, billed:783, community:"Spring Branch Crossing", addr:"11974 Hedley Court", parent:"LENNAR HOMES", hyphen:"short", issue:"Notes error", mail:"awaiting", packet:"complete", leftover:true, leftoverHuman:false, po:"61893156-000", due:"2026-03-18", analysis:"We first wrote two lifts $522 on PO 61893156-000; invoice 179586 billed $783. Lennar paid check 1217932 $522 against that first number. Later notes were corrected to three lifts $783. Ryan Potter 2/9 called both Hedley lots as three lifts and the 3/5 report PDF shows three lifts. Tree step 3 is Notes error." },
-    { id:"180131", days:126, open:783, billed:783, community:"Bridgeland", addr:"12527/12523 Alligator Lake", parent:"LENNAR HOMES", hyphen:"unpaid", issue:"Unpaid complete", mail:"awaiting", packet:"complete", leftover:false, leftoverHuman:false, po:"70276926-000", due:"2026-04-15", analysis:"Lennar marked PO 70276926-000 complete on 2026-03-19. Wednesday payments have no check on this SON, and no paid first visit at 12523 or 12527 Alligator Lake (12515/12519 paid on other POs). Invoice 180131 is $783 open for both lots on one Received PO." },
-    { id:"0430-171077", days:77, open:349, billed:871, community:"Moore's Landing", addr:"11935 Noble Wood", parent:"LENNAR HOMES", hyphen:"short", issue:"Leftover lab", mail:"not_sent", packet:"hold", leftover:true, leftoverHuman:false, po:"89685762-000", due:"2026-06-03", analysis:"Maria's 5/7 note on this PO matches billed $871 (Proctor and PI $349 plus two lifts $522). Check 1255333 paid $522; leftover $349 is the named lab. Mail research found a 4/29 Brandi call-in of one lift and a same-address open sibling 0505-171251 $261 retest — that sibling is a different invoice, not this leftover." },
-    { id:"0506-171310", days:75, open:261, billed:522, community:"Grand Lake", addr:"1220 Charlotte Way", parent:"LENNAR HOMES", hyphen:"short", issue:"Quantity shortfall", mail:"not_sent", packet:"complete", leftover:false, leftoverHuman:false, po:"90007977-000", due:"2026-06-05", analysis:"No Hyphen note text was found for this SON, so notes are clean. PO 90007977-000 paid check 1255333 $261 against billed $522; $261 remains. The 5/7 customer-facing report PDF shows two lifts (1st and 2nd/Final); the paid PO covers one. Recommend chase the unpaid lift. Do not treat as Paid to apply." },
-    { id:"0508-171401", days:73, open:260, billed:610, community:"Bridgeland", addr:"12507 Nueces River Dr", parent:"MHI HOMES", hyphen:"short", issue:"blank", mail:"not_sent", packet:"hold", leftover:true, leftoverHuman:true, href:"leftover-case.html#0508-171401", po:"91KBRG10_004032", due:"2026-06-07", analysis:"Hyphen notes on this order are empty. Check 00061817 paid $350 of billed $610; leftover $260. Mail research names a proctor/PI retest thread, but $260 is not the $349 lab rate and no note names the leftover they must issue. Cannot prove Leftover lab, Quantity shortfall, or Amount off. Leave Issue blank." },
-    { id:"0515-171663", days:66, open:350, billed:350, community:"MHI HOMES", addr:"31837 Pecan Cottage", parent:"MHI HOMES", hyphen:"notfound", issue:"Write-off", mail:"not_sent", packet:"complete", leftover:false, leftoverHuman:false, href:"writeoff/case.html", po:"", due:"2026-06-14", analysis:"Jake Fisher 2026-05-06 10:35 AM CT listed 31837 Pecan Cottage; that first visit is paid 0507-171335 / PO 91KMDI18_006326 check 00060133 6/1/2026 $350. Open 0515-171663 is a later report 260515-64785 (Maria 5/18 send). No second client call-in is in Ryan/Maria Graph." },
-    { id:"0518-171733", days:63, open:349, billed:871, community:"Sila", addr:"31519 San Floro", parent:"LENNAR HOMES", hyphen:"short", issue:"Leftover lab", mail:"not_sent", packet:"hold", leftover:true, leftoverHuman:false, po:"87800771-000", due:"2026-06-17", analysis:"Maria's 5/27 note matches billed $871 (Proctor $349 plus two lifts $522). Check 1286405 paid $522 on PO 87800771-000; leftover $349 is the named lab. Mail research found Angel Gonzalez 5/15 two-lift call-in and a 5/21 Maria report send." },
-    { id:"0519-171828", days:62, open:261, billed:261, community:"Caney Mills", addr:"13560 Bay Springs", parent:"LENNAR HOMES", hyphen:"notfound", issue:"No PO", mail:"not_sent", packet:"hold", leftover:false, leftoverHuman:false, po:"", due:"2026-06-18", analysis:"Brandi Cook 2026-05-18 8:52 PM CT asked Ryan/Joe for Caney Mills 13560 Bay Springs 1 lift (with 13547 2 lifts and 13568 1 lift); Ryan 5/19 added to schedule. Payments CSV has no row at 13560 Bay Springs. Not found in Hyphen after the mail look, so this is No PO." },
-    { id:"0506-171278", days:56, open:270, billed:620, community:"MHI HOMES", addr:"19035 Cetara Villa", parent:"MHI HOMES", hyphen:"short", issue:"blank", mail:"not_sent", packet:"hold", leftover:true, leftoverHuman:true, href:"leftover-case.html#0506-171278", po:"91KCYPGR_002819", due:"2026-06-24", analysis:"Hyphen notes are empty. Check 00060133 paid $350 of billed $620; leftover $270. Maria sent a Proctor-titled report on 5/15, but $270 is not the $349 lab rate and no note names the leftover they must issue. Cannot prove Leftover lab or Amount off. Leave Issue blank." },
-    { id:"0609-172331", days:41, open:783, billed:783, community:"The Trails- New Caney", addr:"217 Violet Crown", parent:"LENNAR HOMES", hyphen:"notfound", issue:"Write-off", mail:"not_sent", packet:"complete", leftover:false, leftoverHuman:false, href:"writeoff/case.html", po:"", due:"2026-07-09", analysis:"Same 3-lift pad twice. Angel Gonzalez 2026-05-26 9:24 AM CT asked Ryan/Joe for 217 Violet Crown 3 lifts; that first visit is paid 0526-171938 / PO 149259-000 check 1274186 2026-06-08 $783. Graph has no second CLIENT call-in for 217." },
-    { id:"0619-172720", days:31, open:783, billed:783, community:"Enclave at Spring Branch", addr:"19054 Style", parent:"LENNAR HOMES", hyphen:"notfound", issue:"No PO", mail:"not_sent", packet:"hold", leftover:false, leftoverHuman:false, po:"", due:"2026-07-19", analysis:"ryan_kkdirt 2026-06-13 10:06 AM CT asked Ryan/Joe for 19054 and 19058 Style, 3 lifts each, Enclave at Spring Branch; Ryan 6/15 added. Neighbor 19058 Style paid 0619-172723 / PO 2447559-000 check 1319014 2026-07-27 $783 — different house, research only. Payments CSV has no row at 19054 Style." },
-    { id:"0611-172568", days:35, open:104, billed:520, community:"Dunham Pointe", addr:"19607 Paseo Corso Lane", parent:"Toll Brothers, Inc.", hyphen:"short", issue:"billed-wrong", mail:"not_sent", packet:"hold", leftover:true, leftoverHuman:true, href:"leftover-case.html#0611-172568", po:"25444638-000", due:"2026-07-15", analysis:"Hyphen notes are empty. Toll check 527809 paid $416 of billed $520 on pad-density PO 25444638-000; leftover $104. Mail shows one Nicole Love call-in, not a second visit. Nothing names a leftover they must issue." },
-    { id:"0611-172620", days:35, open:52, billed:468, community:"Dunham Pointe", addr:"19922 Winding Angelica Way", parent:"Toll Brothers, Inc.", hyphen:"short", issue:"flagged", mail:"not_sent", packet:"hold", leftover:true, leftoverHuman:true, href:"leftover-case.html#0611-172620", po:"25468368-000", due:"2026-07-15", analysis:"Hyphen notes are empty. Toll check 523114 paid $416 of billed $468; leftover $52. Esme's 7/2 email named additional density and asked for an EPO; that email is not a Hyphen note and EPO is not an Issue." },
-    { id:"0609-172393", days:35, open:60, billed:410, community:"Escondido", addr:"42628 Mystery Lane", parent:"MHI HOMES", hyphen:"short", issue:"Amount off", mail:"not_sent", packet:"hold", leftover:false, leftoverHuman:false, po:"91K5ESC4_005246", due:"2026-07-15", analysis:"Hyphen notes are empty, so notes are clean. Check 00065328 paid $350 of billed $410; leftover $60. Mail and notes do not name a lab or lift they must issue. Tree step 6 is Amount off." },
-    { id:"0731-174161", days:16, open:1188, billed:1188, community:"Westland Ranch", addr:"4206 White Springs Lane", parent:"K. Hovnanian of Houston", hyphen:"unpaid", issue:"Unpaid complete", mail:"not_sent", packet:"hold", leftover:false, leftoverHuman:false, po:"7118095-000", due:"2026-08-03", analysis:"Builder marked PO 7118095-000 complete on 2026-08-06. Wednesday payments have no check on this SON and no paid visit at 4206 White Springs (4221/4249 paid on other POs). Invoice $1,188 matches the PO face." }
-  ];
+  var ROWS = [];
 
   var LOCKED_TREE = {
     "Leftover lab": 1,
@@ -868,6 +852,12 @@ tbody tr { cursor: pointer; }
     "Paid to apply": 1
   };
   var KEEP_LEFTOVER = { "0508-171401": 1, "0506-171278": 1 };
+
+  function isLeftoverSet(issue, billed, open) {
+    if (issue === "Leftover lab" || issue === "Quantity shortfall" || issue === "Notes error" || issue === "Amount off") return true;
+    if (issue === "Write-off" && Number(billed) > Number(open) && Number(open) > 0) return true;
+    return false;
+  }
   function lockIssue(raw, doc) {
     var id = String(doc || "");
     if (KEEP_LEFTOVER[id]) return "Leftover lab";
@@ -883,7 +873,7 @@ tbody tr { cursor: pointer; }
   }
   function mapChaseRow(d) {
     var issue = lockIssue(d.issue, d.docNumber);
-    var leftover = issue === "Leftover lab";
+    var leftover = isLeftoverSet(issue, Number(d.totalAmt) || 0, Number(d.balance != null ? d.balance : d.open_balance) || 0);
     var hyphen;
     if (issue === "Unpaid complete") hyphen = "unpaid";
     else if (d.status === "partial") hyphen = "short";
@@ -911,7 +901,7 @@ tbody tr { cursor: pointer; }
   }
   ROWS.forEach(function (r) {
     r.issue = lockIssue(r.issue, r.id);
-    r.leftover = r.issue === "Leftover lab";
+    r.leftover = isLeftoverSet(r.issue, r.billed, r.open);
     r.leftoverHuman = false;
     r.href = r.leftover ? ("leftover-case.html#" + r.id) : (r.href || "");
   });

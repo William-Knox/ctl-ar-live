@@ -628,103 +628,7 @@ tbody tr { cursor: pointer; }
 <script>
 (function () {
   "use strict";
-  var ROWS = [
-    {
-      id: "0611-172568",
-      days: 35,
-      addr: "19607 Paseo Corso Lane",
-      parent: "Toll Brothers, Inc.",
-      community: "Dunham Pointe",
-      open: 104,
-      billed: 520,
-      issue0: "Write-off",
-      mail: "Not sent",
-      canStamp: true,
-      analysis: "Found: Hyphen PO 25444638-000 face $416; Toll check 527809 $416 applied 7/10. QBO billed $520, $104 still open. Not found: no second visit — leftover is billed wrong (Dominus named Write-off). Recommend write-off of $104. No EPO. Not a builder chase.",
-      found: "Hyphen PO 25444638-000 face $416. Toll check 527809 $416 applied 7/10. QBO billed $520; $104 leftover.",
-      notFound: "No second visit on file. Leftover is billed wrong — same extra-density pattern as the $52 Toll siblings, doubled. Dominus named Write-off.",
-      rec: "Write off $104 internally. No EPO. Do not chase Toll. We do not write off in QBO from this screen.",
-      ledger: [
-        { when: "6/10 2:16p", lab: "Called in", what: "Nicole Love to Ryan: 19607 Paseo Corso Lane – 2 Lift" },
-        { when: "6/12 3:49p", lab: "Report", what: "Maria sent report" },
-        { when: "6/15", lab: "Invoiced", what: "QBO 0611-172568 $520 issued; $104 still open" },
-        { when: "7/8", lab: "Completed", what: "Hunter Ustynik marked the order complete." },
-        { when: "7/10", lab: "Paid", what: "Toll check 527809 $416 applied. PO face $416." },
-        { when: "Today", lab: "Today", what: "$104 leftover still open, 35 days past due. Billed wrong.", today: true }
-      ]
-    },
-    {
-      id: "0611-172620",
-      days: 35,
-      addr: "19922 Winding Angelica Way",
-      parent: "Toll Brothers, Inc.",
-      community: "Dunham Pointe",
-      open: 52,
-      billed: 468,
-      issue0: "Write-off",
-      mail: "Not sent",
-      canStamp: true,
-      analysis: "Hyphen notes are empty. Toll check 523114 paid $416 of billed $468; leftover $52. Esme's 7/2 email named additional density and asked for an EPO; that email is not a Hyphen note and EPO is not an Issue. Nothing they must issue is a named lab or unpaid lift we can prove from reports on disk.",
-      found: "Toll check 523114 paid $416 of billed $468 on this pad-density order. Leftover $52.",
-      notFound: "Esme 7/2 named additional density and asked for an EPO; that email is not a Hyphen note. EPO is not an Issue. No named lab or unpaid lift on reports.",
-      rec: "Write off stamps Issue Write-off for the Esme note. We do not write off in QBO from this screen.",
-      ledger: [
-        { when: "6/11", lab: "Called in", what: "Nicole Love asked Ryan for compaction at 19922 Winding Angelica Way." },
-        { when: "6/12", lab: "Report", what: "Maria sent the report." },
-        { when: "6/15", lab: "Invoiced", what: "0611-172620 $468." },
-        { when: "6/26", lab: "Paid", what: "Toll check 523114 $416 on PO 25468368-000." },
-        { when: "7/2", lab: "Inquiry", what: "Esme told Toll the invoice was short $52. No builder reply found." },
-        { when: "Today", lab: "Today", what: "$52 leftover still open, 35 days past due. Flagged.", today: true }
-      ]
-    },
-    {
-      id: "0506-171278",
-      days: 56,
-      addr: "19035 Cetara Villa",
-      parent: "MHI HOMES",
-      community: "MHI HOMES",
-      open: 270,
-      billed: 620,
-      issue0: "Leftover lab",
-      mail: "Not sent",
-      canStamp: true,
-      analysis: "Hyphen notes are empty. Check 00060133 paid $350 of billed $620; leftover $270. Maria sent a Proctor-titled report on 5/15, but $270 is not the $349 lab rate and no note names the leftover they must issue. Cannot prove Leftover lab or Amount off. Leave Issue blank.",
-      found: "MHI check 00060133 paid $350 of billed $620 on PO 91KCYPGR_002819. Maria sent a Proctor-titled report on 5/15.",
-      notFound: "$270 is not the $349 lab rate. No note names the leftover they must issue. Cannot prove Leftover lab or Amount off.",
-      rec: "Issue stays blank until stamped. Write off stamps Issue Write-off for the Esme note. We do not write off in QBO from this screen.",
-      ledger: [
-        { when: "5/4", lab: "Called in", what: "Ryan Martin asked Ryan to schedule 19035 Cetara Villa." },
-        { when: "5/8", lab: "Report", what: "Maria sent a compaction report." },
-        { when: "5/15", lab: "Report", what: "Maria sent a Proctor-titled report for 19035 Cetara Villa." },
-        { when: "5/25", lab: "Invoiced", what: "0506-171278 $620." },
-        { when: "6/1", lab: "Paid", what: "MHI check 00060133 $350 on PO 91KCYPGR_002819." },
-        { when: "Today", lab: "Today", what: "$270 leftover still open, 56 days past due. Blank.", today: true }
-      ]
-    },
-    {
-      id: "0508-171401",
-      days: 73,
-      addr: "12507 Nueces River Dr",
-      parent: "MHI HOMES",
-      community: "Bridgeland",
-      open: 260,
-      billed: 610,
-      issue0: "Leftover lab",
-      mail: "Not sent",
-      canStamp: true,
-      analysis: "Hyphen notes on this order are empty. Check 00061817 paid $350 of billed $610; leftover $260. Mail research names a proctor/PI retest thread, but $260 is not the $349 lab rate and no note names the leftover they must issue. Portal line was $700, not $610. Cannot prove Leftover lab, Quantity shortfall, or Amount off. Leave Issue blank.",
-      found: "MHI check 00061817 paid $350 of billed $610 on PO 91KBRG10_004032. Mail names a proctor/PI retest thread.",
-      notFound: "$260 is not the $349 lab rate. No note names the leftover they must issue. Portal line was $700, not $610. Cannot prove Leftover lab, Quantity shortfall, or Amount off.",
-      rec: "Issue stays blank until stamped. Write off stamps Issue Write-off for the Esme note. We do not write off in QBO from this screen.",
-      ledger: [
-        { when: "5/7", lab: "Called in", what: "Cody Johnson asked Ryan and Joe to schedule pad compaction at 12507 Nueces River Dr." },
-        { when: "5/8", lab: "Invoiced", what: "0508-171401 $610." },
-        { when: "5/12", lab: "Report", what: "Maria sent a report. Cody asked whether the pad passed." },
-        { when: "6/15", lab: "Paid", what: "MHI check 00061817 $350 on PO 91KBRG10_004032." },
-        { when: "Today", lab: "Today", what: "$260 leftover still open, 73 days past due. Blank.", today: true }
-      ]
-    }
-  ];
+  var ROWS = [];
 
   var LOCKED_TREE = {
     "Leftover lab": 1,
@@ -737,6 +641,12 @@ tbody tr { cursor: pointer; }
     "Paid to apply": 1
   };
   var KEEP_LEFTOVER = { "0508-171401": 1, "0506-171278": 1 };
+
+  function isLeftoverSet(issue, billed, open) {
+    if (issue === "Leftover lab" || issue === "Quantity shortfall" || issue === "Notes error" || issue === "Amount off") return true;
+    if (issue === "Write-off" && Number(billed) > Number(open) && Number(open) > 0) return true;
+    return false;
+  }
   function lockIssue(raw, doc) {
     var id = String(doc || "");
     if (KEEP_LEFTOVER[id]) return "Leftover lab";
@@ -756,7 +666,7 @@ tbody tr { cursor: pointer; }
       return { when: e.when, lab: e.lab, what: e.what, today: !!e.today };
     });
     if (!ledger.length) {
-      ledger = [{ when: "Today", lab: "Today", what: analysis || (d.docNumber + " leftover lab"), today: true }];
+      ledger = [{ when: "Today", lab: "Today", what: analysis || (d.docNumber + " leftover"), today: true }];
     }
     return {
       id: d.docNumber,
@@ -766,7 +676,7 @@ tbody tr { cursor: pointer; }
       community: d.customer || "",
       open: Number(d.balance != null ? d.balance : d.open_balance) || 0,
       billed: Number(d.totalAmt) || 0,
-      issue0: "Leftover lab",
+      issue0: lockIssue(d.issue, d.docNumber),
       mail: mailLabel(d.mail || "not_sent"),
       canStamp: true,
       analysis: analysis,
@@ -781,10 +691,13 @@ tbody tr { cursor: pointer; }
     r.issue0 = lockIssue(r.issue0, r.id);
     r.leftoverHuman = false;
   });
-  ROWS = ROWS.filter(function (r) { return r.issue0 === "Leftover lab"; });
+  ROWS = ROWS.filter(function (r) { return isLeftoverSet(r.issue0, r.billed, r.open); });
   if (typeof window.DATA !== "undefined" && window.DATA && window.DATA.length) {
     var liveLO = window.DATA.filter(function (d) {
-      return lockIssue(d.issue, d.docNumber) === "Leftover lab";
+      var issue = lockIssue(d.issue, d.docNumber);
+      var billed = Number(d.totalAmt) || 0;
+      var open = Number(d.balance != null ? d.balance : d.open_balance) || 0;
+      return isLeftoverSet(issue, billed, open);
     }).map(mapLeftoverRow);
     if (liveLO.length) ROWS = liveLO;
   }
