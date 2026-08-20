@@ -512,10 +512,10 @@ button { cursor: pointer; background: none; border: 0; }
 <div class="app">
   <header class="hdr">
     <div class="brand">
-      <img class="mark" src="../ctl-mark-on-white.png" width="22" height="22" alt="" />
+      <img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" />
       <div class="brand-text">
         <h1>Hyphen review</h1>
-        <p class="asof">Write-off · Thursday 2026-08-20</p>
+        <p class="asof">Write-off box · Thursday 2026-08-20</p>
       </div>
     </div>
     <div class="counts">
@@ -530,7 +530,7 @@ button { cursor: pointer; background: none; border: 0; }
     <div class="seg" role="tablist" aria-label="Hyphen boxes">
       <a href="../index.html">Chase</a>
       <a href="../apply/index.html">Apply</a>
-      <a class="on" href="index.html" aria-current="page">Write-off</a>
+      <button type="button" class="on" aria-current="page">Write-off <span class="n" id="woN">4</span></button>
       <a href="../awaiting/index.html">Awaiting</a>
     </div>
   </div>
@@ -568,15 +568,15 @@ button { cursor: pointer; background: none; border: 0; }
       <div class="c-foot">
         <div class="actions">
           <button class="act primary" id="btnDraft" type="button">Put in Drafts</button>
+          <button class="act ghost" id="btnSend" type="button" title="Mock only. Send marks checked invoices Awaiting. Unchecked stay Not sent. Does not write off in QBO.">Send (mock)</button>
         </div>
-        <p class="act-note">One compact Put in Drafts — not the builder Draft split. Drafts the william@ Esme note. Does not send. We do not write off in QBO. Empty analysis cannot join the note.</p>
+        <p class="act-note">One compact Put in Drafts — not the builder Draft split. Drafts the william@ note. Does not send. Does not write off in QBO. Send (mock) only demonstrates Awaiting vs Not sent.</p>
       </div>
     </aside>
   </div>
 </div>
 <div class="toast" id="toast" role="status"></div>
 <script src="../data.js"></script>
-<script src="/data.js"></script>
 <script>
 (function () {
   "use strict";
@@ -588,7 +588,8 @@ button { cursor: pointer; background: none; border: 0; }
       addr: "19607 Paseo Corso Lane",
       open: 104,
       analysis: "Found: Hyphen PO 25444638-000 face $416; Toll check 527809 $416 applied 7/10. QBO billed $520, $104 leftover. Not found: no second visit — leftover is billed wrong (Dominus named Write-off). Recommend write-off of $104. No EPO.",
-      checked0: true
+      checked0: true,
+      href: "case.html"
     },
     {
       id: "0609-172331",
@@ -643,28 +644,6 @@ button { cursor: pointer; background: none; border: 0; }
     if (m === "not_sent" || !m) return "Not sent";
     return String(m);
   }
-
-  function boxCount(kind) {
-    var src = (window.DATA || []);
-    return src.filter(function (d) {
-      var iss = lockIssue(d.issue, d.docNumber);
-      if (kind === "chase") return (d.mail || "") !== "awaiting" && iss !== "Paid to apply" && iss !== "Write-off";
-      if (kind === "apply") return iss === "Paid to apply";
-      if (kind === "writeoff") return iss === "Write-off" && (d.mail || "") !== "awaiting";
-      if (kind === "awaiting") return (d.mail || "") === "awaiting";
-      return false;
-    }).length;
-  }
-  function paintBoxCounts() {
-    function set(id, n) { var el = $(id); if (el) el.textContent = String(n); }
-    set("nChase", boxCount("chase"));
-    set("nApply", boxCount("apply"));
-    set("apN", boxCount("apply"));
-    set("nWrite", boxCount("writeoff"));
-    set("woN", boxCount("writeoff"));
-    set("nAwait", boxCount("awaiting"));
-    set("awN", boxCount("awaiting"));
-  }
   if (typeof window.DATA !== "undefined" && window.DATA && window.DATA.length) {
     var liveWO = window.DATA.filter(function (d) {
       return lockIssue(d.issue, d.docNumber) === "Write-off" && (d.mail || "not_sent") !== "awaiting";
@@ -717,7 +696,9 @@ button { cursor: pointer; background: none; border: 0; }
       var m = mail[r.id];
       var mailLab = m === "awaiting" ? "Awaiting" : "Not sent";
       var mailCls = m === "awaiting" ? "awaiting" : "not_sent";
-      var inv = esc(r.id);
+      var inv = r.href
+        ? '<a href="' + esc(r.href) + '">' + esc(r.id) + "</a>"
+        : esc(r.id);
       return '<article class="row' + (selected[r.id] ? " on-letter" : "") + (empty ? " hold" : "") + '" data-id="' + esc(r.id) + '">' +
         '<input type="checkbox" data-id="' + esc(r.id) + '"' + (selected[r.id] ? " checked" : "") + (empty ? " disabled" : "") +
           ' aria-label="' + (empty ? "Hold — no analysis" : ("Include " + esc(r.id) + " on the note")) + '" />' +
@@ -759,6 +740,8 @@ button { cursor: pointer; background: none; border: 0; }
     $("cKind").classList.toggle("drafted", drafted);
     $("cTitle").textContent = drafted ? "Drafted · not sent" : "Research note";
     $("btnDraft").disabled = sel.length === 0;
+    var canSend = sel.length > 0 && sel.some(function (r) { return mail[r.id] !== "awaiting"; });
+    $("btnSend").disabled = !canSend;
   }
 
   function renderCounts() {
@@ -768,7 +751,7 @@ button { cursor: pointer; background: none; border: 0; }
     $("hdrInv").textContent = String(ROWS.length);
     $("hdrOpen").textContent = money(openAll);
     $("hdrOn").textContent = String(onNote);
-    paintBoxCounts();
+    $("woN").textContent = String(notSent);
   }
 
   function render() {
@@ -797,9 +780,17 @@ button { cursor: pointer; background: none; border: 0; }
     if (!checkedRows().length) return;
     drafted = true;
     renderLetter();
-    toast("Put in Drafts.");
+    toast("Mock only. Drafted a william@ note to Esmeralda. Nothing was sent. Nothing written off in QBO.");
   });
 
+  $("btnSend").addEventListener("click", function () {
+    var sel = checkedRows();
+    if (!sel.length) return;
+    sel.forEach(function (r) { mail[r.id] = "awaiting"; });
+    drafted = true;
+    render();
+    toast("Mock only. Checked invoices marked Awaiting. Unchecked stay Not sent. We do not write off in QBO.");
+  });
 
 
 
