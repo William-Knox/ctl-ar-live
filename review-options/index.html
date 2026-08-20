@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#F8F6F2" />
+<title>Hyphen review · layout options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+<style>
+  :root { --cream:#F8F6F2; --navy:#0F172A; --muted:#6F6A62; --line:#E4E0D8; --line-2:#D6D1C7; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { min-height: 100%; background: var(--cream); color: var(--navy); font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  main { max-width: 420px; margin: 72px auto; padding: 0 24px; }
+  h1 { font-size: 18px; font-weight: 650; letter-spacing: -0.03em; }
+  .mock { display: inline-flex; align-items: center; height: 16px; margin-left: 8px; padding: 0 6px; border: 1px solid var(--line-2); border-radius: 999px; font-size: 10px; font-weight: 650; letter-spacing: 0.06em; color: var(--muted); vertical-align: 2px; }
+  p { margin: 10px 0 28px; font-size: 13px; color: var(--muted); line-height: 1.45; }
+  a { display: block; padding: 14px 16px; margin: 0 0 8px; background: #fff; border: 1px solid var(--line); border-radius: 8px; color: var(--navy); text-decoration: none; font-size: 15px; font-weight: 550; }
+  a:hover { border-color: var(--navy); }
+  a span { display: block; margin-top: 4px; font-size: 12px; font-weight: 400; color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Hyphen review <span class="mock">MOCK</span></h1>
+  <p>Layout options A / B / C. Thursday 2026-08-20. Not live.</p>
+  <a href="a/">Option A <span>table left · case split analysis then ledger | letter</span></a>
+  <a href="b/">Option B <span>same table · case stacked one column</span></a>
+  <a href="c/">Option C <span>cards left · case split like A</span></a>
+</main>
+</body>
+</html>

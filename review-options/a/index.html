@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F8F6F2" />
+<title>Hyphen review · Option A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<script>window.LAYOUT = "A";</script>
+</head>
+<body class="layout-A">
+<div class="app" id="app">
+  <header class="hdr">
+    <div class="brand">
+      <img class="mark" src="../ctl-mark-on-white.png" width="22" height="22" alt="" />
+      <div class="brand-text">
+        <h1>Hyphen review <span class="mock-tag">MOCK</span></h1>
+        <p class="asof" id="asof">Option A · Chase · Thursday 2026-08-20</p>
+      </div>
+    </div>
+    <div class="counts">
+      <div class="count"><b id="countN">0</b><span>invoices</span></div>
+      <div class="count"><b id="countOpen">$0</b><span>open</span></div>
+    </div>
+  </header>
+
+  <div class="bar">
+    <input class="search" id="q" type="search" placeholder="Invoice, address, community" autocomplete="off" />
+
+    <span class="seg-lab">Box</span>
+    <div class="seg" role="tablist" aria-label="Hyphen boxes">
+      <button type="button" class="on" data-box="chase" aria-current="page">Chase <span class="n" id="nChase">—</span></button>
+      <button type="button" data-box="apply">Apply <span class="n" id="nApply">—</span></button>
+      <button type="button" data-box="writeoff">Write-off <span class="n" id="nWrite">—</span></button>
+      <button type="button" data-box="awaiting">Awaiting <span class="n" id="nAwait">—</span></button>
+    </div>
+
+    <button type="button" class="lo-chip" id="loChip" aria-pressed="false">Leftover <span class="n" id="loN">—</span></button>
+
+    <div class="menu" data-menu="why">
+      <button class="menu-btn" type="button"><span class="t">Issue</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="Leftover lab" /> Leftover lab <span class="n">0</span></label>
+        <label><input type="checkbox" value="Quantity shortfall" /> Quantity shortfall <span class="n">0</span></label>
+        <label><input type="checkbox" value="Notes error" /> Notes error <span class="n">0</span></label>
+        <label><input type="checkbox" value="Amount off" /> Amount off <span class="n">0</span></label>
+        <label><input type="checkbox" value="Write-off" /> Write-off <span class="n">0</span></label>
+        <label><input type="checkbox" value="Unpaid complete" /> Unpaid complete <span class="n">0</span></label>
+        <label><input type="checkbox" value="No PO" /> No PO <span class="n">0</span></label>
+        <label><input type="checkbox" value="Paid to apply" /> Paid to apply <span class="n">0</span></label>
+        <div class="menu-foot"><button type="button" class="all" data-select="why">Select all</button><button type="button" class="all" data-clear="why">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="menu" data-menu="days">
+      <button class="menu-btn" type="button"><span class="t">Days</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="0-15" /> 0–15</label>
+        <label><input type="checkbox" value="16-30" /> 16–30</label>
+        <label><input type="checkbox" value="30+" /> 30+</label>
+        <div class="menu-foot"><button type="button" class="all" data-select="days">Select all</button><button type="button" class="all" data-clear="days">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="menu" data-menu="builder">
+      <button class="menu-btn" type="button"><span class="t">Builder</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="LENNAR HOMES" /> Lennar</label>
+        <label><input type="checkbox" value="MHI HOMES" /> MHI</label>
+        <label><input type="checkbox" value="Toll Brothers, Inc." /> Toll</label>
+        <label><input type="checkbox" value="K. Hovnanian of Houston" /> K. Hovnanian</label>
+        <label><input type="checkbox" value="TriPointe Homes" /> TriPointe Homes</label>
+        <div class="menu-foot"><button type="button" class="all" data-select="builders">Select all</button><button type="button" class="all" data-clear="builders">Clear</button></div>
+      </div>
+    </div>
+
+    <button class="clear-btn" id="clearBtn" type="button">Clear filters</button>
+    <div class="bar-spacer"></div>
+
+    <div class="menu" data-menu="more">
+      <button class="menu-btn" type="button" aria-label="More filters">⋯</button>
+      <div class="menu-pop right" hidden>
+        <div class="menu-sec">Hyphen</div>
+        <label><input type="checkbox" value="short" data-hy /> Short</label>
+        <label><input type="checkbox" value="unpaid" data-hy /> Unpaid</label>
+        <label><input type="checkbox" value="notfound" data-hy /> Not found</label>
+        <div class="menu-foot"><button type="button" class="all" data-select="more">Select all</button><button type="button" class="all" data-clear="more">Clear</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="wrap" id="list" aria-label="Queue"></div>
+    <section class="case" id="case" aria-label="Invoice case"></section>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="../data.js"></script>
+<script src="../app.js"></script>
+</body>
+</html>

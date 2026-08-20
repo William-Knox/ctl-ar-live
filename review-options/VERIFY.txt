@@ -1,0 +1,34 @@
+Hyphen review options A/B/C VERIFY
+Thursday 2026-08-20  (written 2026-08-20 CT)
+MOCK only. Do not publish. Live data.js / index.html / leftover-case.html / apply/ / writeoff/ / awaiting/ / contacts.js were not written.
+
+== live pages-host (must be unchanged) ==
+data.js     sha256: 7ca0b2648833d7863e3634b3b0ac836235e88398a48c68534cf0e380dc69b03c
+index.html  sha256: 5c41841d4fad1e965102c88fcc6ff7243ff674031f9b95eef2e1157d7d8af47d
+data.js copy in mock dir matches live: True
+
+== counts from data.js copy (same rules as app.js) ==
+parsed window.DATA: 433
+leftover-set (chip, off by default): 18
+Chase default (mail !== awaiting): 426
+Apply (Paid to apply): 130
+Write-off box (issue Write-off, not awaiting): 33
+Awaiting (mail === awaiting): 7
+leftover inside Chase: 15
+
+starter invoice (all three, Chase, leftover off): 0506-171310
+  issue=Quantity shortfall  days=76  open=$261
+  signed ledger=6  builder letter=yes  attachments=4
+
+== mock paths ==
+/workspace/hyphen-mocks/review-options-2026-08-20/a/index.html
+/workspace/hyphen-mocks/review-options-2026-08-20/b/index.html
+/workspace/hyphen-mocks/review-options-2026-08-20/c/index.html
+copy: /workspace/hyphen-board/pages-host/review-options/{a,b,c}/index.html
+
+== localhost ==
+http://127.0.0.1:8766/a/
+http://127.0.0.1:8766/b/
+http://127.0.0.1:8766/c/
+
+No git push. No ctl-ar-live/hyphen publish.
