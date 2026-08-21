@@ -1,0 +1,572 @@
+Received: from SJ2PR22MB5310.namprd22.prod.outlook.com (2603:10b6:a03:583::16)
+ by CH3PR22MB4276.namprd22.prod.outlook.com with HTTPS; Wed, 12 Aug 2026
+ 18:25:39 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=CuypYkmRMK2OmhlxharIbeLJ+lEPA+VxDTOS20cHQjL6ZszNkeDCKjq4ZrMjEhZC2BCSh8phDvsbMufza+/OSG9v1J+tSSP8r/ItbRuDV3m+Fp5HAByXJMQDRNBo3noc+dSBqYAaI0c9GwtIipOAYUwuUoab6m7j1ix+jDb5UW+KPpQYIX/er3zhW7qAx7Bl3nrzIiDLMjccjGkyKqvmt9/Na5eVixFBmgRsUApnaFl6vYEQJ1PfChg8+UQ0EbgToL3lEJ/p1MYJfpZPunEZBzGLKRM3tba3EV5BpG0GVFiJ6mNLuTSE5df9qRWYXgd/ydZSJEqZmVvg0Z7PKfnt9A==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3Hmws2dCR2i46/JGETdGedJnIL6Z4IVlF+lpbWRdG9o=;
+ b=nfPF09nK2f3kpi8HkkesqzbwEHd7t0ToC4jt5yD/Gn6CbYzoOmgolSKPNVwBtr4QSM5jBSlaaet58OU+YEikxpzHnedJ4FtoFgC7uF5p58eg9cOV1jQjN96xUnEOfUbvE8VMUcDctAqQwyX8bC/n1WswlKh7/2IHZ5fFpPy8jjTxQEphIITa5KRK6uCAXD3n6STVLmlqwpr/e6yfaKeWZvXmj1riGhZ7UnnbBhiSij0UUVs3R+/QO3YdGLI8gdU7SYvDf6OUag4nUuGpZpT9kaxz85Z34pbDXAQwLi04/XOPbK6rP9owBr0lO+6RT5mkRGyKZHtcXaqfZSNEK0kpNw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 52.0.70.91) smtp.rcpttodomain=coastaltestinglabs.com
+ smtp.mailfrom=gmail.com; dmarc=pass (p=none sp=quarantine pct=100)
+ action=none header.from=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com; arc=pass (0 oda=0 ltdi=1)
+Received: from SA9PR13CA0164.namprd13.prod.outlook.com (2603:10b6:806:28::19)
+ by SJ2PR22MB5310.namprd22.prod.outlook.com (2603:10b6:a03:583::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.13; Wed, 12 Aug
+ 2026 18:25:36 +0000
+Received: from SN1PEPF00026369.namprd02.prod.outlook.com
+ (2603:10b6:806:28:cafe::3e) by SA9PR13CA0164.outlook.office365.com
+ (2603:10b6:806:28::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.13 via Frontend Transport; Wed,
+ 12 Aug 2026 18:25:35 +0000
+Authentication-Results: spf=softfail (sender IP is 52.0.70.91)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ gmail.com discourages use of 52.0.70.91 as permitted sender)
+Received: from transport-1.inbound.emailservice.io (52.0.70.91) by
+ SN1PEPF00026369.mail.protection.outlook.com (10.167.241.134) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.315.6 via Frontend Transport; Wed, 12 Aug 2026 18:25:35 +0000
+Received: from cloudfilter-igate-0e0f29afb02ddd489.inbound.emailservice.io (unknown [10.4.1.7])
+	by transport-1.inbound.emailservice.io (Postfix) with ESMTPS id 0B1F4A12AD
+	for <ryan@coastaltestinglabs.com>; Wed, 12 Aug 2026 18:25:35 +0000 (UTC)
+Received: from mail-vs1-f43.google.com (mail-vs1-f43.google.com [209.85.217.43])
+	by cloudfilter-igate-0e0f29afb02ddd489.inbound.emailservice.io (Postfix) with ESMTPS id 4EEAF7E229
+	for <ryan@coastaltestinglabs.com>; Wed, 12 Aug 2026 18:25:34 +0000 (UTC)
+Received: by mail-vs1-f43.google.com with SMTP id ada2fe7eead31-74ad03fa605so739498137.0
+        for <ryan@coastaltestinglabs.com>; Wed, 12 Aug 2026 11:25:34 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1786559134; cv=none;
+        d=google.com; s=arc-20260327;
+        b=TM7mcCBi/rSbleOjWHrwbCl9SKdiycSyDPlGGjFsIjKrV5Ho95rAsjXAovm/RI91Ti
+         5PKWQuBtu2p6Ddgz9GWnSlIcsg5geoSs/3gQk9D5cv/9mhqamIRcfbqkfoIRIgHtMhx+
+         I9ajl04liUjljeF4EJYUivrX17L0pelR2qhMwFegD9/qMGzaYLJe+2da46GiD/w5uvcc
+         dH0bgMjRO6FF/XOQ98wrewZ0iJNhAQzKetiZus9kfy2qwetmZqgNYDTuQFm5FSFdHD0J
+         pAylOns8LgGhdYszTnugSysh+xhBNHZXkOfWEV4pAiKmdrNdmRLqWsl07QVsVSlH6Ku0
+         YumQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=3Hmws2dCR2i46/JGETdGedJnIL6Z4IVlF+lpbWRdG9o=;
+        fh=GpaUc3z2T5I1qzzoWRuQTWR5jbaIXDfLTYspHm7UQKw=;
+        b=V3eifWxR2GRM3c5lZ0g2WMSQXqohJKh3apX87+j7cp/ugkzlImo5gvjF/cQV69y/xK
+         Vu8Hk3N4Ysy0tKUnQ2dmLge3pQiZHtFaBogk9XTqNlagjDCw1u//WnY0ltafehgKxUdB
+         jq7j/JmsEoW/Xp89u6gp+mzmReCrSPpnSX3IsUM6Ij1DQgV151kqY60+6651Ia2gKWgS
+         qeoTxrYn5sNREjzjBY+xke5ZFRCWaVyNEA0CpA2+kQN2w3xvnrtq8DluT9SiWWblt4L3
+         AzBM8YJg4SnE+6V6/usz6o6u58sprT/Cyqnb1qR0diaPJAwinIiQAOS1PzrrZCUCc1rA
+         PnFQ==;
+        darn=coastaltestinglabs.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1786559134; x=1787163934; darn=coastaltestinglabs.com;
+        h=content-type:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3Hmws2dCR2i46/JGETdGedJnIL6Z4IVlF+lpbWRdG9o=;
+        b=m0crrX5wJJh7d8UJw4M1VBPEBBJLYiv3hBfEl24Q3z062QSkZBRiEFld2m1Gxy9gTS
+         NmGaHj7ifGuPA/AlrmvhKY6E4jyoZ6Z278cdPoWQaZvtUGrjPgA3fiRd8F8cl2KEmCzx
+         vhm3qlJqFtn+/05Zy0A1QPgvF2vZDjgjyR1pXceSivL+BLOUTKz7MbTzuiSRTb+DU374
+         S40eZGeQgkRg2ccPlTl3TY37kwZRKKi2FpyHRxD8Vks1MLtemHgFB/ZZ5PClB5A6ILh9
+         mySboCdhBnR2XO4O84pJgYn67CB4BKqshUQ8MGXXdP36k2O4fR4xBL4OXHMwgI3eENt3
+         U4iw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1786559134; x=1787163934;
+        h=content-type:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3Hmws2dCR2i46/JGETdGedJnIL6Z4IVlF+lpbWRdG9o=;
+        b=R/eIuVHHIw5GTfCIIl15jKMt88IdnrVphQwCRGsagbcIXc9IBsReqx1J8kTP/xHGga
+         PEuLap5fbgRzxNQLUONwYWq8SZZhsZ51+Npn48zFeTjZ96g1ogfLN0Kcgfc/F5xdnZqL
+         mm+6ULinM95ddKpyYP2pTXrq5ZZyTKy1P8iuF2B39Qs5WPdYRxb4SbFwzNgTq1AA2S70
+         02cAM1AY0s/DWireAUvvnTuIAIbpH66GcNcfDO/occw/DkRfSbZq82cdVHgDTXrJsNwS
+         NN6RxWzditCA5aVzFZXPTOV9opTNkRRyIRE8OyUl1E/vOd5FN0fhLKDJljqafzZ0Ir7I
+         Rk9g==
+X-Gm-Message-State: AOJu0YwbyAxKPUhu6pILtKjooocagJX8VoSvXRjsf+at+EKh0+Yxg8U9
+	CyxK7VTOSJ/cvcNIejspef62pEJgMhjs0RUsA+NDxWESv/gUrKbpbPWaB1cjJ+4j0Uk45tJHP79
+	1FTNpaMYtG0t7ov0L99STArgPjO28l40wcEYe
+X-Gm-Gg: AR+sD1042IGXuNtt9AfwyadXGe3keVTOE0zZqz6fQXQszLCokij1nqsVlPiik+yVmvh
+	3tBuOUF7YxlMu9bEmHKEnZqHzADZeTDFlW2S7MjlKhbieqRHhDXEoN+3Q/g3trieeT/M4HpHAbW
+	FhelBENNh2gWdcecNAwrZARnJSIDfLRPWCKqsIUBxSGk6GV8vVo4UX0bpza1q7xGzwzvUmTfEO3
+	VZLzfbJA+7TdmUgQwTHgIJMsKGIMOOCeRKJf28TgXSi0Gf080kYVYzq483NiX3aG+gMxaugpFCY
+	45bViz1+2aOf6WB4jb/21sMLUBJbDnD+cQcqXoN7NIEbOHeNM8O29NFvpZ+iTiVo/GBYSl1qXsI
+	yMJTlVH/otmH1CWXTrF73ZlSkoFwh5EzFFCnjSekw
+X-Received: by 2002:a05:6102:1485:b0:738:9c30:2b7c with SMTP id
+ ada2fe7eead31-76db5b7ee90mr138144137.6.1786559133696; Wed, 12 Aug 2026
+ 11:25:33 -0700 (PDT)
+References: <CAJ2h=-mt-7TsY7HnWAbkbwhRn0X49R5K=4CM5f24+1-0M_m+Hw@mail.gmail.com>
+ <SJ2PR22MB4265310F4986D66D748B7FCEBCDC2@SJ2PR22MB4265.namprd22.prod.outlook.com>
+In-Reply-To: <SJ2PR22MB4265310F4986D66D748B7FCEBCDC2@SJ2PR22MB4265.namprd22.prod.outlook.com>
+From: Brandi Cook <brandiaplusconstruction17.cc@gmail.com>
+Date: Wed, 12 Aug 2026 13:24:56 -0500
+X-Gm-Features: AUfX_myzaBA6CyvEMNIg9OipF6GzytefeKJ8AAVhsXOpdglskz0HwLtXSidrJ1k
+Message-ID: <CAJ2h=-n2Gz3k=DjgFMXKRhP_RvQ_148LcekPJvXpAp8pH3ACNA@mail.gmail.com>
+Subject: Re: pad
+To: Ryan Pena <ryan@coastaltestinglabs.com>
+Content-Type: multipart/related; boundary="00000000000088e0b10658ddb6fc"
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mail-vs1-f43.google.com|209.85.217.43|mail-vs1-f43.google.com|-0.35|0.38014|0|normal|ugly|27|13|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass clean dmarc_policy_allow
+X-Mailprotector-Score: 0
+X-Mailprotector-IP-Analysis: 0, 209.85.217.43, Ugly c=0.385168 p=-0.47619 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-24799-c
+X-Mailprotector-ID: f7bdf8fc-7f6a-490a-87cd-a4e08e9b2faa
+X-Mailprotector-Timestamp: qJ8R7V8ooIZuJvcYDzSa7Y35/O1Ed0xmlGpGKib9jr8=
+Return-Path: brandiaplusconstruction17.cc@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 12 Aug 2026 18:25:35.7508
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 8e5c9d44-fb7c-44b1-8c88-08def89f1a46
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF00026369:EE_|SJ2PR22MB5310:EE_|CH3PR22MB4276:EE_
+X-MS-Exchange-Organization-AuthSource: SN1PEPF00026369.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 8e5c9d44-fb7c-44b1-8c88-08def89f1a46
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|6049299003|7093399015|82310400026|7149299003|4053099003|4013099003|19002099009|6133799003|10067099003|5063699009|4143699003|16102099003|18002099003|57112099003|22082099003|8096899003|4076899003;
+X-Forefront-Antispam-Report: CIP:52.0.70.91;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-1.inbound.emailservice.io;PTR:transport-1.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(6049299003)(7093399015)(82310400026)(7149299003)(4053099003)(4013099003)(19002099009)(6133799003)(10067099003)(5063699009)(4143699003)(16102099003)(18002099003)(57112099003)(22082099003)(8096899003)(4076899003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Aug 2026 18:25:35.5695
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8e5c9d44-fb7c-44b1-8c88-08def89f1a46
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00026369.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR22MB5310
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.7321068
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0315.000
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?Y2lJM1VjNkhOQVF5Q3hXVEpWVk9pL0Q1SU1iQ1JPcWxwVTA5bWJHd1o4Yzdk?=
+ =?utf-8?B?dEFEenA3MEw4ajV2WWErNWI4d0VVckM3dzBFTHhzTjZRMmd2QzRrVGY2THRG?=
+ =?utf-8?B?OVV1Q05FZ05wbG83WmlkcjNyTlBjNjY2RTFMNXdoQncxWjI3WE5OaWxiSlBG?=
+ =?utf-8?B?eE9rVVJHQUk2eDBaajgvN2x0VXNjakkrcDVWRitoWDF1Slc5dlBBUExLMU5t?=
+ =?utf-8?B?emRXdm5YUzBETXFKTEd0dVA2aGkyS0hjMVZhdnBzaGo0YWlBb0dZZ2huR0dH?=
+ =?utf-8?B?Q0RpS1hqMVIrVXE3MldoMGlmMnR1RjhRNmY3VHVXNUVDQVo4cGJDY3NLM3JK?=
+ =?utf-8?B?NWFJMENYRUs0cVV6a3d0RkJORDVmQ3dtamVuN1pDME5kN1c5YmtjWDRNbWEz?=
+ =?utf-8?B?ZGJGbUNQWHU0UDJ6Z0hyZS9GcXRtUlA4Y3Z6MXhyemdoNStaWWROR2lqSEV3?=
+ =?utf-8?B?a3VBTkJYNU5xNDNrTzFQSjIrOUE2aHFsYlE0am1mNkcwSmNlZUQ4KzFpK2k2?=
+ =?utf-8?B?cjJyZFVYVFFTNTJCdStPcHFHNXBNM1E1WnpRcVZyenRWUzc3SmpiRXluTlk3?=
+ =?utf-8?B?MGtzSWhSZW8xcWVKT3lHaGo2eWN0QytzellMWUp2SENTcGMwTmFQWldpZUpK?=
+ =?utf-8?B?NkVleG1vcDRHN3ZpWUI3SUVMMlVuM2dUQUMxc1cxcTNwenp2UFhDY0p6MjFa?=
+ =?utf-8?B?WkVXRFlMYkdCWUFCWnNZc2xHdnB6RFFkTDFzSVFydVBuUk4yeWZzOU1iNERq?=
+ =?utf-8?B?a3hsM2lwdmFGeWROV0kzR0p5ZWpZWXl5bDJBUHgyT0VYSUxXbWZyVGVxVDZa?=
+ =?utf-8?B?T1FzZjdQVHlOdmdscld1cTZObG1vSlYvRWRHbTk0S2d2ZW1sZ01VMEdZVFVT?=
+ =?utf-8?B?OEZEWXZEb0poZ29QU1dINFpLUnYrcDRQZzdrR09YWkpQc0JMb005UUFRK2Fq?=
+ =?utf-8?B?RE4yaXFDUWZCdlF5cU95YkxQd25HZm5wWFgrc0xkS3pjUVBiRmxTMmNlbGVn?=
+ =?utf-8?B?UG9UeGRQSlhHTng1dzAyVU9pNSszSFNLNUpMcXNicmg2Q3JtUnZmekYvcWc2?=
+ =?utf-8?B?Umh2MDRpSDVyQXFMQk5aNG5pS0psM05EaGtpVEFNNmFFQ1FyTnZWMlF3TG9T?=
+ =?utf-8?B?YjE3NzB6NW1OZlFxVDBjNEkzOGV3cjRUQUNXYUpLaytKNHJ5YlY4c1lSL2dz?=
+ =?utf-8?B?Si9WbDJ5Z1BFa3piQTRqN202Y29QemJzayt6RDVJdXZ1dUlTM1BPbEh6Vjky?=
+ =?utf-8?B?RytVbE9XWVI0MHZJb3lMYXRkclBpeWlyYnRYZ0RPVHZvUmEvMTRPRHNiekg1?=
+ =?utf-8?B?Z2dEc1cxMDJxbmxaSk02cGlYalA2U3JZSEppM2p4aG9zUmx0a2kvcm9wL0Qv?=
+ =?utf-8?B?WjJMbzNscEhZaFVPclJ5OUpjNnR3VlJaR05zQjc1RUVIdk9Lbjhla3c4MSs2?=
+ =?utf-8?B?Qld1TzF2czJ0L1N6QVIzc044dUxSRjZmWC8vSk9yRDdESkYwOXE5SWd3cHlz?=
+ =?utf-8?B?Z09vZVVtbURSOWZJN3daQ0d5cmdrbFBWaUpzamFGcXdWK2lvdW5zOUIwdjV2?=
+ =?utf-8?B?NU5NdTNSRGFNcndIOWdtV1ZFcnl2ekdrZWs2RHNPRHoraGtUSTMrM3l2R3o0?=
+ =?utf-8?B?aThoQ3IzeU1Dcm0vYWszTjRvOFN6U240V2kwYmNVRHFFWVZQWWZGbGNpU2hB?=
+ =?utf-8?B?eVBwZ09wa1dwNEN3NlFjUTdBaWp4YkRMOWZCVDIzMnhsRDZyOHVjMVd0cDFY?=
+ =?utf-8?B?WHNBbTY2aGJwQ1dqaDVaZmdzdktKa1dVYVM3OTVSUVN1MENrNWpCS0hNNjRl?=
+ =?utf-8?B?ME1NSGkvODBvTCtMVUZjYXpYaU8vbnZJQXVwWkRLejQweitFL2dFNjFTN29N?=
+ =?utf-8?B?dmFSaTM5RG1TRDU5NStUbmpvckwwU2ZBUUt5ZlU4N3k1MjhvMS9FUjRkN01k?=
+ =?utf-8?B?SWFvS25OVVFtcUp3SkV1cUhteHpJUHFlc1Rjb2pJaHhxd1d0Nzlyb0JKbCtL?=
+ =?utf-8?B?bHp5RnF1TzhFaDlCNHF6b1lqc05ETUEzZXpXaFUzdlBJTjBHTUlGNWprd3lj?=
+ =?utf-8?B?QlR0bWxkanhhayt5K2FDeDg3RnhZV1duQXFJTWtFQ2RUUGgzbTc0ZG1vcEZ1?=
+ =?utf-8?B?VkpYaWJZWG1ydTJ0b1Z6ZC8wMWl1V1pIalQ2SEVFeVROVmJhRVZZVDkzS3VB?=
+ =?utf-8?B?WFVreUJ4QVJWZlhtWkF1d1Babnh6L1IvU2xMVUZqcC9XaTBId1dPRjE5OFdS?=
+ =?utf-8?B?dGFJdzhJNUtEd0w3VFNadVhuNmo5a3ZpRVhWdXQ1bWo4WVcyRjVxUDVjL2JU?=
+ =?utf-8?B?SVJKdTVvck9IejRRR29Bem4yZ1ZsTTJpNlo1WmgrMWZPS1BYSFJTeGlxTkxB?=
+ =?utf-8?B?UlJLNUR2ekh3NTVCdHJwK09MM2NabUMvQ0w1RGhrN25QTFpTTVZXSTBIcEI2?=
+ =?utf-8?B?cDFpb3d3TlVPQXZDTSsxMlFuWmxUQXVaUklHTkxWbVEzL1A3VzM1a1dBK3pL?=
+ =?utf-8?B?eUI5dTd0QjdIRDFnN1RHYjBSSHdyay94alhHRzFFaFFpQVZCRFJTTjlzbC9u?=
+ =?utf-8?B?bmxyMlFYUnU5VXZlUExMR2c2MGlvbkdDeitoODVtQVZqK3FFckVZMFlteUtB?=
+ =?utf-8?B?WFNHK1FFY1dGY0hIOCtCUElSWjMyWFJLUEhNRDlnQ296NjQrdmV0K0FYdWF0?=
+ =?utf-8?B?cE55N1RETVIzcys1U0I1c3J5eFE2UXFBank4bjBudjlJZ0RNNmU1QUgxNEI1?=
+ =?utf-8?B?NWVOTUxZYTE3clJYYmdtSlJmNXJTQzh0UmdvQVF1bW9sV3B0eXBPZm0rNE1H?=
+ =?utf-8?B?eXlUUHFSSldWV0lHcENkNXVlVkdqdFJhc1dQWDB2ek5wVnBTdXNuWHppSWVp?=
+ =?utf-8?B?ejVVbUxnSzNCYVlaNXBzR25LbzRTaWh2V2w0b1U1MGZVb3BKN3MzMENmRjBZ?=
+ =?utf-8?B?QXVaQU14OXo3M1cwditOcVlFbHA4U2Z4ZlVmOG5YaTc3VDF1WUJOK2gvS0g1?=
+ =?utf-8?B?K0g0L1BNam5Va2NxZkN3UHY2U2FPSFVQaktYYmJMSmNXc0F0SDhyR1JjQVk2?=
+ =?utf-8?B?aDIwYVFLTFd2YkJJVkVydEYrVDl4R2JjdDBYYVBlSXhWNGlWV1ovTWlsK3Ra?=
+ =?utf-8?B?S2lSU3M4V0xneENndzNndndQWGp0MzBTRnNQOWpnbHYrWU9JMG5KZTNXbnZq?=
+ =?utf-8?B?UGdMK3IxY01rS3FmbXUxakt4MEtFM2dzaEhLUlF3bDl4WkQxcTM5Q0ZVdmNW?=
+ =?utf-8?B?eFpscnc9PQ==?=
+MIME-Version: 1.0
+
+--00000000000088e0b10658ddb6fc
+Content-Type: multipart/alternative; boundary="00000000000088e0b00658ddb6fb"
+
+--00000000000088e0b00658ddb6fb
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Sorry for the late response, I had to wait until someone replied via email.
+What they put was "Avalon Ridge Core Cottage"
+Hope that helps...
+
+*A Plus Construction Holdings, LLC*
+Brandi Cook
+Office Manager
+Office:(979) 488-1082
+Email: brandiaplusconstruction17.cc@gmail.com
+Address: PO Box 146 Hempstead Tx, 77445
+
+
+On Wed, Aug 12, 2026 at 6:48=E2=80=AFAM Ryan Pena <ryan@coastaltestinglabs.=
+com>
+wrote:
+
+> Is this Avalon at Spring Green or just Avalon? Been a while since we have
+> been out there and just want to make sure.
+>
+>
+>
+> *Ryan Pena*
+>
+> *Coastal Testing Laboratories, Inc. *
+>
+> 1217/1221 Georgia Ave
+>
+> P.O. Box 148
+>
+> Deer Park, Tx  77536
+>
+> Phone #713-477-0121  Fax #713-477-2277
+>
+> *Ryan@coastaltestinglabs.com <Ryan@coastaltestinglabs.com>*
+>
+>
+>
+> *        ...........................CONFIDENTIALITY
+> NOTICE.................................*
+>
+>
+>
+> *The information in this email may be confidential and/or privileged. Thi=
+s
+> email is intended to be reviewed by only the individual or organization
+> named above. If you are not the intended recipient or an authorized
+> representative of the intended recipient, you are hereby notified that an=
+y
+> review, dissemination or copying of this email and its attachment, if any=
+,
+> or the information contained herein is prohibited. If you received this
+> email in error please immediately notify the sender by return email and
+> delete this email from your system.*
+>
+>
+>
+> *From:* Brandi Cook <brandiaplusconstruction17.cc@gmail.com>
+> *Sent:* Tuesday, August 11, 2026 9:12 PM
+> *To:* Ryan Pena <ryan@coastaltestinglabs.com>; Joe Gallardo <
+> joe@coastaltestinglabs.com>
+> *Subject:* pad
+>
+>
+>
+> Builder: Lennar
+>
+> Neighborhood: Avalon
+>
+>
+>
+> 15430 Glinton Farm Lane- 4 lifts
+>
+>
+>
+> *A Plus Construction Holdings, LLC*
+>
+> Brandi Cook
+>
+> Office Manager
+>
+> Office:(979) 488-1082
+>
+> Email: brandiaplusconstruction17.cc@gmail.com
+>
+> Address: PO Box 146 Hempstead Tx, 77445
+>
+
+--00000000000088e0b00658ddb6fb
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr"><div>Sorry for the late response, I had to wait until someon=
+e replied via email.&nbsp;</div><div>What they put was &quot;Avalon Ridge C=
+ore Cottage&quot;</div><div>Hope that helps...</div><div>&nbsp;</div><div><=
+div dir=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gmail_signature=
+"><div dir=3D"ltr"><b>A Plus Construction Holdings, LLC</b><div>Brandi Cook=
+&nbsp;</div><div>Office Manager&nbsp;</div><div>Office:(979) 488-1082</div>=
+<div>Email:&nbsp;<a href=3D"mailto:brandiaplusconstruction17.cc@gmail.com" =
+target=3D"_blank">brandiaplusconstruction17.cc@gmail.com</a></div><div>Addr=
+ess: PO Box 146 Hempstead Tx, 77445&nbsp;</div></div></div></div><br></div>=
+<br><div class=3D"gmail_quote gmail_quote_container"><div dir=3D"ltr" class=
+=3D"gmail_attr">On Wed, Aug 12, 2026 at 6:48=E2=80=AFAM Ryan Pena &lt;<a hr=
+ef=3D"mailto:ryan@coastaltestinglabs.com">ryan@coastaltestinglabs.com</a>&g=
+t; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0p=
+x 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div c=
+lass=3D"msg-995119062969399703">
+
+
+
+
+
+<div lang=3D"EN-US" style=3D"overflow-wrap: break-word;">
+<div class=3D"m_-995119062969399703WordSection1">
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt">Is this Avalon at Spr=
+ing Green or just Avalon? Been a while since we have been out there and jus=
+t want to make sure.<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt"><u></u>&nbsp;<u></u><=
+/span></p>
+<div>
+<p class=3D"MsoNormal" style=3D"background:white"><b><span style=3D"font-si=
+ze:22pt;font-family:&quot;Lucida Calligraphy&quot;;color:rgb(95,73,122)">Ry=
+an Pena</span></b><span style=3D"font-size:11pt;font-family:Calibri,sans-se=
+rif;color:rgb(32,31,30)"><u></u><u></u></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><b><span style=3D"font-si=
+ze:11pt;font-family:Arial,sans-serif;color:rgb(0,0,153)">Coastal Testing La=
+boratories, Inc.
+</span></b><span style=3D"font-size:11pt;font-family:Calibri,sans-serif;col=
+or:rgb(32,31,30)"><u></u><u></u></span></p>
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"background=
+:white;border-collapse:collapse">
+<tbody>
+<tr style=3D"height:45.85pt">
+<td width=3D"67" valign=3D"top" style=3D"width:0.7in;padding:0in 5.4pt;heig=
+ht:45.85pt">
+<p class=3D"MsoNormal" style=3D"line-height:12.65pt"><b><span style=3D"font=
+-size:11pt;font-family:Calibri,sans-serif;color:rgb(31,73,125)"><img width=
+=3D"61" height=3D"55" style=3D"width: 0.6354in; height: 0.5729in;" id=3D"m_=
+-995119062969399703Picture_x0020_1" src=3D"cid:ii_19ff737b7cc4cff311"></spa=
+n></b><span style=3D"font-size:11pt;font-family:Calibri,sans-serif;color:rg=
+b(32,31,30)"><u></u><u></u></span></p>
+</td>
+<td width=3D"288" valign=3D"top" style=3D"width:3in;padding:0in 5.4pt;heigh=
+t:45.85pt">
+<p class=3D"MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-si=
+ze:9pt;font-family:Arial,sans-serif;color:rgb(0,0,153)">1217/1221 Georgia A=
+ve</span><span style=3D"font-size:11pt;font-family:Calibri,sans-serif;color=
+:rgb(32,31,30)"><u></u><u></u></span></p>
+<p class=3D"MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-si=
+ze:9pt;font-family:Arial,sans-serif;color:rgb(0,0,153)">P.O. Box 148</span>=
+<span style=3D"font-size:11pt;font-family:Calibri,sans-serif;color:rgb(32,3=
+1,30)"><u></u><u></u></span></p>
+<p class=3D"MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-si=
+ze:9pt;font-family:Arial,sans-serif;color:rgb(0,0,153)">Deer Park, Tx&nbsp;=
+ 77536</span><span style=3D"font-size:11pt;font-family:Calibri,sans-serif;c=
+olor:rgb(32,31,30)"><u></u><u></u></span></p>
+<p class=3D"MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-si=
+ze:9pt;font-family:Arial,sans-serif;color:rgb(0,0,153)">Phone #713-477-0121=
+&nbsp; Fax #713-477-2277</span><span style=3D"font-size:11pt;font-family:Ca=
+libri,sans-serif;color:rgb(32,31,30)"><u></u><u></u></span></p>
+<p class=3D"MsoNormal" style=3D"line-height:12.65pt"><u><span style=3D"font=
+-size:9pt;font-family:Arial,sans-serif;color:rgb(0,0,153)"><a href=3D"mailt=
+o:Ryan@coastaltestinglabs.com" target=3D"_blank">Ryan@coastaltestinglabs.co=
+m</a></span></u><span style=3D"font-size:11pt;font-family:Calibri,sans-seri=
+f;color:rgb(32,31,30)"><u></u><u></u></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"font-size:=
+11pt;font-family:Calibri,sans-serif;color:rgb(31,73,125)">&nbsp;</span><spa=
+n style=3D"font-size:11pt;font-family:Calibri,sans-serif;color:rgb(32,31,30=
+)"><u></u><u></u></span></p>
+<p class=3D"MsoNormal" style=3D"margin-left:2in;background:white"><i><span =
+style=3D"font-size:9pt;font-family:&quot;Times New Roman&quot;,serif;color:=
+rgb(31,73,125)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...........=
+................CONFIDENTIALITY NOTICE.................................</sp=
+an></i><span style=3D"font-size:11pt;font-family:Calibri,sans-serif;color:r=
+gb(32,31,30)"><u></u><u></u></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><i><span style=3D"font-si=
+ze:9pt;font-family:&quot;Times New Roman&quot;,serif;color:rgb(31,73,125)">=
+&nbsp;</span></i><span style=3D"font-size:11pt;font-family:Calibri,sans-ser=
+if;color:rgb(32,31,30)"><u></u><u></u></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><b><i><span style=3D"font=
+-size:9pt;font-family:&quot;Times New Roman&quot;,serif;color:rgb(31,73,125=
+)">The information in this email may be confidential and/or privileged. Thi=
+s email is intended to be reviewed by only the individual
+ or organization named above. If you are not the intended recipient or an a=
+uthorized representative of the intended recipient, you are hereby notified=
+ that any review, dissemination or copying of this email and its attachment=
+, if any, or the information contained
+ herein is prohibited. If you received this email in error please immediate=
+ly notify the sender by return email and delete this email from your system=
+.</span></i></b><span style=3D"font-size:11pt;font-family:Calibri,sans-seri=
+f;color:rgb(32,31,30)"><u></u><u></u></span></p>
+</div>
+<p class=3D"MsoNormal"><span style=3D"font-size:11pt"><u></u>&nbsp;<u></u><=
+/span></p>
+<div style=3D"border-width:1pt medium medium;border-style:solid none none;b=
+order-color:rgb(225,225,225) currentcolor currentcolor;padding:3pt 0in 0in"=
+>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11pt;font-family:Calibri=
+,sans-serif">From:</span></b><span style=3D"font-size:11pt;font-family:Cali=
+bri,sans-serif"> Brandi Cook &lt;<a href=3D"mailto:brandiaplusconstruction1=
+7.cc@gmail.com" target=3D"_blank">brandiaplusconstruction17.cc@gmail.com</a=
+>&gt;
+<br>
+<b>Sent:</b> Tuesday, August 11, 2026 9:12 PM<br>
+<b>To:</b> Ryan Pena &lt;<a href=3D"mailto:ryan@coastaltestinglabs.com" tar=
+get=3D"_blank">ryan@coastaltestinglabs.com</a>&gt;; Joe Gallardo &lt;<a hre=
+f=3D"mailto:joe@coastaltestinglabs.com" target=3D"_blank">joe@coastaltestin=
+glabs.com</a>&gt;<br>
+<b>Subject:</b> pad<u></u><u></u></span></p>
+</div>
+<p class=3D"MsoNormal"><u></u>&nbsp;<u></u></p>
+<p class=3D"MsoNormal">Builder: Lennar<u></u><u></u></p>
+<p class=3D"MsoNormal">Neighborhood: Avalon<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>&nbsp;<u></u></p>
+<p class=3D"MsoNormal">15430 Glinton Farm Lane- 4 lifts<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>&nbsp;<u></u></p>
+<div>
+<p class=3D"MsoNormal"><b>A Plus Construction Holdings, LLC</b><u></u><u></=
+u></p>
+<p class=3D"MsoNormal">Brandi Cook&nbsp;<u></u><u></u></p>
+<p class=3D"MsoNormal">Office Manager&nbsp;<u></u><u></u></p>
+<p class=3D"MsoNormal">Office:(979) 488-1082<u></u><u></u></p>
+<p class=3D"MsoNormal">Email:&nbsp;<a href=3D"mailto:brandiaplusconstructio=
+n17.cc@gmail.com" target=3D"_blank">brandiaplusconstruction17.cc@gmail.com<=
+/a><u></u><u></u></p>
+<p class=3D"MsoNormal">Address: PO Box 146 Hempstead Tx, 77445&nbsp;<u></u>=
+<u></u></p>
+</div>
+</div>
+</div>
+
+</div></blockquote></div>
+
+--00000000000088e0b00658ddb6fb--
+
+--00000000000088e0b10658ddb6fc
+Content-Type: image/png; name="image001.png"
+Content-Disposition: inline; filename="image001.png"
+Content-Transfer-Encoding: base64
+Content-ID: <ii_19ff737b7cc4cff311>
+X-Attachment-Id: ii_19ff737b7cc4cff311
+
+iVBORw0KGgoAAAANSUhEUgAAAD0AAAA3CAYAAAC/+UKPAAAAAXNSR0IArs4c6QAAGFFJREFUaEPF
+mgmUVOWZ93/31r51dTcNgrKj5gvGHcddVMTBRmQRBREQF1Q0EBRQAVfAXRQ0hBAQFQ06ySd+bvNF
+E7eMk+OYMKhxCxEVaHbopbr2usuc533rdle3GBOdce45dbq66tZ73/+zP//nNRw364KJgQ/Uy0Bf
+LmDjukX1Vy51jxMAV17l24z2t20/LX9V/lHlf+3v5THeGvu/4xs/9Xaq1vHWkr/eF7I30wVDMFiA
+g8LquPkK0GbFg+QGAV0AQ967GK4PXH8ZtAgIXHlA29M77bPD5xW7Mrxdql11WuAfkYSLIUBkE2pv
+Fc8v78s1bDAEsLzkBhPDdW0RxX52Ltq1cCmUNV2WkoBGgPtFDLIGbgcxe1bSWfze/5Wfa/v5elPw
+vqlQXQdcsgMNRFuf7KtiPSXTUnn/2lpl74brulo+Feaqv9TSaQft3VB2A9eHKw8z9GP1VWljncFX
+flepks6arQT4de/100TLBhaGElyw3QrbZOXgKi0LYM/ufRiOXQbdQahO2SRsXERS2rz15ZmjSNeH
+a4TKn+0P+P6AdrYAWbvy4Z2BelZY+de738IkV95fEKjQtlqmHYdn2krTXwUt1q79WRuu3pTevthL
+5aZMXEPM/e+9Opu2/O/52v7A7Q9oR6s0lfvJOtrlPN2oXaqfe+Zd1rTrx7CtsqbbJOOB9SKBjugK
+dCdLFPyG8ulve4lAvajq7dKzJA9wZXDt+BwVD72o0Emehqcbid6UdMBTVwfQEuU8DQtIHamVSFz0
+3zJw9ba8qNEpaHbYVmWM2p9k/lbk/1tuX35IWxIo76vycQp0WSkYNoZyU7lMDLtku6ZfzLaEZRfx
++3WgymQtdu5MUSqEcJ0Yphkkl4XaLtDaCoEgFAr6r3pmhWAq3wfEzcrfVX7uCcfnFxeycBwHVynD
+wDBM9TJNbUbyO3mbyVhEwn7CYWhpgWgUdu5Mc2CPuMRTUimwrBI9ewbYtn0fvXrVUtPFwDRtTLOE
+YUi0NwS0pUFTwrYLmD75OEAub7Bvb4kzTh/Njm1Zutb1JR6v45NPN9KnT2+yuTRVVTFaUk0d7N5L
+Bh6ogKAW93C86NluC4bp4jhFXK/4UWA1aFNMSH5XBu33B8hmsoTDEUKhEC0tLcTjVSQSSbZv20Fd
+XR25XIZo1E8u10TRambM+UNZ/OCNmKaLaRYxlMYVaNG0bKSI4+ZxDQeTMEUrSDrl5+47V7L4wZUM
+6H0szc15stk8eUsipqSzPKbpK7uFZK8KAytXLVoIHQyv4j4X286Xo6wG3Dlve24VDAYpFvL4AyEC
+/gC5XAuRSC2mESaTbcZHmAO6daGxaSeBgEW//nWsWPkARx/bQ1mJaRYwPdBuyVXui5FXOdl2i2oh
+lzjFgsGWL2DC+Ok0bG0lGqnhrKFDSSRjxKtCbN+5mWR1REV60Y4yzrKm9PvKoOTFBK097RIOjmsp
+09S/k89E+442d9dpE1A4EqJQKCCWY5oG6XSaLrU92LcnRzxaTWPjXv7jnbf58suNFIrNzPjJpSxc
+NEnJUPRiGkVMFcwMDAVa9qYqlzyWm8cwAhhU4bomtgWrV73HtGtmcXC/Izh72FDm3VJPdQ1s2wHb
+tjdimBLxZdNaU+3ADcKhSJtAPN93HAHmKoACQH4m/qvBe8ClRnDU965rE4mEKZYK+HzaInK5HN27
+VRPyQ3US3nrL5uKLx5OsCmMYeZ5/YS19+wUIBmVtB9OQnK6rNw1a9qoK8xwOOV1pEcMliGvDnl0w
+8eIFvPHma/zwsCOYd8scxoztzSefwIhzx+iFVO5qN09Py6JVQ33fnnMFsG1LXQ8+n18Bq3zpW3Xa
+kOAj1hAOBykW8yrmiAWUSiV69+7LM0/fT3U1XH75T3lmzSpqu3VjzpzpXH/9CIpFCIbAZ9hKy9rJ
+fBhuwdO07F38S4CLjMM4bpRiHqwS/OmPGUaOHkssEeCQH/ThF6uXsvXLJi46/2bcUrVXCbQFH528
+DfL5gvJ7DU7ymwavzddAApT2e9G8mLNISYOVlwQ52y4SCgcUaKmyZHfymwGHdOPp/3sLH3+6kQkX
+XUQ0Eua4447hyTWPUFWlXSgQEO/VWhbhSxo23KLWtGon/NKCFXBwsF0fjhPBdXy0piCZhKlTl7Bu
+3Tpst8RDS+6ntqYvl01cgOsk1YZxxDbLud2wVAry+2L4fAF8fj8+XxCTmKqTBbC4j98fUVp3nAIl
+K43jtOIaEihzqhSWjZZKNqFgjEKhiORclyKGWeTQH3ZnxaN3sGDhTbz++u+oqYmxfPlS6uuPUulU
+m3ZJaVmaZ9Uau6Lpcu3tKgmLb8pLpCka8eHYfkolg1AANqzfx0XjrsAgzq6dzfzutReZM/cWGlv2
+kIiHyecsXCtCTU01qdYGrJJLOhWgpqa7KvwLxQCZVILtDRmisWqKRZN80aB7t260pndQXWNxYC8x
+yUb27PuYbt2StLbkMZwErlVDwB9TaTVRDVt2bODUU06mf69jWPmLx9i88xNmz5zG3fddQTYP8YTY
+kwhIV5hayyp4ST9d1K2lV1O3lTm6bJOb0+kC8WhcmfrC257irgeW8aN+JzLk7NOZdt15mEEt/WLe
+JhGJs+mzHSRrbXr16olThC1bIRyDQh5um7+Of/3tu3St7oPPl8C2wgSCBvua/srZww7jlttH0Lc/
+lKwMO3d8QTzalWI2RDRYTeNeiMXBNmyqaot88vFnLJz/BH/5eAvRuM2Ta5dxwsndkRTsC4hriOW2
+d1de7/5V0Aqp3NguoWxW0liMcMDgow/yDB92ETgJtfiLv13DoQP10lYRFU1VwPDBhg2biEf6MuBg
+6cZg9y64fMpT/OHfPlPxIhSqpVQKqnyfLmxk8uQzWHT3cD7btIkTTxxAUOoHaZRk8YpGT+3OhWun
+3cev175OJBRn+k8uZe7Nw9WufQFUdWmYlq7qlJYlL+sUajhuSWfNSgqkosvKZjPEoklamguEgzGC
+Pli+7C1mzJpHMlLFOaNPY/GSucqcfAZkWyGbhQV3zuRXv36GoNmdH8+4gYmTx9PzIJOzz/wZ763f
+CVTh8+lXyW6h5P6ViZecyvARh3PV1edz9523MWH8KGVd0Qhk0hCLoeJLPA4vvbiRyROvxCn5OeLw
+w3j1d0uJJrzYBPuadtGlNlluhnQA06CllnKsil7Fq5xEvNq/C8W8AmtZPtIpm+qqIOkWGDrkSjZ+
+tomaA+IsX7GU08/oqzS88ROLRYvm8/IrjzJu/PkUc1HWPrOOy664hIeXLuCU4+/iz+810q/f0Wz+
+ci/VNT1IZ7eTtz9iyuWnU3/uEYyqP4mVq1dz2SUXlF0M8gWLUEgiL5QKcPNNv+aJx5/BtjLMueFa
+bpw7gpZWSCQlILtkc80qmmtwZZpL0zwe6M7ln3yjGQcJBKb0qgQo5CWgmeSz8NIL73HNtTPxhQIc
++sMBPLHm5/Q8EJYsfol582fy0E9nM+3qy9XvLpowjUDY5KHFyxg78gH+8909VCf7s2N3inAwji+Y
+VqDHjjuOC8edwujRQ/iXtU8zZuRQSiWxnFYVmVOpLFXxOE8/9UcW3vooW7fs4NTBA3nyl3erfFwl
+mVOVC9JKWpSkgfJJR+T12lqpZU2r6qS9E1Di8GgWm1w+RzScwHWlWDFo3OuQrDKZPPkWXn/rHfY2
+7mPJkvuYdvVZXDfjF6x7bg2btryJ4cuDE2dfUyuBkI9kIsqECx7nNy9+imVVE4vV4WARiRew+ILh
+I47i3BGDmDChntWrljPqvHrVJPhMl6A4uCtlcYGZ0+/klX/9gIMOPJB7H5jBmLH/R0XsaFwhwnZz
+ytXyxQKhYLSs6XYG96ugvWDXBtqiZBUJ+qVY8WEqLkoHlldf/QtXXDmbRFUtqdReXn7pZR5ZsoL3
+3v83Xnp1GcmaACZRFfDkJ02NMOzM2/jsU4eudT+isTFNMOqQzm2jaDVw8cSzGDnqeC6+eBjLl9/H
+pItHksvniYbDNO7LUJOM8bNHfsOdC5dTyEapH34Wq9dcTlNLgQO6h2hpTRGL+5Du2ClbqMcLaBPX
+etWBTAWxzhSq5pcct6hqX7lMI4BpSMFiqJpcKrXFD77MXXc9SDbfzHXTZ3PYD49hwYI5PPWrOznx
+lMOV/az9lxdIZ1uoHzaJSeMe4v0/pTE5SPmpEWyltqufbdv+wrRrxjHm/BM568xDefrXy7lw7Dkq
+5eza0USXmlr27YaR517Dh3/+nD59DuaRZfdw2hlxJVTD52KonrmdJZFy2hAlKe6s3ZB1ylJJe3+8
+sTT3ugrSdbBoOoTr+rFL0rDD++/nuP76m9m6dTMD+h3KxPFX8vAjd1F3YJp777+Zzz9vYOLkSRz8
+gz68/OK7TL1kGa+98VfqYoOo7dKNTLGBcNTiiy8+ZcqUkYw471hGjz6GKVecwxGH91PPbG1yuXjc
+DO69axXPrH2BomUxe/aPuWNRPRKGVXcrgE3p2KRn1uYqWtagO2IzHLegyH5Nllf2vTpfS4LXjKir
+GnshGBRoy6BUlKgKK37+GnPnzyFk1jJx/FUMOetEZswaSbceERV8+vTvw+wbp1M/7ExOPf5e3v9T
+hrqaI9nd1ITP30o07tLYvJ0pk0dy/gXHM/P6sWA20JraSXNjjqMPP4MLRv2Ex1Y9y549+/inE47k
+ljuuZdDxMSxbQNsasCmAvcZCqm3Zb0hr2dO0dHLehKMDUd7m1wLcwnVLKkCobgmprX0adMlQdJFQ
+N+ePuY4P39uE6dTwyitPEIzneefdV8lk8gw/r57e/eKqFh/xz8t5748ZMq1JfL4Yri+NL5CjuXUL
+V04dzV33nMLuvRbRWCs+wyLkr6O1yWD+Dct5950/s2v3VhYvvY1LrxqEPyjWJsooAzZlj5oSEu1q
+0OWA0hG0nmXpCUEnarON7dQ0ql7MVI2CmLbkbqtMMr74/Abm3XAXm7c1M+SkM3j1jXl6NCYxT/ir
+bJF8LsjECx/kww15cpka6rr0wfBLz9TC9l3rOW/00dxz30R6HAghaRZcsPKwavk7XD9rIclYNUOG
+HseylTNJ1kFzajfxaBJTlCFaVqB16axAS0elSuyKxKQ1nSmDlqi8f9C6zvGmBB5oF8s2VP6VzrC1
+BaZPu483X/0YXIsbb57IFVcOI5uDSByCEU3wHX3YLHZsjVJb/SMaGlpVdRwP21jmJ4y54AgeeuQy
+kgmdQPOtkEvBefU3sPnLXRRLrTz+1APUj+pPwWlSJa9lSecW0IBVO+qB1hapHParoNPSyoO7H9Ai
+NVWuttfiWtOGMivLdtjb0kT3A7op/356zR+4fe4KCvkcPfsZrHv+CXr3DrNjT55olUMsGmXwiTfz
+/vq0Ap1pDRMOHYDhb6Ip9xr1I3uz4tHZxCNSToRwpcG59Tc8/OBqDujeldNOP4qly6cSjLtkS18Q
+D0aw7DimG+4EWkzMr7JMW5SqcFnDG9W2mXelZMr0jf6lNwCTPlhAO1hOiUDITyqbJRGpItMCi259
+lhXLV5K2NjN/7vXcNG8qoRgUXaF+TIYOnsf6d1vA7k0ierDKt2awkYzzW8aMH8Bjq28mX2wiYNey
+dRMMPmE81VXd2L5zI2/9+zqOOT6KY+awadY2aycw3RDCrHp0kzZvAa3pp69o2nUl6HeqyCqcXpN4
+leFPN5wqJRiWVOfYjsPe3Tl6dOvGpk/hnLPH0dzcjD8Ev3ntOQYeGSVTAp8fzh4yiw82ZIgGjyLf
+WoNdiBGKtmAHf8/gobU89cuFRP1+hCS9+/YXWP3zZ9nespX7F97A7JuGkcqmCYRKhENRMlmpFKUM
+0/yavgR8p/FvZ/Num1pW+Hrl2848dofvVP6WlCZXGLtkUszCmsd/z6zrbqW6Sw0jxpzJPQ9OJyiE
+CTBkyBzefXsnkfAgCpk6/G6Sbt0NGnas5ezR/Xnu2YXs2NbCzs02c2bcyXvr/8LgU0/gljuu4KTT
+umMbBVWWIqlI0U4el9aebjtQ0fvB1T6q/Vag9SxKeBYJJqWSj4C0l2kYfs5M1m/4ANfMs/LxZYy6
+8GgVDs8dfidvv7WVgDGQkK83WDFsdzcZ6w+MGjuQVauuJZOCa6fO5+031lPMuKxe/TNGjR2g+gZ/
+SIol4byEev7fAC1knuGo2lyukD9KIQfBALz8wudMmzaTbbsbGHzGYB598iFVLv742hW8+fpnOMU+
+JOMDKOZ8NKW+pKpmJ/UjBrJ8+Vje+N0mJlw4mUggysknnMSqVXdwwEGQyhRUIWNZBYIBGTX5FcGo
+HK5i0PA/qmk9IdMeXyylCQXCKoDkMhAOwOzZT/D4mqdpzeZYdPciplx2Kpdf8UtefuFPJOKH4ZSS
+2EWTqqSPfc0fcMGFp7B06ZmcfdZ0GrZ8Tm11jEeW3s8/D+tDyQbLKRKJmhRLOYKBSJlc1DHmewUt
+gpbaV1jUvY27qKvtQakYwCrA1s1QP3wCn2/ZQt9+P+Cttx/lkilrePO3Gzio58k07rPAMenaNcGW
+hvVMmjSC/v3iLH5gHrnsDqZNm8DDS69WpWZaMkRVAL/fwHZK+MwAjhp0lSmg703TisYFiSU+f4FU
+ejeJeBUGCfbuMuhSYzB79q/4xcpfkslnuO32Jfy/53/Pxo2NJOOHUihIAeFSLGQIBi0GHXsIH330
+JrFomtb0X3nxpdUMGlRNNmfh81v4A+WhgGFSKMqIp1xbfK+aLjco0nT4AimCfpumVCNVie6YbgzH
+gp3b4aSTLyWbd2hO2fTs9SOsUjUNDQWSiYNw3BKt6SYO7t+b3bs2EY/l2L37fdV03HPv+WpKYfry
+hEI+HFdmZlJlmbSkWkhWVZej9/dp3uooU7kAMMsEvSpiIjhWXIEW47vt9lf52YrHyeR81HU9BKtU
+Q7pFGI0ooYifRCJEurURvy8L7KG6OstTa+/h6GNEs7K+d4RC3Kid1fTqha9JPF/78XdKWfr8VmfQ
+Ek1DuFYCx9bM6L5GmDRlPv+54TMC/h6Egr3Zvcek90ED1ZjV9Jdw3TTxeIm9ez5i7txLmTX7n/AH
+9DDeUBW6VxHqErMjvfWPwf7OoFVZrgo60bTMmuQK4loxBVoVLiY8+5wwIzcRCvWhtaUKP30JR7qS
+ybYoEkFydaG4hcMP78LatXfQq5ceDsSisnzl4bcyaBXAys/+xzBXnCP7FsWJaFqBVgFUQIsZivaD
+YIewy5F9c0OJHj0DXHXVEl75/x9SKhxIInokDQ1pgiGT2q4mjakN5AobeezxhYwfd6Rq7Ao5h0TU
+KzE9bcvDKtrgr87xv1EE303TqgGT4bKYdMXRJjk/ahsqqhsB2NecJxwL09CQo/6ca8i0dMcpHkI+
+GyMY9kNgN62Fdxh6Tl+eWHMHiZBDPl8kGgorQ1YFphpAaAZHHZRzKjTdifD5JtTfEXT5bGZb6yla
+Dun2W4aYQGOqkdouVexp2Ud18gAWLHiOxfe+RMQcRDzWn3wxz96mP9JnYDOrnriOY45NEjYsfCTw
+E1PyVJgURtG2rFoG3WZl3wSz4/ffCbQ+m2WV+21RQplU90AbkCk0EosHKFEkV4rQ0iTc9xI+3hAg
+EtKgs9anTL/xKG699Rwy9ockfEJA1hGkK3LIoQ10WxQX9ylruvN52r8D/3cELTvyTE73sDjy0lao
+Zt6BErubtikKt0QEww3w/Lq9TBq3gEjoIEKREH0ODvLY09fQv5/MkRvU2Zd0xk9trA+GI8clvLjh
+jZIFdBnd/wTovy04ebL4sj4hrLk28ULNrKrAbkJLSo5fxdsO4jVshUV3/JQ1Tz6jmMxHH3uYC8Yf
+R9Eq4LqtRIIBbBUkg/hN3ULqZ5TDdTlVtkXv/26f/ibQegasT+20kxHto1FFXJQZDJlLyXs5IfD8
+879n6tTLGXLWadx40yyOOmogeTlpgD5fUrIKihjwC/PQRnJ4gq3Y1T8IWIntm0iEvw1aOmnvlLCX
+NL2Nlaf+5QWEQ5NCI5UqUVMdUMcjrr56BqPHnMuZQwYTj4dIZzL4/aYCLfNldfimjQUpr7sfdvPv
+cOMOt3xH0PqIYwfT02PDtgG4aNYW11dag8bGPNFoWB11/OijL6jtkqRHj1qV3lKpFgU4FJIOSgZ3
+3lCx0orKqq2gtL5/0Mp2yzvwyq82U5d5lzb9QMCgKBMk8VVDzpUWSSSCFAoOgYCJ7diUSnI21VRn
+xWTNr4KuqET+90DrU3+dsmCH2rBYLBESKgWZhKRJJoXIk4Ose+nevU69l55crFgfnJPTgkLcl08R
+tpG4HuAKTX8Lf/5v8OmKI9FfY2NyXEqfLEadKQuHJRqLpiVSo/5XRETleLzMvlqWhd/vHaL/FvXm
+1+zpvwDWBE98w0sEhwAAAABJRU5ErkJggg==
+
+--00000000000088e0b10658ddb6fc--

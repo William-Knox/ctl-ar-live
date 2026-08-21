@@ -1,0 +1,397 @@
+Received: from CYYPR22MB4216.namprd22.prod.outlook.com (2603:10b6:930:be::10)
+ by CH2PR22MB2007.namprd22.prod.outlook.com with HTTPS; Wed, 12 Aug 2026
+ 20:57:42 +0000
+Received: from SJ0PR13CA0167.namprd13.prod.outlook.com (2603:10b6:a03:2c7::22)
+ by CYYPR22MB4216.namprd22.prod.outlook.com (2603:10b6:930:be::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Wed, 12 Aug
+ 2026 20:57:37 +0000
+Received: from SJ5PEPF00000209.namprd05.prod.outlook.com
+ (2603:10b6:a03:2c7:cafe::8c) by SJ0PR13CA0167.outlook.office365.com
+ (2603:10b6:a03:2c7::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.12 via Frontend Transport; Wed,
+ 12 Aug 2026 20:57:36 +0000
+Received: from transport-1.inbound.emailservice.io (52.0.70.91) by
+ SJ5PEPF00000209.mail.protection.outlook.com (10.167.244.42) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.315.6 via Frontend Transport; Wed, 12 Aug 2026 20:57:36 +0000
+Received: from cloudfilter-igate-08799d6f8301db1e4.inbound.emailservice.io (unknown [10.4.2.91])
+	by transport-1.inbound.emailservice.io (Postfix) with ESMTPS id F16CCA16AC;
+	Wed, 12 Aug 2026 20:57:35 +0000 (UTC)
+Received: from cloudfilter-otransport020.outbound.emailsrv.net (cloudfilter-otransport020.outbound.emailsrv.net [54.164.131.225])
+	by cloudfilter-igate-08799d6f8301db1e4.inbound.emailservice.io (Postfix) with ESMTPS id 381C57E249;
+	Wed, 12 Aug 2026 20:57:35 +0000 (UTC)
+Received: from cloudfilter-ogate-new-07d5b4b84fa1614d5.outbound.emailservice.io (unknown [10.4.2.231])
+	by cloudfilter-otransport020.outbound.emailsrv.net (Postfix) with ESMTPS id 076718E986;
+	Wed, 12 Aug 2026 20:57:35 +0000 (UTC)
+Received: from CO1PR07CU001.outbound.protection.outlook.com (mail-co1pr07cu00105.outbound.protection.outlook.com [40.93.10.93])
+	by cloudfilter-ogate-new-07d5b4b84fa1614d5.outbound.emailservice.io (Postfix) with ESMTPS id 74D287E24C;
+	Wed, 12 Aug 2026 20:57:22 +0000 (UTC)
+Received: from CH3PR22MB4273.namprd22.prod.outlook.com (2603:10b6:610:177::21)
+ by SJ0PR22MB2928.namprd22.prod.outlook.com (2603:10b6:a03:3d7::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Wed, 12 Aug
+ 2026 20:56:35 +0000
+Received: from CH3PR22MB4273.namprd22.prod.outlook.com
+ ([fe80::8da4:eff1:849a:2e67]) by CH3PR22MB4273.namprd22.prod.outlook.com
+ ([fe80::8da4:eff1:849a:2e67%2]) with mapi id 15.21.0315.014; Wed, 12 Aug 2026
+ 20:56:35 +0000
+From: Reports <reports@coastaltestinglabs.com>
+To: Binh Tran <binh.tran@coventryhomes.com>, Michael Kelley
+	<mkelley@coventryhomes.com>, Reports
+	<projectcoordinators-houston@coventryhomes.com>, Reports
+	<constructionmanagers-houston@coventryhomes.com>
+CC: Maria Lerma <Maria@coastaltestinglabs.com>, Ryan Pena
+	<ryan@coastaltestinglabs.com>, Veronica Garza
+	<veronica@coastaltestinglabs.com>, William Knox
+	<william@coastaltestinglabs.com>
+Subject:
+	=?Windows-1252?Q?Purchase_Order_Request_=97_Colton_=97_2_service_addresse?=
+ =?Windows-1252?Q?s?=
+Thread-Topic:
+	=?Windows-1252?Q?Purchase_Order_Request_=97_Colton_=97_2_service_addresse?=
+ =?Windows-1252?Q?s?=
+Thread-Index: AQHdKp0PeLHm70l3kU2QmTZigzNJFQ==
+Date: Wed, 12 Aug 2026 20:56:35 +0000
+Message-ID:
+	<CH3PR22MB427396E2921E4E88DC4BF87DC5DC2@CH3PR22MB4273.namprd22.prod.outlook.com>
+Reply-To: Veronica Garza <veronica@coastaltestinglabs.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Organization-AuthSource:
+	SJ5PEPF00000209.namprd05.prod.outlook.com
+X-MS-Has-Attach:
+X-MS-Exchange-Organization-Network-Message-Id:
+	3bbc30f2-b879-42bd-0ce4-08def8b456e0
+X-MS-Exchange-Organization-SCL: 1
+X-MS-TNEF-Correlator:
+X-MS-Exchange-Organization-RecordReviewCfmType: 0
+x-ms-publictraffictype: Email
+received-spf: Pass (protection.outlook.com: domain of coastaltestinglabs.com
+ designates 52.0.70.91 as permitted sender) receiver=protection.outlook.com;
+ client-ip=52.0.70.91; helo=transport-1.inbound.emailservice.io; pr=C
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?Windows-1252?Q?oVxfLXgctYgd/JJvS2DKov1SQ57L28yA7oTBxDzLI/DHjDUmsLBh16Cq?=
+ =?Windows-1252?Q?Spi3g6CyKm1K5RnDlw2ef1wWkDUPG0X0yDufrZAPeynVIaj3BQSAAa6L?=
+ =?Windows-1252?Q?woNoi68VUC96tY6dly61jhn4XX7Ufzy6uVVk/uz8LfkSB/BmkJEyJbNt?=
+ =?Windows-1252?Q?rruynh9hmf4Q7pV9DpQ7otXzPNfLgudRalPuUrnUsit7CPjkFOChhlKT?=
+ =?Windows-1252?Q?w8o+h/8Su84kgTpKA8snDLGw5TNZDCepb9FE63GbF+XBV0et3tse23zY?=
+ =?Windows-1252?Q?KFNx5pjhrWxF8E4bDN+j5pRraTW7ZWFL8NnpZO0UQnRfpBM84VOqPDda?=
+ =?Windows-1252?Q?S+1Si5Ymxo406g/sf2nsbPKouLzbAk3N1P2cgUyeCkfBqFX6oCqwy0kS?=
+ =?Windows-1252?Q?BUfaaPIH7pG1TLClmeorJsXFjgtVkWPrDH5r8YSIIR6P5iFcKap/3G2E?=
+ =?Windows-1252?Q?ync6DNaRFvwZfKrg4Zz9PYh0sBBUezUwhWj+CDxXxNjgxYG4FHBe1lUv?=
+ =?Windows-1252?Q?Snyb4WG3C/U2biJvC4fbgZjApZC96nupu52uS1jwIQJT30qnPMb2EDnW?=
+ =?Windows-1252?Q?iK94vl6hQBXvzLLPqIAr0wAYsoOuoF0gQPEe+QHj130ToKRkXUrLmSVQ?=
+ =?Windows-1252?Q?cScF1gURKlr9EzfBZHyY6XGqR/Bm0k0gfgOJGDqpChSRHCA7yHnP8FwM?=
+ =?Windows-1252?Q?ixgcckVOKZwuW79pki81k947tO+tJTu0bGg4R3ns2HjCAXDeUvtOYOLj?=
+ =?Windows-1252?Q?OckqsVVhMGX+wRSArvBCt0iEUFLiI14PlsEE7dDP4XPg+4BYxXmoujQT?=
+ =?Windows-1252?Q?l6BlQ027hPZ3IgHRJSIE+ee8sCYhtKnh7rQj1nx6jJcoaD9ihUAp2gJT?=
+ =?Windows-1252?Q?4XYnfT8o2/ijX8TYJg10BxawRGAhhvJXdBu+tmMoFMhJZ+zsiaeD9/5U?=
+ =?Windows-1252?Q?NHQ6Rk0zE/8M9ByXOK2UABrD8nOmXVLKPSmPbdM851i0rxd18h6fncIT?=
+ =?Windows-1252?Q?czFT44dn6k/hOLvwjWe57M/G37o0xj8UH5OJG3TaR1Fo++xSWbt21CLB?=
+ =?Windows-1252?Q?m6vONfGud+NK62x8ajn2p4UaiepsQNaDAadr9H9CrMKvpkHGRwt/KNRg?=
+ =?Windows-1252?Q?EdZMtILyspyyXNZeQRoyqcC6caFM2hfGZu6UmS5reueJFUsQ0ZSrB5Rf?=
+ =?Windows-1252?Q?yGJrX9faHwsk2j4g1m0Ci1Q+kACK/AU3megSeBy2zdC/TuQjNT3mb8ea?=
+ =?Windows-1252?Q?HZ29ziilWEMAqS4lKAoYIvcWsFEIXQ4j8Jfp0bPOEasDbxzU2OeeK14U?=
+ =?Windows-1252?Q?XVJ8DhHf6DxwoAr06ZB1rLdSt6vExhIGwM6xwAT62m0XvceG?=
+Content-Type: multipart/alternative;
+	boundary="_000_CH3PR22MB427396E2921E4E88DC4BF87DC5DC2CH3PR22MB4273namp_"
+MIME-Version: 1.0
+
+--_000_CH3PR22MB427396E2921E4E88DC4BF87DC5DC2CH3PR22MB4273namp_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+Coastal Testing Laboratories
+
+Purchase Order Request
+
+Colton =97 two addresses
+with no PO in Hyphen
+Coventry Homes  =B7  CTL project 26-0052
+2
+Addresses
+1
+Days, oldest
+0
+Past 10 days
+CTL has completed field testing at the two addresses listed below in Colton=
+. We cannot locate a purchase order in Hyphen covering this work, so we hav=
+e nothing to bill these services against.
+Please issue POs in Hyphen for these addresses so we can close the gap, inv=
+oice the work, and get your reports distributed without further delay.
+Please update us with the PO number for the work performed so we can submit=
+ the reports.
+
+Thank you for your assistance.
+Reports on hold
+Two completed reports for Colton are finished and ready to send. They relea=
+se the same day a PO is in Hyphen.
+Service address Serviced        Days    Service
+1618 Leona Lane
+CTL-26-00608
+2026-08-11  =B7  Nuclear Density Test
+2026-08-11      1       Nuclear Density Test
+1703 Dumas St
+CTL-26-00607
+2026-08-11  =B7  Nuclear Density Test
+2026-08-11      1       Nuclear Density Test
+Day counts in clay are open 10 days or more. Measured from the service date=
+ on each report, as of Aug 12, 2026.
+If a PO has already been issued in Hyphen under a number we don't have on f=
+ile, reply with the PO number and we'll match it to these addresses and rel=
+ease the reports.
+Coastal Testing Laboratories
+1217 Georgia Ave, Deer Park, TX 77536
+(713) 477-0121  =B7  Contact@coastaltestinglabs.com
+Serving Houston & Southeast Texas since the 1960s. HUB =B7 MBE =B7 A2LA acc=
+redited.
+
+--_000_CH3PR22MB427396E2921E4E88DC4BF87DC5DC2CH3PR22MB4273namp_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<!doctype html>
+<html>
+<head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1"=
+>
+<style>=0A=
+      @media only screen and (max-width:480px) {=0A=
+        .shell      { padding:10px !important; }=0A=
+        .card       { padding:20px 18px 22px !important; border-radius:12px=
+ !important; }=0A=
+        .headline   { font-size:21px !important; line-height:1.28 !importan=
+t; }=0A=
+        .headline br{ display:none !important; }=0A=
+        .body-copy  { font-size:14.5px !important; }=0A=
+        .kpi-cell   { padding:11px 6px 11px 10px !important; }=0A=
+        .kpi-fig    { font-size:20px !important; }=0A=
+        .kpi-cap    { font-size:9.5px !important; letter-spacing:0.04em !im=
+portant; }=0A=
+        .th-min     { font-size:10px !important; padding-bottom:7px !import=
+ant; }=0A=
+        /* Fold Serviced + Service into the address cell's meta line, keepi=
+ng the=0A=
+           day count as its own column so the severity anchor survives. */=
+=0A=
+        .c-when, .c-svc { display:none !important; }=0A=
+        .mob-meta   { display:block !important; }=0A=
+        .c-addr     { padding-left:12px !important; }=0A=
+        .c-days     { font-size:19px !important; padding-left:4px !importan=
+t; }=0A=
+        .legend     { font-size:11px !important; }=0A=
+        .sig        { font-size:12.5px !important; }=0A=
+      }=0A=
+    </style>
+</head>
+<body style=3D"margin:0;padding:0;background:#F8F6F2;-webkit-text-size-adju=
+st:100%;">
+<div class=3D"shell" style=3D"padding:24px;background:#F8F6F2;font-family:I=
+nter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#0=
+F172A;">
+<div class=3D"card" style=3D"max-width:592px;margin:0 auto;background:#FFFF=
+FF;padding:36px 36px 30px;border-radius:14px;border:1px solid #E2E0DB;">
+<div style=3D"font-size:14px;font-weight:700;letter-spacing:-0.01em;color:#=
+0F172A;">
+Coastal Testing Laboratories</div>
+<div style=3D"margin-top:26px;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0">
+<tbody>
+<tr>
+<td style=3D"width:22px;">
+<div style=3D"width:22px;height:1.5px;background:#2563EB;font-size:0;line-h=
+eight:0;">
+&nbsp;</div>
+</td>
+<td style=3D"padding:0 10px;font-size:11px;font-weight:700;letter-spacing:0=
+.12em;text-transform:uppercase;color:#2563EB;white-space:nowrap;">
+Purchase Order Request</td>
+<td>
+<div style=3D"width:22px;height:1.5px;background:#2563EB;font-size:0;line-h=
+eight:0;">
+&nbsp;</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class=3D"headline" style=3D"margin-top:14px;font-size:26px;line-height=
+:1.25;font-weight:800;letter-spacing:-0.025em;color:#0F172A;">
+Colton =97 two addresses<br>
+with no PO in Hyphen </div>
+<div style=3D"margin-top:8px;font-size:13px;color:#64748B;">Coventry Homes =
+&nbsp;=B7&nbsp; CTL project 26-0052</div>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" style=3D"w=
+idth:100%;margin-top:26px;border-collapse:collapse;">
+<tbody>
+<tr>
+<td class=3D"kpi-cell" style=3D"width:33.33%;padding:14px 8px 14px 16px;bac=
+kground:#F8F6F2;border:1px solid #E2E0DB;border-radius:10px 0 0 10px;">
+<div class=3D"kpi-fig" style=3D"font-size:24px;font-weight:800;letter-spaci=
+ng:-0.02em;color:#0F172A;line-height:1;">
+2</div>
+<div class=3D"kpi-cap" style=3D"margin-top:6px;font-size:11px;font-weight:6=
+00;letter-spacing:0.06em;text-transform:uppercase;color:#64748B;">
+Addresses</div>
+</td>
+<td class=3D"kpi-cell" style=3D"width:33.33%;padding:14px 8px;background:#F=
+8F6F2;border:1px solid #E2E0DB;border-left:0;">
+<div class=3D"kpi-fig" style=3D"font-size:24px;font-weight:800;letter-spaci=
+ng:-0.02em;color:#0F172A;line-height:1;">
+1</div>
+<div class=3D"kpi-cap" style=3D"margin-top:6px;font-size:11px;font-weight:6=
+00;letter-spacing:0.06em;text-transform:uppercase;color:#64748B;">
+Days, oldest</div>
+</td>
+<td class=3D"kpi-cell" style=3D"width:33.33%;padding:14px 8px;background:#F=
+8F6F2;border:1px solid #E2E0DB;border-left:0;border-radius:0 10px 10px 0;">
+<div class=3D"kpi-fig" style=3D"font-size:24px;font-weight:800;letter-spaci=
+ng:-0.02em;color:#0F172A;line-height:1;">
+0</div>
+<div class=3D"kpi-cap" style=3D"margin-top:6px;font-size:11px;font-weight:6=
+00;letter-spacing:0.06em;text-transform:uppercase;color:#64748B;">
+Past 10 days</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class=3D"body-copy" style=3D"margin-top:26px;font-size:15px;line-heigh=
+t:1.75;color:#334155;">
+CTL has completed field testing at the two addresses listed below in Colton=
+. We cannot locate a purchase order in Hyphen covering this work, so we hav=
+e nothing to bill these services against.
+</div>
+<div class=3D"body-copy" style=3D"margin-top:14px;font-size:15px;line-heigh=
+t:1.75;color:#334155;">
+Please issue POs in Hyphen for these addresses so we can close the gap, inv=
+oice the work, and get your reports distributed without further delay.
+</div>
+<div class=3D"po-note body-copy" style=3D"margin-top:14px;font-size:15px;li=
+ne-height:1.75;color:#334155;">
+Please update us with the PO number for the work performed so we can submit=
+ the reports.<br>
+<br>
+Thank you for your assistance. </div>
+<div style=3D"margin-top:22px;padding:14px 18px;background:#FAF0EC;border-l=
+eft:3px solid #C2410C;">
+<div style=3D"font-size:11px;font-weight:700;letter-spacing:0.1em;text-tran=
+sform:uppercase;color:#9A3412;">
+Reports on hold</div>
+<div style=3D"margin-top:5px;font-size:14px;line-height:1.65;color:#7C2D12;=
+">Two completed reports for Colton are finished and ready to send. They rel=
+ease the same day a PO is in Hyphen.</div>
+</div>
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" style=3D"w=
+idth:100%;margin-top:30px;border-collapse:collapse;">
+<tbody>
+<tr>
+<th class=3D"th-min" style=3D"text-align:left;padding:0 8px 9px 12px;font-s=
+ize:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;col=
+or:#64748B;border-bottom:1.5px solid #0F172A;">
+Service address</th>
+<th class=3D"th-min c-when" style=3D"text-align:left;padding:0 8px 9px;font=
+-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;c=
+olor:#64748B;border-bottom:1.5px solid #0F172A;white-space:nowrap;">
+Serviced</th>
+<th class=3D"th-min c-days" style=3D"text-align:right;padding:0 8px 9px;fon=
+t-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;=
+color:#64748B;border-bottom:1.5px solid #0F172A;white-space:nowrap;">
+Days</th>
+<th class=3D"th-min c-svc" style=3D"text-align:left;padding:0 0 9px 8px;fon=
+t-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;=
+color:#64748B;border-bottom:1.5px solid #0F172A;">
+Service</th>
+</tr>
+<tr>
+<td class=3D"c-addr" style=3D"padding:13px 8px 13px 15px;border-bottom:1px =
+solid #E2E0DB;vertical-align:top;">
+<div style=3D"font-size:15px;font-weight:600;letter-spacing:-0.01em;color:#=
+0F172A;">
+1618 Leona Lane</div>
+<div style=3D"margin-top:3px;font-size:12px;color:#94A3B8;">CTL-26-00608</d=
+iv>
+<div class=3D"mob-meta" style=3D"display:none;margin-top:5px;font-size:12px=
+;color:#64748B;">
+2026-08-11 &nbsp;=B7&nbsp; Nuclear Density Test</div>
+</td>
+<td class=3D"c-when" style=3D"padding:13px 8px;border-bottom:1px solid #E2E=
+0DB;vertical-align:top;font-size:14px;color:#334155;white-space:nowrap;">
+2026-08-11</td>
+<td class=3D"c-days" style=3D"padding:13px 8px;border-bottom:1px solid #E2E=
+0DB;vertical-align:top;text-align:right;font-size:16px;font-weight:700;colo=
+r:#0F172A;white-space:nowrap;">
+1</td>
+<td class=3D"c-svc" style=3D"padding:13px 0 13px 8px;border-bottom:1px soli=
+d #E2E0DB;vertical-align:top;">
+<span style=3D"display:inline-block;padding:4px 10px;background:#EEF3FD;col=
+or:#1D4ED8;font-size:11px;font-weight:700;letter-spacing:0.03em;border-radi=
+us:9999px;white-space:nowrap;">Nuclear Density Test</span></td>
+</tr>
+<tr>
+<td class=3D"c-addr" style=3D"padding:13px 8px 13px 15px;border-bottom:1px =
+solid #E2E0DB;vertical-align:top;">
+<div style=3D"font-size:15px;font-weight:600;letter-spacing:-0.01em;color:#=
+0F172A;">
+1703 Dumas St</div>
+<div style=3D"margin-top:3px;font-size:12px;color:#94A3B8;">CTL-26-00607</d=
+iv>
+<div class=3D"mob-meta" style=3D"display:none;margin-top:5px;font-size:12px=
+;color:#64748B;">
+2026-08-11 &nbsp;=B7&nbsp; Nuclear Density Test</div>
+</td>
+<td class=3D"c-when" style=3D"padding:13px 8px;border-bottom:1px solid #E2E=
+0DB;vertical-align:top;font-size:14px;color:#334155;white-space:nowrap;">
+2026-08-11</td>
+<td class=3D"c-days" style=3D"padding:13px 8px;border-bottom:1px solid #E2E=
+0DB;vertical-align:top;text-align:right;font-size:16px;font-weight:700;colo=
+r:#0F172A;white-space:nowrap;">
+1</td>
+<td class=3D"c-svc" style=3D"padding:13px 0 13px 8px;border-bottom:1px soli=
+d #E2E0DB;vertical-align:top;">
+<span style=3D"display:inline-block;padding:4px 10px;background:#EEF3FD;col=
+or:#1D4ED8;font-size:11px;font-weight:700;letter-spacing:0.03em;border-radi=
+us:9999px;white-space:nowrap;">Nuclear Density Test</span></td>
+</tr>
+</tbody>
+</table>
+<div class=3D"legend" style=3D"margin-top:14px;font-size:12px;color:#94A3B8=
+;">Day counts in
+<span style=3D"color:#C2410C;font-weight:700;">clay</span> are open 10 days=
+ or more. Measured from the service date on each report, as of Aug 12, 2026=
+.</div>
+<div class=3D"body-copy" style=3D"margin-top:26px;font-size:15px;line-heigh=
+t:1.75;color:#334155;">
+If a PO has already been issued in Hyphen under a number we don't have on f=
+ile, reply with the PO number and we'll match it to these addresses and rel=
+ease the reports.
+</div>
+<!--=0A=
+        Not renderSignatureHtml(): that shared block says "This is an=0A=
+        automated transmission" and "reply to this email", which conflicts=
+=0A=
+        with this message's reply-to being a named person, not a mailbox.=
+=0A=
+        Inlined verbatim from the approved prototype instead.=0A=
+      -->
+<div class=3D"sig" style=3D"margin-top:30px;padding-top:20px;border-top:1px=
+ solid #E2E0DB;font-size:13px;line-height:1.7;color:#64748B;">
+<div style=3D"font-weight:700;color:#0F172A;">Coastal Testing Laboratories<=
+/div>
+<div>1217 Georgia Ave, Deer Park, TX 77536</div>
+<div>(713) 477-0121 &nbsp;=B7&nbsp; Contact@coastaltestinglabs.com</div>
+<div style=3D"margin-top:10px;font-size:12px;color:#94A3B8;">Serving Housto=
+n &amp; Southeast Texas since the 1960s. HUB =B7 MBE =B7 A2LA accredited.</=
+div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_CH3PR22MB427396E2921E4E88DC4BF87DC5DC2CH3PR22MB4273namp_--

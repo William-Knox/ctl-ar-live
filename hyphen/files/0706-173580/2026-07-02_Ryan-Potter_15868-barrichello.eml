@@ -1,0 +1,165 @@
+Received: from PH0PR22MB3956.namprd22.prod.outlook.com (2603:10b6:510:2a1::14)
+ by CH3PR22MB4276.namprd22.prod.outlook.com with HTTPS; Thu, 2 Jul 2026
+ 21:59:06 +0000
+Received: from CH2PR17CA0008.namprd17.prod.outlook.com (2603:10b6:610:53::18)
+ by PH0PR22MB3956.namprd22.prod.outlook.com (2603:10b6:510:2a1::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.9; Thu, 2 Jul 2026
+ 21:59:00 +0000
+Received: from DS3PEPF000099DD.namprd04.prod.outlook.com
+ (2603:10b6:610:53:cafe::4d) by CH2PR17CA0008.outlook.office365.com
+ (2603:10b6:610:53::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.10 via Frontend Transport; Thu, 2
+ Jul 2026 21:59:00 +0000
+Authentication-Results: spf=neutral (sender IP is 52.0.74.211)
+ smtp.mailfrom=yahoo.com; dkim=pass (signature was verified)
+ header.d=yahoo.com;dmarc=pass action=none header.from=yahoo.com;compauth=pass
+ reason=100
+Received-SPF: Neutral (protection.outlook.com: 52.0.74.211 is neither
+ permitted nor denied by domain of yahoo.com)
+Received: from transport-3.inbound.emailservice.io (52.0.74.211) by
+ DS3PEPF000099DD.mail.protection.outlook.com (10.167.17.199) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Thu, 2 Jul 2026 21:58:59 +0000
+Received: from cloudfilter-igate-new-08e7fb5ad7e3e3599.inbound.emailservice.io (unknown [10.4.1.111])
+	by transport-3.inbound.emailservice.io (Postfix) with ESMTPS id 3504580165
+	for <ryan@coastaltestinglabs.com>; Thu,  2 Jul 2026 21:58:59 +0000 (UTC)
+Received: from sonic303-22.consmr.mail.ne1.yahoo.com (sonic303-22.consmr.mail.ne1.yahoo.com [66.163.188.148])
+	by cloudfilter-igate-new-08e7fb5ad7e3e3599.inbound.emailservice.io (Postfix) with ESMTPS id AD7107E2DB
+	for <ryan@coastaltestinglabs.com>; Thu,  2 Jul 2026 21:58:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1783029525; bh=IN3WLzIM+agNNlRVid+jlZPhpwSSs1cyEvpldV6yXXY=; h=From:Date:Subject:To:References:From:Subject:Reply-To; b=F7bot6VknRrICKsWLU2pbbT9L/tea5FLFHTRpzkNjO6hutiK2JYURr7t20oIn8rfLlUVehvHVjRldRYYg6TwcZbOnw5VvaskoIHk0oAZUkB5dnHcYxnyT1U4T/rugyhCaolfsl+1OYIesId4aMZJ5pAHgKc2I9NPFqlNEsEt6pqseisvIoIeN2h5/rCqvsxg3rgf80q2QycTo1UB2/LKH1JhXukG0lduf9FZifIDVNQFqDXJTOEHH4HUK5TANgiRF4MhAeD6YcgSEXr9f+7O2X/WzFq6uGeK0dnZXJgpwi44jmjoIB1TyxXe89qjL/bREXHhIabuMJnzAc3ovdom6Q==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1783029525; bh=WsMXCZANLz5n65pl/fswY8ukQ6cmXy4VLynDW1ddgZz=; h=X-Sonic-MF:From:Date:Subject:To:From:Subject; b=NzoUjxLnFt4r1wCx7YvD+zPh64eGPoiUSbJLfwYySF4Lxnrx3Vwx09MdjZpWnvYCYc/bq/NzozNg+PgD9Nou0b9tNQXm73kubctrpaMkd/jkq6CszbP17qoXJpucWCN5aPBLwTTKx5dltY7nYBdqg2JZrfQOZOwP6X1s0TvSfNcFslpoXtGmSM2DM6j9TmhRBwlJzgLXcPIayx9/oegJj4ETy4ju50bNlqYaIlSdvCloF5JzbjUTegCZD9MlVAyV+TA/2+1QTBGjXqHXA9VVVAyudT4jd1S+1JVXkAnnfKw67bw5fSiaONkbQ4q+/vYsFD8paJ4b68D7KT+PvvoLDg==
+X-YMail-OSG: LENeyucVM1njC6gjVJRW0322.KIULJrzDmtwCOjBxDMdfX1yy5QfdE_vynHVuZv
+ 9MHYAKOj3rJz12UBwgjJ4HnSB757EKbAgREUVWpqeCxzTR8K6DlSGu4FOhcmTBB1gho_fqdELkuG
+ lUdItB.8mHYi6jOQ8JwqBhH.b.igX8IPGe947iGBmsfykNIA9o6gVneVmbkGbHuyG6mHFHozX96P
+ 6AqrItP.PZUrZ18SN1cacrZGA4YQfB3jRPpdVa4zzQ7btHIayltwZwHvkxL4ol_fa4SIl.YM6TAQ
+ 1JXlR9vgVqoFRQgggfdVJ6Gm2HGQuhfPgHlv.Z4XiSCdF4Nuco.UtN2uicUk5Kh_HyI0_ehNSiQi
+ Qx.ep8aTgUMOZKru4C7i7lHkAfqw2R.T6kDOz38m0r9WFfN_8xRjVZk9O3bbMucj9BQ91FVNBOyK
+ Lt7YUl.12IlBE2Xrnjoc7RBdmFKwNfCEm4BXcv216paLosVfcDJKFrNJBSNfXELLHz7GfB6FXuxq
+ iDmjW_EUzTOcsrKiZlgFnCxrSqP9bqhP3b80_RJKRkO1pAyohO2D9dyN5JXw4mpdyFdp7A3EzCVc
+ 0SQURmyrL2nIZYF4h2dhoOkN7F7oKPj9LqxHkrKEA1bLKPtklYvjt.pyOiOjzQnxYIvNNICyViYx
+ gvSac4o3HS.tOBAJQH9IaDRHUZQMg_2pMnT5csPBmMKp7_MM6M7dTRvFlj93l.ixRBQcsiGyWrGB
+ sw7FLFvPFL61M2_Oe6i_1i5rTm63KfVwqgjuY1sz.zODDiTyZVAUM1Qb4kKN4bWWtZV9kXiZkQg3
+ vW6RbdseQaucuElG4hPzUGF99PLbNL2WqwlAPLKsHwiAtx1cU5JsV5P9Ie5fs1eCa9Uwj9MTt9q7
+ webP9aQyGUqY0EikC9L4j2WwraNwpROsBN3n.XV04ODudk4uuQu1R9uIXPxo1smzssOl0bKXhPqw
+ JTm108a3RFpTr8.kQKjiwOD9qJ1zfaSncJEQ8WER5hb2ypifUqK8WjN_Xe7Y7rxsjqmaPsirwFMu
+ Bs9j7ePtZL2Sze3tblLnVNnQyqAMjVm2D9hs8UHzp7nRrKgwSO3YUyMcjbmuW2K3VN3zirxdOL21
+ aJin52BJJnEy46Pdl5amD2d0xWQZgApNqa_c8dxp4zQmwEqgibioiUCd.0ZOIHqYo8_4E9CniNOK
+ E.PMoRjyFl8f.ZN5AJMCm2fbT_D.3oqvP0QT77CpfcbigDzmpGl4X56lpyBEM72j2C2LdWlJ6NdO
+ zNw2lZ3vTpfQ7Nm1WXBhnjv8KXCEaVtpe7x6ghFrW5UIQX__g_xYk9YWFbZs9lvID8WoCaChZGCN
+ .P7_GLlWg_o3.7exuQ.u8vsO.0gEOQaqIppsdjfo9Kmswk_Gr8rgOJodJEbpf4EbREuyzD9FZ4Xw
+ Ts.IGA3IbX208ZVUVyeVebHfRHXY9TNzSRMT8_5Nu9at2y7jX9vhizn0420nYjnKrg5Pl2HIGlFw
+ ZSibNCKW73d64AZsjRbLAo2zLETR2JNJGGj8MwOsxPuszx8HIrWuUGmnKqdFoTIh.kUdkwo2bSEM
+ q51ehZpiCehpiXUqsB0gyplPGHDZNQXloVn3ABbXbl1ptzcggPv_kf_mfDUsdkdi.8Op7D7qVscH
+ aY6cjqoXliCZLyWmfpSfZPheR0htnmBoU_uq.wFHeosGdNKbR389vnjZWgPB1bVBooW.hxhEx1I.
+ iF2wZD7TkScLbSHtCOQu2bwGaN0UIVRHdQzvdPZxNCK6MQj5apzx18kD8BCl7tJzQzQ4VHLtT.qj
+ u54g8jHPToFVgcStMq.AUB9IxvgfZVFxRkjDcincUvG1guoKt9axoReTcsLphI6Uv1sV9fgyV74x
+ NIMlAnOKGaXAXfqf_5t7FgjUnGrUXDL9Bf.hXx2bsTl3Et2fnKQj5UB1G3ILH1XPfRDDVmLL60N_
+ hPp2dOCxdh3prPnc10eBvgyWn6XoYWKnAbn9pKgeGtHJyThO4jQZqQKlrEaTotnJ7lu3I4rRnC8L
+ ELTy58W68Zdka152w_5K8LH39d.tdOsN7scDswLhrmUwMK3ZP.pwv6xoTXvJ7QWCa8TP420q6vbN
+ ML6S0WoDCs.BGniEx6QyEkRcwGvjz.10syiSDKyGF.MLznRTNhUrX.zH3N58Ajs0UYblH7Jx8tYx
+ OEk7AlZ91.y2P5oyTdagz7nFq8B1s6TPvUvyijWJnXYM0G5yEOZTVDAiMUW3_6_Luqn0Az4GqAP7
+ 1EMiMDfOHHBXz8RLuqi.9Ev2ogs6b9Ed0BbidTw7Qg4fFP7ZsnSyT4uI7n7IEXUe5yM7qBQ--
+X-Sonic-MF: <ryan_kkdirt@yahoo.com>
+X-Sonic-ID: 8ba00edb-0186-4d1f-88a4-fe42a9c60f34
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic303.consmr.mail.ne1.yahoo.com with HTTP; Thu, 2 Jul 2026 21:58:45 +0000
+Received: by hermes--production-ne1-7568ccb994-5b75w (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 0ca87e035bf9996c7b4b8b74d957cd1f;
+          Thu, 02 Jul 2026 21:58:43 +0000 (UTC)
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+From: Ryan Potter <ryan_kkdirt@yahoo.com>
+Date: Thu, 2 Jul 2026 16:58:32 -0500
+Subject: 15868 barrichello 
+Message-ID: <0BB60A56-26D7-4612-946E-942CF41C8BAB@yahoo.com>
+To: Ryan Pena <ryan@coastaltestinglabs.com>,
+ Joe Gallardo <joe@coastaltestinglabs.com>
+X-Mailer: iPhone Mail (23F77)
+References: <0BB60A56-26D7-4612-946E-942CF41C8BAB.ref@yahoo.com>
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|sonic303-22.consmr.mail.ne1.yahoo.com|66.163.188.148|sonic303-22.consmr.mail.ne1.yahoo.com|-0.304348|0.323114|0|normal|ugly|15|8|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass dkim_verified clean dmarc_policy_allow allow
+X-Mailprotector-Score: 0
+X-Mailprotector-IP-Analysis: 0, 66.163.188.148, Ugly c=0.360316 p=-0.212121 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-4613-c
+X-Mailprotector-ID: 1eb43c2c-0db5-4199-8891-e4ad712f0698
+X-Mailprotector-Timestamp: 2LcJLjga0g8604CdMd6lWg==
+Return-Path: ryan_kkdirt@yahoo.com
+X-MS-Exchange-Organization-ExpirationStartTime: 02 Jul 2026 21:58:59.8322
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: ce4497b6-e853-4292-926c-08ded8851f2a
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF000099DD:EE_|PH0PR22MB3956:EE_|CH3PR22MB4276:EE_
+X-MS-Exchange-Organization-AuthSource: DS3PEPF000099DD.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: ce4497b6-e853-4292-926c-08ded8851f2a
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7093399015|16102099003|18002099003|19002099009|5063699009|57112099003;
+X-Forefront-Antispam-Report: CIP:52.0.74.211;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-3.inbound.emailservice.io;PTR:transport-3.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(82310400026)(7093399015)(16102099003)(18002099003)(19002099009)(5063699009)(57112099003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 21:58:59.6613
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ce4497b6-e853-4292-926c-08ded8851f2a
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099DD.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR22MB3956
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:06.9856852
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0181.008
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?RrGdfU+roIINgP/Bx6nq2034mhYVHv38Tu57VMHSuuvsucJqCCbaNsc5fvgm?=
+ =?us-ascii?Q?GDXNUFEZglFDcbjqoz0MppMFqrGB0hOnr2mg+KfLJeRkCZWL7v0yFoIVQzW4?=
+ =?us-ascii?Q?T5dLNnI58vcfDtCX8W+om43scTwOLUUbdUn+MrF3V5u+4bXtuT9vF/+rWGM2?=
+ =?us-ascii?Q?F1zaoMhATTzKaRZuXAZa5QegeXtS8tugUYPyRjMHAINPH6zky7Suaf1X3kdt?=
+ =?us-ascii?Q?OP9qgQ6qB91VjRyhwibQ9GHexcZiuF0jrzdN3+TiKk/E4jxgBWwHWZkA5uhP?=
+ =?us-ascii?Q?oY1Ft1GXHHBGlt+5v8Ois178snY9vxIfDV92ZH1je7whyo29IBuY6MhpmJ53?=
+ =?us-ascii?Q?c1+j2ulq1nP/PrsXJHL5+WwyGge+LZbs1hAVoDxid9OXL1hj7XNMKPTqDlNM?=
+ =?us-ascii?Q?dzgFVK2XMqkha5UpMW9eQ7LZAdnOKLIv7UphrWSxHkmmYon2NC3ThP+pn7O6?=
+ =?us-ascii?Q?fh0KwbWY7NjIQhZMIjicGm/qAkSWhQJ9XjPOvfKhKE07aA2oUKHRTJqqSv4/?=
+ =?us-ascii?Q?oHaSdDQIwzWa5REJoX229SazkLnkSpLio7PRbdh8NN00S78xJfj95g0rifaZ?=
+ =?us-ascii?Q?IB/hr1M5cFTP5XNbIkVguiGMFw1kU/qmiFWjq3qNP3Mg8Wcd4gmtJXa3Ew63?=
+ =?us-ascii?Q?v8i757391LnfHCMzGryMpBIaV+7GTWrMNk68DlVZspeHhMPqoITlNdLPOgFp?=
+ =?us-ascii?Q?oq0mxuUts882/vSdcifXpDIuRGQJ8fh9ApLEzHhKwSX+1JG2gHJP8G74c+Pb?=
+ =?us-ascii?Q?gCo43pc5aljyGQV+aoZGEbe42jCcT/EC6YipsZ9vDAvm94zsAXPky92barG2?=
+ =?us-ascii?Q?jYU2N8dMz3tdlAIoJMew5k1SzFDQ63lpPWn26IDb4BuE2xJfoaqQKrLmLHI8?=
+ =?us-ascii?Q?66ZTAbKgB2Y4Q4AgdraE74M2+uHwXZDYoeVWY16J1/x4C+gaBlMEfrP+29Ca?=
+ =?us-ascii?Q?Tc5OfLWG/knTpoW02QB6iNOc5It2dY7BHTLCL2kvVljJ1/1EyLtRqwgcKKpU?=
+ =?us-ascii?Q?hmQBnCQ/vxWJdhxBUs1+fASNqAzvqTcXaVRw13ApHKCnGw67e5P7bSRfgohW?=
+ =?us-ascii?Q?YlPJ4dZJ5GxGF4KtlC9Bw4vUfkw7fGmCiK68LQDb7eUw8HOEw4KAtvQYPhDR?=
+ =?us-ascii?Q?j8WxSNQQQJxE2azNjWFDSlCfiK4Z1DxrDoGm7UwROkLoyqSmJCMx7f9z1LRw?=
+ =?us-ascii?Q?Yt1bzd+qyWkiOGPLm6vORunTe7PrPfEo3PFU4B63q6xlckNpolFkmmFz2z+Z?=
+ =?us-ascii?Q?5F+hIpuhM1uWoB3+HFPC+plCrioGeE7z/G9/uO4ezD0ph9KUxXV15oznUY0n?=
+ =?us-ascii?Q?EdGtN1aO0Il9+Xn9VK/jPXKP2kr+eiFPsYg4ukGkej587PyXb1mBn4njjhpV?=
+ =?us-ascii?Q?8exWg2DOjPqwlJ5xpl4dz5sNk0LRdBd7gOToBZ1lUVPWKKaxZbD23qmBGtuZ?=
+ =?us-ascii?Q?8wrE1p1aNoImeJ6nPI7slOZC6+ZItCl6UxB58iFf77GViJdyOWsGAFZVFXqu?=
+ =?us-ascii?Q?Jzymckq6PvdTd3YNQlkfwWv7I4bHHBku+ErXBwliYHV/+/LgJ/kXVyuT+RAY?=
+ =?us-ascii?Q?qlr5qwt7Y8BvE/nO0aawEpII7lGmsAjYz2zx+pqNd8vDjcYL2/3fwW4VT9wA?=
+ =?us-ascii?Q?ISZeGiW2sa3Wyq2ma3qXeMjn5bE7ToKMBqK4rvhZExcGlJJ94bvwpO9u4fyA?=
+ =?us-ascii?Q?FcT2SNWIlP0xFphsK+pAjRHGCcHtJTqgQnDBX933KOF/TWvZO0xk0jyoTWiL?=
+ =?us-ascii?Q?dx2f2W32TjVYQcZtYk5ejqwI9KEANZWtvNIAP9gfyXCoN0GYM0t02YeKnRub?=
+ =?us-ascii?Q?4rffjNMOA7KIJApxJioxZrFTqQKP0KKXEFoqu3nVZ7+Adg3zWZVLTCAqEL4f?=
+ =?us-ascii?Q?TnS3Wm30hkG4Rz8s3f2ER3Zn7Si3w4L06RzNq25+eWSX/S5wxG06Xwo8hTTF?=
+ =?us-ascii?Q?OyvyTUeSi1C+9iipk18I7jvHeoBdPn1hVE/Z073UJP6ga4QLyf7Ecq7HLk9t?=
+ =?us-ascii?Q?7qFF6epfs1dBCVTh8g2gQk74tGZvK9KOhdruQPv65PVIiw3PQiIM//Ly760X?=
+ =?us-ascii?Q?ZON0oAdkh+j2boCIwkU4zqw5X450x27D5ibAZetd8FJeIuGYcMzePHFVZL+y?=
+ =?us-ascii?Q?PD9Hh4/nOC8c1iog02nnEy+MC27I6H3S3+P8UxHsuhgvLC4uV9h/rDJCd3dh?=
+ =?us-ascii?Q?5LnUM/4b9kmUYZuRk3Ed8gjwu3Y7rCqYlci4WbsiFfaNfudfuIfJTNdw4I88?=
+ =?us-ascii?Q?3dCFFHHgPzFmxoLZr7QSr6GonOopKygA7GsN7llTuO7KiUsMUDXlibyh4x7t?=
+ =?us-ascii?Q?9RypoJ5RiO43KmQk5i3/JZYNbyWDeFhJePwxmZGAHJnbORfnMNRfiOJIiLbb?=
+ =?us-ascii?Q?KlpPMA3aN+vQdbv756RK6sGvJdbbL5CdnHRgcSUNnr/+rjRUCDRb7oD0EY7o?=
+ =?us-ascii?Q?3FAz45lVGCY=3D?=
+MIME-Version: 1.0
+
+For Lennar in spring branch crossing 
+
+2 lifts 
+
+Sent from my iPhone

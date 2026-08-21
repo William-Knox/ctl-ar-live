@@ -1,0 +1,514 @@
+Received: from PH3PPF6F6603E72.namprd22.prod.outlook.com
+ (2603:10b6:518:1::6b0) by CH3PR22MB4276.namprd22.prod.outlook.com with HTTPS;
+ Mon, 6 Jul 2026 02:21:50 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=SU6Wmz14JYIecua0a16kzRLxdNiuuKYqtS870MWrPJ12GYez0QqBrkjHFSLtE8TlR9CP2FyYZ7YAZuxoWRTVsleJYbJ/9gdllpbqXoQ7DzkbDuh2I8zl8pk1v1Oj/Y+5YtvLq1Ua2LK0hOE04ydDyAG0tbHpxelAYDltFgnospfyM0IFi+ytvUlb0raXFM5e8isTVxOr7aTl9vIBU4qJb1uoXoGUt47UFCDWnBJKIolR7uvuE/8wikaenQoQR26uanBQjSwgEYNdG1qT9R4w+SCyeu9sslPx0R+ZV3sHAjftx5XieJnJDEWqxiNtJr4H0Hm/LxI9NmqldTL18ChFxw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9F4N2u9QDAGZv779gA3ybg2gktr4Ci4Sh56fVBSqX6w=;
+ b=En8nIUM7LyTfvt3bg0/5fexB9jqRiNbdctLEgVK18rJv1ZUEbWNwhqG49buywuA+h3BhZCFd44L7TFlb7FyK9ouZRcWgc7KaRqWomy3FmPf0eeGMo94fIMastKd8L9qJMa6f+th4cL5GSLSJ1jf/+qtVo+oNu5cazZsmYunwXNjyjPBVsp4pB9f4X/kAWshCDxGtMSdxpNsuk7pAQqca6805L1XU9yc62y8ikwn+9hCCkJ57CH/hYKGmOjwmDmBFu2C6g5oZBMal6B1etJAbhRW9V1QJ+0tgVdg28ZSCd4sCB3p5r4Gyc58PS9ZGfPy60fy+kAiXzFxnJL9LQrQiLg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 52.0.31.31) smtp.rcpttodomain=coastaltestinglabs.com
+ smtp.mailfrom=hotttrucking.com; dmarc=none action=none
+ header.from=hotttrucking.com; dkim=pass (signature was verified)
+ header.d=hotttrucking-com.20251104.gappssmtp.com; arc=pass (0 oda=0 ltdi=1)
+Received: from MN2PR05CA0047.namprd05.prod.outlook.com (2603:10b6:208:236::16)
+ by PH3PPF6F6603E72.namprd22.prod.outlook.com (2603:10b6:518:1::6b0) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.13; Mon, 6 Jul
+ 2026 02:21:47 +0000
+Received: from BL6PEPF0002256E.namprd02.prod.outlook.com
+ (2603:10b6:208:236:cafe::5b) by MN2PR05CA0047.outlook.office365.com
+ (2603:10b6:208:236::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.9 via Frontend Transport; Mon, 6
+ Jul 2026 02:21:46 +0000
+Authentication-Results: spf=softfail (sender IP is 52.0.31.31)
+ smtp.mailfrom=hotttrucking.com; dkim=pass (signature was verified)
+ header.d=hotttrucking-com.20251104.gappssmtp.com;dmarc=none action=none
+ header.from=hotttrucking.com;compauth=pass reason=106
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ hotttrucking.com discourages use of 52.0.31.31 as permitted sender)
+Received: from transport-2.inbound.emailservice.io (52.0.31.31) by
+ BL6PEPF0002256E.mail.protection.outlook.com (10.167.249.36) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Mon, 6 Jul 2026 02:21:45 +0000
+Received: from cloudfilter-igate-new-0f8b10539b7f44f4e.inbound.emailservice.io (ip-10-4-3-31.ec2.internal [10.4.3.31])
+	by transport-2.inbound.emailservice.io (Postfix) with ESMTPS id C4BD8A62B0
+	for <ryan@coastaltestinglabs.com>; Mon,  6 Jul 2026 02:21:45 +0000 (UTC)
+Received: from mail-vk1-f177.google.com (mail-vk1-f177.google.com [209.85.221.177])
+	by cloudfilter-igate-new-0f8b10539b7f44f4e.inbound.emailservice.io (Postfix) with ESMTPS id 278877E015
+	for <ryan@coastaltestinglabs.com>; Mon,  6 Jul 2026 02:21:33 +0000 (UTC)
+Received: by mail-vk1-f177.google.com with SMTP id 71dfb90a1353d-5bdcbb1f3f2so1552451e0c.3
+        for <ryan@coastaltestinglabs.com>; Sun, 05 Jul 2026 19:21:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783304492; cv=none;
+        d=google.com; s=arc-20260327;
+        b=dIRwgs2kCuRfxikze5oJIZ2HS55gR8Bv79qxh+oETTYDnHJdRsr3ne62fm6JYUCYuQ
+         Oj0UL12TsX6uCcFUvQSkiA0mlu/ywIvIac5qZluu8eOea8c0398+XoK+7CurwHq4B0bh
+         DnlBdEqi5lDJ86h6lP6zUvCWols7SRMUDZfB2gimFXcN0oXM4tGrw2Lofj5FOrNPOlMu
+         9cEAkCjGQnl5EkJNkW0WFS8JIiiIQAOzTctTtGd4KH4HeumFo3gZeNcUHWTfLQyDDva2
+         cExLa1zOaiPgI90HE+/ebQFqz5htPiiy0ZAJ6aUORwLyEUe7ZVr5G7XflecVSPlu+t8d
+         wq1A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=9F4N2u9QDAGZv779gA3ybg2gktr4Ci4Sh56fVBSqX6w=;
+        fh=2qPsP5QdkLwRNvW1EFhhbft/NwqyV8Zddx8mcTV7vNs=;
+        b=nrO/U7Ric07awDIXyuYFrRXrOQrXOExeraheqtb09XQzYCQnOpLelJjZgcempUWMgQ
+         Fm1sPCoxBGGcxvQDEzELfOM49Q8CFwT88sCtHS8nYE3C4IGuy0T8iP1j97fOKZJNcmWR
+         TiXcv+j2snTMjgt90WArZUpI2Al7plSzIhZ/dlO1Nda+bXh7OuRJ04GuXAqmBTVVbGpN
+         j7iKqSeHpivZb9OSbIMAKonQO4qAE8twxCdBvU9xAYVC8j59VXkR7bF4Qsh8f8RHIxNa
+         LrNFgZSU+DlNcp2I0214rZ3VU16xNxOXgC6r/EV9HaEiQQzJK4Dw1eJAgBzXDgzapzAH
+         B1GQ==;
+        darn=coastaltestinglabs.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hotttrucking-com.20251104.gappssmtp.com; s=20251104; t=1783304492; x=1783909292; darn=coastaltestinglabs.com;
+        h=content-type:to:subject:message-id:date:from:mime-version:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=9F4N2u9QDAGZv779gA3ybg2gktr4Ci4Sh56fVBSqX6w=;
+        b=WDDcwLzcDa3KrPExG6Tx3ftn7w0IA9vT9UQjJDu+6Teh9p0dHdsJ5khETeoO9ttej6
+         Y4sUHTgZlpmq/K52A3mxLiyOuYAruAEYpcZyEgKsMR1AJcgQIDbCJpYS6DaL/rD9L3va
+         btrmDxT9Q+uJhsmKJOxSrDoRQvXp4rVir5PW3oPg1+a/KBerL6L4DhJOiUUSPb1tLOUJ
+         6wzNapvYDNH8ds5qhp1D/nZGU9S7bDKZb20uMILKtDxcVl44koAlq9VYpLa9ZDkiwJl9
+         1cIDQv1Sb3wE3IrEE/6kHW69QetxajQOgZXpd/NgD9SdHq2WXI2dsEDU+uyhl5ZeA/lK
+         P+0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783304492; x=1783909292;
+        h=content-type:to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9F4N2u9QDAGZv779gA3ybg2gktr4Ci4Sh56fVBSqX6w=;
+        b=QMmUZ6sTm0qmZmXrIVRoBj8jKtvP7N39IW3v25doid8pq4uIUU/3k3Hih2ShAWjRAu
+         FDBYcb5CwU70WYbAOEh+p/IdddlxT4JbloU/nwpSaHrL6KGI23hLjQjOwyj2mnLKILcU
+         T+6iFQaDdF+OVfjvD2PSbxaDcE64dpPhidOb+WoGf2ln/mes73ywuxsbraac6WS/PgUS
+         MpWQTkrCwfsrirgo5eisQVm9ahqnSFTqzRAt/RV/LsXdY0atHuBAJLcAWzHuPQ+gz0vb
+         +VvX6j/Nhg+MhZGnuk7qM9//KXWdfBPjrSnVO2Ag3m0KM5cc2GbwwEnBuUKtHFq6j9eV
+         /HmA==
+X-Gm-Message-State: AOJu0YyhWksTMtAmkrI7BbKzOd/zEaTBn2Xp7OBeOJDqimi8MncZY1Pt
+	ztQcuPOJ9uQwTpzQ4mOBCy3gGAOJsMvXqO0h0NhCxgAPF8TBI6X/6Yic1/InvJ2yzT91D8hI6v2
+	G2u8i7oVhbRaTicfyTpC35XslOneO6yIcJ8fPVZikJlmlGulFmhdLRRA=
+X-Gm-Gg: AfdE7cmyhWTz0eUT0/sCcMLna9ez3RtOcswHuylp1gII7wBMvMSqxNcWVEV7Sv+SThc
+	9NyoSIF388l7nSMIZKj89+TH3F6u+4ADCNjiy6iEUpNMSn65Z6ywJO9leARiQJw+AqO4Wr7FHn/
+	qe07HII6NnujoLrIJLZa/5K2CIf0h5H99PShYacgHLq/obby6eYagaB2iALNaugpUegi2Hhus0b
+	EZ0PChfc7xkZPXhy8wDaEApKeVPNYKOREy1ez9ltsc8q/iSAqT5VXRhlR2lqjtRIa7kgrLc5+vS
+	8D9eiWoGOB2RJVn91DcxUFSFoj8thg==
+X-Received: by 2002:a05:6122:32c6:b0:5a3:3153:21c9 with SMTP id
+ 71dfb90a1353d-5be10277e88mr2928867e0c.11.1783304492330; Sun, 05 Jul 2026
+ 19:21:32 -0700 (PDT)
+From: Hunter Hott <hunter@hotttrucking.com>
+Date: Sun, 5 Jul 2026 21:21:21 -0500
+X-Gm-Features: AVVi8CcHlunq1SZEVst3F60RYdmZripNhEGakxj3deiwibxPaKuPFQpCTVwBNXs
+Message-ID: <CAG7uByEZitcMEsqECcbgWh-Nbhv+EfJ3c5KB1N8qWVbmh76uCQ@mail.gmail.com>
+Subject: Compaction testing to be scheduled
+To: Ryan Pena <ryan@coastaltestinglabs.com>, Joe Gallardo <joe@coastaltestinglabs.com>
+Content-Type: multipart/alternative; boundary="000000000000cabe400655e7eefc"
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mail-vk1-f177.google.com|209.85.221.177|mail-vk1-f177.google.com|-0.555556|0.226425|0|normal|ugly|7|2|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass dkim_verified clean dmarc_na
+X-Mailprotector-Score: 0
+X-Mailprotector-IP-Analysis: 0, 209.85.221.177, Ugly c=0.350494 p=-0.2 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-29044-c
+X-Mailprotector-ID: 9763d3c5-17b2-4b04-80d9-976f4ec44b3c
+X-Mailprotector-Timestamp: Tel/35N3bXSGSfugK3l0Ug==
+Return-Path: hunter@hotttrucking.com
+X-MS-Exchange-Organization-ExpirationStartTime: 06 Jul 2026 02:21:46.1357
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: f51575d5-54bc-427d-d068-08dedb0553da
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0002256E:EE_|PH3PPF6F6603E72:EE_|CH3PR22MB4276:EE_
+X-MS-Exchange-Organization-AuthSource: BL6PEPF0002256E.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: f51575d5-54bc-427d-d068-08dedb0553da
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|704161411799003|3109299003|43022699015|69100299015|7149299003|82310400026|5063699009|19002099009|16102099003|57112099003|4076899003|8096899003|18003699003;
+X-Forefront-Antispam-Report: CIP:52.0.31.31;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-2.inbound.emailservice.io;PTR:transport-2.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(704161411799003)(3109299003)(43022699015)(69100299015)(7149299003)(82310400026)(5063699009)(19002099009)(16102099003)(57112099003)(4076899003)(8096899003)(18003699003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 02:21:45.9757
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f51575d5-54bc-427d-d068-08dedb0553da
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0002256E.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH3PPF6F6603E72
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:04.6762527
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0181.008
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?S1RkeU95TWZLQ05RazQ1TnBad3RqNHRnOUFoRno1eitFQjBJaG1qa0RJclFZ?=
+ =?utf-8?B?Y0k2UzFkd0lFaVpoczAyZkhlbDJsTWMzTUkzNk43MDYrWDRWd0FRL3VibCtE?=
+ =?utf-8?B?OUZoUkpYNnZQdmNOSHpoZGJlOFV3REJmNzRQdmo0UDdkZ2xuSncrdTM3Ris5?=
+ =?utf-8?B?T1h5RUNsMDVIT294SldjcWJVazhzdTFvVFZtdm9KaU1OUWdtWjlUVUp5eHNQ?=
+ =?utf-8?B?ME5pQkVWT3ZYZ1hwVUxaaGVJUEZFdUxuTFo3dVNybGd2blQyc2tCdndpYU04?=
+ =?utf-8?B?RU9TN0xQQlpmcW0rbEdOQ1YvLzFLUVJDdm85cjZaZUMrQ0ZScldpMmpwUDAr?=
+ =?utf-8?B?M1FwUTUvUURrOWUyNkhRbnhlaTJEV1VsZE5DY1VNa3hIMnljVXN1eWErWjZx?=
+ =?utf-8?B?WlptM1JvUnVNLzhIMm9wS3RRMGFqYVVvek1NMmZYdUFhSXBGSEZ5N2R4ZWRm?=
+ =?utf-8?B?MXkzZ1hSVzk2Ukd0REFDb2tDOGtSUHBUWURrdE5NcjdyQ240RVA2THJtYXlj?=
+ =?utf-8?B?TTYvdkpWVWdCZ2VQRjRxdVk4UkgxK0kxYW94bUVYWUV1N1cwclVaMjlDZElZ?=
+ =?utf-8?B?NUZiUDE4SWxlTWZFVTV1dHBQcmVvQncxcWhGbWJJbkVsUkl0NTUzTzFNRWgz?=
+ =?utf-8?B?V1dnYVl4SldsZUNGaHBXWlN6eVlISE9sYlY2WHJjUzFmVnorVWF2eWQwamR1?=
+ =?utf-8?B?NlY0amdrZUVoYjZXckM5UHZEem42QUpGeldJVFlTYVZhZCt5NUZ6OC9YMklB?=
+ =?utf-8?B?RmQrTHRIZVZxRzlreFRUKzJNV3hVN2VwT1Vuc1JCbHlnYXppQlhhSU0waU5D?=
+ =?utf-8?B?UkhEUzJuZnFLZDFmcVRGdXU1Z2o2QmY4azVzc0d5VUFhNlJkMHJ0WTZqN2RI?=
+ =?utf-8?B?eWJGZ2hNd01FcHJjNFJ3ejQ3SXhkcSt5NUJoS202aHUwWkpkd24rcG9oenBP?=
+ =?utf-8?B?bk5kSFFLYlhqcFQvSnA4MG1CZU1CcWI0Q2lGd1NCMG4vTngzRzBHYy9YcWlm?=
+ =?utf-8?B?LzNYVmhUVnlrbkVORGFMQWMyQ1BGU2gxSmF1RXg1SEZ1L3lmSUlJVENjQ1Fq?=
+ =?utf-8?B?N2w5Uk01T1V6VS9qTitqVW1STExTZnhMRHM5OU5BVThJdmJqL0JPdWNKZ2hp?=
+ =?utf-8?B?WTdBY00yU21zejJpNklYR3czVmpIWXpaakRCMWRrRUNmSlJIbnlpTXVVRlB6?=
+ =?utf-8?B?c2J4N1BPV0dvYVR2SnE4SWROUWQyMyt1ZzZTMzR4VVFiamozYVFQRWNDaXpw?=
+ =?utf-8?B?bHpjbzhHeCtuQ0pNZ21rNUNuMTE2SjZ5TVE2RDROSFpMWHV3TEdEek9pRkpa?=
+ =?utf-8?B?UzZCRDl2dUZZNTg5eDZXQm0zNXdGRUNYcmpMSGhoekZvYVR1U1V0SWF0dVJv?=
+ =?utf-8?B?STFlY1hTeTdoZGp6NnBHbW5ob1ZlRXY3Tm96b0VwSS85QzlsaVhGQ0YwYmQr?=
+ =?utf-8?B?bEk3VWFxZDNCazhDTVUyOHVXc0RmbVArNkpFSUJVdjNYaDIyRTY3K3ZmUy95?=
+ =?utf-8?B?ZkNZM2VMSkhhME9RblA3VEJ2S3ZpSEdrYW1HQk1qQzBNT1JGOEJkeUNkN3pz?=
+ =?utf-8?B?WDhYY2VQL09kaHpLWlljSGZGVzhvMmUwWnpIVXZMUk1tM0I4cHRnaytzakRZ?=
+ =?utf-8?B?RUU3QjEweEJUVG1XcjlNTGdBb3poYWpoc0s5dzErWlBGNkhsM2pWU0theVlw?=
+ =?utf-8?B?Mk9MMkxodzY5eUdjMEh1TXB1R0Facnlyc3BpbXp6RC9vWGVVSW1zaWcwZEpE?=
+ =?utf-8?B?NnVMU1BkZUw5REVZdGp4MGVUY3M1Rkw4QzNkdk8xTFVvUXlsNDM2cGtsd3Jy?=
+ =?utf-8?B?bm1QTGZ6eGprc2xTRXB5VDZhZVV3ZDE1VHVwTXVGc0htQjhKRldIbkUwOEhJ?=
+ =?utf-8?B?RzlWWCtkNnBxSGxoOXg3MjJTSUVyUCt1WHMxTzZkeFFubTJHRDRoak83Sm5N?=
+ =?utf-8?B?RjJvdkdaUXQwM0lhTWVtT0FMQ1JZbGdGN0JRYzRaWTdvV0FFZFA5d0hDMDh4?=
+ =?utf-8?B?QlViWFpYZFhNRm1NVWExK1liZVRaYUFIWmszekdycFladlVIQnROdEFmT3Zy?=
+ =?utf-8?B?N0xIcFZINENjL0tlK0Nya0FLL0tuWS9nbWg0bHp3Y1owMy9FSHk2bS9jVGRm?=
+ =?utf-8?B?dGZtMVRENzVhZnh6T3RpUDNFNVhaY0xhZlN5ZlZEOFNBbHJENXhCRGxDNjk1?=
+ =?utf-8?B?YUU1VDFrMEVjZDhnejdIbUNwSGZZdndrVHNCOTg0djNRblZlbEJ6SmtBTWZm?=
+ =?utf-8?B?ZFVLWjVyUDVBQmh5WEF1bndTZmNkNUhockQ3VU9LTXJPQTB5d3pIUEUrb1BZ?=
+ =?utf-8?B?Ry82d0loemlGcmRYTCt2aEpYeDFIVFpoeWROMVVSa3pndndiNTNRUDhWY0dp?=
+ =?utf-8?B?d2Y2Z0c5aUpFMld1NmRYVitnU2c2WVlsODQvNVg4cG9PenhVNjRIdGtsb0tC?=
+ =?utf-8?B?WDRZWDNMVE0vU3E4WmxDczcrbjFpcGVzRFcvYm5mdUhGQjZwVys5cEhIWllm?=
+ =?utf-8?B?QnRsbnNoQVNlRmJMZEIvUGQ5ZWFwR0NZWkI3dWVHTnFUam9zaURVTDU1QjVM?=
+ =?utf-8?B?UElYdCs4ZGlJd1d3cHBsQXA2Z0NzZDluNTd1cmlQZzVWSXhJVHlNcTlrL1Ns?=
+ =?utf-8?B?aW9TSkRRUDlpWEp1RzdWUUlsVWpKemhLVkRaWWlJYkF0akcvLys1VE8yV0Fj?=
+ =?utf-8?B?YXBCNVJaS0ZXZ2ZMN1pYYlIya1NVZTNiRjZwY2RGemUwN2dPQkwxTytESDBK?=
+ =?utf-8?B?d3RKazE0Yk1BbG5namlGR3A2K0gzV3Q5YUJaL1pUUVBuWWpGV20yZ1JYZ2sr?=
+ =?utf-8?B?Qk54Zm8wOGZFTFN1bkFmWWRTNDNlQjljRHNFVWQzUU1SQjBSdTBzWC9sUXRt?=
+ =?utf-8?B?bWV2MFFUWko5SG5ZaHpQa3RrYWg2dDdEVjNSaFNWY3lnZ2hpOVBLcWhRa1hY?=
+ =?utf-8?B?VUtQUE51WTJEN3BQbFZXdXFHWXplVlBpRUgrdUUxbjhYL3JQVlcrcEVJRUdj?=
+ =?utf-8?B?VlliMElYNi9mSEZXWVl0RzBPRnpySENrbmVSTmRsRU5FMjFXbGdISGNDVXE4?=
+ =?utf-8?B?QlZ5bTU1bitSUERnPT0=?=
+MIME-Version: 1.0
+
+--000000000000cabe400655e7eefc
+Content-Type: text/plain; charset="UTF-8"
+
+Good Evening please schedule the following addresses for compaction testing.
+Lots of work finally getting done now that the weather has cooperated. Hope
+yall had a good 4th of July weekend. Thank you!
+
+Toll Brother Elyson 25602 Bridge prairie
+Toll Brother Elyson 7306 Lilac orch
+
+Toll Brother OakHill Reserve 17522 Fogwood Creek
+Toll Brother OakHill Reserve 17407 Fogwood Creek
+Toll Brother OakHill Reserve 17807 Quartz springs
+Tri Pointe Woodsons 28151 Serene point lot11
+Tri Pointe Woodsons 28403 Woodward Creek lot07
+Tri Pointe Woodsons 5715 skipping stone lot45
+Tri Pointe Legacy 2910 Stewardship
+Tri Pointe Legacy 2918 Stewardship
+Tri Pointe Woodsons 28263 Serene point
+Tri Pointe Woodsons 28259 Serene point
+Tri Pointe Woodsons 28231 Serene point
+Tri Pointe Woodsons 28167 serene point -
+Tri Pointe Woodsons 28163 serene point
+Tri Pointe Woodsons 28243 Serene point
+Tri Pointe Woodsons 28247 Serene point
+Tri Pointe Woodsons 27607 Lago springs
+Tri Pointe Woodsons 28556 lightcatcher place
+Tri Pointe Woodsons 28539 Lightcatcher
+Tri Pointe Woodsons 28135 Serene point lot18
+Tri Pointe Woodsons 28151 Serene point lot11
+Tri Pointe Woodsons 28403 Woodward Creek lot07
+Tri Pointe Woodsons 28511 lightcatcher lot24
+Tri Pointe Woodsons 5715 skipping stone lot45
+Tri Pointe Woodsons 28520 lightcatcher lot48
+Tri Pointe Woodsons 28514 lightcatcher lot49
+Tri Pointe Woodsons 4544 Sterling springs lot23
+Tri Pointe Woodsons 28185 Serene point
+Tri Pointe Woodsons 28181 Serene point
+Tri Pointe Clopton farms 14936 Clover Meadows
+Tri Pointe Clopton farms 14940 Clover Meadows
+Tri Pointe Woodsons 28315 sugar springs
+Tri Pointe Woodsons
+27816 Wooded springs - s
+Tri Pointe Woodsons 27907 Teal Springs
+Tri Pointe Woodsons 28198 Serene point
+Tri Pointe Woodsons 28194 Serene point
+Tri Pointe Clopton farms 14358 Moonlit Creek
+Tri Pointe Woodsons 28226 Serene point
+Tri Pointe Woodsons 4403 Regal springs
+
+-- 
+
+Thank You,
+
+*Hunter Hott*
+*(713)865-6937*
+*Hunter@HottTrucking.com*
+
+--000000000000cabe400655e7eefc
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr"><div>Good Evening please schedule the following addresses fo=
+r compaction testing.</div><div>Lots of work finally getting done now that =
+the weather has cooperated. Hope yall had a good 4th of&nbsp;July weekend. =
+Thank you!</div><div><br></div><div><table cellspacing=3D"0" cellpadding=3D=
+"0" dir=3D"ltr" border=3D"1" style=3D"table-layout:fixed;font-size:10pt;fon=
+t-family:Arial;width:0px;border-collapse:collapse;border-width:medium;borde=
+r-style:none;border-color:currentcolor"><colgroup><col width=3D"134"><col w=
+idth=3D"130"><col width=3D"171"></colgroup><tbody><tr style=3D"height:21px"=
+><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;color:r=
+gb(10,83,168);border:1px solid rgb(204,204,204)">Toll Brother</td><td style=
+=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid =
+rgb(204,204,204)">Elyson</td><td style=3D"overflow:hidden;padding:2px 3px;v=
+ertical-align:bottom;border:1px solid rgb(204,204,204)">25602 Bridge prairi=
+e </td></tr><tr style=3D"height:21px"><td style=3D"overflow:hidden;padding:=
+2px 3px;vertical-align:bottom;color:rgb(10,83,168);border:1px solid rgb(204=
+,204,204)">Toll Brother</td><td style=3D"overflow:hidden;padding:2px 3px;ve=
+rtical-align:bottom;border:1px solid rgb(204,204,204)">Elyson</td><td style=
+=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid =
+rgb(204,204,204)">7306 Lilac orch </td></tr><tr style=3D"height:21px"><td s=
+tyle=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;color:rgb(10,=
+83,168);border:1px solid rgb(204,204,204)"><br></td><td style=3D"overflow:h=
+idden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,20=
+4)"></td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom=
+;border:1px solid rgb(204,204,204)"></td></tr><tr style=3D"height:21px"><td=
+ style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;color:rgb(1=
+0,83,168);border:1px solid rgb(204,204,204)">Toll Brother</td><td style=3D"=
+overflow:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(=
+204,204,204)">OakHill Reserve </td><td style=3D"overflow:hidden;padding:2px=
+ 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">17522 Fogwood=
+ Creek </td></tr><tr style=3D"height:21px"><td style=3D"overflow:hidden;pad=
+ding:2px 3px;vertical-align:bottom;color:rgb(10,83,168);border:1px solid rg=
+b(204,204,204)">Toll Brother</td><td style=3D"overflow:hidden;padding:2px 3=
+px;vertical-align:bottom;border:1px solid rgb(204,204,204)">OakHill Reserve=
+ </td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;bo=
+rder:1px solid rgb(204,204,204)">17407 Fogwood Creek </td></tr><tr style=3D=
+"height:21px"><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:b=
+ottom;color:rgb(10,83,168);border:1px solid rgb(204,204,204)">Toll Brother<=
+/td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;bord=
+er:1px solid rgb(204,204,204)">OakHill Reserve </td><td style=3D"overflow:h=
+idden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,20=
+4)">17807 Quartz springs </td></tr><tr style=3D"height:21px"><td style=3D"o=
+verflow:hidden;padding:2px 3px;vertical-align:bottom;color:rgb(17,115,75);b=
+order:1px solid rgb(204,204,204)">Tri Pointe</td><td style=3D"overflow:hidd=
+en;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)"=
+>Woodsons</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:b=
+ottom;border:1px solid rgb(204,204,204)">28151 Serene point lot11</td></tr>=
+<tr style=3D"height:21px"><td style=3D"overflow:hidden;padding:2px 3px;vert=
+ical-align:bottom;color:rgb(17,115,75);border:1px solid rgb(204,204,204)">T=
+ri Pointe</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:b=
+ottom;border:1px solid rgb(204,204,204)">Woodsons</td><td style=3D"overflow=
+:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,=
+204)">28403 Woodward Creek lot07</td></tr><tr style=3D"height:21px"><td sty=
+le=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;color:rgb(17,11=
+5,75);border:1px solid rgb(204,204,204)">Tri Pointe</td><td style=3D"overfl=
+ow:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,20=
+4,204)">Woodsons</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-=
+align:bottom;border:1px solid rgb(204,204,204)">5715 skipping stone lot45</=
+td></tr><tr style=3D"height:21px"><td style=3D"overflow:hidden;padding:2px =
+3px;vertical-align:bottom;color:rgb(17,115,75);border:1px solid rgb(204,204=
+,204)">Tri Pointe</td><td style=3D"overflow:hidden;padding:2px 3px;vertical=
+-align:bottom;border:1px solid rgb(204,204,204)">Legacy </td><td style=3D"o=
+verflow:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(2=
+04,204,204)">2910 Stewardship </td></tr><tr style=3D"height:21px"><td style=
+=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;color:rgb(17,115,=
+75);border:1px solid rgb(204,204,204)">Tri Pointe</td><td style=3D"overflow=
+:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,=
+204)">Legacy </td><td style=3D"overflow:hidden;padding:2px 3px;vertical-ali=
+gn:bottom;border:1px solid rgb(204,204,204)">2918 Stewardship </td></tr><tr=
+ style=3D"height:21px"><td style=3D"overflow:hidden;padding:2px 3px;vertica=
+l-align:bottom;color:rgb(17,115,75);border:1px solid rgb(204,204,204)">Tri =
+Pointe</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bott=
+om;border:1px solid rgb(204,204,204)">Woodsons</td><td style=3D"overflow:hi=
+dden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,204=
+)">28263 Serene point </td></tr><tr style=3D"height:21px"><td style=3D"over=
+flow:hidden;padding:2px 3px;vertical-align:bottom;color:rgb(17,115,75);bord=
+er:1px solid rgb(204,204,204)">Tri Pointe</td><td style=3D"overflow:hidden;=
+padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">Wo=
+odsons</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bott=
+om;border:1px solid rgb(204,204,204)">28259 Serene point </td></tr><tr styl=
+e=3D"height:21px"><td style=3D"overflow:hidden;padding:2px 3px;vertical-ali=
+gn:bottom;color:rgb(17,115,75);border:1px solid rgb(204,204,204)">Tri Point=
+e</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;bo=
+rder:1px solid rgb(204,204,204)">Woodsons</td><td style=3D"overflow:hidden;=
+padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">28=
+231 Serene point </td></tr><tr style=3D"height:21px"><td style=3D"overflow:=
+hidden;padding:2px 3px;vertical-align:bottom;color:rgb(17,115,75);border:1p=
+x solid rgb(204,204,204)">Tri Pointe</td><td style=3D"overflow:hidden;paddi=
+ng:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">Woodson=
+s</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;bo=
+rder:1px solid rgb(204,204,204)">28167 serene point - </td></tr><tr style=
+=3D"height:21px"><td style=3D"overflow:hidden;padding:2px 3px;vertical-alig=
+n:bottom;color:rgb(17,115,75);border:1px solid rgb(204,204,204)">Tri Pointe=
+</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;bor=
+der:1px solid rgb(204,204,204)">Woodsons</td><td style=3D"overflow:hidden;p=
+adding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">281=
+63 serene point </td></tr><tr style=3D"height:21px"><td style=3D"overflow:h=
+idden;padding:2px 3px;vertical-align:bottom;color:rgb(17,115,75);border:1px=
+ solid rgb(204,204,204)">Tri Pointe</td><td style=3D"overflow:hidden;paddin=
+g:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">Woodsons=
+</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;bor=
+der:1px solid rgb(204,204,204)">28243 Serene point </td></tr><tr style=3D"h=
+eight:21px"><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bot=
+tom;color:rgb(17,115,75);border:1px solid rgb(204,204,204)">Tri Pointe</td>=
+<td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;border:1=
+px solid rgb(204,204,204)">Woodsons</td><td style=3D"overflow:hidden;paddin=
+g:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">28247 Se=
+rene point </td></tr><tr style=3D"height:21px"><td style=3D"overflow:hidden=
+;padding:2px 3px;vertical-align:bottom;color:rgb(17,115,75);border:1px soli=
+d rgb(204,204,204)">Tri Pointe</td><td style=3D"overflow:hidden;padding:2px=
+ 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">Woodsons</td>=
+<td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;border:1=
+px solid rgb(204,204,204)">27607 Lago springs </td></tr><tr style=3D"height=
+:21px"><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;c=
+olor:rgb(17,115,75);border:1px solid rgb(204,204,204)">Tri Pointe</td><td s=
+tyle=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;border:1px so=
+lid rgb(204,204,204)">Woodsons</td><td style=3D"overflow:hidden;padding:2px=
+ 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">28556 lightca=
+tcher place </td></tr><tr style=3D"height:21px"><td style=3D"overflow:hidde=
+n;padding:2px 3px;vertical-align:bottom;color:rgb(17,115,75);border:1px sol=
+id rgb(204,204,204)">Tri Pointe</td><td style=3D"overflow:hidden;padding:2p=
+x 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">Woodsons</td=
+><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;border:=
+1px solid rgb(204,204,204)">28539 Lightcatcher </td></tr><tr style=3D"heigh=
+t:21px"><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;=
+color:rgb(17,115,75);border:1px solid rgb(204,204,204)">Tri Pointe</td><td =
+style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;border:1px s=
+olid rgb(204,204,204)">Woodsons</td><td style=3D"overflow:hidden;padding:2p=
+x 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">28135 Serene=
+ point lot18</td></tr><tr style=3D"height:21px"><td style=3D"overflow:hidde=
+n;padding:2px 3px;vertical-align:bottom;color:rgb(17,115,75);border:1px sol=
+id rgb(204,204,204)">Tri Pointe</td><td style=3D"overflow:hidden;padding:2p=
+x 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">Woodsons</td=
+><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;border:=
+1px solid rgb(204,204,204)">28151 Serene point lot11</td></tr><tr style=3D"=
+height:21px"><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bo=
+ttom;color:rgb(17,115,75);border:1px solid rgb(204,204,204)">Tri Pointe</td=
+><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;border:=
+1px solid rgb(204,204,204)">Woodsons</td><td style=3D"overflow:hidden;paddi=
+ng:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">28403 W=
+oodward Creek lot07</td></tr><tr style=3D"height:21px"><td style=3D"overflo=
+w:hidden;padding:2px 3px;vertical-align:bottom;color:rgb(17,115,75);border:=
+1px solid rgb(204,204,204)">Tri Pointe</td><td style=3D"overflow:hidden;pad=
+ding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">Woods=
+ons</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;=
+border:1px solid rgb(204,204,204)">28511 lightcatcher lot24</td></tr><tr st=
+yle=3D"height:21px"><td style=3D"overflow:hidden;padding:2px 3px;vertical-a=
+lign:bottom;color:rgb(17,115,75);border:1px solid rgb(204,204,204)">Tri Poi=
+nte</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;=
+border:1px solid rgb(204,204,204)">Woodsons</td><td style=3D"overflow:hidde=
+n;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)">=
+5715 skipping stone lot45</td></tr><tr style=3D"height:21px"><td style=3D"o=
+verflow:hidden;padding:2px 3px;vertical-align:bottom;color:rgb(17,115,75);b=
+order:1px solid rgb(204,204,204)">Tri Pointe</td><td style=3D"overflow:hidd=
+en;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,204)"=
+>Woodsons</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:b=
+ottom;border:1px solid rgb(204,204,204)">28520 lightcatcher lot48</td></tr>=
+<tr style=3D"height:21px"><td style=3D"overflow:hidden;padding:2px 3px;vert=
+ical-align:bottom;color:rgb(17,115,75);border:1px solid rgb(204,204,204)">T=
+ri Pointe</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:b=
+ottom;border:1px solid rgb(204,204,204)">Woodsons</td><td style=3D"overflow=
+:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,=
+204)">28514 lightcatcher lot49</td></tr><tr style=3D"height:21px"><td style=
+=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;color:rgb(17,115,=
+75);border:1px solid rgb(204,204,204)">Tri Pointe</td><td style=3D"overflow=
+:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204,=
+204)">Woodsons</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-al=
+ign:bottom;border:1px solid rgb(204,204,204)">4544 Sterling springs lot23</=
+td></tr><tr style=3D"height:21px"><td style=3D"overflow:hidden;padding:2px =
+3px;vertical-align:bottom;color:rgb(17,115,75);border:1px solid rgb(204,204=
+,204)">Tri Pointe</td><td style=3D"overflow:hidden;padding:2px 3px;vertical=
+-align:bottom;border:1px solid rgb(204,204,204)">Woodsons</td><td style=3D"=
+overflow:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(=
+204,204,204)">28185 Serene point </td></tr><tr style=3D"height:21px"><td st=
+yle=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;color:rgb(17,1=
+15,75);border:1px solid rgb(204,204,204)">Tri Pointe</td><td style=3D"overf=
+low:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,2=
+04,204)">Woodsons</td><td style=3D"overflow:hidden;padding:2px 3px;vertical=
+-align:bottom;border:1px solid rgb(204,204,204)">28181 Serene point </td></=
+tr><tr style=3D"height:21px"><td style=3D"overflow:hidden;padding:2px 3px;v=
+ertical-align:bottom;color:rgb(17,115,75);border:1px solid rgb(204,204,204)=
+">Tri Pointe</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-alig=
+n:bottom;border:1px solid rgb(204,204,204)">Clopton farms </td><td style=3D=
+"overflow:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb=
+(204,204,204)">14936 Clover Meadows </td></tr><tr style=3D"height:21px"><td=
+ style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;color:rgb(1=
+7,115,75);border:1px solid rgb(204,204,204)">Tri Pointe</td><td style=3D"ov=
+erflow:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(20=
+4,204,204)">Clopton farms </td><td style=3D"overflow:hidden;padding:2px 3px=
+;vertical-align:bottom;border:1px solid rgb(204,204,204)">14940 Clover Mead=
+ows </td></tr><tr style=3D"height:21px"><td style=3D"overflow:hidden;paddin=
+g:2px 3px;vertical-align:bottom;color:rgb(17,115,75);border:1px solid rgb(2=
+04,204,204)">Tri Pointe</td><td style=3D"overflow:hidden;padding:2px 3px;ve=
+rtical-align:bottom;border:1px solid rgb(204,204,204)">Woodsons</td><td sty=
+le=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;border:1px soli=
+d rgb(204,204,204)">28315 sugar springs </td></tr><tr style=3D"height:21px"=
+><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;color:r=
+gb(17,115,75);border:1px solid rgb(204,204,204)">Tri Pointe</td><td style=
+=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid =
+rgb(204,204,204)">Woodsons</td><td style=3D"border-width:1px;border-style:s=
+olid;border-color:rgb(204,204,204) transparent rgb(204,204,204) rgb(204,204=
+,204);overflow:visible;padding:2px 0px;vertical-align:bottom"><div style=3D=
+"white-space:nowrap;overflow:hidden;width:292px"><div style=3D"float:left">=
+27816 Wooded springs - s</div></div></td></tr><tr style=3D"height:21px"><td=
+ style=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;color:rgb(1=
+7,115,75);border:1px solid rgb(204,204,204)">Tri Pointe</td><td style=3D"ov=
+erflow:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(20=
+4,204,204)">Woodsons</td><td style=3D"overflow:hidden;padding:2px 3px;verti=
+cal-align:bottom;border:1px solid rgb(204,204,204)">27907 Teal Springs </td=
+></tr><tr style=3D"height:21px"><td style=3D"overflow:hidden;padding:2px 3p=
+x;vertical-align:bottom;color:rgb(17,115,75);border:1px solid rgb(204,204,2=
+04)">Tri Pointe</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-a=
+lign:bottom;border:1px solid rgb(204,204,204)">Woodsons</td><td style=3D"ov=
+erflow:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(20=
+4,204,204)">28198 Serene point </td></tr><tr style=3D"height:21px"><td styl=
+e=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;color:rgb(17,115=
+,75);border:1px solid rgb(204,204,204)">Tri Pointe</td><td style=3D"overflo=
+w:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,204=
+,204)">Woodsons</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-a=
+lign:bottom;border:1px solid rgb(204,204,204)">28194 Serene point </td></tr=
+><tr style=3D"height:21px"><td style=3D"overflow:hidden;padding:2px 3px;ver=
+tical-align:bottom;color:rgb(17,115,75);border:1px solid rgb(204,204,204)">=
+Tri Pointe</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-align:=
+bottom;border:1px solid rgb(204,204,204)">Clopton farms </td><td style=3D"o=
+verflow:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(2=
+04,204,204)">14358 Moonlit Creek </td></tr><tr style=3D"height:21px"><td st=
+yle=3D"overflow:hidden;padding:2px 3px;vertical-align:bottom;color:rgb(17,1=
+15,75);border:1px solid rgb(204,204,204)">Tri Pointe</td><td style=3D"overf=
+low:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,2=
+04,204)">Woodsons</td><td style=3D"overflow:hidden;padding:2px 3px;vertical=
+-align:bottom;border:1px solid rgb(204,204,204)">28226 Serene point </td></=
+tr><tr style=3D"height:21px"><td style=3D"overflow:hidden;padding:2px 3px;v=
+ertical-align:bottom;color:rgb(17,115,75);border:1px solid rgb(204,204,204)=
+">Tri Pointe</td><td style=3D"overflow:hidden;padding:2px 3px;vertical-alig=
+n:bottom;border:1px solid rgb(204,204,204)">Woodsons</td><td style=3D"overf=
+low:hidden;padding:2px 3px;vertical-align:bottom;border:1px solid rgb(204,2=
+04,204)">4403 Regal springs&nbsp;</td></tr></tbody></table></div><div><br><=
+/div><span class=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" =
+class=3D"gmail_signature" data-smartmail=3D"gmail_signature"><div dir=3D"lt=
+r"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div><=
+div dir=3D"ltr"><div><i><font face=3D"georgia,serif"></font></i><br></div><=
+div><font face=3D"georgia"><span style=3D"text-align:left;color:rgb(34,34,3=
+4);text-transform:none;text-indent:0px;letter-spacing:normal;font-family:ge=
+orgia,serif;font-size:13.33px;font-style:italic;font-variant:normal;font-we=
+ight:400;text-decoration:none;word-spacing:0px;display:inline;white-space:n=
+ormal;float:none;background-color:rgb(255,255,255)">Thank You,</span></font=
+></div><div><font face=3D"georgia"><img width=3D"89" height=3D"96" src=3D"h=
+ttps://ci3.googleusercontent.com/mail-sig/AIorK4y8mA42qkCMZI3WRfxsBMw09qbfJ=
+PSKihjAJ3RNhiXA5DWAb-QLgANa0lQI97IuXwHGMlxlWVKcYnTq"><br></font></div><div>=
+<i><font face=3D"georgia">Hunter Hott</font></i><i><font face=3D"georgia"><=
+br></font></i></div><div><i><font face=3D"georgia">(713)865-6937</font></i>=
+</div><div><i><font face=3D"georgia">Hunter@HottTrucking.com</font></i></di=
+v></div></div></div></div></div></div></div></div></div></div></div>
+
+--000000000000cabe400655e7eefc--

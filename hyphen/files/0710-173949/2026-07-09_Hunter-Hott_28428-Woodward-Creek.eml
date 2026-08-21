@@ -1,0 +1,244 @@
+Received: from SA3PR22MB4427.namprd22.prod.outlook.com (2603:10b6:806:37d::19)
+ by CH3PR22MB4276.namprd22.prod.outlook.com with HTTPS; Fri, 10 Jul 2026
+ 00:46:27 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=XxlS0pHnYOFhz19bGQgvYVtoSluRXAMMFm7c6A0t3V+bUWlQyU4t0evK386iIxqErwbS3grhn051G0MbeglR+EN/8ZpXtMowLLnt03xGyp0QnQK2wIyI+c2FuvzKmGX/dHLXbwHPiNaPNAYpIae3EGzBRzsyxw8xM/juD1ABWxN86iB2QJaHtqZnYL//1/OP0AET1pxFIZfhnVR49XfdHpd77oVYH5Eff86fUjQZdxqiObDMu0NLFs+HOfNqo5L0L4xGQA/ouXQUc6xUXn3klvmlaO4+kvVr0KrkT9VETqsceCkL4QnVALHQPOxuNMQBNuMdiBjoRgAU594nbf/wYw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oZfmh5Z9s0iirXOdopm7qAr1chvtok3NQ2PPuDBK4J0=;
+ b=X5n1y55wSkgzA7DAdqt4wl4nwrIzH9ndeVzj6mD4CROZAydHfkL+/yDge5M83VAb06pvQFHkwjBJkNZXS22RFgx+ZCi/eCAb758hKenp1ZEt6QcD8otmJc5YaAEFMy7QAHs972YcLRYR9kiwrPf+t0SIhFdxsGDvIbjmrBqH3lyfri//FIGZ70QB1Sl0acLcKpG+ZAOj7+xPhZY6Uf7F89PV+UYx7ch+Iug2rZEqStlkZbdNZqei4BTPJCH0lEwXGxFdAon6aN7GfQVa4oKVqfpOB0ZKSlTe1WYq93JEwRHH+Wevpo8W4FB7udNfT4JVo60gGy+y+FwrDqj9QRII9g==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 52.0.74.211) smtp.rcpttodomain=coastaltestinglabs.com
+ smtp.mailfrom=hotttrucking.com; dmarc=none action=none
+ header.from=hotttrucking.com; dkim=pass (signature was verified)
+ header.d=hotttrucking-com.20251104.gappssmtp.com; arc=pass (0 oda=0 ltdi=1)
+Received: from SJ0PR13CA0175.namprd13.prod.outlook.com (2603:10b6:a03:2c7::30)
+ by SA3PR22MB4427.namprd22.prod.outlook.com (2603:10b6:806:37d::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.15; Fri, 10 Jul
+ 2026 00:46:25 +0000
+Received: from CO1PEPF000075EF.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c7:cafe::43) by SJ0PR13CA0175.outlook.office365.com
+ (2603:10b6:a03:2c7::30) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.4 via Frontend Transport; Fri, 10
+ Jul 2026 00:46:24 +0000
+Authentication-Results: spf=softfail (sender IP is 52.0.74.211)
+ smtp.mailfrom=hotttrucking.com; dkim=pass (signature was verified)
+ header.d=hotttrucking-com.20251104.gappssmtp.com;dmarc=none action=none
+ header.from=hotttrucking.com;compauth=pass reason=106
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ hotttrucking.com discourages use of 52.0.74.211 as permitted sender)
+Received: from transport-3.inbound.emailservice.io (52.0.74.211) by
+ CO1PEPF000075EF.mail.protection.outlook.com (10.167.249.38) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Fri, 10 Jul 2026 00:46:24 +0000
+Received: from cloudfilter-igate-0e4fd1fd5d292a49d.inbound.emailservice.io (unknown [10.4.1.181])
+	by transport-3.inbound.emailservice.io (Postfix) with ESMTPS id 73F9780572
+	for <ryan@coastaltestinglabs.com>; Fri, 10 Jul 2026 00:46:23 +0000 (UTC)
+Received: from mail-vk1-f172.google.com (mail-vk1-f172.google.com [209.85.221.172])
+	by cloudfilter-igate-0e4fd1fd5d292a49d.inbound.emailservice.io (Postfix) with ESMTPS id F12457E070
+	for <ryan@coastaltestinglabs.com>; Fri, 10 Jul 2026 00:46:22 +0000 (UTC)
+Received: by mail-vk1-f172.google.com with SMTP id 71dfb90a1353d-5bddd789ae4so130918e0c.0
+        for <ryan@coastaltestinglabs.com>; Thu, 09 Jul 2026 17:46:22 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783644382; cv=none;
+        d=google.com; s=arc-20260327;
+        b=K8oZ/U0QTdLSatEEJoTD2vhH/Jcrgt5QhEEIEkoqjdBoigTN8Gsl/UhGiqdiAaTKbN
+         I3Cce3n2zyd/sqFTZ56NQP2UMTsUpWcwfEPrApoIAoOCJHa2u4LImz35tnnLImo0uqV/
+         +0o6V3yzqyXXuiIycn/e6TouzYvokLWrBWSWwedV5fq0wv9o1ly3yNEVHqr++RqQuHW+
+         yfKmEmHnN4Ksjrm2yjfLEh9LtOHZmo2Y3Iw8vHasG9iHOPflIKh0tXTeOjjvPYHWXbQh
+         KNlHLo9YYDcRR/aLcafwAi0hQtibsOVzcr5p+D1O+HjPzrUm+43VcNN5PSXFHBopP2Se
+         bLQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=oZfmh5Z9s0iirXOdopm7qAr1chvtok3NQ2PPuDBK4J0=;
+        fh=Im9KpHt8A/uGAYvSVurisurD+JOXtTic6zPNQIdzpB0=;
+        b=TkxnuDbfYXZNqcx5d/pt+jO5KU8mnfdZvPxl2bXUAgqmHGaBukOK1NC1pjOqUa3PJT
+         8hpQ2aWjPvEBe5jRreywY4ufa1X7bEeiuOBg9aLaBOxzj/OqjCMCYnhD5ZQzlMIROP9w
+         8GBberwugQnlfIkyib8pVeqN73641PmGVpjm1nPZJveUcSDbH9towAuqR2I4rZl6niF9
+         +xQWjWBLGxJCP5ByeXFbXjrFZ5FQTqF3OORFNrtX7qmF8j1rWQ+4dm2Jjgnqml8Xz62o
+         g6QSfZN2tF3x339tI20Tf9AC+C0gzVPqVl5lgIQ7Y9f4WLSVZzQULp0qsOXiYMwYHZ7g
+         c6JQ==;
+        darn=coastaltestinglabs.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=hotttrucking-com.20251104.gappssmtp.com; s=20251104; t=1783644382; x=1784249182; darn=coastaltestinglabs.com;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=oZfmh5Z9s0iirXOdopm7qAr1chvtok3NQ2PPuDBK4J0=;
+        b=xK7RudXAOFfktk48WzSWGFsGCwOyvrv1ltgiCMMEvERKEeLbN5b4rs7UB4U9O88rs9
+         rrkqgu0f5Hvi41L4klQlcQvbDJ1SBhEr8ASZ/197xUiVdtv7mkM++cSkb8kBalDLtm8d
+         +op9SQJ2aI7ZUowRDUOeAhp7o5aQsVZEqvMjSIr5nYSGXKlfTee9/XSf8khQFA5g3kaG
+         /wZk2Thvd6o7z9077ruRDopb9VS4NftZmgUvBniDFqShtjYGOZHWDJr7CZgr5p4OY+aP
+         wxQ4xyGvfYpknycMu0Q2sI1icXgWyZhNPS02kloEVAmoJTfSSBFvksTIvJ6Ri2sBYh5N
+         icvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783644382; x=1784249182;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=oZfmh5Z9s0iirXOdopm7qAr1chvtok3NQ2PPuDBK4J0=;
+        b=f3QHPUdUzC4VIhWMbNQTtNTJJEQ3C3Q/HQiUud9jaifNPwdSGTvqkqFHhENGivvhUz
+         lAfwM6Ak6VjJKMf/ll7dZbF8dtnH60UwD7DAEF36p3yaAjBNahjgv+1AwrtykL5forkx
+         p5eZDPB/v+N/gsszSC/vb9wniSitcBlrN3fWUlzYvK9HSzW0Z+eQMa9iB5/y8Gs+9DGy
+         xAxI95pH6WgvE8teMy5cEergS/+r7mo3cDrUUjAdTXRI7tol3vCmHGhMQSC5XGADya4d
+         Ef829Rg07hdm751zyQMP4Dlr9J+oHMTCaxx0VDbnJCLu2r8kOrxC01lX2Ual+uBTswtQ
+         xZUw==
+X-Forwarded-Encrypted: i=1; AHgh+RrI9c8CVfGUIIxjpXoGW2Z8+Pe93zTPYlPPgeg1bMf2HRLMUSQDCoObArzHtvdK8kcDXnGy@coastaltestinglabs.com
+X-Gm-Message-State: AOJu0Yw6jPvp6LRUprASIQU4cujcuxAeSpYVarFx4CCCJ15S4Cx/3DaQ
+	BXovtpOEX/VJtigRDtzYIuGIep5D9L3ldh2KAuX0IBJhCnOnE/JaVgtGfEw5+bStMlWVFIPKqua
+	9p4btJ3tK03Eh6vSQX4wOigfgqDEGqiFAGQ8jrrYjKw==
+X-Gm-Gg: AfdE7cnroBUKYOvvy7CNj0B6ZbeHRZjGX/K39+BqMeNWEgH8kDWkgFtZWpXcFc03Bgy
+	B5vkKx02zSzb4KOMIRFAFiFr6h1b0jNPNPuiExe0Bcr6GaI81x1CYhe47ArxWYOgLpMgZRS8hPN
+	2CHUnJNsnCBVx8a+/xWhOKqhmpvG9jnM0RygRoaRDNJliVL/M8Ld6PFEasBrkHCRJpiNE8BTJg9
+	HL0o1A1K/gfdPMi+P6CVDXNeqDhDT6gWMwjyMEppQOshZ6bXDwoIkFM+oec1fLC91XUD2VmQKbH
+	LhhmYzwvylOjQN8ALi3h85yslrqF9g==
+X-Received: by 2002:a05:6123:122:b0:5bd:cb34:1b70 with SMTP id
+ 71dfb90a1353d-5bf75ccf1e4mr5229395e0c.1.1783644382364; Thu, 09 Jul 2026
+ 17:46:22 -0700 (PDT)
+From: Hunter Hott <hunter@hotttrucking.com>
+Date: Thu, 9 Jul 2026 19:46:10 -0500
+X-Gm-Features: AUfX_my8k2C3sEUYMO4v3oXxzoS3mfQm2ThEBDwDlj6SO1M1UJRHRP21sQfPsE4
+Message-ID: <CAG7uByF6nV1WtoUJyrUgKUg4c+FAXOej_LT==cJJ=bQLzUmsKQ@mail.gmail.com>
+Subject: 28428 Woodward Creek
+To: Joe Gallardo <joe@coastaltestinglabs.com>, Ryan Pena <ryan@coastaltestinglabs.com>
+Cc: Veronica Hott <Veronica@hotttrucking.com>, 
+	Esmeralda Cantu <esmeralda@coastaltestinglabs.com>, 
+	Derrick Chin <derrick.chin@tripointehomes.com>
+Content-Type: multipart/alternative; boundary="000000000000d1129506563711f1"
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mail-vk1-f172.google.com|209.85.221.172|mail-vk1-f172.google.com|-0.425|0.451569|0|normal|ugly|57|23|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass clean dmarc_na
+X-Mailprotector-Score: 0
+X-Mailprotector-IP-Analysis: 0, 209.85.221.172, Ugly c=0.385168 p=-0.47619 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-6807-c
+X-Mailprotector-ID: 20139df6-4f54-4924-8fcf-134fd56a4736
+X-Mailprotector-Timestamp: 0+qv6oKwKbtu7njBr8d8s+nGSx4qm2g67x/TMsSIYGM=
+Return-Path: hunter@hotttrucking.com
+X-MS-Exchange-Organization-ExpirationStartTime: 10 Jul 2026 00:46:24.5064
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 387d9d8e-5824-4497-763a-08dede1cab26
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF000075EF:EE_|SA3PR22MB4427:EE_|CH3PR22MB4276:EE_
+X-MS-Exchange-Organization-AuthSource: CO1PEPF000075EF.namprd03.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 387d9d8e-5824-4497-763a-08dede1cab26
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|704161111799003|3109299003|7149299003|69100299015|43022699015|82310400026|19002099009|5063699009|16102099003|18002099003|57112099003|8096899003|4076899003;
+X-Forefront-Antispam-Report: CIP:52.0.74.211;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-3.inbound.emailservice.io;PTR:transport-3.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(704161111799003)(3109299003)(7149299003)(69100299015)(43022699015)(82310400026)(19002099009)(5063699009)(16102099003)(18002099003)(57112099003)(8096899003)(4076899003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jul 2026 00:46:24.2603
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 387d9d8e-5824-4497-763a-08dede1cab26
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000075EF.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR22MB4427
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.5646682
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0181.011
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?RGd1dm1ZdWR2YmRJdlY4bmIrbGMvc1NUSkd4V1Z3QmVhN0dNNDA1RmkrdG9t?=
+ =?utf-8?B?UCtNTDVKV0U0Q3dUOFFod0RMWGZkWHhxZnRYdlFkRnlpQjFMeVUxbnRudThY?=
+ =?utf-8?B?OUpsNUt4TW9uUDZWaHdSZkhEQVJIUXROTzh2NEJsU2xybGNQK2RsaVAxK3lq?=
+ =?utf-8?B?OERXMDhYQmFzcWtYZE8xUXpqZlowd3BIdzIzUW1MUGRJM28xRFlocHMxVUt5?=
+ =?utf-8?B?SHZVZWtxUW93Z3JsOTNaSzZlRWxkcWt6T0xJeURvZWNMUHEyd0JuMlJVSmVQ?=
+ =?utf-8?B?eGpyZkZwa2RoelB5S2R6NVZpcU9tNDl3TWh3ME92V1dPZjNEMnhTbmFLdFYr?=
+ =?utf-8?B?QlgxNWVwdFdCSUQvOVpNdkYwL3JML1Nac0djVVQ1OFdQVDZlUHBlT1YrNFJ1?=
+ =?utf-8?B?OEFqY3BIbmIrbXJReDZ2MTM0WjQzN3VnamxiYllCdHl6RWVRMnlCUnljZ3NV?=
+ =?utf-8?B?M2l6cmordWFvdkIxZE9FQml5Yk4yVklUN3J2N3kvb2pkQ1F0ZEE5Qlk5a3Qr?=
+ =?utf-8?B?dGpOWXl4dEJKTFNyc0trQW1sMzFXNStGUGxFTlhRcjNQRTdFVXFjcmlYcFJN?=
+ =?utf-8?B?aHF3c2huYk95d0NqMnJmcjZjUW9BNkF5WjNFMHFXVUU3MnNDZEN1TDd0NkFU?=
+ =?utf-8?B?UVdZOW1FbWJpMjB2ZS9NWXV3NkFxck80VXk2T1RuZERJUEIxMHo5dGV3Z3BP?=
+ =?utf-8?B?U2FlNjJ1ekk3UjBoRlFxMjNteXFFVk14TUVrS3BFUDUvWmVuY3hONUJGYnJh?=
+ =?utf-8?B?bUlySHFwTkdKbFNLQUtUT0M1UzFhVWpQQmZrb2UzQ3VrRDRQVDNBNlROdk1J?=
+ =?utf-8?B?N0RmWWFNb1dUWDNsait2Q0VNd2E5YUhXeFZpZlBBSkYwWTVOdDYrK1Jxbmcy?=
+ =?utf-8?B?OUlIaXdKWTd3cHV4bVZYRDlWRTJ1aUNoNDk5QmpiTVhidTI0RXY4aVJXMUg3?=
+ =?utf-8?B?bysvUlVlc2lrTlFTcmJxNW1iT1FuVFFXT20ySmpZSmpucXcwTUd1L1BLUFF3?=
+ =?utf-8?B?dmlOODRta1NsbncvRFdlNmk5aXFqTWxaTVBYazFPMms1b2dmZkt4WE0rc0ZE?=
+ =?utf-8?B?M2lxdStPK1ZIQmprY1pMQmd3OEtUTC9WK25WT1QzOHROYUFUNG55RzVYdDhu?=
+ =?utf-8?B?QTlsbzRvMlZRaWowbnpkYUtaajRSOXNKaXQ2ajRVWWRQd2grYjJra0FRRE9P?=
+ =?utf-8?B?a0xFVTNkbnlaa21rSXllZ0ZpTCswdjM4MWNBSXRMVmV3MUNoU0JMUk1aWWRu?=
+ =?utf-8?B?YnExTVBUaUtycTZ5L1dQSXFlU0pmN1YyK2hsajBibVUvRGEwcnNyay9Oc3l2?=
+ =?utf-8?B?SlVXd0RrL0ROdkthSStlaEwySEN5M1FxL25mL21zYjRkS2R1SFQ5OCt2d1Qr?=
+ =?utf-8?B?a0VoN25xaFAzSzhFaHBXQ3dLeVNWR3piekNiK25KclpyTW93bDd6QTVpL1U5?=
+ =?utf-8?B?Q2l4TnpITUplbmE5UUpkbmtiZVVLOHdxWndzcVZ2UzJ4a0QyN29hWWl6Q2hR?=
+ =?utf-8?B?T3ZqcmQycnhacVJUUThjblFUNjJXc25Wenh3Q21ZNzVhc0hocnEvOUtQVFMw?=
+ =?utf-8?B?b2ZJU3J2TWFGc1ZvSEVNMzh2WWorUWlkSXJ3RHIwaUZxRTNmSWNva1hSQjR5?=
+ =?utf-8?B?TjhWODErb0Z1RXdiNDgyUE9Rallrb3RjcFpaQm12dmlQR3J4WWJlREJOOFpl?=
+ =?utf-8?B?bnNTcEd1Z09FNlhnWnQvRE1PRDNsSXhwNGpJVXZsclg0Q3N1TzZSVythOG5t?=
+ =?utf-8?B?V3h3ZXJvTERUMFNNcFJ6K3hjOUgyekVhUys3RUFCa1FaaDVCSE96WHdSVXBh?=
+ =?utf-8?B?dFloRWlJTG9RdStoUHMveU1EZkNObm5yTjdpRVJ4UjAwb3ptSmpEUWFPMlA2?=
+ =?utf-8?B?SGZqUGtBOHBFNlQ0cnl1TkZzRVVWS3FTVnRNQVByMzVsZzh3clRzTnJqTS8v?=
+ =?utf-8?B?NlljOW5JMXJwNHNCR05LekJBbWZHZ3V0ZjE2c3NRT282UEhFMmtTTHRsWTZ1?=
+ =?utf-8?B?RlY0TTdKRFl2RXZDYmEvM21PdVgwYVpXRllxTjZkYTBrRENZTmZGNUkzZURw?=
+ =?utf-8?B?VHMwcno0Y2puTnhlM0Z3ZlZ0SU8rdVB4VkxrRmFsd2VJcEhhbVVLbWVDaXNL?=
+ =?utf-8?B?NlU0aW9kb09zeWVRTzJOd2hVckdKNnQzOW8zMnJjTHNIMlFLOWxzdXZVdVhX?=
+ =?utf-8?B?M2ZxbFRlMkY4YkRMcFFBdk5ubzZRRmNiU2JqeEUrRDVLa3ArTDJpc1NmT0NG?=
+ =?utf-8?B?Q1pNZFFzTWZUMHYvRW82RXd2RjhwazY0aU1rdTZkREs5SDRaT0diRWp1eUVM?=
+ =?utf-8?B?VGhzNHBaY0NpNk9pUTh3bDg0bnR5OERidnN3Nnd6QitqSnNISkxhSFIrWU96?=
+ =?utf-8?B?eldoYzhMcEpqeGxJWGtNbTdyS3p4c2s5UGpETm1FanpObnJ4YlVSVjJnbXF6?=
+ =?utf-8?B?QnZNQzlQLythdFlCazVGanRadFczZUtsM3g5SFpvMXZ0U0hTa1U2cEc4OWU5?=
+ =?utf-8?B?bE5EZUpLeFFVcGFFTXBZT1RZaFJlM2xaVWVQKzYwTHhVa2I1OVJ4cXkwL21G?=
+ =?utf-8?B?MHU0SDc3ODlsc3lFanBuR2lnTDh2aHdvMTRvd04yTjZpaHZ6WmgyaEZHN1Zp?=
+ =?utf-8?B?aEFNRDIyeTh4R3lBMTM4S3doMFU2T1grQ2VOVkhWSFBxUlp6dFppRXZhTDJH?=
+ =?utf-8?B?RHMvUFRndUJMRG5vUnlFMXk3N1JqSVZBbWpVTHRxMDRXSmxIZUJnYWVqMCtE?=
+ =?utf-8?B?V2haTUlMYWp4a0NGbVpGRlhnNWhES2JESDdyNURNeExLVnhBMTJTL0QwOWFG?=
+ =?utf-8?B?NVFIV0cvbjZRb2lpVXZRRVhtVHorY2xFV1FMVkVaaHJDQ3A1d3I1ellsYTVJ?=
+ =?utf-8?B?ZlNTN3hXS2dISzlQa1NyYnhwaTNKYldGU0thbnd3MUg1c1dUOWNHbGVTT3RI?=
+ =?utf-8?B?ZU0rWS9DbkpvNklPZDlmaHp2Z1lxb284SmRZRnFZMWJCSGNPUWphKzN1aUI0?=
+ =?utf-8?Q?iu+svE5WSMBlt5BeUBXnIEGSjPWAm1zOdyx?=
+MIME-Version: 1.0
+
+--000000000000d1129506563711f1
+Content-Type: text/plain; charset="UTF-8"
+
+Good evening, Please schedule the subject address for compaction testing at
+your earliest convenience.
+
+This home is in Woodsons Reserve, and belongs to Tri Pointe Homes.
+THank you in Advance for your assistance.
+
+-- 
+
+Thank You,
+
+*Hunter Hott*
+*(713)865-6937*
+*Hunter@HottTrucking.com*
+
+--000000000000d1129506563711f1
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr"><div>Good evening, Please schedule the subject address for c=
+ompaction testing at your earliest&nbsp;convenience.</div><div><br></div><d=
+iv>This home is in Woodsons Reserve, and belongs to Tri Pointe Homes.&nbsp;=
+</div><div>THank you in Advance for your assistance.&nbsp;</div><div><br></=
+div><span class=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" c=
+lass=3D"gmail_signature" data-smartmail=3D"gmail_signature"><div dir=3D"ltr=
+"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div><d=
+iv dir=3D"ltr"><div><i><font face=3D"georgia,serif"></font></i><br></div><d=
+iv><font face=3D"georgia"><span style=3D"text-align:left;color:rgb(34,34,34=
+);text-transform:none;text-indent:0px;letter-spacing:normal;font-family:geo=
+rgia,serif;font-size:13.33px;font-style:italic;font-variant:normal;font-wei=
+ght:400;text-decoration:none;word-spacing:0px;display:inline;white-space:no=
+rmal;float:none;background-color:rgb(255,255,255)">Thank You,</span></font>=
+</div><div><font face=3D"georgia"><img width=3D"89" height=3D"96" src=3D"ht=
+tps://ci3.googleusercontent.com/mail-sig/AIorK4y8mA42qkCMZI3WRfxsBMw09qbfJP=
+SKihjAJ3RNhiXA5DWAb-QLgANa0lQI97IuXwHGMlxlWVKcYnTq"><br></font></div><div><=
+i><font face=3D"georgia">Hunter Hott</font></i><i><font face=3D"georgia"><b=
+r></font></i></div><div><i><font face=3D"georgia">(713)865-6937</font></i><=
+/div><div><i><font face=3D"georgia">Hunter@HottTrucking.com</font></i></div=
+></div></div></div></div></div></div></div></div></div></div></div>
+
+--000000000000d1129506563711f1--

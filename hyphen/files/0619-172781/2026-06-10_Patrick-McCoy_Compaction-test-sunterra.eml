@@ -1,0 +1,402 @@
+Received: from SA1PR22MB5108.namprd22.prod.outlook.com (2603:10b6:806:3c9::18)
+ by SJ2PR22MB4265.namprd22.prod.outlook.com with HTTPS; Wed, 10 Jun 2026
+ 13:31:06 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=Ok4zxa8aDJgT+GGKs/RVuLL9iEXlGVfW1go/b8X2D0h7XQQDWbtGg6824YoreT1gSg2GmYrWgX5ngp32Sy59EJXNzGPqLZtXqREMqUd0cRrtQfL9KV3GENiUfMf94DFR4kQ+pT9y96kDy6abnsuJiYEjQ1nIFtFgGqwi3aome/3Uq60fOxZo6qp23PfvZdmkDxf41FEjbwwUCUktiogUOJt3OCiH6K6JhySOsOSwJtaOvi8JD7m7SXhdzb6U5K+zjPMGU/oz1bzeMFImGQmB74gkuk3wE2btwP1qOpVGTMuLbjPq8TzAZ161jHYyl1o1QLK673U3Xrr8wkmhbVx4mw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eRnxJFBmLycas+cTxOl7XhyXfkPx3lt8yL8TPaBdx4s=;
+ b=bk3sl/1Pltjp+TV2ubOG9EapY+JsvJe3ny4xzo8eC7jMYk+Qe5GImG3zt3TAtA6kZTptUmXbIU0ft56WYOQkZ5EJJgueNyR46ezR2SGNQfpQ8qc2v3xQMwYrEXtauhT10gmX96hACJcGPFxt2Rdf0GUm7S7nOUvwOERds4BH0yB5rkT0PdM+TE4I7qEmEWSONEjCIvlhEdp9YJWZIdxU3yUzJofGYA5w6kX6XsI+UrmY0YV1NQNDJQL0bbhPvOMBbYGjrHImJqfut2asKg9JirPzz9lmHVOUQS//mJ114bddWdSlDal9ixgCP6C2xazmkg/UnJsCrq1gpyWi9lugYA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 52.0.70.91) smtp.rcpttodomain=coastaltestinglabs.com
+ smtp.mailfrom=lennar.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=lennar.com; dkim=pass (signature was verified)
+ header.d=lennar.com; dkim=pass (signature was verified) header.d=lennar.com;
+ arc=pass (0 oda=1 ltdi=1 spf=[1,1,smtp.mailfrom=lennar.com]
+ dkim=[1,1,header.d=lennar.com] dmarc=[1,1,header.from=lennar.com])
+Received: from SJ0PR03CA0161.namprd03.prod.outlook.com (2603:10b6:a03:338::16)
+ by SA1PR22MB5108.namprd22.prod.outlook.com (2603:10b6:806:3c9::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.14; Wed, 10 Jun
+ 2026 13:31:02 +0000
+Received: from MWH0EPF000C6195.namprd02.prod.outlook.com
+ (2603:10b6:a03:338:cafe::6f) by SJ0PR03CA0161.outlook.office365.com
+ (2603:10b6:a03:338::16) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.92.13 via Frontend Transport; Wed, 10
+ Jun 2026 13:31:02 +0000
+Authentication-Results: spf=softfail (sender IP is 52.0.70.91)
+ smtp.mailfrom=lennar.com; dkim=pass (signature was verified)
+ header.d=lennar.com;dkim=pass (signature was verified)
+ header.d=Lennar.com;dmarc=pass action=none
+ header.from=lennar.com;compauth=pass reason=100
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ lennar.com discourages use of 52.0.70.91 as permitted sender)
+Received: from transport-1.inbound.emailservice.io (52.0.70.91) by
+ MWH0EPF000C6195.mail.protection.outlook.com (10.167.249.105) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.113.7 via Frontend Transport; Wed, 10 Jun 2026 13:31:01 +0000
+Received: from cloudfilter-igate-new-0e4901ca47321818d.inbound.emailservice.io (unknown [10.4.1.201])
+	by transport-1.inbound.emailservice.io (Postfix) with ESMTPS id E0528A4B6D
+	for <ryan@coastaltestinglabs.com>; Wed, 10 Jun 2026 13:31:00 +0000 (UTC)
+Received: from mx0a-001afc01.pphosted.com (mx0a-001afc01.pphosted.com [67.231.144.124])
+	by cloudfilter-igate-new-0e4901ca47321818d.inbound.emailservice.io (Postfix) with ESMTPS id 853E97E223
+	for <ryan@coastaltestinglabs.com>; Wed, 10 Jun 2026 13:30:47 +0000 (UTC)
+Received: from pps.filterd (m0146980.ppops.net [127.0.0.1])
+	by mx0a-001afc01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 65ACBUA92639585
+	for <ryan@coastaltestinglabs.com>; Wed, 10 Jun 2026 09:30:46 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lennar.com; h=
+	content-type:date:from:message-id:mime-version:subject:to; s=
+	11172022; bh=eRnxJFBmLycas+cTxOl7XhyXfkPx3lt8yL8TPaBdx4s=; b=Ll1
+	6BMnw72rit86UNBaiHlmMkoS4mQa1L0oMOUJsJppa+p7bsutQi1JHdVr8qFPLUXq
+	bmiqIBgEiwFoPdj4d+zz1WiY4ORvEJ09itfPpoITaIeQ2mJtZs1a9w9Zr4OuT3DQ
+	GVXQ6fdRVleTUasbPo05SG1o8bGbrQkaPt9+XCwH5YovODeBKBfz2mq7uhtDR56D
+	+DbzjMEhK37A/Q4bfawOBtZKW3pyzVa6QsnNrQW4TiMagOjQ4hLt29XrRgRN/3Py
+	ymYUUotWDh1SHLMcFKstUOhVkvHz0OpkVIYyyjcZXsFCqtLIUqeLNJQVwAGcot9E
+	yH+9j+B+tFbo8MeOUew==
+Received: from sn4pr2101cu001.outbound.protection.outlook.com (mail-southcentralusazon11012006.outbound.protection.outlook.com [40.93.195.6])
+	by mx0a-001afc01.pphosted.com (PPS) with ESMTPS id 4ep5xsdp7y-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT)
+	for <ryan@coastaltestinglabs.com>; Wed, 10 Jun 2026 09:30:45 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fh0Mhk9UmNUY2jhx6hSRjMQEx2+/6kJb0hX/Fpx6r8iKbO91W95mnTwURx6Vd2zAkNu87ccn1cspIfqYPlPEYlHIrxZDlHSQyjCQI7oi/fpi5VQeGMi3jK38ys2lGPXHOkbu8YotExTnw3jppZblj/+7ZyK1kxv9prwe+4F5kDrEDAX+7yDciWVkW3MQWad3JMVPf0pCBl1XIPorlx0vTr0snUGUNh0FvmkiNXbxr39+EIWPISn2vZLS8w4G/XERCowtP1WK4epcRyhqpZb3/X9TWG2/1jT3CCGUR+FRruBaS08eGHsmDFGyrOZcV5JtfxKWfkrVloknhQwhwVUNEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eRnxJFBmLycas+cTxOl7XhyXfkPx3lt8yL8TPaBdx4s=;
+ b=wBUIbEoVBN1YIex9+JY9YGCroGyOd7fplnj2g/tSmfPwkJQirUHBX4i6oF4Qjl7zPkvSCPehWXQ3ubi3+2mjOnjdpDtgw/9Lc7uUW8i67EmBjjneRxVfoHt+BcqdcPT78XzvwS5AEWt2CoE11ckhIg0egKuyijNC3hltLeLf5oMtqJMa2fkjUrhzI8utktVMlJqycAq5A2XGiaywZ1W/n43QFKmqbR969h9i3tzSYTAH6vZ09me8Ix3yPjovRfLWeRNZN+UA7myAR7UMgvpyzowu5IettJuyQxYioCl5Uc6OGRir2DX7EoY4DdiXSUd3y0nASFRnIoZhi263EB3rBg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=lennar.com; dmarc=pass action=none header.from=lennar.com;
+ dkim=pass header.d=lennar.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Lennar.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eRnxJFBmLycas+cTxOl7XhyXfkPx3lt8yL8TPaBdx4s=;
+ b=STQuw221mdObspPOcbrgyLyG1AueHuM4EcqZRNjgVqE8ouN4jQR5KcHkYDJAnl9W+xbY9lRYfc6MDX7+dJSrMp1bn7TLT5TNkVrtlPYsOkGaDNP/i1biHLAwEHCRM3XXFnLIJ7h9WVQTL6LdKZBeOeVhI7jNjdWzIB1BKoN4+ENhdPLfjP13jdcsmBzbHwFLrjSYr+ECBgDbgKDXixqS2bPfB1G5auEcf6FU/VZVrwH8ir8a5cwxRNMNjVq0Cffas808G4a/gi4ARE0aIeCuweF6KuIklM+m3MZF3zbymytFVLt83Px25Uli+I3J0W+mrWvhTwT+IN/rsSUQ1VQzHA==
+Received: from DS2PR07MB11740.namprd07.prod.outlook.com (2603:10b6:8:331::19)
+ by BL4PR07MB10162.namprd07.prod.outlook.com (2603:10b6:208:4df::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.13; Wed, 10 Jun
+ 2026 13:30:43 +0000
+Received: from DS2PR07MB11740.namprd07.prod.outlook.com
+ ([fe80::134b:edd2:e9e5:a78b]) by DS2PR07MB11740.namprd07.prod.outlook.com
+ ([fe80::134b:edd2:e9e5:a78b%4]) with mapi id 15.21.0092.011; Wed, 10 Jun 2026
+ 13:30:43 +0000
+From: Patrick McCoy <patrick.mccoy@lennar.com>
+To: Ryan Pena <ryan@coastaltestinglabs.com>
+Subject: Compaction test - sunterra 
+Thread-Topic: Compaction test - sunterra 
+Thread-Index: AQHc+NwNLwsGQiHpZ0+vCKS9hJwBsg==
+Date: Wed, 10 Jun 2026 13:30:43 +0000
+Message-ID: <DS2PR07MB117406FA1A8F38968E44CD9608C1A2@DS2PR07MB11740.namprd07.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-reactions: allow
+x-ms-traffictypediagnostic: DS2PR07MB11740:EE_|BL4PR07MB10162:EE_|MWH0EPF000C6195:EE_|SA1PR22MB5108:EE_|SJ2PR22MB4265:EE_
+X-MS-Office365-Filtering-Correlation-Id: a7a7ce1a-fc44-4c02-b847-08dec6f483e9
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|23010399003|10070799003|366016|376014|1800799024|5023799004|56012099006|18002099003|11063799006|38070700021|8096899003|13003099007;
+X-Microsoft-Antispam-Message-Info-Original: InQSW1Mfh5yZM/0GJcn21xLHSUdR48PoQijxDJXUzI+pKbi9tthcPbCkC3WftzXpH78N2e0zhUoNkpicwfb/edlDJsY1xp2jeLSmceq59lkQf5N2EwU1otPAW/iHu42fwYGuUM2yyyvA+PsT+JUMMfyvHXAEVfR74GMEH/iLfS+KZqtNuq+ZwB3CyvrcMh2Ca3rJf7uM3EEJmeex7zUFCtXrFjZCMXesmaJJzo33B/UvcJrvLzF/ImgGPgVHeuDh/+lV2l5LgweLaeiRMeiorc6pf5xKIG83T/12ksiRYSMFo/TQGxmAjODT5EDvFi+kbXIxaOTw8LVr/9ELpaonNzNwiISCEqDnhxPHZ+xuv1zXPUGDVQ6slT3Z570hGviJSj0gwBJz6+9rMPdSWcKYpVcDnOXf9mjHU12YqpMnoDMPXXCY2T5js+/cZ/x0KBru+4TGrXfZh7+h3YmWLtUAStDYPQ5u73pAZriO1NcAAyP85UAKj9oC2hG44b/4l8SoJnw7nfngwauK6LEhc/Mcfa9mv9DfFxfxl9IM5dak84CAiVhKDLrBc76jI8X2SjlDPidIIWUofHQqxfud4XrWRtTIMhlZVLRF4Nok09ttAoORObdyVtxVZm7LuSK46fCtSkYtHb//Cajmn0bY1IToBTpSr6o2sRWOEuqjMK2AsbBSfs5eSmD8wrZaTqhu42lK2d2w9qHtlT3sMC30+MwyPQ==
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS2PR07MB11740.namprd07.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(366016)(376014)(1800799024)(5023799004)(56012099006)(18002099003)(11063799006)(38070700021)(8096899003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-Original-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-Original-0: =?us-ascii?Q?mn1tfWljn/RmO2Lnwua9/yMyZj/cqldFNgtzc82uaVwduMIwpA+uGPZbl9YZ?=
+ =?us-ascii?Q?3onqAjiQa6QOoyqGxSye63DPT/f0+kXHutFlyItOBw8B/Pjl0Wt739Tiapqs?=
+ =?us-ascii?Q?3L4U98BgYRHjL/aIUPa7WJuewKafNZDiOnjr0wmFaKOrLxLsUabkXRQrP765?=
+ =?us-ascii?Q?9RbIZRl1pSQkeV435gyd6xUIJH3XDHwe7PNxtmH1658QK1LuGRZfLOy+qX8h?=
+ =?us-ascii?Q?rHkBVbs3NWbkG+qQHQHfKLJHIhxfORf4WZqF/i5THNZl1Ih5wHlR/qsoPZxt?=
+ =?us-ascii?Q?yvaGsFYFet5Mo9kU/gqCmJOa11LVb65XzsswlrBsUJZChFAAl2FNy569zdYz?=
+ =?us-ascii?Q?iUV06YaaKSkmtnbgQYNliW4oPQKvn9TyakRsGgdzicD0eZL/8z1KTTVGe753?=
+ =?us-ascii?Q?ItiewedhuYqB9SqLX35Pliigd7Z2eErmQVpuWdtLLvMh3sXEjFfcNtLv1pA/?=
+ =?us-ascii?Q?lvdo0FXQbc7mWks/YaOZuLSSDawsgY2EugwTuFqiAPxowTvyB+EQCT6HI0E3?=
+ =?us-ascii?Q?aah3g6COe8r17V4C7FOkRI9VAqzEPHkG0LRKP5to2nXD3xWYyCqWOAGC20zo?=
+ =?us-ascii?Q?T1SgNgaLmbpBVEbmeuO8oD9izjkhDF90du2ZHWgupTKZJowmrR1k5Bo4NQrx?=
+ =?us-ascii?Q?tTPWH7LZwqZ3W0mvvCIBWgiX6SJGzXlmME4apf7T8a8gmsM8TE6EesV6M2zF?=
+ =?us-ascii?Q?md69imPA+Cd6q4TThQUhmBFkbH3X3dcIA0Cjd4d/Giix60rh0OX1SnDNO5IV?=
+ =?us-ascii?Q?NTbs1cDltpxoaIAaK2S9042DpY1ehmefX4ubrIw2qBSS90CwwvKO52dYVUl0?=
+ =?us-ascii?Q?suA8/NUM0VelBjbn/YAM3DlttkXyUTR6HM8peFYF/DRb9vhYH1j2hZE48eRB?=
+ =?us-ascii?Q?hey/I4hK3lB3/6xhKHyvd0C72bXtDbr8AmjhLIjPv9pZ6gR1RrNQMtm4gbwE?=
+ =?us-ascii?Q?WUYDFdeXG3AAf//HDGOvlpP4uquEwGfOndQhGKexKc/EqPWc3pwvl3DVl0sM?=
+ =?us-ascii?Q?Fj8eafLWd1a+Lf5Vj0Qo61Nq7hrA3PPNubE1oxMHsPSMEIb3m6g30faJvwW/?=
+ =?us-ascii?Q?ELU0RaeSaPFpREtKVDF6Vvn1tztABN2RobuaeNMQnl7ay5Pi6/CdeEyKtVkY?=
+ =?us-ascii?Q?GWnwhovZkOT8NmfbRtyMeTx9RPiCdl8XQDTArmeEVz7VJffE92BYiank8fVY?=
+ =?us-ascii?Q?tfAD/FEYjGN1Estt3++xxPn+wLMMRcovPkvzTA4Hw6sZJv2K9C/08nIpCidM?=
+ =?us-ascii?Q?A09yo7m+9JGaKa5YkD4hJh5wIVjF0QLGlRyfiSAPhczEbNIK3i5FOMGO2UgA?=
+ =?us-ascii?Q?by1ai5jnz7L6aUXPLKSWwSjTLTRrF0NUraadLaFQn206RTn6QZ9HVjJnUsdJ?=
+ =?us-ascii?Q?ctNDeEf8XFy8KMcFJrwnJE1Us9L2HlcaVhjrmFAbl/aXOrLqpGGG56PUsmaT?=
+ =?us-ascii?Q?SGMCMOcR2PM3LlokFOvUdmQ+PzM2ONphhlGG2MFPjv+VWUQKnKr9nDZWc3c6?=
+ =?us-ascii?Q?G+0zD1NxYEoVpQiN6EotPw/t7mswdaGtARjd+88bI0nFjlE9T5pRBJ0BiyM9?=
+ =?us-ascii?Q?nd9KqDawxkqGV3ZvdinHPg8eRhDS+w/8AJ5MlaB6HGATTvkedwTZ5dnvgig9?=
+ =?us-ascii?Q?gdWXRMGkozAfphqWZScal7Vo1IHR2HXQ5Yk2mpb/VLH1YJzP4XnBcBE5cbjA?=
+ =?us-ascii?Q?El5g0qGv5W7yG/jcdSJiXDPcUgsFE3ryRwwC6HzgzPumwlhJEQw3yDv9yqEu?=
+ =?us-ascii?Q?YW/X1dKKGBrzcxqK/vyo8fNUrO9hL6uS5bpckhooq/TuWW9K47HWHzalMIB/?=
+X-MS-Exchange-AntiSpam-MessageData-Original-1: pDhBIh0WB+GVG2cB7PTIH8HC0QXbcd+pKus=
+Content-Type: multipart/alternative;
+	boundary="_000_DS2PR07MB117406FA1A8F38968E44CD9608C1A2DS2PR07MB11740na_"
+X-Exchange-RoutingPolicyChecked: T/m2Yu1QiZjW0bUE/N2pPOobI4SB79s8JkU4+VS7QGL6nuEu0sRMGHiendvwIAdSZd0+/+VO+aKzjPQGCrLj6TNFs5UIFKF+X7J8ec3nhD23asQldQ4FwKYRb316wc9QMKUD7Ew4Y/ikojUfVAA4x5XTQCWe6djxC1FqDA+MEEsQu307v1Xi8li7pEL4dbFp/EiAz9HjBx2KIllq92pYUOJtfoAYORr+5N52nIxtv4rnAeajttPDTYV4WBNAOcrqBg2dQ0G/PGMxgRHM3emUgvnx3VP9Lf+la2953AxaOkfNFCYSQRzNGCQxRRjU9vLFhogeXfWJGILTh0xIW52aeA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL4PR07MB10162
+X-Proofpoint-GUID: uKJN1bSTF-1GW3NnZ4jjoygn0DAUaX8D
+X-Authority-Analysis: v=2.4 cv=PsyjqQM3 c=1 sm=1 tr=0 ts=6a296705 cx=c_pps
+ a=NVT6GquIkcOJbfF4gP4t1A==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=FelO9ux0wxsA:10
+ a=rcICekzIIxQA:10 a=VkNPw1HP01LnGYTKEx00:22 a=KKj_HOhWc6TcvNMf4AfC:22
+ a=G5WRqNkmuJPwohx5e-2H:22 a=92_gyBx_AAAA:8 a=BjQ_-h_K3ZiFovSn_ysA:9
+ a=lqcHg5cX4UMA:10 a=CjuIK1q_8ugA:10 a=_mZ0QqxdXpLJs7lqDMcA:9
+ a=K6MPs2w1pqnnop73:21 a=_W_S_7VecoQA:10 a=bwkLoyfur_siurgSUeaL:22
+ a=uL_-Wky-ZNuNmAH4s5hA:22
+X-Proofpoint-ORIG-GUID: uKJN1bSTF-1GW3NnZ4jjoygn0DAUaX8D
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjEwMDEyOSBTYWx0ZWRfX5x6pEP9JfwNB
+ GabApcCrAiG0/DXWZ7qi1GebEc6i+voeSj0mRJhoazHFdTXepWo1DtazjVmsDLI+20Pjd292R7i
+ LYa96sNUCkOdcQNgnOQ7f2tEy1h9j6021Pu87MIduukHtKsPW9EGmsb2Swgc4zygnkMaydUdaf5
+ YKGuwMglDAf7MeOg1rI+jAavRgo9+yFnV9Xu0IX0OENdEokkwHpNRImm+/OeK0QWo87XtbqfXyY
+ i6rRuGBBlIaDJ56WfGW1QB3TXUGXxLrxmldUhD98cl5Qqknvvs55Ox4gpyP8WmPkJzhAsJ2LBtB
+ aTZUY9l7jx8o3v/p1QwtyIwtlKekjn4RSL4Bv8Lhb1TlLNT9MIsqwpxYaHjmHBjh2TTRa1xztz9
+ HK5J1AbgElQZZUTHZKph7gkioWzSL3DTuEKovMzXwYgmwvoR4wscknJahuzyhitEd/uLjo5VGi5
+ QBRbjnX/0dmG2btYvWw==
+x-adaptive-bypass: adaptive
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.125,FMLib:17.12.100.49
+ definitions=2026-06-10_03,2026-06-09_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ priorityscore=1501 malwarescore=0 clxscore=1015 phishscore=0 bulkscore=0
+ adultscore=0 impostorscore=0 lowpriorityscore=0 spamscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2605210000 definitions=main-2606100129
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mx0a-001afc01.pphosted.com|67.231.144.124|mx0a-001afc01.pphosted.com|-0.2|0.165853|0|normal|ugly|3|2|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass dkim_verified clean dmarc_policy_allow
+X-Mailprotector-Score: 0
+X-Mailprotector-IP-Analysis: 0, 67.231.144.124, Ugly c=0.237282 p=0 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-21119-c
+X-Mailprotector-ID: b53e9eb6-af6e-4a91-96e4-7cccd3bf860f
+X-Mailprotector-Timestamp: qTHp8Fx/d6YsW4dXCQIzhw==
+Return-Path: prvs=66213af063=patrick.mccoy@lennar.com
+X-MS-Exchange-Organization-ExpirationStartTime: 10 Jun 2026 13:31:02.0641
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: a7a7ce1a-fc44-4c02-b847-08dec6f483e9
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: MWH0EPF000C6195.namprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource: MWH0EPF000C6195.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 88a078e3-eb88-4945-cfe3-08dec6f478c7
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|704160111799003|35042699022|12012899012|82310400026|13003099007|18003699003|8096899003|5063699009|16102099003|5023799004|57112099003;
+X-Forefront-Antispam-Report: CIP:52.0.70.91;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-1.inbound.emailservice.io;PTR:transport-1.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(704160111799003)(35042699022)(12012899012)(82310400026)(13003099007)(18003699003)(8096899003)(5063699009)(16102099003)(5023799004)(57112099003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Jun 2026 13:31:01.5852
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a7a7ce1a-fc44-4c02-b847-08dec6f483e9
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C6195.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR22MB5108
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:05.3995016
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0092.005
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?KGbZeUuIDA5woZk8k7EWW13IL3JNpU5dq7TJlqiAHj0ineAHv3p8CQHSPmEo?=
+ =?us-ascii?Q?Ln4R2xH9Etn+jAQg8UZA/To4Ocj3CJJNub7KfGCQ/58gphySFxl4hAToIpe0?=
+ =?us-ascii?Q?j2b0CusXDNvU9ZBY6eXKlJ7vdWyTcz7ag+tKuJxqcu7TWd+0LpXjnDWFNtex?=
+ =?us-ascii?Q?Sy4l33yrHJl03Rd1IcG/PQrQHARnrCRYSgX9S7BxgxhgAk8pUKofSgmByoy+?=
+ =?us-ascii?Q?alkx4OoQfW9/RY+ZBpC+WehTln29GuK9sUbAITMHxcZN5pfu2UP4JpmR7M8w?=
+ =?us-ascii?Q?84gk8QXcVrRy966TJ8xqlwj8a3RJfcHCdJDMC6WRaUUooF4yoXzAdVGOEkbD?=
+ =?us-ascii?Q?Vq3g0KKynxRY3MOzT42z+svXUgr+OjHClPxlMVjfv+1WhlvBCeXCwm2aAwvQ?=
+ =?us-ascii?Q?BzaGoUbEYRQEIxQ4pu0CtOCKkE+ocxvO7fy8XQby8uXUP2pQqshHFKwNQIE4?=
+ =?us-ascii?Q?0NQEeQ9PWVf12p9GD5Ny3t52lTxSbFg9PLO2C+6AYBLscy3xpPr2Pec01Un7?=
+ =?us-ascii?Q?c2eWAeQLFd3/+NiUntkZgV6mexicbVTWXht9g03MTNWHX7bF0LyEhjY8w5bV?=
+ =?us-ascii?Q?PuXtP5y90K6TL6AHk2/ks6UF+IEHT0WSn+5cGrSjzQr6drIi4Fz1Wxr2HnVd?=
+ =?us-ascii?Q?fKIM4nX34QKa58AIpsOmX+Zp+aEop6Z5HyxeD5ytfvYiUoUbeL6CK1UhNrZk?=
+ =?us-ascii?Q?FZHPmkvGa78k7jpQUtlRHXmzA9/8gkgayPYVvbt82b7GJUnddDwh+hmY22Hg?=
+ =?us-ascii?Q?6zqV07y6ZYtCPnQpvJV54zOLqiOkvdVjHh2LJFkRnj9/3Xkpn+Y0oR4BU7fO?=
+ =?us-ascii?Q?itGzVUqKkQN5+gobTqVWJTbACSOoKpAYXGWiSLPL2fU3oUsJQYNwkekICrx3?=
+ =?us-ascii?Q?EB7FLF5zbOQOMvO/blSSyRoPo6Bz+NqwTP2oWhOvg/pas4wOhk1SJjrIztys?=
+ =?us-ascii?Q?wwgVdr0p9A6gVB4fQveHgTgVbq9Dv4XIfFfuRAzhhSXJbrnoU8jCpLriIx4A?=
+ =?us-ascii?Q?qYnmIToZq+exxoHnnsBaZc64UK+ZKWscTaTKevD3/dYDSPzaGPED+n5c1hLA?=
+ =?us-ascii?Q?jP3iPkxXTUF3iQ1PY5VWaaUfsP3RmqJsMAylWkLTxGuKPxyzi4/vFVFhni6c?=
+ =?us-ascii?Q?FKFvQeKZqUlQX1YsNAx6v6QC0Fb+3TRSJAaqINLRwXCnn42ZywBiZJWGSz5L?=
+ =?us-ascii?Q?zz1EjW1kTkoEPixQeu98LLKno81bXSKjlsWMdzzj+4/uccMuawHMXoAcc3g3?=
+ =?us-ascii?Q?YbOYk7rMDuJx3y/EROgK5X4SVYdZeYrBaxS6KNrPTI9WOdCkHfJqqfg0is8S?=
+ =?us-ascii?Q?ky56kAMu6OO/T3WVIG7mbNEg9sbrgCGlUPQsmBRjCfGIlaETKrsvCpFnX3Pc?=
+ =?us-ascii?Q?gRCfkYt2k78TJMsGQ3vJcgL75akfeXgjTx+n3jH2qC9imnRcfgnN6GtKa2hH?=
+ =?us-ascii?Q?JfPbD+DUI8ZuZsB2WQ8T7p+hTXYR+G/xpU10lP0MqXlj5QPKN7SxWuPE0Nit?=
+ =?us-ascii?Q?+wpHVoJWZrbZDmzxELdWaCq3e4JUFnyp0fXGgoJf5u06wK+vK/NHd6xbDuU1?=
+ =?us-ascii?Q?T7Kf2GypMugnrxlVjSeR9iTKB+GxQiDtUz5yifC2QLbswqmAr5oDD0IpNhEO?=
+ =?us-ascii?Q?C8tvsTeJVqlPDs92LycJud0B6pSX/B44xa+Jd4FuimW46WjFVdUJAr63SU/G?=
+ =?us-ascii?Q?18HSqWSfT6+vwhob2WYDQLV50NeAlZkuQZXEIaV2PKCim5CELxrGheTcb5fa?=
+ =?us-ascii?Q?xkXM8SMsrk389G6CZ07wzpC0X2YMFMzDhf7/lAJRiy0TEkIE1Pfob9GgdrNj?=
+ =?us-ascii?Q?Q8sLVDn/l9Jqz08WKGz5wDtb0/3T2YSWwXjDmKI3Ae8n3Z9JIEZjo3UpEm8D?=
+ =?us-ascii?Q?RTBp74W86XjhdRiAcTb8+yvj6lm2torWe/2XKm7lX4Vvag02Af4KK39zPWIl?=
+ =?us-ascii?Q?qAT5xD/9Vbj4aoSnePLNHphxmk+miM5xCSdjUgp0mks5e6qnWIj+f1iI9K4d?=
+ =?us-ascii?Q?udQtx8QJ3sc34hyT62Rgk1tx0gJuV3XzGQyJGxrsOtyLAvyjFNt27snjeBnO?=
+ =?us-ascii?Q?OCsCrNxVlnOfdnwDOlIohKe43is6bbB85uRJycNnlUhZK7nVfLNbUN83jdfa?=
+ =?us-ascii?Q?o95C2CkyP9+bZ7PxAZfB4kxm0K9v5odISzpcYeYqwqdaJWx43qltutFZPFF6?=
+ =?us-ascii?Q?jcXfFKcZuQYW6Cc9ZSH2pfQLvSOt7ZJHeBg9fQmSnkrl4T8BWZiVFcj5hTaR?=
+ =?us-ascii?Q?DJKcosxCtMiU5ay81ZcdbL3yP9Ukq3AmOPEI1Rk7Qq41CYLWQlQrUXSrGFdu?=
+ =?us-ascii?Q?KuESVDxtsjExuEC7eeLkKKSGwzW5WYWX9ogdzNaAKnyHMQSh2ocjmuqNc/kt?=
+ =?us-ascii?Q?g3ReO/GFC7/ZA0N19FaSohPl/2c1TYrPruxLAaiWkp5Ao7wFvq/Z6vyaDXps?=
+ =?us-ascii?Q?yBmWAFQ1OVWsU6WSadBS3hlDOh5HYvNyUjOkcbwpnLRH2KnXQDpXNGLTWvWg?=
+ =?us-ascii?Q?VFz3l2Rj77BKCH8JJVPOU6iEb5pwnFyTTZBG+WZebgpdhD82VmfX3ca60BEo?=
+ =?us-ascii?Q?qdbY1GwQjAgB/9EjyIzv3raZyQgAdP4F7Ec1aEOQR6JGZTswYZXiUUbO8iJE?=
+ =?us-ascii?Q?uTXfcHKjnjv33HXVejnG61w=3D?=
+MIME-Version: 1.0
+
+--_000_DS2PR07MB117406FA1A8F38968E44CD9608C1A2DS2PR07MB11740na_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Can you please check to see if the compaction tests have been completed at =
+both 3036 sunset glory and 3092 Highbank?
+
+
+if so please send the docs if they're ready thank you.
+
+
+
+Patrick McCoy
+
+Construction Manager
+
+Email:Patrick.McCoy@Lennar.com<mailto:Patrick.McCoy@Lennar.com>
+
+Mobile: (281) 743-5441
+
+
+
+Lennar Corporation | Construction
+
+www.lennar.com<http://www.lennar.com/>
+
+
+
+Confidentiality Notice:  This e-mail, including any attachment(s), is inten=
+ded for receipt and use by the intended addressee(s), and may contain confi=
+dential and privileged information. If you are not an intended recipient of=
+ this e-mail, you are hereby notified that any unauthorized use or distribu=
+tion of this e-mail is strictly prohibited, and requested to delete this co=
+mmunication and its attachment(s) without making any copies thereof and to =
+contact the sender of this e-mail immediately.
+
+
+
+Electronic Signature Notice: Nothing contained in the body and/or header of=
+ this e-mail is intended as a signature or intended to bind the addressor o=
+r any person represented by the addressor to the terms of any agreement tha=
+t may be the subject of this e-mail or its attachment(s), except where such=
+ intent is expressly indicated.
+
+
+--_000_DS2PR07MB117406FA1A8F38968E44CD9608C1A2DS2PR07MB11740na_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+</head>
+<body>
+<p dir=3D"ltr" class=3D"p1" style=3D"text-align: left; text-indent: 0px; li=
+ne-height: normal; text-transform: none; margin: 0px;">
+<span style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robo=
+to, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">Ca=
+n you please check to see if the compaction tests have been completed at bo=
+th 3036 sunset glory and 3092 Highbank?&nbsp;</span></p>
+<p dir=3D"ltr" class=3D"p1" style=3D"text-align: left; text-indent: 0px; li=
+ne-height: normal; text-transform: none; margin: 0px;">
+<span style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robo=
+to, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);"><b=
+r>
+</span></p>
+<p dir=3D"ltr" class=3D"p1" style=3D"text-align: left; text-indent: 0px; li=
+ne-height: normal; text-transform: none; margin: 0px;">
+<span style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robo=
+to, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">if=
+ so please send the docs if they're ready thank you.&nbsp;</span></p>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+<br>
+</div>
+<div id=3D"ms-outlook-mobile-body-separator-line" data-applydefaultfontstyl=
+es=3D"true" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system=
+, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt;" dir=3D"ltr">
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt;">
+<br>
+</div>
+</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" id=
+=3D"ms-outlook-mobile-signature">
+<p style=3D"margin: 0in 0in 0.0001pt; font-family: UICTFontTextStyleBody; f=
+ont-size: 22.666666px; color: rgb(0, 0, 0);">
+<span style=3D"background-color: rgba(255, 255, 255, 0);"><b><i>Patrick McC=
+oy</i></b></span></p>
+<p style=3D"margin: 0in 0in 0.0001pt; font-family: UICTFontTextStyleBody; f=
+ont-size: 22.666666px; color: rgb(0, 0, 0);">
+<span style=3D"background-color: rgba(255, 255, 255, 0);"><b><i>Constructio=
+n Manager</i></b></span></p>
+<p style=3D"margin: 0in 0in 0.0001pt; font-family: UICTFontTextStyleBody; f=
+ont-size: 22.666666px; color: rgb(0, 0, 0);">
+<span style=3D"background-color: rgba(255, 255, 255, 0);">Email:<a href=3D"=
+mailto:Patrick.McCoy@Lennar.com" style=3D"margin-top: 0px; margin-bottom: 0=
+px;"><u>Patrick.McCoy@Lennar.com</u></a></span></p>
+<p style=3D"margin: 0in 0in 0.0001pt; font-family: UICTFontTextStyleBody; f=
+ont-size: 22.666666px; color: rgb(0, 0, 0);">
+<span style=3D"background-color: rgba(255, 255, 255, 0);">Mobile: <u>(281) =
+743-5441</u></span></p>
+<p style=3D"margin: 0in 0in 0.0001pt; font-family: UICTFontTextStyleBody; f=
+ont-size: 22.666666px; color: rgb(0, 0, 0);">
+<span style=3D"background-color: rgba(255, 255, 255, 0);">&nbsp;</span></p>
+<p style=3D"margin: 0in 0in 0.0001pt; font-family: UICTFontTextStyleBody; f=
+ont-size: 22.666666px; color: rgb(0, 0, 0);">
+<span style=3D"background-color: rgba(255, 255, 255, 0);">Lennar Corporatio=
+n | Construction</span></p>
+<p style=3D"margin: 0in 0in 0.0001pt; font-family: UICTFontTextStyleBody; f=
+ont-size: 22.666666px; color: rgb(0, 0, 0);">
+<span style=3D"background-color: rgba(255, 255, 255, 0);"><a href=3D"http:/=
+/www.lennar.com/" style=3D"margin-top: 0px; margin-bottom: 0px;">www.lennar=
+.com</a></span></p>
+<p style=3D"margin: 0in 0in 0.0001pt; font-family: UICTFontTextStyleBody; f=
+ont-size: 22.666666px; color: rgb(0, 0, 0);">
+&nbsp;</p>
+<p style=3D"margin: 0in 0in 0.0001pt; font-family: UICTFontTextStyleBody; f=
+ont-size: 22.666666px; color: rgb(0, 0, 0);">
+<span style=3D"background-color: rgba(255, 255, 255, 0);"><b><i>Confidentia=
+lity Notice</i></b><i>:&nbsp;&nbsp;This e-mail, including any attachment(s)=
+, is intended for receipt and use by the intended addressee(s), and may con=
+tain confidential and privileged information.
+ If you are not an intended recipient of this e-mail, you are hereby notifi=
+ed that any unauthorized use or distribution of this e-mail is strictly pro=
+hibited, and requested to delete this communication and its attachment(s) w=
+ithout making any copies thereof
+ and to contact the sender of this e-mail immediately. &nbsp;</i></span></p=
+>
+<p style=3D"margin: 0in 0in 0.0001pt; font-family: UICTFontTextStyleBody; f=
+ont-size: 22.666666px; color: rgb(0, 0, 0);">
+<span style=3D"background-color: rgba(255, 255, 255, 0);"><b><i>&nbsp;</i><=
+/b></span></p>
+<p style=3D"margin: 0in 0in 0.0001pt; font-family: UICTFontTextStyleBody; f=
+ont-size: 22.666666px; color: rgb(0, 0, 0);">
+<span style=3D"background-color: rgba(255, 255, 255, 0);"><b><i>Electronic =
+Signature Notice:
+</i></b><i>Nothing contained in the body and/or header of this e-mail is in=
+tended as a signature or intended to bind the addressor or any person repre=
+sented by the addressor to the terms of any agreement that may be the subje=
+ct of this e-mail or its attachment(s),
+ except where such intent is expressly indicated.</i></span></p>
+<br>
+</div>
+</body>
+</html>
+
+--_000_DS2PR07MB117406FA1A8F38968E44CD9608C1A2DS2PR07MB11740na_--

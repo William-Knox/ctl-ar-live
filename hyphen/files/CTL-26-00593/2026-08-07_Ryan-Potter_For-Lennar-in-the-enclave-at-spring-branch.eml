@@ -1,0 +1,170 @@
+Received: from PH3PPF4919A5C66.namprd22.prod.outlook.com
+ (2603:10b6:518:1::69e) by CH3PR22MB4276.namprd22.prod.outlook.com with HTTPS;
+ Fri, 7 Aug 2026 21:51:26 +0000
+Received: from PH1PEPF000132FA.NAMP220.PROD.OUTLOOK.COM (2603:10b6:518:1::2b)
+ by PH3PPF4919A5C66.namprd22.prod.outlook.com (2603:10b6:518:1::69e) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.23; Fri, 7 Aug
+ 2026 21:51:24 +0000
+Received: from SN1PEPF0002BA4B.namprd03.prod.outlook.com
+ (2a01:111:f403:f90e::3) by PH1PEPF000132FA.outlook.office365.com
+ (2603:1036:903:47::3) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.24 via Frontend Transport; Fri, 7
+ Aug 2026 21:51:24 +0000
+Authentication-Results: spf=neutral (sender IP is 52.0.31.31)
+ smtp.mailfrom=yahoo.com; dkim=pass (signature was verified)
+ header.d=yahoo.com;dmarc=pass action=none header.from=yahoo.com;compauth=pass
+ reason=100
+Received-SPF: Neutral (protection.outlook.com: 52.0.31.31 is neither permitted
+ nor denied by domain of yahoo.com)
+Received: from transport-2.inbound.emailservice.io (52.0.31.31) by
+ SN1PEPF0002BA4B.mail.protection.outlook.com (10.167.242.68) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.315.6 via Frontend Transport; Fri, 7 Aug 2026 21:51:23 +0000
+Received: from cloudfilter-igate-07f41b8f4a9c4d56d.inbound.emailservice.io (ip-10-4-2-105.ec2.internal [10.4.2.105])
+	by transport-2.inbound.emailservice.io (Postfix) with ESMTPS id 75EE5A4D36
+	for <Ryan@coastaltestinglabs.com>; Fri,  7 Aug 2026 21:51:23 +0000 (UTC)
+Received: from sonic314-21.consmr.mail.ne1.yahoo.com (sonic314-21.consmr.mail.ne1.yahoo.com [66.163.189.147])
+	by cloudfilter-igate-07f41b8f4a9c4d56d.inbound.emailservice.io (Postfix) with ESMTPS id 31B767E25E
+	for <Ryan@coastaltestinglabs.com>; Fri,  7 Aug 2026 21:51:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1786139482; bh=hkG/YGf3H5RH0kQQHUUjWllWlwS/19nW82dperrwvLw=; h=From:Date:Subject:To:References:From:Subject:Reply-To; b=WowMHXqakqYHkMoWBXnMyFyA6Ov212ORLdc9QiRO6hB3uPB44JjxrX7GM+4TdTf9VTau4UKYcdwExuTcfTCi5Q50xdl4bGBS1MjRsZDWnYcnJvoercE4MXK3IEItQixJxrRenTPNdjBN/gWwuiUHpAjeUHQTCD+VEiqwoj7trIkHf0ICCOFqM/QdCs2RDhdEGItrDsW77no+6EzSxM3XgvfZpnQveQr5VJUPtS07p+sIOxp/9FmGFUOKVnPTUxLAJ86+6zMdP4S4YcVktrQ6v2f3G1hcoEwwvvuBLFYKZt7KNwKSSoIKOk6TqhfP67av0vufXOeIzX27j1aiiXujZg==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1786139482; bh=rzarcUEXPZKMD1WKdoD1rxCDYXOx+amZM/XnJQlz1MP=; h=X-Sonic-MF:From:Date:Subject:To:From:Subject; b=aTcC2asr4lEcqfe5rfEsHjfVwerSsI9TRRQ4PHHxVBKG//KZrQmujh96MJrUqL/P8JHJgUjURbpI3RojHxtFd8akvxY91zu3sCc9/iSOOfN+uyH32Dh3VW9/CkislF8r6bQcKEhqs6jUpcxl2H6ue/6TrR1TB3LnTColL2yzWiJvR2/pABUP8WXcIZcfWpLWfR/ayNIyx3xSVAIFxWBXBJyb2GocYsNUW9PyApiTvk64h4RbZIfoEho/qa4ut4zzvlvhOmU/DKxVjy1kTCcQ54l+dvhoLKf6YpxwKk7AOLuws/4cXilbOoG/a0zx6tHWm9HchwWQyN6FQsK9Lvu8oA==
+X-YMail-OSG: .Hp7rIAVM1m7Auu2pfMW0qTVIlBsCiY0ZmuY9d9KExhdt283l8VeoLGra._jwi3
+ sur68_9NyH6LA7MIjFhMX0.Oo38tMhK.cG.5rQ9wR0MXhmK3YLlD.3LPRN04MTTGg9NMDK6lJ1l2
+ sJV8XYT1l7kpPJ.Ha7D8.9WJAk6RXk8mX0aa49Nv4Pd4XASwEBKEDmFcIJ6zbloI_G0qjBVVvxdO
+ qa209.6csZBHBP.ueXxKCxy1a4TPliL9upstS9uiAXOEeBVUGyKITjw7ediWs.8a7bFeM6Tz8nUJ
+ Cf9HQB_6Hgr7.bHj3_.UUVPO9d6aJt.swbOUx756yHZMUjMnjHwvvwidUFVq44yzRDD4eEojjTE6
+ W_jxeu.d265UiPp4pAmvMI9KEl0hFPYk0T9H0waKuVTY3v6NDdE12gzH3KXaqvpLkSmAAIIQ35qr
+ Rn6JVtVmB5sJpZfW6rXxBOKnlC0Gx130Qm7BOrfL3PpJY2hKb5_eq.hJll4WaRzlj3F68TveDyNO
+ V4fQ8H8FwMirW4bcvIzeiNXPhmXwGbhtfUOTngnhAuhwqCeRyi9Pb6pIalBHkYRDbKbiaSaG7WN7
+ QwPA2VqN8j8Luwp_uEVDyEGw_PyAlDd8QNw31H0qcf1AZ0L1vlEcxRLObudRJNhSQJWepA5CTElC
+ yf.GDEd1CF7i5bgat.smuZZbKkNYuTG22ARgoRZMDBV3nUjtzKxLFqXGQDKJo9dofJoqaxkCLiqT
+ HL5jGW4svzwsjL9BWVeo4_fNNhtHlHElsEdJF6TRbqpOxNG80iQOHJNK6Qm5ikQu_1qERi7AajhS
+ LW.3tMy_eGaQuM7jqog7VQhPMUQ5yTXXmLF9vWN98y6.yvmls309ZWRI3bCs0QnxdSnj55CjXAdE
+ E2baoqbVsh0p.j4NwSYISzRJvOpcjWl8DA1la529l_zwtY_AmFnW46fUUMrzaEMfsthxNzbL9Oi.
+ EuaUzxy.5TWX2EsUSDSxNIZEIub1EJjf7x88gM_zzSdPwcxl6BSdT_k_3i5MZNNjiEslWDgFr0ED
+ u.3hG5nMT9Hrp5vntrLY69p44LGoLo3NmVbUuccOUrMdWADsm.qLY5mLwpBTt1tRW3ZF8XJGZcp2
+ RJPGAYhp1DvZBnaDzJ7EaSsLUYr8uLgtnrRRlggnRcDzzShYB9zpr5Yiojgn4hOgXvabPQw2jrTg
+ KGg433l5pAUr0v4tkcfNavGerNC_OEb_sjWZRjzjjB40q3pUazaLrFEEA99KZmrfImJ9GghLUSOa
+ TVrcQJIQ7Au0K6dGykdhaOk_eEkUuxBzp8GNiR49YV2GL3SRkc5oFsx3aK4N9GLKlso.MTqj6T.r
+ d7hNlSjOtak2KYX2pYFc0s2HxoA2oif8CQN6.WsfObUZ_G3dhtx0UOW.l.BCH0qjRZeFJMFk6Z8F
+ lT64_oRu0.Y17vFHhioHVxI2ZVjmcRz8hM5Gx_PL8F1Udyvo81MzfIfDttHExGxlovTJTyihIlwa
+ sjGXKCmGRsn9p76ylalxV0MlJLCnxCUPKfZzf.aeeKeodRa.u.RcyYyPc8nNbNXtvyam_kxj.Q7E
+ iKhMmzcOozlaVcpFepBLSeGEE80pTFpjRFQuxTnyUIQ02OZOqrTl3cP5C2c.kWAVHFOYKKgUIgaQ
+ YWrfq4GzgjmVErazgmzVplQqRi6pvUM6HG5Bkw7szWVjEIC0WoOrpPcndOrOMo.t2rG5auei1Reu
+ 1UhJ0ma4c7CUf1o24oJEuhFcL1aeoRnxDXebRiNabFDN.MkssJF_XhYOPmDj9a_YnTaEvXWfl_yW
+ 8DYc2vWYOxvRfxaF.am9FX8BlQsFUq7_2CtE9hwhTNWjQHiTASpHNwng9tlD7dwRzAymEJrwWJoR
+ kjnppQWLMfB8HDPAoZySBnNi4QtTVSsg2FKFBFLTvX0nl_iPCP1RARfuVo6_IiBLeO..0QOpjIPI
+ SlWfq9cfz758BjIp83e3FTR3Dhv3O.smTze.BwDqD6jo0kzAIToqH2lXTU7i._TQMvApqP.IOxYz
+ DR6yWk1qfB5J67b9vPhwoTdxiLVs64LGCwijIT811aL3_yKEeZmwoNoDJMW8OOL3GcaDQVzYctJU
+ EJLzdECFStxmIHDDdU2H1ApY.bQzmOn1WuItHnBpbP.Q5m372bmuoLk.rUy8Sj0qf1L.kTq0TlCi
+ c1eArJizZX6XJNUrkgg21InhzGXh3fz28O8zsKAAKpvWA4qk3iG.B5UCFotnKHDOr_e._H2MGgVF
+ 4x9Lv7WgtFuoI48vNdF10dfmoCgWRCok6xs1M.LbRu2G8XinzdZougxsGd5PE.fhrk2uLumrHVAx
+ AjOxnJ6RCfYbHtdDrxFJvPb7WyELyGXb6Tn4Yqlg-
+X-Sonic-MF: <ryan_kkdirt@yahoo.com>
+X-Sonic-ID: 4f4ca2c7-64aa-43f7-a32f-6c2cbc4bfb3a
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic314.consmr.mail.ne1.yahoo.com with HTTP; Fri, 7 Aug 2026 21:51:22 +0000
+Received: by hermes--production-bf1-54b5569bdc-79vtl (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 2d4cded1452599e4bad40e4f2917e29a;
+          Fri, 07 Aug 2026 21:51:20 +0000 (UTC)
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+From: Ryan Potter <ryan_kkdirt@yahoo.com>
+Date: Fri, 7 Aug 2026 16:51:06 -0500
+Subject: For Lennar in the enclave at spring branch
+Message-ID: <4EB01C5B-2E39-4604-AA7D-5BD0B3806D49@yahoo.com>
+To: Ryan Pena <Ryan@coastaltestinglabs.com>,
+ Esmeralda Cantu <esmeralda@coastaltestinglabs.com>,
+ Joe Gallardo <joe@coastaltestinglabs.com>
+X-Mailer: iPhone Mail (23F84)
+References: <4EB01C5B-2E39-4604-AA7D-5BD0B3806D49.ref@yahoo.com>
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|sonic314-21.consmr.mail.ne1.yahoo.com|66.163.189.147|sonic314-21.consmr.mail.ne1.yahoo.com|-0.22449|0.401053|0|normal|ugly|30|19|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass clean dmarc_policy_allow allow
+X-Mailprotector-Score: 0
+X-Mailprotector-IP-Analysis: 0, 66.163.189.147, Ugly c=0.396759 p=-0.276596 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-4812-c
+X-Mailprotector-ID: 2bb730a1-3f13-4e13-97e7-4bc8c8cce2cd
+X-Mailprotector-Timestamp: CCsCBQUQ3egFP3k++AbdskAdVOZkTZCnHRzDgg0D0dI=
+Return-Path: ryan_kkdirt@yahoo.com
+X-MS-Exchange-Organization-ExpirationStartTime: 07 Aug 2026 21:51:24.1282
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: ba042dc5-0baf-4cb4-a7b1-08def4ce066a
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF0002BA4B:EE_|PH3PPF4919A5C66:EE_|CH3PR22MB4276:EE_
+X-MS-Exchange-Organization-AuthSource: SN1PEPF0002BA4B.namprd03.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: ba042dc5-0baf-4cb4-a7b1-08def4ce066a
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7093399015|16102099003|18002099003|57112099003|5063699009|19002099009|10067099003;
+X-Forefront-Antispam-Report: CIP:52.0.31.31;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-2.inbound.emailservice.io;PTR:transport-2.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(82310400026)(7093399015)(16102099003)(18002099003)(57112099003)(5063699009)(19002099009)(10067099003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Aug 2026 21:51:23.9773
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ba042dc5-0baf-4cb4-a7b1-08def4ce066a
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF0002BA4B.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH3PPF4919A5C66
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.5949584
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0292.011
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?3gwgl7kZQcQj/1C6beWb2Rc920wTavz8SD5P9k3vDdBn+fmCddIcDxBigJLQ?=
+ =?us-ascii?Q?vIHUcqCDUP7UWNXy3zHBvFShvmABHWpaEXlraUxqUdoeAI1Pt9oX7cMm7yUI?=
+ =?us-ascii?Q?uWK9HNX7PycejUS15zmNztyXTFoQZIwCxfgUzKDGcLbDsH4pf8gOcCuoOE4Y?=
+ =?us-ascii?Q?7dfB0sjznlyjO46wA25QI9sUpRpVzgqhS/ChZkqJ6B/m5RH4AOxhEAYZGHGq?=
+ =?us-ascii?Q?G8n1BgUmw1VZ19datbRzRdBG8MlBFpXLW1EcNDOvNI3pRst9z+WzzbnbWFDk?=
+ =?us-ascii?Q?poMQ6XSzP+JvPfVrzCTxP+ARO3uY2z3JigxzrHcJwjuWt86J6ABrb5il+zem?=
+ =?us-ascii?Q?2nMFzI8kK1aJbF7YZ4OkOXj+hhxxI5ZwL7flZ6Jl9LxObCbwzhZSm4YXS5Tc?=
+ =?us-ascii?Q?xYCcGrloj0fVp9f+eoxcBIzQFQPOTlc8WswZ53vVP0Pq1wAc7n4Fwe7clCDQ?=
+ =?us-ascii?Q?LZOgl1XuHWn+XvXUmntSeHFfFoovuMd0lanvHg5HGo1u+oSQdUiduha6Bn0M?=
+ =?us-ascii?Q?zsgu9WgGuF8aLi3YJsPzhxlS+bF5qh8oNUGuZLt8VcImT/MaQLRxn1fJyHbC?=
+ =?us-ascii?Q?cov5B+owl3Zb83U5zk+psqAECigqWsrqhlYiO09MhhMaoHNn2e4KfJsJDb5R?=
+ =?us-ascii?Q?SlsUg/W24ahYgI0IpRtJUQ7CVvD+Ikp9FqTbPr5W38K9eS5fHnVy61c1JDEz?=
+ =?us-ascii?Q?rTx15eizg4LNZGUybfI4TNmxSffpYSaKdcee2E2qBgdHUUcKuNXsU10I3lU/?=
+ =?us-ascii?Q?+OLl01Ca6nNzVhtRdA8Izxw1nknqPguaAkKChTUKbnPp1MAb9ZcjmyjWr4pT?=
+ =?us-ascii?Q?r9S07WhF7+qm814Xb0XvqaSaSZRE05lhk+0RUF5RAhWU2FvpgakR2OD9/Vw1?=
+ =?us-ascii?Q?EOxQ9EimRlTAG1awKImHDk5a7+qr1l0KjTaTheZ8piQk5+kaD0UVbulacXtb?=
+ =?us-ascii?Q?zD6YDMRXxrwwm2VgOUVC8R+bnfCZaF4CWOJ8XMlGsX6gU5+z2dMQS2FTbLdG?=
+ =?us-ascii?Q?x+OaIuhZdGf1xVyRrO4jFuAgeqArAKdXqmgheAyjWdWBPeuYxpsQx3k6Q4Sk?=
+ =?us-ascii?Q?uCa+N59tIxsWg4r/O53G7O6gqILDf1UJ0OUh0vPu0pR1bOCar3JQREvlClal?=
+ =?us-ascii?Q?51AN6Gp071Ilf2PJGUIBRMj+AhkKucZycpeVV5vuB9DLvxdp+wAobs7QTNIG?=
+ =?us-ascii?Q?WmaCNrKgjNpYIsmCjg1OiWUbX1pDz7WyxoaDfcjunecxOdHR63iuNi+m6CrQ?=
+ =?us-ascii?Q?gALC6Iy0UwUflzPb6j1FPs9SyaKhx5GQbgt7B/1Jtket+Qh0XLN2WF2lLphD?=
+ =?us-ascii?Q?7VHQmrEIG/WNw1KjvB3V4kJA9wZa2+SdQNV46eWDjozIOIxpYl2MqAn6kzl4?=
+ =?us-ascii?Q?EcbeUmD0Vv2cEdsAzdBW9pRa3ZaGWrw8jmozRD8X3zdVqkJTeGCuCJeI7CU0?=
+ =?us-ascii?Q?SIrtL/bDlV9/Vi93F6+b4GhhID23UwuhasFmdWqUdpZD4CZlOPHhmhqDXMTV?=
+ =?us-ascii?Q?6zYVXsoEKZvGQDoujldgxjg601RzgBw1ZL5Km+8p868VrLlchH61ikQxgRqY?=
+ =?us-ascii?Q?7qQQYV7YNeqLgAgBPzxFroHZtePJJeI5q3dCTuFeJl95ItoA4P0vvA391YZ6?=
+ =?us-ascii?Q?E+Xr/QD6clcjKeH9ecDKHtxTf65eUA8Mrpz0IIwJbioQD67yhdHrrTG4BxfQ?=
+ =?us-ascii?Q?Jhl3lrqUo0UbfbsGjSIqUb8u2nyCZFpLkoixSXZBAC+UcUtRIInhLcEUWzJM?=
+ =?us-ascii?Q?iL7unK5lItXa7qxXJTy1bi6im7GPS4iDFNrxV6Vnd6mCAIWeXH/88ArgsiTF?=
+ =?us-ascii?Q?eS85QAlqYzny5M0n/nPaD8WmJUOLD1JrPANzzzgQZfLo6w8Yg2OjCz6epolV?=
+ =?us-ascii?Q?1Van8TMoue+TLb/G1a2NtLqbsBRsJB2s1zkbs6OI/6D++3LIjG900ext/HeX?=
+ =?us-ascii?Q?fJXqHcP95sAG5h6BRYdn1C4i51DtyNboMeNwG8nVb/Mv8Aa918/59Eq2zj+N?=
+ =?us-ascii?Q?pzw+RkY7SOY9fn8F5sQKm1PVvN44TJ3z2NyTOQd9CLS3MUl2Ieskl5iEfgNj?=
+ =?us-ascii?Q?RaFo1QpHmelXm5HNiN91ArndzsXPWpwIk8b6MN0AX8J8G6WPddMTK3xeE6C3?=
+ =?us-ascii?Q?U4Cp5P4NPsHqOkYFHoHgMtfYAP28hNBwXNALb/WiBMxA/9VNAJhI+mXgOnIH?=
+ =?us-ascii?Q?uQPYg1axbhpirOORMRLERXu0CA9Izbst5bl33HnSUatgUBKAHqF0+RrvYdLm?=
+ =?us-ascii?Q?IG6vVFmmSg0hBROWVcGtP2Z1XoH2btyOeOfYu4csGY5euGOwYeI2D06Knijp?=
+ =?us-ascii?Q?cF0IM8rOJLAm3Z+Fw+GBhm/2CLqQAhQKqslDtvq3s/2fVlv476Mig1Nx5Cs7?=
+ =?us-ascii?Q?CXLodqk=3D?=
+MIME-Version: 1.0
+
+19047 style - 2 lifts 
+
+19043 style- 2 lifts 
+
+19026 style- 2 lifts 
+
+19022 style- 2 lifts 
+
+Sent from my iPhone

@@ -1,0 +1,942 @@
+Received: from PH0PR22MB3767.namprd22.prod.outlook.com (2603:10b6:510:2a3::11)
+ by CH3PR22MB4276.namprd22.prod.outlook.com with HTTPS; Wed, 19 Aug 2026
+ 18:13:33 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=fail;
+ b=d/8hCx9Wobypy0EjtSdRy+z3+s/V2xZpEWEULs78vH0fQWWxPdK2dbD85BKatAdXcQ/bzaGRCdwxc8G6CcRwsvLQT3YyOA9rKfL3gTQkbaEGLw1fXZZBfyQknhryH1/0t2tUhHRY2Mi4+t+VExnVypDpPhqV/TU9F3dYJQyEXQHuhT7jLqxMcsFMCM+5CT66+M5EJmuwfSJprwd25TXsrMpAJo4bXDpLiJwfDastL799OZn1Mml1290bMXsxjh0yzi+OU5WcvzL81yilnff2srb2FPlfLpV/2de86lU90hHzfx65kxVVxRt37b8FdUwV9q8lIa4gOvGBGGKEMgCVww==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6o4ji99kkGIeSGu7l0VcYWrsCw5g+00pjTW1y6CZFyk=;
+ b=x12cT4adilitWpZHQoXHjEqvi+dwPFr3veJvPVR8atLVxUzYufb879QmYF58AAM51cjKBIHqenD8TEwPY6UiXy46W8DUhu6LIlDBQne9yxHTi5+bzUohKZjoEPBLL+FHfRpa9Gt7kcCOvgXL1XzUP8qqQ4gjj8rZmC3SpJJiR14OfPK7ONhf26xiWkqoGpoBvrDldVnt9kovwnAq7qg/QQywqjzdydcJghxRpCVjLyCmJbLN7d/N5P4tlbeK1MSITXsBFPsqHo7+cYlxy2Z3rY3/y94nLhpSyee9U+cIltG0ykeHVV823rBeZtv/CbI8YCUFbfxBDZhW/oYN6hJGZA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 52.0.74.211) smtp.rcpttodomain=coastaltestinglabs.com
+ smtp.mailfrom=lennar.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=lennar.com; dkim=pass (signature was verified)
+ header.d=lennar.com; dkim=fail (body hash did not verify)
+ header.d=lennar.com; arc=fail (47)
+Received: from SJ0PR13CA0105.namprd13.prod.outlook.com (2603:10b6:a03:2c5::20)
+ by PH0PR22MB3767.namprd22.prod.outlook.com (2603:10b6:510:2a3::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Wed, 19 Aug
+ 2026 18:13:27 +0000
+Received: from MW1PEPF0001615B.namprd21.prod.outlook.com
+ (2603:10b6:a03:2c5:cafe::7d) by SJ0PR13CA0105.outlook.office365.com
+ (2603:10b6:a03:2c5::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.8 via Frontend Transport; Wed, 19
+ Aug 2026 18:13:27 +0000
+Authentication-Results: spf=softfail (sender IP is 52.0.74.211)
+ smtp.mailfrom=lennar.com; dkim=pass (signature was verified)
+ header.d=lennar.com;dkim=fail (body hash did not verify)
+ header.d=Lennar.com;dmarc=pass action=none
+ header.from=lennar.com;compauth=pass reason=100
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ lennar.com discourages use of 52.0.74.211 as permitted sender)
+Received: from transport-3.inbound.emailservice.io (52.0.74.211) by
+ MW1PEPF0001615B.mail.protection.outlook.com (10.167.249.86) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.360.0 via Frontend Transport; Wed, 19 Aug 2026 18:13:26 +0000
+Received: from cloudfilter-igate-044132075a3b132e8.inbound.emailservice.io (unknown [10.4.2.155])
+	by transport-3.inbound.emailservice.io (Postfix) with ESMTPS id DC40080588;
+	Wed, 19 Aug 2026 18:13:25 +0000 (UTC)
+Received: from mx0a-001afc01.pphosted.com (mx0a-001afc01.pphosted.com [67.231.144.124])
+	by cloudfilter-igate-044132075a3b132e8.inbound.emailservice.io (Postfix) with ESMTPS id EF9207E21D;
+	Wed, 19 Aug 2026 18:13:24 +0000 (UTC)
+Received: from pps.filterd (m0077786.ppops.net [127.0.0.1])
+	by mx0a-001afc01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67JHq5oH367364;
+	Wed, 19 Aug 2026 14:13:23 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lennar.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=11172022; bh=6o4ji99kkGIeSGu7l0VcYWrsC
+	w5g+00pjTW1y6CZFyk=; b=Oq+0dQjw+UEVvpuud/bXkHhsaMfwYwPsoY2R3rp6h
+	4vJ4xN7kQK7rx+E3oxc/BWJw6WnACYNHdJ0O/MwN6Ueb4kjHKOKQZ+wv/2GNHYLh
+	UZMEe5gYB+G1hL/6q1eK0BqmPNpmyH6Iprzp4ag4/HqKavetevDy2/BHSd7WZ/GN
+	KV9BHOwHB2Kk/Yv/erNiOvubUJtNTxNn+sN0daQLNqPYoK2teNpgYhVAoO7ex81u
+	Jhtnt/TFHX7Njjf/rWODL6F/e9lszBcXQzoIj0LHIBiHS2/ds9VLS+rD/SKDveFh
+	M5fuwsRbptjw5iMOMgXS2w515VwIK21vB/6e0Hvn0ulKA==
+Received: from ph0pr06cu001.outbound.protection.outlook.com (mail-westus3azon11011071.outbound.protection.outlook.com [40.107.208.71])
+	by mx0a-001afc01.pphosted.com (PPS) with ESMTPS id 4g4yg1k4t1-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 19 Aug 2026 14:13:23 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Dg2q1bwoe3iFfSIyyrWVjYjqMpYGGD5waDN6DNtLXLVk3c6qQ4VuA1Dmdn3ytoVhZgl4e2VURgCc+Fo1RQxetaxDZ72wux0GgYMLqn0BWRbvBbVaf0JKtRy3bEbzrDbP5Vgt5iyU96ZGY2J1EBYVLM0NsJeHSz245jLfVijsiUtScYishQ7yllgURysBbHH0pOewjz1qhNaWOlFBrLlFH13PQtTegbWWOE90/hlGtR+yE4PqxRPY3ShwA5dxVaK8j9ByKbk6uzq+ARKA37M32RlO2w6uBI1AbvXnIdCOTOVczmOWaHzZGndQ0VvPUE2R0HUZzpMbCji+OIPDFhh3kg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cZcj4zTkwA5xxBeUFXjV/BRp871AF/KZixkrZIu8vBw=;
+ b=XtJ3dz6KSR8TYCCp1isFwWoPrA1c8S+IhF9HCqIjsYtI+Ev2G2jKcWvN9poXHYSWrvvrYZR4gYKXmYN3vnqDFXYp2In49c8RNfZF+K4KumdY3If/Qmmmn5gQiyWcRxXvo0sCE6F1pPEg6RfKiOMwC0h8UVNBKy06KUJtmq4/PNjvAQXq15XIRYScA73s0zCVMc+5v9SRsoiAzULlhMmDiC1AegBBqTefbDkhR9jfDiFK5FtmOh6mL0j7oDoC+1/F2hNjp+vI18wZ3qMLtCA9cWwgjEGlB4Ot3ikGmwUt69pZogmWzKMA+c2vkjiBsoGduigmwaaLU7MErkd0W6u/Cw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=lennar.com; dmarc=pass action=none header.from=lennar.com;
+ dkim=pass header.d=lennar.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Lennar.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cZcj4zTkwA5xxBeUFXjV/BRp871AF/KZixkrZIu8vBw=;
+ b=KjyCGAWuJ6GwZznnW5n1rIvUcm5jq9h5NSypeYjIIE6ngrfchkbbQcfCPMjo0PGcO5vJWYJIaQN/G1B5jmYs2S5CQaDqSEozq/OZ27JhOj6B42KysL5gFEj7VI8esj0goI5tLFu75Lytvoo0hJuRBDthm7P6IW/lqnPrnxuap7ZzCIqRsmzJc2cZfjFwsm+xuc4+vTp7WIDms4u4vvuFTyEpbZfUifIvCUXf0fIb8w4HYG4nHcOBwrR3dTzBOBLg2b3RgCt0j6YXw4AzKHtXKdlqWSpl+I9ejKJOUrFtYW8EUb/YqUww22AvKm/t5KUZE7XtsSL7nak5XkYrC4udRA==
+Received: from BL4PR07MB10077.namprd07.prod.outlook.com
+ (2603:10b6:208:4e1::22) by BY5PR07MB8133.namprd07.prod.outlook.com
+ (2603:10b6:a03:1df::23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.11; Wed, 19 Aug
+ 2026 18:13:21 +0000
+Received: from BL4PR07MB10077.namprd07.prod.outlook.com
+ ([fe80::607c:e367:85ca:9ce9]) by BL4PR07MB10077.namprd07.prod.outlook.com
+ ([fe80::607c:e367:85ca:9ce9%3]) with mapi id 15.21.0339.007; Wed, 19 Aug 2026
+ 18:13:21 +0000
+From: Erastus Togba <erastus.togba@lennar.com>
+To: Maria Lerma <Maria@coastaltestinglabs.com>,
+        Reports
+	<reports@coastaltestinglabs.com>
+CC: Esmeralda Cantu <esmeralda@coastaltestinglabs.com>,
+        Veronica Garza
+	<veronica@coastaltestinglabs.com>,
+        Ryan Pena <ryan@coastaltestinglabs.com>,
+        Joe Gallardo <joe@coastaltestinglabs.com>
+Subject: =?Windows-1252?Q?Re:_[CTL]_Density_Reports_=97_Still_Creek_Ranch_=97_2_re?=
+ =?Windows-1252?Q?ports?=
+Thread-Topic: =?Windows-1252?Q?[CTL]_Density_Reports_=97_Still_Creek_Ranch_=97_2_report?=
+ =?Windows-1252?Q?s?=
+Thread-Index: AQHdLm126uDv0wPCBkmZbSDoRu79RLaigPwFgAMmRACAAAbm9g==
+Date: Wed, 19 Aug 2026 18:13:21 +0000
+Message-ID: <BL4PR07MB1007748DBF2EF8219EB70B34989A52@BL4PR07MB10077.namprd07.prod.outlook.com>
+References: <SJ2PR22MB426624D4AB2E87DB7B36EEDAC5A72@SJ2PR22MB4266.namprd22.prod.outlook.com>
+ <BL4PR07MB100774B5EB917875106E93B8689A72@BL4PR07MB10077.namprd07.prod.outlook.com>
+ <CH2PR22MB200755F16391B0C7E5BF67BACEA52@CH2PR22MB2007.namprd22.prod.outlook.com>
+In-Reply-To: <CH2PR22MB200755F16391B0C7E5BF67BACEA52@CH2PR22MB2007.namprd22.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator:
+x-ms-reactions: allow
+x-ms-traffictypediagnostic: BL4PR07MB10077:EE_|BY5PR07MB8133:EE_|MW1PEPF0001615B:EE_|PH0PR22MB3767:EE_|CH3PR22MB4276:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0cbda494-6d8a-46c2-cb84-08defe1d90aa
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|10070799003|376014|366016|1800799024|6049299003|23010399003|18002099003|4143699003|22082099003|11063799006|56012099006|8096899003|4013099003|10067099003|38070700021|4053099003|13003099007;
+X-Microsoft-Antispam-Message-Info-Original: QmapF/OXFHeKXSqkW3pFhyqdVJWVh8luG6uhEAH5Zd7NJ6eUOxFDqXljKGCTU1OHZaF1POWoao4JU0rZAGMjmls4vMwZErRVGP2+mcGDBozsXvGx1ClstwoXrAAoAyAOGPv4uJHo5O7KHUTqgTZZhv/d2wV4+o13dGYfBv1OXyvYPOYeCQXT6O7r1HwDBUysv+pBYnxudORusTr2uiZwQpnBs8EwSuw7wQ+l3eO6DBqmgQZJTLyVmzwfQUep62TGB812C0mmctKpnYq+1rkREWP2Bz7b6KY8Z8L67jtre/7Pu+7Osd7LiwULItbs9muz8aEAlHdxiNMEXsqN6ZjIw4gkrb355YaDe46JCRzwgc266htmzyLM5D8MUMLXuWqlQ7vehayrP08/uobno8roxotwaxPKQIQ+dRb2OoybAUif6uX/MhknQhN8YhY9/QaMzWyHSvyodY9qyD8Q5F4tCQWZCnGj0RCSVVH3y4QeibHIEo9Ld2RNRxmVMD5MxmKRgskvCuUqqw3Jg2AfU2iNTHeoYYVLfpKGAZ9wraAKpcUx30V0a1OZjSLBoMDEZDCLCHQAgacl+sP+/M4A0r9TxYIeRpi02eswQWCHh+u8AT4tDd8Cb/SeMcuhckvpxcpAi6t7rs96BfOXAxAQOfJj/8WyFKomgkQEIRcv1m0ak0l/8U+paWFksH9HWO0kjXPU
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL4PR07MB10077.namprd07.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(376014)(366016)(1800799024)(6049299003)(23010399003)(18002099003)(4143699003)(22082099003)(11063799006)(56012099006)(8096899003)(4013099003)(10067099003)(38070700021)(4053099003)(13003099007);DIR:OUT;SFP:1101;
+Content-Type: multipart/related;
+	boundary="_004_BL4PR07MB1007748DBF2EF8219EB70B34989A52BL4PR07MB10077na_";
+	type="multipart/alternative"
+X-Exchange-RoutingPolicyChecked: O6QR6wUIO2Srj62YtowWWNflR1g+UoNch2BcKt6ht5X2xam71gJIfKlMLGW3fRyOv9cMQd9OPQy66oO6dGTh7viXb7lltocES2Cm7gVb/+CcyAN9U8hUSMVjWd2gxqR8ZUMOc8OJOJS180EVPs/3PtR821sF4lnGHnuu1jdAKfNlp0Snb7RI53cFinWyij+4K9IHvx8ZLNvEafuISGVdxh2misKfQvAhNomIEoVhAMZ8DWEAMhonBjDq8ozjCwmYss/8G0b0x+b0rCrXz1305FgMoyfPjR1It32FmGTAZVPT/slihEbnoPipdI9aMKPmjfCMeYzXSjb2Qz+7axCIdg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR07MB8133
+X-Authority-Analysis: v=2.4 cv=UM7t2ify c=1 sm=1 tr=0 ts=6a85f243 cx=c_pps
+ a=cgmL7KMsZDthlzKGM6UXqw==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=Sv0fKeRqtYgA:10
+ a=OkBJ0657V7UA:10 a=rcICekzIIxQA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=KKj_HOhWc6TcvNMf4AfC:22 a=vd1LaDt4MfpHm7aO2UG5:22 a=_EeEMxcBAAAA:8
+ a=RpNjiQI2AAAA:8 a=tbpGB1bEAAAA:8 a=92_gyBx_AAAA:8 a=vo3V4UVkS1LY-pxKZAgA:9
+ a=lqcHg5cX4UMA:10 a=pILNOxqGKmIA:10 a=2q4O/K3rjNU7EHYdBHB6dYyilSc=:19
+ a=IoqTI2rqXPqs_LXP:21 a=hTZeC7Yk6K0A:10 a=frz4AuCg-hUA:10 a=_W_S_7VecoQA:10
+ a=HXjIzolwW10A:10 a=T6a71-JsGAwA:10 a=ayYy12crN3DpO_qRHeKm:22
+ a=bwkLoyfur_siurgSUeaL:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE5MDE0MSBTYWx0ZWRfX5RC4yxhMMSd5
+ vJVMCOSD29cZf9feXpQ2MdeYP6FY6L0WDSd4Kngz/KCj5irUOqciBW6DlE+FmMERTT/aMjC3VBz
+ b9ev268zzbmV/zim9+oXmlcCOVoSk2w=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE5MDE0MSBTYWx0ZWRfX0JzZJFY6DQDB
+ yO9hQZrzU2fq0oK3yo2o8sTHNAoNeHVjVWs4w5ArFqqHBkWg9PPSq4RXQ8iUcz2MiAAL+kJyxzi
+ r9UVb9YPXvvg29eW3dYC+A3Xbz3V9/tUeIth18DnJFupa+3Ru7rFmAqh0NPvggZ7S6PpRRl2aUS
+ yt5UTe9hO9YvFoDTHItO5CnRdHcKl1vPGpQEZR+hqtfmG2GS+71SvZhzDHBHqCBP3V2QWl+FmSi
+ 0LdJ4VU+HCjP3Q9ErScIAOptAVY67Ixz4QBxsKGrUoTCaLdILT21YH4z5OMlVzpsuWhdRZcaRdB
+ FmA4DEFg1eRuO7fW9P1pIPSpmqWoGvVvr/j/UsM6fU3MyQogjQrZfy1CVcmXEEAaGR5VMoXhrSs
+ h1ifM/VD1hxNnPNepJG0aZy5FzZ2mUfSZFeD7qjb0cGTXc2Yl6NGRnM9J6ADxRshWvgjTux+4Xa
+ bxBal1h9l//CsYHUIHA==
+X-Proofpoint-GUID: 2zSb1q2e6KwfsSDeMX9W_24rJEcDhpd7
+X-Proofpoint-ORIG-GUID: 2zSb1q2e6KwfsSDeMX9W_24rJEcDhpd7
+x-adaptive-bypass: adaptive
+X-Proofpoint-Virus-Version:
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0
+ lowpriorityscore=0 malwarescore=0 bulkscore=0 suspectscore=0 phishscore=0
+ adultscore=0 spamscore=0 impostorscore=0 priorityscore=1501 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608190141
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mx0a-001afc01.pphosted.com|67.231.144.124|mx0a-001afc01.pphosted.com|0|0.071429|0|normal|ugly|1|1|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass subject_50_chars clean dmarc_policy_allow
+X-Mailprotector-Score: 1833708:20 1833714:20 3152702:20 1901672:20 3160958:20 2998666:20
+X-Mailprotector-IP-Analysis: 0, 67.231.144.124, Ugly c=0.247104 p=-0.0909091 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-32767-c
+X-Mailprotector-ID: 3cc8539d-51eb-49ca-b848-06d079897557
+X-Mailprotector-Timestamp: 2RCsQoD55sKp7ZafRlR7JrXn8nrJYjNMItgTJ6C18kw=
+Return-Path: prvs=8691b35b9e=erastus.togba@lennar.com
+X-MS-Exchange-Organization-ExpirationStartTime: 19 Aug 2026 18:13:26.7808
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 0cbda494-6d8a-46c2-cb84-08defe1d90aa
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: MW1PEPF0001615B.namprd21.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource: MW1PEPF0001615B.namprd21.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs: fb8d9765-4694-494d-2b4a-08defe1d8d4b
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7149299003|35042699022|12012899012|82310400026|6049299003|22082099003|16102099003|4076899003|5063699009|57112099003|18003699003|8096899003|4013099003|13003099007|19002099009|6133799003|4143699003|10067099003|4053099003;
+X-Forefront-Antispam-Report: CIP:52.0.74.211;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-3.inbound.emailservice.io;PTR:transport-3.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(7149299003)(35042699022)(12012899012)(82310400026)(6049299003)(22082099003)(16102099003)(4076899003)(5063699009)(57112099003)(18003699003)(8096899003)(4013099003)(13003099007)(19002099009)(6133799003)(4143699003)(10067099003)(4053099003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Aug 2026 18:13:26.5452
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0cbda494-6d8a-46c2-cb84-08defe1d90aa
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: MW1PEPF0001615B.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR22MB3767
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:07.1040656
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0315.000
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?Windows-1252?Q?hVFCKPVbJh9UtD7spZf8QJumOTqRQHmahbaoDaBzzoSPE1bi3ihFEarN?=
+ =?Windows-1252?Q?eLs7ZBSp/Jp9OzRviXSKbNRB5ujMMhMaTb4U1n52BpQJBFderxeBw71w?=
+ =?Windows-1252?Q?11ff6vkpjae7ke4f35zQAM+nTTRGgc1SAnTuqm4AXTALRXPXA+S54eBM?=
+ =?Windows-1252?Q?37EE0huGMnwqT8SNT1m8d0KZm9ca/MB6WBqLIjqdGg9TTPK9jFRewN5H?=
+ =?Windows-1252?Q?JHYuAF9ocI1p4aCvMW7iahIrpuOoflIQXy5/lVJMspi5UxvS2erHjKyK?=
+ =?Windows-1252?Q?ab7GSHQuJswKvpDKCjB6e5oiBJ/O5F/tkAvnjDa+MiHSssfs3EuISS/+?=
+ =?Windows-1252?Q?C6eXjdrHHB1zFLi/9oxFexv+yYX3L5z+lndEWujFkh1D6Xy2ERj6iq2Y?=
+ =?Windows-1252?Q?+OdpJ+CpbPkkLI46Y7er18X56o+BV7rXc6q4Lo9MwEHpvp/LTbbDdjzt?=
+ =?Windows-1252?Q?Q780J3JVSSjqZdTss6mBUi5UwoAscC4DDcDzow9aeJ2/WBfbpc2DJKFo?=
+ =?Windows-1252?Q?I1jxcVURfZSalu2mu4oKdOMCMO/2/eT7nShMpygornm3aRfzoNg3nNnv?=
+ =?Windows-1252?Q?BJkdBmJq3RISMn7f0EtfnrhOKYkD8WhtByR0I4mGmns5AnYuXPWfkJgw?=
+ =?Windows-1252?Q?WxRS8mkoSRJdeyXnRxwIMIWDmUDaUgws7w6ccp2Q8hHthaY2NJ33ECIZ?=
+ =?Windows-1252?Q?I0V4/7nqcmzXjnBuq4NSSDl9xLww/0CSr7U4XnNGw8+4rruQjdcTSeww?=
+ =?Windows-1252?Q?hwRNAuoN07SF6Yl+js7dT0HaGnUEqEjWivVdM+dVTGFXsXxAnfYpRV5P?=
+ =?Windows-1252?Q?OaWItADU1JdvJH7baAm2ffQIjCO4+UEKQSZPgko6QjWb99qN9z9FBLiC?=
+ =?Windows-1252?Q?xz1pRbtRBOBs69R6Q6e/kT3nX9QZSTfe2QVMBiVj368LqD4iVLMj21/4?=
+ =?Windows-1252?Q?Xv7oPy1pKk3Vm1yTqS282S6mSzMuYgg4qFZlDw12uwy5s1yaILkQeR0g?=
+ =?Windows-1252?Q?/RtO2hI+fLHnLiNCuUVXEWdXLENf5ZN6IHKlPhMhwq6ixRZtUlyxEnPE?=
+ =?Windows-1252?Q?K3DBN3vUs4uSG4RE8uszEf012KjaHk2/PRxpicfSSD6mhKEmzLE/OO44?=
+ =?Windows-1252?Q?qscqY9AXNAleE6I7EbRnxxoDbmDIc6Z0Sdd0WPtpN+4M/zZCOujo9o1L?=
+ =?Windows-1252?Q?k2T2/uYVbPmnn9YGc7/YuIKuy7FsD2k+Xw5mDq+PGFY6Xs1+vSyU8rFF?=
+ =?Windows-1252?Q?lW9G8jh2pPzgLykHlYXOu4x5FpyqHcCVj4mmVq9VeQTFfE/ZBRxXlIHp?=
+ =?Windows-1252?Q?hRSud5tpBkrHjhiu3kcCr8OTZeINSn6sCT7HoTuaLO9rdJWB9U3iKXiJ?=
+ =?Windows-1252?Q?KamGyMeGDdZJNjZbaBtUHEdyTzAE/l7WvKHZp2mMUISZtVkN9aky/M/K?=
+ =?Windows-1252?Q?LiIoQt1G42zTbfG80XjIjwcDs8ZM167nAr7zMC4HxRVJSe9lYmHY03s7?=
+ =?Windows-1252?Q?PkydGBMJLbM2+dVg/egYfTQYJ8b1Twr9KEBBKWCahdmSpVNhBywPze85?=
+ =?Windows-1252?Q?2jT6VINyiVF01ztDWPl6qyew2u1yhQ4bwrgyh5wcxyCOKZhUFv2i9Bfa?=
+ =?Windows-1252?Q?d1dQSHw2eWfkUpM0uMjZ9o0gwmJAdWaBSUzXm804vP2CD9FA5ReNA9zC?=
+ =?Windows-1252?Q?Pqhrxpr38F2tspLMVcd0GgzpHHgAUp0NL2AzHWfz4d0K7JYHqmrkp31E?=
+ =?Windows-1252?Q?/gGFClOdl/FhDJ6x8kYzfePAntA14nj0xTkjzvOXjSWOiPNpY6DucFc1?=
+ =?Windows-1252?Q?Sec7JNAjM99T/xhVzCBLBbAiwfDKaYgdP9bYhhC1sBiB83TKD8jBN9Lz?=
+ =?Windows-1252?Q?AD/JYij7J2vVYRIqTtXAyPlk1kdvp5+jiwNCfHaRHijM7IqPyvGLewxy?=
+ =?Windows-1252?Q?aWKCStVQZcv9k6HaroNyNvgu01LqzEcgjguwwm6hlVcoCpX8sju/L1b1?=
+ =?Windows-1252?Q?dUfRclMkc2/AXKL/OfXW2rnJVpaxwLrXFi398mOAD8GByDOzROjAylDt?=
+ =?Windows-1252?Q?Qpc/TagazRO4Z4MWgOCyKPFUposspechCajoq+nNh4PavpCuA/LJzndA?=
+ =?Windows-1252?Q?TEgDpbh35RAr+f6iPfnKYlBZaxFPswU47pIDq+xgHjDbepsvj2nDDs12?=
+ =?Windows-1252?Q?fWTl6ATwqXcOG8gtH3iueXo3X4y51Iq9FTKA/SQzNkst9uNHiskZvVlv?=
+ =?Windows-1252?Q?JjG6Bg9JBW678OsV//aNqVJa2ZEB7u2IpZ9ZerakjVKab391j+HD6F7z?=
+ =?Windows-1252?Q?zkIuX4dSBz1su/C4TpmjmdNpn7dzaeobcVF4iOn3coLfWWx4TdhBnSkM?=
+ =?Windows-1252?Q?OglckPznh0kTVgF6YjjHk7S0er/N7KG8hKXORRk0Z/5Cl6Q4TXbpEDTF?=
+ =?Windows-1252?Q?+eRDky9OtrarJ8HVvcJjKOhDZ0lVoBD86yhR3PXf+Y+daNz6mOX+IBSx?=
+ =?Windows-1252?Q?PxXkutPhNn3VLiX7iKv/EuGbgfZ6wiaO2j/xO6X17dAzHpxCkCHdAUC+?=
+ =?Windows-1252?Q?o4FXrxffZHc9u3p8Mp14fxWmLrJNGyjisZ0CtA=3D=3D?=
+MIME-Version: 1.0
+
+--_004_BL4PR07MB1007748DBF2EF8219EB70B34989A52BL4PR07MB10077na_
+Content-Type: multipart/alternative;
+	boundary="_000_BL4PR07MB1007748DBF2EF8219EB70B34989A52BL4PR07MB10077na_"
+
+--_000_BL4PR07MB1007748DBF2EF8219EB70B34989A52BL4PR07MB10077na_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+Maria,
+
+8023 Serene Meadow pad test was ordered with the two addresses on Dovish Br=
+ook.
+Can you check please. This is holding up my plumbing ground.
+
+Thank you
+
+Get Outlook for iOS<https://aka.ms/o0ukef>
+________________________________
+From: Maria Lerma <Maria@coastaltestinglabs.com>
+Sent: Wednesday, 19 August 2026 12:44:34
+To: Erastus Togba <erastus.togba@lennar.com>; Reports <reports@coastaltesti=
+nglabs.com>
+Cc: Esmeralda Cantu <esmeralda@coastaltestinglabs.com>; Veronica Garza <ver=
+onica@coastaltestinglabs.com>; Ryan Pena <ryan@coastaltestinglabs.com>; Joe=
+ Gallardo <joe@coastaltestinglabs.com>
+Subject: RE: [CTL] Density Reports =97 Still Creek Ranch =97 2 reports
+
+Good afternoon, Erastus I don=92t see this address 8023 Serene Meadow in di=
+spatch. Please email Ryan and Joe to schedule the compaction tests. Thank y=
+ou, TO SCHEDULE TESTING PLEASE CONTACT DISPATCH (JOE OR RYAN) Maria Lerma 1=
+217/1221 Georgia Ave
+
+
+
+
+Good afternoon, Erastus
+
+
+
+I don=92t see this address 8023 Serene Meadow in dispatch.  Please email Ry=
+an and Joe to schedule the compaction tests.
+
+
+
+
+
+
+
+Thank you,
+
+TO SCHEDULE TESTING PLEASE CONTACT DISPATCH (JOE OR RYAN)
+
+
+
+Maria Lerma
+
+
+
+[A picture containing text, clipart, sign    Description automatically gene=
+rated]
+
+1217/1221 Georgia Ave
+
+P.O. Box 148
+
+Deer Park, Tx  77536
+
+Phone #713-477-0121  Fax #713-477-2277
+
+maria@coastaltestinglabs.com<mailto:maria@coastaltestinglabs.com>
+
+
+
+
+
+
+
+        ...........................CONFIDENTIALITY NOTICE..................=
+...............
+
+
+
+The information in this email may be confidential and/or privileged. This e=
+mail is intended to be reviewed by only the individual or organization name=
+d above. If you are not the intended recipient or an authorized representat=
+ive of the intended recipient, you are hereby notified that any review, dis=
+semination or copying of this email and its attachment, if any, or the info=
+rmation contained herein is prohibited. If you received this email in error=
+ please immediately notify the sender by return email and delete this email=
+ from your system.
+
+
+
+
+
+
+
+From: Erastus Togba <erastus.togba@lennar.com>
+Sent: Monday, August 17, 2026 12:37 PM
+To: Reports <reports@coastaltestinglabs.com>
+Subject: Re: [CTL] Density Reports =97 Still Creek Ranch =97 2 reports
+
+
+
+Good afternoon,
+
+
+
+Do you have the report for 8023 Serene Meadow?
+
+
+
+Get Outlook for iOS<https://aka.ms/o0ukef>
+
+________________________________
+
+From: Reports <reports@coastaltestinglabs.com<mailto:reports@coastaltesting=
+labs.com>>
+Sent: Monday, 17 August 2026 12:25:56
+To: Erastus Togba <erastus.togba@lennar.com<mailto:erastus.togba@lennar.com=
+>>
+Subject: [CTL] Density Reports =97 Still Creek Ranch =97 2 reports
+
+
+
+Coastal Testing Laboratories Please find attached 2 density reports for Sti=
+ll Creek Ranch, work order at 5522 Dovish Brook, service date August 14, 20=
+26. Summary: 2 reports included. All passed. CTL-26-00653-1 Lift 1 PASS CTL=
+-26-00653-2 Lift
+
+Coastal Testing Laboratories
+
+Please find attached 2 density reports for Still Creek Ranch, work order at=
+ 5522 Dovish Brook, service date August 14, 2026.
+
+Summary: 2 reports included. All passed.
+
+CTL-26-00653-1
+
+Lift 1
+
+PASS
+
+CTL-26-00653-2
+
+Lift 2
+
+PASS
+
+________________________________
+
+Project:
+
+Still Creek Ranch
+
+Work order:
+
+5522 Dovish Brook
+
+Service date:
+
+August 14, 2026
+
+Reports:
+
+2 reports
+
+This is an automated transmission from Coastal Testing Labs. For questions,=
+ reply to this email or contact us at (713) 477-0121.
+
+Coastal Testing Laboratories, Inc.
+1217 Georgia Ave =B7 Deer Park, TX 77536
+(713) 477-0121 =B7 coastaltestinglabs.com
+
+--_000_BL4PR07MB1007748DBF2EF8219EB70B34989A52BL4PR07MB10077na_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252">
+</head>
+<body>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" dir=
+=3D"ltr">
+Maria,</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" dir=
+=3D"ltr">
+<br>
+</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" dir=
+=3D"ltr">
+8023 Serene Meadow pad test was ordered with the two addresses on Dovish Br=
+ook.&nbsp;</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" dir=
+=3D"ltr">
+Can you check please. This is holding up my plumbing ground.</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" dir=
+=3D"ltr">
+<br>
+</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" dir=
+=3D"ltr">
+Thank you&nbsp;</div>
+<div id=3D"ms-outlook-mobile-body-separator-line" data-applydefaultfontstyl=
+es=3D"true" dir=3D"auto" style=3D"font-family: Aptos, Aptos_MSFontService, =
+-apple-system, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt;">
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt;">
+<br>
+</div>
+</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" id=
+=3D"ms-outlook-mobile-signature" dir=3D"auto">
+<span style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robo=
+to, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">Ge=
+t
+</span><a href=3D"https://aka.ms/o0ukef" style=3D"font-family: Aptos, Aptos=
+_MSFontService, -apple-system, Roboto, Arial, Helvetica, sans-serif; font-s=
+ize: 12pt;">Outlook for iOS</a></div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>From:</b> Maria Lerma &lt;Maria=
+@coastaltestinglabs.com&gt;<br>
+<b>Sent:</b> Wednesday, 19 August 2026 12:44:34<br>
+<b>To:</b> Erastus Togba &lt;erastus.togba@lennar.com&gt;; Reports &lt;repo=
+rts@coastaltestinglabs.com&gt;<br>
+<b>Cc:</b> Esmeralda Cantu &lt;esmeralda@coastaltestinglabs.com&gt;; Veroni=
+ca Garza &lt;veronica@coastaltestinglabs.com&gt;; Ryan Pena &lt;ryan@coasta=
+ltestinglabs.com&gt;; Joe Gallardo &lt;joe@coastaltestinglabs.com&gt;<br>
+<b>Subject:</b> RE: [CTL] Density Reports =97 Still Creek Ranch =97 2 repor=
+ts</font>
+<div>&nbsp;</div>
+</div>
+<div>
+<div style=3D"display:none!important; display:none; visibility:hidden; font=
+-size:1px; color:#ffffff; line-height:1px; max-height:0px; opacity:0; overf=
+low:hidden">
+Good afternoon, Erastus I don=92t see this address 8023 Serene Meadow in di=
+spatch. Please email Ryan and Joe to schedule the compaction tests. Thank y=
+ou, TO SCHEDULE TESTING PLEASE CONTACT DISPATCH (JOE OR RYAN) Maria Lerma 1=
+217/1221 Georgia Ave</div>
+<div style=3D"display:none!important; display:none; visibility:hidden; font=
+-size:1px; color:#ffffff; line-height:1px; max-height:0px; opacity:0; overf=
+low:hidden">
+</div>
+<style>
+<!--
+#x_pfptBanner1efurjj
+	{display:block!important;
+	visibility:visible!important;
+	opacity:1!important;
+	background-color:#bddbf2!important;
+	max-width:none!important;
+	max-height:none!important}
+html:root, html:root > div
+	{display:block!important;
+	visibility:visible!important;
+	opacity:1!important}
+-->
+</style>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style>
+<!--
+@font-face
+	{font-family:"Cambria Math"}
+@font-face
+	{font-family:Calibri}
+@font-face
+	{font-family:Verdana}
+@font-face
+	{font-family:Aptos}
+@font-face
+	{font-family:"Lucida Calligraphy"}
+p.x_MsoNormal, li.x_MsoNormal, div.x_MsoNormal
+	{margin:0in;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif}
+a:link, span.x_MsoHyperlink
+	{color:blue;
+	text-decoration:underline}
+span.x_EmailStyle22
+	{font-family:"Aptos",sans-serif;
+	color:windowtext}
+.x_MsoChpDefault
+	{font-size:10.0pt}
+@page WordSection1
+	{margin:1.0in 1.0in 1.0in 1.0in}
+div.x_WordSection1
+	{}
+-->
+</style>
+<div class=3D"x_WordSection1">
+<p class=3D"x_MsoNormal">&nbsp;</p>
+<p class=3D"x_MsoNormal"><span style=3D"">Good afternoon, Erastus</span></p=
+>
+<p class=3D"x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"">I don=92t see this address </span=
+><span style=3D"color:black">8023 Serene Meadow
+</span><span style=3D"">in dispatch. &nbsp;Please email Ryan and Joe to sch=
+edule the compaction tests.</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"">Thank you,</span></p>
+<p class=3D"x_MsoNormal"><b><span style=3D"font-family:&quot;Times New Roma=
+n&quot;,serif; color:#5F497A">TO SCHEDULE TESTING PLEASE CONTACT DISPATCH (=
+JOE OR RYAN)&nbsp;</span></b><span style=3D"font-size:11.0pt"></span></p>
+<p class=3D"x_MsoNormal"><b><span style=3D"font-family:&quot;Times New Roma=
+n&quot;,serif; color:#5F497A">&nbsp;</span></b><span style=3D""></span></p>
+<p class=3D"x_MsoNormal"><b><span style=3D"font-size:22.0pt; font-family:&q=
+uot;Lucida Calligraphy&quot;; color:#5F497A">Maria Lerma</span></b></p>
+<p class=3D"x_MsoNormal"><b><span style=3D"font-size:22.0pt; font-family:&q=
+uot;Lucida Calligraphy&quot;; color:#5F497A">&nbsp;</span></b></p>
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"height:45.85pt">
+<td width=3D"67" valign=3D"top" style=3D"width:.7in; padding:0in 5.4pt 0in =
+5.4pt; height:45.85pt">
+<p class=3D"x_MsoNormal" style=3D"line-height:115%"><span style=3D"font-fam=
+ily:&quot;Verdana&quot;,sans-serif; color:black"><img width=3D"62" height=
+=3D"56" id=3D"x_Picture_x0020_919607748" src=3D"cid:image001.png@01DD2FD8.7=
+BC48120" alt=3D"A picture containing text, clipart, sign
+
+Description automatically generated" style=3D"width:.6458in; height:.5833in=
+"><span style=3D"">&nbsp;</span></span><span style=3D""></span></p>
+</td>
+<td width=3D"288" valign=3D"top" style=3D"width:3.0in; padding:0in 5.4pt 0i=
+n 5.4pt; height:45.85pt">
+<p class=3D"x_MsoNormal" style=3D"line-height:115%"><span style=3D"font-siz=
+e:9.0pt; line-height:115%; font-family:&quot;Arial&quot;,sans-serif; color:=
+#000099">1217/1221 Georgia Ave&nbsp;</span><span style=3D"color:#000099"></=
+span></p>
+<p class=3D"x_MsoNormal" style=3D"line-height:115%"><span style=3D"font-siz=
+e:9.0pt; line-height:115%; font-family:&quot;Arial&quot;,sans-serif; color:=
+#000099">P.O. Box 148&nbsp;</span><span style=3D"color:#000099"></span></p>
+<p class=3D"x_MsoNormal" style=3D"line-height:115%"><span style=3D"font-siz=
+e:9.0pt; line-height:115%; font-family:&quot;Arial&quot;,sans-serif; color:=
+#000099">Deer Park, Tx&nbsp; 77536&nbsp;</span><span style=3D""></span></p>
+<p class=3D"x_MsoNormal" style=3D"line-height:115%"><span style=3D"font-siz=
+e:9.0pt; line-height:115%; font-family:&quot;Arial&quot;,sans-serif; color:=
+#000099">Phone #713-477-0121&nbsp; Fax #713-477-2277&nbsp;</span><span styl=
+e=3D""></span></p>
+<p class=3D"x_MsoNormal" style=3D"line-height:115%"><span style=3D""><a hre=
+f=3D"mailto:maria@coastaltestinglabs.com"><span style=3D"font-size:9.0pt; l=
+ine-height:115%; font-family:&quot;Arial&quot;,sans-serif; color:#467886">m=
+aria@coastaltestinglabs.com</span></a></span><u><span style=3D"font-size:9.=
+0pt; line-height:115%; font-family:&quot;Arial&quot;,sans-serif; color:#000=
+099"></span></u></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Calibri&quot;,san=
+s-serif">&nbsp;</span></p>
+<p class=3D"x_MsoNormal" style=3D"margin-left:2.0in"><i><span style=3D"font=
+-size:9.0pt; font-family:&quot;Times New Roman&quot;,serif; color:#1F497D">=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...........................=
+CONFIDENTIALITY NOTICE................................. &nbsp;</span></i><s=
+pan style=3D""></span></p>
+<p class=3D"x_MsoNormal"><i><span style=3D"font-size:9.0pt; font-family:&qu=
+ot;Times New Roman&quot;,serif; color:#1F497D">&nbsp;</span></i><span style=
+=3D""></span></p>
+<p class=3D"x_MsoNormal"><b><i><span style=3D"font-size:9.0pt; font-family:=
+&quot;Times New Roman&quot;,serif; color:#1F497D">The information in this e=
+mail may be confidential and/or privileged. This email is intended to be re=
+viewed by only the individual or organization
+ named above. If you are not the intended recipient or an authorized repres=
+entative of the intended recipient, you are hereby notified that any review=
+, dissemination or copying of this email and its attachment, if any, or the=
+ information contained herein is
+ prohibited. If you received this email in error please immediately notify =
+the sender by return email and delete this email from your system.&nbsp;</s=
+pan></i></b><span style=3D""></span></p>
+<p class=3D"x_MsoNormal" style=3D""><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+<div>
+<div style=3D"border:none; border-top:solid #E1E1E1 1.0pt; padding:3.0pt 0i=
+n 0in 0in">
+<p class=3D"x_MsoNormal"><b><span style=3D"font-size:11.0pt; font-family:&q=
+uot;Calibri&quot;,sans-serif">From:</span></b><span style=3D"font-size:11.0=
+pt; font-family:&quot;Calibri&quot;,sans-serif"> Erastus Togba &lt;erastus.=
+togba@lennar.com&gt;
+<br>
+<b>Sent:</b> Monday, August 17, 2026 12:37 PM<br>
+<b>To:</b> Reports &lt;reports@coastaltestinglabs.com&gt;<br>
+<b>Subject:</b> Re: [CTL] Density Reports =97 Still Creek Ranch =97 2 repor=
+ts</span></p>
+</div>
+</div>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+<p class=3D"x_MsoNormal"><span style=3D"color:black">Good afternoon,</span>=
+</p>
+<p class=3D"x_MsoNormal"><span style=3D"color:black">&nbsp;</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"color:black">Do you have the report=
+ for 8023 Serene Meadow?</span></p>
+<div id=3D"x_ms-outlook-mobile-body-separator-line">
+<p class=3D"x_MsoNormal">&nbsp;</p>
+</div>
+<div id=3D"x_ms-outlook-mobile-signature">
+<p class=3D"x_MsoNormal"><span style=3D"color:black">Get <a href=3D"https:/=
+/aka.ms/o0ukef">
+Outlook for iOS</a></span></p>
+</div>
+<div class=3D"x_MsoNormal" align=3D"center" style=3D"text-align:center">
+<hr size=3D"2" width=3D"98%" align=3D"center">
+</div>
+<div id=3D"x_divRplyFwdMsg">
+<p class=3D"x_MsoNormal"><b><span style=3D"font-size:11.0pt; font-family:&q=
+uot;Calibri&quot;,sans-serif; color:black">From:</span></b><span style=3D"f=
+ont-size:11.0pt; font-family:&quot;Calibri&quot;,sans-serif; color:black"> =
+Reports &lt;<a href=3D"mailto:reports@coastaltestinglabs.com">reports@coast=
+altestinglabs.com</a>&gt;<br>
+<b>Sent:</b> Monday, 17 August 2026 12:25:56<br>
+<b>To:</b> Erastus Togba &lt;<a href=3D"mailto:erastus.togba@lennar.com">er=
+astus.togba@lennar.com</a>&gt;<br>
+<b>Subject:</b> [CTL] Density Reports =97 Still Creek Ranch =97 2 reports</=
+span> </p>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+</div>
+<div>
+<p class=3D"x_MsoNormal" style=3D""><span style=3D"font-size:1.0pt; color:w=
+hite">Coastal Testing Laboratories Please find attached 2 density reports f=
+or Still Creek Ranch, work order at 5522 Dovish Brook, service date August =
+14, 2026. Summary: 2 reports included.
+ All passed. CTL-26-00653-1 Lift 1 PASS CTL-26-00653-2 Lift</span></p>
+</div>
+<div style=3D"border:solid #E2E0DB 1.0pt; padding:24.0pt 24.0pt 24.0pt 24.0=
+pt; border-radius:14px">
+<div style=3D"margin-bottom:.25in; border-radius:14px">
+<p class=3D"x_MsoNormal" style=3D"background:white"><b><span style=3D"font-=
+size:10.5pt; color:#0F172A; letter-spacing:-.1pt">Coastal Testing Laborator=
+ies
+</span></b></p>
+</div>
+<p style=3D"margin-right:0in; margin-bottom:12.0pt; margin-left:0in; backgr=
+ound:white">
+<span style=3D"font-size:10.5pt; color:#0F172A">Please find attached 2 dens=
+ity reports for Still Creek Ranch, work order at 5522 Dovish Brook, service=
+ date August 14, 2026.
+</span></p>
+<p style=3D"margin-right:0in; margin-bottom:6.0pt; margin-left:0in; backgro=
+und:white">
+<strong><span style=3D"font-size:10.5pt; font-family:&quot;Aptos&quot;,sans=
+-serif; color:#0F172A">Summary:</span></strong><span style=3D"font-size:10.=
+5pt; color:#0F172A"> 2 reports included. All passed.
+</span></p>
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" width=3D"100%" style=3D"width:100.0%">
+<tbody>
+<tr>
+<td style=3D"padding:3.0pt 9.0pt 3.0pt 0in">
+<p class=3D"x_MsoNormal" style=3D"margin-right:0in; margin-bottom:12.0pt; m=
+argin-left:0in">
+<span style=3D"font-size:10.0pt; font-family:&quot;Courier New&quot;; color=
+:#64748B">CTL-26-00653-1</span></p>
+</td>
+<td style=3D"padding:3.0pt 9.0pt 3.0pt 0in">
+<p class=3D"x_MsoNormal" style=3D"margin-right:0in; margin-bottom:12.0pt; m=
+argin-left:0in">
+<span style=3D"font-size:10.0pt; color:#0F172A">Lift 1</span></p>
+</td>
+<td style=3D"padding:3.0pt 0in 3.0pt 0in">
+<p class=3D"x_MsoNormal" style=3D"margin-right:0in; margin-bottom:12.0pt; m=
+argin-left:0in">
+<b><span style=3D"font-size:10.0pt; color:#64748B">PASS</span></b></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:3.0pt 9.0pt 3.0pt 0in">
+<p class=3D"x_MsoNormal" style=3D"margin-right:0in; margin-bottom:12.0pt; m=
+argin-left:0in">
+<span style=3D"font-size:10.0pt; font-family:&quot;Courier New&quot;; color=
+:#64748B">CTL-26-00653-2</span></p>
+</td>
+<td style=3D"padding:3.0pt 9.0pt 3.0pt 0in">
+<p class=3D"x_MsoNormal" style=3D"margin-right:0in; margin-bottom:12.0pt; m=
+argin-left:0in">
+<span style=3D"font-size:10.0pt; color:#0F172A">Lift 2</span></p>
+</td>
+<td style=3D"padding:3.0pt 0in 3.0pt 0in">
+<p class=3D"x_MsoNormal" style=3D"margin-right:0in; margin-bottom:12.0pt; m=
+argin-left:0in">
+<b><span style=3D"font-size:10.0pt; color:#64748B">PASS</span></b></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class=3D"x_MsoNormal" align=3D"center" style=3D"margin-right:0in; marg=
+in-bottom:15.0pt; margin-left:0in; text-align:center; background:white">
+<span style=3D"color:black">
+<hr size=3D"2" width=3D"100%" align=3D"center">
+</span></div>
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0">
+<tbody>
+<tr>
+<td style=3D"padding:3.0pt 9.0pt 3.0pt 0in">
+<p class=3D"x_MsoNormal" style=3D"margin-right:0in; margin-bottom:12.0pt; m=
+argin-left:0in">
+<span style=3D"font-size:10.0pt; font-family:&quot;Courier New&quot;; color=
+:#64748B">Project:</span></p>
+</td>
+<td style=3D"padding:3.0pt 0in 3.0pt 0in">
+<p class=3D"x_MsoNormal" style=3D"margin-right:0in; margin-bottom:12.0pt; m=
+argin-left:0in">
+<b><span style=3D"font-size:10.5pt; color:#0F172A">Still Creek Ranch</span>=
+</b></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:3.0pt 9.0pt 3.0pt 0in">
+<p class=3D"x_MsoNormal" style=3D"margin-right:0in; margin-bottom:12.0pt; m=
+argin-left:0in">
+<span style=3D"font-size:10.0pt; font-family:&quot;Courier New&quot;; color=
+:#64748B">Work order:</span></p>
+</td>
+<td style=3D"padding:3.0pt 0in 3.0pt 0in">
+<p class=3D"x_MsoNormal" style=3D"margin-right:0in; margin-bottom:12.0pt; m=
+argin-left:0in">
+<b><span style=3D"font-size:10.5pt; color:#0F172A">5522 Dovish Brook</span>=
+</b></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:3.0pt 9.0pt 3.0pt 0in">
+<p class=3D"x_MsoNormal" style=3D"margin-right:0in; margin-bottom:12.0pt; m=
+argin-left:0in">
+<span style=3D"font-size:10.0pt; font-family:&quot;Courier New&quot;; color=
+:#64748B">Service date:</span></p>
+</td>
+<td style=3D"padding:3.0pt 0in 3.0pt 0in">
+<p class=3D"x_MsoNormal" style=3D"margin-right:0in; margin-bottom:12.0pt; m=
+argin-left:0in">
+<b><span style=3D"font-size:10.5pt; color:#0F172A">August 14, 2026</span></=
+b></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:3.0pt 9.0pt 3.0pt 0in">
+<p class=3D"x_MsoNormal" style=3D"margin-right:0in; margin-bottom:12.0pt; m=
+argin-left:0in">
+<span style=3D"font-size:10.0pt; font-family:&quot;Courier New&quot;; color=
+:#64748B">Reports:</span></p>
+</td>
+<td style=3D"padding:3.0pt 0in 3.0pt 0in">
+<p class=3D"x_MsoNormal" style=3D"margin-right:0in; margin-bottom:12.0pt; m=
+argin-left:0in">
+<b><span style=3D"font-size:10.5pt; color:#0F172A">2 reports</span></b></p>
+</td>
+</tr>
+</tbody>
+</table>
+<div style=3D"border:none; border-top:solid #E2E0DB 1.0pt; padding:12.0pt 0=
+in 0in 0in; margin-top:.25in">
+<p class=3D"x_MsoNormal" style=3D"background:white"><span style=3D"font-siz=
+e:9.0pt; color:#64748B">This is an automated transmission from Coastal Test=
+ing Labs. For questions, reply to this email or contact us at (713) 477-012=
+1.
+<br>
+<br>
+</span><strong><span style=3D"font-size:9.0pt; font-family:&quot;Aptos&quot=
+;,sans-serif; color:#0F172A">Coastal Testing Laboratories, Inc.</span></str=
+ong><span style=3D"font-size:9.0pt; color:#64748B"><br>
+1217 Georgia Ave =B7 Deer Park, TX 77536<br>
+(713) 477-0121 =B7 coastaltestinglabs.com </span></p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_BL4PR07MB1007748DBF2EF8219EB70B34989A52BL4PR07MB10077na_--
+
+--_004_BL4PR07MB1007748DBF2EF8219EB70B34989A52BL4PR07MB10077na_
+Content-Type: image/png; name="image001.png"
+Content-Description: image001.png
+Content-Disposition: inline; filename="image001.png"; size=6224;
+	creation-date="Wed, 19 Aug 2026 17:44:33 GMT";
+	modification-date="Wed, 19 Aug 2026 18:06:48 GMT"
+Content-ID: <image001.png@01DD2FD8.7BC48120>
+Content-Transfer-Encoding: base64
+
+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
+AAAASUVORK5CYII=
+
+--_004_BL4PR07MB1007748DBF2EF8219EB70B34989A52BL4PR07MB10077na_--

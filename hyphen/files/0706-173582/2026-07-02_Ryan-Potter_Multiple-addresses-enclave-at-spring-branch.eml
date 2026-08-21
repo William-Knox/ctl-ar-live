@@ -1,0 +1,172 @@
+Received: from IA0PPFB67AC8573.namprd22.prod.outlook.com
+ (2603:10b6:20f:fc04::d44) by CH3PR22MB4276.namprd22.prod.outlook.com with
+ HTTPS; Thu, 2 Jul 2026 22:04:39 +0000
+Received: from SJ0PR13CA0068.namprd13.prod.outlook.com (2603:10b6:a03:2c4::13)
+ by IA0PPFB67AC8573.namprd22.prod.outlook.com (2603:10b6:20f:fc04::d44) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.8; Thu, 2 Jul 2026
+ 22:04:31 +0000
+Received: from MWH0EPF000A6732.namprd04.prod.outlook.com
+ (2603:10b6:a03:2c4:cafe::9) by SJ0PR13CA0068.outlook.office365.com
+ (2603:10b6:a03:2c4::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.202.4 via Frontend Transport; Thu, 2
+ Jul 2026 22:04:31 +0000
+Authentication-Results: spf=neutral (sender IP is 52.0.74.211)
+ smtp.mailfrom=yahoo.com; dkim=pass (signature was verified)
+ header.d=yahoo.com;dmarc=pass action=none header.from=yahoo.com;compauth=pass
+ reason=100
+Received-SPF: Neutral (protection.outlook.com: 52.0.74.211 is neither
+ permitted nor denied by domain of yahoo.com)
+Received: from transport-3.inbound.emailservice.io (52.0.74.211) by
+ MWH0EPF000A6732.mail.protection.outlook.com (10.167.249.24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.181.6 via Frontend Transport; Thu, 2 Jul 2026 22:04:30 +0000
+Received: from cloudfilter-igate-new-08877a64fc54d92a1.inbound.emailservice.io (unknown [10.4.3.223])
+	by transport-3.inbound.emailservice.io (Postfix) with ESMTPS id 9C8F482846
+	for <ryan@coastaltestinglabs.com>; Thu,  2 Jul 2026 22:04:29 +0000 (UTC)
+Received: from sonic310-25.consmr.mail.ne1.yahoo.com (sonic310-25.consmr.mail.ne1.yahoo.com [66.163.186.206])
+	by cloudfilter-igate-new-08877a64fc54d92a1.inbound.emailservice.io (Postfix) with ESMTPS id 0F9FA7E21A
+	for <ryan@coastaltestinglabs.com>; Thu,  2 Jul 2026 22:04:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1783029856; bh=Dh96RxIBrHpAlFpJWCxdkAZ2x2Eaul9niNMkFr/KkTc=; h=From:Date:Subject:To:References:From:Subject:Reply-To; b=gGop7xI3/ph2tvD0QlRp5z1pzx8qfBfzUcVG16zxJMH3zLxXTN0a21F22TD88paCO2RPq1QaYD3h7i86I+t+Ykoa/gfhVeqgGFiIdLBQhsYyBXHvQ2ObLwROto5e9EJFpt1vmGHvHnTf4MBbk7n173V8+Ar5qEgwngDYjZ2M2BXYzypyxyaaR+3UUAv8aw43kUxflUdV1hDLeAhSFEfZSGMV+FDr//tWZj04ZxgscEbnvYV99Uuf+rMU4KIss5GZmWLZp+wS4JlMv/D120GnAJNFKNfSA8sXUg8zT1qnixvw8GoU8bam+0mmqiRsMHcbU68g7kbmxfh3DVVc3fTqBg==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1783029856; bh=1OELpUSBK6uWsewNlF6v0euc9pRz3sEDzI+K0k5S/d/=; h=X-Sonic-MF:From:Date:Subject:To:From:Subject; b=ui60II96ZJVx9mPJstHN1QgtOx9vMckVj4Zped0523KDlYZnfWZoEljk4zLQF6JB/8b49u+sxP1RUceDUuh3VI+RFM7kXOfSP4ToJd8XLspD6O6KHEJWS7G1oV8SRpovnczaB2HnO9R0JCUomrh6kFnBCm0sfSHRnb2HL+hToJnvwudUQ0msOmlq1tHVWgOYa/hpWhkqQdTB88oxIeSAw3ROZ3wSdTHq5fu/yGiTsPNgOLZnrsHWRIBXm9vPXjmCGlc01vyHlnV2/v+UFhvt2expf0LKkmqtwU3Z6yoa19btg93pGRhlJo4JlizEjF26BoVE95qVP0LJppQF19jc/A==
+X-YMail-OSG: OYHDpl4VM1ktx3OTZpWEUsBXXd8dHewFX_xk4evC2XVOwdFFBPbhFWQPlupV8NC
+ Oyq6oWmhlMe6dbPfqfoIn9fWCj1z8nrwEFOgzlfXRhNAxIGsH6YDh5um.cHRuRtc5oDtce68vsjm
+ PVLU6jNHOzjHJTCnFlFftOgXq9kbcJg1dhPxnUhlKWCM1swK53HnJW5oSWHZhqLgK8mzIwrrp1co
+ ukk7b1CHKRUV_fnXoMdMNdXuCaRcl9WoCnMWGY7q0cYUmcvnpgIrxDz7LQ8nlHeC9kvo6p8GlaIK
+ 8HknGJdHTd7kGl7izzqI7E6VCg5.MQcTREqBprmOVT.AuvFo9X654.ZwYjIA70f7_1Tzpnz66r92
+ _T2wWfZO8356.6fslvH_mrW17nls0.GvzIXGrE9AZrCd1th6voPWjlf7KpNji.plYCJf3nxkClHK
+ K_QQETUlCNw.uPQk6YfO5lBJ1.TtR3bWNgGT3nkr0.TaV9H5zkZHPYIRjTR9_58SJ4f7z_ow9Hac
+ Lp1jl6Jdi5vo7bmfNfjFo0cmFL_bCkdQ0m4fBb2nhVTlS2VRA0pfSErZ_Lu0cwt9YuRSFlXp_sn5
+ WHptxrDAKRgVMO2Mq_m31Hd5KhCi7FsQ9aKQbcHbijCqqqQL4XtTC_NYNgUbwpTIUCbmdohNbJsr
+ q59WqElblR2sX8GK4j.nfvg5UdhikrRZShB1q7FraX.53Mgj_hE6PZnOL8AoQMFnHI5YIfAFU_M2
+ zZRNcwG6qXX2Q1FFhFH89hYFu.icFDZdee61Crndh2zXoC5ICRBbBLvRgnxlnwyVxXVkuz0TUP65
+ WrfNCIEbnyMSdsGajM_vfWJ.Zn22FNki_2As9MPmZRIhj9G4xPEQSIgYzABh4mo40nV97YBuvlr4
+ p_ttQp7F4HJaZFJdVrCN1Dk8F6Mk38XxjnagIw33706qoC4TO5X5akG9vsarJpM_rBCoyah7r3Cz
+ DCXMoeejq0rWQpePuoPVia7aHs6dPkmYP7NOz7F19m4hpsf6O18hoRVdow9LMT9IdPC2hyzJDfCM
+ ulcRCYH0uDzY5KvGY9SQWKvv3ymgaGfOCQATjItF_zfT9bmpQ0fsctY83SvlUoGwu6yjuE6ixyMV
+ EnKHUQTtJKeEE5ya6aLwH_6cLzwAwtlueVgUxOI56CxKFAL5HTfoLamqpNYHp_qFTX3wRMvgP9oG
+ 4FqqEtNMsip6ChtBvwL8uOyLbcfdEMpzfrMUUzSJC_P246yJfqtGeaEXfldO31qEAIC0Y4OWEola
+ JHW1A8ssSc.kLgmavIxvPPcpoUsIZEqz1TeN8WFh5w70XbjHKkOIMtcQ3Xrk8Cs.5r0S6qtBcBFX
+ jmT42.YXdkCXwe4VA5.7XsK1.xcaV.0yKD_pt3hldXS0aYxHm99AlhVXUZhEOgUsd0nZ9YhSgIFJ
+ MSjk_OUZKmTWh5s19a8kKquV303Ic2Q0l_Yh6vQLH7JwWi2NeuL4S9_p5Tk_aEwT8V_jJRxvYLI2
+ 8tc_fLnDTMmuUF8OqwtVxC403uD9a1bv4_s_aQR.VYhGpsE4XvBKgIokrYeqPbZdqJDd4U8ZlOde
+ 7xDnyk5CkH35LVFNUsnMLsXynI.UCijTDWBDhMyAeWKQWkD8Pj0Efq5Py9BTDOF29RvNcal6Zk4.
+ BkYXjzlLx1ZoTTbXYDbnTiCJvfZU1tzOotnQUw6a7DEbTOcfeLtNOAONlz5mF54Je.VG8QyqM0V0
+ SZJtHb_fUMapqVOgPOCmjesBhnq7viVQqDTkRY.74UVvw32PBWh088.SKUgrvlkgDR_pHVHcrXZL
+ _zJUbWThGqJQiJb4x7opvrg3P.tFH8aC_7aZErXEY9DGrBAVwkj7f6uZeXet6cn2PL.cxf8BlQpP
+ OH_c5QGmC5YUkAIWjulmjWPd4M7hBoC88aja4atYmSoMWQdj8WgVBYyTG3NUA46YoOaD851vKR7F
+ 8vR32Lrb3UngPd3jb8Ql9QNX1hEgfTA6t1m8ujWckqIJyX4x4WX.iEYloEaAQvEBimG1B2NrZJ1l
+ L8pvxB4ySSBFvngmtQoi5hfgKME8Ge80tT0m8wk8WapYgf76S7QX8LymPLsq0y7Qb.XmaLSFX_nM
+ LNxfQMldSwU0T2_MmR1AezlzSxDF3DqgBBDcjwFmtVtkacmmOxNTYJxqjeqOqsOtB41K3gSTedCs
+ nrG1s2EHfykJhpZcLBjQhtreTC5BhCHzwexTIhHFklbvwhNsVmFHYClcvJzgiMdy.iPSOwT.arMc
+ luZOz8WbG6sXVp3qg.8j47bQZ4NhR7uXe_knCzKBWrr1TZuU3hU5VizCNbxfHYPGUmpXMBIk-
+X-Sonic-MF: <ryan_kkdirt@yahoo.com>
+X-Sonic-ID: 415c9313-6ef8-4c99-9fb8-d48110937cae
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic310.consmr.mail.ne1.yahoo.com with HTTP; Thu, 2 Jul 2026 22:04:16 +0000
+Received: by hermes--production-ne1-7568ccb994-g4mct (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID ed13bd37dcb1d59a2e9842ecba07d2d4;
+          Thu, 02 Jul 2026 22:04:15 +0000 (UTC)
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+From: Ryan Potter <ryan_kkdirt@yahoo.com>
+Date: Thu, 2 Jul 2026 17:04:04 -0500
+Subject: Multiple addresses enclave at spring branch 
+Message-ID: <6B2E87FF-CC0D-4542-B722-822A8098939C@yahoo.com>
+To: Ryan Pena <ryan@coastaltestinglabs.com>,
+ Joe Gallardo <joe@coastaltestinglabs.com>
+X-Mailer: iPhone Mail (23F77)
+References: <6B2E87FF-CC0D-4542-B722-822A8098939C.ref@yahoo.com>
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|sonic310-25.consmr.mail.ne1.yahoo.com|66.163.186.206|sonic310-25.consmr.mail.ne1.yahoo.com|-0.2|0.165853|0|normal|ugly|3|2|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass dkim_verified clean dmarc_policy_allow allow
+X-Mailprotector-Score: 0
+X-Mailprotector-IP-Analysis: 0, 66.163.186.206, Ugly c=0.165853 p=-0.2 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-4718-c
+X-Mailprotector-ID: 983f4676-e3e4-47ae-a478-135999c47e8c
+X-Mailprotector-Timestamp: Rg/EpXRcjrt20de1ViROUA==
+Return-Path: ryan_kkdirt@yahoo.com
+X-MS-Exchange-Organization-ExpirationStartTime: 02 Jul 2026 22:04:30.6726
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 6ee39413-bec9-422c-cf79-08ded885e45c
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000A6732:EE_|IA0PPFB67AC8573:EE_|CH3PR22MB4276:EE_
+X-MS-Exchange-Organization-AuthSource: MWH0EPF000A6732.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 6ee39413-bec9-422c-cf79-08ded885e45c
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|704160911799003|82310400026|7093399015|16102099003|18002099003|57112099003|5063699009|19002099009;
+X-Forefront-Antispam-Report: CIP:52.0.74.211;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-3.inbound.emailservice.io;PTR:transport-3.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(704160911799003)(82310400026)(7093399015)(16102099003)(18002099003)(57112099003)(5063699009)(19002099009);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jul 2026 22:04:30.4258
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6ee39413-bec9-422c-cf79-08ded885e45c
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A6732.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPFB67AC8573
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:09.2774778
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0181.008
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?Q5LvZ3bgbykpgrJgd5AOszhvNWm8pV6NiZWt79WHgkFnNmGUIdNzx5Gq89Uf?=
+ =?us-ascii?Q?XkZDe0uDjZ2349IBnS3lNnyeST5uKrMVqtBlgRoGtWHO0Z9SK7e7Xls0doQK?=
+ =?us-ascii?Q?1TE4tPgvLi8l2fPgjbT74PvmTso3cASvEDLtdZOr/oNCGMDUjYti+H+d6rcu?=
+ =?us-ascii?Q?leHxYAERI9Rm1R4TaX0dmwZKj70dL7Kd8n/N5nqv/XSvjfV2uA18/qNd1TSV?=
+ =?us-ascii?Q?S2QEwZ7rv5YgB2l36U/W/7vBql7fZVNKPouALb/Tp1xQ/28WSLcxmm271UHg?=
+ =?us-ascii?Q?Z/SrluPPZWIx6bRwW/yI6jSzzWEmdSsxrmKrtw8ZTpuu6FmuuIb9xHfl/c1Z?=
+ =?us-ascii?Q?c54Db/RlgG6OSYfNx9Wp9CXHAKUS4TqYwGK8ARLgpcnZkVMSi1LPumtRqr4b?=
+ =?us-ascii?Q?R8vI5t8SE8RNOQIDgecPyYjmhe+UPPHhM5CYYHr+ezEBDXTBgtYe9JUv9CBH?=
+ =?us-ascii?Q?s8B/LIDO+MQElhAVvBeoGRfpuAsw9vYAIJX7AeFkwK3FEtY1zdFJFG6CDJkY?=
+ =?us-ascii?Q?V7DHz+DBlr3GAsl7VAVqyR3oa1dKaBxca3iTnnXfoh0APQRzgIamgZZ5Khky?=
+ =?us-ascii?Q?W+GeoLoQDsTrSzPpMIC3fBnzCh33/P+gu0GMZc6Ex8Xrlt8h2wLIfy5HVkD1?=
+ =?us-ascii?Q?BpmaFmzof0+8Mg9bfTE4Lv6RL6R1iKDznXEB2+Ixocntg7/SkiW75RaHMzCs?=
+ =?us-ascii?Q?e5RdfcmFkAb7S68KKYLHAGCp8jCzfEZk3Qokw4Fjp06kyrB6Al4NJKazHYE+?=
+ =?us-ascii?Q?CZVxjxUIFoQbvrSh0ysEKVqsM8qWuavHo86GTTL4oVISMwhGL0oIuzxztkgj?=
+ =?us-ascii?Q?Ew4T22rSwaWt+vWheVBUjz8ROhyWiUbqRAn7zuNFXLybE8WCtI+QLh8iItCF?=
+ =?us-ascii?Q?iKOtUJf6YXu5wt7fR34bIt0HdcCdAW5UYv1xC5YDuWyioKQx7vhnaXa2OPuP?=
+ =?us-ascii?Q?9ATmEsOlh0h6N5zE4DItRryT5PA6D1+6cffu+lu7gY0s5jYqNiJB6lF+9w9e?=
+ =?us-ascii?Q?XUISJUyeo+DDXyqNPlVvTvNYWDuH3JtiaN22nCu9WUHAhoUjowyt2QfKQiiT?=
+ =?us-ascii?Q?xb3HdZNJYRMFQCv0DKJa8tzALCcwm98A48Gc1Zx+tcTYvRQRlLEbVHUYRRBT?=
+ =?us-ascii?Q?rBdRqz1lPBQb59guiKkvz3eu6EriMm3EvOcHOr30aGdc1XfeOkx3MPi2po7l?=
+ =?us-ascii?Q?yBVknS7ZSCweFmReC5Fm2USejQacUizrgX9ehCJCW2WDryeuG5w5ueRL+KnE?=
+ =?us-ascii?Q?0PskyYOXDIzpnDTLB9M3ylQXNgUtjZSAiM/DnPlJHOYRtj2HUYa+2vljYW+b?=
+ =?us-ascii?Q?dg1JKgJjJ45YYteds5Mz7WfYTyDlQWZkzym9TLaGr9KNTrRWkAqWgtj7W6LX?=
+ =?us-ascii?Q?3tauu+ZK1MTShgAXduioplqQG+3phiDxfBRgYSh9AIH9OSpaYUJv8ZI5b1u+?=
+ =?us-ascii?Q?7M/xhOwm1vfeB6Bb8BZhmONAIq4uxJEz2RFAQV0gLIPzczg7cjbbWj7m+9JF?=
+ =?us-ascii?Q?K5XdRNz0rymUXccTRj7C7QZ8tXeAqq/gr0ewq5Q10uxh0txFqmqPWn2E7oAd?=
+ =?us-ascii?Q?GVD+Py4+eNFuHVMXpyiUutH0wbjLr6XfgAVJpkUjVCwBUU8lHJFgXxGlhkN7?=
+ =?us-ascii?Q?u+f1uUkOWBlbon3km1sF/jHfTg9uTUAZIoEP0nX2g+sFrWl7l+aieU6dtO4D?=
+ =?us-ascii?Q?TeYBJ6WQSZOeVKzbOdyvwcmGYdTm2crkB/D4x+L/bqeRkQJcGL3WnElfToTk?=
+ =?us-ascii?Q?rp+PiixJB5vDauw+Q2hdACb3v7U1IpBzt4R3AkAI7BGiVOo73JmGAkPfxNjY?=
+ =?us-ascii?Q?PY8VBJy9MEbqAfmL4LMOQeEqYwskjacRgrq0OjzVyCxM0VaYnmXb0E/Ct6iO?=
+ =?us-ascii?Q?RxpoVgfl1jDicYss5ZhGicTO7F68Eq1QWKl5UaTRlUvK0nHTpwaAX7dBq89I?=
+ =?us-ascii?Q?eDD1SVqvLMrHoDPSFoSh9PcfPN81dsM5EaNYyHAgJZO7/Bw5lLmmRZfx2nz2?=
+ =?us-ascii?Q?jxFnQosw58XiyZAxbvzOep8zbqF2I2fQ524B53h1YSGP20BAjRle4fhPyQKh?=
+ =?us-ascii?Q?aiUysRb0kfANWs9+Wray9UtTgMYHmUbtJWu2loK8TLgb8jqjH2pv6vJ+7lxi?=
+ =?us-ascii?Q?vAzvhvL4t3osNyJynSTjd0aekKSPS/CdBid8NPn8dV+saWjIe1p0ZS5HntgA?=
+ =?us-ascii?Q?PKCRaVFj6pFCigH93hS8NnSvwny8GQDJfznZTvteXB6ArrFSG14jcdFIbD5W?=
+ =?us-ascii?Q?QK83AGbgJFUmoPc5Auxd185TuZozulwOJYh4Pc2O20fMv5YLDVvJr+ofbIzC?=
+ =?us-ascii?Q?boA=3D?=
+MIME-Version: 1.0
+
+For Lennar 
+
+3 lifts on each please 
+
+19046 style 
+
+19050 style
+
+19051 style 
+
+19055 style 
+
+
+Sent from my iPhone

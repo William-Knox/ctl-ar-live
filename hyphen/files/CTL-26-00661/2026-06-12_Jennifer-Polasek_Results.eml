@@ -1,0 +1,269 @@
+Received: from LV2PR22MB3607.namprd22.prod.outlook.com (2603:10b6:408:17c::14)
+ by CH3PR22MB4276.namprd22.prod.outlook.com with HTTPS; Fri, 12 Jun 2026
+ 18:09:37 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=riI5XzAnxxe2UkPGrGHomMN9icNZZh5Fb2qMIA+FopCaYEd2zbUOeOJiaHUETaWw8V+SXotO6G7j4NTzMzCotRofDgDtp12YgsXwG9M7TFLatZDhUnvsg++1CANOGFOrd9hPO85m4/d3HHULH0uUehTqYvVkRtga8/rZO3+7Cewtld/SgXGfSu9J8Qi2S27VzSCQ0Nx5YBlFWy0HB8QNQDOxcJkDnt4G2bd1J2lhhQwCh9g3fnV5WgvnodSl7KLIg1y7OUPg6tVVau0oM0m0xhz/ux8yIcDupF3H+VfqOgKenP+tOFRtkWKEyXpglcqtS0QuDhyqNOGeqpCV3NKqCQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XBRcIM95UrFxofJgSNkLo0Yb/Gk6/SqdNezLzsn18d8=;
+ b=ctDA4rQK+mgeaX/i7GzOJxRJ1bFBLCsaUSbOsvVpPoS5WNCLK0i3jWnC7AbdBDtYX8svK18NrcdgGGjHA2cTDU3E5omezmEgMXT7vWHhbNZibg5+yGeVcNkEBVURIHSuDeJNBsVimAq0eJFVy9N97TfMxXXPRJ0eHIDI2vOQOHRwtEJnJXPlvQAGbB+0vD200+fkfbKZk4K5Ju8w7DB2wg2jBl/KvFZ4OlQChtcBYGNvssAzGCtmZKHUtJNdEFT/VzV19oe1MgVdvzikCPdwF+v2TnuNmKmOlj0y60PdCSIWV/u2YpTzxvGv4Z7X+/uIWfgrDO7qv87MYJ3rWWXAPw==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 52.0.70.91) smtp.rcpttodomain=coastaltestinglabs.com
+ smtp.mailfrom=idigkaty.com; dmarc=none action=none header.from=idigkaty.com;
+ dkim=pass (signature was verified)
+ header.d=idigkaty-com.20251104.gappssmtp.com; arc=pass (0 oda=0 ltdi=1)
+Received: from PH7P220CA0023.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:326::10)
+ by LV2PR22MB3607.namprd22.prod.outlook.com (2603:10b6:408:17c::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.15; Fri, 12 Jun
+ 2026 18:09:32 +0000
+Received: from SN1PEPF00036F3F.namprd05.prod.outlook.com
+ (2603:10b6:510:326:cafe::44) by PH7P220CA0023.outlook.office365.com
+ (2603:10b6:510:326::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.14 via Frontend Transport; Fri,
+ 12 Jun 2026 18:09:32 +0000
+Authentication-Results: spf=softfail (sender IP is 52.0.70.91)
+ smtp.mailfrom=idigkaty.com; dkim=pass (signature was verified)
+ header.d=idigkaty-com.20251104.gappssmtp.com;dmarc=none action=none
+ header.from=idigkaty.com;compauth=pass reason=106
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ idigkaty.com discourages use of 52.0.70.91 as permitted sender)
+Received: from transport-1.inbound.emailservice.io (52.0.70.91) by
+ SN1PEPF00036F3F.mail.protection.outlook.com (10.167.248.23) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.113.7 via Frontend Transport; Fri, 12 Jun 2026 18:09:31 +0000
+Received: from cloudfilter-igate-new-07957e52a3745cb47.inbound.emailservice.io (unknown [10.4.3.34])
+	by transport-1.inbound.emailservice.io (Postfix) with ESMTPS id EE678A1841
+	for <ryan@coastaltestinglabs.com>; Fri, 12 Jun 2026 18:09:30 +0000 (UTC)
+Received: from mail-yw1-f171.google.com (mail-yw1-f171.google.com [209.85.128.171])
+	by cloudfilter-igate-new-07957e52a3745cb47.inbound.emailservice.io (Postfix) with ESMTPS id 4E9237E22F
+	for <ryan@coastaltestinglabs.com>; Fri, 12 Jun 2026 18:09:18 +0000 (UTC)
+Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-7dbc0ffea1eso514887b3.3
+        for <ryan@coastaltestinglabs.com>; Fri, 12 Jun 2026 11:09:18 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1781287757; cv=none;
+        d=google.com; s=arc-20240605;
+        b=VcoIe5fZ5YwAGFIP0Hy/EMvvQqP9cAF7tkVmu8nMwVx5rT/zTi3Y+Rxc3b0P53QH1d
+         xKblWQ+qnl2dJhg8IiMR9upH2oemfmNKQp6Ri01fimu1HX5kAKzgwsvrN1VAAj8wWogf
+         lX5ZviOf1z/wmO+Iu24vQb0Zy7I2Jz2FC56mjWITSUoBKKlgMQmKgev35kg/8zuGJ72p
+         3xdsWZbh8VqXR62F5cqI7G7mik99BjnazcGpB0pEu/CUdEELTS3BQdcFUKFDvULS+knS
+         SGZ/4RTTSljWfAljmh6+EQL6E1BH0BoVQVl+cBAtXGtOWzIbmHIcP4Wls6YwLnIIDhEs
+         aTtQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=XBRcIM95UrFxofJgSNkLo0Yb/Gk6/SqdNezLzsn18d8=;
+        fh=llWW9n9P8YQwY9qxmilBgx62UN0Xe5fQnY0MnrcWUj0=;
+        b=FED659n25KNhEilWele5n8EbpOP8M0gLx9SkjSpZ/HPkqutorgzP3SpWmL0goGUCKe
+         /3SAXKTRmoNXG9FL2UinFuW4fUlyCEGj6pdSmWgBLzQsenPlKebhn9I8Ro09CSbOYS6T
+         M6L+owN7Ziwn8pE/U0D+fstzbn6K5JEiVhyh5l9zon6VvTVIJQpdUXRJBYpi24dmBK+H
+         nhH9DHvWRuwPni98Qvmm8LJoQddWBAoX/uojAmu581RjYEbNNFQXijGW26x8rEbmiuOM
+         PtE0NJU8SYJhl+UisHpX4RpoMmGjrFHR+zttEBlmzgiCqssVx7qEMUOkmdL9umyJl8N8
+         70ZQ==;
+        darn=coastaltestinglabs.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=idigkaty-com.20251104.gappssmtp.com; s=20251104; t=1781287757; x=1781892557; darn=coastaltestinglabs.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=XBRcIM95UrFxofJgSNkLo0Yb/Gk6/SqdNezLzsn18d8=;
+        b=XTkD469TntEgkon1Qw+9RvcW8R29D3/0bYaRa7dStuGQL7YMGabkZsKap6xiOxcbcA
+         mM9U10XQ5jtluoaFGJXgB/OgQJiR9ZK0MkYwMASODfvpjnlAzM6bVniFWcrXWJdmk6zc
+         Tw7OF5FctDLGMNezBgM/2EQHg0tupVQqHU/Igb8JOtln+q1dvzbsSjF6P9TQQpxax8O3
+         ppAFQMsTw6tHGHu3/1rvRyb7w1RkrA261ilptBk6aYh8YlPvXEIJI+Hl0Nog0e5IxjhA
+         WRsYpYbGBPR3Mok0S8zLYlfn86vz8SFggS3ja3OypD2AuxJ/ogmriH3I+BQSdrQBZNZW
+         Kr3A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1781287757; x=1781892557;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=XBRcIM95UrFxofJgSNkLo0Yb/Gk6/SqdNezLzsn18d8=;
+        b=VKDR0mJp/OVnSc8Eh9YylMId/M1GLQ0mfMStFzpFMRlRf2fyZTUiUt2tWEE12gu5fM
+         fWPziKlGJJbJOQ35szfIFA6Ddb/J2u2Fi0VqMzJj4EemkTvPMOGzzsWBhFEaeDc74wsW
+         ILrb4VpDhoQpk/jG0+IEc5J9nypcnpw5v45G/R49jhQNlGFyT/5+YduNA/tyUUnUfv4T
+         B2xgprgIXCNCXHRu8psCmd3N1A26zruYzeX45Ig4Cr3g2p1M2Cr8D4/L+oZ/iK+y9CuC
+         YSv1/fS9k3CJvk5ChakiZ8bKD1IJR/1DK74HEs6nnPEuferUl/WTot0pQ2Jkx7s1bkHJ
+         fTnQ==
+X-Gm-Message-State: AOJu0YxjnQZpgRNonU6Aq3UCoM/vj8U/S1279+2HaUFgkb1mNr0scHKe
+	RdNqEMsXQaKlOUfWbuLDhFU9QSGPV/z6MR0T6e7ywgLSkpKhIRElcBTzjRJu5u7HbMhLBeDK5uN
+	B1PgfvS2FnhdU/RyHXvSrPI5P373zapRLWiIj5Z4og5LBkIHyaA7ZrKA=
+X-Gm-Gg: Acq92OGzfX4ewg6IuFaK2TN9IGvk3pZKvxuQb2SWFcowPInSPkN+xCqRh4RChRKcAna
+	p10G9AJB1nuaGn5vLq57fU8ReVf89o/IIj34rerhg935a5hYtMEobQLgGwNlhY1heS8kXmUyg3G
+	vIIi6nO5JEIzWiXR9kPMkwYBqG46241SKOElBtql5IixGf8MWQ/6bMmsNiUSsmBxMpjd17iuYGu
+	2zyMUmf0vidnzFH2fOvuPBvuKYPpkvACfxWRYuKpjR94U5kJIs/SH8FKW4Ab0P2JJ0D/1UqzewM
+	/6iP+/bqpxIkw9H8
+X-Received: by 2002:a05:690c:dc7:b0:7d1:bbf7:c3c2 with SMTP id
+ 00721157ae682-7f7b9a1028amr24581177b3.8.1781287757522; Fri, 12 Jun 2026
+ 11:09:17 -0700 (PDT)
+From: Jennifer Polasek <jen@idigkaty.com>
+Date: Fri, 12 Jun 2026 13:09:06 -0500
+X-Gm-Features: AVVi8CeQNRI9Sw_KQnRpbErEHoBXW_zX9QArHDSdWJmical0YaCtssdlJiRq8xk
+Message-ID: <CAC7BLd_qguEhqoTDKuwBOniNofkTCaYfGRhiKbR2Ln=FQ12NdA@mail.gmail.com>
+Subject: Results
+To: Ryan Pena <ryan@coastaltestinglabs.com>, Joe Gallardo <joe@coastaltestinglabs.com>, 
+	Kenneth Piercy <kenneth.piercy@lennar.com>, Drew Piercy <Drew.Piercy@lennar.com>
+Content-Type: multipart/alternative; boundary="00000000000007bab30654126067"
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mail-yw1-f171.google.com|209.85.128.171|mail-yw1-f171.google.com|-0.75|0.512141|0|normal|ugly|126|18|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass dkim_verified clean dmarc_na
+X-Mailprotector-Score: 0
+X-Mailprotector-IP-Analysis: 0, 209.85.128.171, Ugly c=0.538515 p=-0.634409 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-8512-c
+X-Mailprotector-ID: a8fffbe6-09f4-476c-85ea-458ece17253b
+X-Mailprotector-Timestamp: xbw0WqceDIOrEghQK2UmKg==
+Return-Path: jen@idigkaty.com
+X-MS-Exchange-Organization-ExpirationStartTime: 12 Jun 2026 18:09:31.7044
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: b1292620-32b4-48b5-fc1f-08dec8adc075
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF00036F3F:EE_|LV2PR22MB3607:EE_|CH3PR22MB4276:EE_
+X-MS-Exchange-Organization-AuthSource: SN1PEPF00036F3F.namprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: b1292620-32b4-48b5-fc1f-08dec8adc075
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|43022699015|3109299003|7149299003|69100299015|16102099003|57112099003|4076899003|8096899003|19002099009|5063699009|18003699003;
+X-Forefront-Antispam-Report: CIP:52.0.70.91;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-1.inbound.emailservice.io;PTR:transport-1.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(82310400026)(43022699015)(3109299003)(7149299003)(69100299015)(16102099003)(57112099003)(4076899003)(8096899003)(19002099009)(5063699009)(18003699003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2026 18:09:31.5452
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b1292620-32b4-48b5-fc1f-08dec8adc075
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F3F.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR22MB3607
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:06.1511353
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0113.000
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?amUwVzZwK1grdDlkL29QdGlYOUd3aXhLMEQ3Y3FJbzI5S2xFT2Z1VHZDaVI4?=
+ =?utf-8?B?RGpnWG1kVWwwWkpnekhNTSszRnB4WExQTlc5Q3F0Y2ZQK1NxK1ZJNEJFb0NR?=
+ =?utf-8?B?Zm1PNnlrVy8zYy9waTRva1dxSC8zSENOR1YwNVR4QUQxVmZ3R0RYcmNHMVB5?=
+ =?utf-8?B?citPaVlTOXVIWFVuTHU0TEZMYWk0VnFDSDZEcFNJcVc4SFRSb1NsYjhZT3Uy?=
+ =?utf-8?B?TDRIbFNyV3o5SDhwVWVWZVlEQ2NPU0RIWlRFSGlJenN2WVNDNHQyYkdVd2JZ?=
+ =?utf-8?B?NnJLNDErd3pZYi8yZEN4Wk16aWdaODVDYlFscm9KTkw0c0ZmRzlVNGxoNnBx?=
+ =?utf-8?B?NGN1aUNUa003SFRZREY3Q2Qxa1VVM2krNHJMdjRON1JwK1pKZ3BHcU16TkxK?=
+ =?utf-8?B?QmI5SUNPdkx6STBGMWFTNGloR1puKzlxY1FxNzlpNWN4WGxSWkx2THk0dzBT?=
+ =?utf-8?B?WjYveDIyTXJ2dW1lZzV6NTRLREVTUXdkK2NSOUpOSjAxZjd6Y0FVOWlwdHJ1?=
+ =?utf-8?B?OWNhMkF6K0ljMEsyM2pqZGJSbk83MC9Oa3JwQUVrMW9lc05adm5BaU9VZktr?=
+ =?utf-8?B?NnVBcTJpT3hzZ0U4VlVSU2FqakQ4bnBvemRSV2dMdEQrU0lSbndXc1lYbUcx?=
+ =?utf-8?B?RDBmTkVTTFcreGtNQ2ZBOG5iVk8vWjVQT0F2RE9MTFJyRzVmOU8vMnUxdjli?=
+ =?utf-8?B?ek1aM0c1bVRGSWsvWlpsTHRYSjNzUmFMOU5CK2E4ZEhCaS9xYUZ5djd0Q1JI?=
+ =?utf-8?B?d0QvdDcveENBcXlkOG5zYm1jYnQrUU5pUEorTUhVc3MvWVVQelVvTGV1WmM5?=
+ =?utf-8?B?ZUUxajc3VVZBS2JuVVd6VjlCWUFXdHV6OXpEVjBxcjl1RnZhVXZDUEQxT1Rl?=
+ =?utf-8?B?S2FPNnZkVTJjK0o1R1lSS0UrRk5jQWxJR1Q3cmZJUUlyMnNMeXFHU21nelU1?=
+ =?utf-8?B?WlpVb21PVWp0SGlpcmNXaDFFT2FOd1VONGd3RWUzUk1VUXAvN2FzcWVndU9Q?=
+ =?utf-8?B?Nlh3eFF2S1U5ajZCUFQzQ2RsUmZUUnFGR0oyVkJuc2M1OHNzVVBkanIvQ3hY?=
+ =?utf-8?B?Tlk2R2lnSmM2ZExLU20wbWpjZWU5aDZwbVpBWWFnUjN3M2FOUUtFUTVVY01E?=
+ =?utf-8?B?Y0oxQ2lGMGIzNFk0aGh0NXdjQWNPREhVaDlkTktFWFFPbHhySE9DbGRQV3ow?=
+ =?utf-8?B?YXVhM2paVnVjSVN3aUtYWUpPekp2eEE1SDZpTGcrZDk0c29wcnhVWDFaS2NF?=
+ =?utf-8?B?M1lpS2hqYkpDYzJhSlh2Uko2T0prbEVwcHNGbHBHeTZQUHBPRENXRlBrd2ov?=
+ =?utf-8?B?T2hjNSsvWGdvTEdLMmVHN2dQQitLUXlwVlkwY3dNUkRlUnhFNS9OMm90YkY3?=
+ =?utf-8?B?NjdsQWMwdTFQUS9MRUR2U1hocnBjYk1zckl3WHBxYUxOVjZaWGQ3N2JHNzlO?=
+ =?utf-8?B?MC9FcU1WMUxvUzlZN2ErQ2owTGY1ckc4dHVkVUZZWWFCNDFZd0c4aGVqVEQ1?=
+ =?utf-8?B?MVZ2SWwxY2RZMHFsL2o2cStHdm53V21pVDRDQm1zRXFWY1JNbzZDTk5sdUJn?=
+ =?utf-8?B?Sm15aHVlZDNiQ3hPcTJDWC9aYzM0aGRGMy9DdFUrU0ltQ3VaUjZRVUl4MjFS?=
+ =?utf-8?B?OEtCZmdDdVJaTVRKbWZ5UDFCMXF5VU5JUUV2Mnh5OThXeHVXOXBBSVF6dlB2?=
+ =?utf-8?B?aS94ekNYUG1MVUh0YjV6ckoxT2l4L1owNEk0UEtGMmFBUkNHcGdoMDFKNHdC?=
+ =?utf-8?B?c2VyaDZIL283WXlSV1RpTVp0dUU3MTE0SHlYUm1Ha1ZsTk1QenNpYzZZcWZa?=
+ =?utf-8?B?dys1dVh3dVJpekpEdkw4MTNPMno4SWdnQzJCN0hadTJBQUxhejVPc1c0NkRC?=
+ =?utf-8?B?enZ6ZVBLN1JlK20rTE1Fam14U1QxVHNWTU15YmhHTEJnbERySnBxaEpDRko5?=
+ =?utf-8?B?bk9XL2ptMnpXaWZiRk4rNGxmNXIvOHhMMHliazYwN3IyakF4MVNQMFNwem0r?=
+ =?utf-8?B?WjF2cVdYTjBxM0M3NFVvdmJoOHNhdWt4VzJuYzNuYnNBbG1QK3YvL2JzT000?=
+ =?utf-8?B?NTVML2gvMExZQkNUUEJIRktVZjRRWlRMTVloa1VNbHpFbktkVnROTVVYOWtO?=
+ =?utf-8?B?dVIwTjJRSk1BQWdmdzdkZG1ZMkhiK0o2ZWMrLzB6U0RUOFpoZGRRMlJYN3gy?=
+ =?utf-8?B?RldYanZCdlZ3U0tSVVlzVW5aUEQyU0owUnVmZjVQeXF1dVEwSnh3TmRvQnBt?=
+ =?utf-8?B?QW56R0dYVld3d3VzMG1OZXQ0eWtPZTA5NGZiTHhkS0RNQ0Z4THBEL1pDaVND?=
+ =?utf-8?B?Nk5ubDJuaXdOZEYxSHUyRmVyOTF4Yzg4eUtaRk9Ub1ZPV3hmc2RzTW15c0h2?=
+ =?utf-8?B?V2dUTHkycVFHZSsxZjZTSmdFUForRVFPSnBUbzVIQlRSSDA5cWNIWkVFNFZa?=
+ =?utf-8?B?eG5EVkMyeVQwdGFsYW0vcU1RcmJIdVJTSXMwZUpSUFhvRUJFUmpJOVlBOGFG?=
+ =?utf-8?B?VHdTcENwV0c3ZkV2cnVNMHhRN2FFMUE3WUtsRzFDbmI3dzhDNDR5U1dBWmVq?=
+ =?utf-8?B?SlAwUkRLWXRPK2hjUXA0OUxSd0hWZ2h3U1pIdTJrOTFMcm1ETzJ2ZmtTYi85?=
+ =?utf-8?B?a3RHMWh3WElpcW5nYW5PRGJrL044SU9pdWZvL3d2YmpNTVZzRk9POU8rUzY5?=
+ =?utf-8?B?bitwdVQyaG1OQWI0Q3lsT2dPeGdpWmlQc3pmZ1JUQlF2SXNkL2tOOWtMQ0Np?=
+ =?utf-8?B?Mm5KZ1NlZ1FUcU1UUVgyN0ZFTno0WTFBenc5Wmd3a1ozUUVkbU5ncnpiay9a?=
+ =?utf-8?B?MVJMa20vK2RNTVVPL0traFVReE5pS0hZM0xDSmhidDkzS1pycG8raUpqZys4?=
+ =?utf-8?B?MEFPVitiNlYyb1ZlL1V0aThSK01wY2V2YkJHeXpDdDN1MlBnSEZqOWJlR1Zj?=
+ =?utf-8?B?WkRHMkhORkVOUE0zb2FuWG9WeXVZNndQZC9EQXN5YUphalQ3OUhFM1ZPNm5Q?=
+ =?utf-8?B?TUx6T2l6emJ5a056bmNERWtwZE5pbTU4SHZqb2FqbnFtN2Job0p1ODJHbkVY?=
+ =?utf-8?B?d0p4eDZzUG51dklsd3NzQmJRWVhSK3BNaXNyK0xiYVIxbmV4ZVV3ZGFKdk1V?=
+ =?utf-8?B?aG1BZjRYUXBDVGhBS0ErbDhkV25xK3JIdldiQ3hRZ2h4OExEb2swK2RHUTVq?=
+ =?utf-8?B?Q2V5YXRxa0NPVmxpR0VyakZZaUtYVVRFYjF2UGtEYTh5OXBtcjdHdlZ3bGRh?=
+ =?utf-8?B?M3ZoSkJQd1dpOXV3NG9QODJsYStXU09oZWhSWFZPRjcxaml1S0hBUDgzOG4v?=
+ =?utf-8?B?aGJaMVQ1djdLankyOENCVzBzUThFUmdDK2RsamFCbk9tQncydVpzMXZUUHcv?=
+ =?utf-8?B?dFhsV2hyNVJ5N1JPR3dOdjZHTXlGN0RZelVCWUd3THlUQTlhUUtLRUNFSEhT?=
+ =?utf-8?B?WlRPSmVHVUJNOGluYSt2MkpkSmNoaFI5Ym1IZjRVVVhoTkdXekM0QXJWTGhI?=
+ =?utf-8?B?SDluS3hyL0UxNU53eUxQdEk1OXJ1a1B6M1d1c05neFR2Zld6Wmg4Wlowd1N4?=
+ =?utf-8?Q?POuUa6Wls4E8Is?=
+MIME-Version: 1.0
+
+--00000000000007bab30654126067
+Content-Type: text/plain; charset="UTF-8"
+
+Hey there!
+
+Can you confirm if these passed?
+
+Kenneth Piercy Cross Creek West 30907 Waterfowl Court
+Kenneth Piercy Cross Creek West 30903 Waterfowl Court
+Drew Piercy Cross Creek West 31103 Peony Place Drive
+
+Jennifer Polasek
+Office Manager | iDig Katy
+832-392-1563
+
+--00000000000007bab30654126067
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr"><div dir=3D"ltr"><div>Hey there!</div><div><br></div><div>Ca=
+n you confirm if these passed?</div><div><br></div><div><div dir=3D"ltr" cl=
+ass=3D"gmail_signature" data-smartmail=3D"gmail_signature"><div dir=3D"ltr"=
+><div><table cellspacing=3D"0" cellpadding=3D"0" dir=3D"ltr" border=3D"1" s=
+tyle=3D"table-layout:fixed;font-size:11pt;font-family:Calibri;width:0px;bor=
+der-collapse:collapse;border-width:medium;border-style:none;border-color:cu=
+rrentcolor"><colgroup><col width=3D"219"><col width=3D"243"><col width=3D"2=
+90"></colgroup><tbody><tr style=3D"height:20px"><td style=3D"border:1px sol=
+id rgb(0,0,0);overflow:hidden;padding:0px 3px;vertical-align:middle;font-fa=
+mily:Tahoma;font-size:14pt;text-align:center">Kenneth Piercy</td><td style=
+=3D"border-width:1px;border-style:solid;border-color:rgb(0,0,0) rgb(0,0,0) =
+rgb(0,0,0) rgb(204,204,204);overflow:hidden;padding:0px 3px;vertical-align:=
+middle;font-family:Tahoma;font-size:14pt;text-align:center">Cross Creek Wes=
+t</td><td style=3D"border-width:1px;border-style:solid;border-color:rgb(0,0=
+,0) rgb(0,0,0) rgb(0,0,0) rgb(204,204,204);overflow:hidden;padding:0px 3px;=
+vertical-align:middle;font-family:Tahoma;font-size:14pt;text-align:center">=
+30907 Waterfowl Court</td></tr><tr style=3D"height:20px"><td style=3D"borde=
+r-width:1px;border-style:solid;border-color:rgb(204,204,204) rgb(0,0,0) rgb=
+(0,0,0);overflow:hidden;padding:0px 3px;vertical-align:bottom;font-family:T=
+ahoma;font-size:14pt;text-align:center">Kenneth Piercy </td><td style=3D"bo=
+rder-width:1px;border-style:solid;border-color:rgb(204,204,204) rgb(0,0,0) =
+rgb(0,0,0) rgb(204,204,204);overflow:hidden;padding:0px 3px;vertical-align:=
+bottom;font-family:Tahoma;font-size:14pt;text-align:center">Cross Creek Wes=
+t</td><td style=3D"border-width:1px;border-style:solid;border-color:rgb(204=
+,204,204) rgb(0,0,0) rgb(0,0,0) rgb(204,204,204);overflow:hidden;padding:0p=
+x 3px;vertical-align:bottom;font-family:Tahoma;font-size:14pt;text-align:ce=
+nter">30903 Waterfowl Court</td></tr><tr style=3D"height:20px"><td style=3D=
+"border-width:1px;border-style:solid;border-color:rgb(204,204,204) rgb(0,0,=
+0) transparent;overflow:hidden;padding:0px 3px;vertical-align:middle;font-f=
+amily:Tahoma;font-size:14pt;text-align:center">Drew Piercy</td><td style=3D=
+"border-width:1px;border-style:solid;border-color:rgb(204,204,204) rgb(0,0,=
+0) transparent rgb(204,204,204);overflow:hidden;padding:0px 3px;vertical-al=
+ign:middle;font-family:Tahoma;font-size:14pt;text-align:center">Cross Creek=
+ West</td><td style=3D"border-width:1px;border-style:solid;border-color:rgb=
+(204,204,204) rgb(0,0,0) transparent rgb(204,204,204);overflow:hidden;paddi=
+ng:0px 3px;vertical-align:middle;font-family:Tahoma;font-size:14pt;text-ali=
+gn:center">31103 Peony Place Drive</td></tr></tbody></table></div><div><br>=
+</div><div>Jennifer Polasek<br></div><div>Office Manager | iDig Katy</div><=
+div>832-392-1563</div><div><img width=3D"96" height=3D"58" src=3D"https://c=
+i3.googleusercontent.com/mail-sig/AIorK4yHTXGogkhvRfUS-GjZcNfBFB8FzKEZE8iZj=
+EMo1SkiNQlvkzHW6lA-FO1LHA1uGgkH-Mbh--c"><br></div></div></div></div></div>
+</div>
+
+--00000000000007bab30654126067--

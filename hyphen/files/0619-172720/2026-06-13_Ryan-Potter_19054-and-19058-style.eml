@@ -1,0 +1,170 @@
+Received: from PH3PPF9648957D9.namprd22.prod.outlook.com
+ (2603:10b6:518:1::6bf) by CH3PR22MB4276.namprd22.prod.outlook.com with HTTPS;
+ Sat, 13 Jun 2026 15:06:08 +0000
+Received: from MN2PR11CA0007.namprd11.prod.outlook.com (2603:10b6:208:23b::12)
+ by PH3PPF9648957D9.namprd22.prod.outlook.com (2603:10b6:518:1::6bf) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.113.14; Sat, 13 Jun
+ 2026 15:06:06 +0000
+Received: from BL6PEPF0001AB59.namprd02.prod.outlook.com
+ (2603:10b6:208:23b:cafe::15) by MN2PR11CA0007.outlook.office365.com
+ (2603:10b6:208:23b::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.16 via Frontend Transport; Sat,
+ 13 Jun 2026 15:06:05 +0000
+Authentication-Results: spf=neutral (sender IP is 52.0.74.211)
+ smtp.mailfrom=yahoo.com; dkim=pass (signature was verified)
+ header.d=yahoo.com;dmarc=pass action=none header.from=yahoo.com;compauth=pass
+ reason=100
+Received-SPF: Neutral (protection.outlook.com: 52.0.74.211 is neither
+ permitted nor denied by domain of yahoo.com)
+Received: from transport-3.inbound.emailservice.io (52.0.74.211) by
+ BL6PEPF0001AB59.mail.protection.outlook.com (10.167.241.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.139.8 via Frontend Transport; Sat, 13 Jun 2026 15:06:05 +0000
+Received: from cloudfilter-igate-new-0e9097734bf7af471.inbound.emailservice.io (unknown [10.4.3.208])
+	by transport-3.inbound.emailservice.io (Postfix) with ESMTPS id 3D9E6837EC
+	for <ryan@coastaltestinglabs.com>; Sat, 13 Jun 2026 15:06:05 +0000 (UTC)
+Received: from sonic306-48.consmr.mail.ne1.yahoo.com (sonic306-48.consmr.mail.ne1.yahoo.com [66.163.189.110])
+	by cloudfilter-igate-new-0e9097734bf7af471.inbound.emailservice.io (Postfix) with ESMTPS id A27998F2FA
+	for <ryan@coastaltestinglabs.com>; Sat, 13 Jun 2026 15:05:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1781363123; bh=BEq7W+Afg2QGheke1q31Dv3n0vPnSlcMVW5+V9DetJM=; h=From:Date:Subject:To:References:From:Subject:Reply-To; b=El76KMvFSahOiyaNAQ9+3ENpHeiLuqFh9Cykwr5PdYxfy5SPDnCA4qstw11xMsiT/Y5WACMmKI4GfFHfbzE2i74E2tIHhdjPahXfl+oCgzu3VLu6NDOmpDbG+oe9bIDChK5wiBx7mPO2Fvu1KUA3CKhVfiH8BOUiChWvYwhMrMoDS5DhIyh81WNYj+wUeYrxFyl58XyNiRN4JmM/5pFoZQ0H4tC3wy44PdGNv7RC7DLqT5eHhtrg5k02P+Qv90v7SbMg7UONr4dq/DPL/TaiTUCHA9Pe/7+GOpIDq6kyAVXcvJ76Lw7N3N/kW55rUeE1pkOUlETg71Gkls68gkndPA==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1781363123; bh=7NySKXX2CxXkuGEEENPzKelmPtKax0NcKnAeDLQc/15=; h=X-Sonic-MF:From:Date:Subject:To:From:Subject; b=mdYa+jV/49b6witvlL34QVuDAyptiRY0+0S3MHQaPzPX0goYina9XjpeVW60iVCj3W0xW19ON2WxxJxG0fsjmziqdwyvOZNWAcUMfqmC3ZLM+eQ3Sq5BsJw8atX4aoCCQf8STCY7Us6NWdH+QZmEX4wccOCekUo8fNYlyRVOD40V+QUOTm+zYwD4T9XtDsxXRNxGAaPeprV1Xwm2dLSHKVYgQjNdttVEkraWMQ2FllZpLmqkd1BjA8z4WJIqNwKRh9HlMzQkqgnWuxepeADe0XiGQeeeomhXDw12LfUDcUNbyvn93EYv8TFreSpVtkH1zE0uw2i+LGcybce2gU/qdw==
+X-YMail-OSG: wt6TXIsVM1lAuzANS3_TZkmq9lUhJwYLTh8WPg2udK5056B0229Oh7vB9slh7zH
+ g0xkvuPgI.NuwYAeF0NiiUCeyLjasvmRu.avM8FzP.4O4.CGxYZbz4BJRKZRnnOdqDcrt3tUta33
+ evKNLD_IyBHRQZSzhQauz4fwHmSCAXCExhZHbAE_wSHUOZfCSa1EPUGcAegUosQCBR0g7TqMenn1
+ kgvw7QFtz1WEk4fbgNL5Mw77t5ND9EB3esE2iHVW.2xnvZ_WO66Z9BDtcsYmn_Ik0PiFJltPFAW5
+ aGXUWHhOCUN1STabDp7TQvm497FeWuFBpJJXKyqqqiFuDOF4fL0SZZ1d2Gv.fFQ5EbZGe5eHdq.G
+ iFTQ7OHUn9cevNvDJfr8s8IH8_ekB1YSOpLvx0KnreuYVqiGiJpfU5sDWj.XNW45aFBQZZ8HqWyz
+ qHyPwVz7OxL9egDnP6xWYW7cOYP6KwDvfB7gu3VT5mXFKVj12c1aMWvtorYSru.EAf0aaIp_Az9E
+ GXZ4YA1.iTE9rWXRhLDEoUJJFvSQHEVNapt_Nkm3Qb.Ap9FPrDzizM6EdhwmTChPkcUqrmjt00LY
+ 2vLxuol5YzkBc3.JJOKuoRd63DlnXh2wgDVk_7sRKIb4WGqQerDzui2oHI.Co3qTuXC1WAlk62fF
+ 4mCqTBh5M4K8TCATWPt_HjVH6vFgS9BhlP1bV72CXNByr_rGE6UzVtLILfcIHPjxmIyoFVWLg7tS
+ iCRjph7SvDmk2DTeOqGpWxYwGBaluUFf9IQTcUKVdM3JwdTsL0NauQkyvxjfLBtC44j17YARnnTC
+ XhLYriaDznQtkrSwdHuifFlWwh5PQc0aargPrFnf0Hcp4sWCa3NmmMy9pME2DiXfgOc1S_woY2D8
+ Y0_1ZfCScTbDHzo8UhGaaaW7yJMb2cHZFdnDusArriTI0eSQD8HgjRfDBNMY9MZC5L9YRsJ4mBct
+ t4AD80lGEL8pY8jsdGY_60Uip3GncygYpckINo1hk2ndLdj9X6dSvc5ZSh63Gaz5T5qfYxxGgyAO
+ UXlk9gpG95SYvjvuWPAvK0ZtS0ut7_WxsWEhT7KagR7r5f0PkLm5XDAk5vIQNLldbwHGwVt.XaDI
+ PePrEqFe1jO_dRacFMr93utMeX6Ti2fRLPjcae_lfIdaqyh_qnQTMD.MxgsAPE_v7kqajGrjttf7
+ h19Q0qAq8tgCrkl3BxkzyWQB2WAV5cmL_Nu96kfxgpLhMdDheGlyIvk2X4J6a8PqRs.Gnfk9HCOr
+ cnaRdHI3HIHkdEXu2YJ1EM74b36x7dsRs0lU1J.5DxowuE90VkM3eDjY.OypPYI..lRxkf4I0bQl
+ d4dEH5fPhvenZ9nyBSEJKQMgh.mPWhM8lWP_lt6u5Hh2_2gTCVTu0S7ma3L1pRoaARo3VkiEI7VY
+ BuMSnzDAC25WEtGKsMhC0NdkBlE5CxBVnJp4jY0aGX.bP3gIEg31FHPSLg16qw48yHZHHsmONLD1
+ YHS0p0l.hlZ86ufF.vgZmBU1K1UQqEl10hMBybyGJfKJe5mlj9OxwqR5HVQGyGIJ.ew9I3AvIg.P
+ CCMpRzf6QkH0oVTQX2cIox_mrEBx3tmYmEPkrQ2D2ezWM1Ga3No9zOugia37zRwRzfiYpOiAUw6C
+ fKrANj0eM3ihDxqiT6gkMmm8DkgWFI00zhjBqQ.FOAGRAsUgujkEIziDiWC.51RaPZFu_vZAxy96
+ lmTnqm_y8QIAyQFUZV._OluEREqTsNoXWvd3gExIXwrI1OVIfBh4x7WsoxgbMVHVo47jlnouc8vw
+ _wgfTpC00kdVfWTfuFo8G6I1yhv5NV0M0qCc2EIEJf6Krljd5WvdHntvxUZCDDLlj1C09vmedHC4
+ bNPmP021_PX6qCQfNT1uy7gqSAy4rsUSrm_SSXeeymM_a1QoJICTOaC2OSrkx4S1eo7ipRTTJ3.e
+ bCJuUzU5lRw1X.OXzssPtHWBLln0CwrwkMLTgrVlIysJLJUOFkSRKjT6g9ACXLOXIIME4bD2Wgk0
+ nVJBP.IlKcdxXCXg4ThrOSwSrQlzAlniiXLh4qet64erqTk7YUYFkyciNmWt3MDrX5yL__70I7je
+ OrFICcDrOIjFn4pKQtsXjzpu4dIKwGdmawyNKB2Xl6uNomqVdTVvMPeyG4WyzWEGrBEz.4_kbbrM
+ ej_cnmaKUfkV5r5Ccdu4U8mSbd1LKl92iyr08_BRhlOp2pv57j2J_KltJ24CbkxrlVn51lTf2qwM
+ kTpO73F0.w5Wc4dFrMJMrLpRf_l4iDbvmuQ2.nm9VLlmq_mivsPhP_6oQKVXtC97P4cQnWfO9PJA
+ LAHiB_Hvvn8Teta.sQkyLZya2fkqIKVWTQ958p9oV9t7wDiVvAkfhoH16dcqx95M-
+X-Sonic-MF: <ryan_kkdirt@yahoo.com>
+X-Sonic-ID: b60fac45-0d41-4247-b187-1e33ed2b227b
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic306.consmr.mail.ne1.yahoo.com with HTTP; Sat, 13 Jun 2026 15:05:23 +0000
+Received: by hermes--production-ne1-57485d68c4-wdz9x (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 9740f28bd1e5ca757f6b7eda8cbdc244;
+          Sat, 13 Jun 2026 15:03:21 +0000 (UTC)
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+From: Ryan Potter <ryan_kkdirt@yahoo.com>
+Date: Sat, 13 Jun 2026 10:03:10 -0500
+Subject: 19054 and 19058 style
+Message-ID: <99D0A9B0-1B69-47B6-B3C7-0D3D961B2651@yahoo.com>
+To: Ryan Pena <ryan@coastaltestinglabs.com>,
+ Joe Gallardo <joe@coastaltestinglabs.com>
+X-Mailer: iPhone Mail (23F77)
+References: <99D0A9B0-1B69-47B6-B3C7-0D3D961B2651.ref@yahoo.com>
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|sonic306-48.consmr.mail.ne1.yahoo.com|66.163.189.110|sonic306-48.consmr.mail.ne1.yahoo.com|0|0|0|new|ugly|0|0|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass dkim_verified clean dmarc_policy_allow allow
+X-Mailprotector-Score: 0
+X-Mailprotector-IP-Analysis: 0, 66.163.189.110, Ugly c=0 p=0 Source New
+X-Mailprotector-Scan-Diagnostics: 0-0-0-4709-c
+X-Mailprotector-ID: 34f99bb8-d866-4397-8e09-7d3e571bd47b
+X-Mailprotector-Timestamp: K+MczQnr/XWAiLMnWvFlqw==
+Return-Path: ryan_kkdirt@yahoo.com
+X-MS-Exchange-Organization-ExpirationStartTime: 13 Jun 2026 15:06:05.4708
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 0979ea10-f25a-4813-c3bc-08dec95d4aa5
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB59:EE_|PH3PPF9648957D9:EE_|CH3PR22MB4276:EE_
+X-MS-Exchange-Organization-AuthSource: BL6PEPF0001AB59.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 0979ea10-f25a-4813-c3bc-08dec95d4aa5
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7093399015|57112099003|5063699009|19002099009|16102099003|18002099003;
+X-Forefront-Antispam-Report: CIP:52.0.74.211;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-3.inbound.emailservice.io;PTR:transport-3.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(82310400026)(7093399015)(57112099003)(5063699009)(19002099009)(16102099003)(18002099003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Jun 2026 15:06:05.4236
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0979ea10-f25a-4813-c3bc-08dec95d4aa5
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB59.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH3PPF9648957D9
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.8466295
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0113.000
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?6gEKNCkEVJs9mnsZ7mjv5Rns9ApRzJzy/iYhmG5Io9oDKgQKRnzArVpF4W28?=
+ =?us-ascii?Q?7dSZc8rHyLhjKua5r32dkJUIuWN2zcpI/c9m/Xt29yXP/FNPkmynZH3aep1P?=
+ =?us-ascii?Q?ldzQlmfdVSZ7VCBfSXLTfLyYJ2URuLyfBHmfIQSDa+R/qRRN5eNsEgXa/RWc?=
+ =?us-ascii?Q?7UepyWWAfj9huXYZtnLkZ/ud7ttf1UTn6XXtfVElmHKzzGTm2+g937USXTl0?=
+ =?us-ascii?Q?/BP4hmT59z22WLDwCCEROpelG3O1GBSZ/Ic5nma+eKLQOcH2dNtVudsZbztF?=
+ =?us-ascii?Q?EoO5Kq0PGE72kA66wq8IzqJh9RxV9I5R49vAwYq8W++lYJyGdk8RalEWjs1n?=
+ =?us-ascii?Q?gVX19fV+PTOUdc4eKSkndVOmocMGjupCyuO0h1kwLWr6z4qcAbilBJqbUGGV?=
+ =?us-ascii?Q?r3KAdp3dpy9DidkKZ0P3pEXb74Pb8ul3G8tPG8b7ogUmVFl2CNi4aNgUdZ11?=
+ =?us-ascii?Q?8EYiXQ2FaJKLSSS4epnHmz8IKWP2xM175vMpUeHOJ/G4z+hVrQDGBLMHHV6U?=
+ =?us-ascii?Q?jqunoiGouxQn7eMoSEcBhrjLSsi6iQdkkHEeTC+5YAxfMsQStrqBET2DLG9k?=
+ =?us-ascii?Q?9HO8Ktooe38ij/TsuJ8tcQaQ75cVAxnwVJlXajywnkEmUWYPZ5MymXmi63CL?=
+ =?us-ascii?Q?xloy1O61zIUhN4QvzBihzII1HBlJTgFq2NLZzNTweMz8Dtssc/ody0gH9ZAn?=
+ =?us-ascii?Q?aQaN63lSgdaX/0xl1AF5pHoBizFX+Pky2Ws6aI8tHBcp/sjbFGTQRqFLJ3/U?=
+ =?us-ascii?Q?hXwLKYiKNQUwksrE4fQQYV97pjyu3QXBDTeglukLr/0hrXbIHfEnTLGFc3vw?=
+ =?us-ascii?Q?yDe5EB5Yt4hcE21HSxBArmyff5jXihjdxPqepwthfBFK9alPkk8FI9TXji/S?=
+ =?us-ascii?Q?aiFSe6JBTa1oa1FcU2OensClUMQ81E4HM8hHTVPS3CmZrLzfjEdYep7Ckfj7?=
+ =?us-ascii?Q?H3CWpT5Vqt+WD9Sn0EelCdojXVDwFCE2Z6DGE9Vi9jm7m7wztEAutduNrf3y?=
+ =?us-ascii?Q?S3Lq2sdryw6xJtwxbyJsU/R71nbLQ7kJx6lOj86LiY2N+UtCGQpaIX25GwI4?=
+ =?us-ascii?Q?jNQ2jxkgLjRQdGa0ipECgMJOKccfw4pXCak6h93/TgUheSsiaoTv6Dreb/6Q?=
+ =?us-ascii?Q?/a7i+QmSZAlDPBq7YX8fMj3dAQbATpA0cUglRonUtI3xi8nsLjfjS0XX6QD8?=
+ =?us-ascii?Q?ck6nuEaWrmpH/fQuDMHkEHrvj5Ael6qPQ4VcMYX2yw+XuncVWI3g30Ajljf6?=
+ =?us-ascii?Q?kUymEb4WOl0XIB1DZkCEZ9IDh1blx5oBOQhjJMQtGyQSUPg4v11XvInOKnFf?=
+ =?us-ascii?Q?7DxsWa7/Yh4HTXc/a65W/qooASp1SnUShLgutHP0VxH+Eg7BHtMa07qZKn7Q?=
+ =?us-ascii?Q?RArwvhMwCUm4gt305WJayqVSPLJxNYAFaOl6h26LCzh+6gu90Joh52nd1l00?=
+ =?us-ascii?Q?J2hVwk6XKDa/DXUV/n7hWGLyVYq7BQUN5jZBZPa5sA7Lsl8dffv0hAmmy26g?=
+ =?us-ascii?Q?4Cv8d2zF9KqGAGkrnynW98xJ81h6OXwk6c0mTCtdpqIK4YRQvgfe8GDVxGyu?=
+ =?us-ascii?Q?arzSJaPx589Yg6HV4ML8PgRhh8rDmVT+C8GuPd3Lm76ct4/JOwjTDT5ybQQJ?=
+ =?us-ascii?Q?lFddST3zbDynO8PQHW3+W8L+9Ue2BtIxAOcbKwbnB/mPIWJZl382HhZXdMKd?=
+ =?us-ascii?Q?KlInItWKYec89njcNGvCmNgopOXWtzYYlC50PdH+5LP3IzpcJW7eb7BU11Jp?=
+ =?us-ascii?Q?buySpq7QqTNpO8BWWfzm4nWQQr7n6jfLg+wAZWv37wbHwtGsoKn85d5B2hWr?=
+ =?us-ascii?Q?Hi6KqKwqDxY5ABT4l1/oVzgnaOe7Lwal6gEYPZzlwSuX7Po4cOYlpQEPkiLZ?=
+ =?us-ascii?Q?ix7ipp5EdoYeedNXFj4pLSX69+iL3LzWFNFefcEfoRHe6+omXWhUeUC36WC3?=
+ =?us-ascii?Q?BUmr85yciWOh2b7oJZq3k3FiX3EFsUVzngXn8xXwBTc3qJHYPZk3psTgUt/J?=
+ =?us-ascii?Q?ns4TeffBKB0TjabxEsER8CbowKjAk5E9Z5nqR4FBjt6dhWn9pEVfgezaMbKv?=
+ =?us-ascii?Q?bUEwgiaJHprj0fCN0t8LHkHq/Kge4FkBdl1lPplSMQwVtRqyWTMpm4GNzrjO?=
+ =?us-ascii?Q?jsvHhIz8UuM3dj/fhEhSfwN/4MIr94KXL7QD+CKx6BrKrKKqQDIle33JaGft?=
+ =?us-ascii?Q?WjFyPvDfEhW1tG05EzlcwrRuIolzwOb4ivjbDG0tCSlxhLqrdlFnHlGYAQhD?=
+ =?us-ascii?Q?i5Cy8hkXiD1jSvmBd52GuyssDkPkBecL81UvzjXZtM0xNYo5+YANYoKK1ORb?=
+ =?us-ascii?Q?HQk96Qio6ZNcYgT2F2SPB9cvAQ2dwZjpnJmKzTV9lNqk+R7F90b/PqMcswUF?=
+ =?us-ascii?Q?LUKDV7Fp8amQ3wAut8lMIEKX5JcrdXHi7P/dio4mD1g/rDTEpSbYB6jyRuQX?=
+ =?us-ascii?Q?u3M88G+JUcfi2xcBxtBldinQbSQzpALcRy+Kq9ChAglBtjMnFND6TEg+WdCT?=
+ =?us-ascii?Q?nMluHsOgF+iPhrm+4PhnVvZruCl1aCsA9Zoq2QneNUk4amTP0Fi8RudipJ1b?=
+ =?us-ascii?Q?UHxjJWJfCrtV6JPxDCGCxINBDbuRCY94crYTEwi393zBoTKRU5M0Nxgs+S5x?=
+ =?us-ascii?Q?Y5VebR6JsglR8kesG+0/J4ZRIXdLPorUaBdLv40lDny1AMAoddK+n3pg5IK4?=
+ =?us-ascii?Q?p3h2TD1KzxtEI1l2phObbgUth6TEQbHBMh7MBPQiJcwxcSTtstlGUJGCpOnX?=
+ =?us-ascii?Q?kq3vckaSbw=3D=3D?=
+MIME-Version: 1.0
+
+For Lennar in enclave at spring branch crossing. 
+
+3 lifts on both 
+Sent from my iPhone

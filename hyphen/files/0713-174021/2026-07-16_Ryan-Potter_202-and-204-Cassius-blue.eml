@@ -1,0 +1,219 @@
+Received: from SJ2PR22MB3872.namprd22.prod.outlook.com (2603:10b6:a03:4fc::9)
+ by CH3PR22MB4276.namprd22.prod.outlook.com with HTTPS; Thu, 16 Jul 2026
+ 17:30:03 +0000
+Received: from CH0PR03CA0391.namprd03.prod.outlook.com (2603:10b6:610:11b::10)
+ by SJ2PR22MB3872.namprd22.prod.outlook.com (2603:10b6:a03:4fc::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.10; Thu, 16 Jul
+ 2026 17:30:00 +0000
+Received: from CH2PEPF0000009E.namprd02.prod.outlook.com
+ (2603:10b6:610:11b:cafe::6d) by CH0PR03CA0391.outlook.office365.com
+ (2603:10b6:610:11b::10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.223.12 via Frontend
+ Transport; Thu, 16 Jul 2026 17:30:00 +0000
+Authentication-Results: spf=neutral (sender IP is 52.0.31.31)
+ smtp.mailfrom=yahoo.com; dkim=pass (signature was verified)
+ header.d=yahoo.com;dmarc=pass action=none header.from=yahoo.com;compauth=pass
+ reason=100
+Received-SPF: Neutral (protection.outlook.com: 52.0.31.31 is neither permitted
+ nor denied by domain of yahoo.com)
+Received: from transport-2.inbound.emailservice.io (52.0.31.31) by
+ CH2PEPF0000009E.mail.protection.outlook.com (10.167.244.27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.245.5 via Frontend Transport; Thu, 16 Jul 2026 17:29:59 +0000
+Received: from cloudfilter-igate-0c466b55d450fdf19.inbound.emailservice.io (ip-10-4-2-158.ec2.internal [10.4.2.158])
+	by transport-2.inbound.emailservice.io (Postfix) with ESMTPS id 22414A1D74
+	for <ryan@coastaltestinglabs.com>; Thu, 16 Jul 2026 17:29:59 +0000 (UTC)
+Received: from sonic309-21.consmr.mail.ne1.yahoo.com (sonic309-21.consmr.mail.ne1.yahoo.com [66.163.184.147])
+	by cloudfilter-igate-0c466b55d450fdf19.inbound.emailservice.io (Postfix) with ESMTPS id C654F7E21D
+	for <ryan@coastaltestinglabs.com>; Thu, 16 Jul 2026 17:29:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1784222997; bh=WzdacnA4W77roGOc+gS/69h7R1eqm2juBEsr3BXxtyY=; h=From:Subject:Date:References:Cc:In-Reply-To:To:From:Subject:Reply-To; b=VuHMx2l2C6BK8VnxARcfpw3RLnaXrEqT4cHuwKuSs3gtJlYlsntOADhzJiAi7tE+t8Oe7LGxBTOKGLfshcJml+HOGjgpWbxv4x7n3d3hQfFNx3kyGXzl86G50OImTjjQivrmWSZ4G3mVnm/lgorfPBBx3ObkGoa4/gET2qGp8JhNFcbL6wRZbkIH82G7NpN/all8UQagBWc9qqU+ooPTritovf+mxHcoiE1g+HjjPd2cssl7S0blQpPvseqV6o5B+2zfo1eKwNnDxZRFeHc91wTN0O1qbQlTGDgIC1FwOxjadztkxKWNvzGxYw+txBBXXOdBR+c36Qb07MQJ0cuuHg==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1784222997; bh=fkYoDDaCknK1pv8PgUCEijkfcuywc7KPMwDymz69JGK=; h=X-Sonic-MF:From:Subject:Date:To:From:Subject; b=VEVD11B8OZqYBBDGpx1u9y5vNIZ5nvG2lci7II2QHcX3DTQ8PJktFtTyaE1voS8qwPbrX5zfuTVNhqexhf3+ErFPldNu6yprDhvuWl1USWANVGbBIYrRv17bubGw744oJT21QmYXSW9NVxju2D941A+uK/Mq+wwoBcki2kyiXoQxGzukuiNK2rQZOZ0fKWmN6kF7Ax04yxov+8tCq3grB1fN6TTyUpbIAckEMMy1BrV+bn4BeOdh4bCyOqFxK8kTQinyQpbIOh+VJREkv5XDma+Qt+QUOcZdoHvhVgQVAJ69SonnCKbqks5NWo0ct80WnF6P8nEqyqz714wjbp/OKg==
+X-YMail-OSG: KYzWxJ8VM1n8cg.sDnZMsnXox2Vsal5s_LPb0vPOEV_05BharyroqDvIBUDj18.
+ .vQHXZcjVijWg3pdmYLeyqwD3K2pH5CdIRmAXpZBeD4TAQbu6uoo5cGVvrUmUtZk5YPdTUa2uf3r
+ G8v1USmWEFbomib23185yZRwteJ3oJbTiwLwzgSUMC89AQq_6oAeestO9d5ObzVNsI40zM8opi13
+ bNF_O_AVpNnO3qL2KcAM6TBUh5jGuVZ7XTaXJjfz2ywqt7kJ5efLyFUdEk3z7CGaZpCV08mQpCY2
+ .ozSMMKF9g8Rm0qmFVfL2_qw8ZLiO7IlL5j6pdgP0qxBc88L1civs5.YratYgssudIccpAP3hn26
+ JooMyZgLdRvuZ6olbSHomTtp4PAZAKPnHBZiX6Q3U86zmvo0yUxSylL99zRfp2SD03hOGCX9yuup
+ iiVbngo1LKjwB.kg4iVOS3GtOyaOLGmYiMkPlZ488nJyzPewWlNxe_wXOaH3_rPRuhLfQ_cmYdEL
+ nK5Fd1Jjjai9Uteq_espERqZ4VVGZK_u3gWV3F0IPa2t4kd.d.C2Zc.QB0I6F8FYRMkhem1.x.v.
+ mJI.Qw_AR3X_OLgmSIfttD7sVP37y7TBKKaEB9kcegc61Vpek8sILXh0eci6GUb7IYDFc774AFOQ
+ UBvYUR39oXTez5X7BLthHUCzQh4iPNCQg3wFCkvtIxuNIKGUl5MzZxzBQXdwF9CnPAD4_VHQSWgg
+ 3GNISUIeTeY9n.EO2aS3JJaMVZGecyp.7V1.Zhyx5L9W2rrXZxHtrp_GCBwQhhtsZTV2u6mMQOZJ
+ To3yfxRHP8oaGJ0R8shnpUERYWgbOFAgvlZkqytpvOCuWlZ.uD3LWF2U3CHCYqlAjGzARGWdXwp2
+ kdrc6fy1BUyiftMUJmfD6tw8DyEIT07fUWmXdBXSl2SjcgLn4RLW0W_l6iGATdf02s00eZn28Hux
+ TaajTqFFtWsRwt4xzJZnlTyBuTKw3wGZLd2QBx5n0JnW.cOxcZ3q8KQikOQgcSVnC09XVUiZzlqk
+ KycCbkt8nYvtED1KEkJ6HkLoExcn_gTOFjn1__3tdUsmst_WduqS7tssEdUvdUXwJOSP2TnjSq5z
+ SIK5q9LR45QfVMrKZ5tIgwq9EH3vtXITjkc9gwD78Hr..DFl92nFPx20qFW8rMVPPolN.YMlXXmh
+ xL8mrGP3zP4VkcrtHA.YZpxXv2tpdeUrgh1X8feuKgGH2GhTebhF4NytaLF03UvS4BAMv36lFpl_
+ 5WnnWyBG20Ssv_JUTlB3W3SfnnnvuJTfYk.C2TpORnJpjKUgHQkcbo2Sqm8h7sDS2ma9HP9Mmmp.
+ x24LDHYztRvnI6a8ORL_xxmLlRL0f_3oMFv8VfHZqunbxxNR8MXso.9MkfmZ3SzooWpP8q4rqmUL
+ rCr3dacrZa6NFx57ZXQN_VO4UgeRRf40nCSIiPOKcDj4WhtrQto6XmVgmc4rkBDiE.yssOJHZS_0
+ FZMy.P97jMN4db9.eMhoYxAl83wgbP7RG_GPgmCt6n2MJlsL3wtR9oulXqGKuHM0JSa5u_brL5IM
+ VJZiih.DddbBc7cz4fm6U7u08D8IKAl0LXWuLohtq3BXxptayB6Nkucild79M.3RDmJ5zP.nT6VO
+ LgsHPL_8_PlR9ogZoh3Cy6UCfKo8KFbB1HufVyBAvZqZJoSMwKhoIIeHAm5XOmRtOGo2xbPumVUF
+ AnMBdt_LTR_ylLBy9NXJegj8xpYYk2rm.Bqh7BcOW3IvTB7p8J4GERnjtX_MxSAAGDu5l1r4EL_r
+ z3yWxqS0r_grkQ9LaNFb4Rf021xmvhSMK_TOfsnm7DpsT2bd.0aBL80iEDILcGcui_.c4e7QrvY_
+ XGDA2Bav9d8Gu9_pED7jU4Nlhwv6GdVOu0SIgmjKBU7eEExjNJ46B_Xy2AQ897rpL0JMRr_x82e6
+ .5E1fAlYTh0So6BvfxymANnJVnmZLOdWD4Ck5QfyU5vnUDZs0b_335Zy.ce58V0wlz7HKRZdy74L
+ nt9txGeI8UchPyOweHeuVAcHr94moABcywda2DkGfcb7e5MY9udZeQWVC4lYgX2GE4YUv3w0aQGL
+ AD4laR3Dbjg7D9unSySmbh.XR1H4fn2MP8vYzO5UgGjNEXX9Mpkzy38.WVpT4H5lnM.IV6M9v0o.
+ nS9ppNH0NmaM5vrAQ88LbtYdjke4VPdaDmmEE7RlXS9aFRaD5AFYVE5L.FfdnklPHuhS9bktOzKr
+ rjfDwTjDftrbrJpCFjjvXWO4xNfrMQv7NFQbsWGehe_E9ELw2fSmxq2Klim5FMQhpR.0MR9B2
+X-Sonic-MF: <ryan_kkdirt@yahoo.com>
+X-Sonic-ID: 467543a5-f322-461e-a4a0-48cb36da289b
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic309.consmr.mail.ne1.yahoo.com with HTTP; Thu, 16 Jul 2026 17:29:57 +0000
+Received: by hermes--production-ne1-7568ccb994-5b75w (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 0ca75beac7aa7191bc529feb9581043a;
+          Thu, 16 Jul 2026 17:29:55 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+From: Ryan Potter <ryan_kkdirt@yahoo.com>
+Subject: Re: 202 and 204 Cassius blue 
+Date: Thu, 16 Jul 2026 12:27:11 -0500
+Message-ID: <04F8CCB0-2236-4330-82C0-25529640F1D7@yahoo.com>
+References: <CH3PR22MB42766680B6315199CEA1CCAABCFA2@CH3PR22MB4276.namprd22.prod.outlook.com>
+Cc: Joe Gallardo <joe@coastaltestinglabs.com>,
+ Esmeralda Cantu <esmeralda@coastaltestinglabs.com>,
+ Aaron Lewis <aaron.lewis@lennar.com>
+In-Reply-To: <CH3PR22MB42766680B6315199CEA1CCAABCFA2@CH3PR22MB4276.namprd22.prod.outlook.com>
+To: Ryan Pena <ryan@coastaltestinglabs.com>
+X-Mailer: iPhone Mail (23F84)
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|sonic309-21.consmr.mail.ne1.yahoo.com|66.163.184.147|sonic309-21.consmr.mail.ne1.yahoo.com|-0.26087|0.394543|0|normal|ugly|29|17|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass clean dmarc_policy_allow allow
+X-Mailprotector-Score: 0
+X-Mailprotector-IP-Analysis: 0, 66.163.184.147, Ugly c=0.392278 p=-0.2 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-6334-c
+X-Mailprotector-ID: ecc0dd64-1632-4700-85b1-c037849ac6f5
+X-Mailprotector-Timestamp: rnAuHwcVJUyCvPuIVweXF+uiCruBuYcPnpVUHWowJgk=
+Return-Path: ryan_kkdirt@yahoo.com
+X-MS-Exchange-Organization-ExpirationStartTime: 16 Jul 2026 17:29:59.7093
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: c380f89d-8f5b-4c2c-c2bc-08dee35fdcaf
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000009E:EE_|SJ2PR22MB3872:EE_|CH3PR22MB4276:EE_
+X-MS-Exchange-Organization-AuthSource: CH2PEPF0000009E.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: c380f89d-8f5b-4c2c-c2bc-08dee35fdcaf
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|704161411799003|7093399015|82310400026|5063699009|18002099003|16102099003|22082099003|57112099003|19002099009|10067099003;
+X-Forefront-Antispam-Report: CIP:52.0.31.31;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-2.inbound.emailservice.io;PTR:transport-2.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(704161411799003)(7093399015)(82310400026)(5063699009)(18002099003)(16102099003)(22082099003)(57112099003)(19002099009)(10067099003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Jul 2026 17:29:59.3612
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c380f89d-8f5b-4c2c-c2bc-08dee35fdcaf
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009E.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR22MB3872
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:04.2501636
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0223.005
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?c0RUcGFLdWRGSndhcnkxSXo5Q1gxU3dSVThNK2lJOEptaWZZbHhENGdVRWZa?=
+ =?utf-8?B?b1krUkx5bS9SM2U4SlVqdDFnay9IK0piQVZkUXVLcEhCbkxzZlJIZzExNGR4?=
+ =?utf-8?B?eVFIeGpHcVJ2MGM1S3JHY1BHazFmZTlLWE1mVHkyUWVOSU9EYnFvcjNINjlW?=
+ =?utf-8?B?Q2tWVUNzUjNFWitOZkE2bDFqRGs2cGdRMUNyQ3dSeldWTFA1dVVHTDVGdGwy?=
+ =?utf-8?B?VjJiZm1vTWp2dE4vQzVwRGJQVGtDZ3ZuTG9mWis4NEFBSVhnRHpTZFQrd1p0?=
+ =?utf-8?B?UEU4TVBMbDQwbXVuNjBMRjlmRlFDc2VtWWFWWlVELytqamhzT2l6L3lSVTJL?=
+ =?utf-8?B?ajRJMGRtbjg3aENiaE5NeEVWWkJOb1lFRkJJYWhnQkRCSHlZVDg1T05rdXhO?=
+ =?utf-8?B?RFlSdmxsWDJ1VmliR0ZlM2prZHExUlE5SDdZZmRqMWNSRjh0VFhwRUFvYnFP?=
+ =?utf-8?B?aU12MFcvRHlleFRGV0ZHNjBoMFdFZ2Iyb3hXWW15c0FQd25LeEd1eWR6ZVd3?=
+ =?utf-8?B?b0xET2pVSjZRQUREWUZVOW9xanlLSU1YVWJRMEVZYnRtMFo1NE5vQ2U0T0d6?=
+ =?utf-8?B?M2pXc3hZRml0SlFxZkR0Q2F0VUlNdm53emVURXd1aGNzUU1EdXB3RmRQRXJI?=
+ =?utf-8?B?azhBNlRheUtyTFpwaHNLandSZVYrOFRUZTNIeVlEVk5hbHhNR3N1QXhVQWRi?=
+ =?utf-8?B?YXRiY081R0ZZTVhSaTg5SGdxWWNVbzE2bHN6OEhpUHNyUzZ0dkxsTno1TjRX?=
+ =?utf-8?B?TVBRVHdBN28rUnEvRlowbkY1QnNsOU80c1lja3hkaVFUNGp2eExnQ3pIL1Vk?=
+ =?utf-8?B?eXRwaXgxeEJGUU82VVRzVlNaUFJzR3hsU2REeE1lazdQRnlNakdmbEVTcTRj?=
+ =?utf-8?B?K3lQQUdmZStyUXVOUmpLR2NMMEZScEVza3daOG1LM1Nmc1FiYXBYK3NOeVhu?=
+ =?utf-8?B?V0sySmVFT2hhS2RHMVdENlZCUU1ZSEUzUUI1VWY0aGc5c3ZhNzJNaDMxNjhu?=
+ =?utf-8?B?OGcrSG9JUzdDckp3bWIyUEd5cHprY3djb04waXk0a280UjBPdUhHV3pHY1Er?=
+ =?utf-8?B?RDRvWjFZOGN5bCt0U3kzQWJGTTdNWkVhMXEvbWtuOW9TMExBVzBmWHZMLzB3?=
+ =?utf-8?B?RldZUW1VSnBselc2WlZ0NUJTemlERXY1ZEJWOXZLVkRxRDlIeFM4aDhaVlZW?=
+ =?utf-8?B?TjhRdktvS1hSRG5XNVZKQ25zNzhlOWlCdk15NkVVclJ0U1B6V0ZuWDNaK2Vp?=
+ =?utf-8?B?bTV2ZGJLTHdrYkE1bThaQU8wa1licnhzbHRPRmZEZnpsemEyZWZRUk91Z0xp?=
+ =?utf-8?B?cU5oSi9JLzNaN2YxS3VoUGtlZU81MlFaOFM1dDZTU3ZQbk84Z0lwQjgxQjJp?=
+ =?utf-8?B?QS8yUUp6bjNQVXNFL3V1TXRYSU1aOVMwVzFRa0tRcTZQbllMSjQzVEVTa3pZ?=
+ =?utf-8?B?aGdkTCsrSkRFdXBTSHoySStDeVJxSkh2eFlkMjAzMFdOUVlpZGNablJVZDlB?=
+ =?utf-8?B?b0VabFA2ZVpsUm9LclVsaklpNGFVQlVhMGZZRlBtZjI0U2NtQnA4RmJIUG4w?=
+ =?utf-8?B?YmovU3NlTXVVWFRlK2dQL0JZcUFoMDNNcGNTUHRRd01qRDB4Nytlb3VMenpZ?=
+ =?utf-8?B?TXkxZ252QW5CczlqRDRUeXgwMVIrUitqNy9XREVGWWI0U3NPYVpBT1FGUmx3?=
+ =?utf-8?B?NSt4bU10ZzZWaDdtS2tFMWF2ckJFMFkxZGZ2b3cwbUp5RzVZS2t5SG84NXJS?=
+ =?utf-8?B?ZmRzeTVTVi9LMG15UnhsWkxrV3dZU1NNRUxDUzlvQUcyQnVhN2FnQzlrSU1M?=
+ =?utf-8?B?Mm5VQUpVT25nbm1ZSHZKcEhXVmpOcDhlSlhsblRndmdNS3I1clFRbGRiY3Rn?=
+ =?utf-8?B?VTJBS0FSWE5EclVEUHRiUGFmR1hPZVFaVURycmdMRW5UNmFGNmpSdWVNVzU3?=
+ =?utf-8?B?ZUxCbGl4RTk4TkxsNUFDT3VoOUVLdFgwckxnRzMrSTd0a29NWTRYMWVwRXFP?=
+ =?utf-8?B?YnVEQU5ySWpNYjUrRlM3Q1RVUEZiNEtKUmtSaDFUdjY3R1daNzMra3RRclIz?=
+ =?utf-8?B?WGNBY1d0dmFweCtBOUNwR3N2N1EwaVlIaUhHWnFvT1hBRC81dGpyRjIyTURP?=
+ =?utf-8?B?WEZ1cEhWdDhDYXIrSThvbmlyRjBlN2ZXdEVPKzFSd3VUSHhoclBpN3Q0Rk0r?=
+ =?utf-8?B?U3NnZXQ2TWw0aEQyY1hwZVFZNU81eDRVOFRpbXhZcGYwVGptQnJaQUhRSWh2?=
+ =?utf-8?B?WEk1NXNqMDlqS3pKaXNuMXJsMC9FVHVVd05ZWEtlMEdXSGRmYXBMQnp6UzZv?=
+ =?utf-8?B?SFJMdjNXcXBMeEZUWG1aWDdMNndsc29LcEM4YnpkcHhzdzVrSlNzMjZTaitV?=
+ =?utf-8?B?dklYMmU0WXdndmdUTmY0NjNPbFVnUEpWdFNTcFptR3JEN0V1RTFRVVFoeHRO?=
+ =?utf-8?B?OXRMdW4xZWw5NSszb1NORmZrV24zV0Z3NFBlU01leUJTb2g1c29uSnd1V2Y4?=
+ =?utf-8?B?Q1pQZG9oWmZkWjI2L2FTb2NxYnd4NXIvWlhPNXN3dWJ4S2RjeXBYUGFLUDNn?=
+ =?utf-8?B?dnJ4eTZHRDhBbUN5dXRhUndyOWF5Y2lkRk1ZRmJkUENRTHBndkEyNDJOK0kx?=
+ =?utf-8?B?clpvZkQ1cHR2bnhlWHN4WVhWWWdWanI3d0IxdDZYTlMwWlh0cWlEekFCY05v?=
+ =?utf-8?B?ajhON1EyQ1ZPN1lzQThVMCt5aXdtV1QrL2Y2Rm4yMkJwWVBQYkpIeU9ZWGhs?=
+ =?utf-8?B?MndweUswR2xmYWJDNjI2WEl3OWpMc2xhUitTdWZhQjdRdXVjK0NkQ2Jta0lD?=
+ =?utf-8?B?dGFXVFNkdXJXVkhCcXZaT1JLNitpOXBsa1UxTHZaOUgrbjRTejRReWhRVFRF?=
+ =?utf-8?B?UEl1ZWNWdy9FSFRoT2ZoK1dmQzFGeUlDbTRMRFZUdC9DYXdjMkNPaXhvUEJR?=
+ =?utf-8?B?VTlUNkdmNWU1TVRPc0RtUlNGU1I2a2JHVTI5YWhSTkRHVHdrTG12NjhHYyt0?=
+ =?utf-8?B?MFpkWEZkVWNLcTIrSkpLeHFDUVk3YTJabnU4ZzI2NmdBTkVvMnRVTlZsYzR0?=
+ =?utf-8?B?L2J5b2xXQ1pWcTdjdmJKcUlNQXRzNWVaUWROUy82Wm95eGVFZk9VOW5qTlV4?=
+ =?utf-8?Q?VIstMPvL3?=
+MIME-Version: 1.0
+
+Any update on the testing for the other three in this hood=20
+Sent from my iPhone
+
+> On Jul 13, 2026, at 7:01=E2=80=AFAM, Ryan Pena <ryan@coastaltestinglabs.c=
+om> wrote:
+>=20
+> =EF=BB=BFAdded to schedule.
+>=20
+> Thanks,
+>=20
+> Ryan Pena
+> Coastal Testing Laboratories, Inc.
+>=20
+> 1217/1221 Georgia Ave
+> P.O. Box 148
+> Deer Park, Tx  77536
+> Phone #713-477-0121  Fax #713-477-2277
+> Ryan@coastaltestinglabs.com
+> =20
+>         ...........................CONFIDENTIALITY NOTICE................=
+.................
+> =20
+> The information in this email may be confidential and/or privileged. This=
+ email is intended to be reviewed by only the individual or organization na=
+med above. If you are not the intended recipient or an authorized represent=
+ative of the intended recipient, you are hereby notified that any review, d=
+issemination or copying of this email and its attachment, if any, or the in=
+formation contained herein is prohibited. If you received this email in err=
+or please immediately notify the sender by return email and delete this ema=
+il from your system.
+>=20
+> -----Original Message-----
+> From: Ryan Potter <ryan_kkdirt@yahoo.com>
+> Sent: Saturday, July 11, 2026 11:57 AM
+> To: Ryan Pena <ryan@coastaltestinglabs.com>; Joe Gallardo <joe@coastaltes=
+tinglabs.com>
+> Subject: 202 and 204 Cassius blue
+>=20
+> For Lennar in the reserve at Huntsville
+>=20
+> 2 in back
+> 3 in front
+>=20
+> Sent from my iPhone
+

@@ -1,0 +1,237 @@
+Received: from PH3PPF90A3F2C93.namprd22.prod.outlook.com
+ (2603:10b6:518:1::6bd) by CH3PR22MB4276.namprd22.prod.outlook.com with HTTPS;
+ Mon, 6 Jul 2026 19:06:29 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=qL4Ahr7XPuWIGCw+Gkf6eBmvUuL/e6pmhhTXsM1evreXRqI+Zi+Un6cSZw0Yu0k3PYDVdd+PIy8VUJikiP8nlNsTRQuExoCkOJkamGJa/AacJc/v0JGuX1xg+rOCH2k4DiXLHGxajXzQes0u5Bn39nHSBdFLIBgvNk3F0aUOX70/jpgt+LgY5/FaETZfQuco1LoKfJA3RGJrfAJfyre5dOznUSDJ5hrdgmE4j18fieSh7qqSnrmpVS1AVS/WFCj0qAMO8UFEPbXJgWcb7KPZKqtHxQ9cJiZbgOrhoDNnkjtkjjv0JzbtLnEWAnGcUqYsScOuwrgSsRyzNUS2ESZlDw==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=81bVIwMwtFUwXXl73UgVt644iRlIvlWD4ZRaY3TCO1Y=;
+ b=c/QrXTGD8t3bLWdFoAnKsyrcV5HIJJAgHm4BAnEreRcCP9EbKaI4diuzuO/gmvq1lUyo1GLQmIesQ5/RSg4NpW0yrzofmyz2fQTjOGwTZoOS40JlfHxO+/8wpD7YXCUw7ka5d34rjEFydEPPG16I3Je+/bLTFyrbrFnqTAA4X/X0G7AG7paItKhhG18nRA8eZQB0o7FXyM+nHey+Zo9ekal5FaQ/uMkRLTwFIWm+s9Uq7ogZqTUJouksCUx4FTBPMkD6guhimQDIDFjwZwea8EVYZgq3UnTvqxstwIq29WIRsiDG403F19B04eFaWF/SF1QfbjLNm9DES4ReLbAATQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 52.0.31.31) smtp.rcpttodomain=coastaltestinglabs.com
+ smtp.mailfrom=gmail.com; dmarc=pass (p=none sp=quarantine pct=100)
+ action=none header.from=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com; arc=pass (0 oda=0 ltdi=1)
+Received: from BN9PR03CA0690.namprd03.prod.outlook.com (2603:10b6:408:10e::35)
+ by PH3PPF90A3F2C93.namprd22.prod.outlook.com (2603:10b6:518:1::6bd) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.181.13; Mon, 6 Jul
+ 2026 19:06:26 +0000
+Received: from BN3PEPF0000B372.namprd21.prod.outlook.com
+ (2603:10b6:408:10e:cafe::63) by BN9PR03CA0690.outlook.office365.com
+ (2603:10b6:408:10e::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.181.13 via Frontend Transport; Mon, 6
+ Jul 2026 19:06:26 +0000
+Authentication-Results: spf=softfail (sender IP is 52.0.31.31)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ gmail.com discourages use of 52.0.31.31 as permitted sender)
+Received: from transport-2.inbound.emailservice.io (52.0.31.31) by
+ BN3PEPF0000B372.mail.protection.outlook.com (10.167.243.169) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.223.0 via Frontend Transport; Mon, 6 Jul 2026 19:06:25 +0000
+Received: from cloudfilter-igate-new-0aae8e32bc6793ff0.inbound.emailservice.io (ip-10-4-3-250.ec2.internal [10.4.3.250])
+	by transport-2.inbound.emailservice.io (Postfix) with ESMTPS id AA711A5EDD
+	for <ryan@coastaltestinglabs.com>; Mon,  6 Jul 2026 19:06:25 +0000 (UTC)
+Received: from mail-vs1-f49.google.com (mail-vs1-f49.google.com [209.85.217.49])
+	by cloudfilter-igate-new-0aae8e32bc6793ff0.inbound.emailservice.io (Postfix) with ESMTPS id 255A37E25F
+	for <ryan@coastaltestinglabs.com>; Mon,  6 Jul 2026 19:06:12 +0000 (UTC)
+Received: by mail-vs1-f49.google.com with SMTP id ada2fe7eead31-737de525d2eso3187497137.2
+        for <ryan@coastaltestinglabs.com>; Mon, 06 Jul 2026 12:06:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1783364771; cv=none;
+        d=google.com; s=arc-20260327;
+        b=flsJgDEvDd7QLpL5J/6uxIot4MrnPvU9sD+sJF3x/CcfMv0bm2lxUWZcA634gaoFPr
+         fDJzb0cXvUczWc2R2Hd22BdMwaqyfm/ktmqV25hDAgMsMK8yHvQI8oZT1IaKdhh+bUyg
+         SLSocD8FdiIU/mJoLZw8VnLDuc/KCPBMkVH2KKGdOZvqQ0lPJexY5D4+mj95AA4hhq1o
+         LvlQHz9li4z9ZrguFzJlBOMek+dX4yFdJ3gZiJvoJO5Oku7LFQQFT9IyOnBVsZ3QKj1f
+         Jdu2ZGgN51ixS17wZiOwxXHAF2TB8c6PJeqw94xWEnw2Q1yk81yXvVbkih2ZxzHM9vwV
+         E1Rw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=81bVIwMwtFUwXXl73UgVt644iRlIvlWD4ZRaY3TCO1Y=;
+        fh=2qPsP5QdkLwRNvW1EFhhbft/NwqyV8Zddx8mcTV7vNs=;
+        b=P4OS9Sm1v8HzrvWHHeoVpiPaZUD9D5Px1RCXeIGiFMxDkwf6Qk8gMleJ6MCG91fjho
+         q1cDdmk55bB4BdhT/raMj3FG/G1G2lm44/L/mNh06Zp5wNTqIT5Xo5eA299U4o8XlMhe
+         4piRrF2/xyMq3pPBKXKj6EsGkjtf8S9N1ZsvgSgI/M96ObNpzsxRiUSu9Gij7PDNGd6+
+         ICy8GrRgOAmR9AC/1w66g1K10Fnk2bzvmBDCKwcRlPCrFkR3iNJq+M5PKODQ6Pv3MKYs
+         Vcg6o+BVDCdrH955CoFB0V8s62ogqgjBbDKw8VEOH06rxa2tYW7EA72/CF1nviZmobum
+         QraQ==;
+        darn=coastaltestinglabs.com
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20251104; t=1783364771; x=1783969571; darn=coastaltestinglabs.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=81bVIwMwtFUwXXl73UgVt644iRlIvlWD4ZRaY3TCO1Y=;
+        b=liEtIh+Pb2fX7ahczh1U7QX/dED+0gKJLEzdNodgjY6ZmoTo4AXNqB5+U8KUoTttgO
+         EjiJxSE7Q+a4YJOWU8NgyEX4qNFbIn3A8fTEYfBhK2rsly89RWETpLSpBFoB6/jCEqJe
+         dnYDwhJcse6m470lW+mqiwF5rqp/Jt1TWQHrldkEkkmzOsb+94ZJ1t00f1HR4lesitk9
+         DFTF/YoWagcwHA79O19mSFOBoltdpQiemialX7lnQ4T31zoLUfdKxKetPcRqc2oU5JjK
+         7B/Rv5dfeTasOVpgtgDGl+MNS4h4pwOeKJr+MDSAa1T0bBcEamAgyoWv/YJS560VJrk1
+         9dJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20251104; t=1783364771; x=1783969571;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=81bVIwMwtFUwXXl73UgVt644iRlIvlWD4ZRaY3TCO1Y=;
+        b=EV8efL3seANtqXU/WvJ8xO4TEwhbSH/EvakDF0Z4oDYt8Ee758tvocoXyjaGdF7IBM
+         1sTboqpLsq4q95vkukgHHZQaZpTK//oaeKXgKtnb+wfHnT4D+gtY8MH8m3xMItOdWyZy
+         Ye8lUFHiXovmTNRtvYUxYOQaVIjeCl0B8eQeZSUOLPyIqIq8Gl+Tj02+aGdhJV5kAh80
+         N95GAgMxwxB5F5vMQcIaQwmu6U4q5Q6EwYiCy1xU7U8VmzBlIQo6VxVtGws0cHB46Fel
+         ybpx9WwU9gRK8wde+6MdItvUqN9BlMASSonLydDxjlqss2MfZ1xyxcinvJvH+SCd7RTw
+         0LlQ==
+X-Gm-Message-State: AOJu0Yynlxj9fyHF7N3dM1ZnEWhRQtKJX699ufkhjs7sbD6scjtUseux
+	Gg6VwWaXQoQOQ2m59rn68IjI6UgcYdqWmecw7y1tBq/1qCIpi6WDFcy3NuIDc3kc9J17SKWsYUn
+	l9mursJ+/kTLt2iHwSPCP1yzf9lpzlRL7pRpd
+X-Gm-Gg: AfdE7clkEhsg3z1WBUALTa6JQaKPoo2Isfvjn58TLi24jNdaCEzKsU6g9tgrz6oaUNy
+	OPXnLJh8kuZeynUWl8bB6EfioLlCuU4o7B8t2WexFaW+S1JWNd3KrPrxW9SlS1qKD4lmT7bVLuN
+	UphDhQQFBaKICyM5Z1pRm4d5+gcKhpxqDwHtT6FM3Ue6rT3l8/IbgnUFdOX+Uu/NJTd3ApAb+F1
+	2VVfNlciwkKDeKyw4KkCYb/Ng2zx3DjAUqkrBbTi2+WmrwudO/a5GgZFGaTLHUVJB6E8wqYTNXO
+	WdggHDuO0MKGcP7ayd00lJCEdGs0fEjgMq5QLm//KT+PWfowLGDquTJYarGXXno=
+X-Received: by 2002:a05:6102:41a7:b0:739:64ad:bf56 with SMTP id
+ ada2fe7eead31-744b7e912f2mr1065363137.28.1783364771311; Mon, 06 Jul 2026
+ 12:06:11 -0700 (PDT)
+From: Brandi Cook <brandiaplusconstruction17.cc@gmail.com>
+Date: Mon, 6 Jul 2026 14:05:34 -0500
+X-Gm-Features: AVVi8CfJHsGPfFzFcb81feeBJEuU9VF7jq2MhNVqOm0xBTgdiEDCjUKwPCM_Hpc
+Message-ID: <CAJ2h=-n8T5bZ48ZEochygEBTxHCYbV08iK8Y3nSzmAiBw91T+g@mail.gmail.com>
+Subject: pads
+To: Ryan Pena <ryan@coastaltestinglabs.com>, Joe Gallardo <joe@coastaltestinglabs.com>
+Content-Type: multipart/alternative; boundary="000000000000b2f3490655f5f72c"
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mail-vs1-f49.google.com|209.85.217.49|mail-vs1-f49.google.com|-0.217391|0.394543|0|normal|ugly|28|18|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass dkim_verified clean dmarc_policy_allow
+X-Mailprotector-Score: 0
+X-Mailprotector-IP-Analysis: 0, 209.85.217.49, Ugly c=0.392278 p=-0.377778 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-6306-c
+X-Mailprotector-ID: 24819aee-b240-4e67-bced-bd47a2b73221
+X-Mailprotector-Timestamp: 3sscS4t5Ag+W7QzUsWptLw==
+Return-Path: brandiaplusconstruction17.cc@gmail.com
+X-MS-Exchange-Organization-ExpirationStartTime: 06 Jul 2026 19:06:25.9804
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 2b11304c-4db4-4814-29f4-08dedb91ad71
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B372:EE_|PH3PPF90A3F2C93:EE_|CH3PR22MB4276:EE_
+X-MS-Exchange-Organization-AuthSource: BN3PEPF0000B372.namprd21.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 2b11304c-4db4-4814-29f4-08dedb91ad71
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|704162311799003|7093399015|82310400026|5063699009|19002099009|8096899003|18002099003|16102099003|57112099003;
+X-Forefront-Antispam-Report: CIP:52.0.31.31;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-2.inbound.emailservice.io;PTR:transport-2.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(704162311799003)(7093399015)(82310400026)(5063699009)(19002099009)(8096899003)(18002099003)(16102099003)(57112099003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Jul 2026 19:06:25.9269
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b11304c-4db4-4814-29f4-08dedb91ad71
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B372.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH3PPF90A3F2C93
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.5430992
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0181.008
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?OEZVQklMUmNXNmhZbmswMDNBUUlDK2J4bVNPQjNubVZzWlU1SGc1YnlFQWhm?=
+ =?utf-8?B?dkhFSDBVaEFRcm9qeXpYbWd3SVcvRWJkOERWKzFzWjdJNGtHSlRuRCtVeW5l?=
+ =?utf-8?B?b0FRQlF3bjhqSVF3L1FTK0N2MC81c3gyc2pBKzI1KzlKR0tVNE5VS1owQjNq?=
+ =?utf-8?B?aG1yeXg1TVJ4aTUvb1NrYUU0ODlVaFJDWDlqRndwdHp1V1lVUkZ6ZldLakFj?=
+ =?utf-8?B?RTRMU3FqREJqSG5tRGVGWHY0Q3lGUnpuaHVxL1Z4dS8vZFhNd1NDRUhsUGFL?=
+ =?utf-8?B?YXUySlJYRmZjSjVFZ1lIL0xvdDdnU1IveVZGeVlYU3Vpd3B2SjNXOG1JSE5Q?=
+ =?utf-8?B?cW5wZVk5UVR2a2ZPVE5INUdtZVdFMnE4cHgwZFNkWk4wWXppbkxjQnJrQTBt?=
+ =?utf-8?B?V1Z5WTNxY3JsODAweXJkUWRhRVNYVE1uam00dU5pRS9IRFowZHArY0FaanZt?=
+ =?utf-8?B?TmVQajhDaWRDZXd3ZHlOSlF1cTRQQlVjWENRalBxa0swamd6bVUzRk5mcVh6?=
+ =?utf-8?B?V1BUYmg4aVY0R0lyek1IeFZaNHp4ZVhWbFI0ZEVxenFNdXFRODlRNDRHNjVU?=
+ =?utf-8?B?TUJUL1VKN1cyRjhIRzVoK0MrM3BqZWxDTzVCQkNtcnNFV3pGKzg5TGNNVTR5?=
+ =?utf-8?B?dS9OK25ZWnhLVm9kMTVXbEs0NDZMcTh5UTR0VG4xZjBZOCtTenFQemxzMUQ3?=
+ =?utf-8?B?ZHJsT0tuY3I0aDN6Um5YZTdzelE3THU2b1BFNnhLOGExcVhYUW9VQXM5eWFt?=
+ =?utf-8?B?dUFpUENPWmQzeElVQWw2bXIzaC9QM1NkUmxVVDZpZlp5WTQzVmQ2NjVHV3F2?=
+ =?utf-8?B?Rm5YUHRyRVpsLzB4NXB2VG9tLy8wdnU1Y0x3UkFaUys1N3FXbmJLVEpKblFz?=
+ =?utf-8?B?Z01VbXZ2SllIZldpZXEyM2tMYTdPWW9ISS9hTDlBdkR2c1pFb1B3WERpU3Vr?=
+ =?utf-8?B?bWFrT3NNSU83THNZZ2ZwUjBUUmpPdDl2MmhVeXd2aS9GeW1CY3dyUXRXWHN1?=
+ =?utf-8?B?TEJNdmlRNkVwejgxb3Jma2lTRHpxYkpjRDR2YmFqdGJIem1FT0ZiTDNUMklq?=
+ =?utf-8?B?a0Z1aXhLbit4Sm1NSGNyUGEyTjhSUFFjMStROTl0SzBHV1ZtMW8vaVVhLzhw?=
+ =?utf-8?B?NkpCVjVBTmUweGIyUHZkRkhJcVRpT2x0eXpzZFloUXlvOSs5OGpBdDVXRXdW?=
+ =?utf-8?B?NE4yb05hU0pTcXRGQWtsOENiOFpDQ0RlOXk2WUZZamNTYmc0TExVWGt6NGRl?=
+ =?utf-8?B?RWhPMHYySkN5UFJnQlI4Q1l3K0hmN0lkeGIvQ09rcnU5WG95bWM5TXdUeUxk?=
+ =?utf-8?B?ZkwwVEx2dTU4QUt5RUJHTVV5TXQ1U0dadGpyS1h2QWtiZVBPYXN3OW5EMWtU?=
+ =?utf-8?B?b3NxdDJWa05JbjkyeHVLTmFSTFhaTVpFR0E3TDd1bHpZTXhtMUJkc01VekUv?=
+ =?utf-8?B?cTNFUlNrUUZITnZPeUFxaHA5N0UxcGFXTGF1U0hUZlUzMVRDWUFtZERuN1dF?=
+ =?utf-8?B?ME1RNm9lVUR4dzVqRThMT1lTb3pTL255Rm1BbGFnQzlrd0IzL1Y2eFlPSGNM?=
+ =?utf-8?B?TEtkN1JKd2lvRXpwK1JWT01RbFluZTh0OTBaQ3lsR2VYR2lCaDhSK2hmSU5s?=
+ =?utf-8?B?dmZ0cGN6eHhyMThaKzNUbXR5OHAvRTY2U3d5U0c2SFFrR3NrR0xNeEdCTlVu?=
+ =?utf-8?B?WTVLbGdnMVQ2OXVoUVZXMDZaa0pmS0orVDNqTURYbUdJbEdheDliSjRiWHdQ?=
+ =?utf-8?B?Sk9WZTJ5bVA5T25HRkhwVE15K1ZERWhBN2hYaWU4ZUxQSXdHZFZtVWFRVGt3?=
+ =?utf-8?B?Qk92NzNrTW1lMFBIVHF0bll4L3QrTlhTZ2I0ditvRVh0a2FUZ1VxZzFRZmdk?=
+ =?utf-8?B?ZTYrVEFvaCttR2NsdlJDVXNwTXJzNWRocVV2aHlrM0ZLd055K25oR09oVXph?=
+ =?utf-8?B?dThZWTh6NTJ1VXJXcDBhaGtOc25QU1NUZEZRN2dLQWI3WjM2b3gySzF1UEZI?=
+ =?utf-8?B?aDFBZ1Avd1I0bjJ2MDNTZlVoZDI0eExqN2ZYdDBXdDBhUTlvRnRQSEoxU2lQ?=
+ =?utf-8?B?ODg3YkZBaGpoRUV0bXYzR2U0SDJhS1RNQ0Z2eDMyNTdpMU9LbTd0REwzdGtG?=
+ =?utf-8?B?Q2hlbXZoZ2ZUd1JoY0hoaDgwcXBxUzA3REpheVdVY3E0SlpBWHI4UVI1bEtm?=
+ =?utf-8?B?RTdxUHczM1pIczRlYjlvME55RUJDYmFEcjlnRXZTVXYwVDc1NDVRYU4yRkNu?=
+ =?utf-8?B?NkREVTRwSXIwYm8wQUVBT1VSWVpaSVg1cGZGV21tMEw3MGZURkhOYXNUZHVt?=
+ =?utf-8?B?SlcwNW42Vm9rSGZqQTJHa09Rcnk4OTREbnB3dUtaUmV6YWxqRG9rcVc0L3pN?=
+ =?utf-8?B?Sk1LcW1md280VTR3UktCVUxZMjBhY1hNSzJNMXVHeFNJdXFWRVlCdTJVSEo5?=
+ =?utf-8?B?aDdKcGxCLzlrOGt3QTNQT2VxemI5WjE3b2JvT3F1UU1VU090dUhDYzRTVi9x?=
+ =?utf-8?B?SE11bEh5czY5WXJFbmtkWldiTmRSVjhwL0RJUEZGdWpxb2t1ODFUVnhQbk5R?=
+ =?utf-8?B?TGMzMUtsc0hVbjhIcEpXVlJNUjZObkJwSUNhbUFvUGRxSVRneWpKSjMxcUo4?=
+ =?utf-8?B?UncvMXJhRmhMUG14UlRJN2VoYTd2UWIvNm9ZVk5qOXZ6bi95ZytmWm85Z1R0?=
+ =?utf-8?B?WEs0UjY2ZjI2b1pwaldkRmVKMVhVOGV4OGI3SXRKUVc2TWVNSzNReVpzMmI5?=
+ =?utf-8?B?MElMc2N4Y29rVUJHdFhJREppa0l1THVEVGVUZ2l2bTRuOS9zeUtYZTBWRElw?=
+ =?utf-8?B?ZmQwZVkwZGY4cVZhWGh4THZEMWNFc1ladXp2UHlYTGt3dVJmM1BtbWZHSkRr?=
+ =?utf-8?B?eTlXM0NnOU1pdDltWkZ3c3ZwMThxK0lnY0R5dEl4QWdOdmpaelNjeGZXTkhR?=
+ =?utf-8?B?ZkZQNFlKT0EvUllVTWhUSG5RVmdMSlJCSWgrVnNqbGdSWVdxQlJBWlB0MWs0?=
+ =?utf-8?B?TlVUYU5CYWtOZUtNUjZUYy9RMlozT3doOE91MDZzMlYwYzhpeGVDT2k5RFJT?=
+ =?utf-8?B?cGlBWTFTQlFyZlR0Uk5xc3l2WmNwd2FDSXo4MmkzVTh0S1Q2ZEpIOTA0L1pQ?=
+ =?utf-8?B?TWNhWVE4Nk14c1l5K2NuYnJveVJTTFlYMHgrL0J6dVU0ak1SNnlTYnpTZUtj?=
+ =?utf-8?Q?GdvBMnY=3D?=
+MIME-Version: 1.0
+
+--000000000000b2f3490655f5f72c
+Content-Type: text/plain; charset="UTF-8"
+
+Builder: Lennar
+Neighborhood: Villages of Greystone
+
+17226 Cymbal ln- 3 lifts
+
+17230 Cymbal- 3 lifts
+
+17234 Cymbal- 3 lifts
+
+17238 Cymbal- 3 lifts
+
+*A Plus Construction Holdings, LLC*
+Brandi Cook
+Office Manager
+Office:(979) 488-1082
+Email: brandiaplusconstruction17.cc@gmail.com
+Address: PO Box 146 Hempstead Tx, 77445
+
+--000000000000b2f3490655f5f72c
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv dir=3D"ltr"><div><div>Builder: Lennar</div><div>Neighborhood: Villages o=
+f Greystone</div><div><br></div><div>17226 Cymbal ln- 3 lifts</div></div><d=
+iv><br></div><div>17230 Cymbal- 3 lifts</div><div><br></div><div>17234 Cymb=
+al- 3 lifts</div><div><br></div><div>17238 Cymbal- 3 lifts</div><div><br></=
+div><div><div dir=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gmail=
+_signature"><div dir=3D"ltr"><b>A Plus Construction Holdings, LLC</b><div>B=
+randi Cook&nbsp;</div><div>Office Manager&nbsp;</div><div>Office:(979) 488-=
+1082</div><div>Email:&nbsp;<a href=3D"mailto:brandiaplusconstruction17.cc@g=
+mail.com" target=3D"_blank">brandiaplusconstruction17.cc@gmail.com</a></div=
+><div>Address: PO Box 146 Hempstead Tx, 77445&nbsp;</div></div></div></div>=
+</div>
+
+--000000000000b2f3490655f5f72c--

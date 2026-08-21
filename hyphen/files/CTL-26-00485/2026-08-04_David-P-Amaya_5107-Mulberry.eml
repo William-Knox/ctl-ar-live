@@ -1,0 +1,469 @@
+Received: from SA1PR22MB5503.namprd22.prod.outlook.com (2603:10b6:806:3e5::7)
+ by CH3PR22MB4276.namprd22.prod.outlook.com with HTTPS; Tue, 4 Aug 2026
+ 16:42:42 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=JzgiivGisrIKU6RNaXDV9UA6pfRq3WiLKNwAS7lH6LFkY/7Pal2G+nHceKfU9oViPwfV6biD2SHr03QwjSb5Agj0D1uGvQ30YO3goQVjlEhIZT2MkWXeRT9Ms8Z51KOsBaJO+q+kOq1STz+v5f/NgXQsATgczfrWscVMVEOXZ6idVvsGX/HIs/7UNZqX4txZTmAcQQoCjUHetHiR0fcJ3pklp4DaT0TzGk7YnKmQjlxoUIUGQfpiSRLEKaIlm8AvROkQRLVz9q3MOGCjbL74VLh/K5d2umpBIMAJSswiDYlw6tigaUlLDJ3fOE6X4UXo6qsAgJqTlWgDYqlmgGnk4A==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4NQ1yERvjb3Oqlsv4lrb7v1SKUTkIAnQdALNNyAM2Jo=;
+ b=SPjo6tdeerI1UDJHrOUXmFpPb3eyHgZVTCHHdi9VYHBpsqQlKHje/usyZIPfb8CtD41YwLdeFpudmTMbIAliiy7PT0fCCIOc9m6y2jhVU3lv8Q1Ckz4wlZIMoh10r3V2Qvaib/b9D/+iWYN6jIRKsulJ1+u2HPR+pOe3VAdqcsB7snHTMMLPVjIIIQwQqjKKgyzaC5XFdISBmLar8G98zMif4Wj2vMF8FXxB1F0Q/gYz0R/ahEpYHdg7AeAuvj0ZNVkW6mAmVshBGoxTqEdKf9UVt+PWroTvmw6zwJO3IpoIcnDKMCrtdbkArSl/Rkmm+nIS2INbQIp+xEX2KIQwuA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
+ 52.0.31.31) smtp.rcpttodomain=coastaltestinglabs.com
+ smtp.mailfrom=coventryhomes.com; dmarc=pass (p=quarantine sp=quarantine
+ pct=100) action=none header.from=coventryhomes.com; dkim=pass (signature was
+ verified) header.d=coventryhomes.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=coventryhomes.com]
+ dkim=[1,1,header.d=coventryhomes.com]
+ dmarc=[1,1,header.from=coventryhomes.com])
+Received: from SJ0PR03CA0019.namprd03.prod.outlook.com (2603:10b6:a03:33a::24)
+ by SA1PR22MB5503.namprd22.prod.outlook.com (2603:10b6:806:3e5::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.16; Tue, 4 Aug
+ 2026 16:42:38 +0000
+Received: from SJ1PEPF000023D2.namprd02.prod.outlook.com
+ (2603:10b6:a03:33a:cafe::81) by SJ0PR03CA0019.outlook.office365.com
+ (2603:10b6:a03:33a::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.15 via Frontend Transport; Tue, 4
+ Aug 2026 16:42:37 +0000
+Authentication-Results: spf=fail (sender IP is 52.0.31.31)
+ smtp.mailfrom=coventryhomes.com; dkim=pass (signature was verified)
+ header.d=coventryhomes.com;dmarc=pass action=none
+ header.from=coventryhomes.com;compauth=pass reason=100
+Received-SPF: Fail (protection.outlook.com: domain of coventryhomes.com does
+ not designate 52.0.31.31 as permitted sender)
+ receiver=protection.outlook.com; client-ip=52.0.31.31;
+ helo=transport-2.inbound.emailservice.io;
+Received: from transport-2.inbound.emailservice.io (52.0.31.31) by
+ SJ1PEPF000023D2.mail.protection.outlook.com (10.167.244.9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.292.8 via Frontend Transport; Tue, 4 Aug 2026 16:42:37 +0000
+Received: from cloudfilter-igate-08ac1f8eccf7ee29f.inbound.emailservice.io (ip-10-4-2-243.ec2.internal [10.4.2.243])
+	by transport-2.inbound.emailservice.io (Postfix) with ESMTPS id BF32BA0A35;
+	Tue,  4 Aug 2026 16:42:36 +0000 (UTC)
+Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11022073.outbound.protection.outlook.com [40.107.209.73])
+	by cloudfilter-igate-08ac1f8eccf7ee29f.inbound.emailservice.io (Postfix) with ESMTPS id D0E2B7E22E;
+	Tue,  4 Aug 2026 16:42:35 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Eeo+HmHtQyi9PGVNN3oGn03GjyxJ9bG0VLxdbAGjDn0GA/arIqaOtgu6093k42nOljKsdi7WD1axwRDmbqE5+DC11Z4tLiusVELQ7WzFC+gdlvxwwve0DEWS6CL+O6HufbGubHfWQQi/xo/dOgv1qnTLnNdKnIP8naSw3MbgkY+431a7zKPAAqyI+GpPxOIrCIWzcejXaBnv8FLJKaYNlT1GwQ6vxoLhE/61ui1gndkI7pQp9jPEo8v1gefFfYLhZMvH/2h5M1j2k+VqmQtcMXOUFABoFdWOxMy6CdNx+87Mlh2NINHQ+ueAAGTPBjJg29w/wztHrS3iZjmQVnob5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4NQ1yERvjb3Oqlsv4lrb7v1SKUTkIAnQdALNNyAM2Jo=;
+ b=OdM1NgwE7DyVN8JdfBhx9hrTxd/B5CNdvACmtDOd8Ckq6bCIZIIIqXUaykXuIpBKaBlJwpCo5+yXgczNTLs+SVFjKa4fL12/+yFg3k1VJoFuXKUvwmJ1hsGX4F/9H6Z7ykXDpQSWRJE3Waepd0yK8uCj1zi3U2u9ZDxYMHzz7Yx1fd+EqL0IpM0jFgndc2Zt9PVACZIwe3WZISPRNJjczbgIxtG5yPZGTgyaU5fUeRUyOdraRnQmBVOfkdto1IarPoIRjKOOi1CHwO68bmbUM4Fcnwu8wDUn4S1GhX27UJ25diM6+oWDk9yXpDOQqOBV47EJZARqkgY3LYuUxAv7sA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=coventryhomes.com; dmarc=pass action=none
+ header.from=coventryhomes.com; dkim=pass header.d=coventryhomes.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=coventryhomes.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4NQ1yERvjb3Oqlsv4lrb7v1SKUTkIAnQdALNNyAM2Jo=;
+ b=FLTyyVQs8hzLFyiK/gCX5zzq/QZrk36mwPg/lpUufHJklyudofOUK66oxAhd6ceoOv0vZDSoF2zYA7sRDYwgiVz/dTaF6XMDPgTaMQlGKsgI/mdM2Yj/lv7bM+5f9eyDabkc01nI8uqzP+FwYPz41NjxO2fBthC/tXeTiedZBHmaVShgAzL6Jk4344drb70q6BimQrQK6RDo9QfZSchaMNsJGgSbSqLrRthu4xNv3dA5oqC0KQKVUX1C9If6op6nC6PJ6PNjbCRw5ZMOy9hqjCZywyHAYDe3vnnboGxX7i92I1TscEywpPRRVBLdWcQQ+1Nk2HrF0GDZTt2oNdExyA==
+Received: from CH0PR17MB6933.namprd17.prod.outlook.com (2603:10b6:610:193::7)
+ by DS0PR17MB6941.namprd17.prod.outlook.com (2603:10b6:8:15d::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.292.16; Tue, 4 Aug
+ 2026 16:42:31 +0000
+Received: from CH0PR17MB6933.namprd17.prod.outlook.com
+ ([fe80::cc8b:3df:eeae:202f]) by CH0PR17MB6933.namprd17.prod.outlook.com
+ ([fe80::cc8b:3df:eeae:202f%5]) with mapi id 15.21.0292.013; Tue, 4 Aug 2026
+ 16:42:28 +0000
+From: "David P. Amaya" <david.p.amaya@coventryhomes.com>
+To: Joe Gallardo <joe@coastaltestinglabs.com>, Ryan Pena
+	<ryan@coastaltestinglabs.com>
+Subject: 5107 Mulberry
+Thread-Topic: 5107 Mulberry
+Thread-Index: AQHdJDAtQTNdt5/grUul9InDQLj3KQ==
+Date: Tue, 4 Aug 2026 16:42:27 +0000
+Message-ID: <CH0PR17MB69334B294C28A1A6C3CED1E5BCD42@CH0PR17MB6933.namprd17.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-reactions: allow
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=coventryhomes.com;
+x-ms-traffictypediagnostic: CH0PR17MB6933:EE_|DS0PR17MB6941:EE_|SJ1PEPF000023D2:EE_|SA1PR22MB5503:EE_|CH3PR22MB4276:EE_
+X-MS-Office365-Filtering-Correlation-Id: 53850221-a333-4641-13d5-08def247648b
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|10070799003|366016|1800799024|69100299015|7049299003|23010399003|3109299003|18002099003|55112099003|11063799006|56012099006|8096899003|13003099007|38070700021|10067099003;
+X-Microsoft-Antispam-Message-Info-Original: PmPBlxYNjotlPrnUz6zomzV5E5oC+PM6SxeJM/QHhlHSa8FYwC0Qh2fBFzF06lBl+87KqgIbKGyU6OiMOKhWJwPDBRUCDrK0/uQ0iWizmNXfGEr/nuRHCtxmPK22QwkDD3ByV9rDiG/z2CNkN1GjVA9I1z8/8UFwBcooWSS+cMwR5jciTNCP1HJ4v+9hNfvHb8MXlYQjkSpSq/UwBJhscVYghbO9hgtJ/wA/Jnc874f5OjHTNQh0dbPJbFc5LilBs4XxUGeBwqVTyuET/qWPziu9VWCNf6wjSKlU39lNqH+f+9Nic5hWXNQGHBM3aFDrEQ/QZXkzsk0POjYatnKHmPjcKnnL1UnBP+WBtquv1b+yBvgAXtwQhaTtFTbdHgbzk61+no1wWX88KfQjJrq0ZY/+/JziSFewYC1w+2wngeO1i4egrnEQWHUfubWzhwvG6/AqJv6P5OsX12+40JlfpLWnARMyP/O8KpGw+YhJ3MHfZedok8Abi5wdsidsXQg00n/qpVO0s7qzz5EDVw7AuStcnQMRGqk8wSU84t+qDjGKzHD3/Rq43rSveeUNYg7laTJqQ1JBEmlHdZu0TgwXhKWzthqwzYMfKNip+sktvQ+pAYabGop4i2xwgNJVb230OBVECFBbHPzEflrCTqzFUJLwnEzQb2qwJ+tDIdwk1uE=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR17MB6933.namprd17.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(10070799003)(366016)(1800799024)(69100299015)(7049299003)(23010399003)(3109299003)(18002099003)(55112099003)(11063799006)(56012099006)(8096899003)(13003099007)(38070700021)(10067099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-Original-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-Original-0: =?us-ascii?Q?DQiS6mPB2k5tt5DQysPcAPiSCq+GbK2C0/QSfGscp9lhgdpeRV2L7TBrSnjI?=
+ =?us-ascii?Q?n8bUHu4m4hsR1xCRJFHQZ50BRtrJWYaMH3nNibyNXiXDO72lAI5LWLDGAHSv?=
+ =?us-ascii?Q?feEZmnwI9Dv5xEW3R5WWT0g5h9lalfA1SvJPuizojmeBb6XiDKzQiCBFLIzv?=
+ =?us-ascii?Q?QED9mOHfmw4TyoOXZPokv0fTTueD+IySICEJHa9ygD7/XefnHGPV65/QfbR9?=
+ =?us-ascii?Q?wDJ7fs88cclGPHWZcVvt9yeaCW2X2fu60Dt3wXWDm04cs2SbUTvs4hC/lwx6?=
+ =?us-ascii?Q?FCabn3dwgaozyxXvWp18TyJbcbwPlGv1WjN2B6ijLw97Ev5KnP9QGWMmR+nU?=
+ =?us-ascii?Q?Ft2rRYzu75Z+3QtVFkqr58i3Pyx2k/dRNhPaZmcUyUv5SeTjemoyFW5Wx0tc?=
+ =?us-ascii?Q?qzLtaF6CZdjnnUOxgmyaw5uOief/A1+6iIlSvbxCzDXEecbob+EqowjOskug?=
+ =?us-ascii?Q?vf18jmKXoxQA1acxAF+7vPxofXg/WHz7OwO8+a5RlSnJykPiAb8Yr8wbEjDh?=
+ =?us-ascii?Q?G0tWuKS2XaS4AIuc0NBnYqHNjLhXvIc4utclA9ex9ou/1iQ4N2KI+5PubUew?=
+ =?us-ascii?Q?TYGf9MbQaqqUHIK+PEbBhVIyiw58sODxZ+6VwEBA5cgshBr2X05Kr234uYVa?=
+ =?us-ascii?Q?kJKe0hlZgf7TBscHA0QdthcIQX0bPNldt70zLzpMfDaRryKA8xtNVQyCtA4C?=
+ =?us-ascii?Q?G+K8MVxKCynfxV5J4VIg20hsJjnS1V0AKNT2NR9NchK2U76jBkg0+e7dEE/f?=
+ =?us-ascii?Q?fgsniKhuQ5w+Qo5F0f/7vbgaf1096pzDoxrud68xOP34MdKtjr7A6q2Yo4Dj?=
+ =?us-ascii?Q?9PYB7OYr+P+ztsnh7v657/QeC7MZWJHC7bXs8XMW3iYeCcz1wAetGKcqKy6Q?=
+ =?us-ascii?Q?kWEanHYSuYfw9m+SR0NtslX1urmuJYyNdG3A9aWrMmqZAkZ/U2l1CRtR94MW?=
+ =?us-ascii?Q?APs6zssr1civp73/vnNz0Vn2Q1YD7x1xFyYtZ4w8S03HA68fSkjL/eEvBJph?=
+ =?us-ascii?Q?lPu0UQBVI3ItAsqcHRpKwcmmC9FAJi3ArvOHkY/DzycDT2QcjS9lCTdtw10w?=
+ =?us-ascii?Q?o15SPh12PpdkrnrkGOJNp1DuZUMWEEU9GTGhWhTQVexbwN4kb/YYsu/Na2JF?=
+ =?us-ascii?Q?aKBPJSLdoicoBBZHsCLHT39+6Z3AR4LmoP7kzgqyQwwBZfsZvSYWTHo9sMjc?=
+ =?us-ascii?Q?jfiztf5tWFTx7iHE1tfsNC5xkwzOl1Nbb9u20ZrzkoDSa5raYcWA5JLnKIFs?=
+ =?us-ascii?Q?0snLaXFQsheinTi0sCpjwJYHi7ED0nRo5Sc6oR5nTNlopLngLW3vNZF8M/yQ?=
+ =?us-ascii?Q?MMNCFIQn5HtV6dkB4yP53BM3gdBrObrHs/VBc9gV2HUI613joQFHpr/e+Rc2?=
+ =?us-ascii?Q?OtWMhPMC1imH5CGHonupMSQxBYYMpdXBEbpdCORUBebT2x6BlcoxQAQeQcEV?=
+ =?us-ascii?Q?gbfCb/XVNQJBoUO3lQPzMbgvKkQDiiy2ErvoSX/NSgjXzOf/2IN5BGNpIbyI?=
+ =?us-ascii?Q?2gKQaUiFZsWab9PVQZxbrJM1I3LDbEw4yAl1WNdx+0kMzaR6biUusLyEIJsc?=
+ =?us-ascii?Q?CK5CChF54gEbIBuOTNxBZLsJeEf6x4D+3twbtZNYuiw34nZFffaFN/heQarl?=
+ =?us-ascii?Q?6bJeIuYuOKYxIQxd2att5Whk3nKM8VKcJkeCpEBnsaolgXZRPblk+gI7Srzg?=
+ =?us-ascii?Q?CJz6Wry5zFWdcEsWhwRPDr/BPD2aXBctFx6xCGwXeReVoh+3JqCaIKsEmpSa?=
+ =?us-ascii?Q?UeV2aBuLOGZHtrZ1jpGRIwdXu+ncyV7qX/qdk0TbovF05hl1z9SoQw7t3Lkk?=
+X-MS-Exchange-AntiSpam-MessageData-Original-1: DvPlnoFVtgujLA==
+Content-Type: multipart/alternative;
+	boundary="_000_CH0PR17MB69334B294C28A1A6C3CED1E5BCD42CH0PR17MB6933namp_"
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR17MB6941
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mail-westus3azon11022073.outbound.protection.outlook.com|40.107.209.73|PH8PR06CU001.outbound.protection.outlook.com|-0.317073|0.382685|0|normal|ugly|27|14|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass clean dmarc_policy_allow
+X-Mailprotector-Score: 1833708:0 1833714:0
+X-Mailprotector-IP-Analysis: 0, 40.107.209.73, Ugly c=0.434822 p=-0.323529 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-22252-c
+X-Mailprotector-ID: 669ea070-a10b-45c3-beb5-ee03aab3a4fa
+X-Mailprotector-Timestamp: SJx+Iq4oUvEFrdjxb7Xl5E5F7UK1BMt8b/D+PQ7FMR4=
+Return-Path: david.p.amaya@coventryhomes.com
+X-MS-Exchange-Organization-ExpirationStartTime: 04 Aug 2026 16:42:37.6625
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 53850221-a333-4641-13d5-08def247648b
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: SJ1PEPF000023D2.namprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource: SJ1PEPF000023D2.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs: b9854e47-4513-4c35-a06f-08def2475ecf
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|704162111799003|69100299015|82310400026|1032899013|35042699022|7149299003|3109299003|7049299003|57112099003|16102099003|18003699003|2066899003|8096899003|13003099007|19002099009|10067099003|19071099006|5063699009;
+X-Forefront-Antispam-Report: CIP:52.0.31.31;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-2.inbound.emailservice.io;PTR:transport-2.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(704162111799003)(69100299015)(82310400026)(1032899013)(35042699022)(7149299003)(3109299003)(7049299003)(57112099003)(16102099003)(18003699003)(2066899003)(8096899003)(13003099007)(19002099009)(10067099003)(19071099006)(5063699009);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Aug 2026 16:42:37.4211
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 53850221-a333-4641-13d5-08def247648b
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF000023D2.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR22MB5503
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:04.6257717
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0270.016
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?q5aewoZDyiLjt/Nk9qV4E0R30D8HlDSzoXCRFfBVDo0RhGnp8hzXnNT+Ih8Q?=
+ =?us-ascii?Q?m4ildVh7mckpgeaVgxu8oWhW7KIY3GGkm7/aSebP7OL4YsrjEsNrUJfWHecg?=
+ =?us-ascii?Q?BDrH0G70rFuMKl3eQqDQO4zf9L8wp56SZJBzD06kJD5ySCS4RuDSD1q3Ca38?=
+ =?us-ascii?Q?NV9lyVnzg6ysh7SQ6dOAGrcu6XEvVThcFpWnCJzkg6m9QFCWrhq3VJWKP5W+?=
+ =?us-ascii?Q?xVTGjfbF5WOpydra3ijPWpl07cfXIX7TWBs8BOXggCqeLhywcpAAUOiDFd8d?=
+ =?us-ascii?Q?lmjMVJ7IOlnR4qzff8Qy+DowmD9ofWFtKZY4Iji/8dpYMub7oMCtRBe+4/+x?=
+ =?us-ascii?Q?arKmFB4XccbnV8phC/TaiAyvCPho6z5EV4z+ACsPWSBpzvGOgePZmA3JcXKe?=
+ =?us-ascii?Q?p1U12mwu59+uQTlHM8bMVcneRaVKUSxo6j5pJurciX+qPtAR/qzbxexXJuss?=
+ =?us-ascii?Q?2Ac8c73bGF06guavLdNPHQfX6DYna7y+x1Du0D2XRu7Ux3XyLriCK3Qc8DE3?=
+ =?us-ascii?Q?h7AMe9A15nCD8cQptrSLdeRHAi7ss2yBv+KH/19Kwlr42/Omjk5AoHsTr549?=
+ =?us-ascii?Q?H+Qjbt8kEhTlYEtHD612vrTBYPVfjkps1ABHBycq4NpBDpDj8gzfx47e9JXa?=
+ =?us-ascii?Q?5SOk1k2dQMFHZowOhNPsmw836+hLB4b6h19DTU+IO/TTyQhoRT1MefaCJlKM?=
+ =?us-ascii?Q?zAQvA4BXWJofIaVE534GYBF3jvNNV3a71iMcm/FfctrT1dY8z/AUODdWn1QH?=
+ =?us-ascii?Q?W9WBjBbUiXf42z4AriyTfHQpArfRRoYH1BOYLDF+lTwYctciEDQPEpnezFUc?=
+ =?us-ascii?Q?wcQ+rmCtY45B4OFKqj3CSe77iaLY0w5l7qEPsDyU2pxbsKRsK4Vx0JURTnnZ?=
+ =?us-ascii?Q?5L1JsVg4aOK7rFsIGe3arSrFcYctMxWAAiaN9VyeTU9kRt7KSl510VBQ8yH3?=
+ =?us-ascii?Q?qcpMyKYhh7qK7d1E74Bkk0t6o/7H/bxZ+AS/yqQDjFosl7PojcD08p60MOIn?=
+ =?us-ascii?Q?N+EyCWQCvUw7ZdFDf0iLS8dknzZWMSGcJkEwNb0C4INcFS11Gl81CdCECk+C?=
+ =?us-ascii?Q?j4SL5pRaXkGmdBCJalbi3ca2U7K6+/g9jNwFlkFfDrxzJLXp12pwLKqERYQN?=
+ =?us-ascii?Q?R21g+fiYFrzFiiSoyrlU2uYXKa3XXW2e8mKmF52x5S9Ubn/9TQwrICbKnnya?=
+ =?us-ascii?Q?COHeErxT9v++0D5Yfl8blx6uIzzZwATW6XF+37zA+clVby5eSS7tLzq2a440?=
+ =?us-ascii?Q?+GGjk7SJgnlNWPo7BzlFC0pKpOWswNzy8lSGFNK0bLUWD7iKrUH3XpfbZASi?=
+ =?us-ascii?Q?B0v1CehSkatPk9jPwP08IZfJUw1weE1bAbi1cUnxe54filbhejwD+2QPCNvn?=
+ =?us-ascii?Q?o2OzJcxU3/yfmAcnfEiRePTEZ44a38pTmq0d5CAT1DwDkMsTHZfGKYHfr9OQ?=
+ =?us-ascii?Q?0Y1LQLn7Q44Z7LurZ8cBYsgo+9XnJdnkt03heeFPt/bh7HvcqeZNraD3x5fO?=
+ =?us-ascii?Q?CeiIxb7wzneRiWhNAZOfHW1oC3OV55UMisW+MNaIftIBgYXXe7xNcSNql+3z?=
+ =?us-ascii?Q?0J/T9yTvO2PnesjDjxRjyGqBL+AofsEcy/KP1/3NZI0fHXaukLjmQKlaqbJI?=
+ =?us-ascii?Q?//Tbkg5BaLnKMXDHUOmEgbihxLa+SB3Yev99I1JMEkJ4bQS0dBO9HChiWFYU?=
+ =?us-ascii?Q?AfUAtjfFJy/BrTapccbelhh96ovA7k3OCqJ9YRDN55YO1MTMor1h+4YmC8pI?=
+ =?us-ascii?Q?vS59ItudBwxvtCGNFLPxVy1yyi+fgI+8sxwJi+xB2vBJB3M65UctDtVmOfs9?=
+ =?us-ascii?Q?uQwawytCVVNVetmOtU1IstRTbQ8bYwpYuoa9f0m2SrKwYolVMGib3f+6F7XQ?=
+ =?us-ascii?Q?Tyhl+xghNEWpmvtpau0x3udiFOyTVXxBHrAEvem6RHtvirCpLpSiUqIaEg1O?=
+ =?us-ascii?Q?BkkyTY1W7mowPKqqJ42OTjeynfECw8UgtfkhLU5cRnkfrckz7D0ve6XJOCXo?=
+ =?us-ascii?Q?LddHXWfF96ssujOEuMnxt8MAwihhcvq5JzXmQP2CwKBWmDhL1KmbWAeD3lX6?=
+ =?us-ascii?Q?qFQXxUQlKrZ1vieM6Ux4/pRp/HJxignAIfwY/Sv0RLcHfhruXedIhu1r2xPl?=
+ =?us-ascii?Q?RpSzE5ts3s/IRoXJ8Gg6vdNJg/ZwLdXTaUrux8t/6Qzkccyb1NVEcoSlk/66?=
+ =?us-ascii?Q?yAZkR5qXvJBk9G7Rg4rp5I10zfjM4vJHYZrPA5NAaGoYvyzTtMtdv5N/xCWr?=
+ =?us-ascii?Q?CnFJIR8uUQKOLQMsVgMj3vHa6Sd3HEsvqoxvKTvrK2AHCbJK4FLUkYSmXdwQ?=
+ =?us-ascii?Q?hek+hK5o/JfnutXXOcezfl3aKxcVg+6bvxml1i5GSz+nXg=3D=3D?=
+MIME-Version: 1.0
+
+--_000_CH0PR17MB69334B294C28A1A6C3CED1E5BCD42CH0PR17MB6933namp_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Please schedule compaction test
+
+[https://static.dreamfindershomes.com/dreamfindershomes/images/img_signatur=
+e_coventry_boty.png?v=3Dd5f567c]<https://www.coventryhomes.com/builder-of-t=
+he-year/>
+David Amaya
+CM-Pomona
+Coventry Homes
+NYSE: "DFH"
+
+a: 4710 Mulberry Shrubs Ln Manvel, TX 77578
+m: 832-257-0832<tel:832-257-0832>
+e: David.p.amaya@coventryhomes.com<mailto:David.p.amaya@coventryhomes.com>
+w: www.coventryhomes.com<https://www.coventryhomes.com/>
+
+
+[Facebook]<https://www.facebook.com/coventryhomestx/>
+
+[LinkedIn]<https://www.linkedin.com/company/coventryhomes/>
+
+[Pinterest]<https://www.pinterest.com/coventryhomestx/>
+
+[Houzz]<https://www.houzz.com/professionals/home-builders/coventry-homes-bu=
+ilt-around-you-pfvwus-pf~562555551>
+
+[Instagram]<https://www.instagram.com/coventryhomes/>
+
+[YouTube]<https://www.youtube.com/user/coventryhomestx/>
+
+
+--_000_CH0PR17MB69334B294C28A1A6C3CED1E5BCD42CH0PR17MB6933namp_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+</head>
+<body>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+Please schedule compaction test</div>
+<div id=3D"ms-outlook-mobile-body-separator-line" data-applydefaultfontstyl=
+es=3D"true" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system=
+, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt;" dir=3D"ltr">
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt;" dir=3D"ltr">
+<br>
+</div>
+</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" id=
+=3D"ms-outlook-mobile-signature">
+<table id=3D"signature" cellspacing=3D"0" cellpadding=3D"0" style=3D"text-a=
+lign: left; border-width: medium; border-style: none; border-color: current=
+color; width: 600px; table-layout: fixed; color: rgb(33, 37, 41); box-sizin=
+g: border-box; border-collapse: collapse; border-spacing: 0px;">
+<tbody>
+<tr>
+<td style=3D"text-align: center; border-width: medium; border-style: none; =
+border-color: currentcolor; padding-right: 20px; vertical-align: middle; wi=
+dth: 240px; box-sizing: border-box;">
+<span style=3D"font-family: &quot;Lato Light&quot;, sans-serif; font-size: =
+12pt; color: rgb(33, 37, 41); font-weight: 300;"><a href=3D"https://www.cov=
+entryhomes.com/builder-of-the-year/" class=3D"logolink" style=3D"text-decor=
+ation: none;"><img src=3D"https://static.dreamfindershomes.com/dreamfinders=
+homes/images/img_signature_coventry_boty.png?v=3Dd5f567c" tabindex=3D"0" wi=
+dth=3D"220" style=3D"width: 220px; height: auto; max-width: 100%; margin-ri=
+ght: auto; margin-left: auto; box-sizing: border-box; display: block; verti=
+cal-align: middle;"></a></span></td>
+<td style=3D"text-align: left; border-width: 1px; border-style: solid; bord=
+er-color: white white white rgb(102, 102, 102); padding-left: 9px; vertical=
+-align: middle; width: 360px; box-sizing: border-box;">
+<table cellspacing=3D"0" cellpadding=3D"0" style=3D"text-align: left; borde=
+r-width: 1px; border-style: solid; border-color: white; width: 350.34375px;=
+ box-sizing: border-box; border-collapse: collapse; border-spacing: 0px;">
+<tbody>
+<tr>
+<td style=3D"text-align: left; border-width: 1px; border-style: solid; bord=
+er-color: white; vertical-align: top; width: 0px; box-sizing: border-box;">
+</td>
+<td style=3D"text-align: left; line-height: 1.2; border-width: 1px; border-=
+style: solid; border-color: white; vertical-align: top; width: 347.765625px=
+; height: 78.65625px; box-sizing: border-box;">
+<div style=3D"text-align: left; line-height: 1.2; font-family: Arial, sans-=
+serif;">
+<span style=3D"font-size: 18px; color: rgb(21, 50, 77);"><b>David Amaya&nbs=
+p;</b></span><span style=3D"font-size: 12pt; color: rgb(33, 37, 41); font-w=
+eight: 300;"><br>
+</span><span style=3D"font-size: 12px; color: rgb(102, 102, 102); font-weig=
+ht: 300;">CM-Pomona&nbsp;</span><span style=3D"font-size: 12pt; color: rgb(=
+33, 37, 41); font-weight: 300;"><br>
+</span><span style=3D"font-size: 12px; color: rgb(102, 102, 102); font-weig=
+ht: 300;">Coventry Homes</span><span style=3D"font-size: 12pt; color: rgb(3=
+3, 37, 41); font-weight: 300;"><br>
+</span><span style=3D"font-size: 12px; color: rgb(102, 102, 102); font-weig=
+ht: 300;">NYSE: &quot;DFH&quot;</span></div>
+</td>
+</tr>
+<tr>
+<td colspan=3D"2" style=3D"text-align: left; line-height: 10px; border-widt=
+h: 1px; border-style: solid; border-color: white; width: 349.703125px; heig=
+ht: 10px; box-sizing: border-box;">
+<div style=3D"text-align: left; line-height: 10px; font-family: &quot;Lato =
+Light&quot;, sans-serif; font-size: 1px; color: rgb(33, 37, 41);">
+<span style=3D"font-weight: 300;">&nbsp;</span></div>
+</td>
+</tr>
+<tr>
+<td colspan=3D"2" style=3D"text-align: left; line-height: 1.2; border-width=
+: 1px; border-style: solid; border-color: white; width: 349.703125px; heigh=
+t: 140.65625px; box-sizing: border-box;">
+<div style=3D"text-align: left; line-height: 1.2; font-family: Arial, sans-=
+serif;">
+<span style=3D"font-size: 12px; color: rgb(0, 40, 86);"><b>a:</b></span><sp=
+an style=3D"font-size: 12px; color: rgb(102, 102, 102); font-weight: 300;">=
+&nbsp;<u>4710 Mulberry Shrubs Ln Manvel, TX 77578</u></span><span style=3D"=
+font-size: 12pt; color: rgb(33, 37, 41); font-weight: 300;"><br>
+</span><span style=3D"font-size: 12px; color: rgb(0, 40, 86);"><b>m:</b></s=
+pan><span style=3D"font-size: 12pt; color: rgb(33, 37, 41); font-weight: 30=
+0;">&nbsp;</span><span style=3D"font-size: 12px; color: rgb(102, 102, 102);=
+ font-weight: 300;"><a href=3D"tel:832-257-0832" class=3D"phone-cell" style=
+=3D"color: rgb(102, 102, 102);"><u>832-257-0832</u></a></span><span style=
+=3D"font-size: 12pt; color: rgb(33, 37, 41); font-weight: 300;"><br>
+</span><span style=3D"font-size: 12px; color: rgb(0, 40, 86);"><b>e:</b></s=
+pan><span style=3D"font-size: 12pt; color: rgb(33, 37, 41); font-weight: 30=
+0;">&nbsp;</span><span style=3D"font-size: 12px; color: rgb(102, 102, 102);=
+ font-weight: 300;"><a href=3D"mailto:David.p.amaya@coventryhomes.com" clas=
+s=3D"email" style=3D"color: rgb(102, 102, 102);"><u>David.p.amaya@coventryh=
+omes.com</u></a></span><span style=3D"font-size: 12pt; color: rgb(33, 37, 4=
+1); font-weight: 300;"><br>
+</span><span style=3D"font-size: 12px; color: rgb(0, 40, 86);"><b>w:</b></s=
+pan><span style=3D"font-size: 12pt; color: rgb(33, 37, 41); font-weight: 30=
+0;">&nbsp;</span><span style=3D"font-size: 12px; color: rgb(102, 102, 102);=
+ font-weight: 300;"><a href=3D"https://www.coventryhomes.com/" class=3D"web=
+site" style=3D"color: rgb(102, 102, 102);"><u>www.coventryhomes.com</u></a>=
+</span><span style=3D"font-size: 12pt; color: rgb(33, 37, 41); font-weight:=
+ 300;"><br>
+<br>
+</span></div>
+<table id=3D"coventry-social" style=3D"text-align: left; line-height: 1.2; =
+box-sizing: border-box; border-collapse: collapse; border-spacing: 0px;">
+<tbody>
+<tr>
+<td style=3D"text-align: left; line-height: 1.2; border-width: medium; bord=
+er-style: none; border-color: currentcolor; padding-right: 1px; padding-bot=
+tom: 1px; padding-left: 1px; box-sizing: border-box;">
+<table cellspacing=3D"0" cellpadding=3D"0" style=3D"text-align: left; line-=
+height: 1.2; box-sizing: border-box; border-collapse: collapse; border-spac=
+ing: 0px;">
+<tbody>
+<tr>
+<td dir=3D"ltr" style=3D"text-align: left; line-height: 1.2; border-width: =
+medium; border-style: none; border-color: currentcolor; padding-right: 4px;=
+ width: 28px; height: 24px; box-sizing: border-box;">
+<p dir=3D"ltr" style=3D"text-align: left; line-height: 1.2; margin: 0px;"><=
+span style=3D"font-family: Arial, sans-serif; font-size: 12pt; color: rgb(0=
+, 123, 255);"><a href=3D"https://www.facebook.com/coventryhomestx/" style=
+=3D"color: rgb(0, 123, 255); text-decoration: none; margin-top: 0px; margin=
+-bottom: 0px;"><img src=3D"https://static.dreamfindershomes.com/dreamfinder=
+shomes/images/fb.png?v=3D4320298" alt=3D"Facebook" width=3D"24" height=3D"2=
+4" style=3D"width: 24px; height: 24px; max-width: 100%; margin-top: 0px; ma=
+rgin-bottom: 0px; box-sizing: border-box; display: block; vertical-align: m=
+iddle;"></a></span></p>
+</td>
+<td dir=3D"ltr" style=3D"text-align: left; line-height: 1.2; border-width: =
+medium; border-style: none; border-color: currentcolor; padding-right: 4px;=
+ width: 28px; height: 24px; box-sizing: border-box;">
+<p dir=3D"ltr" style=3D"text-align: left; line-height: 1.2; margin: 0px;"><=
+span style=3D"font-family: Arial, sans-serif; font-size: 12pt; color: rgb(0=
+, 123, 255);"><a href=3D"https://www.linkedin.com/company/coventryhomes/" s=
+tyle=3D"color: rgb(0, 123, 255); text-decoration: none; margin-top: 0px; ma=
+rgin-bottom: 0px;"><img src=3D"https://static.dreamfindershomes.com/dreamfi=
+ndershomes/images/linkedin.png?v=3D556be89" alt=3D"LinkedIn" width=3D"24" h=
+eight=3D"24" style=3D"width: 24px; height: 24px; max-width: 100%; margin-to=
+p: 0px; margin-bottom: 0px; box-sizing: border-box; display: block; vertica=
+l-align: middle;"></a></span></p>
+</td>
+<td dir=3D"ltr" style=3D"text-align: left; line-height: 1.2; border-width: =
+medium; border-style: none; border-color: currentcolor; padding-right: 4px;=
+ width: 28px; height: 24px; box-sizing: border-box;">
+<p dir=3D"ltr" style=3D"text-align: left; line-height: 1.2; margin: 0px;"><=
+span style=3D"font-family: Arial, sans-serif; font-size: 12pt; color: rgb(0=
+, 123, 255);"><a href=3D"https://www.pinterest.com/coventryhomestx/" style=
+=3D"color: rgb(0, 123, 255); text-decoration: none; margin-top: 0px; margin=
+-bottom: 0px;"><img src=3D"https://static.dreamfindershomes.com/dreamfinder=
+shomes/images/pinterest.png?v=3Deb55703" alt=3D"Pinterest" width=3D"24" hei=
+ght=3D"24" style=3D"width: 24px; height: 24px; max-width: 100%; margin-top:=
+ 0px; margin-bottom: 0px; box-sizing: border-box; display: block; vertical-=
+align: middle;"></a></span></p>
+</td>
+<td dir=3D"ltr" style=3D"text-align: left; line-height: 1.2; border-width: =
+medium; border-style: none; border-color: currentcolor; padding-right: 4px;=
+ width: 28px; height: 24px; box-sizing: border-box;">
+<p dir=3D"ltr" style=3D"text-align: left; line-height: 1.2; margin: 0px;"><=
+span style=3D"font-family: Arial, sans-serif; font-size: 12pt; color: rgb(0=
+, 123, 255);"><a href=3D"https://www.houzz.com/professionals/home-builders/=
+coventry-homes-built-around-you-pfvwus-pf~562555551" style=3D"color: rgb(0,=
+ 123, 255); text-decoration: none; margin-top: 0px; margin-bottom: 0px;"><i=
+mg src=3D"https://static.dreamfindershomes.com/dreamfindershomes/images/hou=
+zz.png?v=3Df41eaa4" alt=3D"Houzz" width=3D"24" height=3D"24" style=3D"width=
+: 24px; height: 24px; max-width: 100%; margin-top: 0px; margin-bottom: 0px;=
+ box-sizing: border-box; display: block; vertical-align: middle;"></a></spa=
+n></p>
+</td>
+<td dir=3D"ltr" style=3D"text-align: left; line-height: 1.2; border-width: =
+medium; border-style: none; border-color: currentcolor; padding-right: 4px;=
+ width: 28px; height: 24px; box-sizing: border-box;">
+<p dir=3D"ltr" style=3D"text-align: left; line-height: 1.2; margin: 0px;"><=
+span style=3D"font-family: Arial, sans-serif; font-size: 12pt; color: rgb(0=
+, 123, 255);"><a href=3D"https://www.instagram.com/coventryhomes/" style=3D=
+"color: rgb(0, 123, 255); text-decoration: none; margin-top: 0px; margin-bo=
+ttom: 0px;"><img src=3D"https://static.dreamfindershomes.com/dreamfindersho=
+mes/images/insta.png?v=3D0bcec58" alt=3D"Instagram" width=3D"24" height=3D"=
+24" style=3D"width: 24px; height: 24px; max-width: 100%; margin-top: 0px; m=
+argin-bottom: 0px; box-sizing: border-box; display: block; vertical-align: =
+middle;"></a></span></p>
+</td>
+<td dir=3D"ltr" style=3D"text-align: left; line-height: 1.2; border-width: =
+medium; border-style: none; border-color: currentcolor; padding-right: 4px;=
+ width: 28px; height: 24px; box-sizing: border-box;">
+<p dir=3D"ltr" style=3D"text-align: left; line-height: 1.2; margin: 0px;"><=
+span style=3D"font-family: Arial, sans-serif; font-size: 12pt; color: rgb(0=
+, 123, 255);"><a href=3D"https://www.youtube.com/user/coventryhomestx/" sty=
+le=3D"color: rgb(0, 123, 255); text-decoration: none; margin-top: 0px; marg=
+in-bottom: 0px;"><img src=3D"https://static.dreamfindershomes.com/dreamfind=
+ershomes/images/youtube.png?v=3D61ec0d8" alt=3D"YouTube" width=3D"24" heigh=
+t=3D"24" style=3D"width: 24px; height: 24px; max-width: 100%; margin-top: 0=
+px; margin-bottom: 0px; box-sizing: border-box; display: block; vertical-al=
+ign: middle;"></a></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+<br>
+</div>
+</div>
+</body>
+</html>
+
+--_000_CH0PR17MB69334B294C28A1A6C3CED1E5BCD42CH0PR17MB6933namp_--

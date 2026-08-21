@@ -1,0 +1,159 @@
+Received: from SJ4PPFD12972816.namprd22.prod.outlook.com
+ (2603:10b6:a0f:fc02::fd1) by CH3PR22MB4276.namprd22.prod.outlook.com with
+ HTTPS; Tue, 9 Jun 2026 12:10:19 +0000
+Received: from BL1PR13CA0241.namprd13.prod.outlook.com (2603:10b6:208:2ba::6)
+ by SJ4PPFD12972816.namprd22.prod.outlook.com (2603:10b6:a0f:fc02::fd1) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.92.7; Tue, 9 Jun 2026
+ 12:10:16 +0000
+Received: from BL6PEPF00020E5F.namprd04.prod.outlook.com
+ (2603:10b6:208:2ba:cafe::5a) by BL1PR13CA0241.outlook.office365.com
+ (2603:10b6:208:2ba::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.113.10 via Frontend Transport; Tue, 9
+ Jun 2026 12:10:13 +0000
+Authentication-Results: spf=softfail (sender IP is 52.0.31.31)
+ smtp.mailfrom=icloud.com; dkim=pass (signature was verified)
+ header.d=icloud.com;dmarc=pass action=none
+ header.from=icloud.com;compauth=pass reason=100
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ icloud.com discourages use of 52.0.31.31 as permitted sender)
+Received: from transport-2.inbound.emailservice.io (52.0.31.31) by
+ BL6PEPF00020E5F.mail.protection.outlook.com (10.167.249.20) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.113.7 via Frontend Transport; Tue, 9 Jun 2026 12:10:13 +0000
+Received: from cloudfilter-igate-new-0bf3f7108521e2795.inbound.emailservice.io (ip-10-4-3-146.ec2.internal [10.4.3.146])
+	by transport-2.inbound.emailservice.io (Postfix) with ESMTPS id 0D062A2D9A
+	for <ryan@coastaltestinglabs.com>; Tue,  9 Jun 2026 12:10:13 +0000 (UTC)
+Received: from outbound.mr.icloud.com (mr-2005l-snip4-6.eps.apple.com [57.103.71.19])
+	by cloudfilter-igate-new-0bf3f7108521e2795.inbound.emailservice.io (Postfix) with ESMTPS id 63B6E7E02E
+	for <ryan@coastaltestinglabs.com>; Tue,  9 Jun 2026 12:10:00 +0000 (UTC)
+Received: from outbound.mr.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-west-2a-60-percent-5 (Postfix) with ESMTPS id BCA7318002AC;
+	Tue, 09 Jun 2026 12:09:58 +0000 (UTC)
+X-ICL-Out-Info: HUtFAUMEWwJACUgBTUQeDx5WFlZNRAJCTQhPB0MFWwBeC0oKQwZeAlBcHA4PXgBAEVQnRh1FDkYZC0gDXXcCURxWDVdDVARfUF8cDgRUB10FXVZQAlpLQBMEShMFUgddTVYNRw9YHlwUFxVBQ14IXh9MHB0OWAYSAE0KDjYGWQVeCVYDQwU2EhRdRVoOWwRHFBcbXAAXBlsUBEQCXgcocTENSR5ecVMEXQ1IdS4aKgJCCVV3KQcpd0MMOnEsdlNyGVoUXBhTRVEfVEYTGU4bV01QG18CQg8=
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=icloud.com; s=1a1hai; t=1781006999; x=1783598999; bh=nrg2Sd4Ok+KvMXPvjbyEOXIP6HqW/+AlyVcTO1A7s/4=; h=Content-Type:From:Mime-Version:Subject:Message-Id:Date:To:x-icloud-hme; b=CsGJ/jKUDa9AMQxjV1o8ZJPq3H+DaPcisg5Q7NOjwUgrXdhby0+qH4H0UYVmy5JaT25QLfZzfuTSWBwC9uWU/gj4L1dNovGLBOTYmok3tIbNFWsXrRf6Zvvw0MnM9OPX0oVmfmaDo+sBbM7/s6JQr2RcF/wbObEgcra0B3/J+oFO/UDUbjwWfCTUur4R3rGk7cuxZ0l8nL1PwCo9W8/q3J8bO0UKBGoDsxExW4UM5CzCM6wdR5QfrsKINaH1gfqNTvimuSzYrzkXWuHb9b5YUZdh+X7RqvJcSdv3m+Ghytep5J4rRvy8GTnRkZCBjsL+uzBMN+0botFM40jl5eOJDQ==
+Received: from smtpclient.apple (unknown [17.57.152.38])
+	by p00-icloudmta-asmtp-us-west-2a-60-percent-5 (Postfix) with ESMTPSA id 031D318000A7;
+	Tue, 09 Jun 2026 12:09:58 +0000 (UTC)
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+From: Ryan Potter <bikram_upreti2000@icloud.com>
+Subject: Multiple addresses the reserve of Huntsville 
+Message-Id: <130CCA41-3F86-40FC-A020-DD0BE35BBAA8@icloud.com>
+Date: Tue, 9 Jun 2026 07:09:46 -0500
+To: Ryan Pena <ryan@coastaltestinglabs.com>,
+ Joe Gallardo <joe@coastaltestinglabs.com>
+X-Mailer: iPhone Mail (23F77)
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNjA5MDExNSBTYWx0ZWRfXx+ZtY+W3f8CF
+ 8C5NqKPnKpy7T2au7ELAH5HBfpsuzK7QJ8c/l/PUxOD5TRbjT+3N1zOYqOD6GB0V7Yh3L5k4PRq
+ NlJFaiEtAowGf18CKRSILvU583dikVpuMwI1W2FHU7VITVJcoXx+7VrYe3mcuAUBo+eBFfGjXem
+ Vr7iOzUGcHBqx8r0KY7SFVbqGgKyCtviD4ZG5DGIlFHjbyu6yOvhB7r3dLwxVRqc3WVJLPT7cbo
+ M16oofopbWTHlD3pu2029n6Is4jFAnU0a2rU838mURPBIngYFUj8hQbrg7tW+SogIvi/lugy5Db
+ enh9joW+8jfUqBtboC5W/cgOcrycluEYagHA7yGLFpYKo7rkkt+pi3UNKrpZfs=
+X-Authority-Info-Out: v=2.4 cv=Iq8Tsb/g c=1 sm=1 tr=0 ts=6a280297
+ cx=c_apl:c_pps:t_out a=9OgfyREA4BUYbbCgc0Y0oA==:117
+ a=9OgfyREA4BUYbbCgc0Y0oA==:17 a=kj9zAlcOel0A:10 a=FelO9ux0wxsA:10
+ a=x7bEGLp0ZPQA:10 a=TXfcttBxS1oA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=-vOeebM0vVyop2c_6nwA:9 a=CjuIK1q_8ugA:10 a=tDBSGPaopo_JdC_T2xtn:22
+ a=8oUtDhYjIMk-MyL6hRJ2:22
+X-Proofpoint-GUID: WCAgPuEVmxx8mJ2jYPAZ9YeSXT2OQizS
+X-Proofpoint-ORIG-GUID: WCAgPuEVmxx8mJ2jYPAZ9YeSXT2OQizS
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mr-2005l-snip4-6.eps.apple.com|57.103.71.19|outbound.mr.icloud.com|0|0|0|new|ugly|0|0|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass dkim_verified clean dmarc_policy_allow
+X-Mailprotector-Score: 0
+X-Mailprotector-IP-Analysis: 0, 57.103.71.19, Ugly c=0 p=0 Source New
+X-Mailprotector-Scan-Diagnostics: 0-0-0-3112-c
+X-Mailprotector-ID: 1003ccb0-dfb4-4c48-b9f3-36f80de49b80
+X-Mailprotector-Timestamp: CqbHkcTr5o3tTfD+5HiG5w==
+Return-Path: bikram_upreti2000@icloud.com
+X-MS-Exchange-Organization-ExpirationStartTime: 09 Jun 2026 12:10:13.3594
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 83989ff9-1f6d-4688-59d8-08dec6200f72
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF00020E5F:EE_|SJ4PPFD12972816:EE_|CH3PR22MB4276:EE_
+X-MS-Exchange-Organization-AuthSource: BL6PEPF00020E5F.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id: 83989ff9-1f6d-4688-59d8-08dec6200f72
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|704160211799003|82310400026|7093399015|5063699009|57112099003|16102099003|18002099003;
+X-Forefront-Antispam-Report: CIP:52.0.31.31;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-2.inbound.emailservice.io;PTR:transport-2.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(704160211799003)(82310400026)(7093399015)(5063699009)(57112099003)(16102099003)(18002099003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2026 12:10:13.1674
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 83989ff9-1f6d-4688-59d8-08dec6200f72
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00020E5F.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ4PPFD12972816
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:06.7958145
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0092.005
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?wEYltfBoyZW0dyzh73vCQrkZA2XJ9XW7pC3gNLjzxiC0CpnaoUlyTCpZ/I0K?=
+ =?us-ascii?Q?A59TzvxdJzwe2+RjoSMgKq8WWzM6eHOEY/4URsDfPK01GD6p5hznBCFhtC5+?=
+ =?us-ascii?Q?sOCpN2ZwpJE2Ie+1OBGV9MWO7MG19cC6vfg+yr7hE88NpnxSj42X1yK3aFTe?=
+ =?us-ascii?Q?LBBrILDNxmzXE6bWxpkPHxNDVVJ6uhqn2U0DhdGfpWCxDDMkK82XmS0KO/W7?=
+ =?us-ascii?Q?SNC6R0Ziny1pX/Tp9rbgZKjXF79np0EGYpHACnTehHjQXN8urAS7g9iUWTDZ?=
+ =?us-ascii?Q?TU0pXZYpm2VyhTDvT8PHpff1qFKF6dk+/MaG92RrUy5SjXm0pTHnUbzk5HeO?=
+ =?us-ascii?Q?ZMCeqFL9sPh8ANSi6aaUmzAdD+B1Rz41UEASRUPo6DRorwTH12XPK8xA1RD/?=
+ =?us-ascii?Q?x4QYEL73isq6DgYdstwBN9wJJnUZAK+4IVAFWgYmZskWQ6AM8n66mHpLrOcV?=
+ =?us-ascii?Q?KSQn9SXx2D1kyXYp5C3MPQL2sjFKb3mMVJvvk7ObTj0dLRmjWiMFhpRw97EE?=
+ =?us-ascii?Q?6KQSYj8yrKD4IYd+8ewRj0zMwA1NkbVEvON2picuTZMaSYkaBzF94syz6WLO?=
+ =?us-ascii?Q?WStiIcrO/pPVeQjQ3MgkeGDdzCF6lJIqJyXV8VLvoprx9rBlNDy05cstNxjn?=
+ =?us-ascii?Q?vty6CYx+QK5rv9gdNRR/766WXHYUAaX0YWLFSSAwCs9dXTlU1zDnHo2Zv6gE?=
+ =?us-ascii?Q?3zT540O3WBh24/M77NNmsBtIeFoISUHqR22Zv5k2JFp2J74TJ3OsTA7SJYIm?=
+ =?us-ascii?Q?ovD9eVWOlPvqfwhzweP+X+lMq80fjbMCqkbcxl8ujT0hFyU8zPx+QBOk1eOX?=
+ =?us-ascii?Q?CKE/LmNIVm19vnmLKaBNkxPq3+EqSuswrtLaogr/3ZIL86g6ysYyXVywo6qO?=
+ =?us-ascii?Q?pmBxsZP5s2Zx4AEq/uTOS5AeGEmPjjSpUj6wgnKzE+AqdyuoCUyPTDc/OD2E?=
+ =?us-ascii?Q?4ybOaWmYLRcEmgzMgvJIHNZf/XBiu2fHlaMBLRwviWirkbHWqvUJAqbjUf3N?=
+ =?us-ascii?Q?1WIT5GMOqzBbuiJPx5wkqAioxZY/HGqIOA7856hn1YdBbYdobPOOysLLtgOH?=
+ =?us-ascii?Q?fpI5Le91hJX/ic+5wkG1WU+y2LWfECBos7MjyNFR7KseeBH43JszbaI8om+O?=
+ =?us-ascii?Q?XpvqopeTS74fT4gPIY5eeZY31EOndfwoCfhC3wVhf6+tT/ea2zOBSNwapgYA?=
+ =?us-ascii?Q?T0zzTsZ3axUw/6z13Szn2TxsXLxuARETs/8tlEA4padIgoxU1RXmhURJuXx1?=
+ =?us-ascii?Q?duR+SmpTQ6yElJM7g0spz2Egp6dwI0qgcPtPXB8R85Hk8osECmb3N+X/9Ers?=
+ =?us-ascii?Q?kirKF7OS5dy279DcM/Sn7J8khuGsAcvQ2dB1e16BUZdGMM4t2HKhbjScjqs4?=
+ =?us-ascii?Q?FSNWejOI8Scyw59cY4Zk08JE/ajx3Au1YBlxtq9MPODHnLjhkZDzJrChiPXb?=
+ =?us-ascii?Q?M+R9VZOofUYPpaJfpv/VGytF6TFqFpEzgMVhnwmabL+lbFpxQzEBEifcG8G6?=
+ =?us-ascii?Q?q9RHyRn2Uef+mfTxmlOcM2q2Z0rJyE3Akd7QJGNPg7I8jAZh+Ct0L8UxP7ac?=
+ =?us-ascii?Q?YwhrzYFa15UZ3qlmmFNIF7v+leWJ6n7hRpyNNhBWJvCfD3fzkTJ5179yga/F?=
+ =?us-ascii?Q?jTh/CEFu/F4hOgpWptmXt/n7+EIXuXxvjsyv/VoXCBTZWeBQSZEIWxW5iZpM?=
+ =?us-ascii?Q?816JpM788hCMnfrpGcHx8NDgOrYhmBvcbx6EBytJn4NKJfV0Ynun2M0AiE+U?=
+ =?us-ascii?Q?jmHW4opN6fzSqmILeCulnpKfQ8RwJb5MG9GR8DqJI1F9AtOLhxfcUnQJ5nw0?=
+ =?us-ascii?Q?UYRxmdKBe53bEKVS35xK3C9rfIUZdfqBzzrGO5n34g2Ji9PozkPFopL+7IEy?=
+ =?us-ascii?Q?DmdwFSLfCxXbPR4/fU4cFbz3o7/KjTaWS1mG7a6m6P/MlnMbm10zIThZsbAj?=
+ =?us-ascii?Q?ct+qPPpc6kjc802HS0Sv6uLq8XYhe19oX/BCTfRx0TX7XWyhccKQ9EELz/WP?=
+ =?us-ascii?Q?zB3mGlz2COR79kld/yhHv4raGaIFqOFpD25QTC2614OAgmMUBi/w7gE4uYAV?=
+ =?us-ascii?Q?rvzaBwD2HGB9YPEWaLZKHQpQSTnXPLmdNS6LgXRWp8epCQpTBx5ZLr+e6eYM?=
+ =?us-ascii?Q?b+Gaa9eKmNVkNzWMKPNM5B0xv4Rb9pC9nzXcdGC0D22A/bMcivXefANZ5St6?=
+ =?us-ascii?Q?a8wWjcey54TIb3BdiHP7A2Dv0B3EQode6S7Gye9B1i2WYCybY51EcGYp2zPF?=
+ =?us-ascii?Q?9pYlxf+gTPro7VdoLWBStBlcKzWqNUtzIb+nwV1lxrKaCgHr411OT2lsgcZr?=
+ =?us-ascii?Q?7t80fsqoOyFSonp3I6hchz1CHHQKVv+M8dwC5ziHTU6VbXe/m7Xieh7fmWLO?=
+ =?us-ascii?Q?TDYIzYAdxLxFvRwqTi85+NnB9WdxFvfjEIOc3xs7ibzbe0bA/PxxGP0nDyvf?=
+ =?us-ascii?Q?3L5InxOY0a7WJOB7lT2M9jIvYzY6sT2EZcYKx9pYsxbCdvv1T14XcTJPR1BS?=
+ =?us-ascii?Q?Awuk6UexoQjlz4ux/GBxfOqvZ9d51tIEwci04FqLab45nV4DzU4bYLJ40H7x?=
+ =?us-ascii?Q?4L81DYJJzN05mG23a2XHhTo8/PMKij/uqZRokriu5Fuop7pqrh17gxcGU5cm?=
+ =?us-ascii?Q?D0fboPX+CGoAAOf54N3q2vTAWcfEFqbuugXmGHMi8OQUhPSCtMceyx8nk01a?=
+ =?us-ascii?Q?kRLBew=3D=3D?=
+MIME-Version: 1.0
+
+For lennar 
+
+212 Cassius blue - 2 in back 4 in front 
+
+209 Cassius blue - 2 in front 4 in back 
+
+207 Cassius blue - 2 in front 4 in back 
+
+205 Cassius blue - 2 in front 4 in back 
+
+
+Sent from my iPhone

@@ -1,0 +1,1220 @@
+Received: from SJ4PPF12191DEBD.namprd22.prod.outlook.com
+ (2603:10b6:a0f:fc02::f8a) by CH3PR22MB4276.namprd22.prod.outlook.com with
+ HTTPS; Thu, 30 Jul 2026 16:20:25 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=fail;
+ b=WPZ1m2fRXxeqA7wUvcfv6N/c2Bvv/dN9dbtsm0LBpJkTxtNEbQxgylUwQhre926N8SkaLtsB78ITmsy6MHrwsYdEs3AK5rsrtfXhY4Pa/zVauFmrDmmg6w7z9sBkwn549sn17HxQQgn8eTvVl0+dhpGW95dMmTiRXFmXNMh+9AkA25ztQvQOwV7yi8pHqYqfUyuVPHwp7s51xiAppLwzOZActGu4tR6Y6kOwYXxbM4fe3WnzDXlG7kiqWiNKoTLt/wY29uFr3Jx3TiHaxbjp/VKI1O+/crqDL6hIVTMdtC3iSkLDMCEySHUbonhn7Fi89HghX3ptSN4TLWnmkCrHXg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q3GnH/mji3CkivGeTgyrs/hAGwLFqLHvJ9RocjxnoZQ=;
+ b=rar7DII4A/Lg5fZqtDHqdUevjB7jBmZDJb0m7pp2H+ZO3g3MFHS+lr7sXrFsr9JWvW7uFAgJSApBNwjvwQSvhAGwC/LjiKPg7pbMY5E8Rbxt7prM3OBjk9uhBv9MhtxE9VA04/I10BobPt3QHhfE1cVY2BZQRXwWwP0LsK15pxEqeiUkZAqUQFRyF69cuOTTBbHkVtPG0OmLNA4yTH3gJPB6PY0r0A6Ja0z9FtAGSnXYkupqE40Tzc/pnh4cXSXTs+DgzxbF6XPtGaPt1iyJy8XLDQ7Hywi9m4E8n0argXuEYZ4Tnlrwm9FSimiScBRijRq4koxa4EZG3eii25oyFg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 52.0.70.91) smtp.rcpttodomain=coastaltestinglabs.com
+ smtp.mailfrom=lennar.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=lennar.com; dkim=pass (signature was verified)
+ header.d=lennar.com; dkim=fail (body hash did not verify)
+ header.d=lennar.com; arc=fail (47)
+Received: from CH5PR05CA0014.namprd05.prod.outlook.com (2603:10b6:610:1f0::24)
+ by SJ4PPF12191DEBD.namprd22.prod.outlook.com (2603:10b6:a0f:fc02::f8a) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.15; Thu, 30 Jul
+ 2026 16:20:20 +0000
+Received: from CH2PEPF00000148.namprd02.prod.outlook.com
+ (2603:10b6:610:1f0:cafe::4e) by CH5PR05CA0014.outlook.office365.com
+ (2603:10b6:610:1f0::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.292.9 via Frontend Transport; Thu, 30
+ Jul 2026 16:20:20 +0000
+Authentication-Results: spf=softfail (sender IP is 52.0.70.91)
+ smtp.mailfrom=lennar.com; dkim=pass (signature was verified)
+ header.d=lennar.com;dkim=fail (body hash did not verify)
+ header.d=Lennar.com;dmarc=pass action=none
+ header.from=lennar.com;compauth=pass reason=100
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ lennar.com discourages use of 52.0.70.91 as permitted sender)
+Received: from transport-1.inbound.emailservice.io (52.0.70.91) by
+ CH2PEPF00000148.mail.protection.outlook.com (10.167.244.105) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.292.8 via Frontend Transport; Thu, 30 Jul 2026 16:20:19 +0000
+Received: from cloudfilter-igate-07c611cfd4fc1ec46.inbound.emailservice.io (unknown [10.4.1.83])
+	by transport-1.inbound.emailservice.io (Postfix) with ESMTPS id A46F1A195B;
+	Thu, 30 Jul 2026 16:20:19 +0000 (UTC)
+Received: from mx0b-001afc01.pphosted.com (mx0b-001afc01.pphosted.com [67.231.152.223])
+	by cloudfilter-igate-07c611cfd4fc1ec46.inbound.emailservice.io (Postfix) with ESMTPS id C2BD37E009;
+	Thu, 30 Jul 2026 16:20:18 +0000 (UTC)
+Received: from pps.filterd (m0146981.ppops.net [127.0.0.1])
+	by mx0b-001afc01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 66UFTRAv2396687;
+	Thu, 30 Jul 2026 12:20:18 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lennar.com; h=
+	content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=11172022; bh=q3GnH/mji3CkivGeTgyrs/hAG
+	wLFqLHvJ9RocjxnoZQ=; b=N9uXY31fvOhj2R0zbCUhhGR4PzNEq9X/EBM1tMIa9
+	+NUTRsZ0fldORK/v0ihRo5AEiFTD9EowRv0tjd54oi7FPrMGMHQQ1qS2W0t65ad2
+	FpUv/tEdzW5muZF0GdF+v2+wSS7BTxKVIs9XQ0BW3M+LPwO9yOOXTuGrf804k4un
+	Y/juZ8cegI6FTTZI8bNSbmNGvnuO7yKIQramy7mZK2OrgRYOCBvlh0/Y7WwtoHku
+	D9Sj0d9bEGGnJ/6nEXrvyb3d8V8fUEcGYLPLfUNyY74oOE2kZH/ryxOBXpQB0alh
+	2ZjGDLK4zxeHTUIFdpdks9plzr8l5/Om935esVnRtOd4A==
+Received: from dm5pr21cu001.outbound.protection.outlook.com (mail-centralusazon11011023.outbound.protection.outlook.com [52.101.62.23])
+	by mx0b-001afc01.pphosted.com (PPS) with ESMTPS id 4fqj2cwnde-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 30 Jul 2026 12:20:17 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rATLcSoczX8daFlLMM9dEG1Z2FN8cNgCsshSRMNNFBjvPalG0Yhb3Muol5J4Pnh/mgTDV+P4HmUgiocfF73vwG4vBXobiDnnG2TbMmQPse+DzO/vV+jF+aDadCof+kx0cgoXrX+kEZ9dE7nd1yYglONAOBsRw85uK/GVnZuUw9WGB8ZU0IjlZIVq5QuKeai0bXjTv6fN2F4Y54I5QseelCzZ5exlLnAKroaqL4wuoynByOnkj48psd2dmvuHO0hfqpnMFuIPx8Lk4flkO9f7HyBg9W94+DBeIzOsa8xJlv2hbbz14bJWAex8t2kzSUFU1n/Gt66NdNMAc3xLeGm3YA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Lpd8wibCtvSM8w4RU49l/wNx99o5lf97eU/vphA7dwE=;
+ b=ZFeHVhb/NbEujP/wy+7S625H79TGBuAthcxmVlxAhQnJ755ovjj4iujy9rfXp4QXSL9fHz2aRCwMAklqIi9lB/tlYzsyDzpE6XtviyBsoO4j7BLxw0ShYz2ihMAHkjyCg4QrizXwd+XYiRfsPTYfCFIaGxgt1Gh5G9POtNAxPwdv3a350volw3E/pW1KsMuCKx8/pryMIHTEw3PR7wJKe7RCnt1xupPuc9Gq1GhSZf3NDEQnOvhaIGBvrDQPaXXFuRd0dvncnlA3jkMR+S3+zeshWv6H3cjAKxiUJXosDnzEyFcTIN5ByqsFMqSwxlYqIPIdm/mNWKPG3t2diN/j6Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=lennar.com; dmarc=pass action=none header.from=lennar.com;
+ dkim=pass header.d=lennar.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Lennar.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Lpd8wibCtvSM8w4RU49l/wNx99o5lf97eU/vphA7dwE=;
+ b=MEDVsvQmF5kYAIUl/npRurLI2KnpkzoUstiKmXp4Kqcs9zIbalTO38E41EyqQ/vfAaOSU5srVUJW4XDVOZNERZLFTrI+Y70zUzSYcB2/NrKriwNg0RSed6rBme34zqEzRhfLABIXEb58R6OOaVT+H6Zk49JfW9LwjusuBDkbCvIm0qakg/bwt/1/nhU8RzayKsf6lKID5yq1vrUCf6SyPt3jXk+cqr897MqRTmxEMbKu37perw1IFh2w/7dFCL6AiAdtHUfJwOOPzLcfQPfIMow9ORUoydHsx3mgpdvXY5iAlYutVH/u3petEY8bE7jtwdkG+/NuBHHohTEY3DzRCg==
+Received: from SN6PR07MB7887.namprd07.prod.outlook.com (2603:10b6:805:2::19)
+ by PH0PR07MB9684.namprd07.prod.outlook.com (2603:10b6:510:290::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.270.15; Thu, 30 Jul
+ 2026 16:20:12 +0000
+Received: from SN6PR07MB7887.namprd07.prod.outlook.com
+ ([fe80::1763:5d04:33b0:2ee]) by SN6PR07MB7887.namprd07.prod.outlook.com
+ ([fe80::1763:5d04:33b0:2ee%5]) with mapi id 15.21.0245.009; Thu, 30 Jul 2026
+ 16:20:12 +0000
+From: Ben Jimenez <ben.jimenez@lennar.com>
+To: Ryan Pena <ryan@coastaltestinglabs.com>,
+        Joe Gallardo
+	<joe@coastaltestinglabs.com>,
+        Esmeralda Cantu
+	<esmeralda@coastaltestinglabs.com>
+Subject: Re: Enclave at Spring Branch Crossing - 19051 Style Drive 
+Thread-Topic: Enclave at Spring Branch Crossing - 19051 Style Drive 
+Thread-Index: AQHdH6ms6M4TUSKlT0CdHYxbxmxLy7aFGXrjgAAAgE6AASOa2oAAAPNsgAAAuMM=
+Date: Thu, 30 Jul 2026 16:20:12 +0000
+Message-ID: <SN6PR07MB7887C3DE6E048EA69373E98392C92@SN6PR07MB7887.namprd07.prod.outlook.com>
+References: <DM5PR07MB787947822031BEC3700152ED92CA2@DM5PR07MB7879.namprd07.prod.outlook.com>
+ <CH2PR22MB2007566AD134003AA5911D8ECECA2@CH2PR22MB2007.namprd22.prod.outlook.com>
+ <DM5PR07MB7879BF6481DAE87DD6F1E04792CA2@DM5PR07MB7879.namprd07.prod.outlook.com>
+ <CH3PR22MB4276BE5353644B84D4C22736BCCA2@CH3PR22MB4276.namprd22.prod.outlook.com>
+ <DM5PR07MB7879FC04C6B6F6F1DE86983292CA2@DM5PR07MB7879.namprd07.prod.outlook.com>
+ <SN6PR07MB7887989E60B634AC1F053B1C92C92@SN6PR07MB7887.namprd07.prod.outlook.com>
+ <CH3PR22MB4276442D1DA7AF8BE7061ECDBCC92@CH3PR22MB4276.namprd22.prod.outlook.com>
+In-Reply-To: <CH3PR22MB4276442D1DA7AF8BE7061ECDBCC92@CH3PR22MB4276.namprd22.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator:
+x-ms-reactions: allow
+x-ms-traffictypediagnostic: SN6PR07MB7887:EE_|PH0PR07MB9684:EE_|CH2PEPF00000148:EE_|SJ4PPF12191DEBD:EE_|CH3PR22MB4276:EE_
+X-MS-Office365-Filtering-Correlation-Id: d739fd53-3dcb-4cce-fc93-08deee56733d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|10070799003|23010399003|376014|6049299003|7049299003|3109299003|69100299015|366016|1800799024|38070700021|4013099003|4053099003|13003099007|10067099003|11063799006|56012099006|4143699003|22082099003|18002099003|8096899003;
+X-Microsoft-Antispam-Message-Info-Original: 3exlnlVylV7MnDBKZKjrV8siYdlNLEDUlu2fpu4q91sN760B4bWodJM4/2EJOFwrwl0JP2PRZCA9bAaWk+AmEhh418OPtcwsQnILPNrTsHQxnkdVxTk7qgarEf6rxLiL7LG5ZzuDFhOzL3Pe76qpH+5Dhgtpeq7hFFy9nGKbqIOfmln3uObdr82LfSsxrA75Jtsd1Z5bHj6bsJFsZGomgZwYphR7i8dch1NY2UlzaRppLrRrWhCUDGEdjVwVymuXAFF8xaB5dPmHhF0GBlJB8k0AJlUFnB3xhUBMaTrH1wAQGXkVtUGkHiecttLLhto21tzydSEyHhV/K9Mv1BRdVEbM8pGBEsg7FVtneSe/myRo1U38xk6UAtgoIpCJDs82CYW5akwortaB4V4BeTMDIPAY7lMSUpma95UbpYY9lUJIzhZ0kAmvJvVkwbSYuUuK7lSMtsh12Uxsw7aHPVFdLWNPCkL5P87oHvHYuILDIXkITljN4iB4Nnl/ORvRp7F8tI9LCm4Xqi8K3I7BuI2Th35tnxgetqFI204mYTZU+K9wgyJajevj9JDwVhv/IeU4Embe5ONQFId3gWin4UMTD7FmDnU7NT7vadCxYFuS2oXQXZ1yuwr8+ojievmwZshPl4ErjWaHQLLu9y9fvGMj8+Thst0wls1gLLY7gpnBuHY=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SN6PR07MB7887.namprd07.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(23010399003)(376014)(6049299003)(7049299003)(3109299003)(69100299015)(366016)(1800799024)(38070700021)(4013099003)(4053099003)(13003099007)(10067099003)(11063799006)(56012099006)(4143699003)(22082099003)(18002099003)(8096899003);DIR:OUT;SFP:1101;
+Content-Type: multipart/related;
+	boundary="_004_SN6PR07MB7887C3DE6E048EA69373E98392C92SN6PR07MB7887namp_";
+	type="multipart/alternative"
+X-Exchange-RoutingPolicyChecked: swcVWhoa6mdUWI0Z1yx5zlAKmO5NHRKgum9RwQgM7UoYDlKk0aBOVNEnrDkZ8sb6J6T+RoRAB+Qw2U7BaPBRGvH+wA7rCYMjXgp0J3PdDJEwJ5F8U1o4XxFCkXJkQOjBB8Px8liaPz8779AnJFSDj/kH2Cfdb5ZhrVQ9HGIVuARanr9OliZENuKS50p8m/TSgwmQvnHZZ5L27M306TtukqSt4aW0HmS3j/qvQhYS4GqQyKW+OI52cmTg11FqiNRCWsBr+eZpa1jpizxGIHfQUIxyZUK2IZO0EXaRlCNcAYaag808F9kAH4GCV1fbXaA3eWnF2CsgmcFJbriV86LoAg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR07MB9684
+X-Proofpoint-Spam-Info: AW1haW4tMjYwNzMwMDEyMyBTYWx0ZWRfX+5VVoYPlmieA
+ Ia5BmpL4R13Xlm3pKinbNtMdgH/6FE/TyV7hovJBebV+KmArLZ2VI4co2qBnacBqUEBkjkGLu1e
+ Uag6XAnnuQVkYIP6sLLex4rzaKOI/K8=
+X-Proofpoint-GUID: vIO9PsedNXjHf_OGLIgC-O7ed3Sg36iV
+X-Proofpoint-ORIG-GUID: vIO9PsedNXjHf_OGLIgC-O7ed3Sg36iV
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNzMwMDEyMyBTYWx0ZWRfX2MjXxQkhYTqq
+ FLBAXPI2GRWLtn1X4YJYI/DAxqorJl7ZT45+nWf9UsdCP/W+NRWg6X6b0408DTp/Va2u9u52u6O
+ kt0RNlfAiOFmuI098M/PY/zgwZ3/EZ8MzFJk5cd8QA7zrqCz3n3QRXNhDkVnTcpQA/NxIrgOGos
+ dXKeKlaO1/wSuGTzVfmskDhS1noEXXSDtSbhZrOM6oBABf4W+XWcVhy1lvQLOHg9Xe6YBKzKqEg
+ IHYc0nMp6AvKimFb9Cwzmyhf7xnJdS551r41yrB2v2Eq2CZdi/lal1IcjKVWViroAhoRUsKUBux
+ /aLiCOh8Ug/yntsr1NeGoAgOqFbrYozfI1aa5Y42647RsRU8EgBszcNKrhAM8pZN0/IKmri7cHG
+ Mn0ZUa4meUTo7Wy+7k/HhgEQCPiLuygF7yi0Oy8n+q0ceXvGnZaMgvrscpk3nT+AU+zc9X6CxA4
+ Vc8gdazsL7HzXBFNL+Q==
+X-Authority-Analysis: v=2.4 cv=M+J97Sws c=1 sm=1 tr=0 ts=6a6b79c1 cx=c_pps
+ a=Sj0aQRr/q75bZ+qk1Z6sNA==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=RAioF0-LDSMA:10
+ a=rcICekzIIxQA:10 a=VkNPw1HP01LnGYTKEx00:22 a=KKj_HOhWc6TcvNMf4AfC:22
+ a=2UxJRo1w2mirA2F-qNZV:22 a=92_gyBx_AAAA:8 a=RpNjiQI2AAAA:8 a=_EeEMxcBAAAA:8
+ a=tbpGB1bEAAAA:8 a=yWk8f5t7_dlbmj3jx5oA:9 a=lqcHg5cX4UMA:10 a=QEXdDO2ut3YA:10
+ a=9Ufg5bLiAAAA:8 a=tOkJ9bk2je2TfYarmWgA:9 a=2q4O/K3rjNU7EHYdBHB6dYyilSc=:19
+ a=HR5g6lP55aHuP60P:21 a=hTZeC7Yk6K0A:10 a=frz4AuCg-hUA:10 a=_W_S_7VecoQA:10
+ a=HXjIzolwW10A:10 a=T6a71-JsGAwA:10 a=bwkLoyfur_siurgSUeaL:22
+ a=ayYy12crN3DpO_qRHeKm:22
+x-adaptive-bypass: adaptive
+X-Proofpoint-Virus-Version:
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 clxscore=1011
+ impostorscore=0 lowpriorityscore=0 malwarescore=0 suspectscore=0 phishscore=0
+ bulkscore=0 adultscore=0 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2607300123
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mx0b-001afc01.pphosted.com|67.231.152.223|mx0b-001afc01.pphosted.com|0|0.071429|0|normal|ugly|1|1|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass subject_50_chars clean dmarc_policy_allow
+X-Mailprotector-Score: 1901672:20 1833708:20 1833714:20
+X-Mailprotector-IP-Analysis: 0, 67.231.152.223, Ugly c=0.25607 p=-0.166667 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-32481-c
+X-Mailprotector-ID: cac1258e-a71f-4629-b6fd-f6eb438ffe95
+X-Mailprotector-Timestamp: KnK/TGKZSgOd3+VS0REeKj0nW/27stSln3JuIcwUuZs=
+Return-Path: prvs=8671e93d41=ben.jimenez@lennar.com
+X-MS-Exchange-Organization-ExpirationStartTime: 30 Jul 2026 16:20:20.1229
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: d739fd53-3dcb-4cce-fc93-08deee56733d
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: CH2PEPF00000148.namprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource: CH2PEPF00000148.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 7827b927-80bb-409b-b197-08deee566e87
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|704162311799003|82310400026|1032899013|35042699022|7149299003|69100299015|6049299003|7049299003|3109299003|10067099003|4143699003|19002099009|6133799003|5063699009|56012099006|18003699003|16102099003|22082099003|8096899003|2066899003|13003099007|4053099003|4013099003;
+X-Forefront-Antispam-Report: CIP:52.0.70.91;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-1.inbound.emailservice.io;PTR:transport-1.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(704162311799003)(82310400026)(1032899013)(35042699022)(7149299003)(69100299015)(6049299003)(7049299003)(3109299003)(10067099003)(4143699003)(19002099009)(6133799003)(5063699009)(56012099006)(18003699003)(16102099003)(22082099003)(8096899003)(2066899003)(13003099007)(4053099003)(4013099003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Jul 2026 16:20:19.9453
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d739fd53-3dcb-4cce-fc93-08deee56733d
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000148.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ4PPF12191DEBD
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:05.9801608
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0270.009
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?ekcraXhWeGd4M3p1enN2OGRtVFhuTU9rT1hVKzEvT05RWGxxQlhUK0ZRMjZS?=
+ =?utf-8?B?Z0hmanU0N1laeDl6ay9RdjhDSkxtRkp4QzlUMDVOdk1CU2dDYlcrdDM5ekZR?=
+ =?utf-8?B?cnFrWjAxWVdza1p0VEVCRndDYUtVcW82ZWJHelFkenpabG80aGd4Z1FyaVZm?=
+ =?utf-8?B?d1pjNk9pczVMeXpiNHdXc2NLTzlwME9mRUxSOFNOT1VFM2xxQ28xVWdYK3dT?=
+ =?utf-8?B?THpGSjRzYkVTNUtuWW9hNWMzYkVWTzNtTjVJWXo0TnBibXllVlRRSmZzcEVr?=
+ =?utf-8?B?VDhqc1JvRCtSVXFBRkhlYnVmcVBSNUtPT1o3MDRWYXorZm1sVWJxWmY2S0lw?=
+ =?utf-8?B?L3A2Ni9yQXpNVGxxc052RTZhb0wzZkJ4SzJFQ3EyRkZadzhYYllPNnlSUjk5?=
+ =?utf-8?B?SUtnU3hra1kwVTYxMXF5U2lHWWYrN2Z3WFZZdmVpcUhkdWNkTFA2OHAwY3pB?=
+ =?utf-8?B?WFpWbS9vYXFEZHdsdUhGdnlpNzdlZlMyL3RYNkFvNldZQUJXVGlkQ0dhZ3hU?=
+ =?utf-8?B?NWQ2V2JHbklsSnJZaUlYY0xDSzdTOWNYMHlxR2JyTFM0QXNrS2J5N0U3amdU?=
+ =?utf-8?B?SWQ2TWg4Y2dKU2NBTzRtb0FtNlFLbVpkYnR6MHgvTXRnZXdkZVpNbjlDTk5N?=
+ =?utf-8?B?Vk5pcEJ3Z3VBakI0ZHo2YVp2M2VtMS9seWQ0K2U0TWpRQ0lFSVE3cnBUN1dD?=
+ =?utf-8?B?cjQwY2JBbHROcVByTHpac1dTN0MzL082ZVNKSjlMYUNaWFpvb2U0dHg0OW1B?=
+ =?utf-8?B?bjB4YTRZTGlqbHpHd1RqL056SzJHTUVpY09vUUdJR2JPQ3lPWjlvMGJZOC9K?=
+ =?utf-8?B?UGJVT1htVFJVUGVaWW10V0FtdFJOekxYejdqN0R4THV3STVvQjNzUFRFWFFv?=
+ =?utf-8?B?N3V0RGhjbWx5cWRraTV1VDFTamJXV29nMVA4YXpvVytka0tKVUk4UzFBMnc0?=
+ =?utf-8?B?QTJmS0ErQm14cDVvVWNqZmV1MXl3VE9Ba2piYVptelJGK0ZjQVg5YWM3ZHp4?=
+ =?utf-8?B?MHhKeXNjeG5HbmRkNUwrU1RwSHVrdnZIY2diTW9OZUVUL3Bha0lZcTV0Zkho?=
+ =?utf-8?B?c0c3NzZCS2RFZ2lkeld0L1dvUGgxbTFYSUZiUHM5ejR3VE5pZlVPMVlzRzVC?=
+ =?utf-8?B?eFJURTRKcTRGUkZ1VjdLRzZTZlVSa243a3hMbEcvSDVYUi8zbXZzWGdUNzJ1?=
+ =?utf-8?B?T25WcWZSeC81eUZEdk1RUVo2aEdtT0Y4S1hQT3hHT0RTbE5HcHljZmR1M1ly?=
+ =?utf-8?B?NG1sZUcvcW1FWm9XTTErMkdyUWx5Qk1VNWdKc01IZnZLajlESkxrYnZLT011?=
+ =?utf-8?B?SXVnSVhGVlhkdXRFZnk1TTkybWRYa0w4eFRpWnY2Wlc2cmszcnUvbWlweEMz?=
+ =?utf-8?B?bXlnTWN0YXFPRzN5YjBKWG9YamRFa1dMTXFXRzdCYS80Y0pmdjFKZ21wL2lU?=
+ =?utf-8?B?WXZXMG9yQnlBWkhEbVVrZU5BckpDZ1RsWGdybXQ1MnZqN1lQSlJFOGpNdHNz?=
+ =?utf-8?B?THQyRFFqVzBrQ204NWVyYjkxRkgvdUtKSUQvVFd0Q3drdVo1dVhOaDNkMUJs?=
+ =?utf-8?B?aHlzMXJRbm9saVVWZnhDRktDQmE2VkIxdlQ1QURnNFM0Yjl4WmxsTXdXVTht?=
+ =?utf-8?B?YnlYWHg1ajRoM1c5V3MxVno0ME93YytZK0NZeXhJRHRHTnpueThDczJmYzF0?=
+ =?utf-8?B?L2lzbEVROHVXQTEycVNaM09uZEd0SW9oWUN1Z2dEcS9YOWlkMnlOTUxCQlN0?=
+ =?utf-8?B?T2g4dEEwTUtjd2F2STdqb3hPQlkvKzR3Z1R2Z0Z4U3ljeWRRY3JFSkVjdVA1?=
+ =?utf-8?B?MksvRzFzSG9JWmI3OVFSSnZGb2V0UWFNaWdWNFgyQUFEcXc1OGprSUovT0Uv?=
+ =?utf-8?B?VjhYbU1BcjVwMklPMEt3TVd2aEZ2MWFsMndYaWthQVRGbWk3MlgxU253Nktn?=
+ =?utf-8?B?K1ZTSDBTZ04vaUlSOFkvY0NTQlRDZlNESGRvNk1iWXU3dThyU0N0WG1qdjgw?=
+ =?utf-8?B?SFJiSFgyQUlVU2JyNWQrc2NCd0ZvL04zZkZ3Y094aU43aUc2RnUweEdhczN1?=
+ =?utf-8?B?WHdmczJCWGJBRU54TVN0czFzdjdmdE0xU0h0YmJxUVU0VXE0SGp4QmZ5bTVV?=
+ =?utf-8?B?OW11S0t2Wjg0aEI2d0FJUDZ0dzRpL0xEcytGZ2tmS1NPUmw5WEp0Q0M1T3ZE?=
+ =?utf-8?B?UmEyMnc3NXVKUGRBMGxIVnR5bkg0Vkovb3kvYWExL3N2NkdFUUpSbUpjSTdD?=
+ =?utf-8?B?ajFPa2xWWlVnU3ZURHB2UXM3SzNaRWgrcW5BN3RtbjFVQ1B3T3hHUGxyd3BO?=
+ =?utf-8?B?WG1rNkhCNXdwWjA1RlB3RXlVdEFuVkkvcHZ4TGMvcG5tMm5HTWlrR0w5MkVI?=
+ =?utf-8?B?UHdoeEU1SzZLV3pUYUpkdWFoc1RadUVzcWw4RGJvdmZiZXV3SnVtVHp2TFlr?=
+ =?utf-8?B?aWJnZDJzWFVMNlBmbHNURVdDcFN3R09nRE5BSWpJU0NFc0FFUGFzWXM5NjFZ?=
+ =?utf-8?B?OWgvbDZSWGJadXJFRjYrZ1UrbFdHTmhkdCtoZkJVRExNVkdUeTBVYnR5dENk?=
+ =?utf-8?B?VnN4TXFweE9xdVhXTG1lN2R5ejhicTJIVk4vMUtJQnF3ZHVyYU8rKzZDNHBF?=
+ =?utf-8?B?alZPRlNMd2JBb05sbm53NDJIaFlya21QTmtBZ0ZBbi9SRzN5WGJPVS9JWjBN?=
+ =?utf-8?B?QXZIR2hzRG5PaDU3YTJja0lXNVZuNnFSaEVKaE12SVNheG0vTFplQkk5Q0pO?=
+ =?utf-8?B?VjgvRFhMekg1NEZpeThQUkpSOGN4UEhMc25lbXBlRHBJcjhKNVZUM2lQS2hK?=
+ =?utf-8?B?akw3bWhTVEtvUkJwQ0hvTVIzenNnNE41cTExQkhYS0hhSUNyT1hyTWRJU2ZN?=
+ =?utf-8?B?SUFXc1VDRWRrTmh2NkxnaWEwb1pTZHRhQnpFL2tvOTNvdm1zNWFSci82d1V1?=
+ =?utf-8?B?VTc1WFRJUmVwc2doa1FqZkptWTFxa3hBckpQTGhKZityeVFQb3RSZHpiSlVM?=
+ =?utf-8?B?aWY1Rlh2eG5LY1NPL3lnS0syWUN1NGdTVERVOG1UOXlHdzlHNDdSRnhWK3VX?=
+ =?utf-8?B?cmxISlJTRUQ4c3V1d0ZicW44MUdVcVA4aDlDS09zZ29tU0Qvb04yNWV0QVpW?=
+ =?utf-8?B?U2FCVU5jM3doWExYZm9jOXNrZG5ZRmJCVHpoVXZPK3JHc0syOWF4QWlQWS9I?=
+ =?utf-8?Q?4xyy0560XDcN2Zqou7r59RxKl0XW?=
+MIME-Version: 1.0
+
+--_004_SN6PR07MB7887C3DE6E048EA69373E98392C92SN6PR07MB7887namp_
+Content-Type: multipart/alternative;
+	boundary="_000_SN6PR07MB7887C3DE6E048EA69373E98392C92SN6PR07MB7887namp_"
+
+--_000_SN6PR07MB7887C3DE6E048EA69373E98392C92SN6PR07MB7887namp_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Thank you
+
+Ben Jimenez
+Construction Manager
+[Lennar]<https://www.lennar.com/>
+Mobile 346-422-8291
+Houston, TX
+
+________________________________
+From: Ryan Pena <ryan@coastaltestinglabs.com>
+Sent: Thursday, 30 July 2026 11:18:12
+To: Ben Jimenez <ben.jimenez@lennar.com>; Joe Gallardo <joe@coastaltestingl=
+abs.com>; Esmeralda Cantu <esmeralda@coastaltestinglabs.com>
+Subject: Re: Enclave at Spring Branch Crossing - 19051 Style Drive
+
+It is on my schedule. Have not made it by there yet, but I will let you kno=
+w as soon as it is taken care of. Get Outlook for iOS From: Ben Jimenez <be=
+n.=E2=80=8Ajimenez@=E2=80=8Alennar.=E2=80=8Acom> Sent: Thursday, 30 July 20=
+26 11:=E2=80=8A14:=E2=80=8A33 To: Ryan Pena <ryan@=E2=80=8Acoastaltestingla=
+bs.=E2=80=8Acom>;
+
+It is on my schedule. Have not made it by there yet, but I will let you kno=
+w as soon as it is taken care of.
+
+Get Outlook for iOS<https://aka.ms/o0ukef>
+________________________________
+From: Ben Jimenez <ben.jimenez@lennar.com>
+Sent: Thursday, 30 July 2026 11:14:33
+To: Ryan Pena <ryan@coastaltestinglabs.com>; Joe Gallardo <joe@coastaltesti=
+nglabs.com>
+Subject: Re: Enclave at Spring Branch Crossing - 19051 Style Drive
+
+Ryan, please let me know if this is a pass when you are able to. Thank you!
+
+Ben Jimenez
+Construction Manager
+[Lennar]<https://www.lennar.com/>
+Mobile 346-422-8291
+Houston, TX
+
+________________________________
+From: Ben Jimenez <ben.jimenez@lennar.com>
+Sent: Wednesday, 29 July 2026 17:50:37
+To: Ryan Pena <ryan@coastaltestinglabs.com>; Joe Gallardo <joe@coastaltesti=
+nglabs.com>
+Subject: Re: Enclave at Spring Branch Crossing - 19051 Style Drive
+
+Thank you, I appreciate it
+
+Ben Jimenez
+Construction Manager
+[Lennar]<https://www.lennar.com/>
+Mobile 346-422-8291
+Houston, TX
+
+________________________________
+From: Ryan Pena <ryan@coastaltestinglabs.com>
+Sent: Wednesday, 29 July 2026 17:49:22
+To: Ben Jimenez <ben.jimenez@lennar.com>; Joe Gallardo <joe@coastaltestingl=
+abs.com>
+Subject: Re: Enclave at Spring Branch Crossing - 19051 Style Drive
+
+These were built on the wrong lots and we never heard back that they had be=
+en redone. I=E2=80=99ll add it to the schedule for tomorrow. Get Outlook fo=
+r iOS From: Ben Jimenez <ben.=E2=80=8Ajimenez@=E2=80=8Alennar.=E2=80=8Acom>=
+ Sent: Wednesday, 29 July 2026 17:=E2=80=8A29:=E2=80=8A10 To: Ryan
+These were built on the wrong lots and we never heard back that they had be=
+en redone.  I=E2=80=99ll add it to the schedule for tomorrow.
+
+Get Outlook for iOS<https://aka.ms/o0ukef>
+________________________________
+From: Ben Jimenez <ben.jimenez@lennar.com>
+Sent: Wednesday, 29 July 2026 17:29:10
+To: Ryan Pena <ryan@coastaltestinglabs.com>; Joe Gallardo <joe@coastaltesti=
+nglabs.com>
+Subject: Re: Enclave at Spring Branch Crossing - 19051 Style Drive
+
+Joe / Ryan, I checked with our tractor guy, he sent me a screenshot that he=
+ requested the test on 51 Style drive back on 7/17. Any way we can get this=
+ done tomorrow ( Thursday 7/30) ?
+
+Ben Jimenez
+Construction Manager
+[Lennar]<https://www.lennar.com/>
+Mobile 346-422-8291
+Houston, TX
+
+________________________________
+From: Maria Lerma <Maria@coastaltestinglabs.com>
+Sent: Wednesday, 29 July 2026 16:16:30
+To: Ben Jimenez <ben.jimenez@lennar.com>
+Cc: Veronica Garza <veronica@coastaltestinglabs.com>; Esmeralda Cantu <esme=
+ralda@coastaltestinglabs.com>
+Subject: Enclave at Spring Branch Crossing - 19046 Style Drive
+
+Good Afternoon, Ben Attached please find the report available for your comp=
+any. Please email Ryan and Joe regarding scheduling address 19051 Style for=
+ the compaction test. Let me know if you have any questions. For any future=
+ report requests,
+
+Good Afternoon, Ben
+
+
+
+Attached please find the report available for your company.  Please email R=
+yan and Joe regarding scheduling address 19051 Style for the compaction tes=
+t.
+
+Let me know if you have any questions.
+
+
+
+
+
+For any future report requests, please include the following individuals in=
+ your distribution list:
+
+
+
+Esmeralda Cantu =E2=80=93 esmeralda@coastaltestinglabs.com<mailto:esmeralda=
+@coastaltestinglabs.com> Veronica Garza =E2=80=93 veronica@coastaltestingla=
+bs.com<mailto:veronica@coastaltestinglabs.com>
+
+
+
+
+
+Thanks, and hope you are having a great day.
+
+
+
+
+
+
+
+
+
+TO SCHEDULE TESTING PLEASE CONTACT DISPATCH (JOE OR RYAN)
+
+
+
+Maria Lerma
+
+
+
+[A picture containing text, clipart, sign    Description automatically gene=
+rated]
+
+1217/1221 Georgia Ave
+
+P.O. Box 148
+
+Deer Park, Tx  77536
+
+Phone #713-477-0121  Fax #713-477-2277
+
+maria@coastaltestinglabs.com<mailto:maria@coastaltestinglabs.com>
+
+
+
+
+
+
+
+        ...........................CONFIDENTIALITY NOTICE..................=
+...............
+
+
+
+The information in this email may be confidential and/or privileged. This e=
+mail is intended to be reviewed by only the individual or organization name=
+d above. If you are not the intended recipient or an authorized representat=
+ive of the intended recipient, you are hereby notified that any review, dis=
+semination or copying of this email and its attachment, if any, or the info=
+rmation contained herein is prohibited. If you received this email in error=
+ please immediately notify the sender by return email and delete this email=
+ from your system.
+
+
+
+
+
+
+
+
+
+From: Ben Jimenez <ben.jimenez@lennar.com>
+Sent: Wednesday, July 29, 2026 3:58 PM
+To: Veronica Garza <veronica@coastaltestinglabs.com>; Maria Lerma <Maria@co=
+astaltestinglabs.com>; Laverne <laverne@coastaltestinglabs.com>
+Subject: Please fwd test results
+
+
+
+Please forward compaction test results for these 2 homes. Thanks.
+
+
+
+19051 Style Drive
+
+19046 Style Drive
+
+
+
+
+
+Ben Jimenez
+Construction Manager
+[Lennar]<https://www.lennar.com/>
+Mobile 346-422-8291
+Houston, TX
+
+
+
+--_000_SN6PR07MB7887C3DE6E048EA69373E98392C92SN6PR07MB7887namp_
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</head>
+<body>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" dir=
+=3D"ltr">
+Thank you&nbsp;</div>
+<div id=3D"ms-outlook-mobile-body-separator-line" data-applydefaultfontstyl=
+es=3D"true" dir=3D"auto" style=3D"font-family: Aptos, Aptos_MSFontService, =
+-apple-system, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt;">
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt;">
+<br>
+</div>
+</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" id=
+=3D"ms-outlook-mobile-signature" dir=3D"auto">
+<table border=3D"0" style=3D"text-align: left; text-transform: none; width:=
+ 100%; color: rgb(21, 25, 32); box-sizing: border-box; border-collapse: col=
+lapse; border-spacing: 0px; font-family: Aptos, Aptos_MSFontService, -apple=
+-system, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt;">
+<tbody>
+<tr>
+<td style=3D"text-align: left; text-transform: none; vertical-align: top; w=
+idth: 78%; box-sizing: border-box;">
+<div style=3D"text-align: left; text-transform: none;"><span style=3D"font-=
+family: arial; font-size: 16pt; color: rgb(45, 45, 45);"><b>Ben Jimenez</b>=
+</span><span style=3D"font-family: tt-commons-pro, sans-serif; font-size: 1=
+6px; color: rgb(21, 25, 32);"><br>
+</span><span style=3D"font-family: arial; font-size: 9pt; color: rgb(45, 45=
+, 45); line-height: 1px;"><b>Construction Manager</b></span><span style=3D"=
+font-family: tt-commons-pro, sans-serif; font-size: 16px; color: rgb(21, 25=
+, 32);"><br>
+</span><span style=3D"font-family: tt-commons-pro, sans-serif; font-size: 1=
+6px; color: rgb(0, 93, 170);"><a href=3D"https://www.lennar.com/" style=3D"=
+color: rgb(0, 93, 170); text-decoration: none;"><img src=3D"https://lennar.=
+service-now.com/email_signature_lennar_logo_n_padding.png" alt=3D"Lennar" i=
+d=3D"img-d064f103-1326-4130-92a9-2a82a2118386" width=3D"120" style=3D"width=
+: 120px; max-width: 100%; margin-top: 15px; margin-bottom: 10px; box-sizing=
+: border-box; vertical-align: top;"></a></span><span style=3D"font-family: =
+tt-commons-pro, sans-serif; font-size: 16px; color: rgb(21, 25, 32);"><br>
+</span><span style=3D"font-family: arial; font-size: 10pt; color: rgb(45, 4=
+5, 45); line-height: 10px;">Mobile 346-422-8291</span><span style=3D"font-f=
+amily: tt-commons-pro, sans-serif; font-size: 16px; color: rgb(21, 25, 32);=
+"><br>
+</span><span style=3D"font-family: arial; font-size: 10pt; color: rgb(45, 4=
+5, 45); line-height: 5px;">Houston, TX</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(33, 33, 33);" =
+dir=3D"ltr">
+<br>
+</div>
+</div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>From:</b> Ryan Pena &lt;ryan@co=
+astaltestinglabs.com&gt;<br>
+<b>Sent:</b> Thursday, 30 July 2026 11:18:12<br>
+<b>To:</b> Ben Jimenez &lt;ben.jimenez@lennar.com&gt;; Joe Gallardo &lt;joe=
+@coastaltestinglabs.com&gt;; Esmeralda Cantu &lt;esmeralda@coastaltestingla=
+bs.com&gt;<br>
+<b>Subject:</b> Re: Enclave at Spring Branch Crossing - 19051 Style Drive <=
+/font>
+<div>&nbsp;</div>
+</div>
+<div>
+<div style=3D"display:none!important; display:none; visibility:hidden; font=
+-size:1px; color:#ffffff; line-height:1px; max-height:0px; opacity:0; overf=
+low:hidden">
+It is on my schedule. Have not made it by there yet, but I will let you kno=
+w as soon as it is taken care of. Get Outlook for iOS From: Ben Jimenez &lt=
+;ben.=E2=80=8Ajimenez@=E2=80=8Alennar.=E2=80=8Acom&gt; Sent: Thursday, 30 J=
+uly 2026 11:=E2=80=8A14:=E2=80=8A33 To: Ryan Pena &lt;ryan@=E2=80=8Acoastal=
+testinglabs.=E2=80=8Acom&gt;;</div>
+<div style=3D"display:none!important; display:none; visibility:hidden; font=
+-size:1px; color:#ffffff; line-height:1px; max-height:0px; opacity:0; overf=
+low:hidden">
+</div>
+<style>
+<!--
+#x_pfptBannerroexnti
+	{display:block!important;
+	visibility:visible!important;
+	opacity:1!important;
+	background-color:#bddbf2!important;
+	max-width:none!important;
+	max-height:none!important}
+html:root, html:root > div
+	{display:block!important;
+	visibility:visible!important;
+	opacity:1!important}
+-->
+</style>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-apple-syst=
+em,Roboto,Arial,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+It is on my schedule. Have not made it by there yet, but I will let you kno=
+w as soon as it is taken care of.&nbsp;</div>
+<div id=3D"x_ms-outlook-mobile-body-separator-line" data-applydefaultfontst=
+yles=3D"true" dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-a=
+pple-system,Roboto,Arial,Helvetica,sans-serif; font-size:12pt">
+<div dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-apple-syst=
+em,Roboto,Arial,Helvetica,sans-serif; font-size:12pt">
+<br>
+</div>
+</div>
+<div id=3D"x_ms-outlook-mobile-signature" style=3D"font-family:Aptos,Aptos_=
+MSFontService,-apple-system,Roboto,Arial,Helvetica,sans-serif; font-size:12=
+pt; color:rgb(0,0,0)">
+<span style=3D"font-family:Aptos,Aptos_MSFontService,-apple-system,Roboto,A=
+rial,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">Get
+</span><span style=3D"font-family:Aptos,Aptos_MSFontService,-apple-system,R=
+oboto,Arial,Helvetica,sans-serif; font-size:12pt"><a href=3D"https://aka.ms=
+/o0ukef">Outlook for iOS</a></span></div>
+<hr tabindex=3D"-1" style=3D"display:inline-block; width:98%">
+<div id=3D"x_divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" =
+color=3D"#000000" style=3D"font-size:11pt"><b>From:</b> Ben Jimenez &lt;ben=
+.jimenez@lennar.com&gt;<br>
+<b>Sent:</b> Thursday, 30 July 2026 11:14:33<br>
+<b>To:</b> Ryan Pena &lt;ryan@coastaltestinglabs.com&gt;; Joe Gallardo &lt;=
+joe@coastaltestinglabs.com&gt;<br>
+<b>Subject:</b> Re: Enclave at Spring Branch Crossing - 19051 Style Drive <=
+/font>
+<div>&nbsp;</div>
+</div>
+<div>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-apple-syst=
+em,Roboto,Arial,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+Ryan, please let me know if this is a pass when you are able to. Thank you!=
+</div>
+<div id=3D"x_x_ms-outlook-mobile-body-separator-line" data-applydefaultfont=
+styles=3D"true" dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,=
+-apple-system,Roboto,Arial,Helvetica,sans-serif; font-size:12pt">
+<div dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-apple-syst=
+em,Roboto,Arial,Helvetica,sans-serif; font-size:12pt">
+<br>
+</div>
+</div>
+<div id=3D"x_x_ms-outlook-mobile-signature" style=3D"font-family:Aptos,Apto=
+s_MSFontService,-apple-system,Roboto,Arial,Helvetica,sans-serif; font-size:=
+12pt; color:rgb(0,0,0)">
+<table border=3D"0" style=3D"text-align:left; text-transform:none; width:10=
+0%; color:rgb(21,25,32); box-sizing:border-box; border-collapse:collapse; b=
+order-spacing:0px">
+<tbody>
+<tr>
+<td style=3D"text-align:left; text-transform:none; vertical-align:top; widt=
+h:78%; box-sizing:border-box">
+<div style=3D"text-align:left; text-transform:none"><span style=3D"font-fam=
+ily:arial; font-size:16pt; color:rgb(45,45,45)"><b>Ben Jimenez</b></span><s=
+pan style=3D"font-family:tt-commons-pro,sans-serif; font-size:16px; color:r=
+gb(21,25,32)"><br>
+</span><span style=3D"font-family:arial; font-size:9pt; color:rgb(45,45,45)=
+; line-height:1px"><b>Construction Manager</b></span><span style=3D"font-fa=
+mily:tt-commons-pro,sans-serif; font-size:16px; color:rgb(21,25,32)"><br>
+</span><span style=3D"font-family:tt-commons-pro,sans-serif; font-size:16px=
+; color:rgb(0,93,170)"><a href=3D"https://www.lennar.com/" style=3D"color:r=
+gb(0,93,170); text-decoration:none"><img src=3D"https://lennar.service-now.=
+com/email_signature_lennar_logo_n_padding.png" alt=3D"Lennar" id=3D"x_x_img=
+-935f5cb2-ab28-47f6-978a-cdfc2cb02a58" width=3D"120" style=3D"width:120px; =
+max-width:100%; margin-top:15px; margin-bottom:10px; box-sizing:border-box;=
+ vertical-align:top"></a></span><span style=3D"font-family:tt-commons-pro,s=
+ans-serif; font-size:16px; color:rgb(21,25,32)"><br>
+</span><span style=3D"font-family:arial; font-size:10pt; color:rgb(45,45,45=
+); line-height:10px">Mobile 346-422-8291</span><span style=3D"font-family:t=
+t-commons-pro,sans-serif; font-size:16px; color:rgb(21,25,32)"><br>
+</span><span style=3D"font-family:arial; font-size:10pt; color:rgb(45,45,45=
+); line-height:5px">Houston, TX</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-apple-syst=
+em,Roboto,Arial,Helvetica,sans-serif; font-size:12pt; color:rgb(33,33,33)">
+<br>
+</div>
+</div>
+<hr tabindex=3D"-1" style=3D"display:inline-block; width:98%">
+<div id=3D"x_x_divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif=
+" color=3D"#000000" style=3D"font-size:11pt"><b>From:</b> Ben Jimenez &lt;b=
+en.jimenez@lennar.com&gt;<br>
+<b>Sent:</b> Wednesday, 29 July 2026 17:50:37<br>
+<b>To:</b> Ryan Pena &lt;ryan@coastaltestinglabs.com&gt;; Joe Gallardo &lt;=
+joe@coastaltestinglabs.com&gt;<br>
+<b>Subject:</b> Re: Enclave at Spring Branch Crossing - 19051 Style Drive <=
+/font>
+<div>&nbsp;</div>
+</div>
+<div>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-apple-syst=
+em,Roboto,Arial,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+Thank you, I appreciate it</div>
+<div id=3D"x_x_x_ms-outlook-mobile-body-separator-line" data-applydefaultfo=
+ntstyles=3D"true" dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontServic=
+e,-apple-system,Roboto,Arial,Helvetica,sans-serif; font-size:12pt">
+<div dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-apple-syst=
+em,Roboto,Arial,Helvetica,sans-serif; font-size:12pt">
+<br>
+</div>
+</div>
+<div id=3D"x_x_x_ms-outlook-mobile-signature" style=3D"font-family:Aptos,Ap=
+tos_MSFontService,-apple-system,Roboto,Arial,Helvetica,sans-serif; font-siz=
+e:12pt; color:rgb(0,0,0)">
+<table border=3D"0" style=3D"text-align:left; text-transform:none; width:10=
+0%; color:rgb(21,25,32); box-sizing:border-box; border-collapse:collapse; b=
+order-spacing:0px">
+<tbody>
+<tr>
+<td style=3D"text-align:left; text-transform:none; vertical-align:top; widt=
+h:78%; box-sizing:border-box">
+<div style=3D"text-align:left; text-transform:none"><span style=3D"font-fam=
+ily:arial; font-size:16pt; color:rgb(45,45,45)"><b>Ben Jimenez</b></span><s=
+pan style=3D"font-family:tt-commons-pro,sans-serif; font-size:16px; color:r=
+gb(21,25,32)"><br>
+</span><span style=3D"font-family:arial; font-size:9pt; color:rgb(45,45,45)=
+; line-height:1px"><b>Construction Manager</b></span><span style=3D"font-fa=
+mily:tt-commons-pro,sans-serif; font-size:16px; color:rgb(21,25,32)"><br>
+</span><span style=3D"font-family:tt-commons-pro,sans-serif; font-size:16px=
+; color:rgb(0,93,170)"><a href=3D"https://www.lennar.com/" style=3D"color:r=
+gb(0,93,170); text-decoration:none"><img src=3D"https://lennar.service-now.=
+com/email_signature_lennar_logo_n_padding.png" alt=3D"Lennar" id=3D"x_x_x_i=
+mg-935f5cb2-ab28-47f6-978a-cdfc2cb02a58" width=3D"120" style=3D"width:120px=
+; max-width:100%; margin-top:15px; margin-bottom:10px; box-sizing:border-bo=
+x; vertical-align:top"></a></span><span style=3D"font-family:tt-commons-pro=
+,sans-serif; font-size:16px; color:rgb(21,25,32)"><br>
+</span><span style=3D"font-family:arial; font-size:10pt; color:rgb(45,45,45=
+); line-height:10px">Mobile 346-422-8291</span><span style=3D"font-family:t=
+t-commons-pro,sans-serif; font-size:16px; color:rgb(21,25,32)"><br>
+</span><span style=3D"font-family:arial; font-size:10pt; color:rgb(45,45,45=
+); line-height:5px">Houston, TX</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-apple-syst=
+em,Roboto,Arial,Helvetica,sans-serif; font-size:12pt; color:rgb(33,33,33)">
+<br>
+</div>
+</div>
+<hr tabindex=3D"-1" style=3D"display:inline-block; width:98%">
+<div id=3D"x_x_x_divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-ser=
+if" color=3D"#000000" style=3D"font-size:11pt"><b>From:</b> Ryan Pena &lt;r=
+yan@coastaltestinglabs.com&gt;<br>
+<b>Sent:</b> Wednesday, 29 July 2026 17:49:22<br>
+<b>To:</b> Ben Jimenez &lt;ben.jimenez@lennar.com&gt;; Joe Gallardo &lt;joe=
+@coastaltestinglabs.com&gt;<br>
+<b>Subject:</b> Re: Enclave at Spring Branch Crossing - 19051 Style Drive <=
+/font>
+<div>&nbsp;</div>
+</div>
+<div>
+<div style=3D"display:none!important; display:none; visibility:hidden; font=
+-size:1px; color:#ffffff; line-height:1px; max-height:0px; opacity:0; overf=
+low:hidden">
+These were built on the wrong lots and we never heard back that they had be=
+en redone. I=E2=80=99ll add it to the schedule for tomorrow. Get Outlook fo=
+r iOS From: Ben Jimenez &lt;ben.=E2=80=8Ajimenez@=E2=80=8Alennar.=E2=80=8Ac=
+om&gt; Sent: Wednesday, 29 July 2026 17:=E2=80=8A29:=E2=80=8A10 To: Ryan</d=
+iv>
+<div style=3D"display:none!important; display:none; visibility:hidden; font=
+-size:1px; color:#ffffff; line-height:1px; max-height:0px; opacity:0; overf=
+low:hidden">
+</div>
+<style>
+<!--
+#x_x_x_x_pfptBanner4vuy4fc
+	{display:block!important;
+	visibility:visible!important;
+	opacity:1!important;
+	background-color:#bddbf2!important;
+	max-width:none!important;
+	max-height:none!important}
+html:root, html:root > div
+	{display:block!important;
+	visibility:visible!important;
+	opacity:1!important}
+-->
+</style>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-apple-syst=
+em,Roboto,Arial,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+These were built on the wrong lots and we never heard back that they had be=
+en redone. &nbsp;I=E2=80=99ll add it to the schedule for tomorrow.&nbsp;</d=
+iv>
+<div id=3D"x_x_x_x_ms-outlook-mobile-body-separator-line" data-applydefault=
+fontstyles=3D"true" dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontServ=
+ice,-apple-system,Roboto,Arial,Helvetica,sans-serif; font-size:12pt">
+<div dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-apple-syst=
+em,Roboto,Arial,Helvetica,sans-serif; font-size:12pt">
+<br>
+</div>
+</div>
+<div id=3D"x_x_x_x_ms-outlook-mobile-signature" style=3D"font-family:Aptos,=
+Aptos_MSFontService,-apple-system,Roboto,Arial,Helvetica,sans-serif; font-s=
+ize:12pt; color:rgb(0,0,0)">
+<span style=3D"font-family:Aptos,Aptos_MSFontService,-apple-system,Roboto,A=
+rial,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">Get
+</span><span style=3D"font-family:Aptos,Aptos_MSFontService,-apple-system,R=
+oboto,Arial,Helvetica,sans-serif; font-size:12pt"><a href=3D"https://aka.ms=
+/o0ukef">Outlook for iOS</a></span></div>
+<hr tabindex=3D"-1" style=3D"display:inline-block; width:98%">
+<div id=3D"x_x_x_x_divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-s=
+erif" color=3D"#000000" style=3D"font-size:11pt"><b>From:</b> Ben Jimenez &=
+lt;ben.jimenez@lennar.com&gt;<br>
+<b>Sent:</b> Wednesday, 29 July 2026 17:29:10<br>
+<b>To:</b> Ryan Pena &lt;ryan@coastaltestinglabs.com&gt;; Joe Gallardo &lt;=
+joe@coastaltestinglabs.com&gt;<br>
+<b>Subject:</b> Re: Enclave at Spring Branch Crossing - 19051 Style Drive <=
+/font>
+<div>&nbsp;</div>
+</div>
+<div>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-apple-syst=
+em,Roboto,Arial,Helvetica,sans-serif; font-size:12pt; color:rgb(0,0,0)">
+Joe / Ryan, I checked with our tractor guy, he sent me a screenshot that he=
+ requested the test on 51 Style drive back on 7/17. Any way we can get this=
+ done tomorrow ( Thursday 7/30) ?</div>
+<div id=3D"x_x_x_x_x_ms-outlook-mobile-body-separator-line" data-applydefau=
+ltfontstyles=3D"true" dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontSe=
+rvice,-apple-system,Roboto,Arial,Helvetica,sans-serif; font-size:12pt">
+<div dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-apple-syst=
+em,Roboto,Arial,Helvetica,sans-serif; font-size:12pt">
+<br>
+</div>
+</div>
+<div id=3D"x_x_x_x_x_ms-outlook-mobile-signature" style=3D"font-family:Apto=
+s,Aptos_MSFontService,-apple-system,Roboto,Arial,Helvetica,sans-serif; font=
+-size:12pt; color:rgb(0,0,0)">
+<table border=3D"0" style=3D"text-align:left; text-transform:none; width:10=
+0%; color:rgb(21,25,32); box-sizing:border-box; border-collapse:collapse; b=
+order-spacing:0px">
+<tbody>
+<tr>
+<td style=3D"text-align:left; text-transform:none; vertical-align:top; widt=
+h:78%; box-sizing:border-box">
+<div style=3D"text-align:left; text-transform:none"><span style=3D"font-fam=
+ily:arial; font-size:16pt; color:rgb(45,45,45)"><b>Ben Jimenez</b></span><s=
+pan style=3D"font-family:tt-commons-pro,sans-serif; font-size:16px; color:r=
+gb(21,25,32)"><br>
+</span><span style=3D"font-family:arial; font-size:9pt; color:rgb(45,45,45)=
+; line-height:1px"><b>Construction Manager</b></span><span style=3D"font-fa=
+mily:tt-commons-pro,sans-serif; font-size:16px; color:rgb(21,25,32)"><br>
+</span><span style=3D"font-family:tt-commons-pro,sans-serif; font-size:16px=
+; color:rgb(0,93,170)"><a href=3D"https://www.lennar.com/" style=3D"color:r=
+gb(0,93,170); text-decoration:none"><img src=3D"https://lennar.service-now.=
+com/email_signature_lennar_logo_n_padding.png" alt=3D"Lennar" id=3D"x_x_x_x=
+_x_img-935f5cb2-ab28-47f6-978a-cdfc2cb02a58" width=3D"120" style=3D"width:1=
+20px; max-width:100%; margin-top:15px; margin-bottom:10px; box-sizing:borde=
+r-box; vertical-align:top"></a></span><span style=3D"font-family:tt-commons=
+-pro,sans-serif; font-size:16px; color:rgb(21,25,32)"><br>
+</span><span style=3D"font-family:arial; font-size:10pt; color:rgb(45,45,45=
+); line-height:10px">Mobile 346-422-8291</span><span style=3D"font-family:t=
+t-commons-pro,sans-serif; font-size:16px; color:rgb(21,25,32)"><br>
+</span><span style=3D"font-family:arial; font-size:10pt; color:rgb(45,45,45=
+); line-height:5px">Houston, TX</span></div>
+</td>
+</tr>
+</tbody>
+</table>
+<div dir=3D"ltr" style=3D"font-family:Aptos,Aptos_MSFontService,-apple-syst=
+em,Roboto,Arial,Helvetica,sans-serif; font-size:12pt; color:rgb(33,33,33)">
+<br>
+</div>
+</div>
+<hr tabindex=3D"-1" style=3D"display:inline-block; width:98%">
+<div id=3D"x_x_x_x_x_divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans=
+-serif" color=3D"#000000" style=3D"font-size:11pt"><b>From:</b> Maria Lerma=
+ &lt;Maria@coastaltestinglabs.com&gt;<br>
+<b>Sent:</b> Wednesday, 29 July 2026 16:16:30<br>
+<b>To:</b> Ben Jimenez &lt;ben.jimenez@lennar.com&gt;<br>
+<b>Cc:</b> Veronica Garza &lt;veronica@coastaltestinglabs.com&gt;; Esmerald=
+a Cantu &lt;esmeralda@coastaltestinglabs.com&gt;<br>
+<b>Subject:</b> Enclave at Spring Branch Crossing - 19046 Style Drive </fon=
+t>
+<div>&nbsp;</div>
+</div>
+<div>
+<div style=3D"display:none!important; display:none; visibility:hidden; font=
+-size:1px; color:#ffffff; line-height:1px; max-height:0px; opacity:0; overf=
+low:hidden">
+Good Afternoon, Ben Attached please find the report available for your comp=
+any. Please email Ryan and Joe regarding scheduling address 19051 Style for=
+ the compaction test. Let me know if you have any questions. For any future=
+ report requests,</div>
+<div style=3D"display:none!important; display:none; visibility:hidden; font=
+-size:1px; color:#ffffff; line-height:1px; max-height:0px; opacity:0; overf=
+low:hidden">
+</div>
+<style>
+<!--
+#x_x_x_x_x_x_pfptBanner4iu5677
+	{display:block!important;
+	visibility:visible!important;
+	opacity:1!important;
+	background-color:#bddbf2!important;
+	max-width:none!important;
+	max-height:none!important}
+html:root, html:root > div
+	{display:block!important;
+	visibility:visible!important;
+	opacity:1!important}
+-->
+</style>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style>
+<!--
+@font-face
+	{font-family:"Cambria Math"}
+@font-face
+	{font-family:Calibri}
+@font-face
+	{font-family:Verdana}
+@font-face
+	{font-family:Aptos}
+@font-face
+	{font-family:"Lucida Calligraphy"}
+p.x_x_x_x_x_x_MsoNormal, li.x_x_x_x_x_x_MsoNormal, div.x_x_x_x_x_x_MsoNorma=
+l
+	{margin:0in;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif}
+span.x_x_x_x_x_x_EmailStyle18
+	{font-family:"Aptos",sans-serif;
+	color:windowtext}
+.x_x_x_x_x_x_MsoChpDefault
+	{font-size:10.0pt}
+@page WordSection1
+	{margin:1.0in 1.0in 1.0in 1.0in}
+-->
+</style>
+<div class=3D"x_x_x_x_x_x_WordSection1">
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"">Good Afternoon, Ben </s=
+pan></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"">Attached please find th=
+e report available for your company. &nbsp;Please email Ryan and Joe regard=
+ing scheduling address 19051 Style for the compaction test.
+</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"">Let me know if you have=
+ any questions.</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><b><span style=3D"color:black; backgroun=
+d:lime">For any future report requests, please include the following indivi=
+duals in your distribution list:</span></b></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><b><span style=3D"color:black; backgroun=
+d:lime">&nbsp;</span></b></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><b><span lang=3D"ES" style=3D"color:blac=
+k; background:lime">Esmeralda Cantu =E2=80=93
+<u><a href=3D"mailto:esmeralda@coastaltestinglabs.com">esmeralda@coastaltes=
+tinglabs.com</a></u> Veronica Garza =E2=80=93
+</span></b><span style=3D""><a href=3D"mailto:veronica@coastaltestinglabs.c=
+om"><b><span lang=3D"ES" style=3D"color:black; background:lime">veronica@co=
+astaltestinglabs.com</span></b></a><b><span style=3D"color:black; backgroun=
+d:lime">
+</span></b></span><b><span style=3D"color:black">&nbsp;<span lang=3D"ES"></=
+span></span></b></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><b><span lang=3D"ES" style=3D"color:blac=
+k">&nbsp;</span></b></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"">Thanks, and hope you ar=
+e having a great day.</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><b><span style=3D"font-family:&quot;Time=
+s New Roman&quot;,serif; color:#5F497A">TO SCHEDULE TESTING PLEASE CONTACT =
+DISPATCH (JOE OR RYAN)&nbsp;</span></b><span style=3D"font-size:11.0pt"></s=
+pan></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><b><span style=3D"font-family:&quot;Time=
+s New Roman&quot;,serif; color:#5F497A">&nbsp;</span></b><span style=3D""><=
+/span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><b><span style=3D"font-size:22.0pt; font=
+-family:&quot;Lucida Calligraphy&quot;; color:#5F497A">Maria Lerma</span></=
+b></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><b><span style=3D"font-size:22.0pt; font=
+-family:&quot;Lucida Calligraphy&quot;; color:#5F497A">&nbsp;</span></b></p=
+>
+<table class=3D"x_x_x_x_x_x_MsoNormalTable" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"height:45.85pt">
+<td width=3D"67" valign=3D"top" style=3D"width:.7in; padding:0in 5.4pt 0in =
+5.4pt; height:45.85pt">
+<p class=3D"x_x_x_x_x_x_MsoNormal" style=3D"line-height:115%"><span style=
+=3D"font-family:&quot;Verdana&quot;,sans-serif; color:black"><img border=3D=
+"0" width=3D"62" height=3D"56" id=3D"x_x_x_x_x_x_Picture_x0020_919607748" s=
+rc=3D"cid:image001.png@01DD1F73.E26B3600" alt=3D"A picture containing text,=
+ clipart, sign
+
+Description automatically generated" style=3D"width:.6458in; height:.5833in=
+">&nbsp;</span><span style=3D""></span></p>
+</td>
+<td width=3D"288" valign=3D"top" style=3D"width:3.0in; padding:0in 5.4pt 0i=
+n 5.4pt; height:45.85pt">
+<p class=3D"x_x_x_x_x_x_MsoNormal" style=3D"line-height:115%"><span style=
+=3D"font-size:9.0pt; line-height:115%; font-family:&quot;Arial&quot;,sans-s=
+erif; color:#000099">1217/1221 Georgia Ave&nbsp;</span><span style=3D"color=
+:#000099"></span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal" style=3D"line-height:115%"><span style=
+=3D"font-size:9.0pt; line-height:115%; font-family:&quot;Arial&quot;,sans-s=
+erif; color:#000099">P.O. Box 148&nbsp;</span><span style=3D"color:#000099"=
+></span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal" style=3D"line-height:115%"><span style=
+=3D"font-size:9.0pt; line-height:115%; font-family:&quot;Arial&quot;,sans-s=
+erif; color:#000099">Deer Park, Tx&nbsp; 77536&nbsp;</span><span style=3D""=
+></span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal" style=3D"line-height:115%"><span style=
+=3D"font-size:9.0pt; line-height:115%; font-family:&quot;Arial&quot;,sans-s=
+erif; color:#000099">Phone #713-477-0121&nbsp; Fax #713-477-2277&nbsp;</spa=
+n><span style=3D""></span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal" style=3D"line-height:115%"><u><span styl=
+e=3D"font-size:9.0pt; line-height:115%; font-family:&quot;Arial&quot;,sans-=
+serif; color:#3A7C22"><a href=3D"mailto:maria@coastaltestinglabs.com"><span=
+ style=3D"color:#467886">maria@coastaltestinglabs.com</span></a></span></u>=
+<u><span style=3D"font-size:9.0pt; line-height:115%; font-family:&quot;Aria=
+l&quot;,sans-serif; color:#000099"></span></u></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"">&nbsp;</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"font-family:&quot;Calibri=
+&quot;,sans-serif">&nbsp;</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal" style=3D"margin-left:2.0in"><i><span sty=
+le=3D"font-size:9.0pt; font-family:&quot;Times New Roman&quot;,serif; color=
+:#1F497D">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.................=
+..........CONFIDENTIALITY NOTICE................................. &nbsp;</s=
+pan></i></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><i><span style=3D"font-size:9.0pt; font-=
+family:&quot;Times New Roman&quot;,serif; color:#1F497D">&nbsp;</span></i><=
+/p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><b><i><span style=3D"font-size:9.0pt; fo=
+nt-family:&quot;Times New Roman&quot;,serif; color:#1F497D">The information=
+ in this email may be confidential and/or privileged. This email is intende=
+d to be reviewed by only the individual or organization
+ named above. If you are not the intended recipient or an authorized repres=
+entative of the intended recipient, you are hereby notified that any review=
+, dissemination or copying of this email and its attachment, if any, or the=
+ information contained herein is
+ prohibited. If you received this email in error please immediately notify =
+the sender by return email and delete this email from your system.&nbsp;</s=
+pan></i></b></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal" style=3D""><span style=3D"">&nbsp;</span=
+></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal">&nbsp;</p>
+<p class=3D"x_x_x_x_x_x_MsoNormal">&nbsp;</p>
+<p class=3D"x_x_x_x_x_x_MsoNormal">&nbsp;</p>
+<div>
+<div style=3D"border:none; border-top:solid #E1E1E1 1.0pt; padding:3.0pt 0i=
+n 0in 0in">
+<p class=3D"x_x_x_x_x_x_MsoNormal"><b><span style=3D"font-size:11.0pt; font=
+-family:&quot;Calibri&quot;,sans-serif">From:</span></b><span style=3D"font=
+-size:11.0pt; font-family:&quot;Calibri&quot;,sans-serif"> Ben Jimenez &lt;=
+ben.jimenez@lennar.com&gt;
+<br>
+<b>Sent:</b> Wednesday, July 29, 2026 3:58 PM<br>
+<b>To:</b> Veronica Garza &lt;veronica@coastaltestinglabs.com&gt;; Maria Le=
+rma &lt;Maria@coastaltestinglabs.com&gt;; Laverne &lt;laverne@coastaltestin=
+glabs.com&gt;<br>
+<b>Subject:</b> Please fwd test results </span></p>
+</div>
+</div>
+<p class=3D"x_x_x_x_x_x_MsoNormal">&nbsp;</p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"color:black">Please forwa=
+rd compaction test results for these 2 homes. Thanks.</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"color:black">&nbsp;</span=
+></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"color:black">19051 Style =
+Drive&nbsp;</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"color:black">19046 Style =
+Drive&nbsp;</span></p>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"color:black">&nbsp;</span=
+></p>
+<div id=3D"x_x_x_x_x_x_ms-outlook-mobile-body-separator-line">
+<p class=3D"x_x_x_x_x_x_MsoNormal">&nbsp;</p>
+</div>
+<div id=3D"x_x_x_x_x_x_ms-outlook-mobile-signature">
+<table class=3D"x_x_x_x_x_x_MsoNormalTable" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" width=3D"100%" style=3D"width:100.0%; border-collapse:col=
+lapse">
+<tbody>
+<tr>
+<td width=3D"78%" valign=3D"top" style=3D"width:78.0%; padding:.75pt .75pt =
+.75pt .75pt">
+<p class=3D"x_x_x_x_x_x_MsoNormal"><b><span style=3D"font-size:16.0pt; font=
+-family:&quot;Arial&quot;,sans-serif; color:#2D2D2D">Ben Jimenez</span></b>=
+<span style=3D"font-family:&quot;Arial&quot;,sans-serif; color:#151920"><br=
+>
+</span><b><span style=3D"font-size:9.0pt; font-family:&quot;Arial&quot;,san=
+s-serif; color:#2D2D2D">Construction Manager</span></b><span style=3D"font-=
+family:&quot;Arial&quot;,sans-serif; color:#151920"><br>
+</span><a href=3D"https://www.lennar.com/"><span style=3D"font-family:&quot=
+;Arial&quot;,sans-serif; color:#005DAA; text-decoration:none"><img border=
+=3D"0" width=3D"120" id=3D"x_x_x_x_x_x__x0000_i1025" src=3D"https://lennar.=
+service-now.com/email_signature_lennar_logo_n_padding.png" alt=3D"Lennar" s=
+tyle=3D"width:1.25in"></span></a><span style=3D"font-family:&quot;Arial&quo=
+t;,sans-serif; color:#151920"><br>
+</span><span style=3D"font-size:10.0pt; font-family:&quot;Arial&quot;,sans-=
+serif; color:#2D2D2D">Mobile 346-422-8291</span><span style=3D"font-family:=
+&quot;Arial&quot;,sans-serif; color:#151920"><br>
+</span><span style=3D"font-size:10.0pt; font-family:&quot;Arial&quot;,sans-=
+serif; color:#2D2D2D">Houston, TX</span><span style=3D"color:#151920"></spa=
+n></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"x_x_x_x_x_x_MsoNormal"><span style=3D"color:#212121">&nbsp;</sp=
+an></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
+--_000_SN6PR07MB7887C3DE6E048EA69373E98392C92SN6PR07MB7887namp_--
+
+--_004_SN6PR07MB7887C3DE6E048EA69373E98392C92SN6PR07MB7887namp_
+Content-Type: image/png; name="image001.png"
+Content-Description: image001.png
+Content-Disposition: inline; filename="image001.png"; size=6224;
+	creation-date="Wed, 29 Jul 2026 21:16:30 GMT";
+	modification-date="Thu, 30 Jul 2026 16:20:08 GMT"
+Content-ID: <image001.png@01DD1F73.E26B3600>
+Content-Transfer-Encoding: base64
+
+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
+AAAASUVORK5CYII=
+
+--_004_SN6PR07MB7887C3DE6E048EA69373E98392C92SN6PR07MB7887namp_--

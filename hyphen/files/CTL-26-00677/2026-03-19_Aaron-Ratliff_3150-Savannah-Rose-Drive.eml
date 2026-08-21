@@ -1,0 +1,359 @@
+Received: from LV4PR22MB6092.namprd22.prod.outlook.com (2603:10b6:408:2d8::7)
+ by PH0PR22MB3838.namprd22.prod.outlook.com with HTTPS; Thu, 19 Mar 2026
+ 13:43:36 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=btDrwmtnGCIq1n8mIQtcSQOArz1hRRgd1iW7JspcyfN6iCS1prcET9R79+/lFrGUHncDSQ7ro976JCmRmCo8oLDfASg+Uma6aULauRJ4ZA/Gbjxp5ljcAH7ftnOgFFtrrtizOErYM79tAlq8QP8dUN70DH/kwtrM+KIRMeylKb1XsQbnieguLSaY409C9sFaO0sas14/bR1r+XzYDyyHzE+ylioT5nCVgo9PJwp492SefXAcB+rRfOI+aBUrZ3euVtLckCw+EV/3GzQYLGQX5xVFpdoAw0xPbO3AMblVE1MU5x1CpPHuSpeGdKA8YwJ0UGYHq79wlLpprYsT1sT/Bg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=w6ea4LJ6BhKB8BGiVOP43/5LGnb2kE49fmt2Y7aB66E=;
+ b=XJhKXhL/se+KYWG4VErn6xEugmoQvikU/ZTAa82tXhJ8c3yr+6PnfgcK31ZUx0zl1ARuf9amEpYAVtwcAaCg5HTI0q47ahnwlV7w2SBFff8fqXdjABsObuA2LV2lTKphnUj7pZtINm3R1twHCT90Xnd0r7CzpWtgtaX13REaS/ssRfd0IWrmWHRr1wCxvXPcP4yzdhn2qC3CG5SUtGnqSlnWpb5K1ia+oLRYAKHCueubwXtnqxdhkPGqmNWGFmqS6LUiAEojUIIR2vGGUmTtPKM+XWlWnQm9hFWhw4+eatjTA/YKlAY/QyAOZcjA2tEki7HPMFEtYx2nT15PZ8H9sQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 52.0.70.91) smtp.rcpttodomain=coastaltestinglabs.com
+ smtp.mailfrom=lennar.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=lennar.com; dkim=pass (signature was verified)
+ header.d=lennar.com; dkim=pass (signature was verified) header.d=lennar.com;
+ arc=pass (0 oda=1 ltdi=1 spf=[1,1,smtp.mailfrom=lennar.com]
+ dkim=[1,1,header.d=lennar.com] dmarc=[1,1,header.from=lennar.com])
+Received: from DS7PR03CA0266.namprd03.prod.outlook.com (2603:10b6:5:3b3::31)
+ by LV4PR22MB6092.namprd22.prod.outlook.com (2603:10b6:408:2d8::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.20; Thu, 19 Mar
+ 2026 13:43:34 +0000
+Received: from DS1PEPF00017098.namprd05.prod.outlook.com
+ (2603:10b6:5:3b3:cafe::ab) by DS7PR03CA0266.outlook.office365.com
+ (2603:10b6:5:3b3::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9723.20 via Frontend Transport; Thu,
+ 19 Mar 2026 13:43:34 +0000
+Authentication-Results: spf=softfail (sender IP is 52.0.70.91)
+ smtp.mailfrom=lennar.com; dkim=pass (signature was verified)
+ header.d=lennar.com;dkim=pass (signature was verified)
+ header.d=Lennar.com;dmarc=pass action=none
+ header.from=lennar.com;compauth=pass reason=100
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ lennar.com discourages use of 52.0.70.91 as permitted sender)
+Received: from transport-1.inbound.emailservice.io (52.0.70.91) by
+ DS1PEPF00017098.mail.protection.outlook.com (10.167.18.102) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9723.19 via Frontend Transport; Thu, 19 Mar 2026 13:43:34 +0000
+Received: from cloudfilter-igate-new-070ebd80bd07d36f2.inbound.emailservice.io (unknown [10.4.1.139])
+	by transport-1.inbound.emailservice.io (Postfix) with ESMTPS id 96056A123D
+	for <esmeralda@coastaltestinglabs.com>; Thu, 19 Mar 2026 13:43:33 +0000 (UTC)
+Received: from mx0b-001afc01.pphosted.com (mx0b-001afc01.pphosted.com [67.231.152.223])
+	by cloudfilter-igate-new-070ebd80bd07d36f2.inbound.emailservice.io (Postfix) with ESMTPS id B91DC7E050
+	for <esmeralda@coastaltestinglabs.com>; Thu, 19 Mar 2026 13:43:20 +0000 (UTC)
+Received: from pps.filterd (m0077787.ppops.net [127.0.0.1])
+	by mx0b-001afc01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 62JBp3In3543197
+	for <esmeralda@coastaltestinglabs.com>; Thu, 19 Mar 2026 09:43:20 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lennar.com; h=
+	content-type:date:from:message-id:mime-version:subject:to; s=
+	11172022; bh=w6ea4LJ6BhKB8BGiVOP43/5LGnb2kE49fmt2Y7aB66E=; b=oF8
+	/loYMxCcfHLFBxFYOZLH6eJo10+W+KfbVbkNPq77g7HKdMrYXDAxyGa1Hz7hoyvG
+	+kWj57QQkSdALJ8THqTwW1Yn7wYL2Tm/zMQqGkcmNtElvzZFnFjHjgKJdLy7q201
+	LFjMsDmumZ1L5b5OeHiKtlYhiN/p6Q46I7sZvuH4MT9PUzXniqqSTz8Os6v2+xNX
+	YtcCDc2Q4EfJeSMUQ/W45i6FwAnoPbIquYOXDErcg+JZX6nGaJGn1tfiPVwYWJEZ
+	ZSR2FaKlvFJH421tI4rExKeDa00mQf0uWu5JmLDYv7fCgrGghwoo2q58uo5hyDfx
+	xA01sUFowJzJigNEhXg==
+Received: from ch1pr05cu001.outbound.protection.outlook.com (mail-northcentralusazon11010013.outbound.protection.outlook.com [52.101.193.13])
+	by mx0b-001afc01.pphosted.com (PPS) with ESMTPS id 4cywj04660-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT)
+	for <esmeralda@coastaltestinglabs.com>; Thu, 19 Mar 2026 09:43:19 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PE7iUJVe+kTZ0K49IZNb39hgiv56AT084Dk3NROZ268jN9KR6vjGqkGqW0lC6v9LkNOwkadm7TfJ96ESFwd6R9T4XiUhUVlParVYlnbI4JPssykk1qW3WTpa+mQawVXluWmyvutAMdeaxnaWBWtjPNJFFcCwI46GPsHb7ARsXqbl765x9ch3xXByaayb2yP25spJetDvDWeVC0vlsAjBpgHj5bEYFxUBVEbMWyH/7/bkPyI2e4Uyv0LrMcfEoBQS4k6ftghRk5BcHT024fBz68mAcwrLJFMM6Ci+v4WO7o4iguZ3S0izNZaNeF3seFno65uJfpxu1ZWMKwiWNrsQ/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=w6ea4LJ6BhKB8BGiVOP43/5LGnb2kE49fmt2Y7aB66E=;
+ b=myzsGpyznHtmRuApl6IDe75r3cvKw1fSOILbmuI+AqO3SmTiOXNYYBpEQOGS+eLZEuqLiEgzaOidpHBLR1npEZzoCMeQObrRhhsPRYBdggDdqUn0zIP4yHq+92jO6pxusQ+vYC8lZqPNTkExX4Qizr36h8ASGmwROWpSuYWn0F9w5IIEbGTiVnj+Ce0ufx/4gSHMJZm/HDuwoPmfN528sLrWzOpUFaRwAuVltXBEeY27xZM5WvpDKSWU4ERT/0WNpSMEefqJrQCIkZcKay3IBwv1wSLPy2QoNv4KFytZrNwkegyqb2Mi8NPU4KeXbdmAm8rsIPlP5y2zPiwVzEKqWA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=lennar.com; dmarc=pass action=none header.from=lennar.com;
+ dkim=pass header.d=lennar.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Lennar.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=w6ea4LJ6BhKB8BGiVOP43/5LGnb2kE49fmt2Y7aB66E=;
+ b=hRF6JlhkvU+QLXjIIstLOL7Z3s0WIKdAx1OPSCQc0FRbIUtZMpV/d3puSrWK4lxdaxXLMbIPT4WG+eua6YvHWf/rptztM9SfSNapR4+Z0T556XP/v2VHxfKUjQBVeuC47JIkWVMlbiwZOHwA+4Wd89755OJxItUsVpCvS4aJ3jqb1TQQA1r2tQNM701ZP4gws+tRy/yHn4siPa9/Hzw5NA0uG36S4s2JSWfDKrodTW9NpX30F3gjRinzWKaCUclJNt1sD/v6ERx2Gn60CEukYb8mHtT74YyQvd3Hs4Xfh/512EPSmacjRQ+EldRoz7x6qjeor/Yx1WtqEMO5ozGigg==
+Received: from LV5PR07MB11753.namprd07.prod.outlook.com (2603:10b6:408:363::9)
+ by LV5PR07MB11755.namprd07.prod.outlook.com (2603:10b6:408:35a::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9723.20; Thu, 19 Mar
+ 2026 13:43:18 +0000
+Received: from LV5PR07MB11753.namprd07.prod.outlook.com
+ ([fe80::e603:150c:26c0:62cd]) by LV5PR07MB11753.namprd07.prod.outlook.com
+ ([fe80::e603:150c:26c0:62cd%4]) with mapi id 15.20.9723.019; Thu, 19 Mar 2026
+ 13:43:17 +0000
+From: Aaron Ratliff <aaron.ratliff@lennar.com>
+To: Esmeralda Cantu <esmeralda@coastaltestinglabs.com>
+Subject: 3150 Savannah Rose Drive
+Thread-Topic: 3150 Savannah Rose Drive
+Thread-Index: AQHct6Y3jmxMSv1640i+WMQ5gftSuQ==
+Date: Thu, 19 Mar 2026 13:43:17 +0000
+Message-ID: <LV5PR07MB11753C8DD8350DB8A0C47CF1C904FA@LV5PR07MB11753.namprd07.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-reactions: allow
+x-ms-traffictypediagnostic: LV5PR07MB11753:EE_|LV5PR07MB11755:EE_|DS1PEPF00017098:EE_|LV4PR22MB6092:EE_|PH0PR22MB3838:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1fb658e3-c94e-4ed5-596f-08de85bd8407
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|376014|366016|10070799003|8096899003|38070700021|56012099003|18002099003;
+X-Microsoft-Antispam-Message-Info-Original: OPpFp/VQXk1AK7Hb/IYQatQEa/+wfAEU7ME92y+8FkakhTXkmcr8R1/X9m32p4FZeATa0LlQqASatT8zCkGLl2wK/WbLKxh9Zzdu8xAGEmy2D7Ch19ttgfWyIPz6nV0+Lh5UUzakYnZp7Mdh4Uq8gcBHGd8XUmk1XwXL+JzOWFe97u3Pt7ouWGhbiLxNyaRefUXBfJ9fX69pDpFU68bjTumhs0+qYzfIaSxGn10wTakFOpMz3OFtNlvEgrhhVPKLxqRgDB/f3n84e3O3YhFy83YhDAtKQbX7shLwT+xuH304XRiIlYL0lE+s8fLfyZXgTs61MKLaginwgVjsfHzAi7dhptfhL6yGkGeNNKTfCFHLX8sMYtsKhfTluHz8FgDMckgSTBicCx3O8cQzmpaqbqnCDyxrrXNY2UKdt4rHl8zTHD7RCbpemD1XxPRWFBDAfGnbCNhzeMErvMLRb/Cq7fYCYSDbgABr2dmSWxrOBd010PxrK+JaFCCbDQ5puCeEwWCPApBEi1GFA/Ec7xMLn312RHYTAv7uCy96XgP/z7JZn8yXG2wc1sqd+xrxPlA+n+zFXZYXS5SQdy208eLMFLBeT6YFPD1Dh0obhyIlGftnz2f1qMBN33jbOJq18GV08O++aa6AMDSaDq5fCk/eTNyL7dW3itMcYUcAmDchqxgSx+lkUDIX4CtsfsL2Yj0+6CuW6dUKdTsitEx8cXQPrwJrN19Q9yoFh/w+O11K0+1yQydEnXLVWxHRjVWCb3JNbS8yj1eaIpXcQK3WQOEqrB9k9bgYQGC8+n4kD/Fsd0w=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV5PR07MB11753.namprd07.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(10070799003)(8096899003)(38070700021)(56012099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-Original-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-Original-0: =?us-ascii?Q?GHCgnFZemfupiTslIwM81igWRfLLyDL8s6TO4vO49ihbffga9sZd0GU1WFX3?=
+ =?us-ascii?Q?9BkBSTg2w0C63OKMK1qmlyCjknVZrEad7NOPy+VLBpRxQ7HHcYIu2eQA+Pz2?=
+ =?us-ascii?Q?0aJ8Orur9bGK93JGB+1JaPjJRBAUTW/0jiFG/TZAGQ7Eh6NbDim0tRxJ0mrJ?=
+ =?us-ascii?Q?pdl+xvGSXvRQN16shagDGSdfI7jxdKLKkJ8mUuPewm4rGwS48DL0EKq6QegV?=
+ =?us-ascii?Q?rbeka5+uV7J8Zfm+0qZA4G+qNHP9YUTg/tpBvZekxN1E54IvroTiVPnjvZcA?=
+ =?us-ascii?Q?wVnlDHwoWTlNmqYTZ0VECmLd5w0SADvPdVMbM+58cv6Uh+eeH4XrVyy+b1EN?=
+ =?us-ascii?Q?sXFnINj47bIELckhwmDCqt221BzE/DVYCHlApwHJ3g1OQH1tHi8oMTACzxjY?=
+ =?us-ascii?Q?BRDwe70Sw8+fcX9YsjwP1EMBF4Lg/ddCYpARPhNY6Z8IWY/+xik7UgBeG1ix?=
+ =?us-ascii?Q?pZu5hcyDa7aamDa9eFSfvlGPRgeMXQmuIqANgDmsairCqEFpKOidAutyRk5k?=
+ =?us-ascii?Q?/E1ccZ/oUl/Q/xpTBAZKcKAJqchFYgvOqbgGMn6MfXBnYdFPxWduxAWbpwS7?=
+ =?us-ascii?Q?tIzfN/TYWTrp0lpIrejWEXfBsWDGJPqfS32k7pwPTOMzx0XGWYNfLAPs8+3J?=
+ =?us-ascii?Q?t/IzSAMQ2ccCAb4vU5GOXOezj26vT123OoT2WwXT2aW9onfUAQpMtQa+PI3y?=
+ =?us-ascii?Q?1WcJ686W0RCrhXHgk2mAabIRU/txHSihp/VzzN3d3uiGcJ+ucrJJaO3sDjR3?=
+ =?us-ascii?Q?XoM6gSK1YYPjJ1y9LnJKCtNeH8+f52ghXNT1eoeImZZcxVzSD5V3bP07l2OG?=
+ =?us-ascii?Q?D9aZa7UTbtQEnhV6yElZAM47OWxy1WenQyA0AMWD+c77tNiqkFZOAn14D2fs?=
+ =?us-ascii?Q?TunrsKUXchrFeOD7lCUs2RIlKC1Nu/uKW9pizhhbWRWjpiYjyBfij3y1ayBU?=
+ =?us-ascii?Q?wfhN2qCG9pdmtV2OiVjlbThjGJKn3D/c3e7hQ5jJWsKRX2lzKoMTX7tBwpby?=
+ =?us-ascii?Q?7d91EX8B5NExZKIlFGeHBgxnk4E54Yg9UQNpB0RFM2tTK/qNqaAgk4p026Sg?=
+ =?us-ascii?Q?wdSExl4Dw3wnFyfw20V0IJ9NkBQo2MbKzS7E7TW3vRc6PVdX4RkdE1gfCS37?=
+ =?us-ascii?Q?zKBml+dP/bPKV2P0PmBLqaaCPETpfPp6SaXGD0ldy5T+/VIutecTzUERh2er?=
+ =?us-ascii?Q?6j3VyHMAxGXftYPyTs5GbBl3LEDIpB7ehpG8eg4L5sFyVYncgBn/RB/Aj15V?=
+ =?us-ascii?Q?wHPFM8dEGVkO7oCFcKZCg8KvbOaqx9WTNHsqa5UqVqL2FwfQ/c7APO5X/l+3?=
+ =?us-ascii?Q?ndnhO7fsPV51fCmoIxnTo31gcNCaLCeP9qOiOdrw0hluI8IxGAmTmvZzmbtu?=
+ =?us-ascii?Q?O0EWLTIzPHPFn17Beq5MZZbBtytGBteCJfTBNV6e8MimAsVUDZt2HjhAW+SY?=
+ =?us-ascii?Q?SN3fsKES9CK9SqLl7DzWN6nMp2d5pKfYmVgHOYuzGjZ+nar+gxdbnVFpB6AS?=
+ =?us-ascii?Q?JcWvUI04MYKOb9zEFXOiNY6n7P+FxPpzyv7Dud/AJxuTL3zubQeM8YdlYiiG?=
+ =?us-ascii?Q?3HycksiL9JxLp4cQ85C93gzawfpIO0hjliGCGrV2V+dnoZSQt60JoRMcZ103?=
+ =?us-ascii?Q?34D8hVKh/G+1LDeRPTVgMwC3i4mGjOnajs1X7hL5xYkQNKdcgxbPNZvBpvx2?=
+ =?us-ascii?Q?1KsCtFkKUm/yOPS7/my4/+AbNzJUL1Nw/iyQJIdG1Y02k7GzWbV3ej7dAWBQ?=
+ =?us-ascii?Q?y56EKTNCkBRHExobSLLGywO3JXW5MAhDQZkrbj8VnNH0Z9qssFXYu4o+8X2j?=
+X-MS-Exchange-AntiSpam-MessageData-Original-1: rUfcv9cB6sf/WJCb95LKuQOLekMajEmG67kwuBnJrIKo39B7dK1nd8kS
+Content-Type: multipart/alternative;
+	boundary="_000_LV5PR07MB11753C8DD8350DB8A0C47CF1C904FALV5PR07MB11753na_"
+X-Exchange-RoutingPolicyChecked: na9RsDmddSf6RmEKw9MZp07ais67nwmgiv2V5mze46lCGvp1BQid+UN1tzjQsn+NUvruTmW699hCKbJrFoIfqh9XPK5USqKh98CHhbfVjfrjqtdsDW6FUN0DwwYw/ihU6EB2R8HuRjObAG5lTiKV01AkuTNqoSDvnuG8hQmPlLurrLPFNNbDkhDliaROmCMIw7F4uqBkGp85iMmTxYqX9+IKuP+3Vw7Yv6LC2pSwx/C5jLVmVNn7v+LnfI1DrfW3fvI/JKv4CgVs8bqyFBougwDI6uuTfpPD6NIMVHUzytaHX1nVvCI29fKAGgjNnhBs9N2iX9S6mCLWTDg2UBHc8g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV5PR07MB11755
+X-Authority-Analysis: v=2.4 cv=d4/4CBjE c=1 sm=1 tr=0 ts=69bbfd77 cx=c_pps
+ a=N2Bp1sGBA0q5hqNMPvyVyQ==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=Yq5XynenixoA:10
+ a=rcICekzIIxQA:10 a=VkNPw1HP01LnGYTKEx00:22 a=KKj_HOhWc6TcvNMf4AfC:22
+ a=Fcr5pSIzOXbFKyTzYnxe:22 a=rqQMM5ifihPY7hpxkrUA:9 a=CjuIK1q_8ugA:10
+ a=3bczNW35OwLfpin3SUcA:9 a=f7Ja2P6uoQpqBvxx:21 a=_W_S_7VecoQA:10
+ a=7nIoGTPP2428fcgGHXPh:22
+X-Proofpoint-GUID: oDF4b4pwYfTgxScBv46Al-IUErtLHllB
+X-Proofpoint-ORIG-GUID: oDF4b4pwYfTgxScBv46Al-IUErtLHllB
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMzE5MDEwOSBTYWx0ZWRfXydeYl6e5wl02
+ 6c7TUAdSW1Pq9CbE/3JvG4/2hTqZjf8dQ+6vSSqu7qo6gH0ofCWB2ZWdCeZFPVddZXanv9nE/58
+ XudTzz4fk+YHM2q376PsvsR0BOlfDV81NrCGEy3JRMFQbPRx+my43VN+lyI1UQZfsNcloE94J2F
+ n6vQmdyi0WGLPG2pTSZxFTPVLhbwUFdT6NzQztNT9vMlSjaO18QthiMa5P/yU0oFH/3faMYeJHu
+ /2h8xUtOuyjR4fQyI38c4ZWXLtxhfssBux2DqiNdXFKor46Cjt3exmoo1EX9qvmR3QkL4tkEyog
+ r82R15sN1vfVFx+Z70+dG+Uh/UKZZIex1eL9dtBaav+nz4gktOCH6olXbZHZkD1RkOk5U4toaKd
+ yQsRgbx2u2hwrhAkj28PcoS8zTTGu8obhoSR+B8TgBi5buyIfqdnRZjuAoWxLQDMlZFFsvGH6pi
+ 69VkqPSJIpGa6sfBQIA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1143,Hydra:6.1.51,FMLib:17.12.100.49
+ definitions=2026-03-19_01,2026-03-19_05,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 impostorscore=0
+ suspectscore=0 adultscore=0 lowpriorityscore=0 priorityscore=1501
+ malwarescore=0 clxscore=1011 spamscore=0 phishscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2603050001 definitions=main-2603190109
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mx0b-001afc01.pphosted.com|67.231.152.223|mx0b-001afc01.pphosted.com|-0.166667|0.327499|0|normal|ugly|14|10|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass dkim_verified clean dmarc_policy_allow
+X-Mailprotector-Score: 0
+X-Mailprotector-IP-Analysis: 0, 67.231.152.223, Ugly c=0.285716 p=-0.25 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-16014-c
+X-Mailprotector-ID: 1f7a7914-55dc-477a-a498-8c461a5b7c81
+X-Mailprotector-Timestamp: TVUZVkeoj/R0zyaQdxaX1A==
+Return-Path: prvs=35387ce4a8=aaron.ratliff@lennar.com
+X-MS-Exchange-Organization-ExpirationStartTime: 19 Mar 2026 13:43:34.3576
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 1fb658e3-c94e-4ed5-596f-08de85bd8407
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DS1PEPF00017098.namprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource: DS1PEPF00017098.namprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 847a1529-5989-4cb5-729d-08de85bd7a3e
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|82310400026|12012899012|57112099003|16102099003|19002099003|8096899003;
+X-Forefront-Antispam-Report: CIP:52.0.70.91;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-1.inbound.emailservice.io;PTR:transport-1.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(35042699022)(82310400026)(12012899012)(57112099003)(16102099003)(19002099003)(8096899003);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Mar 2026 13:43:34.0581
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1fb658e3-c94e-4ed5-596f-08de85bd8407
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017098.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV4PR22MB6092
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.6790757
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.9723.008
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?18SgsjIiPnu+O5AVO8dzRNBmpRfpKlRRyJ8WeZgB1RAN9GJinMsDrGWFrPg7?=
+ =?us-ascii?Q?dk0PCD+dOwkDaZS2bn+nB3mi3yo/UywC+mSRdt86d+jirAfRZPxVIdZEnMsQ?=
+ =?us-ascii?Q?HohaYus4YxatU26UN6QCMoZpUhuSYYy46+rTfkYS7iZkUb+zkiw8lhTbUQgG?=
+ =?us-ascii?Q?wZO0cqOSG2OTBh2rNXRehND0E9TdAJsZASb2ZosKtTbVOIZ1zzgoYDxrLP0s?=
+ =?us-ascii?Q?HqP3qbQpIZrL6cCcCPJPAUYy1y1emq60huB5moYsC9fV99nIxJogzJErLC1s?=
+ =?us-ascii?Q?AAFzm9kExa1DYtRg9rHTK9H2Eb5Mvgl0kiceQ4GFKTgfLhUF5GY7JJ4Z9fGL?=
+ =?us-ascii?Q?iFM64hEeVNEa2ATwyNc9ivVssSVvNzePSZ5A1+dfRSaBzijAwBCaxyWBJLHB?=
+ =?us-ascii?Q?Vvd6ruRmLRTAOYIMeTtBOC8RipNZcoIHdB43a1OVzlYZHM8oR6slnqmmVPn0?=
+ =?us-ascii?Q?7qGOWyGs+s4AYkmgUKu8ohD1vd3YftjS6wf2kFUMFWwPhGCXOFzhItV2Wk+z?=
+ =?us-ascii?Q?56Zse6d8a78+bGiZlhWuagfYNFwGLRw+n2w/vgI1wTmkBP9/hIf+vlthlYrI?=
+ =?us-ascii?Q?Gn42l/C1zL4JaMzFF2tP1elUSQYPBg0dDeGl+kK1qD+gzHCmnrwQ2UyaCgUC?=
+ =?us-ascii?Q?4xuAqKz0sMfkk4kcF8xK/hRXE3vj8XT08UgiVyEEHHHyogic8VRtQunCeVm+?=
+ =?us-ascii?Q?QRND6VRa+tCd8LyCMniHjcKSOYOaSb3AmkUlw9FdsDcm0ac5ELdYNWcktSsB?=
+ =?us-ascii?Q?Tyn5Dkzu+yS10mhjFOjfiN7vMzQCKf6GviqlQMK1unr4vFlw6a4SZj+cm5my?=
+ =?us-ascii?Q?scJSP9J3isoVZgNYj6YYb8qRQbyxQZdX3lPEUTDqvg7maXOOlyGtJEwYgyv+?=
+ =?us-ascii?Q?VXaqmUfT0F2Z24iyfLxPIxXv6TMvzaccKuG+0IYBKcvC3FWQg9wugJAsO+xO?=
+ =?us-ascii?Q?ntHvKOxFrHYCEzYsjZBpSn8QHSHGNraGCpWNIPQr7WFEi5NHJDgMsG+lUfhq?=
+ =?us-ascii?Q?0htb8CNCVNvxGbUuKvgH4fIB7jMaIHTjie7u/hGq4XZ6dQM0ux3OzdqO2soh?=
+ =?us-ascii?Q?c8Zv8dnoJSM2k/78j6blDyBYVACcHGo1zwogC+pneITYQMO7pTZlnGQXWt59?=
+ =?us-ascii?Q?Oy2p9W7GusE9HbV/UDeRluweIiMMBSqojq5nId2L2VfcSJwulUsKiyO7gQdP?=
+ =?us-ascii?Q?SzlP9GsHoHFgEl4ZKLGIRvXwYs4wN9TIgqW2rPkM0JHb7cJ+Q6yI/T+C/+3g?=
+ =?us-ascii?Q?qp3BEdd3aF5/4xGTlrRBQYxWlIniFQfzgid44ZLmSA33IehgDoEZJqQ8rymQ?=
+ =?us-ascii?Q?uQR3COWbhBl5NntgdxJt0LB7pvcVeKsIDSFGdFFiubCnHoGSm8VWjyjQvcPm?=
+ =?us-ascii?Q?k7rqZB/vav+/Z4+f1qokzOwCn5oBLd8XlPaOoqrUyfiQA78JVAJrfElm3wrn?=
+ =?us-ascii?Q?dgnZ98MlUsNVsBErZcmPqpiEFhEhALdmD81fe6+vaaKktYh1IpWf7FsBZIfO?=
+ =?us-ascii?Q?rvbSU3KwFBml2yjXgMmbdRQSfm2AJ2V9QluqmrtEhWJ/v/prEeo9X9Z5KDEG?=
+ =?us-ascii?Q?Ucc6+mYPVUcXH/KXn4qXBz1qJc1jh8O26hm5dTLfZYqNAsZ8gVc9fdYpD+9G?=
+ =?us-ascii?Q?sDm8PEiSDxmmc/zJIOo4cd3P4pqKn1KQ3Gh1gFi8n2bhXlcd2C6yxcUFBIct?=
+ =?us-ascii?Q?nqbL7LVWeKy9lXeSzjI8b/xfdEutvzuPRvtNx5TNb8sNF0bBjX22ylV9ORvD?=
+ =?us-ascii?Q?dym5rG4ItxSO0HRLk1WYh9T8YvvPVlDcYG83Io/DQ5EORQ7kRs4LN+LOUeC+?=
+ =?us-ascii?Q?5vEO7TeD5DLLbeR8W4P2tR/+nAPcmOVukv95nfyC4hgrmpOxH3GcI/wKVk/i?=
+ =?us-ascii?Q?9gtkHjDgpM9GvVCJ+KQ0nDp25NNOb5f3d5ZbQWsRm9G/vKU6eG7kHzaEA/Fa?=
+ =?us-ascii?Q?j9ZlALEZwB3d1ske2A+lzDPrYy4RbjyUzq6EqNAwr3BvPzQX4uOl+ZPkefxx?=
+ =?us-ascii?Q?S8Ck9v9eazTuBt0TzDpnx3GHFIlkZzUVdSInIJw2GiOrI0ba42r2O5e36Qj5?=
+ =?us-ascii?Q?wy3F+o2mPjdVwLQjcljVmVD1HiudVOomUuBpcHqmxO1Z6d7v8GGIYcyV6BPE?=
+ =?us-ascii?Q?nKwe+iwuCq6ZcaXTrOOYKRQOvGQztQcMf6fzjxj8eETEOWrelv5MI8yHJD72?=
+ =?us-ascii?Q?3E2w+bgXtKch7z21XGoHFAUoPgcL3ZlrwiUzn8MKgAOdJBOhPZqA6jknewl6?=
+ =?us-ascii?Q?l5k9dVX9o6SVYhDKXgzFXUPB+fXWiBFdYdx61VqHZuUxUZ3YGblCVkLBAmts?=
+ =?us-ascii?Q?Av8K/OKaxJ9Me6R37j/s88HAK5/H8ZAwD9VQJq44/aGoUTgpQEoWzXajLra8?=
+ =?us-ascii?Q?YJydiM0n9V1DvJLo9VAHszRZLi2k+dFqy6ILIWOc3VA7qkz+bc97dtKUv7qo?=
+ =?us-ascii?Q?txlgaaNR+IdWaenY2X6+4Rg6h5IJAeS2ie1HEHOM2z3EFw3XiIPSPjTr7OQT?=
+ =?us-ascii?Q?ZOK1e9/SvUyJWux7DdaDEP9n9smL7H9QSuVqU1YtubhT099oAOLu76YBlYGy?=
+ =?us-ascii?Q?NnLOEq7AmyllBWot961efe5fWR5lH7bxoCYlbay4kIIInqeJVZijz42ucfOA?=
+ =?us-ascii?Q?vvAnIDjWvZKU8XYDAbpNULNOxzPBXyCLeY0DwO537VjVXXHQAjGOjoHjqwjJ?=
+ =?us-ascii?Q?Mz6Yvv5NcSAfCzqHwJuHP6cgVTls0rLhqURJ9pnNLo/cEIcp8Rf3wFQe9RPX?=
+ =?us-ascii?Q?0axCeIalgM4SvrYhCpZSFzjrtbZ65KxUzrxflHNfl+7i1uWiDPYgnKwQuBmN?=
+ =?us-ascii?Q?KcsyfbInyatI9fZTi5V6QIL4Qa19p6svoyt77SEcfZf0oX6bv6DXcVoaBawk?=
+ =?us-ascii?Q?bwXmEVlkSaV49OMmA63a5gOjUqNsLwGZCAGafCUTQ7BGMu2UuUpzL+MFgmTY?=
+ =?us-ascii?Q?Vf6csED1xJkBHm5iB4o698goAhaLI+lvu9ox3xGXTf4fs65B18KJFxCEo96H?=
+ =?us-ascii?Q?EhMhkmllJuBGjh3XRCAeNM5cb33Olv1jsXrjuN1bQZ5HE7CsJJ+/4ZIQgUb5?=
+ =?us-ascii?Q?En497Z5nKWBZw1IEOQtKX1yR+Vl9+gvCMHDD0WaMvzn6M3lodRjkmW+h1upo?=
+ =?us-ascii?Q?Enr9dYAYXkhkQccebCheUxnkjE416TzT3ckA8K0yDWt8mIANhLavXRRhMO21?=
+ =?us-ascii?Q?hXZs2AuvRzPLzlmOS8xT6H+PuUy/EXSZ61GacSNAqgNibbe/D+a9GScaYTKU?=
+ =?us-ascii?Q?zxG26tyrdiVAGmPJXKujCY86C0ZnbzALRUo/Il78v9lht9hYaqinEym0dU+e?=
+ =?us-ascii?Q?AfF0exvvzbzNleSbE/HNhaLLoYh1rHSzBzy68t24ftY3yw=3D=3D?=
+MIME-Version: 1.0
+
+--_000_LV5PR07MB11753C8DD8350DB8A0C47CF1C904FALV5PR07MB11753na_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Hello,
+
+     Can I please have a copy of the compaction test results for this home?
+
+3150 Savannah Rose Drive
+Windrose Green Community
+
+Thank you,
+
+Aaron Ratliff
+Lennar Houston
+Construction Manager
+346-546-6817
+
+
+--_000_LV5PR07MB11753C8DD8350DB8A0C47CF1C904FALV5PR07MB11753na_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+</head>
+<body>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+Hello,</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+<br>
+</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+&nbsp; &nbsp; &nbsp;Can I please have a copy of the compaction test results=
+ for this home?</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+<br>
+</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+3150 Savannah Rose Drive</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+Windrose Green Community</div>
+<div id=3D"ms-outlook-mobile-body-separator-line" data-applydefaultfontstyl=
+es=3D"true" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system=
+, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt;" dir=3D"ltr">
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt;" dir=3D"ltr">
+<br>
+</div>
+</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt;" id=3D"ms-outlook-mobile-=
+signature">
+<span style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robo=
+to, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">Th=
+ank you,</span>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+<br>
+</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+Aaron Ratliff</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+Lennar Houston</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+Construction Manager</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);">
+346-546-6817</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(33=
+, 33, 33);">
+<br>
+</div>
+</div>
+</body>
+</html>
+
+--_000_LV5PR07MB11753C8DD8350DB8A0C47CF1C904FALV5PR07MB11753na_--

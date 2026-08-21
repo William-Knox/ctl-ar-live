@@ -1,0 +1,1806 @@
+Received: from SA3PR22MB6088.namprd22.prod.outlook.com (2603:10b6:806:463::10)
+ by CH3PR22MB4276.namprd22.prod.outlook.com with HTTPS; Tue, 18 Aug 2026
+ 16:51:13 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=fail;
+ b=pcTFTE1SM13bKz6dvmMoSv2WTVJIb0HsQIxL5e56wotCKLjGnaakXBVOKm4lsqsoLln9yzwLLT9u5jpGYsMA2l+IHJQPxwFitcp7MYTVBvmE0iiywVpLt0HGJvOLTrtw9bmIPiRpKQHv8XcnPi1o3N4/pXTtlPdacMLQmFhH10rmbfELPtaTks5DFxlQ/ex0nXk/QCoR2LpJMCqCKDptd1TL+LgJlnwJzBFscyVcUG+nZT9HiBFjSThtV3p1r2RbMUr1NrGPdKRGPamb+6Hegs5TPMGkii1Ko2xWm/ihsrecpCioy+9o08NZYEy4yaP80PldpERO2n1GvcpLA7vO6g==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wIa45NzBZ+bWJm3RSDQ03nGR4J/Pfuu580lNEzoJH0M=;
+ b=BM5jlpTUhu8XA2+EGDQj3Oujwx2i4IDZ1KHqOw1MlbCFk1iUslA9D/BOfbPjxqg21woqqL09rLMyMBCSEU5sfAjOR0pw1DwQtKEj7DFkVpYlMj3J2QT6tRyQ0t/cC67QzOy9GSFiQcekQUn0aHifqajEVkS1XouWqOhdWoZF5Apvoh8TEAlmuaNJhjwx2QQa+c4D4JwMmIO+f/9ZfyJ50U+iy3q+GtPCrGVxns3NuECrzmJ+fJTKHR9zXqg9yMbxsgaxp1YvH7FnfHpKllbfNRvGr0fMrG2Flf7QAx1B/g8tEK0Zbe5EjjJ2z+Q4GKIopb+dX0GyyjMLTIesH276qg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
+ 52.0.74.211) smtp.rcpttodomain=coastaltestinglabs.com
+ smtp.mailfrom=tollbrothers.com; dmarc=pass (p=reject sp=reject pct=100)
+ action=none header.from=tollbrothers.com; dkim=pass (signature was verified)
+ header.d=tollbrothers.com; arc=fail (47)
+Received: from CH0PR03CA0188.namprd03.prod.outlook.com (2603:10b6:610:e4::13)
+ by SA3PR22MB6088.namprd22.prod.outlook.com (2603:10b6:806:463::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Tue, 18 Aug
+ 2026 16:51:10 +0000
+Received: from CH2PEPF0000009E.namprd02.prod.outlook.com
+ (2603:10b6:610:e4:cafe::1) by CH0PR03CA0188.outlook.office365.com
+ (2603:10b6:610:e4::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.339.8 via Frontend Transport; Tue, 18
+ Aug 2026 16:51:10 +0000
+Authentication-Results: spf=fail (sender IP is 52.0.74.211)
+ smtp.mailfrom=tollbrothers.com; dkim=pass (signature was verified)
+ header.d=tollbrothers.com;dmarc=pass action=none
+ header.from=tollbrothers.com;compauth=pass reason=100
+Received-SPF: Fail (protection.outlook.com: domain of tollbrothers.com does
+ not designate 52.0.74.211 as permitted sender)
+ receiver=protection.outlook.com; client-ip=52.0.74.211;
+ helo=transport-3.inbound.emailservice.io;
+Received: from transport-3.inbound.emailservice.io (52.0.74.211) by
+ CH2PEPF0000009E.mail.protection.outlook.com (10.167.244.27) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.339.3 via Frontend Transport; Tue, 18 Aug 2026 16:51:09 +0000
+Received: from cloudfilter-igate-00180ace8fc3567ff.inbound.emailservice.io (unknown [10.4.3.125])
+	by transport-3.inbound.emailservice.io (Postfix) with ESMTPS id 97FF983E0A;
+	Tue, 18 Aug 2026 16:51:09 +0000 (UTC)
+Received: from mx0b-0019ed02.pphosted.com (mx0b-0019ed02.pphosted.com [148.163.153.57])
+	by cloudfilter-igate-00180ace8fc3567ff.inbound.emailservice.io (Postfix) with ESMTPS id 53F177E22D;
+	Tue, 18 Aug 2026 16:51:08 +0000 (UTC)
+Received: from pps.filterd (m0146838.ppops.net [127.0.0.1])
+	by mx0b-0019ed02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67IDvFjH3108700;
+	Tue, 18 Aug 2026 12:51:07 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	tollbrothers.com; h=cc:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pps2019625;
+	 bh=wIa45NzBZ+bWJm3RSDQ03nGR4J/Pfuu580lNEzoJH0M=; b=VC0NUhfyFM0t
+	ozLd9fBkyLM5uiVXuLa0Nbjji+ZXA0StvcL8no3h0Qa0hx3cibjPb+pEU2Qc7kvk
+	/hQA1C7WCiqVUmRT0zAtGpTRFNwM2016rBRXxkfkR5iGf9qdSZ860eEeM+zLxtkn
+	L9KVqp4JDNN5GojpWeNnSHk0XXMwEiCmG8PMSbwXvtkUawjdKVVHRqyPk/id/p6O
+	f8+WA67fzrPdCb1KgK0dMIOCt1GCJNyE0NGPPjGRX2tfCRv3MNbb9rq5kGI4D7O3
+	J97eq2eksC4fPHHgIQ/efPGaUsz/D85RJ0J30vEYQm4Yzly60Lt3O6/XlghLa6My
+	HCdr1GdG0A==
+Received: from ch5pr02cu005.outbound.protection.outlook.com (mail-northcentralusazon11022107.outbound.protection.outlook.com [40.107.200.107])
+	by mx0b-0019ed02.pphosted.com (PPS) with ESMTPS id 4g2hp64paf-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 18 Aug 2026 12:51:07 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=snckzR65PvfeKk7kgweMMBuofWPTwgXtFsymPJSUbNle7cdAil+ttBJ/Cj8jehLC7PdxS7L4xE4gFTcsKe+SOy6JSKD9r3zIeX/lromUV6FDk4ELdn6HOfqwIgBPiUBGmio22+2HVU6whCBguMbmj+Sx6Qq7EulAG9TOxz8w1kve3Vlq+ZczpkbOTstvSmQTA8xpE7QMTP7l8UAVh/VjF0QbCtpZ0ZCgFjDRWRacyFwz4uTmZH97d+nQEMYSQzBultdwQso9VTQxhPB0bZ8EPTyNGHCS1ByIXT6OuORCenNB6h1RWeWnnc1HENjL0LuOEqNtEjHTGIiEdbx02CPETg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JmsQZwwang+SFIipZK4duj+gEFRuQ6xcVsIdE1SYLas=;
+ b=qa7/UJMBlA/Ut/4985tcRFagd2nmKrEbQQHX+eFljO61Kn2dI6vZscFcgJY81xLEaIvLgIwhMSqLBuSGLFcq2hD4L/L0WBebpKtMk3x1dSJa6ETuVFqVq3Strw54mtnKamerv3H/3EfxZFZQvPYxUpcV3Kq4WMgipm/KDpG0ofGeFtnWV4q/v4+iPs6oTt4vMPl3sGndeQlaX/xz5uxtb+sSnhamrCeq1F+14AjC3SrqKHH7xBcqnWTiKRzbV0haC5YhZXOYjm1mOUFw36CxYCrN35rJrb7uuS4Y+eMfiiw2FkewHbA1mL63yXDLDKUDDqNNexGZA6IRxNTQm8jXUg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=tollbrothers.com; dmarc=pass action=none
+ header.from=tollbrothers.com; dkim=pass header.d=tollbrothers.com; arc=none
+Received: from BY5PR20MB3092.namprd20.prod.outlook.com (2603:10b6:a03:1b2::14)
+ by MW4PR20MB4547.namprd20.prod.outlook.com (2603:10b6:303:132::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.17; Tue, 18 Aug
+ 2026 16:51:04 +0000
+Received: from BY5PR20MB3092.namprd20.prod.outlook.com
+ ([fe80::d106:3df2:c3bc:caae]) by BY5PR20MB3092.namprd20.prod.outlook.com
+ ([fe80::d106:3df2:c3bc:caae%5]) with mapi id 15.21.0315.016; Tue, 18 Aug 2026
+ 16:51:04 +0000
+From: Bradley Adams <BAdams@tollbrothers.com>
+To: Ryan Pena <ryan@coastaltestinglabs.com>,
+        Derek Bird
+	<DBird@tollbrothers.com>,
+        Joe Gallardo <joe@coastaltestinglabs.com>,
+        Maria
+ Lerma <Maria@coastaltestinglabs.com>
+CC: Esmeralda Cantu <esmeralda@coastaltestinglabs.com>,
+        William Knox
+	<william@coastaltestinglabs.com>
+Subject: Re: Compaction Tests - Evergrove
+Thread-Topic: Compaction Tests - Evergrove
+Thread-Index: AQHdK/q63X/oWIBenUKa+gmtZKWLz7adoVTwgABL32CAAAONUIAGFayAgAABwVCAAANd3A==
+Date: Tue, 18 Aug 2026 16:51:04 +0000
+Message-ID: <BY5PR20MB3092A46727B225633F0D1B31B1A62@BY5PR20MB3092.namprd20.prod.outlook.com>
+References: <BN0PR20MB4118B5CBB5FEE853AFEE0CA1D0DA2@BN0PR20MB4118.namprd20.prod.outlook.com>
+ <BN0PR20MB4118B2F9F12EE995895A7D54D0DA2@BN0PR20MB4118.namprd20.prod.outlook.com>
+ <CH3PR22MB427627F0B83D65C16BFDD9A6BCDA2@CH3PR22MB4276.namprd22.prod.outlook.com>
+ <BY5PR20MB3092398A74217FDD92E0929CB1A62@BY5PR20MB3092.namprd20.prod.outlook.com>
+ <CH3PR22MB42761297068CC35CDA537260BCA62@CH3PR22MB4276.namprd22.prod.outlook.com>
+In-Reply-To: <CH3PR22MB42761297068CC35CDA537260BCA62@CH3PR22MB4276.namprd22.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator:
+x-ms-reactions: allow
+x-ms-traffictypediagnostic: BY5PR20MB3092:EE_|MW4PR20MB4547:EE_|CH2PEPF0000009E:EE_|SA3PR22MB6088:EE_|CH3PR22MB4276:EE_
+X-MS-Office365-Filtering-Correlation-Id: fddbb0a3-bb5b-4a51-cc80-08defd48e7cf
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|23010399003|10070799003|7049299003|3109299003|6049299003|1800799024|376014|366016|69100299015|13003099007|4013099003|4053099003|38070700021|56012099006|10067099003|4143699003|11063799006|8096899003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info-Original: GMPWcIFySPkNsylCA2vB2SwLwLpbZZstzTYEDo7YOZAthfT5CozySRML2vGj7+r7W4kJ33SiQrkq/Yq5gBo4BVx1OzonGS5eYP4qriasbiPeYW4TvdrHwvH9T0EvO5IAGR5wvDW4wFEzAHit33UixZ43SogPt++fTaGR/sWx2M2pfiommlxFnhiJNx5zVR1bYHL/dMS7VFsIX1lqBx0hZ1bUvbkeclrVLLQDe+3VEtwHmCmXprRYbji7upXqrDCf6/naWiPdIJpPz8iHMSd7zBBz/ptvHz/HMOoj1MN2yGqp8A+QwQG0SevMjToh9uiCoVXtsvwFbPWC+oyn52ZzPEaTAE0m8+Fa+ac8p81MLOqSo7ONGzT1bBWDeytNjd5aCQCgpVfFgX19/pX6MSJFDpFoVEhCMG2OUMOGgM4ODOpI9TGRCpF92/JFWslrGSVd7ileDX3YbJcri1qxCWBnUHwwU4LkUUG/R1EY3pHaaOW0uu+wuciwwYp5SlU8ILc7JPK+ZOkqmUv7BKIMuGjBl3l6KZfaFF5UP2D3d0iO913ZvTPL7T59T1DRl68vJO6srvk6i7Px6z87wyCj7lEpa7aKebs4b73h7W+ftu8mCWRTikx2GE4haCf5Wh77APE9WWjDfN6h56UvCbfcPJnfeiiw1ic7MbhXVFdCxhrGRyY=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY5PR20MB3092.namprd20.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(7049299003)(3109299003)(6049299003)(1800799024)(376014)(366016)(69100299015)(13003099007)(4013099003)(4053099003)(38070700021)(56012099006)(10067099003)(4143699003)(11063799006)(8096899003)(18002099003)(22082099003);DIR:OUT;SFP:1102;
+Content-Type: multipart/related;
+	boundary="_005_BY5PR20MB3092A46727B225633F0D1B31B1A62BY5PR20MB3092namp_";
+	type="multipart/alternative"
+X-Exchange-RoutingPolicyChecked: guc+VqG3OCJF9YHrEgCrSqAm0CR12I1/bq6IADQ5DkTv3+2HmH+n978DN1kSbNS55t4QKkOSDPLX41JpTL9zv6nO3w1SUdTgy8gSDoVENX9WR03Yq8iEzpHjq9ThU/uQhb1kpRF6p0zAIW/uKNUBj0iTHpyQl/TtioZmCe3v0i46DGsv9+mLTcY07/jidM6kYbD0iQujv146wakQA2cALNeZM9t6E0kDWil1QHtcnL1Lu1TQvpq3GW/Y5fBMoKLUXWIrKpexekqLv9iz8cUTZ714bM1kwCOTROKSW1jXiR0eFDGCNJ+Vnq5oh0Eql9Q3D7+7EzAldIEn/Uv9Gfb50Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR20MB4547
+X-Proofpoint-GUID: 5gD4bkK14bdA0GGjc-DvtIV2oz_AGbdS
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODE4MDEyNCBTYWx0ZWRfXyfwk4OVsnjjd
+ FsKCVfJkorl1Zpx0tDWxyAVeewvL3yqAhKce8u/4UdzaLkYi7DLBeVpF42Lhvq8YxlWdT7ZL3a7
+ 08uAMqGHIxfioYP0HpRuLEK6eY8XbWMlgOY1Wb2VYn+aD0v0vxxQ
+X-Proofpoint-ORIG-GUID: 5gD4bkK14bdA0GGjc-DvtIV2oz_AGbdS
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODE4MDEyNCBTYWx0ZWRfX7hNZByxUXuTv
+ 8ZH40ALBg6V7UMtwUfkoOHE1UEfg687A8owdRPoaXw6PKNq8anzuT37okEVtNKIJGZ+jhsdeqRK
+ oiFH3IPp+vrRGwZlmlYgU3IIQqwc9f0z6jOSzUO4SGX6yeb7zqZikA1Jdgv59uSJ0TyXaZ+XjB1
+ H8Ej/IyUMHYM5eF0K2Xeu2rav2ns/W4jwP8bzTALHhbtZOVlEkRLaK8LlOLNzAX7qmoMCMCeBgZ
+ zDmI/b0Hio2auhf82uXDQKij/W0wSYBL36oTg7UET/8dpipAfTN7rVIj1YcSpqwCY/ITq7NNEHp
+ yvqYaNXsOnfDwmg0FFzGtYxgE/XIB+0YWjenzksEeNtU/8pYqW3poITHan2Q19hnsTv1qMnhLSo
+ TnQGyM6z2hun/i6BacD0ocIFhAuvTimvaaNxDrmsFezfBWnSGTvPwrU5QXd2g8j2in9JyCkaNrd
+ pMKx07RTgej3bXjRUKQ==
+X-Authority-Analysis: v=2.4 cv=WJdPmHsR c=1 sm=1 tr=0 ts=6a848d7b cx=c_pps
+ a=TrU/2LxE+ZX2LRvKjn0IHQ==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=Sv0fKeRqtYgA:10
+ a=QKXd_x6Ta_EA:10 a=VkNPw1HP01LnGYTKEx00:22 a=XjIOXJTtTPGf21HAGUnx:22
+ a=f6x5g_zUjiaOu_tPI8jR:22 a=XmeuOEejAAAA:8 a=2VS01ro3AAAA:8 a=RpNjiQI2AAAA:8
+ a=tbpGB1bEAAAA:8 a=7-lSxEXCAAAA:8 a=rtr5-nuWxEZqIukQUqQA:9 a=lqcHg5cX4UMA:10
+ a=QEXdDO2ut3YA:10 a=BTzoHuLf7H4s7mVLdicA:9 a=2q4O/K3rjNU7EHYdBHB6dYyilSc=:19
+ a=CWDqUrMdmppU_VKN:21 a=hTZeC7Yk6K0A:10 a=frz4AuCg-hUA:10 a=_W_S_7VecoQA:10
+ a=PRpDppDLrCsA:10 a=KQqxNPgzF0kA:10 a=VEiTNn8F7TgA:10 a=HXjIzolwW10A:10
+ a=T6a71-JsGAwA:10 a=jHaCc0UwEv-gq2UnBlya:22 a=cbunAhVk-jsOGqbXO7S-:22
+ a=ayYy12crN3DpO_qRHeKm:22 a=PpCl5_QvWB-eAoQMnsFP:22
+X-Proofpoint-Virus-Version:
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
+ spamscore=0 phishscore=0 bulkscore=0 priorityscore=1501 lowpriorityscore=0
+ malwarescore=0 impostorscore=0 suspectscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608180124
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mx0b-0019ed02.pphosted.com|148.163.153.57|mx0b-0019ed02.pphosted.com|0|0|0|new|ugly|0|0|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass clean dmarc_policy_allow
+X-Mailprotector-Score: 2663392:0 1901672:0 2998666:0 1833708:0 1833714:0
+X-Mailprotector-IP-Analysis: 0, 148.163.153.57, Ugly c=0 p=-1 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-32767-c
+X-Mailprotector-ID: b2c55206-f594-42fc-b126-cea6832759eb
+X-Mailprotector-Timestamp: V7cW0IVnU/O4aRL5GK8Gfe/nkth++wd1dx/RFFcZACE=
+Return-Path: prvs=069060d693=badams@tollbrothers.com
+X-MS-Exchange-Organization-ExpirationStartTime: 18 Aug 2026 16:51:10.1816
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: fddbb0a3-bb5b-4a51-cc80-08defd48e7cf
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: CH2PEPF0000009E.namprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource: CH2PEPF0000009E.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs: a63f6b3a-d6af-4f0e-c031-08defd48e45e
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1032899013|7049299003|3109299003|6049299003|35042699022|69100299015|82310400026|7149299003|5063699009|10067099003|19002099009|4133799003|6133799003|18003699003|4076899003|8096899003|2066899003|16102099003|57112099003|22082099003|4143699003|13003099007|4013099003|4053099003;
+X-Forefront-Antispam-Report: CIP:52.0.74.211;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-3.inbound.emailservice.io;PTR:transport-3.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(1032899013)(7049299003)(3109299003)(6049299003)(35042699022)(69100299015)(82310400026)(7149299003)(5063699009)(10067099003)(19002099009)(4133799003)(6133799003)(18003699003)(4076899003)(8096899003)(2066899003)(16102099003)(57112099003)(22082099003)(4143699003)(13003099007)(4013099003)(4053099003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Aug 2026 16:51:09.9234
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fddbb0a3-bb5b-4a51-cc80-08defd48e7cf
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000009E.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR22MB6088
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.5539166
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0315.000
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?ZEtxN3R0dHFoUUIrbzZNM3lzbUEwUzhLVmNOeVJ3aTlKdG44S3NLQXNkQ0Vq?=
+ =?utf-8?B?WTBlYytpR2IwdXlmRVVZUGMvVzR0cnpVTDhFa2MwTFY4Y3BVQXluK0pCTlkz?=
+ =?utf-8?B?ZW90NjVMOFNyLzF4OG92NTZBZXlHTXEvM1hUdDRjLzJEbm5zcUtxSksveExi?=
+ =?utf-8?B?Wm9xR01ldDFGRmV1Y0xBOWZ5bTlRK2dmOEZSYk5GNFJ5elFLOTFlT1IyQ3Ew?=
+ =?utf-8?B?eldKeFh3WGpnVlJzL05kNW9lWHczQURGL20vYTdtUFlMZ3ZJakc4WVhxNHN3?=
+ =?utf-8?B?aXF5Q0p3SWJtemdIOFBhcS9xK1dpZDFISFgxV3FSOFJ1NSt1T2FHWFVKZFpi?=
+ =?utf-8?B?NTYxbmk0TnJ1UXZOcjFBOTRrRFYxWG4rbXdIMW1DVWZveWJXVU8ycFNOOEh1?=
+ =?utf-8?B?dFIzSjVCUVgxOVhlazhrVFNwVXlneGppZU56dDYwZTAzTFdkT2Z0cEp2cjhP?=
+ =?utf-8?B?Ym83cUluU1k0V2JJSFdvaUd1alp3ZHd0empSYk1mSGZKNEdPUE1WYWxEREhF?=
+ =?utf-8?B?ZzZ6VGpZSXhpTTZLdDF1RWppVXh0YklMdE1NeG5ZeHhXYjNIZXBrZ1FjeHdk?=
+ =?utf-8?B?UUtobU5sNXo4aS9Vc2E0ZlYvcmV6cnc2amd1TGRBY3g3c1BlMEtjSy9JeUVm?=
+ =?utf-8?B?U1MvUGlwUVAzNGQzMHd4WVNzUXc1aDJ6aXA4N3BCWWE3WE5KdnM4Z25nK3Jh?=
+ =?utf-8?B?aGJEbjRLTVNBa2hvdURIRkVNbzFtZ1FNQjBVRHZPRjB1V2FWTS9pTjFZOStp?=
+ =?utf-8?B?Zmt5RnBiQlRwK2JlNit6T1RhTS9EWkNNWkFONEhOdzI2N05uNGRSUk15U2pi?=
+ =?utf-8?B?YzI1MGhrY0s3Tmc1Z0J5bWgrdis0UHRMeHZlNFR3dHM4YVhxZDAwS0ZHNlpT?=
+ =?utf-8?B?REVsalVILy9BMmg1TEVTSGRyZXBSSzR4N2NHTm9UK25DOWNKVk1QR0pIQnhJ?=
+ =?utf-8?B?Sm83SmdkRHB5b1d1dnFZR0FmYjh1ZzRPTXhMdE5kczg3WXJORTh4TEZjY0VV?=
+ =?utf-8?B?OGxOcUdzanJEcUdvV1pSa09CeGlaYWdSM0x5TVE3SDQzQ2ZoSy9iVDhmMmhK?=
+ =?utf-8?B?OXV3TVU2TnVVNVJZUVFqREpkc2FxQ3c1MWNkNVdiRWV4anBGOHJCcEJJU0Ry?=
+ =?utf-8?B?blJ5RWtCeEtUM0tVRWNMODFsNWtTNENENnRrakI0Q0VTNUs0WTZTMk5LZWVH?=
+ =?utf-8?B?eGRpUEpqMy9QTFJGSFJIdE5sdXBjT0M1NTFXam01S25MOFN2d0ZTditma3JL?=
+ =?utf-8?B?MEYzL1BzUHhiOGE2b1FTdUVPenR2MXNSejRQelYxMjZ4elRsWWVLU2lTbHNo?=
+ =?utf-8?B?UkE0SWpUVEJCWTEvdTVJc2kzd00vbmd3aVUxeGNnRUE3RDZDaXZ5K0pJbGdF?=
+ =?utf-8?B?Rjl2NEJzTUNucGh0bkxtcTBiYWF4a0JBcGpZYnppN0ZEMmorc0puNDFZTTU4?=
+ =?utf-8?B?cktTWkFYaWFRMkZSNFFHdWtBbEMrRWg4WDJvdEdqRUZGVXh6bXdjYXRIRFMy?=
+ =?utf-8?B?QXYzNkd2cmtBd2tkYzlhTHptR0tFdnpaSlRINzJwZWYrL3F2TnlZRThMczZK?=
+ =?utf-8?B?dXNMNTRuaVFkRElMUVczTnlYY0VWYS8vZHV4ZWlTZmd6SHVJT0xNOEF1TGhN?=
+ =?utf-8?B?dWVrK08xblN1OTllUGhieHZ3cVBBZU9NK3ZKNVFRaWN0RzQzQmN6eFFwS2RD?=
+ =?utf-8?B?WEU3K1NXWS9MT1hLc2pyd29tQ2Z0bnRPM2NpZ3YxZytXa1NIWGRKWlorb3Ni?=
+ =?utf-8?B?VkZCMS8vVDFobjZ1ZjJkQnJJWFhuUUl5ZmFGNnlKUEk0RGdFNU0yTHd6ZFVQ?=
+ =?utf-8?B?LzNyL0UwMUEzdlBLQUFJcVJwbng0SVpvZGVzaGh6aEtJMEU2R2JXeUpXTGtU?=
+ =?utf-8?B?S2tlTkw4b1lNYVlYcDN4eDJNMkVhZk0xcFczRGhLRG1qUExiUmR0Qk1QcEJu?=
+ =?utf-8?B?NjBoMzM3R1hmNHZqejFySUNZVjg4R2VrdHBpUTFDZi9nS1lQV3dpcjM5Wnoy?=
+ =?utf-8?B?UmdsR3dBaFNvSXYvMjd3ei9ndTZycUFiWCs4WUlPRExNL29nMTBmYUdndTBR?=
+ =?utf-8?B?YnY3TlM2blBCOFZua3pGcE5STit1R0p3SnEzZTUzZ0ZVaFRhWkVpeGwzZjl6?=
+ =?utf-8?B?SzRHdUxsUmVBQWM1MmNXTzR4aGcrdHE4QUFyUGdYOElaUDJTS0RBTlBxSHB5?=
+ =?utf-8?B?YXZZRkFuUGZQOFJFTjJJUlRxdkdMdXVmT0ZKTHg2K3ZWQ250eFllRkh5UTB0?=
+ =?utf-8?B?TUxKQlIzK05iaFVhbThMbUdhUUx2MWxwaWdoOXZOYXFIQWRzTkhmbnR5Zkta?=
+ =?utf-8?B?bXRZTUdLUkhoQ3pEQzNXdTJxQkVVWGM3WmJiSitpdUNZQWxrNituK3hyenc4?=
+ =?utf-8?B?M0NXdjhoMWZTelRTTzRyek0remNQQ1Z5VkxKMlBzQzFsQnMxbElYUUQzeUU4?=
+ =?utf-8?B?U2sycjBzS2ozVmRDditaSStSQWJjeCt2Q2x0MGF3UEJPNHk3bC9ld29PZUVz?=
+ =?utf-8?B?dHlDYXp1OHVYWHRzN0VTWGR6Y3dhM1NXQ0NTUHpZT2FqZFJTV0JIdXdFYUtU?=
+ =?utf-8?B?U0EyR01RVndiamhnMS9sOGR1TjhCdEw1SFd3NXFxcExnbE96SCtqUHlHYWxH?=
+ =?utf-8?B?bnZEaEtZNngzRjZQOGVhM3RJa3JmNUo5eHRBSUpFaFVWUDJKQmMwYS93aDcy?=
+ =?utf-8?B?Ui9VVVRSajJXT3hKS3d3YkRXZm40eWtHSmltRjFGdnJhQjlRVjI3NHdEaGc1?=
+ =?utf-8?B?Wi9hdGpEdTVLdTltS1U4NGJaUEVQWTR0bTBDMmd3YWJCa0sySnU2YlMyMWx5?=
+ =?utf-8?B?UHY5d3VYSTlqOHUvRzVrek1BMHZWbWR3VTNwR2xFTit6WXlsajgxeVZycGY1?=
+ =?utf-8?B?RVVMQVRhMHZzdTc3RXpaSGhMampIMDIwMGkrVWVTSFlVbHl5SUk5T2VHOThz?=
+ =?utf-8?B?U0t1UGllMFVpVFBoMEVVd1dvNlg5NlRoNGwweEptVmIreXdnVXJPdzE0WlNq?=
+ =?utf-8?B?Q0hPODV0RVE2VUptcnVlaGc1NG1BWkRtY09maUNrMVVuSjVhcUlsWnA2V1Bj?=
+ =?utf-8?B?dERHaEsxaVREQzBZUTU2L1IwdTlSaG9vYXA3cGM0OVNnYUYvblZwTEVhejd5?=
+ =?utf-8?B?VzV3QlByZWZLZkpXT0Q4OWJVeElBZUNiOHFsZzY4WTR4NURZUW04RUtZTXR6?=
+ =?utf-8?Q?VJSOLMZPyALmwpJ9hmcvDMn++P2c?=
+MIME-Version: 1.0
+
+--_005_BY5PR20MB3092A46727B225633F0D1B31B1A62BY5PR20MB3092namp_
+Content-Type: multipart/alternative;
+	boundary="_000_BY5PR20MB3092A46727B225633F0D1B31B1A62BY5PR20MB3092namp_"
+
+--_000_BY5PR20MB3092A46727B225633F0D1B31B1A62BY5PR20MB3092namp_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Ok thanks f9r the update!
+
+Bradley Adams
+=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B
+Construction Manager
+Toll Brothers
+7514 Sunset Ridge Ln
+,
+Fulshear
+,
+TX
+77441
+Cell:(713) 231-7829<tel:(713)%20231-7829>
+[Toll Brothers]<https://us.content.exclaimer.net?url=3Dhttps%3A%2F%2Fwww.pa=
+rsintl.com%2Fpublications%2Ffortune%2Ffortune-worlds-most-admired-companies=
+-credit-notice%2F&tenantid=3D8O9IjnEHEe-ZGmBFvdVZ2w&templateid=3De5eed2dec1=
+6bf0118dca00224822c48c&excomponentid=3D2bHHkK8JvO_f0VWd5o2E8ZiRCmrho_a72gcG=
+GJMk5cI&excomponenttype=3DImage&signature=3Dqkz9X-tfCPFLkxp-NXQaVgsgRBlDAMP=
+mYENpiyoBv1BXk3K0ciJX2UJ3JGeg7-QSuK61x8hMIjbCXSI-qXrVuDX-shdomg7PNOBjw4oHc0=
+XZO9vUWaQme1gNz3Qh7gMM3k3f3-UOXAT7kciEoR0j_tcEgOErhu2og56TVlVgSzhjaJ8nBpI4q=
+hBFoxSfRTD79MFtSR5uOzWyqWZn2aQ9rHha5NeNjYcYh7Yb9ku9VodhtRTUAFqEHAJPuLlHZz_s=
+sVMjywhLMGxuQiXETyxe9NrdnOvi0lD5HoBlalmC74FfxmCagSBMfx2zeqLxLaFk1TzPHC1qAbp=
+wVZ-1yfDY8w&v=3D1>
+
+________________________________
+From: Ryan Pena <ryan@coastaltestinglabs.com>
+Sent: Tuesday, 18 August 2026 11:39:59
+To: Bradley Adams <BAdams@tollbrothers.com>; Derek Bird <DBird@tollbrothers=
+.com>; Joe Gallardo <joe@coastaltestinglabs.com>; Maria Lerma <Maria@coasta=
+ltestinglabs.com>
+Cc: Esmeralda Cantu <esmeralda@coastaltestinglabs.com>; William Knox <willi=
+am@coastaltestinglabs.com>
+Subject: RE: Compaction Tests - Evergrove
+
+
+
+
+Yes, these passed.
+
+
+
+I don=E2=80=99t think these reports are ready to send but as soon as they a=
+re ready and the POs are in place, they will be sent over.
+
+
+
+Ryan Pena
+
+Coastal Testing Laboratories, Inc.
+
+[cid:image001.png@01DD2F06.4BBAB760]
+
+1217/1221 Georgia Ave
+
+P.O. Box 148
+
+Deer Park, Tx  77536
+
+Phone #713-477-0121  Fax #713-477-2277
+
+Ryan@coastaltestinglabs.com
+
+
+
+        ...........................CONFIDENTIALITY NOTICE..................=
+...............
+
+
+
+The information in this email may be confidential and/or privileged. This e=
+mail is intended to be reviewed by only the individual or organization name=
+d above. If you are not the intended recipient or an authorized representat=
+ive of the intended recipient, you are hereby notified that any review, dis=
+semination or copying of this email and its attachment, if any, or the info=
+rmation contained herein is prohibited. If you received this email in error=
+ please immediately notify the sender by return email and delete this email=
+ from your system.
+
+
+
+From: Bradley Adams <BAdams@tollbrothers.com>
+Sent: Tuesday, August 18, 2026 11:34 AM
+To: Ryan Pena <ryan@coastaltestinglabs.com>; Derek Bird <DBird@tollbrothers=
+.com>; Joe Gallardo <joe@coastaltestinglabs.com>; Maria Lerma <Maria@coasta=
+ltestinglabs.com>
+Cc: Esmeralda Cantu <esmeralda@coastaltestinglabs.com>
+Subject: RE: Compaction Tests - Evergrove
+
+
+
+Were these compactions tests completed yesterday. Can you send me the passe=
+d report for these.
+
+
+
+Bradley Adams
+
+=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B
+
+Construction Manager
+
+Toll Brothers
+
+7514 Sunset Ridge Ln
+
+,
+
+Fulshear
+
+,
+
+TX
+
+77441
+
+Cell:(713) 231-7829<tel:(713)%20231-7829>
+
+[Image removed by sender. Toll Brothers]<https://urldefense.com/v3/__https:=
+//us.content.exclaimer.net/?url=3Dhttps*3A*2F*2Fwww.parsintl.com*2Fpublicat=
+ions*2Ffortune*2Ffortune-worlds-most-admired-companies-credit-notice*2F&ten=
+antid=3D8O9IjnEHEe-ZGmBFvdVZ2w&templateid=3De5eed2dec16bf0118dca00224822c48=
+c&excomponentid=3D2bHHkK8JvO_f0VWd5o2E8ZiRCmrho_a72gcGGJMk5cI&excomponentty=
+pe=3DImage&signature=3Dqkz9X-tfCPFLkxp-NXQaVgsgRBlDAMPmYENpiyoBv1BXk3K0ciJX=
+2UJ3JGeg7-QSuK61x8hMIjbCXSI-qXrVuDX-shdomg7PNOBjw4oHc0XZO9vUWaQme1gNz3Qh7gM=
+M3k3f3-UOXAT7kciEoR0j_tcEgOErhu2og56TVlVgSzhjaJ8nBpI4qhBFoxSfRTD79MFtSR5uOz=
+WyqWZn2aQ9rHha5NeNjYcYh7Yb9ku9VodhtRTUAFqEHAJPuLlHZz_ssVMjywhLMGxuQiXETyxe9=
+NrdnOvi0lD5HoBlalmC74FfxmCagSBMfx2zeqLxLaFk1TzPHC1qAbpwVZ-1yfDY8w&v=3D1__;J=
+SUlJSUlJQ!!ILPwwLwzuq8HJw!WvnNiXOpyVvx23sRvXLlwtA0AiF1UgfWZpZR4IVfC1R7OCrH0=
+vfcGCzqPX_jsx6H1BuMi-0nxdB2Aqe26180NWI$>
+
+
+
+From: Ryan Pena <ryan@coastaltestinglabs.com>
+Sent: Friday, August 14, 2026 2:38 PM
+To: Derek Bird <DBird@tollbrothers.com>; Joe Gallardo <joe@coastaltestingla=
+bs.com>; Maria Lerma <Maria@coastaltestinglabs.com>
+Cc: Esmeralda Cantu <esmeralda@coastaltestinglabs.com>; Bradley Adams <BAda=
+ms@tollbrothers.com>
+Subject: RE: Compaction Tests - Evergrove
+
+
+
+
+
+
+
+Added to schedule for Monday.
+
+
+
+Thanks,
+
+
+
+Ryan Pena
+
+Coastal Testing Laboratories, Inc.
+
+[cid:image001.png@01DD2F06.4BBAB760]
+
+1217/1221 Georgia Ave
+
+P.O. Box 148
+
+Deer Park, Tx  77536
+
+Phone #713-477-0121  Fax #713-477-2277
+
+Ryan@coastaltestinglabs.com<mailto:Ryan@coastaltestinglabs.com>
+
+
+
+        ...........................CONFIDENTIALITY NOTICE..................=
+...............
+
+
+
+The information in this email may be confidential and/or privileged. This e=
+mail is intended to be reviewed by only the individual or organization name=
+d above. If you are not the intended recipient or an authorized representat=
+ive of the intended recipient, you are hereby notified that any review, dis=
+semination or copying of this email and its attachment, if any, or the info=
+rmation contained herein is prohibited. If you received this email in error=
+ please immediately notify the sender by return email and delete this email=
+ from your system.
+
+
+
+From: Derek Bird <DBird@tollbrothers.com<mailto:DBird@tollbrothers.com>>
+Sent: Friday, August 14, 2026 2:25 PM
+To: Ryan Pena <ryan@coastaltestinglabs.com<mailto:ryan@coastaltestinglabs.c=
+om>>; Joe Gallardo <joe@coastaltestinglabs.com<mailto:joe@coastaltestinglab=
+s.com>>; Maria Lerma <Maria@coastaltestinglabs.com<mailto:Maria@coastaltest=
+inglabs.com>>
+Cc: Esmeralda Cantu <esmeralda@coastaltestinglabs.com<mailto:esmeralda@coas=
+taltestinglabs.com>>; Bradley Adams <BAdams@tollbrothers.com<mailto:BAdams@=
+tollbrothers.com>>
+Subject: Compaction Tests - Evergrove
+
+
+
+Can you please schedule a compaction test at the following addresses for Mo=
+nday 8/17. This is in
+
+Evergrove
+
+Richmond 77406
+
+
+
+5711 Peach Grove Lane
+
+5722 Watercrest Oak Drive
+
+
+
+Derek Bird
+
+=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B=E2=80=8B
+
+Construction Manager
+
+Toll Brothers
+
+5318 Gilded Estates Drive
+
+,
+
+Richmond
+
+,
+
+TX
+
+77469
+
+[Image removed by sender. Toll Brothers]<https://urldefense.com/v3/__https:=
+/us.content.exclaimer.net/?url=3Dhttps*3A*2F*2Fwww.parsintl.com*2Fpublicati=
+ons*2Ffortune*2Ffortune-worlds-most-admired-companies-credit-notice*2F&tena=
+ntid=3D8O9IjnEHEe-ZGmBFvdVZ2w&templateid=3De5eed2dec16bf0118dca00224822c48c=
+&excomponentid=3D2bHHkK8JvO_f0VWd5o2E8ZiRCmrho_a72gcGGJMk5cI&excomponenttyp=
+e=3DImage&signature=3Dqkz9X-tfCPFLkxp-NXQaVgsgRBlDAMPmYENpiyoBv1BXk3K0ciJX2=
+UJ3JGeg7-QSuK61x8hMIjbCXSI-qXrVuDX-shdomg7PNOBjw4oHc0XZO9vUWaQme1gNz3Qh7gMM=
+3k3f3-UOXAT7kciEoR0j_tcEgOErhu2og56TVlVgSzhjaJ8nBpI4qhBFoxSfRTD79MFtSR5uOzW=
+yqWZn2aQ9rHha5NeNjYcYh7Yb9ku9VodhtRTUAFqEHAJPuLlHZz_ssVMjywhLMGxuQiXETyxe9N=
+rdnOvi0lD5HoBlalmC74FfxmCagSBMfx2zeqLxLaFk1TzPHC1qAbpwVZ-1yfDY8w&v=3D1__;JS=
+UlJSUlJQ!!ILPwwLwzuq8HJw!QgeTCc4JMk-_ezNcV3ETb6SWOw5NuPrkx9ZMUZTPWR_pPsrWpD=
+qyldI8szhAUuXeaG6jHBNqp3PsYkzyXSHpCfQ$>
+
+
+
+--_000_BY5PR20MB3092A46727B225633F0D1B31B1A62BY5PR20MB3092namp_
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</head>
+<body>
+<div>
+<div dir=3D"ltr">Ok thanks f9r the update!</div>
+</div>
+<div id=3D"ms-outlook-mobile-body-separator-line" dir=3D"auto"><br>
+</div>
+<div id=3D"ms-outlook-mobile-signature">
+<div dir=3D"ltr" style=3D"mso-line-height-rule:exactly;-webkit-text-size-ad=
+just:100%;font-size:1px;direction:ltr;">
+<table dir=3D"ltr" role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0=
+" border=3D"0" style=3D"width:100%;direction:ltr;border-collapse:collapse;f=
+ont-size:1px;">
+<tbody>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"border-collapse:collapse;font-size:0;">
+<tbody>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"border-collapse:collapse;font-size:0;">
+<tbody>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"padding:0 10px 0 0;vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"white-space:nowrap;color:#000001;font-size:12px;font-family:Ver=
+dana;font-weight:700;font-style:normal;text-align:left;line-height:18.67px;=
+border-collapse:collapse;">
+<tbody>
+<tr style=3D"font-size:12px;">
+<td style=3D"font-family:Verdana;">Bradley&nbsp;Adams</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td><span style=3D"font-family:remialcxesans;font-size:1px;color:#FFFFFF;li=
+ne-height:1px;">=E2=80=8B<span style=3D"font-family:'template-3tLu5WvBEfCNy=
+gAiSCLEjA';">=E2=80=8B</span><span style=3D"font-family:'zone-1';">=E2=80=
+=8B</span><span style=3D"font-family:'zones-AQ';">=E2=80=8B</span><span sty=
+le=3D"font-family:'sigsh-01RAe2FJ1XF7t62F4OGKdV0A';">=E2=80=8B</span></span=
+></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"border-collapse:collapse;font-size:0;">
+<tbody>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"border-collapse:collapse;font-size:0;">
+<tbody>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"white-space:nowrap;color:#000001;font-size:12px;font-family:Ver=
+dana;font-weight:400;font-style:normal;text-align:left;line-height:18.67px;=
+border-collapse:collapse;">
+<tbody>
+<tr style=3D"font-size:12px;">
+<td style=3D"font-family:Verdana;">Construction&nbsp;Manager</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"white-space:nowrap;color:#000001;font-size:12px;font-family:Ver=
+dana;font-weight:400;font-style:normal;text-align:left;line-height:18.67px;=
+border-collapse:collapse;">
+<tbody>
+<tr style=3D"font-size:12px;">
+<td style=3D"font-family:Verdana;">Toll&nbsp;Brothers&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"border-collapse:collapse;font-size:0;">
+<tbody>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"border-collapse:collapse;font-size:0;">
+<tbody>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"border-collapse:collapse;font-size:0;">
+<tbody>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"border-collapse:collapse;font-size:0;">
+<tbody>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"white-space:nowrap;color:#000001;font-size:12px;font-family:Ver=
+dana;font-weight:400;font-style:normal;text-align:left;line-height:18.67px;=
+border-collapse:collapse;">
+<tbody>
+<tr style=3D"font-size:12px;">
+<td style=3D"font-family:Verdana;">7514&nbsp;Sunset&nbsp;Ridge&nbsp;Ln</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"white-space:nowrap;color:#000001;font-size:12px;font-family:Ver=
+dana;font-weight:400;font-style:normal;text-align:left;line-height:18.67px;=
+border-collapse:collapse;">
+<tbody>
+<tr style=3D"font-size:12px;">
+<td style=3D"font-family:Verdana;">,&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"white-space:nowrap;color:#000001;font-size:12px;font-family:Ver=
+dana;font-weight:400;font-style:normal;text-align:left;line-height:18.67px;=
+border-collapse:collapse;">
+<tbody>
+<tr style=3D"font-size:12px;">
+<td style=3D"font-family:Verdana;">Fulshear</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"white-space:nowrap;color:#000001;font-size:12px;font-family:Ver=
+dana;font-weight:400;font-style:normal;text-align:left;line-height:18.67px;=
+border-collapse:collapse;">
+<tbody>
+<tr style=3D"font-size:12px;">
+<td style=3D"font-family:Verdana;">,&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"white-space:nowrap;color:#000001;font-size:12px;font-family:Ver=
+dana;font-weight:400;font-style:normal;text-align:left;line-height:18.67px;=
+border-collapse:collapse;">
+<tbody>
+<tr style=3D"font-size:12px;">
+<td style=3D"font-family:Verdana;">TX&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"white-space:nowrap;color:#000001;font-size:12px;font-family:Ver=
+dana;font-weight:400;font-style:normal;text-align:left;line-height:18.67px;=
+border-collapse:collapse;">
+<tbody>
+<tr style=3D"font-size:12px;">
+<td style=3D"font-family:Verdana;">77441</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3D"left" style=3D"vertical-align:top;"></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3D"left" style=3D"vertical-align:top;"></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td align=3D"left" style=3D"vertical-align:top;"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"border-collapse:collapse;font-size:0;">
+<tbody>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"border-collapse:collapse;font-size:0;">
+<tbody>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"border-collapse:collapse;font-size:0;">
+<tbody>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"padding:0 10px 0 0;vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"white-space:nowrap;color:#000001;font-size:12px;font-family:Ver=
+dana;font-weight:400;font-style:normal;text-align:left;line-height:18.67px;=
+border-collapse:collapse;">
+<tbody>
+<tr style=3D"font-size:12px;">
+<td style=3D"font-family:Verdana;">Cell:<a href=3D"tel:(713)%20231-7829" ta=
+rget=3D"_blank" id=3D"LPlnk689713" style=3D"text-decoration:none;color:#000=
+001;">(713)&nbsp;231-7829</a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"vertical-align:top;">
+<table role=3D"presentation" cellpadding=3D"0" cellspacing=3D"0" border=3D"=
+0" style=3D"border-collapse:collapse;font-size:0;line-height:normal;">
+<tbody>
+<tr style=3D"font-size:0;">
+<td align=3D"left" style=3D"padding:0 0 75px;vertical-align:top;"><a href=
+=3D"https://us.content.exclaimer.net?url=3Dhttps%3A%2F%2Fwww.parsintl.com%2=
+Fpublications%2Ffortune%2Ffortune-worlds-most-admired-companies-credit-noti=
+ce%2F&amp;tenantid=3D8O9IjnEHEe-ZGmBFvdVZ2w&amp;templateid=3De5eed2dec16bf0=
+118dca00224822c48c&amp;excomponentid=3D2bHHkK8JvO_f0VWd5o2E8ZiRCmrho_a72gcG=
+GJMk5cI&amp;excomponenttype=3DImage&amp;signature=3Dqkz9X-tfCPFLkxp-NXQaVgs=
+gRBlDAMPmYENpiyoBv1BXk3K0ciJX2UJ3JGeg7-QSuK61x8hMIjbCXSI-qXrVuDX-shdomg7PNO=
+Bjw4oHc0XZO9vUWaQme1gNz3Qh7gMM3k3f3-UOXAT7kciEoR0j_tcEgOErhu2og56TVlVgSzhja=
+J8nBpI4qhBFoxSfRTD79MFtSR5uOzWyqWZn2aQ9rHha5NeNjYcYh7Yb9ku9VodhtRTUAFqEHAJP=
+uLlHZz_ssVMjywhLMGxuQiXETyxe9NrdnOvi0lD5HoBlalmC74FfxmCagSBMfx2zeqLxLaFk1Tz=
+PHC1qAbpwVZ-1yfDY8w&amp;v=3D1" target=3D"_blank" id=3D"LPlnk689713" style=
+=3D"text-decoration:none;"><img src=3D"https://cdn.tollbrothers.com/publicf=
+iles/email_signature/Toll-Brothers.gif" width=3D"280" border=3D"0" title=3D=
+"Toll Brothers" alt=3D"Toll Brothers" style=3D"width:280px;min-width:280px;=
+max-width:280px;font-size:12px;"></a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div><br>
+</div>
+</div>
+<hr style=3D"display:inline-block;width:98%" tabindex=3D"-1">
+<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font face=3D"Calibri, sans-serif" st=
+yle=3D"font-size:11pt" color=3D"#000000"><b>From:</b> Ryan Pena &lt;ryan@co=
+astaltestinglabs.com&gt;<br>
+<b>Sent:</b> Tuesday, 18 August 2026 11:39:59<br>
+<b>To:</b> Bradley Adams &lt;BAdams@tollbrothers.com&gt;; Derek Bird &lt;DB=
+ird@tollbrothers.com&gt;; Joe Gallardo &lt;joe@coastaltestinglabs.com&gt;; =
+Maria Lerma &lt;Maria@coastaltestinglabs.com&gt;<br>
+<b>Cc:</b> Esmeralda Cantu &lt;esmeralda@coastaltestinglabs.com&gt;; Willia=
+m Knox &lt;william@coastaltestinglabs.com&gt;<br>
+<b>Subject:</b> RE: Compaction Tests - Evergrove</font>
+<div>&nbsp;</div>
+</div>
+<div>
+<div style=3D"display:none!important; display:none; visibility:hidden; font=
+-size:1px; color:#ffffff; line-height:1px; max-height:0px; opacity:0; overf=
+low:hidden">
+</div>
+<div style=3D"visibility:hidden; font-size:1px; color:#ffffff; line-height:=
+1px; max-height:0px; opacity:0; overflow:hidden">
+</div>
+<style>
+<!--
+#x_pfptBanner9dfnz4i
+	{display:block!important;
+	visibility:visible!important;
+	opacity:1!important;
+	background-color:#d0d8dc!important;
+	max-width:none!important;
+	max-height:none!important}
+html:root, html:root > div
+	{display:block!important;
+	visibility:visible!important;
+	opacity:1!important}
+-->
+</style>
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<style>
+<!--
+@font-face
+	{font-family:"Cambria Math"}
+@font-face
+	{font-family:Calibri}
+@font-face
+	{font-family:Verdana}
+@font-face
+	{font-family:Aptos}
+@font-face
+	{font-family:"Lucida Calligraphy"}
+@font-face
+	{font-family:remialcxesans}
+@font-face
+	{font-family:template-3tLu5WvBEfCNygAiSCLEjA}
+@font-face
+	{font-family:zone-1}
+@font-face
+	{font-family:zones-AQ}
+@font-face
+	{font-family:sigsh-01RAe2FJ1XF7t62F4OGKdV0A}
+@font-face
+	{font-family:sigsh-011uow1iFGqbS07TQmXrtHoA}
+p.x_MsoNormal, li.x_MsoNormal, div.x_MsoNormal
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif}
+a:link, span.x_MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline}
+span.x_EmailStyle19
+	{font-family:"Aptos",sans-serif;
+	color:windowtext}
+.x_MsoChpDefault
+	{font-size:10.0pt}
+@page WordSection1
+	{margin:1.0in 1.0in 1.0in 1.0in}
+div.x_WordSection1
+	{}
+-->
+</style>
+<div class=3D"x_WordSection1">
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">Yes, these passed.</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">&nbsp;</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">I don=E2=80=99t think these reports are ready to send but as soon as=
+ they are ready and the POs are in place, they will be sent over.</span></p=
+>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">&nbsp;</span></p>
+<div>
+<div>
+<p class=3D"x_MsoNormal" style=3D"background:white"><b><span style=3D"font-=
+size:22.0pt; font-family:&quot;Lucida Calligraphy&quot;; color:#5F497A">Rya=
+n Pena</span></b><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal" style=3D"background:white"><b><span style=3D"font-=
+family:&quot;Arial&quot;,sans-serif; color:#000099">Coastal Testing Laborat=
+ories, Inc.
+</span></b><span style=3D"color:#201F1E"></span></p>
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"background:white; border-collapse:collapse">
+<tbody>
+<tr style=3D"height:45.85pt">
+<td width=3D"67" valign=3D"top" style=3D"width:.7in; padding:0in 5.4pt 0in =
+5.4pt; height:45.85pt">
+<p class=3D"x_MsoNormal" style=3D"line-height:12.65pt"><b><span style=3D"co=
+lor:#1F497D"><img width=3D"61" height=3D"55" id=3D"x__x0000_i1028" src=3D"c=
+id:image001.png@01DD2F06.4BBAB760" style=3D"width:.6354in; height:.5729in">=
+</span></b><span style=3D"color:#201F1E"></span></p>
+</td>
+<td width=3D"288" valign=3D"top" style=3D"width:3.0in; padding:0in 5.4pt 0i=
+n 5.4pt; height:45.85pt">
+<p class=3D"x_MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-=
+size:9.0pt; font-family:&quot;Arial&quot;,sans-serif; color:#000099">1217/1=
+221 Georgia Ave</span><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-=
+size:9.0pt; font-family:&quot;Arial&quot;,sans-serif; color:#000099">P.O. B=
+ox 148</span><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-=
+size:9.0pt; font-family:&quot;Arial&quot;,sans-serif; color:#000099">Deer P=
+ark, Tx&nbsp; 77536</span><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-=
+size:9.0pt; font-family:&quot;Arial&quot;,sans-serif; color:#000099">Phone =
+#713-477-0121&nbsp; Fax #713-477-2277</span><span style=3D"color:#201F1E"><=
+/span></p>
+<p class=3D"x_MsoNormal" style=3D"line-height:12.65pt"><u><span style=3D"fo=
+nt-size:9.0pt; font-family:&quot;Arial&quot;,sans-serif; color:#000099">Rya=
+n@coastaltestinglabs.com</span></u><span style=3D"color:#201F1E"></span></p=
+>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"x_MsoNormal" style=3D"background:white"><span style=3D"color:#1=
+F497D">&nbsp;</span><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal" style=3D"margin-left:2.0in; background:white"><i><=
+span style=3D"font-size:9.0pt; font-family:&quot;Times New Roman&quot;,seri=
+f; color:#1F497D">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.........=
+..................CONFIDENTIALITY NOTICE.................................</=
+span></i><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal" style=3D"background:white"><i><span style=3D"font-=
+size:9.0pt; font-family:&quot;Times New Roman&quot;,serif; color:#1F497D">&=
+nbsp;</span></i><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal" style=3D"background:white"><b><i><span style=3D"fo=
+nt-size:9.0pt; font-family:&quot;Times New Roman&quot;,serif; color:#1F497D=
+">The information in this email may be confidential and/or privileged. This=
+ email is intended to be reviewed by only the individual
+ or organization named above. If you are not the intended recipient or an a=
+uthorized representative of the intended recipient, you are hereby notified=
+ that any review, dissemination or copying of this email and its attachment=
+, if any, or the information contained
+ herein is prohibited. If you received this email in error please immediate=
+ly notify the sender by return email and delete this email from your system=
+.</span></i></b><span style=3D"color:#201F1E"></span></p>
+</div>
+</div>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">&nbsp;</span></p>
+<div>
+<div style=3D"border:none; border-top:solid #E1E1E1 1.0pt; padding:3.0pt 0i=
+n 0in 0in">
+<p class=3D"x_MsoNormal"><b>From:</b> Bradley Adams &lt;BAdams@tollbrothers=
+.com&gt; <br>
+<b>Sent:</b> Tuesday, August 18, 2026 11:34 AM<br>
+<b>To:</b> Ryan Pena &lt;ryan@coastaltestinglabs.com&gt;; Derek Bird &lt;DB=
+ird@tollbrothers.com&gt;; Joe Gallardo &lt;joe@coastaltestinglabs.com&gt;; =
+Maria Lerma &lt;Maria@coastaltestinglabs.com&gt;<br>
+<b>Cc:</b> Esmeralda Cantu &lt;esmeralda@coastaltestinglabs.com&gt;<br>
+<b>Subject:</b> RE: Compaction Tests - Evergrove</p>
+</div>
+</div>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">Were these compactions tests completed yesterday. Can you send me th=
+e passed report for these.
+</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">&nbsp;</span></p>
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" width=3D"100%" style=3D"width:100.0%; border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 7.5pt 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><b><span style=3D"fon=
+t-size:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">Br=
+adley&nbsp;Adams</span></b></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal"><span style=3D"font-size:1.0pt; font-family:remial=
+cxesans; color:white">=E2=80=8B</span><span style=3D"font-size:1.0pt; font-=
+family:template-3tLu5WvBEfCNygAiSCLEjA; color:white">=E2=80=8B</span><span =
+style=3D"font-size:1.0pt; font-family:zone-1; color:white">=E2=80=8B</span>=
+<span style=3D"font-size:1.0pt; font-family:zones-AQ; color:white">=E2=80=
+=8B</span><span style=3D"font-size:1.0pt; font-family:sigsh-01RAe2FJ1XF7t62=
+F4OGKdV0A; color:white">=E2=80=8B</span><span style=3D"font-size:1.0pt; fon=
+t-family:&quot;Aptos&quot;,sans-serif"></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">Const=
+ruction&nbsp;Manager</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">Toll&=
+nbsp;Brothers&nbsp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">7514&=
+nbsp;Sunset&nbsp;Ridge&nbsp;Ln</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">,&nbs=
+p;</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">Fulsh=
+ear</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">,&nbs=
+p;</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">TX&nb=
+sp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">77441=
+</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 7.5pt 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">Cell:=
+<a href=3D"tel:(713)%20231-7829" target=3D"_blank"><span style=3D"color:#00=
+0001; text-decoration:none">(713)&nbsp;231-7829</span></a></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 56.25pt 0in">
+<p class=3D"x_MsoNormal"><a href=3D"https://urldefense.com/v3/__https://us.=
+content.exclaimer.net/?url=3Dhttps*3A*2F*2Fwww.parsintl.com*2Fpublications*=
+2Ffortune*2Ffortune-worlds-most-admired-companies-credit-notice*2F&amp;tena=
+ntid=3D8O9IjnEHEe-ZGmBFvdVZ2w&amp;templateid=3De5eed2dec16bf0118dca00224822=
+c48c&amp;excomponentid=3D2bHHkK8JvO_f0VWd5o2E8ZiRCmrho_a72gcGGJMk5cI&amp;ex=
+componenttype=3DImage&amp;signature=3Dqkz9X-tfCPFLkxp-NXQaVgsgRBlDAMPmYENpi=
+yoBv1BXk3K0ciJX2UJ3JGeg7-QSuK61x8hMIjbCXSI-qXrVuDX-shdomg7PNOBjw4oHc0XZO9vU=
+WaQme1gNz3Qh7gMM3k3f3-UOXAT7kciEoR0j_tcEgOErhu2og56TVlVgSzhjaJ8nBpI4qhBFoxS=
+fRTD79MFtSR5uOzWyqWZn2aQ9rHha5NeNjYcYh7Yb9ku9VodhtRTUAFqEHAJPuLlHZz_ssVMjyw=
+hLMGxuQiXETyxe9NrdnOvi0lD5HoBlalmC74FfxmCagSBMfx2zeqLxLaFk1TzPHC1qAbpwVZ-1y=
+fDY8w&amp;v=3D1__;JSUlJSUlJQ!!ILPwwLwzuq8HJw!WvnNiXOpyVvx23sRvXLlwtA0AiF1Ug=
+fWZpZR4IVfC1R7OCrH0vfcGCzqPX_jsx6H1BuMi-0nxdB2Aqe26180NWI$" target=3D"_blan=
+k"><span style=3D"font-size:1.0pt; color:blue; border:solid windowtext 1.0p=
+t; padding:0in; text-decoration:none"><img border=3D"0" width=3D"280" heigh=
+t=3D"158" id=3D"x_Picture_x0020_3" src=3D"cid:~WRD3921.jpg" alt=3D"Image re=
+moved by sender. Toll Brothers" style=3D"width:2.9166in; height:1.6458in"><=
+/span></a><span style=3D"font-size:1.0pt; font-family:&quot;Aptos&quot;,san=
+s-serif"></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">&nbsp;</span></p>
+<div style=3D"border:none; border-top:solid #E1E1E1 1.0pt; padding:3.0pt 0i=
+n 0in 0in">
+<p class=3D"x_MsoNormal"><b>From:</b> Ryan Pena &lt;ryan@coastaltestinglabs=
+.com&gt; <br>
+<b>Sent:</b> Friday, August 14, 2026 2:38 PM<br>
+<b>To:</b> Derek Bird &lt;DBird@tollbrothers.com&gt;; Joe Gallardo &lt;joe@=
+coastaltestinglabs.com&gt;; Maria Lerma &lt;Maria@coastaltestinglabs.com&gt=
+;<br>
+<b>Cc:</b> Esmeralda Cantu &lt;esmeralda@coastaltestinglabs.com&gt;; Bradle=
+y Adams &lt;BAdams@tollbrothers.com&gt;<br>
+<b>Subject:</b> RE: Compaction Tests - Evergrove</p>
+</div>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+<p class=3D"x_MsoNormal" style=3D""><span style=3D"font-size:1.0pt; color:w=
+hite">&nbsp;</span></p>
+<p class=3D"x_MsoNormal" style=3D""><span style=3D"font-size:1.0pt; font-fa=
+mily:&quot;Aptos&quot;,sans-serif; color:white">&nbsp;</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">Added to schedule for Monday.</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">&nbsp;</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">Thanks,</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">&nbsp;</span></p>
+<p class=3D"x_MsoNormal" style=3D"background:white"><b><span style=3D"font-=
+size:22.0pt; font-family:&quot;Lucida Calligraphy&quot;; color:#5F497A">Rya=
+n Pena</span></b><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal" style=3D"background:white"><b><span style=3D"font-=
+family:&quot;Arial&quot;,sans-serif; color:#000099">Coastal Testing Laborat=
+ories, Inc.
+</span></b><span style=3D"color:#201F1E"></span></p>
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"background:white; border-collapse:collapse">
+<tbody>
+<tr style=3D"height:45.85pt">
+<td width=3D"67" valign=3D"top" style=3D"width:.7in; padding:0in 5.4pt 0in =
+5.4pt; height:45.85pt">
+<p class=3D"x_MsoNormal" style=3D"line-height:12.65pt"><b><span style=3D"co=
+lor:#1F497D"><img border=3D"0" width=3D"61" height=3D"55" id=3D"x_Picture_x=
+0020_761821559" src=3D"cid:image001.png@01DD2F06.4BBAB760" style=3D"width:.=
+6354in; height:.5729in"></span></b><span style=3D"color:#201F1E"></span></p=
+>
+</td>
+<td width=3D"288" valign=3D"top" style=3D"width:3.0in; padding:0in 5.4pt 0i=
+n 5.4pt; height:45.85pt">
+<p class=3D"x_MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-=
+size:9.0pt; font-family:&quot;Arial&quot;,sans-serif; color:#000099">1217/1=
+221 Georgia Ave</span><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-=
+size:9.0pt; font-family:&quot;Arial&quot;,sans-serif; color:#000099">P.O. B=
+ox 148</span><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-=
+size:9.0pt; font-family:&quot;Arial&quot;,sans-serif; color:#000099">Deer P=
+ark, Tx&nbsp; 77536</span><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-=
+size:9.0pt; font-family:&quot;Arial&quot;,sans-serif; color:#000099">Phone =
+#713-477-0121&nbsp; Fax #713-477-2277</span><span style=3D"color:#201F1E"><=
+/span></p>
+<p class=3D"x_MsoNormal" style=3D"line-height:12.65pt"><u><span style=3D"fo=
+nt-size:9.0pt; font-family:&quot;Arial&quot;,sans-serif; color:#000099"><a =
+href=3D"mailto:Ryan@coastaltestinglabs.com">Ryan@coastaltestinglabs.com</a>=
+</span></u><span style=3D"color:#201F1E"></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"x_MsoNormal" style=3D"background:white"><span style=3D"color:#1=
+F497D">&nbsp;</span><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal" style=3D"margin-left:2.0in; background:white"><i><=
+span style=3D"font-size:9.0pt; font-family:&quot;Times New Roman&quot;,seri=
+f; color:#1F497D">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.........=
+..................CONFIDENTIALITY NOTICE.................................</=
+span></i><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal" style=3D"background:white"><i><span style=3D"font-=
+size:9.0pt; font-family:&quot;Times New Roman&quot;,serif; color:#1F497D">&=
+nbsp;</span></i><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal" style=3D"background:white"><b><i><span style=3D"fo=
+nt-size:9.0pt; font-family:&quot;Times New Roman&quot;,serif; color:#1F497D=
+">The information in this email may be confidential and/or privileged. This=
+ email is intended to be reviewed by only the individual
+ or organization named above. If you are not the intended recipient or an a=
+uthorized representative of the intended recipient, you are hereby notified=
+ that any review, dissemination or copying of this email and its attachment=
+, if any, or the information contained
+ herein is prohibited. If you received this email in error please immediate=
+ly notify the sender by return email and delete this email from your system=
+.</span></i></b><span style=3D"color:#201F1E"></span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">&nbsp;</span></p>
+<div style=3D"border:none; border-top:solid #E1E1E1 1.0pt; padding:3.0pt 0i=
+n 0in 0in">
+<p class=3D"x_MsoNormal"><b>From:</b> Derek Bird &lt;<a href=3D"mailto:DBir=
+d@tollbrothers.com">DBird@tollbrothers.com</a>&gt;
+<br>
+<b>Sent:</b> Friday, August 14, 2026 2:25 PM<br>
+<b>To:</b> Ryan Pena &lt;<a href=3D"mailto:ryan@coastaltestinglabs.com">rya=
+n@coastaltestinglabs.com</a>&gt;; Joe Gallardo &lt;<a href=3D"mailto:joe@co=
+astaltestinglabs.com">joe@coastaltestinglabs.com</a>&gt;; Maria Lerma &lt;<=
+a href=3D"mailto:Maria@coastaltestinglabs.com">Maria@coastaltestinglabs.com=
+</a>&gt;<br>
+<b>Cc:</b> Esmeralda Cantu &lt;<a href=3D"mailto:esmeralda@coastaltestingla=
+bs.com">esmeralda@coastaltestinglabs.com</a>&gt;; Bradley Adams &lt;<a href=
+=3D"mailto:BAdams@tollbrothers.com">BAdams@tollbrothers.com</a>&gt;<br>
+<b>Subject:</b> Compaction Tests - Evergrove</p>
+</div>
+<p class=3D"x_MsoNormal">&nbsp;</p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">Can you please schedule a compaction test at the following addresses=
+ for Monday 8/17. This is in
+</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">Evergrove</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">Richmond 77406</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">&nbsp;</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">5711 Peach Grove Lane</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">5722 Watercrest Oak Drive</span></p>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">&nbsp;</span></p>
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" width=3D"100%" style=3D"width:100.0%; border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 7.5pt 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><b><span style=3D"fon=
+t-size:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">De=
+rek&nbsp;Bird</span></b></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal"><span style=3D"font-size:1.0pt; font-family:remial=
+cxesans; color:white">=E2=80=8B</span><span style=3D"font-size:1.0pt; font-=
+family:template-3tLu5WvBEfCNygAiSCLEjA; color:white">=E2=80=8B</span><span =
+style=3D"font-size:1.0pt; font-family:zone-1; color:white">=E2=80=8B</span>=
+<span style=3D"font-size:1.0pt; font-family:zones-AQ; color:white">=E2=80=
+=8B</span><span style=3D"font-size:1.0pt; font-family:sigsh-011uow1iFGqbS07=
+TQmXrtHoA; color:white">=E2=80=8B</span><span style=3D"font-size:1.0pt; fon=
+t-family:&quot;Aptos&quot;,sans-serif"></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">Const=
+ruction&nbsp;Manager</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">Toll&=
+nbsp;Brothers&nbsp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">5318&=
+nbsp;Gilded&nbsp;Estates&nbsp;Drive</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">,&nbs=
+p;</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">Richm=
+ond</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">,&nbs=
+p;</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">TX&nb=
+sp;</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"x_MsoNormal" style=3D"line-height:14.0pt"><span style=3D"font-s=
+ize:9.0pt; font-family:&quot;Verdana&quot;,sans-serif; color:#000001">77469=
+</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+</tbody>
+</table>
+</td>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td valign=3D"top" style=3D"padding:0in 0in 0in 0in">
+<table class=3D"x_MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"height:187.65pt">
+<td valign=3D"top" style=3D"padding:0in 0in 56.25pt 0in; height:187.65pt">
+<p class=3D"x_MsoNormal"><a href=3D"https://urldefense.com/v3/__https:/us.c=
+ontent.exclaimer.net/?url=3Dhttps*3A*2F*2Fwww.parsintl.com*2Fpublications*2=
+Ffortune*2Ffortune-worlds-most-admired-companies-credit-notice*2F&amp;tenan=
+tid=3D8O9IjnEHEe-ZGmBFvdVZ2w&amp;templateid=3De5eed2dec16bf0118dca00224822c=
+48c&amp;excomponentid=3D2bHHkK8JvO_f0VWd5o2E8ZiRCmrho_a72gcGGJMk5cI&amp;exc=
+omponenttype=3DImage&amp;signature=3Dqkz9X-tfCPFLkxp-NXQaVgsgRBlDAMPmYENpiy=
+oBv1BXk3K0ciJX2UJ3JGeg7-QSuK61x8hMIjbCXSI-qXrVuDX-shdomg7PNOBjw4oHc0XZO9vUW=
+aQme1gNz3Qh7gMM3k3f3-UOXAT7kciEoR0j_tcEgOErhu2og56TVlVgSzhjaJ8nBpI4qhBFoxSf=
+RTD79MFtSR5uOzWyqWZn2aQ9rHha5NeNjYcYh7Yb9ku9VodhtRTUAFqEHAJPuLlHZz_ssVMjywh=
+LMGxuQiXETyxe9NrdnOvi0lD5HoBlalmC74FfxmCagSBMfx2zeqLxLaFk1TzPHC1qAbpwVZ-1yf=
+DY8w&amp;v=3D1__;JSUlJSUlJQ!!ILPwwLwzuq8HJw!QgeTCc4JMk-_ezNcV3ETb6SWOw5NuPr=
+kx9ZMUZTPWR_pPsrWpDqyldI8szhAUuXeaG6jHBNqp3PsYkzyXSHpCfQ$" target=3D"_blank=
+"><span style=3D"font-size:1.0pt; color:blue; border:solid windowtext 1.0pt=
+; padding:0in; text-decoration:none"><img border=3D"0" width=3D"280" height=
+=3D"158" id=3D"x_Picture_x0020_1" src=3D"cid:~WRD3921.jpg" alt=3D"Image rem=
+oved by sender. Toll Brothers" style=3D"width:2.9166in; height:1.6458in"></=
+span></a><span style=3D"font-size:1.0pt; font-family:&quot;Aptos&quot;,sans=
+-serif"></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"x_MsoNormal"><span style=3D"font-family:&quot;Aptos&quot;,sans-=
+serif">&nbsp;</span></p>
+</div>
+</div>
+</body>
+</html>
+
+--_000_BY5PR20MB3092A46727B225633F0D1B31B1A62BY5PR20MB3092namp_--
+
+--_005_BY5PR20MB3092A46727B225633F0D1B31B1A62BY5PR20MB3092namp_
+Content-Type: image/jpeg; name="~WRD3921.jpg"
+Content-Description: ~WRD3921.jpg
+Content-Disposition: inline; filename="~WRD3921.jpg"; size=823;
+	creation-date="Tue, 18 Aug 2026 16:38:58 GMT";
+	modification-date="Tue, 18 Aug 2026 16:51:01 GMT"
+Content-ID: <~WRD3921.jpg>
+Content-Transfer-Encoding: base64
+
+/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0a
+HBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIy
+MjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCABkAGQDASIA
+AhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA
+AAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3
+ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm
+p6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA
+AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx
+BhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK
+U1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3
+uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iii
+gAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA
+CiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK
+KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoo
+ooAKKKKACiiigAooooAKKKKACiiigD//2Q==
+
+--_005_BY5PR20MB3092A46727B225633F0D1B31B1A62BY5PR20MB3092namp_
+Content-Type: image/png; name="image001.png"
+Content-Description: image001.png
+Content-Disposition: inline; filename="image001.png"; size=6295;
+	creation-date="Tue, 18 Aug 2026 16:39:58 GMT";
+	modification-date="Tue, 18 Aug 2026 16:51:01 GMT"
+Content-ID: <image001.png@01DD2F06.4BBAB760>
+Content-Transfer-Encoding: base64
+
+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
+1+zpvwDWBE98w0sEhwAAAABJRU5ErkJggg==
+
+--_005_BY5PR20MB3092A46727B225633F0D1B31B1A62BY5PR20MB3092namp_--

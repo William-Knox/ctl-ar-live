@@ -1,0 +1,288 @@
+Received: from SJ0PR22MB2944.namprd22.prod.outlook.com (2603:10b6:a03:3e1::17)
+ by CH3PR22MB4276.namprd22.prod.outlook.com with HTTPS; Wed, 15 Jul 2026
+ 15:09:42 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=kFUUEFnuhWGVM8tVRTKsDYKAzqY2jrdwG1GUKNTXQsB4GHj+rgZG9HKLIAoJ5lQeJC7xMvjJ8N7wmre9CuTjq2604BAS0UJAtqRD2Nu5ejBSAyi5JQvIMrzrwVsDKVVJNGf3CYIWXejwt7MxEVXJIHayQyFW+UQ7zjjaPGg0T78q1GV6SnVZN9P2hCHRIsg09rkJMJmBvSv/YE+n8FYBMo/3hgU8yYFiY09pocQ5UZObL4fqBysgCvGfXn4dMm0v2HHZLiSHVFrYXuqtARZQbxBVd8nYzp+i43GRwlARC1qxiONveg0CF7fbXycq9NLUCLuf34XI5OfxBE5xL8WgOA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+LvQzokAF+U1HFY7CJewBNb2zldxwNsU4CX7G4MBFQc=;
+ b=eLmGtXl4hpemh49GrD11GJCu+oUcm4Ld0fAVtqz1bQBx7fOptuJ36VWWLPGkJ8vfG/eGUE0S2EppJuf9y5cH2pBTPI7M0BcvTwFoD4lcJpYUxvk02xCgSfi2r+oIFAQpgmjRzzk0oh28o+cV37+xXCZhfoLPii8sgxMJlt4+0qBa5S92MPxv7UKtOPEP3bZSzKHCeQsRL9GsxfQ3hfQG7A0wyQp7O8cjQ3E9tpVmuNu64vJA0Nil7iKNcq0Mjdk1/Yy2k290hWnTxdcoHEV3eMrKNMKJbJwbmzRrlcC9IDz8S46iUMrApYePsz8ZyrmyzEFHsLbowiqDDz6JGK93Ww==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=fail (sender ip is
+ 52.0.70.91) smtp.rcpttodomain=coastaltestinglabs.com
+ smtp.mailfrom=coventryhomes.com; dmarc=pass (p=quarantine sp=quarantine
+ pct=100) action=none header.from=coventryhomes.com; dkim=pass (signature was
+ verified) header.d=coventryhomes.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=coventryhomes.com]
+ dkim=[1,1,header.d=coventryhomes.com]
+ dmarc=[1,1,header.from=coventryhomes.com])
+Received: from DS7P221CA0019.NAMP221.PROD.OUTLOOK.COM (2603:10b6:8:25c::8) by
+ SJ0PR22MB2944.namprd22.prod.outlook.com (2603:10b6:a03:3e1::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.19; Wed, 15 Jul
+ 2026 15:09:39 +0000
+Received: from CY4PEPF0000EE3F.namprd03.prod.outlook.com
+ (2603:10b6:8:25c:cafe::8a) by DS7P221CA0019.outlook.office365.com
+ (2603:10b6:8:25c::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.223.12 via Frontend Transport; Wed,
+ 15 Jul 2026 15:09:38 +0000
+Authentication-Results: spf=fail (sender IP is 52.0.70.91)
+ smtp.mailfrom=coventryhomes.com; dkim=pass (signature was verified)
+ header.d=coventryhomes.com;dmarc=pass action=none
+ header.from=coventryhomes.com;compauth=pass reason=100
+Received-SPF: Fail (protection.outlook.com: domain of coventryhomes.com does
+ not designate 52.0.70.91 as permitted sender)
+ receiver=protection.outlook.com; client-ip=52.0.70.91;
+ helo=transport-1.inbound.emailservice.io;
+Received: from transport-1.inbound.emailservice.io (52.0.70.91) by
+ CY4PEPF0000EE3F.mail.protection.outlook.com (10.167.242.17) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.223.9 via Frontend Transport; Wed, 15 Jul 2026 15:09:37 +0000
+Received: from cloudfilter-igate-00ee67cbfea22366a.inbound.emailservice.io (unknown [10.4.1.184])
+	by transport-1.inbound.emailservice.io (Postfix) with ESMTPS id 12CAAA1CCB;
+	Wed, 15 Jul 2026 15:09:37 +0000 (UTC)
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11021122.outbound.protection.outlook.com [40.93.194.122])
+	by cloudfilter-igate-00ee67cbfea22366a.inbound.emailservice.io (Postfix) with ESMTPS id 57A647E219;
+	Wed, 15 Jul 2026 15:09:36 +0000 (UTC)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rBxj+PQtZupV1Zls/oCYYShfipYPty/N0r0XlSMQx+S6buIG3kJNpeOBri5FRtkz0DlAw7ZjbtJnTZQvfVJlk241uMYCNDxtHVDDLk9oPZex4rPSwqhvYEMWoyW+kPPLx0NZUNkkG4K/EVlo04iWv7uE0y3J8Tom80hvPM5v7FVl9LwEqAWRycAE4vwUegmQnpDDFPXgz2CLgQPfXLPok9SJOUU0isAB4Z+q58mBUm0Ilw65yR+eDnGWgAXTcJObxr18jpOGCzmiZsfHndu9F8xyksHmzFuAQ0UafrCP7rhu/FJsT93HCgvKmcynBFBp3HXeU/16Cq0znETz6982Yg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+LvQzokAF+U1HFY7CJewBNb2zldxwNsU4CX7G4MBFQc=;
+ b=IO8huxfh1gz/i3E2LNgWI1Om7W4cPDI5IU2IeMfwmZU30kxMQmoCJaDKTrlwR77K48lBT3NFFdRoAfsxxeHF8D/w8Tj5w3Svb5xHu1wODPyTKN/MtN5WbFBxerVBUGtjWEx0qRBhS8pOIjXofS5RFtsNqsNXIWAv5bJPe0923AMJsqrnZdkjai3AE4NKWfgNKM0Q8cMA8P1Lk6dObCYaiDLfqrN54BZ0DHuZLt+GMavKfETRc2qQe+QHPLhVKUlNVJ//fBX6dkRcRTvq2tgOEdLg7nBn32Va9mmfxd3lvwdR1uHa1EKxZRkFTuVbo0+vJoIsMt0pgJmwKaBNnmwgPQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=coventryhomes.com; dmarc=pass action=none
+ header.from=coventryhomes.com; dkim=pass header.d=coventryhomes.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=coventryhomes.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+LvQzokAF+U1HFY7CJewBNb2zldxwNsU4CX7G4MBFQc=;
+ b=gwg+waDmlGdoQ0naLMp2SUMaKPzn3LasWUekd2TyKgijzid+pPX3eI5SZc6XcwCV7kzy5aYbLb31PhJmrCrlVH3Pj30iPCwGR12yFQeLPrHEogKvRO/Cb9MTDWcf4lyngnS71g5/QQD7LCYnfwl5TggNt5oNUk4zXE/nuE6XDP8QnUpXiY6pQge0Rl18ygcGKhsuCZIzWnkq6YKm2RUVbwhbwfbdCyEY1DbzUCHzCNgTTbiCT9b3I3n+AFLHBXmiqal0+6oaMf3OA9ixqlwviF/9MVSaWpeTU87DN3in875+rfuLZqcl8Ow7Ll6gPh2kgbnAz6c0N9ytk33sWPjrUA==
+Received: from CH3PR17MB6363.namprd17.prod.outlook.com (2603:10b6:610:14f::18)
+ by SJ0PR17MB5142.namprd17.prod.outlook.com (2603:10b6:a03:396::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.202.18; Wed, 15 Jul
+ 2026 15:09:32 +0000
+Received: from CH3PR17MB6363.namprd17.prod.outlook.com
+ ([fe80::4bab:ed5c:690c:f42f]) by CH3PR17MB6363.namprd17.prod.outlook.com
+ ([fe80::4bab:ed5c:690c:f42f%6]) with mapi id 15.21.0223.008; Wed, 15 Jul 2026
+ 15:09:32 +0000
+From: Evan Brown <ebrown@coventryhomes.com>
+To: Joe Gallardo <joe@coastaltestinglabs.com>, Ryan Pena
+	<ryan@coastaltestinglabs.com>
+Subject: 10415 Melida Dawn (Coventry candela) 
+Thread-Topic: 10415 Melida Dawn (Coventry candela) 
+Thread-Index: AQHdFGvSO5UA8z/wVUuyZo01FnSNSg==
+Date: Wed, 15 Jul 2026 15:09:32 +0000
+Message-ID: <CH3PR17MB636379D2F7076ED172F44E9FC4F82@CH3PR17MB6363.namprd17.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-reactions: allow
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=coventryhomes.com;
+x-ms-traffictypediagnostic: CH3PR17MB6363:EE_|SJ0PR17MB5142:EE_|CY4PEPF0000EE3F:EE_|SJ0PR22MB2944:EE_|CH3PR22MB4276:EE_
+X-MS-Office365-Filtering-Correlation-Id: e841baef-4854-4757-0e6d-08dee28316d6
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|366016|1800799024|10070799003|23010399003|55112099003|38070700021|18002099003|10067099003|8096899003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info-Original: gb4huL8nIRyNQ8dL2+/9Aekw6QVuehdMLablEjtHSpAT5bl0HdxGvzm1mtY8IrHJoY14AMOZlRSjolsib8IVPM2I8N4bBeiIjWCH55sxpUzgrvsUnKunjXnK8VjDdBTGoEI+tuBYkCnk1FgixWEYqmDFgG6pl6SouNUrS0G0sISVcctHxMiX6fwv1FW19fCH1PX0SHrxr+Rl19yKuiIQ89EQOfoWD6goTv64e9h4SaykqMCwqgz2zXgpk2l+2jhifDHgG6HIAqCanK64Jev7YOz3ZOTHPo9hpShdQLmWuSfscYpa3kXjDrDHYSdgDU3dKOz29TXc1BVj0EMECmCxsiHzUkCV+o4KbHchKLZid73btnGDzk5M4yot/bqQdGPTmpTgbg83O4M37IG17LcusFOJJEnjaTGUKb64ZlHo4ASIpWLxhObUCFCkSsOzkbzpYR4l3mndeZq8WjGLlot8jkyZw921lvieX9EhJgKMXCDqVE3QozSpqN9XA1MDcQtnIjpF3jS5tpQNlnyBvsoDrYn01SnHfx9mLQRntwHz9cTYFEM/wImgFR99iIoVlRf8QeKWmShGOGrwQ3HRU8gnR8iiLo0xVAIE63yXXT4/z41+0wRq6/TjJONj3coFNQzh3qQuhfLRoxAV3QokXW2m5qRcz27qV9t6V6lNTo+mTi56UZPKMkIc2akSSQIyWveqkzZVMn/gi8zzaH2317zfsx8dAD9O6FOotogEizQZoh4=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR17MB6363.namprd17.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(10070799003)(23010399003)(55112099003)(38070700021)(18002099003)(10067099003)(8096899003)(11063799006)(56012099006);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-Original-ChunkCount: 2
+X-MS-Exchange-AntiSpam-MessageData-Original-0: =?us-ascii?Q?sE4YqvUb4BEJKbOHmDQfYSiH3v3xb0hAnft5lzhLNdNh45+a4hHQEqEwtKdG?=
+ =?us-ascii?Q?jLX1wbo9GKk+dsgE8cBs3c14Pi4rWDGcudPkI61gzzcnJjww3BMObGavIykF?=
+ =?us-ascii?Q?t2il38JNwx+noPQLEgwdQRcQwPg9fI9jads85iVfZXTAHyYHHFHEJ0drlXgL?=
+ =?us-ascii?Q?1ozwaMFzQitBBMcnRYVdBlJ/9kMmU9zZy1Po3yEFxPAyNE4pCbaOFnQV/wPa?=
+ =?us-ascii?Q?IhH3X0MUEcBMi//bDvY+Wd40Iw5WiXIkAmME2dbB1i9L55HjlAC7HjGT1UlI?=
+ =?us-ascii?Q?SL7kSF1nSj3TKFkckIWPnwyrbos41lsbXR+KqqOGwi1sqiqx/4tRODW8Ex2L?=
+ =?us-ascii?Q?V9eS/6V41g+M4Qgzat8s/54u/sHOpWXwbtb8ERjY741LSMsUx2alrmVLi0tj?=
+ =?us-ascii?Q?RJuWNqbwMarLKf8OtlCLfXjKecn5WyfBhw1vR2tM8Ah6fXOomUgemVyJWTQ8?=
+ =?us-ascii?Q?1lyrXrEr2QLKA5l0uovM4mHx69UOH1hjQh/EX0bEra+syi2CYapN3QS++5cd?=
+ =?us-ascii?Q?cdIk2YRh8ehW2tKi1pvIyW/0Wb/PyhDZxQ4IaII+EC3jJX9PsQO51aqlqiSi?=
+ =?us-ascii?Q?e5chpffp179EpBfP8g9Elcsk8COkEEoItSwQLT5wT5sU+gewrvtyIk/+kUDI?=
+ =?us-ascii?Q?T0Be+N60bsI7+lkmLIdZOrBOQj7ZM3rka00bA2RmWeAZVDMz/DdnIVKgDxpA?=
+ =?us-ascii?Q?WbCBfUzt00FX2RYpeCRu9Agrs/YLMwxjX25O19xEagcilsmxe/akaP8hfXKu?=
+ =?us-ascii?Q?KFSfpRA/tnZV9oHQIXL/InswEO91MCHcn77PrsKebI5AiC9lSJoZ0LVFYP78?=
+ =?us-ascii?Q?WHxXamdpI8K/PqzwneejOnbHTfl7TdMY/zJp6wfbh5Qbsbh7rbLmW7CDH4Kh?=
+ =?us-ascii?Q?TgNpC5b4T4wTliS03nX9nge+J6+CvvuC5bCi1QlBzm0f8dG9NvgrF7NBfEte?=
+ =?us-ascii?Q?Wj5J2ojkPC/KgoDUKVmyZE78fmiMSTg11gfdh1TcRHVxpWgSf/nhCzoD0Xoe?=
+ =?us-ascii?Q?wuBepZYwQBspRG2RMwL5pgf/G1PqIO1/IBfBJKQ8xpzOzbXijFXOK/JbyDXJ?=
+ =?us-ascii?Q?0WWyaQaTUsiEAuamisPVD1Tz69IMtfyrgqBbX7P7dfLmdQ8uKjUDtUUzt13F?=
+ =?us-ascii?Q?aH0HlfM+3HTjFyQ/H3fo/VUmR4ecRaR/MtLmEg2o6KEtassJGrWh6bkKBDZ/?=
+ =?us-ascii?Q?pi04sEOdLzZEj6w+BU1YWomLOcbu4WVgAlH3Ynjx38P1ncle1h1GRXiX76su?=
+ =?us-ascii?Q?zLWbU2Ef8kxuOmABBsd8lubk1wPv5IPMFhR6e0e0sdQz+j9XIY510rG4eaWP?=
+ =?us-ascii?Q?5ZcVHEra3cP1fhq7zWcrJ0XsNdWQknRatlnZCw+E4a4ugCOQmqTEl+b0hkRB?=
+ =?us-ascii?Q?Mdg/bDo4ROpnTOrvSAQ8QMNSUlMR0WwsHVb22j57no8sNh22/FmqCqXQIx3r?=
+ =?us-ascii?Q?Uth6AxNmgV+Jz90Zucbh6gWgeu5giH2dOz0xMffIX4K7uPrOoeyBD5eWlz7B?=
+ =?us-ascii?Q?PLpFw+3JNZ2Th2uQdVvWMYWRbiGJEsb+mjYP6El2RPYjiNaDepezL/kIl9cM?=
+ =?us-ascii?Q?UkhhcF88WKZNScPc3tS2Ag/peZ9hJaNH0vslyYNdDZRCcDtqd9O0u2lkDx5Q?=
+ =?us-ascii?Q?vqLri/M7SIhbowLdxKxzFUuBHjU772MHfp3QoKncpTnOtHFSwTJQP64zwCn8?=
+ =?us-ascii?Q?gx6DmsG4VgWg9ymSq/GpGOKmp65k9zrMKbuTilhhx3sBoGrkCelqqnB+bYR+?=
+ =?us-ascii?Q?gxqm2CAfMUXJvo8ECO2pp17OTKv5rowXg36tcrYTSGvk36ap7/9q8sV50CQU?=
+X-MS-Exchange-AntiSpam-MessageData-Original-1: WApI/ff80jhAOw==
+Content-Type: multipart/alternative;
+	boundary="_000_CH3PR17MB636379D2F7076ED172F44E9FC4F82CH3PR17MB6363namp_"
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR17MB5142
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mail-southcentralusazon11021122.outbound.protection.outlook.com|40.93.194.122|SN4PR0501CU005.outbound.protection.outlook.com|-0.342857|0.437809|0|normal|ugly|47|23|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass clean dmarc_policy_allow
+X-Mailprotector-Score: 1833708:0 1833714:0
+X-Mailprotector-IP-Analysis: 0, 40.93.194.122, Ugly c=0.38014 p=-0.45 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-11405-c
+X-Mailprotector-ID: f65e32c8-f269-42da-9a8f-e336f92d3b06
+X-Mailprotector-Timestamp: 8ZXBH/eapwuApbPyoG0dLtMkgeontGHA4VAHotkrqUw=
+Return-Path: ebrown@coventryhomes.com
+X-MS-Exchange-Organization-ExpirationStartTime: 15 Jul 2026 15:09:38.4909
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: e841baef-4854-4757-0e6d-08dee28316d6
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: CY4PEPF0000EE3F.namprd03.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource: CY4PEPF0000EE3F.namprd03.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs: ea70c128-6626-43fa-5a22-08dee2831310
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|704161411799003|82310400026|35042699022|12012899012|10067099003|57112099003|18003699003|16102099003|8096899003|19002099009|19071099006|5063699009;
+X-Forefront-Antispam-Report: CIP:52.0.70.91;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-1.inbound.emailservice.io;PTR:transport-1.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(704161411799003)(82310400026)(35042699022)(12012899012)(10067099003)(57112099003)(18003699003)(16102099003)(8096899003)(19002099009)(19071099006)(5063699009);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Jul 2026 15:09:37.6124
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e841baef-4854-4757-0e6d-08dee28316d6
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3F.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR22MB2944
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:04.4439212
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0181.011
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?CmLH6pLgYUmmV+tSTwZa+ekWALDXTfGfkHzEyP/vyp49tUJqFZMKk1BObSBn?=
+ =?us-ascii?Q?J2X1lprH1/3vaUoCwJlQP7Px7WJkIrSw+YoPFOS8GliMyTnpZxt3GPT4u1MT?=
+ =?us-ascii?Q?dJHr8xYdEWuvPV5IXKJcuYmZN5RDJ+TR0Aev8uVc2paQd5rb5IWff2kreW8q?=
+ =?us-ascii?Q?HV3LHJezwu+KKxJQQ0Bmc26Ph0x41UjjpZ/gUPUAtkc1RSwhu4sa8/2mmhqa?=
+ =?us-ascii?Q?kc8Y0v1aAEEGtjjemzqJOvrTb3aQD39CEstsezLeLgfz1KjzCkj7d1XCeUsd?=
+ =?us-ascii?Q?jOCPELG5ouq25f/z8f+8CR1Ie96DT/KLJuyLsKjJpu+tAOUa7zHQZlj9MLBO?=
+ =?us-ascii?Q?xvlxwJ53moZyXvhrzqPNBrubp28SQJLd+FbGWxmV8DsP5c1Yf+ITUDGH2lB4?=
+ =?us-ascii?Q?hFKwzX47mInZvExk8cFcMHVkc9HNJQksXxLFTtHWwVVbwTiy/PipP29avA/z?=
+ =?us-ascii?Q?6iYq9zVoH7P6TaPuUk0LQLilrBIX+UL6W5oDCYGlvnTOBU3hLSsPBIoH7JqW?=
+ =?us-ascii?Q?Irw2VOgT+OqYdNOI1Nb22ruzHzXsrUrw4kQkTlz1JR8B5O4rBbbNDcRrPN+6?=
+ =?us-ascii?Q?ahzzw6AmbIz0Ooi+/ZG9HtDmEOvMFtp4BVOA/qDheYtT3QrAMdfG8wV+80S0?=
+ =?us-ascii?Q?dwE7oXmdUW38G1NTW3GgGFOazHnKG4NLlX37wkvfJeECsIZwGQqgoidvNYU9?=
+ =?us-ascii?Q?NESo0bz8S9OMrhvtxsSpzby/cNZFpI28z+7llFvHf67C8wvNpoPOKGHw9csc?=
+ =?us-ascii?Q?HE0j7BCDqDSpUU8Bzpm3fy8igk/VBKMpDs42rEKQrPomvNI0HhI/p5D0FtEG?=
+ =?us-ascii?Q?yRiNnipSJ9xSxJZLilM+D1MrUO97ZqeQpMwCiNay496oYG3dl7n/z4V73Zw4?=
+ =?us-ascii?Q?tbmFYprxJ4TkYlzhMyhLTORfeztfPCH1C9/ePtOzQ5v4L4Ems6yOk8nc3KW5?=
+ =?us-ascii?Q?8iqWIPJiSG0Y5Ph28UN7jomMl93VAOzCt0j4ZUlvtREmqet2fP0fX7dSblTI?=
+ =?us-ascii?Q?cuFJNRabN9pb4PHt7hugu/6DZ9RJpeIn4bfjQDJoOIn1YXBWxTHmNTRsD9qq?=
+ =?us-ascii?Q?FZpIhqSriHeXSSKnW8/U1dFqEYIH2rYychk6OYX6QxDAgLKBy8bRjAfuwqth?=
+ =?us-ascii?Q?wH6g0wFebgONuKbP20U6vnblJW9+4tUOdc9fWr/T7WF8A6DucGC/Sv6G+rIG?=
+ =?us-ascii?Q?Vz276KlAc9uvVO4D7NbWUI1hfhbEZ/znMAJRC87v9li0CaCb2qaWNqKzbDax?=
+ =?us-ascii?Q?IVc+WtVkBh+Ogu66NRKox3XU9t3tGjZGYkyWa0D/8NfNsjbQ2m8qhUTuH1Go?=
+ =?us-ascii?Q?72Y0nYaL+cXSYp0ywakNZJt0XohwPQtCdREeemVRPrPFuicfCRbb+78YUtwO?=
+ =?us-ascii?Q?HCq56aA1pDhqqLQxRZqP1aJ+JhXXxWrf9IY2HU8nvXEn8GtO5Rrz86tzm3xt?=
+ =?us-ascii?Q?9R5BLEvo2hT50YHaNyafizCnUqkVI89sxcW17LSDq5HmNzflCv/bDR99MSPH?=
+ =?us-ascii?Q?Dl6/H6MDLMVkWsWVUGUFdoRkZaL2gQ6QOLIx+oGsj8ZbssrQLyRV8vu6llAd?=
+ =?us-ascii?Q?ac6dXa+KcSJIizZf5PFZAC6OO9o52X/V1Dbnl84heNA80sjA0fJIo06ne5zm?=
+ =?us-ascii?Q?4pqFIympAA4qNyAiyL4nAEhzac5Ue7BhHb7bEKkQKWK01O+Iwak7vGWJ6Aze?=
+ =?us-ascii?Q?dI+SN9lHGvg/7AgW8yVqaJppt5YH/xkB0WxgMRgPrXqRL7WB7dK+oFzXZBuB?=
+ =?us-ascii?Q?NMWHrGGe2tdVinoNKImAyWjVZAAk4q1mch/BjShisTEsXQ8vApNz40exz+LM?=
+ =?us-ascii?Q?Ccox0qIO26hux9mCPQcplcE3DpvG0VkmHV6S9mSkP1porHSm5s0SLjYjfQCC?=
+ =?us-ascii?Q?TliP4hUNpdb4UiUaRqqdN1HAC5rAA/EpprfJZPuajixMoGPKf927ckbq8Imh?=
+ =?us-ascii?Q?8SZaLihh8+wQynkQcn651XQGERO2Sgal4BIjyycDncfkC55VDXkNW/7XSCL9?=
+ =?us-ascii?Q?mK1xG+nl6VbhQvmRHqen9vJrB/Eu+eOhaLGzo2RaRtOoFK0yPpZ3ptqyzGoJ?=
+ =?us-ascii?Q?83xOS7H6bUrbUAImrm/jQBzU7lbwTpRRBPNCvuJQ9wfq3qEGhO5GcnkDbnAg?=
+ =?us-ascii?Q?RmSU1KcGxvHyCKMVH0zwqWRa5ByLarzGJ7xMBCyIZEp98lfUUuzbt8R58UJy?=
+ =?us-ascii?Q?qv9mxznBpu/WvBq9K78lMA0C2fFAl8oLSqpRu4mSPaKbPKtxhmz0+byLH7p3?=
+ =?us-ascii?Q?pQ/N1b7PYiggf2Rz5YvitP21QAv4H3OM8NvoCzWQCk9l+ZxeLTg/p3jzVyA9?=
+ =?us-ascii?Q?h6UIjn46W/VqAtLlTCJrjdptPBjJi3ApFPnak1wHnoR9ybzfcmH002p1UO2y?=
+ =?us-ascii?Q?CdleZyVIUESuJ03V716R2zhCZJpkGxvvL8NBlvFdVR1YfpjjrQ=3D=3D?=
+MIME-Version: 1.0
+
+--_000_CH3PR17MB636379D2F7076ED172F44E9FC4F82CH3PR17MB6363namp_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Please schedule for compaction test.
+
+If house fails please notify me thanks
+
+Thankyou,
+
+Evan Brown
+Construction Manager
+Coventry Homes - Candela
+
+
+--_000_CH3PR17MB636379D2F7076ED172F44E9FC4F82CH3PR17MB6363namp_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dus-ascii"=
+>
+</head>
+<body>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+Please schedule for compaction test.&nbsp;</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+<br>
+</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+If house fails please notify me thanks&nbsp;</div>
+<div id=3D"ms-outlook-mobile-body-separator-line" data-applydefaultfontstyl=
+es=3D"true" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system=
+, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt;" dir=3D"ltr">
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt;" dir=3D"ltr">
+<br>
+</div>
+</div>
+<div style=3D"font-family: Aptos, Aptos_MSFontService, -apple-system, Robot=
+o, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0, 0, 0);" id=
+=3D"ms-outlook-mobile-signature">
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+Thankyou,&nbsp;</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+<br>
+</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+Evan Brown&nbsp;</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+Construction Manager&nbsp;</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+Coventry Homes - Candela&nbsp;</div>
+<div dir=3D"ltr" style=3D"font-family: Aptos, Aptos_MSFontService, -apple-s=
+ystem, Roboto, Arial, Helvetica, sans-serif; font-size: 12pt; color: rgb(0,=
+ 0, 0);">
+<br>
+</div>
+</div>
+</body>
+</html>
+
+--_000_CH3PR17MB636379D2F7076ED172F44E9FC4F82CH3PR17MB6363namp_--

@@ -1,0 +1,872 @@
+Received: from LV3PR22MB5193.namprd22.prod.outlook.com (2603:10b6:408:1d4::12)
+ by CH3PR22MB4276.namprd22.prod.outlook.com with HTTPS; Thu, 13 Aug 2026
+ 19:41:14 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=fail;
+ b=vySu88VfXKg3LSCeFeYdkphvO+lf+RA/fqrKz51cxdxfN7IIXIPeBydJG6wE8qO5fobf+zPGSfhHfoVBvuClHHxme+7S62tedahx22fZXGj9GBGJukdT+O+VuLuQz8dg9AIGH0HHHuYNPILWTNQZVYYO09P4tTQagX4OOGhWvbEpJHalPiLmDZbLhKLTfpFQBQgpPl6WBKGMcQTHWOcyoQwLZOCYpVx2yaE7mI2WwnvxkO87URtv/AhoOL/t+8Eb7esp21EnW5sstLuvD8kL8pgF0M76iH89Si+tfqUY+XLFkLBKDzXyx4sixqV1CEnD8sVtKfJn5QuPq3PDy8D2zA==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lJS4/hSr1IAdh/uIwAsBtN9sBwCzRefbxwgBppyAt08=;
+ b=yvLxhsMOMDLvLLJqm8IhMUG6dMDZVLZwWEsrHZri9BDkiuBlDUJ3R8+Ev/wPsu3zqThxezu/nxy1xoQIeW6DpA3tUFO99zrM9eDoocm/RLeKEKogCX/ZkWMdd4qQsL22t30UMGkAWgLk4VVeykWvLVOtIm9n346C85fwp7/yZEkZE0qakBMaDKlRw5Fj2y/VBCKbX6Bz9n/2enYyBv7BWRK/R2atTb8ei+ZrkvmTEVAlTzTvaZnYgVT2FLhldYHCItIi6rGApzH4VelbE+KR+t43Z7Krvajo5gpdmnvbK9addT3zskY0TD+fjO275ySmyTCSvDu3km7ClBenHJDa6A==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 52.0.74.211) smtp.rcpttodomain=coastaltestinglabs.com
+ smtp.mailfrom=lennar.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=lennar.com; dkim=pass (signature was verified)
+ header.d=lennar.com; dkim=fail (body hash did not verify)
+ header.d=lennar.com; arc=fail (47)
+Received: from BY5PR03CA0002.namprd03.prod.outlook.com (2603:10b6:a03:1e0::12)
+ by LV3PR22MB5193.namprd22.prod.outlook.com (2603:10b6:408:1d4::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.14; Thu, 13 Aug
+ 2026 19:41:12 +0000
+Received: from SJ1PEPF00001CDE.namprd05.prod.outlook.com
+ (2603:10b6:a03:1e0:cafe::68) by BY5PR03CA0002.outlook.office365.com
+ (2603:10b6:a03:1e0::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.315.14 via Frontend Transport; Thu,
+ 13 Aug 2026 19:41:11 +0000
+Authentication-Results: spf=softfail (sender IP is 52.0.74.211)
+ smtp.mailfrom=lennar.com; dkim=pass (signature was verified)
+ header.d=lennar.com;dkim=fail (body hash did not verify)
+ header.d=Lennar.com;dmarc=pass action=none
+ header.from=Lennar.com;compauth=pass reason=100
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ lennar.com discourages use of 52.0.74.211 as permitted sender)
+Received: from transport-3.inbound.emailservice.io (52.0.74.211) by
+ SJ1PEPF00001CDE.mail.protection.outlook.com (10.167.242.6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.339.3 via Frontend Transport; Thu, 13 Aug 2026 19:41:11 +0000
+Received: from cloudfilter-igate-0a8cdee744b053344.inbound.emailservice.io (unknown [10.4.2.171])
+	by transport-3.inbound.emailservice.io (Postfix) with ESMTPS id A5E04827D1;
+	Thu, 13 Aug 2026 19:41:10 +0000 (UTC)
+Received: from mx0a-001afc01.pphosted.com (mx0a-001afc01.pphosted.com [67.231.144.124])
+	by cloudfilter-igate-0a8cdee744b053344.inbound.emailservice.io (Postfix) with ESMTPS id 90CC77E21D;
+	Thu, 13 Aug 2026 19:41:09 +0000 (UTC)
+Received: from pps.filterd (m0077786.ppops.net [127.0.0.1])
+	by mx0a-001afc01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 67DIibY62944497;
+	Thu, 13 Aug 2026 15:41:08 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lennar.com; h=cc
+	:content-type:date:from:message-id:mime-version:subject:to; s=
+	11172022; bh=lJS4/hSr1IAdh/uIwAsBtN9sBwCzRefbxwgBppyAt08=; b=lB1
+	HAE/rLBoryEGYVI57lzsAf+IXtJspBX6Wco77EApQ1VTabFNAFHPUnUzSOaw37LZ
+	ygaTmgxPhiDInzYZRR4Jd8Ci20+uOOi1cmGNeGC0uyjs8zG+kPUsb7WpriFmsUG7
+	Ozh28fFJfEAyySvi4Qe4Ez+XDRx3vmwnGp9SeuumiGm1z6MRJwBGyTg3u8RFUjaR
+	+EjXKmLgHmaOb5AAvdyFFmJqubW0JDNE1wlhcaZyf/X+1usnisJyo79hV8b7xv6K
+	N/OWWKJb+A9BpXsSeKgdoT0DpEbrE/3DVu4t2XqnjrfCOSblLAgAS3zVMXOo+Cby
+	SGatgZpSfE0Rvt0vTFg==
+Received: from dm1pr04cu001.outbound.protection.outlook.com (mail-centralusazon11010056.outbound.protection.outlook.com [52.101.61.56])
+	by mx0a-001afc01.pphosted.com (PPS) with ESMTPS id 4g12x0352d-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 13 Aug 2026 15:41:07 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=J18gpqr+CVIG/3hXCkHVWqavrQMxYWYfI3Aun8nTcFweIfP9Ge+fsmGMxMffSVzl/bX///cjyh4wm4bCYl+uXy5Ku4/0upqM4KPPjml699BJmkiwUC1wgPtAcTb8g0Rv4sreXQWQo2VHYgKsxo0Fm0IUC2HL4cZSdIVeacqwATHk2p9AmQJv0gHSVwaWsPUNzdVWU/1sUCxI355FfEZcZB5ULm6tjZVg1jwyjfwdEUV/An3r1LMgWu851rNY0AppAY7FB7nrTEmAeeuokZ8XxTRDWkPr5rGJLFqTdOX87cq8DmEJ9ow4le+pZeDCT6fgGRmFrwrS1uHO2kClYaNFcg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EznxPdv/kxNCKYdXHxxZo5Xq2a82URQCbmwgRociu2U=;
+ b=wrg2/jt84V9klWyD8fyrBC4MYTSAOA0ONumk5b0brsrJElrAGyjCUiiamgDmsxAZl31ODKtHY+Y7m6sjJGmcjJ2l90qP2uZT8rUdtE1ggYjhmKD1h2eNHvVL1Z6qpez+qOCrspsSs/AWFqhZJqLwx0HsX913bWUIsBH7nAgFbwIKdyiOcCji2w7+yK6eqUxKEaZa3cCXaU/q8GhK2ehMkW8S9qLSsweh564tnvPgKdLMuVsqLOkKEf2oZgaX4QJorHzHLpQ1ijiZ1B2LlqOzKXZvrLx7BQ4hfvGFaOgfvNwMM48niwuH8S3C+71cBk3k8LJGpvbS6b/mWIghL9FQkw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=lennar.com; dmarc=pass action=none header.from=lennar.com;
+ dkim=pass header.d=lennar.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Lennar.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EznxPdv/kxNCKYdXHxxZo5Xq2a82URQCbmwgRociu2U=;
+ b=RgbeUtqR4/y5QL7eaQo3uip7aVF7UaxitUUwHAyCUQfgiIX/T/Tk/rNDfxZz4jlY3THuCR3kuRt/4eyb7GI7IdRBTilDsNZyYPnH5BaCvuFbJrj/oEn2p2WVnU7I3mrtyzO6ykEMhujadc++ZbpsZ0UBgI9UtktrBpFbQ2Ha5GEYdF10/msKTl4MqhV/o9uyKlUqIAcZLYIOW8BL0SpRPOJ83Y6UOiaFGze2chFP7Vp/PWR92+TCuClh5i3G8vrKRUf1OS70r9u/kCC49YaRg5J4jTkNQq6kRrI7M594rwfc2basEZDepYlRu4OORn3mgZzAtQg8qshUYbnd+0pfAQ==
+Received: from IA3PR07MB11775.namprd07.prod.outlook.com (2603:10b6:208:546::7)
+ by SA6PR07MB10886.namprd07.prod.outlook.com (2603:10b6:806:423::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.315.12; Thu, 13 Aug
+ 2026 19:41:01 +0000
+Received: from IA3PR07MB11775.namprd07.prod.outlook.com
+ ([fe80::1506:8976:a4ea:f28d]) by IA3PR07MB11775.namprd07.prod.outlook.com
+ ([fe80::1506:8976:a4ea:f28d%2]) with mapi id 15.21.0315.014; Thu, 13 Aug 2026
+ 19:41:01 +0000
+From: Kenneth Pustejovsky <Kenneth.Pustejovsky@Lennar.com>
+To: Ryan Pena <ryan@coastaltestinglabs.com>,
+        Joe Gallardo
+	<joe@coastaltestinglabs.com>
+CC: Angel Gonzalez <angelmasterconstruction@gmail.com>
+Subject: THE HIGHLANDS - PADS
+Thread-Topic: THE HIGHLANDS - PADS
+Thread-Index: AQHdK1urOtkYTEElJEiq1omRZ2rOVQ==
+Date: Thu, 13 Aug 2026 19:41:01 +0000
+Message-ID: <F5C870A9-D334-4AC7-8FDB-F31F54AE6F68@lennar.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+x-ms-traffictypediagnostic: IA3PR07MB11775:EE_|SA6PR07MB10886:EE_|SJ1PEPF00001CDE:EE_|LV3PR22MB5193:EE_|CH3PR22MB4276:EE_
+X-MS-Office365-Filtering-Correlation-Id: efbcee7d-1971-4a58-7d5f-08def972d443
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|23010399003|366016|376014|11063799006|56012099006|10067099003|18002099003|8096899003|13003099007|38070700021;
+X-Microsoft-Antispam-Message-Info-Original: mJzs0815QZRd+ywFjw8Mbs+RLhmdQhGI6/XMWMghVmO/0/t3tyhYxPPqJW93sPSAadHR1YykMb8tf28tp2adHI6s+Xh59lu5Mx6kf1vlHr8K1SIz5fGaG1ITtKg1mNFt6kXYD+qVipZp1EgPDy0WtKcw6u5Hk4W8A6vJNmbMTkp7gtjfpBxfO0AkjcPnQQf+Xw0AjXSgsERJ9tKmnmvCTXrkkK4NDFvCvAFq7/LJBGHWtfkDj9PCug4QiJ8WEJMtwf0u7c2kN/7besaawjP5mOlGabMRgbO1Oh9YocNrfynqR2/fxEKJwFXJ1cMJqY7y0/2ihXrSG3axuvw+Lyt38sRvrtkAXNKHfgIrfyOrgY2UFh13Sl6Uvr7MLl1pyJbVJofhbfcq7FjaHpen8nnRmY1BNIurMEq3/s4M6HMVXXgMzk9SHudUaHCtmQ+qAb3rECOizvUCxvisoh8lTHZ3JKC30qg1KcNRc2pLt38o4SJs4pSgBvgHziDJ9riOOzdiN//znW9Z0vJosxBlOzJDl6B28bYlVxOsqWgG6ox5/hBTIdpP8KZSJfJ99IJDrprkkXKNXHjBi0KqJPxAWVQGzCHCSqMhH47n8R2Eqk5GRSQBR8m1tWHOola2XP+CTBcbtz7qy3HjvzpS6e3oH9As/eY0S8ETMcchw2KEVoIsMau+7/66pC7bg4y/AFXMTKxA0vbHJ575TDH08tlUipCTX/OagQHJTOcM73mhcyENk9g=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA3PR07MB11775.namprd07.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(23010399003)(366016)(376014)(11063799006)(56012099006)(10067099003)(18002099003)(8096899003)(13003099007)(38070700021);DIR:OUT;SFP:1101;
+Content-Type: multipart/alternative;
+	boundary="_000_F5C870A9D3344AC78FDBF31F54AE6F68lennarcom_"
+X-Exchange-RoutingPolicyChecked: cggFy27iPYJ4otYzOl5I1M2CR+llPncJoyVSW/kGfim25JxHMn3F2DgPIcMD9BszGW8oeaUnPiJQJIvJjN8fINxDzh4na4URLIjrbe26pRnfYFNVQjRykEIZIpUy5UR3I353BinAOJ1KHiCE1c3gfmoMSjCtzwLCZWBY95D7j/cW9s0DvOW/y4rFZytEzOoUa+ArfKwadKpn66DKW5+hgFy+3yt/Yfxt3NuciEE0rVYRYn+/h2xgUpcu9liU/cBaY6KE+ghoin29HXftZbFn2D4nP3RJ9EzKQyD64HsPMab52TEhmHPvSEKH2bRe+DLAmvQfNx8W0syKRA1iDfkrVA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR07MB10886
+X-Authority-Analysis: v=2.4 cv=Z6Hc2nRA c=1 sm=1 tr=0 ts=6a7e1dd4 cx=c_pps
+ a=PxsVn2hUj41VgPYomOKOQg==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=Sv0fKeRqtYgA:10
+ a=rcICekzIIxQA:10 a=VkNPw1HP01LnGYTKEx00:22 a=KKj_HOhWc6TcvNMf4AfC:22
+ a=vd1LaDt4MfpHm7aO2UG5:22 a=92_gyBx_AAAA:8 a=RpNjiQI2AAAA:8 a=tbpGB1bEAAAA:8
+ a=pGLkceISAAAA:8 a=69EAbJreAAAA:8 a=EvpNIfRwq8sNntrB2Q4A:9 a=QEXdDO2ut3YA:10
+ a=3auQKvR9kdZ8PRllXWsA:9 a=tqdMzFhGG8mD8GCBlf4leDhY3gs=:19
+ a=sTxRpBpiy98KL1WkT8X2XIWo+SM=:19 a=SRsymyWlTFnk1nPL:21 a=UiCQ7L4-1S4A:10
+ a=hTZeC7Yk6K0A:10 a=_W_S_7VecoQA:10 a=bwkLoyfur_siurgSUeaL:22
+ a=ayYy12crN3DpO_qRHeKm:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwODEzMDE0MiBTYWx0ZWRfX9HN3P3pX+gEa
+ 3KXUjpq8Wchev9Hspq807P4cPcax6Jzb3+KmStOPDJQk/5bRWwC3TxnN/a0Q0MezBZLreL6cWE/
+ DZcjTRPuB1xHi2pbTzD2GLTJokgYlbojvTO/CVJLwaryW259daoaxR0KcSsJdZMMCSwHiQMVEi9
+ kIVlsPJj2UkKpKPW9zBcvXZivwa3nTxB7YY0+xVD/G4LaJMbfdWojLr+BY99DuqSfBHKvNTfaQq
+ oJy0K6kYElhu8clbS4hvULJTCly4P55F19gniYTurprF8QlsSAuTvVT2BFjpnRnGlGHq2QlaJH/
+ 9slCAtgPfUwvDr8KDQFaJwaipnKOda7Kr1Y6mt1lo9VhEjqeBvcp7JYBgpHE5ugtxJ6PLKEAryf
+ /Rv3aj0AC/1K7YRrJf+vw9WnceowHCIhYWwucE6SeDK9zGAZ+1CBaXw4+p98dmhQODmOPeYDVrv
+ FBFeYvaWlJlyPPeLyOQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYwODEzMDE0MiBTYWx0ZWRfX6UOyoIdmg5uD
+ zJyMRSkOhmZuKuYD89FKDadO5FpzfV6ZA52HhJ5wyMMuhA35V//KS+O4MS3VtWRauMlOSpkHPHa
+ J9JwdIbDIJy8fGYnypbb7hqNmfyYAUU=
+X-Proofpoint-GUID: gRqLpIjmqXG9nw0Mp-jVzjRrRoEicXCf
+X-Proofpoint-ORIG-GUID: gRqLpIjmqXG9nw0Mp-jVzjRrRoEicXCf
+x-adaptive-bypass: adaptive
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.134,FMLib:17.12.100.49
+ definitions=2026-08-13_06,2026-08-12_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 clxscore=1015
+ spamscore=0 priorityscore=1501 phishscore=0 malwarescore=0 impostorscore=0
+ bulkscore=0 suspectscore=0 lowpriorityscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2606150000 definitions=main-2608130142
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mx0a-001afc01.pphosted.com|67.231.144.124|mx0a-001afc01.pphosted.com|-0.16129|0.353873|0|normal|ugly|18|13|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass clean dmarc_policy_allow
+X-Mailprotector-Score: 1833708:0 1833714:0
+X-Mailprotector-IP-Analysis: 0, 67.231.144.124, Ugly c=0.247104 p=-0.272727 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-32006-c
+X-Mailprotector-ID: 020d2145-609d-4d26-878e-47f9d0d63327
+X-Mailprotector-Timestamp: KISUFqN1fzwvFIgvDvzjCQbB1U+gFrGBd263bKAk+GQ=
+Return-Path: prvs=86852c28e5=kenneth.pustejovsky@lennar.com
+X-MS-Exchange-Organization-ExpirationStartTime: 13 Aug 2026 19:41:11.5969
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: efbcee7d-1971-4a58-7d5f-08def972d443
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: SJ1PEPF00001CDE.namprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource: SJ1PEPF00001CDE.namprd05.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs: a64fdd05-9c66-4496-6b41-08def972ce4e
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|12012899012|35042699022|82310400026|13003099007|18003699003|10067099003|5063699009|19002099009|8096899003|16102099003|57112099003;
+X-Forefront-Antispam-Report: CIP:52.0.74.211;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-3.inbound.emailservice.io;PTR:transport-3.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(12012899012)(35042699022)(82310400026)(13003099007)(18003699003)(10067099003)(5063699009)(19002099009)(8096899003)(16102099003)(57112099003);DIR:INB;
+X-MS-Exchange-ForwardingLoop: ForwardingHandled;3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Aug 2026 19:41:11.3435
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: efbcee7d-1971-4a58-7d5f-08def972d443
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CDE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR22MB5193
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.1336624
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0315.000
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?OHUrQ240Qk5zOEVVcW9La3FXQzJWTHlTb1lNUmhiUDhRK0ozMEVCRW9ZbDMv?=
+ =?utf-8?B?RTcyclJSeGlKTnNIdDI4ZW51b2ZTYno4ZXBxeGxWMmRuMWZHV2pkM0hGOHAx?=
+ =?utf-8?B?b2hLUjBwM3FoVCs4RXRFU0VwSFlzaDdDYktyMHZKelNaSFRpNkdkVkdNd09R?=
+ =?utf-8?B?SUtWblBLTWoyTWlwSXJ3RGoyN3paaktraDRnbVBRODBKSFZWVDJJMVRXL28y?=
+ =?utf-8?B?emo3NlFNa3ZaMzFUNVM0TUhhNGZ2SVBoMDZWSzhuZUsyOFB0Wlo2Uk1oYUtC?=
+ =?utf-8?B?UTkrT2Q2b0pYTFdxU2NXcnZ2M0x1UysyMnhqUVlXdjZGSHdyUDJHVm9qMTNy?=
+ =?utf-8?B?YVJ3SkpzUEpHYnN3YWt5eHVFWWJiMW96VFg0aTBTb3VTZmV2RmZhZ1ZTSXYy?=
+ =?utf-8?B?V0xSTEJkNnRvdk04elZEQU43OVVEVkxVUjlKamN3TnN0YXVvdVlPUEN6KzM5?=
+ =?utf-8?B?cmNKOXhWeGtpRGh6d0ticE1tOXd1ci9SRVNOa3VJc1lNZUxhaXo5alBVTFpO?=
+ =?utf-8?B?U0R6bERTUHQ5MkJhR3A5enpLM0ExajlLZlVnWEYzSkhrT3lXQVFSZzYrVUE5?=
+ =?utf-8?B?VEk4UzFJSjZYSUhsSXFiUFBxTHNkYnlONnBwSGpoOUlhd0VBenl5ZVUxWWFC?=
+ =?utf-8?B?M1lRQVM5RzBQSjV3NlBUa2hNU2FhazRyUkI0ZWNEZERMZnRveEVSWnNXZEww?=
+ =?utf-8?B?aStGTUowc2FuQk1VSzhiT1FoQnNJSjVZdWx0REpvcHpqMHdYczJNQk5uUGJo?=
+ =?utf-8?B?cStuby92VlYydlIxVi9Hd0RnY2JlQTlGMzBGdnZRdlhzRDRvT3FKdStGb1NO?=
+ =?utf-8?B?b2pkQ0gya08zV0JPRlZmb1EwOWFlTXc1R0tMTEY2dGZKRUFrVmw0QjJjcFdV?=
+ =?utf-8?B?YTg4MktSb1J3WGRyTy9XUTlXY3FHY2F2VC9DeHk5UTRlYXhWRFBtRUx6ZStT?=
+ =?utf-8?B?bWFSejdEbnRqMElQM003T0xrbzJxUlpYU3hHdHR2b0R4NUlIU1JiZ1hxL1Z1?=
+ =?utf-8?B?N3hSNXRNY2FDZTJoK0lCenh3MzJaa1BIcFVIdTZRVXlEcmVFS2RYd0NNMStZ?=
+ =?utf-8?B?YkNncGYyVWVqdmhFR3NsOS9UQ05vNHNyNlpDMVpIOVJqWndEdHRpRWl6Qk5Z?=
+ =?utf-8?B?OXVoSzYraHBuOHY3RmFGTW1Tazg1R1gzd0Vjbm0wOUVZblJFbzVGZVgzMHFs?=
+ =?utf-8?B?RXBHMDZXMkNEWitHZlI4QzVwTC8zNzlPelIwejgwb1VoN3dqajNmNWFVUUtI?=
+ =?utf-8?B?SExxdzU3VDVvWTFVVnpyTXRJUlg3YkIzeHNNUENiYitxd3Fua1JtOVNoS0tS?=
+ =?utf-8?B?OExmWkVyWUFaMGJaYlk4b2FpbHM2c1VyNG91TVYvU3pvMmN3MDhzam11QW9I?=
+ =?utf-8?B?c241WUROdG91YW10YzczWEFvZlpoQ0Y3ZWtMVzQraUU3NENGQ0pXaUdPRFli?=
+ =?utf-8?B?M0J4Ulg4ek80UzJmVnBnS3Z5L2dIcUY0UzZPZFJ4MDBFQmExeUREYmhQRGZt?=
+ =?utf-8?B?U3hsUXVyeE5rV1BaZ1lKc0twZWdCaVByKy8rTzhZU3BFdXQ1YVRUQ2c0QWxw?=
+ =?utf-8?B?Q3hQWXhxeGJwSzZXSlBFUlRhL0J6N0lrOHZsVUhZVGxWc1UwbkVBM0h0d2ZT?=
+ =?utf-8?B?d1NVWlBqalJPTjVSZm9XLzNaRkF1ZndGQmJKRHkvaGYrMlpoNndTUUx6eHMr?=
+ =?utf-8?B?QjVCeWN5NDJ3WDRpdXVIdnJKZXY4UnY2NENibXAvUXRHKzhYb29zZzNlbGZx?=
+ =?utf-8?B?dXlOV2w2WWU2dzIyL0ZFS2JXeDZ0QjJCa2JnSDFDWGhyZ25raFB6cFVhZFRR?=
+ =?utf-8?B?NktmVlQ0SmM4SEZYTmlHSVFnUXU2MnZuS0VVc3k4VU5kWDhlQVIwbDhGeitY?=
+ =?utf-8?B?NU1Hd1hTaTRaaEhRVVdCdmRPTnlub1AwYTc5UzloYXpCWnRqc3dkOUdTR2Fp?=
+ =?utf-8?B?MHh5dkZiSHZPQmdpbDEyQWp3bDd3NE9vWXpzdm92SnBmZXdwdSsya3JWcjdX?=
+ =?utf-8?B?RUhhcE9LWElWMjBCZzdtNStzZThHQ3JFY095c3dLL0hlZy9xMUUxVnZCUlBE?=
+ =?utf-8?B?amtaeE5ySG5qOGM1ZXoyNWRpdmFERTRJcmJOa1IzRGZFaHhJYm9YcGt1YmVG?=
+ =?utf-8?B?VEJ6UEpsTnZMSTJvOVk2d2Q0dHQ0V0tWRlZsT0Q0dnA2ZU1VWlAvZ1lFemVt?=
+ =?utf-8?B?aDdLQTZ2azBiL3cxcDllQ0dnZ1V0azhCaW5KNjlld3U2N0xwZVNzMzNpVU9B?=
+ =?utf-8?B?NDVKdE1GbkxNYjVJTGs0b3UvS1VBVWJSZDdDWThPeVliTTQ5UXR1eEJZbzdX?=
+ =?utf-8?B?cS9oRWdFUUlHcGlHVm5sd2ptdmVGZlBVeE1iZWhaSklGNzdMdFpnL0NGd0g5?=
+ =?utf-8?B?cEtHdzVzZ3BmQndFODFxRENzWWFrWjdyYjdlcjlEMk9xZlo3dEJVcDJOby9Z?=
+ =?utf-8?B?ZUpjeUNrTFo5VGtIaWZzY3lJVjRncXBWNlhUa3JYTy9LemZCdmJoY3Z6ZHBE?=
+ =?utf-8?B?Q3B1SzZua1JNS2RubFFWblYxTUtiZGRjYjRRS2poOWxhQmE0OFpLRWx4cVUw?=
+ =?utf-8?B?RzUzTkRBZWlxZkVvcmFCTVdwQXlDMFk3UDZzRXkzMjZjdFlTcDNDUk1vamR0?=
+ =?utf-8?B?NUxPM3cvOUxwMkFEUFZlaG9TQnk4QWZISkY4dHNGNzdXSDV2ai9qT09XZVZr?=
+ =?utf-8?B?aGg5a20yVnVoSEVwVU1yQS9lekJYNjJoOHJlNjJ5NGhJbzZmd21NTnIrZWcw?=
+ =?utf-8?B?WUNmaDdOUnUzUkw1clE2RktoTDhMYVYveXE0SW1OTEpRMVplSWlFeE5ua29G?=
+ =?utf-8?B?UWpxa2FoV2MxOUpTMnNCbU9QVVFBdVdDVk1ReFd1YnB4TDQ3dHhDNkR0aXVE?=
+ =?utf-8?B?SUlaSXl2R3BlZlRhRms5THlDK3BVUGdFbXpQd01jbUR2UXFjSUpiVnU4NkZD?=
+ =?utf-8?B?QVhITVlEWXNrYkFLMkR1dzg0dmRMUEdpZThuYkZCc2xOOC8zcmlkL1pSbmd0?=
+ =?utf-8?B?MExvOVR0S2N3cUF0MEVrUmlaWlpQcElzM3F5RGtoYmlhNmJlMzF3dERkcHVO?=
+ =?utf-8?B?Y0ZOQVcxS1pEbldEVGhSOTcvU3J4NSswd1MvNFBiWllqamUyZEpWaUxlajRG?=
+ =?utf-8?B?TjVhOU5iZFRHS0dGVnZLVXdVamVHVU5ubUJIS2NFM1ZlN1RkMU4xaEE4V1ky?=
+ =?utf-8?B?L2xUblhCK2lZcG12cWo3VzRDbWY1cmtRbFdxSnFCUmV4TmJqZ0xWREVGQldC?=
+ =?utf-8?Q?oEDTLRqMcIxRxAfoVBr8NrPC8yo2ku75kZ00kRq2gefJa9P?=
+MIME-Version: 1.0
+
+--_000_F5C870A9D3344AC78FDBF31F54AE6F68lennarcom_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Please let me know if both passed.
+
+23012 Pearl Lakes
+23018 Pearl Lakes
+
+Thank you,
+
+Kenneth Pustejovsky
+Construction Manager =E2=80=A2 The Highlands
+Lennar Homes =E2=80=A2 Houston
+832-256-6016
+
+For Warranty Requests, please go to:
+https://mylennar.lennar.com/contact/customercarewarranty
+
+This e-mail is intended only for the use of the person to whom it is addres=
+sed and contains information which may be confidential or privileged. If yo=
+u are not the person to whom this e-mail is addressed, or an agent authoriz=
+ed by such person to receive this e-mail, you are hereby notified that any =
+examination, copying, distribution or other unauthorized use of this e-mail=
+ is prohibited.
+
+On Aug 12, 2026, at 1:52=E2=80=AFPM, Ryan Pena <ryan@coastaltestinglabs.com=
+> wrote:
+
+=EF=BB=BF
+Received, thank you. Ryan Pena Coastal Testing Laboratories, Inc. 1217/1221=
+ Georgia Ave P.=E2=80=8AO. Box 148 Deer Park, Tx 77536 Phone #713-477-0121 =
+Fax #713-477-2277 Ryan@=E2=80=8Acoastaltestinglabs.=E2=80=8Acom ..=E2=80=8A=
+.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=
+=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=
+=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=
+=E2=80=8A.=E2=80=8A.=E2=80=8ACONFIDENTIALITY NOTICE.=E2=80=8A.=E2=80=8A.=E2=
+=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=
+=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=
+=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=
+=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=
+=8A.=E2=80=8A
+
+Received, thank you.
+
+Ryan Pena
+Coastal Testing Laboratories, Inc.
+<image001.png>
+1217/1221 Georgia Ave
+P.O. Box 148
+Deer Park, Tx  77536
+Phone #713-477-0121  Fax #713-477-2277
+Ryan@coastaltestinglabs.com
+
+        ...........................CONFIDENTIALITY NOTICE..................=
+...............
+
+The information in this email may be confidential and/or privileged. This e=
+mail is intended to be reviewed by only the individual or organization name=
+d above. If you are not the intended recipient or an authorized representat=
+ive of the intended recipient, you are hereby notified that any review, dis=
+semination or copying of this email and its attachment, if any, or the info=
+rmation contained herein is prohibited. If you received this email in error=
+ please immediately notify the sender by return email and delete this email=
+ from your system.
+
+From: Angel Gonzalez <angelmasterconstruction@gmail.com>
+Sent: Wednesday, August 12, 2026 11:56 AM
+To: Joe Gallardo <joe@coastaltestinglabs.com>; Ryan Pena <ryan@coastaltesti=
+nglabs.com>; paul vera <mastertractorwork@hotmail.com>; kenneth.pustejovsky=
+@lennar.com
+Subject: The highlands compaction test
+
+Lennar homes
+Builder Kenneth
+Compaction test / pads
+Next availability
+
+23018 pearl lakes - 2 lifts
+13012 pearl lakes - 2 lifts
+
+--_000_F5C870A9D3344AC78FDBF31F54AE6F68lennarcom_
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-ID: <8858AF6F31E2E244BC740DB3754F7E00@LennarCorporation.onmicrosoft.com>
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</head>
+<body dir=3D"auto">
+Please let me know if both passed.
+<div><br>
+</div>
+<div>23012 Pearl Lakes</div>
+<div>23018 Pearl Lakes<br>
+<div><br id=3D"lineBreakAtBeginningOfSignature">
+<div dir=3D"ltr">
+<div><span style=3D"background-color: rgba(255, 255, 255, 0);"><b>Thank you=
+,</b><br>
+</span>
+<div><span style=3D"background-color: rgba(255, 255, 255, 0);"><br id=3D"li=
+neBreakAtBeginningOfSignature">
+</span>
+<div dir=3D"ltr">
+<div><b style=3D"background-color: rgba(255, 255, 255, 0);">Kenneth Pustejo=
+vsky</b></div>
+<div>
+<div><b style=3D"background-color: rgba(255, 255, 255, 0);">Construction Ma=
+nager =E2=80=A2 The Highlands</b></div>
+<div><b style=3D"background-color: rgba(255, 255, 255, 0);">Lennar Homes =
+=E2=80=A2 Houston&nbsp;</b>
+<div><b><span dir=3D"ltr" style=3D"background-color: rgba(255, 255, 255, 0)=
+;">832-256-6016</span></b></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div><b style=3D"font-size: 17pt; background-color: rgba(255, 255, 255, 0);=
+"><br>
+</b></div>
+<div><b style=3D"font-size: 17pt; background-color: rgba(255, 255, 255, 0);=
+">For Warranty Requests, please go to:</b></div>
+<div>
+<div><a href=3D"https://mylennar.lennar.com/contact/customercarewarranty" s=
+tyle=3D"caret-color: rgb(0, 0, 0); background-color: rgba(255, 255, 255, 0)=
+;"><font color=3D"#000000">https://mylennar.lennar.com/contact/customercare=
+warranty</font></a></div>
+<div>
+<p class=3D"MsoNormal" style=3D"margin: 0in 0in 0.0001pt;"></p>
+</div>
+<div><span style=3D"background-color: rgba(255, 255, 255, 0);"><br>
+</span></div>
+<div><span style=3D"background-color: rgba(255, 255, 255, 0);">This e-mail =
+is intended only for the use of the person to whom it is addressed and cont=
+ains information which may be confidential or privileged. If you are not th=
+e person to whom this e-mail is addressed,
+ or an agent authorized by such person to receive this e-mail, you are here=
+by notified that any examination, copying, distribution or other unauthoriz=
+ed use of this e-mail is prohibited.</span></div>
+</div>
+<div></div>
+</div>
+<div dir=3D"ltr"><br>
+<blockquote type=3D"cite">On Aug 12, 2026, at 1:52=E2=80=AFPM, Ryan Pena &l=
+t;ryan@coastaltestinglabs.com&gt; wrote:<br>
+<br>
+</blockquote>
+</div>
+<blockquote type=3D"cite">
+<div dir=3D"ltr">=EF=BB=BF<!-- BaNnErBlUrFlE-BoDy-start --><!-- Preheader T=
+ext : BEGIN -->
+<div style=3D"display:none !important;display:none;visibility:hidden;mso-hi=
+de:all;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;opacity:0=
+;overflow:hidden;">
+Received, thank you. Ryan Pena Coastal Testing Laboratories, Inc. 1217/1221=
+ Georgia Ave P.=E2=80=8AO. Box 148 Deer Park, Tx 77536 Phone #713-477-0121 =
+Fax #713-477-2277 Ryan@=E2=80=8Acoastaltestinglabs.=E2=80=8Acom ..=E2=80=8A=
+.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=
+=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=
+=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=
+=E2=80=8A.=E2=80=8A.=E2=80=8ACONFIDENTIALITY
+ NOTICE.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=
+=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=
+=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=
+=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=
+=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A.=E2=80=8A</div>
+<!-- Preheader Text : END --><!-- Email Banner : BEGIN -->
+<div style=3D"display:none !important;display:none;visibility:hidden;mso-hi=
+de:all;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;opacity:0=
+;overflow:hidden;">
+</div>
+<!-- Email Banner : END --><!-- BaNnErBlUrFlE-BoDy-end --><!-- BaNnErBlUrFl=
+E-HeAdEr-start --><style>#pfptBanner991n55l { color-scheme: revert !importa=
+nt; ruby-position: revert !important; writing-mode: revert !important; colo=
+r: revert !important; font-family: revert !important; font-feature-settings=
+: revert !important; font-kerning: revert !important; font-optical-sizing: =
+revert !important; font-palette: revert !important; font-size: revert !impo=
+rtant; font-size-adjust: revert !important; font-style: revert !important; =
+font-synthesis-small-caps: revert !important; font-synthesis-style: revert =
+!important; font-synthesis-weight: revert !important; font-variant-alternat=
+es: revert !important; font-variant-caps: revert !important; font-variant-e=
+ast-asian: revert !important; font-variant-emoji: revert !important; font-v=
+ariant-ligatures: revert !important; font-variant-numeric: revert !importan=
+t; font-variant-position: revert !important; font-variation-settings: rever=
+t !important; font-weight: revert !important; font-width: revert !important=
+; text-orientation: revert !important; text-rendering: revert !important; z=
+oom: revert !important; -webkit-font-smoothing: revert !important; -webkit-=
+locale: revert !important; -webkit-text-size-adjust: revert !important; -we=
+bkit-text-zoom: revert !important; letter-spacing: revert !important; text-=
+autospace: revert !important; text-spacing-trim: revert !important; accent-=
+color: revert !important; place-content: revert !important; place-items: re=
+vert !important; place-self: revert !important; alignment-baseline: revert =
+!important; anchor-name: revert !important; animation-composition: revert !=
+important; animation: revert !important; animation-range: revert !important=
+; animation-timeline: revert !important; appearance: revert !important; asp=
+ect-ratio: revert !important; backdrop-filter: revert !important; backface-=
+visibility: revert !important; background-attachment: revert !important; ba=
+ckground-blend-mode: revert !important; background-clip: revert !important;=
+ background-image: revert !important; background-origin: revert !important;=
+ background-position: revert !important; background-repeat: revert !importa=
+nt; background-size: revert !important; baseline-shift: revert !important; =
+line-clamp: revert !important; block-step: revert !important; border-collap=
+se: revert !important; border: revert !important; box-shadow: revert !impor=
+tant; box-sizing: revert !important; break-after: revert !important; break-=
+before: revert !important; break-inside: revert !important; buffered-render=
+ing: revert !important; caption-side: revert !important; caret-color: rever=
+t !important; clear: revert !important; clip: revert !important; clip-path:=
+ revert !important; clip-rule: revert !important; color-interpolation: reve=
+rt !important; color-interpolation-filters: revert !important; column-count=
+: revert !important; column-fill: revert !important; gap: revert !important=
+; column-rule-color: revert !important; column-rule-style: revert !importan=
+t; column-rule-width: revert !important; column-span: revert !important; co=
+lumn-width: revert !important; contain: revert !important; container-name: =
+revert !important; container-type: revert !important; content: revert !impo=
+rtant; content-visibility: revert !important; counter-increment: revert !im=
+portant; counter-reset: revert !important; counter-set: revert !important; =
+cursor: revert !important; cx: revert !important; cy: revert !important; d:=
+ revert !important; dominant-baseline: revert !important; empty-cells: reve=
+rt !important; field-sizing: revert !important; fill: revert !important; fi=
+ll-opacity: revert !important; fill-rule: revert !important; filter: revert=
+ !important; flex: revert !important; flex-flow: revert !important; float: =
+revert !important; flood-color: revert !important; flood-opacity: revert !i=
+mportant; glyph-orientation-horizontal: revert !important; glyph-orientatio=
+n-vertical: revert !important; grid: revert !important; grid-column-end: re=
+vert !important; grid-column-start: revert !important; grid-row-end: revert=
+ !important; grid-row-start: revert !important; hanging-punctuation: revert=
+ !important; hyphenate-character: revert !important; hyphens: revert !impor=
+tant; image-orientation: revert !important; image-rendering: revert !import=
+ant; input-security: revert !important; isolation: revert !important; light=
+ing-color: revert !important; line-break: revert !important; line-fit-edge:=
+ revert !important; line-height: revert !important; list-style: revert !imp=
+ortant; margin-trim: revert !important; marker: revert !important; mask: re=
+vert !important; mask-composite: revert !important; mask-mode: revert !impo=
+rtant; mask-size: revert !important; mask-type: revert !important; masonry-=
+auto-flow: revert !important; math-style: revert !important; mix-blend-mode=
+: revert !important; object-fit: revert !important; object-position: revert=
+ !important; offset-anchor: revert !important; offset-distance: revert !imp=
+ortant; offset-path: revert !important; offset-position: revert !important;=
+ offset-rotate: revert !important; order: revert !important; orphans: rever=
+t !important; outline: revert !important; outline-offset: revert !important=
+; overflow-anchor: revert !important; overflow-wrap: revert !important; ove=
+rflow: revert !important; page: revert !important; paint-order: revert !imp=
+ortant; perspective: revert !important; perspective-origin: revert !importa=
+nt; pointer-events: revert !important; position: revert !important; positio=
+n-anchor: revert !important; position-try-fallbacks: revert !important; pos=
+ition-try-order: revert !important; print-color-adjust: revert !important; =
+quotes: revert !important; r: revert !important; resize: revert !important;=
+ rotate: revert !important; ruby-align: revert !important; ruby-overhang: r=
+evert !important; rx: revert !important; ry: revert !important; scale: reve=
+rt !important; scroll-behavior: revert !important; scroll-snap-align: rever=
+t !important; scroll-snap-stop: revert !important; scroll-snap-type: revert=
+ !important; scroll-timeline: revert !important; scrollbar-color: revert !i=
+mportant; scrollbar-gutter: revert !important; scrollbar-width: revert !imp=
+ortant; shape-image-threshold: revert !important; shape-margin: revert !imp=
+ortant; shape-outside: revert !important; shape-rendering: revert !importan=
+t; speak-as: revert !important; stop-color: revert !important; stop-opacity=
+: revert !important; stroke: revert !important; stroke-color: revert !impor=
+tant; stroke-dasharray: revert !important; stroke-dashoffset: revert !impor=
+tant; stroke-linecap: revert !important; stroke-linejoin: revert !important=
+; stroke-miterlimit: revert !important; stroke-opacity: revert !important; =
+stroke-width: revert !important; tab-size: revert !important; table-layout:=
+ revert !important; text-align: revert !important; text-align-last: revert =
+!important; text-anchor: revert !important; text-box: revert !important; te=
+xt-combine-upright: revert !important; text-decoration-color: revert !impor=
+tant; text-decoration: revert !important; text-decoration-skip-ink: revert =
+!important; text-decoration-style: revert !important; text-decoration-thick=
+ness: revert !important; text-emphasis-color: revert !important; text-empha=
+sis-position: revert !important; text-emphasis-style: revert !important; te=
+xt-group-align: revert !important; text-indent: revert !important; text-jus=
+tify: revert !important; text-overflow: revert !important; text-shadow: rev=
+ert !important; text-transform: revert !important; text-underline-offset: r=
+evert !important; text-underline-position: revert !important; text-wrap: re=
+vert !important; timeline-scope: revert !important; touch-action: revert !i=
+mportant; transform: revert !important; transform-box: revert !important; t=
+ransform-origin: revert !important; transform-style: revert !important; tra=
+nsition: revert !important; translate: revert !important; vector-effect: re=
+vert !important; vertical-align: revert !important; view-timeline: revert !=
+important; view-transition-class: revert !important; view-transition-name: =
+revert !important; white-space: revert !important; widows: revert !importan=
+t; will-change: revert !important; word-break: revert !important; x: revert=
+ !important; y: revert !important; z-index: revert !important; -apple-color=
+-filter: revert !important; -apple-pay-button-style: revert !important; -ap=
+ple-pay-button-type: revert !important; -apple-visual-effect: revert !impor=
+tant; -internal-text-autosizing-status: revert !important; -webkit-backdrop=
+-filter: revert !important; -webkit-background-clip: revert !important; -we=
+bkit-background-origin: revert !important; border-spacing: revert !importan=
+t; -webkit-box-align: revert !important; -webkit-box-decoration-break: reve=
+rt !important; -webkit-box-direction: revert !important; -webkit-box-flex: =
+revert !important; -webkit-box-flex-group: revert !important; -webkit-box-l=
+ines: revert !important; -webkit-box-ordinal-group: revert !important; -web=
+kit-box-orient: revert !important; -webkit-box-pack: revert !important; -we=
+bkit-box-reflect: revert !important; -webkit-box-shadow: revert !important;=
+ -webkit-column-axis: revert !important; -webkit-column-progression: revert=
+ !important; -webkit-cursor-visibility: revert !important; -webkit-font-siz=
+e-delta: revert !important; -webkit-hyphenate-limit-after: revert !importan=
+t; -webkit-hyphenate-limit-before: revert !important; -webkit-hyphenate-lim=
+it-lines: revert !important; -webkit-initial-letter: revert !important; -we=
+bkit-line-align: revert !important; -webkit-line-box-contain: revert !impor=
+tant; -webkit-line-clamp: revert !important; -webkit-line-grid: revert !imp=
+ortant; -webkit-line-snap: revert !important; -webkit-marquee-direction: re=
+vert !important; -webkit-marquee-increment: revert !important; -webkit-marq=
+uee-repetition: revert !important; -webkit-marquee-speed: revert !important=
+; -webkit-marquee-style: revert !important; -webkit-mask: revert !important=
+; -webkit-mask-composite: revert !important; -webkit-mask-source-type: reve=
+rt !important; -webkit-nbsp-mode: revert !important; -webkit-overflow-scrol=
+ling: revert !important; -webkit-rtl-ordering: revert !important; -webkit-r=
+uby-position: revert !important; -webkit-tap-highlight-color: revert !impor=
+tant; -webkit-text-combine: revert !important; -webkit-text-decorations-in-=
+effect: revert !important; -webkit-text-fill-color: revert !important; -web=
+kit-text-security: revert !important; -webkit-text-stroke-color: revert !im=
+portant; -webkit-text-stroke-width: revert !important; -webkit-touch-callou=
+t: revert !important; -webkit-user-drag: revert !important; -webkit-user-mo=
+dify: revert !important; -webkit-user-select: revert !important; word-spaci=
+ng: revert !important; block-size: revert !important; border-block: revert =
+!important; border-radius: revert !important; border-end-end-radius: revert=
+ !important; border-end-start-radius: revert !important; border-inline: rev=
+ert !important; border-start-end-radius: revert !important; border-start-st=
+art-radius: revert !important; inset: revert !important; contain-intrinsic-=
+block-size: revert !important; contain-intrinsic-size: revert !important; c=
+ontain-intrinsic-inline-size: revert !important; height: revert !important;=
+ inline-size: revert !important; inset-block: revert !important; inset-inli=
+ne: revert !important; margin-block: revert !important; margin: revert !imp=
+ortant; margin-inline: revert !important; max-block-size: revert !important=
+; max-inline-size: revert !important; min-block-size: revert !important; mi=
+n-height: revert !important; min-inline-size: revert !important; min-width:=
+ revert !important; overscroll-behavior-block: revert !important; overscrol=
+l-behavior-inline: revert !important; overscroll-behavior: revert !importan=
+t; padding-block: revert !important; padding: revert !important; padding-in=
+line: revert !important; scroll-margin-block: revert !important; scroll-mar=
+gin: revert !important; scroll-margin-inline: revert !important; scroll-pad=
+ding-block: revert !important; scroll-padding: revert !important; scroll-pa=
+dding-inline: revert !important; width: revert !important; display: block !=
+important; visibility: visible !important; opacity: 1 !important; backgroun=
+d-color: rgb(189, 219, 242) !important; max-width: none !important; max-hei=
+ght: none !important; }
+.pfptPrimaryButton991n55l:hover, .pfptPrimaryButton991n55l:focus { backgrou=
+nd-color: rgb(156, 204, 237) !important; }
+.pfptPrimaryButton991n55l:active { background-color: rgb(100, 190, 241) !im=
+portant; }
+html:root, html:root > body { color-scheme: revert !important; ruby-positio=
+n: revert !important; writing-mode: revert !important; color: revert !impor=
+tant; font-family: revert !important; font-feature-settings: revert !import=
+ant; font-kerning: revert !important; font-optical-sizing: revert !importan=
+t; font-palette: revert !important; font-size: revert !important; font-size=
+-adjust: revert !important; font-style: revert !important; font-synthesis-s=
+mall-caps: revert !important; font-synthesis-style: revert !important; font=
+-synthesis-weight: revert !important; font-variant-alternates: revert !impo=
+rtant; font-variant-caps: revert !important; font-variant-east-asian: rever=
+t !important; font-variant-emoji: revert !important; font-variant-ligatures=
+: revert !important; font-variant-numeric: revert !important; font-variant-=
+position: revert !important; font-variation-settings: revert !important; fo=
+nt-weight: revert !important; font-width: revert !important; text-orientati=
+on: revert !important; text-rendering: revert !important; zoom: revert !imp=
+ortant; -webkit-font-smoothing: revert !important; -webkit-locale: revert !=
+important; -webkit-text-size-adjust: revert !important; -webkit-text-zoom: =
+revert !important; letter-spacing: revert !important; text-autospace: rever=
+t !important; text-spacing-trim: revert !important; accent-color: revert !i=
+mportant; place-content: revert !important; place-items: revert !important;=
+ place-self: revert !important; alignment-baseline: revert !important; anch=
+or-name: revert !important; animation-composition: revert !important; anima=
+tion: revert !important; animation-range: revert !important; animation-time=
+line: revert !important; appearance: revert !important; aspect-ratio: rever=
+t !important; backdrop-filter: revert !important; backface-visibility: reve=
+rt !important; background: revert !important; background-blend-mode: revert=
+ !important; baseline-shift: revert !important; line-clamp: revert !importa=
+nt; block-step: revert !important; border-collapse: revert !important; bord=
+er: revert !important; box-shadow: revert !important; box-sizing: revert !i=
+mportant; break-after: revert !important; break-before: revert !important; =
+break-inside: revert !important; buffered-rendering: revert !important; cap=
+tion-side: revert !important; caret-color: revert !important; clear: revert=
+ !important; clip: revert !important; clip-path: revert !important; clip-ru=
+le: revert !important; color-interpolation: revert !important; color-interp=
+olation-filters: revert !important; column-count: revert !important; column=
+-fill: revert !important; gap: revert !important; column-rule-color: revert=
+ !important; column-rule-style: revert !important; column-rule-width: rever=
+t !important; column-span: revert !important; column-width: revert !importa=
+nt; contain: revert !important; container-name: revert !important; containe=
+r-type: revert !important; content: revert !important; content-visibility: =
+revert !important; counter-increment: revert !important; counter-reset: rev=
+ert !important; counter-set: revert !important; cursor: revert !important; =
+cx: revert !important; cy: revert !important; d: revert !important; dominan=
+t-baseline: revert !important; empty-cells: revert !important; field-sizing=
+: revert !important; fill: revert !important; fill-opacity: revert !importa=
+nt; fill-rule: revert !important; filter: revert !important; flex: revert !=
+important; flex-flow: revert !important; float: revert !important; flood-co=
+lor: revert !important; flood-opacity: revert !important; glyph-orientation=
+-horizontal: revert !important; glyph-orientation-vertical: revert !importa=
+nt; grid: revert !important; grid-column-end: revert !important; grid-colum=
+n-start: revert !important; grid-row-end: revert !important; grid-row-start=
+: revert !important; hanging-punctuation: revert !important; hyphenate-char=
+acter: revert !important; hyphens: revert !important; image-orientation: re=
+vert !important; image-rendering: revert !important; input-security: revert=
+ !important; isolation: revert !important; lighting-color: revert !importan=
+t; line-break: revert !important; line-fit-edge: revert !important; line-he=
+ight: revert !important; list-style: revert !important; margin-trim: revert=
+ !important; marker: revert !important; mask: revert !important; mask-compo=
+site: revert !important; mask-mode: revert !important; mask-size: revert !i=
+mportant; mask-type: revert !important; masonry-auto-flow: revert !importan=
+t; math-style: revert !important; mix-blend-mode: revert !important; object=
+-fit: revert !important; object-position: revert !important; offset-anchor:=
+ revert !important; offset-distance: revert !important; offset-path: revert=
+ !important; offset-position: revert !important; offset-rotate: revert !imp=
+ortant; order: revert !important; orphans: revert !important; outline: reve=
+rt !important; outline-offset: revert !important; overflow-anchor: revert !=
+important; overflow-wrap: revert !important; overflow: revert !important; p=
+age: revert !important; paint-order: revert !important; perspective: revert=
+ !important; perspective-origin: revert !important; pointer-events: revert =
+!important; position: revert !important; position-anchor: revert !important=
+; position-try-fallbacks: revert !important; position-try-order: revert !im=
+portant; print-color-adjust: revert !important; quotes: revert !important; =
+r: revert !important; resize: revert !important; rotate: revert !important;=
+ ruby-align: revert !important; ruby-overhang: revert !important; rx: rever=
+t !important; ry: revert !important; scale: revert !important; scroll-behav=
+ior: revert !important; scroll-snap-align: revert !important; scroll-snap-s=
+top: revert !important; scroll-snap-type: revert !important; scroll-timelin=
+e: revert !important; scrollbar-color: revert !important; scrollbar-gutter:=
+ revert !important; scrollbar-width: revert !important; shape-image-thresho=
+ld: revert !important; shape-margin: revert !important; shape-outside: reve=
+rt !important; shape-rendering: revert !important; speak-as: revert !import=
+ant; stop-color: revert !important; stop-opacity: revert !important; stroke=
+: revert !important; stroke-color: revert !important; stroke-dasharray: rev=
+ert !important; stroke-dashoffset: revert !important; stroke-linecap: rever=
+t !important; stroke-linejoin: revert !important; stroke-miterlimit: revert=
+ !important; stroke-opacity: revert !important; stroke-width: revert !impor=
+tant; tab-size: revert !important; table-layout: revert !important; text-al=
+ign: revert !important; text-align-last: revert !important; text-anchor: re=
+vert !important; text-box: revert !important; text-combine-upright: revert =
+!important; text-decoration-color: revert !important; text-decoration: reve=
+rt !important; text-decoration-skip-ink: revert !important; text-decoration=
+-style: revert !important; text-decoration-thickness: revert !important; te=
+xt-emphasis-color: revert !important; text-emphasis-position: revert !impor=
+tant; text-emphasis-style: revert !important; text-group-align: revert !imp=
+ortant; text-indent: revert !important; text-justify: revert !important; te=
+xt-overflow: revert !important; text-shadow: revert !important; text-transf=
+orm: revert !important; text-underline-offset: revert !important; text-unde=
+rline-position: revert !important; text-wrap: revert !important; timeline-s=
+cope: revert !important; touch-action: revert !important; transform: revert=
+ !important; transform-box: revert !important; transform-origin: revert !im=
+portant; transform-style: revert !important; transition: revert !important;=
+ translate: revert !important; vector-effect: revert !important; vertical-a=
+lign: revert !important; view-timeline: revert !important; view-transition-=
+class: revert !important; view-transition-name: revert !important; white-sp=
+ace: revert !important; widows: revert !important; will-change: revert !imp=
+ortant; word-break: revert !important; x: revert !important; y: revert !imp=
+ortant; z-index: revert !important; -apple-color-filter: revert !important;=
+ -apple-pay-button-style: revert !important; -apple-pay-button-type: revert=
+ !important; -apple-visual-effect: revert !important; -internal-text-autosi=
+zing-status: revert !important; -webkit-backdrop-filter: revert !important;=
+ -webkit-background-clip: revert !important; -webkit-background-origin: rev=
+ert !important; border-spacing: revert !important; -webkit-box-align: rever=
+t !important; -webkit-box-decoration-break: revert !important; -webkit-box-=
+direction: revert !important; -webkit-box-flex: revert !important; -webkit-=
+box-flex-group: revert !important; -webkit-box-lines: revert !important; -w=
+ebkit-box-ordinal-group: revert !important; -webkit-box-orient: revert !imp=
+ortant; -webkit-box-pack: revert !important; -webkit-box-reflect: revert !i=
+mportant; -webkit-box-shadow: revert !important; -webkit-column-axis: rever=
+t !important; -webkit-column-progression: revert !important; -webkit-cursor=
+-visibility: revert !important; -webkit-font-size-delta: revert !important;=
+ -webkit-hyphenate-limit-after: revert !important; -webkit-hyphenate-limit-=
+before: revert !important; -webkit-hyphenate-limit-lines: revert !important=
+; -webkit-initial-letter: revert !important; -webkit-line-align: revert !im=
+portant; -webkit-line-box-contain: revert !important; -webkit-line-clamp: r=
+evert !important; -webkit-line-grid: revert !important; -webkit-line-snap: =
+revert !important; -webkit-marquee-direction: revert !important; -webkit-ma=
+rquee-increment: revert !important; -webkit-marquee-repetition: revert !imp=
+ortant; -webkit-marquee-speed: revert !important; -webkit-marquee-style: re=
+vert !important; -webkit-mask: revert !important; -webkit-mask-composite: r=
+evert !important; -webkit-mask-source-type: revert !important; -webkit-nbsp=
+-mode: revert !important; -webkit-overflow-scrolling: revert !important; -w=
+ebkit-rtl-ordering: revert !important; -webkit-ruby-position: revert !impor=
+tant; -webkit-tap-highlight-color: revert !important; -webkit-text-combine:=
+ revert !important; -webkit-text-decorations-in-effect: revert !important; =
+-webkit-text-fill-color: revert !important; -webkit-text-security: revert !=
+important; -webkit-text-stroke-color: revert !important; -webkit-text-strok=
+e-width: revert !important; -webkit-touch-callout: revert !important; -webk=
+it-user-drag: revert !important; -webkit-user-modify: revert !important; -w=
+ebkit-user-select: revert !important; word-spacing: revert !important; bloc=
+k-size: revert !important; border-block: revert !important; border-radius: =
+revert !important; border-end-end-radius: revert !important; border-end-sta=
+rt-radius: revert !important; border-inline: revert !important; border-star=
+t-end-radius: revert !important; border-start-start-radius: revert !importa=
+nt; inset: revert !important; contain-intrinsic-block-size: revert !importa=
+nt; contain-intrinsic-size: revert !important; contain-intrinsic-inline-siz=
+e: revert !important; height: revert !important; inline-size: revert !impor=
+tant; inset-block: revert !important; inset-inline: revert !important; marg=
+in-block: revert !important; margin: revert !important; margin-inline: reve=
+rt !important; max-block-size: revert !important; max-height: revert !impor=
+tant; max-inline-size: revert !important; max-width: revert !important; min=
+-block-size: revert !important; min-height: revert !important; min-inline-s=
+ize: revert !important; min-width: revert !important; overscroll-behavior-b=
+lock: revert !important; overscroll-behavior-inline: revert !important; ove=
+rscroll-behavior: revert !important; padding-block: revert !important; padd=
+ing: revert !important; padding-inline: revert !important; scroll-margin-bl=
+ock: revert !important; scroll-margin: revert !important; scroll-margin-inl=
+ine: revert !important; scroll-padding-block: revert !important; scroll-pad=
+ding: revert !important; scroll-padding-inline: revert !important; width: r=
+evert !important; display: block !important; visibility: visible !important=
+; opacity: 1 !important; }</style><!-- BaNnErBlUrFlE-HeAdEr-end -->
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style>@font-face { font-family: "Cambria Math"; }
+@font-face { font-family: Calibri; }
+@font-face { font-family: Aptos; }
+@font-face { font-family: "Lucida Calligraphy"; }
+p.MsoNormal, li.MsoNormal, div.MsoNormal { margin: 0in; font-size: 12pt; fo=
+nt-family: Aptos, sans-serif; }
+span.EmailStyle18 { font-family: Aptos, sans-serif; color: windowtext; }
+.MsoChpDefault { }
+@page WordSection1 { size: 8.5in 11in; margin: 1in; }
+div.WordSection1 { page: WordSection1; }</style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal"><span class=3D"EmailStyle18"><span style=3D"font-siz=
+e:11.0pt">Received, thank you.</span></span><span style=3D"font-size:11.0pt=
+"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<div>
+<p class=3D"MsoNormal" style=3D"background:white"><b><span style=3D"font-si=
+ze:22.0pt;font-family:&quot;Lucida Calligraphy&quot;;color:#5F497A">Ryan Pe=
+na</span></b><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot=
+;,sans-serif;color:#201F1E"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><b><span style=3D"font-si=
+ze:11.0pt;font-family:&quot;Arial&quot;,sans-serif;color:#000099">Coastal T=
+esting Laboratories, Inc.
+</span></b><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,=
+sans-serif;color:#201F1E"><o:p></o:p></span></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" style=3D"background:white;border-collapse:collapse">
+<tbody>
+<tr style=3D"height:45.85pt">
+<td width=3D"67" valign=3D"top" style=3D"width:.7in;padding:0in 5.4pt 0in 5=
+.4pt;height:45.85pt">
+<p class=3D"MsoNormal" style=3D"line-height:12.65pt"><b><span style=3D"font=
+-size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1F497D"></p>
+<div>&lt;image001.png&gt;</div>
+</span></b><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,=
+sans-serif;color:#201F1E"><o:p></o:p></span>
+<p></p>
+</td>
+<td width=3D"288" valign=3D"top" style=3D"width:3.0in;padding:0in 5.4pt 0in=
+ 5.4pt;height:45.85pt">
+<p class=3D"MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-si=
+ze:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:#000099">1217/1221 =
+Georgia Ave</span><span style=3D"font-size:11.0pt;font-family:&quot;Calibri=
+&quot;,sans-serif;color:#201F1E"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-si=
+ze:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:#000099">P.O. Box 1=
+48</span><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sa=
+ns-serif;color:#201F1E"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-si=
+ze:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:#000099">Deer Park,=
+ Tx&nbsp; 77536</span><span style=3D"font-size:11.0pt;font-family:&quot;Cal=
+ibri&quot;,sans-serif;color:#201F1E"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"line-height:12.65pt"><span style=3D"font-si=
+ze:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:#000099">Phone #713=
+-477-0121&nbsp; Fax #713-477-2277</span><span style=3D"font-size:11.0pt;fon=
+t-family:&quot;Calibri&quot;,sans-serif;color:#201F1E"><o:p></o:p></span></=
+p>
+<p class=3D"MsoNormal" style=3D"line-height:12.65pt"><u><span style=3D"font=
+-size:9.0pt;font-family:&quot;Arial&quot;,sans-serif;color:#000099">Ryan@co=
+astaltestinglabs.com</span></u><span style=3D"font-size:11.0pt;font-family:=
+&quot;Calibri&quot;,sans-serif;color:#201F1E"><o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal" style=3D"background:white"><span style=3D"font-size:=
+11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:#1F497D">&nbsp;</sp=
+an><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-ser=
+if;color:#201F1E"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"margin-left:2.0in;background:white"><i><spa=
+n style=3D"font-size:9.0pt;font-family:&quot;Times New Roman&quot;,serif;co=
+lor:#1F497D">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;..............=
+.............CONFIDENTIALITY NOTICE.................................</span>=
+</i><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;,sans-se=
+rif;color:#201F1E"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><i><span style=3D"font-si=
+ze:9.0pt;font-family:&quot;Times New Roman&quot;,serif;color:#1F497D">&nbsp=
+;</span></i><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&quot;=
+,sans-serif;color:#201F1E"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"background:white"><b><i><span style=3D"font=
+-size:9.0pt;font-family:&quot;Times New Roman&quot;,serif;color:#1F497D">Th=
+e information in this email may be confidential and/or privileged. This ema=
+il is intended to be reviewed by only the individual
+ or organization named above. If you are not the intended recipient or an a=
+uthorized representative of the intended recipient, you are hereby notified=
+ that any review, dissemination or copying of this email and its attachment=
+, if any, or the information contained
+ herein is prohibited. If you received this email in error please immediate=
+ly notify the sender by return email and delete this email from your system=
+.</span></i></b><span style=3D"font-size:11.0pt;font-family:&quot;Calibri&q=
+uot;,sans-serif;color:#201F1E"><o:p></o:p></span></p>
+</div>
+<p class=3D"MsoNormal"><span style=3D"font-size:11.0pt"><o:p>&nbsp;</o:p></=
+span></p>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;font-family:&quot=
+;Calibri&quot;,sans-serif">From:</span></b><span style=3D"font-size:11.0pt;=
+font-family:&quot;Calibri&quot;,sans-serif"> Angel Gonzalez &lt;angelmaster=
+construction@gmail.com&gt;
+<br>
+<b>Sent:</b> Wednesday, August 12, 2026 11:56 AM<br>
+<b>To:</b> Joe Gallardo &lt;joe@coastaltestinglabs.com&gt;; Ryan Pena &lt;r=
+yan@coastaltestinglabs.com&gt;; paul vera &lt;mastertractorwork@hotmail.com=
+&gt;; kenneth.pustejovsky@lennar.com<br>
+<b>Subject:</b> The highlands compaction test<o:p></o:p></span></p>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">Lennar homes&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal">Builder Kenneth&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal">Compaction test / pads&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal">Next availability&nbsp;<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<p class=3D"MsoNormal">23018 pearl lakes - 2 lifts&nbsp;<br>
+13012 pearl lakes - 2 lifts&nbsp;<o:p></o:p></p>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</div>
+</body>
+</html>
+
+--_000_F5C870A9D3344AC78FDBF31F54AE6F68lennarcom_--
