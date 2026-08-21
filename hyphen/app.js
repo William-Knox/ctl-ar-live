@@ -14,7 +14,6 @@
     "Notes entered": 1,
     "Today": 1
   };
-  var KEEP_LEFTOVER = { "0508-171401": 1, "0506-171278": 1 };
   var LOCKED_TREE = {
     "Leftover lab": 1,
     "Quantity shortfall": 1,
@@ -52,9 +51,7 @@
     var compact = String(iss || "").toLowerCase().replace(/[\s_]+/g, "");
     return compact === "billedwrong" || compact === ("fl" + "agged");
   }
-  function lockIssue(raw, doc) {
-    var id = String(doc || "");
-    if (KEEP_LEFTOVER[id]) return "Leftover lab";
+  function lockIssue(raw) {
     var iss = String(raw == null ? "" : raw);
     if (LOCKED_TREE[iss]) return iss;
     if (leftoverWalkNickname(iss)) return "Write-off";
