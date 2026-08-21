@@ -469,6 +469,19 @@ tbody tr { cursor: pointer; }
 .erow.today .when { color: var(--clay); }
 .erow .lab { font-size: 11.5px; font-weight: 700; }
 .erow .what { font-size: 12px; font-weight: 500; color: var(--ink); line-height: 1.4; }
+.erow .src {
+  margin-left: 8px;
+  border: 0;
+  background: transparent;
+  color: var(--navy);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 650;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+.letter .erow .src { display: none; }
 
 .letter {
   padding: 14px 16px 16px;

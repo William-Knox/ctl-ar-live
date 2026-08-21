@@ -14,6 +14,12 @@
     "Notes entered": 1,
     "Today": 1
   };
+  var SOURCE_LABS = {
+    "Called in": 1,
+    "Report transmittal": 1,
+    "Inquiry": 1,
+    "Replied": 1
+  };
   var LOCKED_TREE = {
     "Leftover lab": 1,
     "Quantity shortfall": 1,
@@ -273,12 +279,67 @@
     return false;
   }
 
+  function ymd(s) {
+    var m = String(s == null ? "" : s).match(/(\d{4}-\d{2}-\d{2})/);
+    return m ? m[1] : "";
+  }
+  function kindMatches(lab, a) {
+    var kind = String((a && (a.kind || a.label)) || "").toLowerCase();
+    if (lab === "Called in") return /call/.test(kind);
+    if (lab === "Report transmittal") return /report/.test(kind);
+    if (lab === "Replied") return /repl/.test(kind);
+    if (lab === "Inquiry") return /asked|inquiry/.test(kind);
+    return false;
+  }
+  function attBasename(a) {
+    var path = String((a && (a.path || a.file || a.url || a.href)) || "");
+    var base = path.split("/").pop();
+    return /\.eml$/i.test(base) ? base : "";
+  }
+  function attDate(a) {
+    return ymd(a && a.path) || ymd(a && a.file) || ymd(a && a.label) || ymd(a && a.sent);
+  }
+  function sourceHrefs(r) {
+    var used = {};
+    return (r.ledger || []).map(function (e) {
+      if (!SOURCE_LABS[e.lab]) return "";
+      var when = ymd(e.when);
+      if (!when) return "";
+      var atts = r.attachments || [];
+      var i, a, base, adate;
+      for (i = 0; i < atts.length; i++) {
+        if (used[i]) continue;
+        a = atts[i] || {};
+        if (!kindMatches(e.lab, a)) continue;
+        adate = attDate(a);
+        if (!adate || adate !== when) continue;
+        base = attBasename(a);
+        if (!base) continue;
+        used[i] = 1;
+        return "files/" + r.id + "/" + base;
+      }
+      return "";
+    });
+  }
   function erowsHtml(list) {
     return (list || []).map(function (e) {
       return '<div class="erow' + (e.today ? " today" : "") + '">' +
         '<div class="when">' + esc(e.when) + "</div>" +
         '<div class="lab">' + esc(e.lab) + "</div>" +
         '<div class="what">' + esc(e.what) + "</div></div>";
+    }).join("");
+  }
+  function caseErowsHtml(r) {
+    var hrefs = sourceHrefs(r);
+    return (r.ledger || []).map(function (e, i) {
+      var href = hrefs[i] || "";
+      var src = href
+        ? '<a class="src" href="' + esc(href) + '" target="_blank" rel="noopener">Source</a>'
+        : "";
+      return '<div class="erow' + (e.today ? " today" : "") + (href ? " has-src" : "") + '">' +
+        '<div class="when">' + esc(e.when) + "</div>" +
+        '<div class="lab">' + esc(e.lab) + "</div>" +
+        '<div class="what">' + esc(e.what) + src + "</div></div>";
     }).join("");
   }
   function letterMeta(r) {
@@ -454,7 +515,7 @@
 
     var cols = [];
     if (hasLed) {
-      cols.push('<div class="col"><div class="sec-h">Timeline of Events</div><div class="card">' + erowsHtml(r.ledger) + "</div></div>");
+      cols.push('<div class="col"><div class="sec-h">Timeline of Events</div><div class="card">' + caseErowsHtml(r) + "</div></div>");
     }
     if (hasLet) {
       var rlab = showEsme(r) ? "Esme note" : "Letter";

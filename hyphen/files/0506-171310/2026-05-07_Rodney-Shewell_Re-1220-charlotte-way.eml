@@ -1,0 +1,1160 @@
+Received: from PH3PPF70D516A3B.namprd22.prod.outlook.com
+ (2603:10b6:518:1::6b1) by PH8PR22MB4021.namprd22.prod.outlook.com with HTTPS;
+ Thu, 7 May 2026 14:05:26 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=fail;
+ b=iaDbSVp6TFSuNykjrE7aQIxOOcbLP+EQYBVBGzexvi4ZhW7TBDJgvVbDtVd3cjS9C8GvLpO09cqsBNIM9CKOgeik4I6rT57NfS4Ua1ypTOdke8wfYyilbWwGYo6mvlDNbg7GXz20Y3mfFQXx0f+Q2vltKoxhP6peqCbpgdin6kIdfKQVjTVxrse8vC+WvIlxUXW/0FL7vu5qqUHYQoJIjiuzXeSD/3vutp36pcfv/LVwIcWC0vS+wdehhT8hbcqgxDwxYTfY6+RdgdMuU6aQe+Q/syWoU2z5EcyUNlGeZUED3Xw1i8/xBY4GN6IQGtGcI/UndqHMeaW3JWo0A/K6og==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DOSHNlxAenetA2FRteBuUK1fBLSrl+9F+dw/8hSurUA=;
+ b=GZJf8QKAK/a3M4cUwjfr4ybndT+LIMY9U8LGBJi6Uu2fMt2p9ZjcvAzoygQkaGHFhnv8/oNN49sjUEyQjQ9eQMaL07wN9H+C10B8GVZ4NCMUVWkP1D93y0CGMBXtg0qbFfCeYdIoXpX8GlwX3XuCuXCAo1L1J/CV0d3Jv2P7TNpJt4cfiai0mvDtfd9zqV1u8AEutzuvSTvjGyY8Nj8PSrCwddJgNC1VcM/ZyJ91jQhgdm4eNoe/JRMiDk+5jtI9QeMLtR+WjPP1uSI4/1rRYm+THPub/2W8h6+4umcD26IYZvO+wj1Fi9ffSnwhfHLWDuD6nxoxCkM7R5xG/3hYuQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=softfail (sender ip
+ is 52.0.31.31) smtp.rcpttodomain=coastaltestinglabs.com
+ smtp.mailfrom=lennar.com; dmarc=pass (p=reject sp=reject pct=100) action=none
+ header.from=lennar.com; dkim=pass (signature was verified)
+ header.d=lennar.com; dkim=fail (body hash did not verify)
+ header.d=lennar.com; arc=fail (47)
+Received: from BY1P220CA0003.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:59d::10)
+ by PH3PPF70D516A3B.namprd22.prod.outlook.com (2603:10b6:518:1::6b1) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Thu, 7 May
+ 2026 14:05:24 +0000
+Received: from MWH0EPF000C618E.namprd02.prod.outlook.com
+ (2603:10b6:a03:59d:cafe::7c) by BY1P220CA0003.outlook.office365.com
+ (2603:10b6:a03:59d::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9891.18 via Frontend Transport; Thu,
+ 7 May 2026 14:05:23 +0000
+Authentication-Results: spf=softfail (sender IP is 52.0.31.31)
+ smtp.mailfrom=lennar.com; dkim=pass (signature was verified)
+ header.d=lennar.com;dkim=fail (body hash did not verify)
+ header.d=Lennar.com;dmarc=pass action=none
+ header.from=lennar.com;compauth=pass reason=100
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ lennar.com discourages use of 52.0.31.31 as permitted sender)
+Received: from transport-2.inbound.emailservice.io (52.0.31.31) by
+ MWH0EPF000C618E.mail.protection.outlook.com (10.167.249.100) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9891.9 via Frontend Transport; Thu, 7 May 2026 14:05:22 +0000
+Received: from cloudfilter-igate-new-070db247d07cf641b.inbound.emailservice.io (ip-10-4-2-117.ec2.internal [10.4.2.117])
+	by transport-2.inbound.emailservice.io (Postfix) with ESMTPS id 4B0BDA61BA
+	for <jocelyne@coastaltestinglabs.com>; Thu,  7 May 2026 14:05:22 +0000 (UTC)
+Received: from mx0a-001afc01.pphosted.com (mx0a-001afc01.pphosted.com [67.231.144.124])
+	by cloudfilter-igate-new-070db247d07cf641b.inbound.emailservice.io (Postfix) with ESMTPS id 2FB4F7E294
+	for <jocelyne@coastaltestinglabs.com>; Thu,  7 May 2026 14:05:07 +0000 (UTC)
+Received: from pps.filterd (m0077786.ppops.net [127.0.0.1])
+	by mx0a-001afc01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 647DVs5H4141223
+	for <jocelyne@coastaltestinglabs.com>; Thu, 7 May 2026 10:04:52 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lennar.com; h=
+	content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=11172022; bh=DOSHNlxAenetA2FRteBuUK1fB
+	LSrl+9F+dw/8hSurUA=; b=XAZQ528IuKxZOd6lA+aXOi9KuWBn8RXQkUP4OjjPY
+	TLVakhhV2oDKLI/9q7uMpjrw5IGgHGrZjjMOwjR44TGLwf+f1g3CoTW2ua6cg/GU
+	bhCDdSQWEwK2peZm4TL2XD7bv5QhetJhFz9wqQzrSbM2eb9bLlPecHgVFmjEbfnh
+	hMFY3acKBa5qlnlkMdOfu9ZOVBvjgils5zDu5IXSQFf7w4pAqtAqQye0NGzll11T
+	bwMuCZ7jLImZZ4Y3gjJRHEZYYYacMYXrnlQFAGG101h5XGAjlRp87miadicUeTaf
+	ip7WTrTpRuDHQC/XIe4Ou2rK+Em+37K5beSeVcNwIYrVQ==
+Received: from co1pr03cu002.outbound.protection.outlook.com (mail-westus2azon11010062.outbound.protection.outlook.com [52.101.46.62])
+	by mx0a-001afc01.pphosted.com (PPS) with ESMTPS id 4e0cgvhy7m-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT)
+	for <jocelyne@coastaltestinglabs.com>; Thu, 07 May 2026 10:04:52 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QPQlB/cQs0Y30IOuYrcIyK9k1SZAvZQCjyht3S3AaN/M0+JThfosBkK/J5qVN0PZ752OxuFDgq36tco9mHyi1TO/wVdJVvCsIn1YLXyTCmC7OvEUgT22yEKz9jsoL2yxyK4y/OwrQhxckek4a9kw2dSkecrr3zakmpDQsGZ0fUTZRjQHDZNBu6Bfob/I8h7hOwNK7BRRk8H3luzvUjF4pcc9YlvzOpILmUTLy3y0p7JhoDgFOjBYq8u2fibKT+nVwwaG5RTApoO+HQlv6F7t9w6Ub5S6TzJb0XoarHAbAIpHJ17eMV+5ZLUt8rJ5+nHgKS0mdBbvqPapxOcEOMyUFg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+rS1JGi0HSEHYnE7OJ5+9qvXMw2TE1ZsVFVNvWjybA4=;
+ b=UJNYmkzrrSXd00GdPGXhuR9861ZCOv3XKi0omxmjEIrCGXctSi/KO8cZBboGqmzay1s9YehR9WLQ5+8IXl7L6hd3VT/EcxRiQYEeeGpLidUCM00ba87WBMELiWNEaTkSZCnO4PXWTpcOKXrQexdvqiyj4GKLXeJyR+sKdntrKG6A+Dk2J+2CEZ7oupLn1tyE35m3D5FU0WFDSdx7UZODLWWs0MOUqANCiMOrYUnC4n2P4f0Ex4K9dXtSRd90T0+7/kFxy92UA2ll6yB+g37GrbkH8yr1n8nLkHc//rg2Nu+iu+0UpfNQRVyQsjhvZvtkC3/u8LxHBGJilGRBEHP52g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=lennar.com; dmarc=pass action=none header.from=lennar.com;
+ dkim=pass header.d=lennar.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Lennar.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+rS1JGi0HSEHYnE7OJ5+9qvXMw2TE1ZsVFVNvWjybA4=;
+ b=prFDE2YUtzGlBoEKJmOl8CFGxTB53pDaPyiyt/7DnRcSl0igVLJMpHMYwVd7hswcGdMwbkxlcJnmaUqWa0jG55tm+4mGroIkLrHlU5Ol49lLnK9JYJRnTDKTFtGTVqJtOQa3izzI97EbKC29c40VoaBO9vrWWU/NEMMLhYXrTsGNe0Zwff2ylsS4Fxksivm2TbJD1iskeaM1RceKddEiE19Oi4yT/7G73qmCtmRlJcaIHlVy+RqhygQItWv2xxIdL/CrFb8f5m2cFDSs4D8viQACq5nEetvhNwK3eMmUdZ1l9LW0lv6naZVsvVLQUuFQ8A0xsxUaPu3Lx/3TcjztEw==
+Received: from DM6PR07MB6316.namprd07.prod.outlook.com (2603:10b6:5:151::10)
+ by CH4PR07MB11042.namprd07.prod.outlook.com (2603:10b6:610:243::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9891.15; Thu, 7 May
+ 2026 14:04:50 +0000
+Received: from DM6PR07MB6316.namprd07.prod.outlook.com
+ ([fe80::24ee:b67a:4ac6:6088]) by DM6PR07MB6316.namprd07.prod.outlook.com
+ ([fe80::24ee:b67a:4ac6:6088%6]) with mapi id 15.20.9891.008; Thu, 7 May 2026
+ 14:04:50 +0000
+From: Rodney Shewell <rodney.shewell@lennar.com>
+To: Jocelyne Rangel <jocelyne@coastaltestinglabs.com>
+Subject: Re: 1220 charlotte way
+Thread-Topic: 1220 charlotte way
+Thread-Index: AQHc3Vuc5uTZoxVz+0CsaI6dbcrYirYA/TyDgAAXfoCAAYV++A==
+Date: Thu, 7 May 2026 14:04:50 +0000
+Message-ID: <40BB49C8-F670-403F-BCA8-FCDFF59A2BD0@lennar.com>
+References: <EEF8A79B-64E7-409B-9561-2723703AB287@lennar.com>
+ <CH3PR22MB427653DEA7E8DCAEFB0B1BA8BC3F2@CH3PR22MB4276.namprd22.prod.outlook.com>
+ <PH8PR22MB4021692CE1D4B4B573CC15DAA53F2@PH8PR22MB4021.namprd22.prod.outlook.com>
+In-Reply-To: <PH8PR22MB4021692CE1D4B4B573CC15DAA53F2@PH8PR22MB4021.namprd22.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator:
+x-ms-traffictypediagnostic: DM6PR07MB6316:EE_|CH4PR07MB11042:EE_|MWH0EPF000C618E:EE_|PH3PPF70D516A3B:EE_|PH8PR22MB4021:EE_
+X-MS-Office365-Filtering-Correlation-Id: 844a0119-cbdb-40be-24d3-08deac41ae73
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|6049299003|376014|366016|1800799024|8096899003|4013099003|4053099003|13003099007|38070700021|56012099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info-Original: 7T7ZyWDXcnILZuSdNJGUN3Gj4fHEvPpqhnaYVIVFJCaZ6Uq8AkVRidv91HDcmzPfEwBAXMlyCz8o5wyh7PMqte3BeICIy6luXGE/UG71neI74RFJ9ftNflCCHgcIOtXtJULEmqOpw8k+5CvX25qqdkfkavP1Y6kV9R9XKRJB9G09HkOA/X+EMx/jd8MDC5HC610uxhxaVtusBgI4/ZBRbmCcPMARKJhwuO2NGZu1onkF0XT0B7J5Khg81Px2/Fyl0RGBqWJu7GAUGuzI4meY5TpRr3NFKow0UZi4UGGuDUlXVGoYQO9T6CbUSU+jelqHicJviKS1mt8tJkLtBiXu12mbT7fgBlVvbPlFdwEufTy7/FNFT9euEEA8lA6TQzD42Bs8PaVMO6ma/TQrFRcQYi0SWkY/Dh8v4jWjQBDv22kgHsk0AGKh3NDa+M3iX4QAVRHP0THJbUAo6BxBr3rtUerb+/e6EJSsINdhQK9emQ5YxsyUUuPFwuxPp734DxQR1U5WRX0ZCt8WSCnJoMmIK21bd6r/RuE4BN+6KXVUTuX0fco1XyCu5Il75r5xMlfOP5aeR7nUob28FCcgyyhkJ8vMa6OvIEpW02Syfdm96q49eUAxHahsuyQFeY9dWM57EAnA7wWPAUCpMHSnGVaYbTPse8nxal2zNaGzx2cNlY1wfKp6jA8b5kauWuUETT+qfVBt3u5E21wPHppDCyAq5UNCZzgAHxeQtIgZ17iXwFY=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR07MB6316.namprd07.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(6049299003)(376014)(366016)(1800799024)(8096899003)(4013099003)(4053099003)(13003099007)(38070700021)(56012099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+Content-Type: multipart/related;
+	boundary="_004_40BB49C8F670403FBCA8FCDFF59A2BD0lennarcom_";
+	type="multipart/alternative"
+X-Exchange-RoutingPolicyChecked: bxnXI8VTrTKAvil3dal6kmuMpKjA1dM+8+SRGApcjilmrevo2tHltUvhej3GlAFm9tr7L4jJmyYCg9INGMQE6gHd+Y/XqdQXX8uZKRRhPB9oMr17v30Lxrue2brWIegjYALOckvggwfjxDBpEE5zccIwoXuAHdM4KFsQsNFw03zCWD2P3mw2BeUhKMULAxRyiM1N8x9l5ozEHwvJiylLOUrLo1T04mHNI6y6OJ+1n3BHqge2a6vzr0PUN7A3Vey9z+kGwvfe8ce12u+9zyvkKSB4eUguWEPbgS8KWByKXSmF8WksuE5lYHWjoTAieUu2Gow53FgNglu+1/nIg0m4yQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH4PR07MB11042
+X-Proofpoint-ORIG-GUID: tv_o6yFtZ9niUMvmP0Ln9yu2kXgJFhsC
+X-Proofpoint-GUID: tv_o6yFtZ9niUMvmP0Ln9yu2kXgJFhsC
+X-Authority-Analysis: v=2.4 cv=UZ1hjqSN c=1 sm=1 tr=0 ts=69fc9c04 cx=c_pps
+ a=QjrP5IPIVlaYm/X31SuGbg==:117 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=NGcC8JguVDcA:10
+ a=rcICekzIIxQA:10 a=VkNPw1HP01LnGYTKEx00:22 a=KKj_HOhWc6TcvNMf4AfC:22
+ a=vd1LaDt4MfpHm7aO2UG5:22 a=92_gyBx_AAAA:8 a=RpNjiQI2AAAA:8 a=tbpGB1bEAAAA:8
+ a=_EeEMxcBAAAA:8 a=EPv-MIdzv0_LMGyY3xkA:9 a=lqcHg5cX4UMA:10 a=QEXdDO2ut3YA:10
+ a=ail5gxCbUA8BzdLiMKoA:9 a=tqdMzFhGG8mD8GCBlf4leDhY3gs=:19
+ a=sTxRpBpiy98KL1WkT8X2XIWo+SM=:19 a=GJNBF05MWfH6WmbD:21 a=UiCQ7L4-1S4A:10
+ a=hTZeC7Yk6K0A:10 a=_W_S_7VecoQA:10 a=HXjIzolwW10A:10 a=T6a71-JsGAwA:10
+ a=bwkLoyfur_siurgSUeaL:22 a=ayYy12crN3DpO_qRHeKm:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwNTA3MDE0MCBTYWx0ZWRfX0PEaFXmeP/rd
+ Mca0uSO8Wac3Hc4QyEWa6fB3S3K4AvLO/L1rhNhd2X4SrK7vLDLFcQuH6rAeo9lyyV8FpERUcVL
+ IEabffHcyMuxr276q0Dy8QhkH7IeJs6yc1poeLdzwRfFx18NuiLz+O3JGPbi3I1FrGmoQJHgCiw
+ 01wAqTLs51tnCy2mjnpPDA9jwn5e6No9YMTyxKYuTEzFKFAgnGsNoZyDnG6tGPtMTd4O9JVUPZG
+ 1NkVCXdZ4oBJEeM98rSmOqE1QjJvH400l9UGOtnG6X2xs65qiadqTE/munVSj68a8nOQewxJ8wE
+ mVDTE002kYCeCLrisYBJtBygLNzP1T33BQEEGtc5QnyjXBnUz+NhxHsHqcYgw5sDEwznqjwX+0S
+ 3/YQEveOMxfoPEphZknVUNW6+T0OMJCtKiNNP8pSFyhfPq6qG705wfTtwAOHnXNylwlBuEwO7Pt
+ GbAgL7hRVbQQIgoHzyQ==
+x-adaptive-bypass: adaptive
+X-Proofpoint-Virus-Version:
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0
+ adultscore=0 suspectscore=0 priorityscore=1501 malwarescore=0 bulkscore=0
+ clxscore=1011 spamscore=0 lowpriorityscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2604200000 definitions=main-2605070140
+X-Mailprotector-Decision: deliver
+X-Mailprotector-Connection: TLSv1.3|mx0a-001afc01.pphosted.com|67.231.144.124|mx0a-001afc01.pphosted.com|-0.2|0.279065|0|normal|ugly|9|6|0|0
+X-Mailprotector-Results: spf_pass from_spf_pass dkim_verified clean dmarc_policy_allow
+X-Mailprotector-Score: 0
+X-Mailprotector-IP-Analysis: 0, 67.231.144.124, Ugly c=0.071429 p=0 Source Normal
+X-Mailprotector-Scan-Diagnostics: 0-0-0-32767-c
+X-Mailprotector-ID: e2865eb5-aaf2-461c-a4a2-28ec92d4fe4e
+X-Mailprotector-Timestamp: hy4pTTleMdGLTSk4ZCw59A==
+Return-Path: prvs=558721bdfe=rodney.shewell@lennar.com
+X-MS-Exchange-Organization-ExpirationStartTime: 07 May 2026 14:05:23.2822
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 844a0119-cbdb-40be-24d3-08deac41ae73
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 3975538a-89e6-48d9-8238-acafb686f358:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: MWH0EPF000C618E.namprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Exchange-Organization-AuthSource: MWH0EPF000C618E.namprd02.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Office365-Filtering-Correlation-Id-Prvs: cf68f808-623e-47ce-6ca8-08deac419ac5
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:13230040|6049299003|35042699022|82310400026|7149299003|12012899012|4053099003|13003099007|4013099003|22082099003|16102099003|56012099003|19002099003|4076899003|8096899003;
+X-Forefront-Antispam-Report: CIP:52.0.31.31;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:transport-2.inbound.emailservice.io;PTR:transport-2.inbound.emailservice.io;CAT:NONE;SFS:(13230040)(6049299003)(35042699022)(82310400026)(7149299003)(12012899012)(4053099003)(13003099007)(4013099003)(22082099003)(16102099003)(56012099003)(19002099003)(4076899003)(8096899003);DIR:INB;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 May 2026 14:05:22.9565
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 844a0119-cbdb-40be-24d3-08deac41ae73
+X-MS-Exchange-CrossTenant-Id: 3975538a-89e6-48d9-8238-acafb686f358
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000C618E.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH3PPF70D516A3B
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.3999161
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.9891.006
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;auth:0;dest:I;ENG:(910005)(944506478)(944626604)(920097)(930201)(20251009189)(140003);
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?c2dPNGV3OGg4WEw4RkdJaWxwYWYxOGdTUTFqMGpHMnlvdU5Pckl1MmRGSFRU?=
+ =?utf-8?B?K3VqRUVSNEVJLzQ2S2RYcytSMlN5dDZYOFBlVVJZRGFHSlUzNzJORWN0L3Q4?=
+ =?utf-8?B?cFR2akFrUWxiaGlkdEFmVXprNGFqRk9KazJkUnlRQzhvcVhBNkkyQTY3cUQ1?=
+ =?utf-8?B?Qm1OakI4VXhwd0NBT3NvM1VDeDVMSWtrQWpVM0VTcktuK0lwSElEdzg2MDA5?=
+ =?utf-8?B?M1JGQlAyYityK01OM0xYMUM0YU55L2VMNUpHMGd0MnBNWC9SSUJkK2xGODdV?=
+ =?utf-8?B?UGZsakhtWEhkT1V2b0RKN1VQbDdLNmNab1Ard2NvNUgxTDJkTmIvN1lTbGtC?=
+ =?utf-8?B?dE9XaVEyekFSaElrZlR2ZG5RSm1YVHpFdGZybXUxdUFYVFNXbUFRVmxHakN5?=
+ =?utf-8?B?MVZiQ0pSVWZ0VlNWdURlRFhSOERrdlNraGg5eHRqSExScWs4MVBUaTkwcjhI?=
+ =?utf-8?B?UFlNM29hcDdSVU5vTENwaFBSNlVtaW1SeFZ1ZmhaN3JEL2hudEVIOXRjL0dS?=
+ =?utf-8?B?RmZRQjVIUjdpMmE3dDRBdHd1QnVhWjJHdEt0em1pREFGcys4SUZVVEo5OUJ6?=
+ =?utf-8?B?NHUyL2JjN01jV1AxN3RiUVA4elB1VHA5UE92amtPSXBteURGcVVvQUlLL0sz?=
+ =?utf-8?B?M0lZVnhSdjIxcG9ReXZlamV6NDhZMVpPV0MrUGkxVFM4TzI1S2pZcU8zK3Y1?=
+ =?utf-8?B?ZjNxbXA2Q1VxTnhCaW9NZjNacmxUWUFoSnY2dmVaVjhtQWJFaG9ISlEwTlV0?=
+ =?utf-8?B?ck4zZ0doL0ErU01KT2YwVlVDUWZFWUdsYSt4bll3MUM2U0RxNmNJcU9rYnNO?=
+ =?utf-8?B?Z01CemhqbXAyOExuSHZHYXBQaDZCQm4xTXEwbVNOaWMwR3VUWVJ5bWhjY3pX?=
+ =?utf-8?B?MVBZNk9xUk9HZFplOHJPQkcxOUdQcitXaE1hZHIwK1ZrSmg4aWEvTUZNS2F2?=
+ =?utf-8?B?N1JRN1R5S0xLTS9OemxTQ3h5WU92TUJBK2JkTm13U2NPUlBqNHp5cFFYSS9X?=
+ =?utf-8?B?OGdndlcrMHVyRDRUQlI0cnhBSkhWYmNMVi9LL1ZiQWY1cSs0dTNWRkxkVkEx?=
+ =?utf-8?B?RHB1eEx4WXhxZ3kwUXZyYmo4VGFZMUlwUlRtckRkZ1gzbDRkMDAzMHFsRTVp?=
+ =?utf-8?B?anozNVlQeVpiOEpRbWdZZU90R21BaWh2bWFZSzFmcVU0T2RnOENKUFFiQlM5?=
+ =?utf-8?B?bzVTMmNqWHFVZmZHVDhtMHdKeVhFNkJoUTRTbFRibTVyWHBIMHdKdWFPZ1Bj?=
+ =?utf-8?B?VEx1ZVdDMTZkc242dklEYS9qQkxEUytYQllQd0hEUm96aVU2S2xEYUQwdWhZ?=
+ =?utf-8?B?cEFQaG05T3Y5aVc0VWJwU0VyWW1wQkdGWXJDWW1KZ2ZsbTVTMUIxODFHeDIx?=
+ =?utf-8?B?UEVrYnNhSksxcHdxRHpVMUdET3FGeU50ZHBKdmpiTVBPa2hmZm56b0t3Q1Fa?=
+ =?utf-8?B?M2dNZ2xwMDFVdEFsRm15cnRjdzhRdWFROHVHdW1NeUFxNnFLL25NWS8yR2ZF?=
+ =?utf-8?B?VklqM3E2cEVBL1NvSGczS2RGTlFCeUxNdmw3bEFvd1lkdXVjNEZaUzAxZ2J1?=
+ =?utf-8?B?TnFxeEUrdlh2Y3greWpUY1N5ZWNRWksraE1KV1RjR3dDcHFFanBncVRNYWpy?=
+ =?utf-8?B?YnVGU3BZcFhwOVdZUC9qa1k3U0UvbWN4LzczZ3d6cjBLWHBMRzB0QkJlYWJy?=
+ =?utf-8?B?Q1U4bGwvdlF4WFZaVGZ3dkFsdnp0SjN5eUlUM2hWalpBOHNaOXUxWHJVOGNz?=
+ =?utf-8?B?Z3VHTy9JOWRvNTJnemJjNy81QjBva3NtVTJ6WjZxcTdobUVGSEZrVjM5c3Fz?=
+ =?utf-8?B?dHBvTHdDNnBESytNVDE1UnNWdERDcGxncUdTa25UbG5ldTBVQTVBK0kzM3V3?=
+ =?utf-8?B?cnZKQTdCOWhrUE16M0pOREVkRnpEbkxiYUpBTHVPb3VZN0M4L2MrYUorRG1z?=
+ =?utf-8?B?L2U0a1RqWXFocUh5bzY5Rkc5N25ZNk1vZFBPeDUrc3BHaTVyNUlPcS9McTRt?=
+ =?utf-8?B?THVHUStmZ1RnbktydVYxaGEzMDFmQ0pTOFF1ay9waC8rNDR3ZFdkb1FnV3U4?=
+ =?utf-8?B?SWtpWTFOTTg1OEVNQkFPd1JqZityNEFuWktCWDA3TVd1Yys1ZnhtNnJuU3U4?=
+ =?utf-8?B?R1VyNDkwc1NjOGhmcHZYelRraHB2Nm4wN1pibUl5QlNnNUJxd3V0VFgyOHJ6?=
+ =?utf-8?B?YTEvWlRqSit0d2VKQVE5MWx2NGxaVnJaZmcxeEJkZ2pIaXYrQm0zZGFLSkk4?=
+ =?utf-8?B?bEpJRFg0MTkvcVJmL3BQVkh3d2JVL0RIcVBxcW9lT2pwWGxybS9GYmx2MThF?=
+ =?utf-8?B?RGRCWktBeTA0bnNIb3VRZCtFMjEvMitWdldONnpaT1FiL2NYbmRVYVJTRkZv?=
+ =?utf-8?B?RWgraGtqdjVtUnowMHJpUXZLSEthS216NGZMcWNhV2JDNEE0ZEdldTNmVVY0?=
+ =?utf-8?B?Sm1qclJucks1L3BCb0lzbFJNbWNrdFczRkJpdmpWT2k0NGZJTnh3ZUJxS29M?=
+ =?utf-8?B?cEE1ckh6T3ozemxDclNxcjdHeTI5V1NGZXA1SnZvcE91LzBaS1ZRNGxqSlVD?=
+ =?utf-8?B?K2RYYUdjSmNjek1qemdtampUdkxjalZxbnlGV1V4N0pxRWo2V3hjU2Y3K0lJ?=
+ =?utf-8?B?SExnaGNzQm5ib1U2UWhtMVFyVkFKdlF4TURBYzY1cE5meW5keWhIUm82d21a?=
+ =?utf-8?B?eHNVQ1NFY1FBYU9oQUs3eHZnV2NwWXZ2NnZ5ZGVpWW5ob0ZIcFNObk1hamx2?=
+ =?utf-8?B?M2lPOVlFRTA5cmNNc056dFRxelJJOUVpSkNCNkQwS0VzKzlRTFN5Q1Z2ejRy?=
+ =?utf-8?B?OVlwQWhuZ1NhTnVMOFJFWVIzZlhPbndzUWVsbG9takxZMFFXN0xBTnZESThm?=
+ =?utf-8?B?NnN4L25zLytvZVVQTWk0OS8wc1AwbFJjam5aOVAreHFHRHpScENjRjNaNnBi?=
+ =?utf-8?B?OTZOT1AvMGljUHhhUEtLeFlYUjZteCtjd1ZTSzdOejBueEh3eW5VRXVTcFA2?=
+ =?utf-8?B?T01IK2RGNGtYZGRWYkVLYzM0eVVranlEVlhrdVptKzF0QnMyWkxWRFl2emZK?=
+ =?utf-8?B?V0VEUjJ4NTFQZGxtQTJhT3FVVHVKT1Q5L0RxZUs2M3NjZEdWK21KaEdyNWNq?=
+ =?utf-8?B?eTlzM3psd1ppL2RhUlpGL1Y2Vng5S2JBR0pPTFQ5LzR6M0d5YjUxb05CREVs?=
+ =?utf-8?B?c2NDQUUybEEvMlVkb092R3E1Y2ZCMUd0ZDh4RTRRYzJiZ3Z5SkROUHQyR3p0?=
+ =?utf-8?B?eGE2SHF6NVpSYi9zOHBJL0FScUQycmFyakRtQ1JnWEVMM2oxODkwbzBqZTYz?=
+ =?utf-8?B?OGZISGo2WjVJZXNzdW5ybTByYWNBbTZGcnY4OUE4OHhDRDBHR2YrZENpbUE4?=
+ =?utf-8?B?eXVpVFpQY1NxZjMrZjI2VXR2YVZmUU9iVjNmUmpWRVVCUDFncGEvUElaeHVC?=
+ =?utf-8?B?ZXFXR2x1aGdGQjdJNWNnUjVmN1FOZjZoNzhjRnJSQjY5RDBFRzVCeDQzUlg4?=
+ =?utf-8?B?SlJzaDBNQU1OZWIrSFIvWnhsb1VJY2ZFNUkxbzd0WGVVZ1Y4ancwQ0UvcDQy?=
+ =?utf-8?B?Ry91NzZqcU9iYTFuZ3VFVFE4REE4YnFzZzRpdUp2MUpXZ0d5dGxUY3hmMmdt?=
+ =?utf-8?B?T2dWSFc1S292bEFHbm5ZblBTOUdnZ0FVZC8wSDFtYVpKK2dBa1RkcFFxb09q?=
+ =?utf-8?B?WE1qUFZYN3FDcUFENUh6Y1Z6Z0pBQm5OSml5TW9VTDlMd3EzS2dZQWN1MjFN?=
+ =?utf-8?B?dUpiRzhuNDR6aEJhMkZEbitwM2pVY2JpYUN3RnVZL1MxaW1oeW1jRDNDUlUr?=
+ =?utf-8?Q?SJSS4=3D?=
+MIME-Version: 1.0
+
+--_004_40BB49C8F670403FBCA8FCDFF59A2BD0lennarcom_
+Content-Type: multipart/alternative;
+	boundary="_000_40BB49C8F670403FBCA8FCDFF59A2BD0lennarcom_"
+
+--_000_40BB49C8F670403FBCA8FCDFF59A2BD0lennarcom_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Jocelyne
+
+I saw a crew out here yesterday, are there any results for this yet?
+
+
+Rodney Shewell
+Construction Manager
+
+[Lennar]<https://www.lennar.com/>
+
+Rodney.Shewell@Lennar.com<mailto:Rodney.Shewell@Lennar.com>
+Mobile 346-240-6952
+
+
+681 Greens Parkway #200 & #220
+Houston, TX 77067
+
+On May 6, 2026, at 9:56=E2=80=AFAM, Jocelyne Rangel <jocelyne@coastaltestin=
+glabs.com> wrote:
+
+=EF=BB=BF
+Good Morning, I don=E2=80=99t see that 1220 Charlotte Way has been tested. =
+It was scheduled on Friday 5/1 but it was too wet but Joe and Ryan will put=
+ it in the books to get done. TO SCHEDULE TESTING PLEASE CONTACT DISPATCH (=
+JOE OR RYAN) Jocelyne
+
+Good Morning,
+
+I don=E2=80=99t see that 1220 Charlotte Way has been tested. It was schedul=
+ed on Friday 5/1 but it was too wet but Joe and Ryan will put it in the boo=
+ks to get done.
+
+
+
+TO SCHEDULE TESTING PLEASE CONTACT DISPATCH (JOE OR RYAN)
+
+Jocelyne Rangel
+
+<image001.png>
+
+1217/1221 Georgia Ave
+P.O. Box 148
+Deer Park, Tx  77536
+Phone #713-477-0121  Fax #713-477-2277
+jocelyne@coastaltestinglabs.com<mailto:jocelyne@coastaltestinglabs.com>
+
+
+
+
+From: Ryan Pena <ryan@coastaltestinglabs.com>
+Sent: Wednesday, May 6, 2026 8:27 AM
+To: Joe Gallardo <joe@coastaltestinglabs.com>; Jocelyne Rangel <jocelyne@co=
+astaltestinglabs.com>
+Subject: Fw: 1220 charlotte way
+
+
+
+Get Outlook for iOS<https://aka.ms/o0ukef>
+________________________________
+From: Rodney Shewell <rodney.shewell@lennar.com<mailto:rodney.shewell@lenna=
+r.com>>
+Sent: Wednesday, May 6, 2026 8:24:04 AM
+To: Ryan Pena <ryan@coastaltestinglabs.com<mailto:ryan@coastaltestinglabs.c=
+om>>
+Cc: John Helms <john.helms@lennar.com<mailto:john.helms@lennar.com>>
+Subject: 1220 charlotte way
+
+Ryan
+
+Im taking over Wharton lakes for the time being. My area manager John sched=
+uled a compaction test for this address. I was wanting to see if it has bee=
+n completed and can get the results please.
+
+
+Rodney Shewell
+
+Construction Manager
+
+
+
+[Lennar]<https://www.lennar.com/>
+
+
+
+Rodney.Shewell@Lennar.com<mailto:Rodney.Shewell@Lennar.com>
+Mobile 346-240-6952
+
+
+
+
+
+681 Greens Parkway #200 & #220
+Houston, TX 77067
+
+
+--_000_40BB49C8F670403FBCA8FCDFF59A2BD0lennarcom_
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html class=3D"apple-mail-supports-explicit-dark-mode"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+</head>
+<body dir=3D"auto">
+Jocelyne
+<div><br>
+</div>
+<div>I saw a crew out here yesterday, are there any results for this yet?</=
+div>
+<div><br>
+</div>
+<div><br id=3D"lineBreakAtBeginningOfSignature">
+<div dir=3D"ltr">
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"100%" style=3D"font-family: UICTFontTextStyleTallBody; widt=
+h: 678px; background: white; border-collapse: collapse;">
+<tbody>
+<tr>
+<td style=3D"padding: 0in;">
+<p class=3D"MsoNormal" style=3D"margin: 0in;"><font face=3D"UICTFontTextSty=
+leBody"><span style=3D"background-color: rgba(255, 255, 255, 0);"><b>Rodney=
+ Shewell</b><o:p></o:p></span></font></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding: 0in;">
+<p class=3D"MsoNormal" style=3D"margin: 0in;"><font face=3D"UICTFontTextSty=
+leBody"><span style=3D"background-color: rgba(255, 255, 255, 0);"><b>Constr=
+uction Manager</b><o:p></o:p></span></font></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding: 0in;">
+<p class=3D"MsoNormal" style=3D"margin: 0in;"><font face=3D"UICTFontTextSty=
+leBody"><span style=3D"background-color: rgba(255, 255, 255, 0);">&nbsp;<o:=
+p></o:p></span></font></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding: 0in;">
+<p class=3D"MsoNormal" style=3D"margin: 0in;"><font color=3D"#000000" face=
+=3D"UICTFontTextStyleBody"><span style=3D"caret-color: rgb(0, 0, 0); backgr=
+ound-color: rgba(255, 255, 255, 0);"><a href=3D"https://www.lennar.com/"><s=
+pan style=3D"text-decoration: none;"><img webkitattachmentid=3D"a0599966-ab=
+31-4384-8ccc-0aa4cc45f29f" border=3D"0" width=3D"160" height=3D"16" id=3D"P=
+icture_x0020_1" src=3D"cid:image001.png@01D988A6.F3021950" alt=3D"Lennar" s=
+tyle=3D"width: 1.6666in; height: 0.1666in;" data-unique-identifier=3D""></s=
+pan></a><o:p></o:p></span></font></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding: 0in;">
+<p class=3D"MsoNormal" style=3D"margin: 0in;"><font face=3D"UICTFontTextSty=
+leBody"><span style=3D"background-color: rgba(255, 255, 255, 0);">&nbsp;<o:=
+p></o:p></span></font></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding: 0in;">
+<p class=3D"MsoNormal" style=3D"margin: 0in;"><font color=3D"#000000" face=
+=3D"UICTFontTextStyleBody"><span style=3D"caret-color: rgb(0, 0, 0); backgr=
+ound-color: rgba(255, 255, 255, 0);"><a href=3D"mailto:Rodney.Shewell@Lenna=
+r.com">Rodney.Shewell@Lennar.com</a><br>
+Mobile&nbsp;<span dir=3D"ltr">346-240-6952</span><br>
+<br>
+<o:p></o:p></span></font></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding: 0in;">
+<p class=3D"MsoNormal" style=3D"margin: 0in;"><font face=3D"UICTFontTextSty=
+leBody"><span style=3D"background-color: rgba(255, 255, 255, 0);">&nbsp;<o:=
+p></o:p></span></font></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding: 0in;">
+<p class=3D"MsoNormal" style=3D"margin: 0in;"><font face=3D"UICTFontTextSty=
+leBody"><span style=3D"background-color: rgba(255, 255, 255, 0);"><span dir=
+=3D"ltr">681 Greens Parkway #200</span>&nbsp;&amp; #220<br>
+<span dir=3D"ltr">Houston, TX&nbsp;77067</span></span></font></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div dir=3D"ltr"><br>
+<blockquote type=3D"cite">On May 6, 2026, at 9:56=E2=80=AFAM, Jocelyne Rang=
+el &lt;jocelyne@coastaltestinglabs.com&gt; wrote:<br>
+<br>
+</blockquote>
+</div>
+<blockquote type=3D"cite">
+<div dir=3D"ltr">=EF=BB=BF<!-- BaNnErBlUrFlE-BoDy-start --><!-- Preheader T=
+ext : BEGIN -->
+<div style=3D"display:none !important;display:none;visibility:hidden;mso-hi=
+de:all;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;opacity:0=
+;overflow:hidden;">
+Good Morning, I don=E2=80=99t see that 1220 Charlotte Way has been tested. =
+It was scheduled on Friday 5/1 but it was too wet but Joe and Ryan will put=
+ it in the books to get done. TO SCHEDULE TESTING PLEASE CONTACT DISPATCH (=
+JOE OR RYAN) Jocelyne</div>
+<!-- Preheader Text : END --><!-- Email Banner : BEGIN -->
+<div style=3D"display:none !important;display:none;visibility:hidden;mso-hi=
+de:all;font-size:1px;color:#ffffff;line-height:1px;max-height:0px;opacity:0=
+;overflow:hidden;">
+</div>
+<!-- Email Banner : END --><!-- BaNnErBlUrFlE-BoDy-end --><!-- BaNnErBlUrFl=
+E-HeAdEr-start --><style>#pfptBanner16c3xqj { color-scheme: revert !importa=
+nt; ruby-position: revert !important; writing-mode: revert !important; font=
+-family: revert !important; font-feature-settings: revert !important; font-=
+kerning: revert !important; font-optical-sizing: revert !important; font-pa=
+lette: revert !important; font-size: revert !important; font-size-adjust: r=
+evert !important; font-style: revert !important; font-synthesis-small-caps:=
+ revert !important; font-synthesis-style: revert !important; font-synthesis=
+-weight: revert !important; font-variant-alternates: revert !important; fon=
+t-variant-caps: revert !important; font-variant-east-asian: revert !importa=
+nt; font-variant-emoji: revert !important; font-variant-ligatures: revert !=
+important; font-variant-numeric: revert !important; font-variant-position: =
+revert !important; font-variation-settings: revert !important; font-weight:=
+ revert !important; font-width: revert !important; text-orientation: revert=
+ !important; text-rendering: revert !important; zoom: revert !important; -w=
+ebkit-font-smoothing: revert !important; -webkit-locale: revert !important;=
+ -webkit-text-size-adjust: revert !important; -webkit-text-zoom: revert !im=
+portant; letter-spacing: revert !important; text-autospace: revert !importa=
+nt; text-spacing-trim: revert !important; word-spacing: revert !important; =
+background-image: revert !important; mask: revert !important; accent-color:=
+ revert !important; place-content: revert !important; place-items: revert !=
+important; place-self: revert !important; alignment-baseline: revert !impor=
+tant; anchor-name: revert !important; anchor-scope: revert !important; anim=
+ation-composition: revert !important; animation: revert !important; appeara=
+nce: revert !important; aspect-ratio: revert !important; backdrop-filter: r=
+evert !important; backface-visibility: revert !important; background-attach=
+ment: revert !important; background-blend-mode: revert !important; backgrou=
+nd-clip: revert !important; background-origin: revert !important; backgroun=
+d-position: revert !important; background-repeat: revert !important; backgr=
+ound-size: revert !important; baseline-shift: revert !important; line-clamp=
+: revert !important; block-step: revert !important; border-collapse: revert=
+ !important; border: revert !important; box-shadow: revert !important; box-=
+sizing: revert !important; break-after: revert !important; break-before: re=
+vert !important; break-inside: revert !important; buffered-rendering: rever=
+t !important; caption-side: revert !important; caret-color: revert !importa=
+nt; clear: revert !important; clip: revert !important; clip-path: revert !i=
+mportant; clip-rule: revert !important; color: revert !important; color-int=
+erpolation: revert !important; color-interpolation-filters: revert !importa=
+nt; column-count: revert !important; column-fill: revert !important; gap: r=
+evert !important; column-rule-color: revert !important; column-rule-style: =
+revert !important; column-rule-width: revert !important; column-span: rever=
+t !important; column-width: revert !important; contain: revert !important; =
+container-name: revert !important; container-type: revert !important; conte=
+nt: revert !important; content-visibility: revert !important; counter-incre=
+ment: revert !important; counter-reset: revert !important; counter-set: rev=
+ert !important; cursor: revert !important; cx: revert !important; cy: rever=
+t !important; d: revert !important; dominant-baseline: revert !important; d=
+ynamic-range-limit: revert !important; empty-cells: revert !important; fiel=
+d-sizing: revert !important; fill: revert !important; fill-opacity: revert =
+!important; fill-rule: revert !important; filter: revert !important; flex: =
+revert !important; flex-flow: revert !important; float: revert !important; =
+flood-color: revert !important; flood-opacity: revert !important; glyph-ori=
+entation-horizontal: revert !important; glyph-orientation-vertical: revert =
+!important; grid: revert !important; grid-column-end: revert !important; gr=
+id-column-start: revert !important; grid-row-end: revert !important; grid-r=
+ow-start: revert !important; hanging-punctuation: revert !important; hyphen=
+ate-character: revert !important; hyphens: revert !important; image-orienta=
+tion: revert !important; image-rendering: revert !important; input-security=
+: revert !important; isolation: revert !important; lighting-color: revert !=
+important; line-break: revert !important; line-fit-edge: revert !important;=
+ line-height: revert !important; list-style: revert !important; margin-trim=
+: revert !important; marker: revert !important; mask-composite: revert !imp=
+ortant; mask-mode: revert !important; mask-size: revert !important; mask-ty=
+pe: revert !important; math-shift: revert !important; math-style: revert !i=
+mportant; mix-blend-mode: revert !important; object-fit: revert !important;=
+ object-position: revert !important; offset-anchor: revert !important; offs=
+et-distance: revert !important; offset-path: revert !important; offset-posi=
+tion: revert !important; offset-rotate: revert !important; order: revert !i=
+mportant; orphans: revert !important; outline: revert !important; outline-o=
+ffset: revert !important; overflow-anchor: revert !important; overflow-wrap=
+: revert !important; page: revert !important; paint-order: revert !importan=
+t; perspective: revert !important; perspective-origin: revert !important; p=
+ointer-events: revert !important; position: revert !important; position-anc=
+hor: revert !important; position-area: revert !important; position-try: rev=
+ert !important; position-visibility: revert !important; print-color-adjust:=
+ revert !important; quotes: revert !important; r: revert !important; resize=
+: revert !important; rotate: revert !important; ruby-align: revert !importa=
+nt; ruby-overhang: revert !important; rx: revert !important; ry: revert !im=
+portant; scale: revert !important; scroll-behavior: revert !important; scro=
+ll-snap-align: revert !important; scroll-snap-stop: revert !important; scro=
+ll-snap-type: revert !important; scroll-timeline: revert !important; scroll=
+bar-color: revert !important; scrollbar-gutter: revert !important; scrollba=
+r-width: revert !important; shape-image-threshold: revert !important; shape=
+-margin: revert !important; shape-outside: revert !important; shape-renderi=
+ng: revert !important; speak-as: revert !important; stop-color: revert !imp=
+ortant; stop-opacity: revert !important; stroke: revert !important; stroke-=
+color: revert !important; stroke-dasharray: revert !important; stroke-dasho=
+ffset: revert !important; stroke-linecap: revert !important; stroke-linejoi=
+n: revert !important; stroke-miterlimit: revert !important; stroke-opacity:=
+ revert !important; stroke-width: revert !important; tab-size: revert !impo=
+rtant; table-layout: revert !important; text-align: revert !important; text=
+-align-last: revert !important; text-anchor: revert !important; text-box: r=
+evert !important; text-combine-upright: revert !important; text-decoration:=
+ revert !important; text-decoration-skip-ink: revert !important; text-empha=
+sis-color: revert !important; text-emphasis-position: revert !important; te=
+xt-emphasis-style: revert !important; text-group-align: revert !important; =
+text-indent: revert !important; text-justify: revert !important; text-overf=
+low: revert !important; text-shadow: revert !important; text-transform: rev=
+ert !important; text-underline-offset: revert !important; text-underline-po=
+sition: revert !important; text-wrap: revert !important; timeline-scope: re=
+vert !important; touch-action: revert !important; transform: revert !import=
+ant; transform-box: revert !important; transform-origin: revert !important;=
+ transform-style: revert !important; transition: revert !important; transla=
+te: revert !important; vector-effect: revert !important; vertical-align: re=
+vert !important; view-timeline: revert !important; view-transition-class: r=
+evert !important; view-transition-name: revert !important; white-space: rev=
+ert !important; widows: revert !important; will-change: revert !important; =
+word-break: revert !important; x: revert !important; y: revert !important; =
+z-index: revert !important; -apple-color-filter: revert !important; -apple-=
+pay-button-style: revert !important; -apple-pay-button-type: revert !import=
+ant; -apple-visual-effect: revert !important; -internal-text-autosizing-sta=
+tus: revert !important; -webkit-backdrop-filter: revert !important; -webkit=
+-background-clip: revert !important; -webkit-background-origin: revert !imp=
+ortant; border-spacing: revert !important; -webkit-box-align: revert !impor=
+tant; -webkit-box-decoration-break: revert !important; -webkit-box-directio=
+n: revert !important; -webkit-box-flex: revert !important; -webkit-box-flex=
+-group: revert !important; -webkit-box-lines: revert !important; -webkit-bo=
+x-ordinal-group: revert !important; -webkit-box-orient: revert !important; =
+-webkit-box-pack: revert !important; -webkit-box-reflect: revert !important=
+; -webkit-box-shadow: revert !important; -webkit-column-axis: revert !impor=
+tant; -webkit-column-progression: revert !important; -webkit-cursor-visibil=
+ity: revert !important; -webkit-font-size-delta: revert !important; -webkit=
+-hyphenate-limit-after: revert !important; -webkit-hyphenate-limit-before: =
+revert !important; -webkit-hyphenate-limit-lines: revert !important; -webki=
+t-initial-letter: revert !important; -webkit-line-align: revert !important;=
+ -webkit-line-box-contain: revert !important; -webkit-line-clamp: revert !i=
+mportant; -webkit-line-grid: revert !important; -webkit-line-snap: revert !=
+important; -webkit-marquee-direction: revert !important; -webkit-marquee-in=
+crement: revert !important; -webkit-marquee-repetition: revert !important; =
+-webkit-marquee-speed: revert !important; -webkit-marquee-style: revert !im=
+portant; -webkit-mask: revert !important; -webkit-mask-composite: revert !i=
+mportant; -webkit-mask-source-type: revert !important; -webkit-nbsp-mode: r=
+evert !important; -webkit-overflow-scrolling: revert !important; -webkit-rt=
+l-ordering: revert !important; -webkit-ruby-position: revert !important; -w=
+ebkit-tap-highlight-color: revert !important; -webkit-text-combine: revert =
+!important; -webkit-text-decorations-in-effect: revert !important; -webkit-=
+text-fill-color: revert !important; -webkit-text-security: revert !importan=
+t; -webkit-text-stroke-color: revert !important; -webkit-text-stroke-width:=
+ revert !important; -webkit-touch-callout: revert !important; -webkit-user-=
+drag: revert !important; -webkit-user-modify: revert !important; -webkit-us=
+er-select: revert !important; border-radius: revert !important; inset: reve=
+rt !important; contain-intrinsic-size: revert !important; corner-shape: rev=
+ert !important; height: revert !important; margin: revert !important; min-h=
+eight: revert !important; min-width: revert !important; overflow: revert !i=
+mportant; overscroll-behavior: revert !important; padding: revert !importan=
+t; scroll-margin: revert !important; scroll-padding: revert !important; wid=
+th: revert !important; block-size: revert !important; border-block: revert =
+!important; border-end-end-radius: revert !important; border-end-start-radi=
+us: revert !important; border-inline: revert !important; border-start-end-r=
+adius: revert !important; border-start-start-radius: revert !important; con=
+tain-intrinsic-block-size: revert !important; contain-intrinsic-inline-size=
+: revert !important; corner-end-end-shape: revert !important; corner-end-st=
+art-shape: revert !important; corner-start-end-shape: revert !important; co=
+rner-start-start-shape: revert !important; inline-size: revert !important; =
+inset-block: revert !important; inset-inline: revert !important; margin-blo=
+ck: revert !important; margin-inline: revert !important; max-block-size: re=
+vert !important; max-inline-size: revert !important; min-block-size: revert=
+ !important; min-inline-size: revert !important; overflow-block: revert !im=
+portant; overflow-inline: revert !important; overscroll-behavior-block: rev=
+ert !important; overscroll-behavior-inline: revert !important; padding-bloc=
+k: revert !important; padding-inline: revert !important; scroll-margin-bloc=
+k: revert !important; scroll-margin-inline: revert !important; scroll-paddi=
+ng-block: revert !important; scroll-padding-inline: revert !important; disp=
+lay: block !important; visibility: visible !important; opacity: 1 !importan=
+t; background-color: rgb(189, 219, 242) !important; max-width: none !import=
+ant; max-height: none !important; }
+.pfptPrimaryButton16c3xqj:hover, .pfptPrimaryButton16c3xqj:focus { backgrou=
+nd-color: rgb(156, 204, 237) !important; }
+.pfptPrimaryButton16c3xqj:active { background-color: rgb(100, 190, 241) !im=
+portant; }
+html:root, html:root > body { color-scheme: revert !important; ruby-positio=
+n: revert !important; writing-mode: revert !important; font-family: revert =
+!important; font-feature-settings: revert !important; font-kerning: revert =
+!important; font-optical-sizing: revert !important; font-palette: revert !i=
+mportant; font-size: revert !important; font-size-adjust: revert !important=
+; font-style: revert !important; font-synthesis-small-caps: revert !importa=
+nt; font-synthesis-style: revert !important; font-synthesis-weight: revert =
+!important; font-variant-alternates: revert !important; font-variant-caps: =
+revert !important; font-variant-east-asian: revert !important; font-variant=
+-emoji: revert !important; font-variant-ligatures: revert !important; font-=
+variant-numeric: revert !important; font-variant-position: revert !importan=
+t; font-variation-settings: revert !important; font-weight: revert !importa=
+nt; font-width: revert !important; text-orientation: revert !important; tex=
+t-rendering: revert !important; zoom: revert !important; -webkit-font-smoot=
+hing: revert !important; -webkit-locale: revert !important; -webkit-text-si=
+ze-adjust: revert !important; -webkit-text-zoom: revert !important; letter-=
+spacing: revert !important; text-autospace: revert !important; text-spacing=
+-trim: revert !important; word-spacing: revert !important; background: reve=
+rt !important; mask: revert !important; accent-color: revert !important; pl=
+ace-content: revert !important; place-items: revert !important; place-self:=
+ revert !important; alignment-baseline: revert !important; anchor-name: rev=
+ert !important; anchor-scope: revert !important; animation-composition: rev=
+ert !important; animation: revert !important; appearance: revert !important=
+; aspect-ratio: revert !important; backdrop-filter: revert !important; back=
+face-visibility: revert !important; background-blend-mode: revert !importan=
+t; baseline-shift: revert !important; line-clamp: revert !important; block-=
+step: revert !important; border-collapse: revert !important; border: revert=
+ !important; box-shadow: revert !important; box-sizing: revert !important; =
+break-after: revert !important; break-before: revert !important; break-insi=
+de: revert !important; buffered-rendering: revert !important; caption-side:=
+ revert !important; caret-color: revert !important; clear: revert !importan=
+t; clip: revert !important; clip-path: revert !important; clip-rule: revert=
+ !important; color: revert !important; color-interpolation: revert !importa=
+nt; color-interpolation-filters: revert !important; column-count: revert !i=
+mportant; column-fill: revert !important; gap: revert !important; column-ru=
+le-color: revert !important; column-rule-style: revert !important; column-r=
+ule-width: revert !important; column-span: revert !important; column-width:=
+ revert !important; contain: revert !important; container-name: revert !imp=
+ortant; container-type: revert !important; content: revert !important; cont=
+ent-visibility: revert !important; counter-increment: revert !important; co=
+unter-reset: revert !important; counter-set: revert !important; cursor: rev=
+ert !important; cx: revert !important; cy: revert !important; d: revert !im=
+portant; dominant-baseline: revert !important; dynamic-range-limit: revert =
+!important; empty-cells: revert !important; field-sizing: revert !important=
+; fill: revert !important; fill-opacity: revert !important; fill-rule: reve=
+rt !important; filter: revert !important; flex: revert !important; flex-flo=
+w: revert !important; float: revert !important; flood-color: revert !import=
+ant; flood-opacity: revert !important; glyph-orientation-horizontal: revert=
+ !important; glyph-orientation-vertical: revert !important; grid: revert !i=
+mportant; grid-column-end: revert !important; grid-column-start: revert !im=
+portant; grid-row-end: revert !important; grid-row-start: revert !important=
+; hanging-punctuation: revert !important; hyphenate-character: revert !impo=
+rtant; hyphens: revert !important; image-orientation: revert !important; im=
+age-rendering: revert !important; input-security: revert !important; isolat=
+ion: revert !important; lighting-color: revert !important; line-break: reve=
+rt !important; line-fit-edge: revert !important; line-height: revert !impor=
+tant; list-style: revert !important; margin-trim: revert !important; marker=
+: revert !important; mask-composite: revert !important; mask-mode: revert !=
+important; mask-size: revert !important; mask-type: revert !important; math=
+-shift: revert !important; math-style: revert !important; mix-blend-mode: r=
+evert !important; object-fit: revert !important; object-position: revert !i=
+mportant; offset-anchor: revert !important; offset-distance: revert !import=
+ant; offset-path: revert !important; offset-position: revert !important; of=
+fset-rotate: revert !important; order: revert !important; orphans: revert !=
+important; outline: revert !important; outline-offset: revert !important; o=
+verflow-anchor: revert !important; overflow-wrap: revert !important; page: =
+revert !important; paint-order: revert !important; perspective: revert !imp=
+ortant; perspective-origin: revert !important; pointer-events: revert !impo=
+rtant; position: revert !important; position-anchor: revert !important; pos=
+ition-area: revert !important; position-try: revert !important; position-vi=
+sibility: revert !important; print-color-adjust: revert !important; quotes:=
+ revert !important; r: revert !important; resize: revert !important; rotate=
+: revert !important; ruby-align: revert !important; ruby-overhang: revert !=
+important; rx: revert !important; ry: revert !important; scale: revert !imp=
+ortant; scroll-behavior: revert !important; scroll-snap-align: revert !impo=
+rtant; scroll-snap-stop: revert !important; scroll-snap-type: revert !impor=
+tant; scroll-timeline: revert !important; scrollbar-color: revert !importan=
+t; scrollbar-gutter: revert !important; scrollbar-width: revert !important;=
+ shape-image-threshold: revert !important; shape-margin: revert !important;=
+ shape-outside: revert !important; shape-rendering: revert !important; spea=
+k-as: revert !important; stop-color: revert !important; stop-opacity: rever=
+t !important; stroke: revert !important; stroke-color: revert !important; s=
+troke-dasharray: revert !important; stroke-dashoffset: revert !important; s=
+troke-linecap: revert !important; stroke-linejoin: revert !important; strok=
+e-miterlimit: revert !important; stroke-opacity: revert !important; stroke-=
+width: revert !important; tab-size: revert !important; table-layout: revert=
+ !important; text-align: revert !important; text-align-last: revert !import=
+ant; text-anchor: revert !important; text-box: revert !important; text-comb=
+ine-upright: revert !important; text-decoration: revert !important; text-de=
+coration-skip-ink: revert !important; text-emphasis-color: revert !importan=
+t; text-emphasis-position: revert !important; text-emphasis-style: revert !=
+important; text-group-align: revert !important; text-indent: revert !import=
+ant; text-justify: revert !important; text-overflow: revert !important; tex=
+t-shadow: revert !important; text-transform: revert !important; text-underl=
+ine-offset: revert !important; text-underline-position: revert !important; =
+text-wrap: revert !important; timeline-scope: revert !important; touch-acti=
+on: revert !important; transform: revert !important; transform-box: revert =
+!important; transform-origin: revert !important; transform-style: revert !i=
+mportant; transition: revert !important; translate: revert !important; vect=
+or-effect: revert !important; vertical-align: revert !important; view-timel=
+ine: revert !important; view-transition-class: revert !important; view-tran=
+sition-name: revert !important; white-space: revert !important; widows: rev=
+ert !important; will-change: revert !important; word-break: revert !importa=
+nt; x: revert !important; y: revert !important; z-index: revert !important;=
+ -apple-color-filter: revert !important; -apple-pay-button-style: revert !i=
+mportant; -apple-pay-button-type: revert !important; -apple-visual-effect: =
+revert !important; -internal-text-autosizing-status: revert !important; -we=
+bkit-backdrop-filter: revert !important; -webkit-background-clip: revert !i=
+mportant; -webkit-background-origin: revert !important; border-spacing: rev=
+ert !important; -webkit-box-align: revert !important; -webkit-box-decoratio=
+n-break: revert !important; -webkit-box-direction: revert !important; -webk=
+it-box-flex: revert !important; -webkit-box-flex-group: revert !important; =
+-webkit-box-lines: revert !important; -webkit-box-ordinal-group: revert !im=
+portant; -webkit-box-orient: revert !important; -webkit-box-pack: revert !i=
+mportant; -webkit-box-reflect: revert !important; -webkit-box-shadow: rever=
+t !important; -webkit-column-axis: revert !important; -webkit-column-progre=
+ssion: revert !important; -webkit-cursor-visibility: revert !important; -we=
+bkit-font-size-delta: revert !important; -webkit-hyphenate-limit-after: rev=
+ert !important; -webkit-hyphenate-limit-before: revert !important; -webkit-=
+hyphenate-limit-lines: revert !important; -webkit-initial-letter: revert !i=
+mportant; -webkit-line-align: revert !important; -webkit-line-box-contain: =
+revert !important; -webkit-line-clamp: revert !important; -webkit-line-grid=
+: revert !important; -webkit-line-snap: revert !important; -webkit-marquee-=
+direction: revert !important; -webkit-marquee-increment: revert !important;=
+ -webkit-marquee-repetition: revert !important; -webkit-marquee-speed: reve=
+rt !important; -webkit-marquee-style: revert !important; -webkit-mask: reve=
+rt !important; -webkit-mask-composite: revert !important; -webkit-mask-sour=
+ce-type: revert !important; -webkit-nbsp-mode: revert !important; -webkit-o=
+verflow-scrolling: revert !important; -webkit-rtl-ordering: revert !importa=
+nt; -webkit-ruby-position: revert !important; -webkit-tap-highlight-color: =
+revert !important; -webkit-text-combine: revert !important; -webkit-text-de=
+corations-in-effect: revert !important; -webkit-text-fill-color: revert !im=
+portant; -webkit-text-security: revert !important; -webkit-text-stroke-colo=
+r: revert !important; -webkit-text-stroke-width: revert !important; -webkit=
+-touch-callout: revert !important; -webkit-user-drag: revert !important; -w=
+ebkit-user-modify: revert !important; -webkit-user-select: revert !importan=
+t; border-radius: revert !important; inset: revert !important; contain-intr=
+insic-size: revert !important; corner-shape: revert !important; height: rev=
+ert !important; margin: revert !important; max-height: revert !important; m=
+ax-width: revert !important; min-height: revert !important; min-width: reve=
+rt !important; overflow: revert !important; overscroll-behavior: revert !im=
+portant; padding: revert !important; scroll-margin: revert !important; scro=
+ll-padding: revert !important; width: revert !important; block-size: revert=
+ !important; border-block: revert !important; border-end-end-radius: revert=
+ !important; border-end-start-radius: revert !important; border-inline: rev=
+ert !important; border-start-end-radius: revert !important; border-start-st=
+art-radius: revert !important; contain-intrinsic-block-size: revert !import=
+ant; contain-intrinsic-inline-size: revert !important; corner-end-end-shape=
+: revert !important; corner-end-start-shape: revert !important; corner-star=
+t-end-shape: revert !important; corner-start-start-shape: revert !important=
+; inline-size: revert !important; inset-block: revert !important; inset-inl=
+ine: revert !important; margin-block: revert !important; margin-inline: rev=
+ert !important; max-block-size: revert !important; max-inline-size: revert =
+!important; min-block-size: revert !important; min-inline-size: revert !imp=
+ortant; overflow-block: revert !important; overflow-inline: revert !importa=
+nt; overscroll-behavior-block: revert !important; overscroll-behavior-inlin=
+e: revert !important; padding-block: revert !important; padding-inline: rev=
+ert !important; scroll-margin-block: revert !important; scroll-margin-inlin=
+e: revert !important; scroll-padding-block: revert !important; scroll-paddi=
+ng-inline: revert !important; display: block !important; visibility: visibl=
+e !important; opacity: 1 !important; }</style><!-- BaNnErBlUrFlE-HeAdEr-end=
+ -->
+<meta name=3D"Generator" content=3D"Microsoft Word 15 (filtered medium)">
+<!--[if !mso]><style>v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style><![endif]--><style>@font-face { font-family: "Cambria Math"; }
+@font-face { font-family: Calibri; }
+@font-face { font-family: Verdana; }
+@font-face { font-family: Aptos; }
+@font-face { font-family: "Lucida Calligraphy"; }
+@font-face { font-family: UICTFontTextStyleTallBody; }
+@font-face { font-family: UICTFontTextStyleBody; }
+p.MsoNormal, li.MsoNormal, div.MsoNormal { margin: 0in; font-size: 12pt; fo=
+nt-family: Aptos, sans-serif; }
+a:link, span.MsoHyperlink { color: blue; text-decoration: underline; }
+p.xmsonormal, li.xmsonormal, div.xmsonormal { margin-right: 0in; margin-lef=
+t: 0in; font-size: 12pt; font-family: Aptos, sans-serif; }
+span.EmailStyle20 { font-family: Aptos, sans-serif; color: windowtext; }
+.MsoChpDefault { font-size: 10pt; }
+@page WordSection1 { size: 8.5in 11in; margin: 1in; }
+div.WordSection1 { page: WordSection1; }</style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]-->
+<div class=3D"WordSection1">
+<p class=3D"MsoNormal">Good Morning, <o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal">I don=E2=80=99t see that 1220 Charlotte Way has been=
+ tested. It was scheduled on Friday 5/1 but it was too wet but Joe and Ryan=
+ will put it in the books to get done.<o:p></o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-family:&quot;Times New Roman&=
+quot;,serif;color:#5F497A;mso-ligatures:standardcontextual">TO SCHEDULE TES=
+TING PLEASE CONTACT DISPATCH (JOE OR RYAN)&nbsp;</span></b><span style=3D"f=
+ont-size:11.0pt"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-family:&quot;Times New Roman&=
+quot;,serif;color:#5F497A;mso-ligatures:standardcontextual">&nbsp;</span></=
+b><span style=3D"mso-ligatures:standardcontextual"><o:p></o:p></span></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:22.0pt;font-family:&quot=
+;Lucida Calligraphy&quot;;color:#5F497A;mso-ligatures:standardcontextual">J=
+ocelyne Rangel&nbsp;<o:p></o:p></span></b></p>
+<p class=3D"MsoNormal"><b><span style=3D"font-size:22.0pt;font-family:&quot=
+;Lucida Calligraphy&quot;;color:#5F497A;mso-ligatures:standardcontextual"><=
+o:p>&nbsp;</o:p></span></b></p>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" style=3D"border-collapse:collapse">
+<tbody>
+<tr style=3D"height:45.85pt">
+<td width=3D"67" valign=3D"top" style=3D"width:.7in;padding:0in 5.4pt 0in 5=
+.4pt;height:45.85pt">
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"font-famil=
+y:&quot;Verdana&quot;,sans-serif;color:black"></p>
+<div>&lt;image001.png&gt;</div>
+<span style=3D"mso-ligatures:standardcontextual">&nbsp;</span></span><span =
+style=3D"mso-ligatures:standardcontextual"><o:p></o:p></span>
+<p></p>
+</td>
+<td width=3D"288" valign=3D"top" style=3D"width:3.0in;padding:0in 5.4pt 0in=
+ 5.4pt;height:45.85pt">
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"font-size:=
+9.0pt;line-height:115%;font-family:&quot;Arial&quot;,sans-serif;color:#0000=
+99;mso-ligatures:standardcontextual">1217/1221 Georgia Ave&nbsp;</span><spa=
+n style=3D"color:#000099;mso-ligatures:standardcontextual"><o:p></o:p></spa=
+n></p>
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"font-size:=
+9.0pt;line-height:115%;font-family:&quot;Arial&quot;,sans-serif;color:#0000=
+99;mso-ligatures:standardcontextual">P.O. Box 148&nbsp;</span><span style=
+=3D"color:#000099;mso-ligatures:standardcontextual"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"font-size:=
+9.0pt;line-height:115%;font-family:&quot;Arial&quot;,sans-serif;color:#0000=
+99;mso-ligatures:standardcontextual">Deer Park, Tx&nbsp; 77536&nbsp;</span>=
+<span style=3D"mso-ligatures:standardcontextual"><o:p></o:p></span></p>
+<p class=3D"MsoNormal" style=3D"line-height:115%"><span style=3D"font-size:=
+9.0pt;line-height:115%;font-family:&quot;Arial&quot;,sans-serif;color:#0000=
+99;mso-ligatures:standardcontextual">Phone #713-477-0121&nbsp; Fax #713-477=
+-2277&nbsp;</span><span style=3D"mso-ligatures:standardcontextual"><o:p></o=
+:p></span></p>
+<p class=3D"MsoNormal" style=3D"line-height:115%"><u><span style=3D"font-si=
+ze:9.0pt;line-height:115%;font-family:&quot;Arial&quot;,sans-serif;color:#3=
+A7C22;mso-ligatures:standardcontextual"><a href=3D"mailto:jocelyne@coastalt=
+estinglabs.com"><span style=3D"color:#467886">jocelyne@coastaltestinglabs.c=
+om</span></a></span></u><u><span style=3D"font-size:9.0pt;line-height:115%;=
+font-family:&quot;Arial&quot;,sans-serif;color:#000099;mso-ligatures:standa=
+rdcontextual"><o:p></o:p></span></u></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><span style=3D"mso-ligatures:standardcontextual"><o:=
+p>&nbsp;</o:p></span></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<div style=3D"border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in =
+0in 0in">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;font-family:&quot=
+;Calibri&quot;,sans-serif">From:</span></b><span style=3D"font-size:11.0pt;=
+font-family:&quot;Calibri&quot;,sans-serif"> Ryan Pena &lt;ryan@coastaltest=
+inglabs.com&gt;
+<br>
+<b>Sent:</b> Wednesday, May 6, 2026 8:27 AM<br>
+<b>To:</b> Joe Gallardo &lt;joe@coastaltestinglabs.com&gt;; Jocelyne Rangel=
+ &lt;jocelyne@coastaltestinglabs.com&gt;<br>
+<b>Subject:</b> Fw: 1220 charlotte way<o:p></o:p></span></p>
+</div>
+</div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+<div>
+<p class=3D"MsoNormal"><span style=3D"color:black"><o:p>&nbsp;</o:p></span>=
+</p>
+</div>
+<div id=3D"ms-outlook-mobile-body-separator-line">
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</div>
+<div id=3D"ms-outlook-mobile-signature">
+<p class=3D"MsoNormal"><span style=3D"color:black">Get <a href=3D"https://a=
+ka.ms/o0ukef">
+Outlook for iOS</a><o:p></o:p></span></p>
+</div>
+<div class=3D"MsoNormal" align=3D"center" style=3D"text-align:center">
+<hr size=3D"2" width=3D"98%" align=3D"center">
+</div>
+<div id=3D"divRplyFwdMsg">
+<p class=3D"MsoNormal"><b><span style=3D"font-size:11.0pt;font-family:&quot=
+;Calibri&quot;,sans-serif;color:black">From:</span></b><span style=3D"font-=
+size:11.0pt;font-family:&quot;Calibri&quot;,sans-serif;color:black"> Rodney=
+ Shewell &lt;<a href=3D"mailto:rodney.shewell@lennar.com">rodney.shewell@le=
+nnar.com</a>&gt;<br>
+<b>Sent:</b> Wednesday, May 6, 2026 8:24:04 AM<br>
+<b>To:</b> Ryan Pena &lt;<a href=3D"mailto:ryan@coastaltestinglabs.com">rya=
+n@coastaltestinglabs.com</a>&gt;<br>
+<b>Cc:</b> John Helms &lt;<a href=3D"mailto:john.helms@lennar.com">john.hel=
+ms@lennar.com</a>&gt;<br>
+<b>Subject:</b> 1220 charlotte way</span> <o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal">&nbsp;<o:p></o:p></p>
+</div>
+</div>
+<div>
+<p class=3D"MsoNormal">Ryan <o:p></o:p></p>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<p class=3D"MsoNormal">Im taking over Wharton lakes for the time being. My =
+area manager John scheduled a compaction test for this address. I was wanti=
+ng to see if it has been completed and can get the results please.<o:p></o:=
+p></p>
+</div>
+<div>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+<div>
+<div>
+<table class=3D"MsoNormalTable" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0" width=3D"100%" style=3D"width:100.0%;background:white;border-collaps=
+e:collapse">
+<tbody>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"xmsonormal" style=3D"margin:0in"><b><span style=3D"font-family:=
+&quot;UICTFontTextStyleBody&quot;,serif;color:black">Rodney Shewell</span><=
+/b><span style=3D"font-family:&quot;UICTFontTextStyleTallBody&quot;,serif">=
+<o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"xmsonormal" style=3D"margin:0in"><b><span style=3D"font-family:=
+&quot;UICTFontTextStyleBody&quot;,serif;color:black">Construction Manager</=
+span></b><span style=3D"font-family:&quot;UICTFontTextStyleTallBody&quot;,s=
+erif"><o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"xmsonormal" style=3D"margin:0in"><span style=3D"font-family:&qu=
+ot;UICTFontTextStyleBody&quot;,serif;color:black">&nbsp;</span><span style=
+=3D"font-family:&quot;UICTFontTextStyleTallBody&quot;,serif"><o:p></o:p></s=
+pan></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"xmsonormal" style=3D"margin:0in"><span style=3D"color:black"><a=
+ href=3D"https://www.lennar.com/"><span style=3D"font-family:&quot;UICTFont=
+TextStyleBody&quot;,serif;text-decoration:none"><img border=3D"0" width=3D"=
+160" height=3D"16" style=3D"width:1.6666in;height:.1666in" id=3D"_x0000_i10=
+26" src=3D"cid:image001.png@01D988A6.F3021950" alt=3D"Lennar" data-unique-i=
+dentifier=3D""></span></a></span><span style=3D"font-family:&quot;UICTFontT=
+extStyleTallBody&quot;,serif"><o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"xmsonormal" style=3D"margin:0in"><span style=3D"font-family:&qu=
+ot;UICTFontTextStyleBody&quot;,serif;color:black">&nbsp;</span><span style=
+=3D"font-family:&quot;UICTFontTextStyleTallBody&quot;,serif"><o:p></o:p></s=
+pan></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"xmsonormal" style=3D"margin:0in"><span style=3D"font-family:&qu=
+ot;UICTFontTextStyleBody&quot;,serif;color:black"><a href=3D"mailto:Rodney.=
+Shewell@Lennar.com">Rodney.Shewell@Lennar.com</a><br>
+Mobile&nbsp;346-240-6952<br>
+<br>
+<br>
+</span><span style=3D"font-family:&quot;UICTFontTextStyleTallBody&quot;,ser=
+if"><o:p></o:p></span></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"xmsonormal" style=3D"margin:0in"><span style=3D"font-family:&qu=
+ot;UICTFontTextStyleBody&quot;,serif;color:black">&nbsp;</span><span style=
+=3D"font-family:&quot;UICTFontTextStyleTallBody&quot;,serif"><o:p></o:p></s=
+pan></p>
+</td>
+</tr>
+<tr>
+<td style=3D"padding:0in 0in 0in 0in">
+<p class=3D"xmsonormal" style=3D"margin:0in"><span style=3D"font-family:&qu=
+ot;UICTFontTextStyleBody&quot;,serif;color:black">681 Greens Parkway #200&n=
+bsp;&amp; #220<br>
+Houston, TX&nbsp;77067</span><span style=3D"font-family:&quot;UICTFontTextS=
+tyleTallBody&quot;,serif"><o:p></o:p></span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</blockquote>
+</div>
+</body>
+</html>
+
+--_000_40BB49C8F670403FBCA8FCDFF59A2BD0lennarcom_--
+
+--_004_40BB49C8F670403FBCA8FCDFF59A2BD0lennarcom_
+Content-Type: image/png; name="image001.png"
+Content-Description: image001.png
+Content-Disposition: inline; filename="image001.png"; size=6224;
+	creation-date="Wed, 06 May 2026 14:55:43 GMT";
+	modification-date="Thu, 07 May 2026 14:04:49 GMT"
+Content-ID: <image001.png@01DCDD3E.80550A80>
+Content-Transfer-Encoding: base64
+
+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
+AAAASUVORK5CYII=
+
+--_004_40BB49C8F670403FBCA8FCDFF59A2BD0lennarcom_--
