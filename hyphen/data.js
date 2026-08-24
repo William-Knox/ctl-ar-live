@@ -2725,7 +2725,7 @@ window.DATA = [
         "what": "0430-171077 $871."
       },
       {
-        "when": "2026-05-05",
+        "when": "2026-05-08",
         "lab": "Report transmittal",
         "what": "Esme sent Moore Landing 11935 reports."
       },
@@ -2859,7 +2859,45 @@ window.DATA = [
     "notes_plain": "5/7/2026 | Maria Lerma | Note Sent | 0430-171077 349.00 Proctor and PI 2 lifts 522.00\n5/14/2026 | Maria Lerma | Note Sent | 0505-171251 261.00 1 lift\n5/14/2026 | Maria Lerma | Note Sent | 0505-171251 Retest",
     "notes_empty": false,
     "notes_scraped_at_ct": "2026-08-24 06:58:55 CT",
-    "chase_letter_close": "If you have any questions or concerns about the work at 11935 Noble Wood, the $871 invoice, or the remaining $349 / EPO, reply to this email. We will work it with you from there."
+    "chase_letter_close": "If you have any questions or concerns about the work at 11935 Noble Wood, the $871 invoice, or the remaining $349 / EPO, reply to this email. We will work it with you from there.",
+    "chase_attachments": [
+      {
+        "kind": "callin",
+        "label": "Called in · Brandi Cook 2026-04-29",
+        "mailbox": "ryan@coastaltestinglabs.com",
+        "messageId": "AAMkADBjYjk0MzMxLTFmYTYtNDIzNS04ZDMwLWY5NTQ5Y2VkMDQxNABGAAAAAAAFVpL-v6qsT61M9PyKzuK6BwC9a3335iNDTbbRGjik9z3yAAAAAAEMAAC9a3335iNDTbbRGjik9z3yAAPVPlmdAAA=",
+        "path": "/workspace/hyphen-board/cases/0430-171077/2026-04-29_Brandi-Cook_pads.eml",
+        "fromName": "Brandi Cook",
+        "from": "brandiaplusconstruction17.cc@gmail.com",
+        "subject": "pads",
+        "sent": "2026-04-29T19:39:33Z",
+        "bodyPreview": "Back to testing Moore Landing as of today\r\n\r\nBuilder: Lennar\r\nNeighborhood: Moore Landing\r\n\r\n11946 Noble Wood- 1 lift\r\n\r\n11942 Noble Wood- 1 lift\r\n\r\n11935 Noble Wood- 1 lift\r\n\r\n\r\nA Plus Construction Holdings, LLC\r\nBrandi Cook\r\nOffice Manager\r\nOffice:(979)"
+      },
+      {
+        "kind": "asked",
+        "label": "Inquiry · Cole Jenkins 2026-05-03",
+        "mailbox": "esmeralda@coastaltestinglabs.com",
+        "messageId": "AAMkADEzZjA4ZmIwLWI2NDYtNGVhZC04M2NlLTk4MjkwNDIwOTY4ZABGAAAAAAAXUdg3bhDCSYKC7MUWDJS1BwDtWWcWwq6fSbwyJ7DgVVeuAAAAALbKAADtWWcWwq6fSbwyJ7DgVVeuAAMzhSQrAAA=",
+        "path": "/workspace/hyphen-board/cases/0430-171077/2026-05-03_Cole-Jenkins_11935-Noble-wood-village.eml",
+        "fromName": "Cole Jenkins",
+        "from": "cole.jenkins@lennar.com",
+        "subject": "11935 Noble wood village ",
+        "sent": "2026-05-03T12:41:38Z",
+        "bodyPreview": "Good morning, i need to get the compaction results for the address listed above. Thanks\r\n\r\nCole Jenkins\r\nLennar Homes\r\n281-917-5243\r\nMoore Landing\r\nGet Outlook for iOS"
+      },
+      {
+        "kind": "report",
+        "label": "Report transmittal · Esmeralda Cantu 2026-05-08",
+        "mailbox": "esmeralda@coastaltestinglabs.com",
+        "messageId": "AAMkADEzZjA4ZmIwLWI2NDYtNGVhZC04M2NlLTk4MjkwNDIwOTY4ZABGAAAAAAAXUdg3bhDCSYKC7MUWDJS1BwDtWWcWwq6fSbwyJ7DgVVeuAAAAAAEJAADtWWcWwq6fSbwyJ7DgVVeuAAMzhUM1AAA=",
+        "path": "/workspace/hyphen-board/cases/0430-171077/2026-05-08_Esmeralda-Cantu_Moore-Landing-11935-Noble-Wood-Village.eml",
+        "fromName": "Esmeralda Cantu",
+        "from": "esmeralda@coastaltestinglabs.com",
+        "subject": "Moore Landing - 11935 Noble Wood Village",
+        "sent": "2026-05-08T15:38:07Z",
+        "bodyPreview": "Good morning\r\n\r\nAttached please find the reports available for your company.  Please advise if you have any questions or need anything further.\r\n\r\nThank you\r\n\r\nTO SCHEDULE TESTING PLEASE CONTACT DISPATCH (JOE OR RYAN)\r\n\r\nEsmeralda Cantu\r\n\r\n\r\n\r\n1217/12"
+      }
+    ]
   },
   {
     "daysSinceInvoice": 111,
