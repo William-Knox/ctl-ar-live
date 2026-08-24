@@ -26,7 +26,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0731-174161 open $1,188.00 \u00b7 21 days past due.",
+        "what": "0731-174161 open $1,188.00 · 21 days past due.",
         "today": true
       }
     ],
@@ -65,7 +65,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0731-174161 open $1,188.00 \u00b7 21 days past due.",
+        "what": "0731-174161 open $1,188.00 · 21 days past due.",
         "today": true
       }
     ],
@@ -128,7 +128,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0513-171546 open $522.00 \u00b7 73 days past due."
+        "what": "0513-171546 open $522.00 · 73 days past due."
       }
     ],
     "balance": 522,
@@ -163,7 +163,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0513-171546 open $522.00 \u00b7 73 days past due."
+        "what": "0513-171546 open $522.00 · 73 days past due."
       }
     ],
     "hyphen_status": null,
@@ -172,7 +172,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-06-12",
     "packet": "hold",
-    "chase_analysis": "Found: Tom Whetstine 2026-05-05 and 2026-05-12 asked 21602 Colonial Meadow; first visit paid 0506-171295 / PO 89658035-000 check 1263130 $522. Not found: request .eml on disk. Write-off \u2014 missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Tom Whetstine 2026-05-05 and 2026-05-12 asked 21602 Colonial Meadow; first visit paid 0506-171295 / PO 89658035-000 check 1263130 $522. Not found: request .eml on disk. Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -227,7 +227,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "180131 open $783.00 \u00b7 131 days past due.",
+        "what": "180131 open $783.00 · 131 days past due.",
         "today": true
       }
     ],
@@ -268,7 +268,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "180131 open $783.00 \u00b7 131 days past due.",
+        "what": "180131 open $783.00 · 131 days past due.",
         "today": true
       }
     ],
@@ -313,7 +313,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00217 open $522.00 \u00b7 -16 days past due."
+        "what": "CTL-26-00217 open $522.00 · -16 days past due."
       }
     ],
     "balance": 522,
@@ -328,7 +328,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00217 open $522.00 \u00b7 -16 days past due."
+        "what": "CTL-26-00217 open $522.00 · -16 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -375,7 +375,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0519-171828 open $261.00 \u00b7 67 days past due.",
+        "what": "0519-171828 open $261.00 · 67 days past due.",
         "today": true
       }
     ],
@@ -400,7 +400,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0519-171828 open $261.00 \u00b7 67 days past due.",
+        "what": "0519-171828 open $261.00 · 67 days past due.",
         "today": true
       }
     ],
@@ -422,7 +422,7 @@ window.DATA = [
     "daysPastDue": 67,
     "builder_order_number": null,
     "totalAmt": 261,
-    "chase_subject": "PO needed \u00b7 13560 Bay Springs \u00b7 0519-171828 \u00b7 67 days past due",
+    "chase_subject": "PO needed · 13560 Bay Springs · 0519-171828 · 67 days past due",
     "chase_letter": "We performed the work at 13560 Bay Springs and issued invoice 0519-171828 for $261. This has been 67 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "13560 Bay Springs",
     "mail": "not_sent",
@@ -432,7 +432,8 @@ window.DATA = [
     "workup_attachments_note": "Graph: Brandi 2026-05-18 pads to ryan/joe. Maria PO Request 13560 Bay Springs 5/26 and 2nd request 5/27. Esme 6/15 report send. No client ask file saved. ",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0519-171828"
+    "docNumber": "0519-171828",
+    "chase_letter_close": "If you have any questions or concerns about the work at 13560 Bay Springs, the $261 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 97,
@@ -451,7 +452,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0519-171829 open $261.00 \u00b7 67 days past due.",
+        "what": "0519-171829 open $261.00 · 67 days past due.",
         "today": true
       }
     ],
@@ -476,7 +477,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0519-171829 open $261.00 \u00b7 67 days past due.",
+        "what": "0519-171829 open $261.00 · 67 days past due.",
         "today": true
       }
     ],
@@ -498,7 +499,7 @@ window.DATA = [
     "daysPastDue": 67,
     "builder_order_number": null,
     "totalAmt": 261,
-    "chase_subject": "PO needed \u00b7 13568 Bay Springs \u00b7 0519-171829 \u00b7 67 days past due",
+    "chase_subject": "PO needed · 13568 Bay Springs · 0519-171829 · 67 days past due",
     "chase_letter": "We performed the work at 13568 Bay Springs and issued invoice 0519-171829 for $261. This has been 67 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "13568 Bay Springs",
     "mail": "not_sent",
@@ -508,7 +509,8 @@ window.DATA = [
     "workup_attachments_note": "Graph: Brandi 5/18 pads; Maria PO request 5/27; Bailey 5/27 not loaded; Jordan 6/8 released. Esme 6/22 report send. No ask file on disk.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0519-171829"
+    "docNumber": "0519-171829",
+    "chase_letter_close": "If you have any questions or concerns about the work at 13568 Bay Springs, the $261 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 12,
@@ -522,7 +524,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00605 open $522.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00605 open $522.00 · -18 days past due."
       }
     ],
     "balance": 522,
@@ -537,7 +539,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00605 open $522.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00605 open $522.00 · -18 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -609,7 +611,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0410-170532 open $349.00 \u00b7 106 days past due.",
+        "what": "0410-170532 open $349.00 · 106 days past due.",
         "today": true
       }
     ],
@@ -656,7 +658,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0410-170532 open $349.00 \u00b7 106 days past due.",
+        "what": "0410-170532 open $349.00 · 106 days past due.",
         "today": true
       }
     ],
@@ -674,7 +676,7 @@ window.DATA = [
     "dueDate": "2026-05-10",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "complete",
-    "chase_analysis": "Today's notes match billed $871: Maria 4/17 named two lifts $522 plus Proctor and PI $349. Check 1236227 paid the compaction PO $522; leftover $349 is the named lab (Sugar Mill pattern). Leftover lab. Packet complete. Awaiting last-sent 2026-08-17 14:47 CT \u2014 do not rewrite. EPO is not the Issue.",
+    "chase_analysis": "Today's notes match billed $871: Maria 4/17 named two lifts $522 plus Proctor and PI $349. Check 1236227 paid the compaction PO $522; leftover $349 is the named lab (Sugar Mill pattern). Leftover lab. Packet complete. Awaiting last-sent 2026-08-17 14:47 CT — do not rewrite. EPO is not the Issue.",
     "chase_to_name": "Montana Grove",
     "chase_from_name": "Billings",
     "chase_to": "montana.grove@lennar.com",
@@ -685,7 +687,7 @@ window.DATA = [
     "daysPastDue": 106,
     "builder_order_number": "82258936-000",
     "totalAmt": 871,
-    "chase_subject": "EPO needed \u00b7 10478 Sugar Mill Dr \u00b7 0410-170532 \u00b7 106 days past due",
+    "chase_subject": "EPO needed · 10478 Sugar Mill Dr · 0410-170532 · 106 days past due",
     "hyphen_notes": "[4/17/2026] Maria Lerma: Note Sent: 0410-170532 2 lifts 522.00 Please issue EPO for Proctor and PI 349.00",
     "chase_letter": "We performed two compaction lifts plus Proctor and PI at 10478 Sugar Mill Dr and billed invoice 0410-170532 for $871. Lennar paid $522 on check 1236227 (April 27) on PO 82258936-000 for the two lifts. The remaining $349 is the Proctor and PI. Maria emailed Montana Grove and Jordan Beakley on June 25 asking for a PO covering that $349; Jordan replied June 26 asking if it had been created. Nothing has been issued. This has been 106 days past due.\n\nPlease issue an EPO or supplemental purchase order for the Proctor and PI ($349) on 10478 Sugar Mill Dr so we can close invoice 0410-170532. Do not park this remainder on another lot.\nThe April 9 call-in, the reports, Maria's June 25 request, and Jordan's June 26 reply are attached.",
     "service_address": "10478 Sugar Mill Dr",
@@ -733,7 +735,8 @@ window.DATA = [
     "notes_empty": false,
     "notes_scraped_at_ct": "2026-08-24 06:58:54 CT",
     "last_sent": "2026-08-17 14:47 CT",
-    "follow_up_due": "Thu 2026-08-20"
+    "follow_up_due": "Thu 2026-08-20",
+    "chase_letter_close": "If you have any questions or concerns about the work at 10478 Sugar Mill Dr, the $871 invoice, or the remaining $349 / EPO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 13,
@@ -747,7 +750,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00587 open $522.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00587 open $522.00 · -17 days past due."
       }
     ],
     "balance": 522,
@@ -762,7 +765,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00587 open $522.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00587 open $522.00 · -17 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -804,7 +807,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00588 open $522.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00588 open $522.00 · -17 days past due."
       }
     ],
     "balance": 522,
@@ -819,7 +822,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00588 open $522.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00588 open $522.00 · -17 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -866,7 +869,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00437 open $783.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00437 open $783.00 · -11 days past due."
       }
     ],
     "balance": 783,
@@ -886,7 +889,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00437 open $783.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00437 open $783.00 · -11 days past due."
       }
     ],
     "hyphen_status": null,
@@ -895,7 +898,7 @@ window.DATA = [
     "open_balance": 783,
     "dueDate": "2026-09-04",
     "packet": "hold",
-    "chase_analysis": "Found: Hector Melchor 2026-08-03 named 19227 Torrione 3 lifts; this August invoice is $783. Not found: first-visit ask that names 19227, and no request .eml on disk. Write-off \u2014 missing a named client ask file. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Hector Melchor 2026-08-03 named 19227 Torrione 3 lifts; this August invoice is $783. Not found: first-visit ask that names 19227, and no request .eml on disk. Write-off — missing a named client ask file. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -930,7 +933,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00438 open $522.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00438 open $522.00 · -11 days past due."
       }
     ],
     "balance": 522,
@@ -950,7 +953,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00438 open $522.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00438 open $522.00 · -11 days past due."
       }
     ],
     "hyphen_status": null,
@@ -959,7 +962,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-04",
     "packet": "hold",
-    "chase_analysis": "Found: Hector Melchor 2026-08-03 named 19231 Torrione 2 lifts; this August invoice is $522. Not found: first-visit ask that names 19231, and no request .eml on disk. Write-off \u2014 missing a named client ask file. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Hector Melchor 2026-08-03 named 19231 Torrione 2 lifts; this August invoice is $522. Not found: first-visit ask that names 19231, and no request .eml on disk. Write-off — missing a named client ask file. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -989,7 +992,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00425 open $783.00 \u00b7 -12 days past due."
+        "what": "CTL-26-00425 open $783.00 · -12 days past due."
       }
     ],
     "balance": 783,
@@ -1004,7 +1007,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00425 open $783.00 \u00b7 -12 days past due."
+        "what": "CTL-26-00425 open $783.00 · -12 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -1046,7 +1049,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00502 open $783.00 \u00b7 -12 days past due."
+        "what": "CTL-26-00502 open $783.00 · -12 days past due."
       }
     ],
     "balance": 783,
@@ -1061,7 +1064,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00502 open $783.00 \u00b7 -12 days past due."
+        "what": "CTL-26-00502 open $783.00 · -12 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -1103,7 +1106,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00543 open $783.00 \u00b7 -12 days past due."
+        "what": "CTL-26-00543 open $783.00 · -12 days past due."
       }
     ],
     "balance": 783,
@@ -1118,7 +1121,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00543 open $783.00 \u00b7 -12 days past due."
+        "what": "CTL-26-00543 open $783.00 · -12 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -1170,7 +1173,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0619-172720 open $783.00 \u00b7 36 days past due.",
+        "what": "0619-172720 open $783.00 · 36 days past due.",
         "today": true
       }
     ],
@@ -1200,7 +1203,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0619-172720 open $783.00 \u00b7 36 days past due.",
+        "what": "0619-172720 open $783.00 · 36 days past due.",
         "today": true
       }
     ],
@@ -1213,7 +1216,7 @@ window.DATA = [
     "dueDate": "2026-07-19",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "ryan_kkdirt 2026-06-13 10:06 AM CT asked Ryan/Joe for 19054 and 19058 Style, 3 lifts each, Enclave at Spring Branch; Ryan 6/15 added. Neighbor 19058 Style paid 0619-172723 / PO 2447559-000 check 1319014 2026-07-27 $783 \u2014 different house, research only. Payments CSV has no row at 19054 Style. One named ask. Looked in mail; No PO.",
+    "chase_analysis": "ryan_kkdirt 2026-06-13 10:06 AM CT asked Ryan/Joe for 19054 and 19058 Style, 3 lifts each, Enclave at Spring Branch; Ryan 6/15 added. Neighbor 19058 Style paid 0619-172723 / PO 2447559-000 check 1319014 2026-07-27 $783 — different house, research only. Payments CSV has no row at 19054 Style. One named ask. Looked in mail; No PO.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "mary.king@lennar.com",
@@ -1222,7 +1225,7 @@ window.DATA = [
     "daysPastDue": 36,
     "builder_order_number": null,
     "totalAmt": 783,
-    "chase_subject": "PO needed \u00b7 19054 Style \u00b7 0619-172720 \u00b7 36 days past due",
+    "chase_subject": "PO needed · 19054 Style · 0619-172720 · 36 days past due",
     "chase_letter": "We performed the work at 19054 Style and issued invoice 0619-172720 for $783. This has been 36 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "19054 Style",
     "mail": "not_sent",
@@ -1232,7 +1235,8 @@ window.DATA = [
     "workup_attachments_note": "Graph: ryan_kkdirt 2026-06-13 19054 and 19058 style. Montana 6/30 PO-released note is on the Barrichello/19058 report thread, not a 19054 Hyphen row. No ask file on disk.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0619-172720"
+    "docNumber": "0619-172720",
+    "chase_letter_close": "If you have any questions or concerns about the work at 19054 Style, the $783 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 49,
@@ -1271,7 +1275,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0706-173582 open $783.00 \u00b7 19 days past due.",
+        "what": "0706-173582 open $783.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -1324,7 +1328,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0706-173582 open $783.00 \u00b7 19 days past due.",
+        "what": "0706-173582 open $783.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -1367,7 +1371,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00591 open $522.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00591 open $522.00 · -18 days past due."
       }
     ],
     "balance": 522,
@@ -1382,7 +1386,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00591 open $522.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00591 open $522.00 · -18 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -1424,7 +1428,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00592 open $522.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00592 open $522.00 · -18 days past due."
       }
     ],
     "balance": 522,
@@ -1439,7 +1443,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00592 open $522.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00592 open $522.00 · -18 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -1491,7 +1495,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00593 open $522.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00593 open $522.00 · -20 days past due."
       }
     ],
     "balance": 522,
@@ -1524,7 +1528,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00593 open $522.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00593 open $522.00 · -20 days past due."
       }
     ],
     "hyphen_status": null,
@@ -1533,7 +1537,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-13",
     "packet": "complete",
-    "chase_analysis": "Ryan Potter 2026-08-07 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 17205587-000 at 19043 Style Drive , Conroe, TX 77306 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Ryan Potter 2026-08-07 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 17205587-000 at 19043 Style Drive , Conroe, TX 77306 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -1563,7 +1567,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00595 open $1,044.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00595 open $1,044.00 · -17 days past due."
       }
     ],
     "balance": 1044,
@@ -1578,7 +1582,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00595 open $1,044.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00595 open $1,044.00 · -17 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -1620,7 +1624,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00596 open $1,044.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00596 open $1,044.00 · -17 days past due."
       }
     ],
     "balance": 1044,
@@ -1635,7 +1639,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00596 open $1,044.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00596 open $1,044.00 · -17 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -1677,7 +1681,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00597 open $1,044.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00597 open $1,044.00 · -17 days past due."
       }
     ],
     "balance": 1044,
@@ -1692,7 +1696,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00597 open $1,044.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00597 open $1,044.00 · -17 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -1734,7 +1738,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00599 open $1,044.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00599 open $1,044.00 · -18 days past due."
       }
     ],
     "balance": 1044,
@@ -1749,7 +1753,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00599 open $1,044.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00599 open $1,044.00 · -18 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -1811,7 +1815,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0506-171310 open $261.00 \u00b7 80 days past due.",
+        "what": "0506-171310 open $261.00 · 80 days past due.",
         "today": true
       }
     ],
@@ -1847,7 +1851,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0506-171310 open $261.00 \u00b7 80 days past due.",
+        "what": "0506-171310 open $261.00 · 80 days past due.",
         "today": true
       }
     ],
@@ -1873,7 +1877,7 @@ window.DATA = [
     "daysPastDue": 80,
     "builder_order_number": "90007977-000",
     "totalAmt": 522,
-    "chase_subject": "EPO needed \u00b7 1220 Charlotte Way \u00b7 0506-171310 \u00b7 80 days past due",
+    "chase_subject": "EPO needed · 1220 Charlotte Way · 0506-171310 · 80 days past due",
     "hyphen_notes": "[5/4/2026] Lennar Homes LLC - Lennar - Houston Operations: Note Received: Compaction test\n[5/14/2026] Maria Lerma: Note Sent: 0506-171310 522.00 2 lifts",
     "chase_letter": "We tested and reported two compaction lifts at 1220 Charlotte Way. Invoice 0506-171310 billed $522. Lennar paid check 1255333 $261 on 5/18/2026 on PO 90007977-000, which covers one lift. The paid PO is exhausted. $261 remains open for the second lift. Please issue an EPO for the remaining unpaid lift.",
     "service_address": "1220 Charlotte Way",
@@ -1911,7 +1915,8 @@ window.DATA = [
     "leftover_flag": false,
     "notes_plain": "5/4/2026 | Lennar Homes LLC - Lennar - Houston Operations | Note Received | Compaction test\n5/14/2026 | Maria Lerma | Note Sent | 0506-171310 522.00 2 lifts",
     "notes_empty": false,
-    "notes_scraped_at_ct": "2026-08-24 06:58:55 CT"
+    "notes_scraped_at_ct": "2026-08-24 06:58:55 CT",
+    "chase_letter_close": "If you have any questions or concerns about the work at 1220 Charlotte Way, the $522 invoice, or the remaining $261 / EPO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 24,
@@ -1930,7 +1935,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00330-R2 open $872.00 \u00b7 -6 days past due."
+        "what": "CTL-26-00330-R2 open $872.00 · -6 days past due."
       }
     ],
     "balance": 872,
@@ -1954,7 +1959,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00330-R2 open $872.00 \u00b7 -6 days past due."
+        "what": "CTL-26-00330-R2 open $872.00 · -6 days past due."
       }
     ],
     "hyphen_status": null,
@@ -1963,7 +1968,7 @@ window.DATA = [
     "open_balance": 872,
     "dueDate": "2026-08-30",
     "packet": "complete",
-    "chase_analysis": "Cesar Tijerina 2026-07-29 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 19940921-000 at 172 Cotton Cove, Snook, TX 77879 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Cesar Tijerina 2026-07-29 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 19940921-000 at 172 Cotton Cove, Snook, TX 77879 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -1993,7 +1998,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00589 open $522.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00589 open $522.00 · -18 days past due."
       }
     ],
     "balance": 522,
@@ -2008,7 +2013,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00589 open $522.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00589 open $522.00 · -18 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -2050,7 +2055,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00590 open $522.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00590 open $522.00 · -18 days past due."
       }
     ],
     "balance": 522,
@@ -2065,7 +2070,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00590 open $522.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00590 open $522.00 · -18 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -2122,7 +2127,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0707-173694 open $250.00 \u00b7 12 days past due.",
+        "what": "0707-173694 open $250.00 · 12 days past due.",
         "today": true
       }
     ],
@@ -2161,7 +2166,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0707-173694 open $250.00 \u00b7 12 days past due.",
+        "what": "0707-173694 open $250.00 · 12 days past due.",
         "today": true
       }
     ],
@@ -2174,7 +2179,7 @@ window.DATA = [
     "dueDate": "2026-08-12",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "complete",
-    "chase_analysis": "Anthony Lamas 2026-07-01 1:41 PM CT asked Ryan to schedule 27221 Hazel Grove compaction Tue 7/7; Joe added. Maria billed this $250 as Dry Run (pad not ready). Anthony 2026-07-09 9:53 AM CT asked again once the pad was complete; that later compaction is paid 0710-173908 / PO 5510322-000 check 1325381 2026-08-03 $522 at the same house \u2014 research only, not this invoice. This invoice is the dry-run, not a second compaction of the same service. Looked in mail; no Hyphen PO on the dry-run, so No PO.",
+    "chase_analysis": "Anthony Lamas 2026-07-01 1:41 PM CT asked Ryan to schedule 27221 Hazel Grove compaction Tue 7/7; Joe added. Maria billed this $250 as Dry Run (pad not ready). Anthony 2026-07-09 9:53 AM CT asked again once the pad was complete; that later compaction is paid 0710-173908 / PO 5510322-000 check 1325381 2026-08-03 $522 at the same house — research only, not this invoice. This invoice is the dry-run, not a second compaction of the same service. Looked in mail; no Hyphen PO on the dry-run, so No PO.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "mary.king@lennar.com",
@@ -2183,7 +2188,7 @@ window.DATA = [
     "daysPastDue": 12,
     "builder_order_number": null,
     "totalAmt": 250,
-    "chase_subject": "PO needed \u00b7 27221 Hazel Grove \u00b7 0707-173694 \u00b7 12 days past due",
+    "chase_subject": "PO needed · 27221 Hazel Grove · 0707-173694 · 12 days past due",
     "chase_letter": "We performed the work at 27221 Hazel Grove and issued invoice 0707-173694 for $250. This has been 12 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "27221 Hazel Grove",
     "mail": "not_sent",
@@ -2193,7 +2198,8 @@ window.DATA = [
     "workup_attachments_note": "Graph: Anthony 2026-07-01 and 2026-07-09 schedule emails (no attachments). Maria 7/14/7/20 dry-run / report thread. No .eml on disk.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0707-173694"
+    "docNumber": "0707-173694",
+    "chase_letter_close": "If you have any questions or concerns about the work at 27221 Hazel Grove, the $250 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 17,
@@ -2207,7 +2213,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00552 open $522.00 \u00b7 -13 days past due."
+        "what": "CTL-26-00552 open $522.00 · -13 days past due."
       }
     ],
     "balance": 522,
@@ -2222,7 +2228,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00552 open $522.00 \u00b7 -13 days past due."
+        "what": "CTL-26-00552 open $522.00 · -13 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -2269,7 +2275,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00637 open $522.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00637 open $522.00 · -20 days past due."
       }
     ],
     "balance": 522,
@@ -2293,7 +2299,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00637 open $522.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00637 open $522.00 · -20 days past due."
       }
     ],
     "hyphen_status": null,
@@ -2302,7 +2308,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-13",
     "packet": "complete",
-    "chase_analysis": "Jared Davis 2026-08-12 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 22500337-000 at 629 Old Mining Lane, Friendswood, TX 77546 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Jared Davis 2026-08-12 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 22500337-000 at 629 Old Mining Lane, Friendswood, TX 77546 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -2332,7 +2338,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00618 open $522.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00618 open $522.00 · -19 days past due."
       }
     ],
     "balance": 522,
@@ -2347,7 +2353,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00618 open $522.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00618 open $522.00 · -19 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -2389,7 +2395,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00619 open $522.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00619 open $522.00 · -19 days past due."
       }
     ],
     "balance": 522,
@@ -2404,7 +2410,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00619 open $522.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00619 open $522.00 · -19 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -2446,7 +2452,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00620 open $522.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00620 open $522.00 · -19 days past due."
       }
     ],
     "balance": 522,
@@ -2461,7 +2467,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00620 open $522.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00620 open $522.00 · -19 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -2503,7 +2509,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00473 open $522.00 \u00b7 -13 days past due."
+        "what": "CTL-26-00473 open $522.00 · -13 days past due."
       }
     ],
     "balance": 522,
@@ -2523,7 +2529,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00473 open $522.00 \u00b7 -13 days past due."
+        "what": "CTL-26-00473 open $522.00 · -13 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -2605,7 +2611,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0430-171079 open $261.00 \u00b7 86 days past due.",
+        "what": "0430-171079 open $261.00 · 86 days past due.",
         "today": true
       }
     ],
@@ -2668,7 +2674,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0430-171079 open $261.00 \u00b7 86 days past due.",
+        "what": "0430-171079 open $261.00 · 86 days past due.",
         "today": true
       }
     ],
@@ -2736,7 +2742,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0430-171077 open $349.00 \u00b7 82 days past due.",
+        "what": "0430-171077 open $349.00 · 82 days past due.",
         "today": true
       }
     ],
@@ -2789,7 +2795,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0430-171077 open $349.00 \u00b7 82 days past due.",
+        "what": "0430-171077 open $349.00 · 82 days past due.",
         "today": true
       }
     ],
@@ -2814,7 +2820,7 @@ window.DATA = [
     "daysPastDue": 82,
     "builder_order_number": "89685762-000",
     "totalAmt": 871,
-    "chase_subject": "EPO needed \u00b7 11935 Noble Wood \u00b7 0430-171077 \u00b7 82 days past due",
+    "chase_subject": "EPO needed · 11935 Noble Wood · 0430-171077 · 82 days past due",
     "hyphen_notes": "[5/7/2026] Maria Lerma: Note Sent: 0430-171077 349.00 Proctor and PI 2 lifts 522.00\n[5/14/2026] Maria Lerma: Note Sent: 0505-171251 261.00 1 lift\n[5/14/2026] Maria Lerma: Note Sent: 0505-171251 Retest",
     "chase_letter": "We performed compaction plus Proctor and PI at 11935 Noble Wood and billed invoice 0430-171077 for $871. Lennar paid $522 on check 1255333 (5/18/2026) on PO 89685762-000 for the lifts. The remaining $349 is the Proctor and PI. Please issue an EPO for the leftover Proctor/PI.",
     "service_address": "11935 Noble Wood",
@@ -2852,7 +2858,8 @@ window.DATA = [
     "leftover_flag": false,
     "notes_plain": "5/7/2026 | Maria Lerma | Note Sent | 0430-171077 349.00 Proctor and PI 2 lifts 522.00\n5/14/2026 | Maria Lerma | Note Sent | 0505-171251 261.00 1 lift\n5/14/2026 | Maria Lerma | Note Sent | 0505-171251 Retest",
     "notes_empty": false,
-    "notes_scraped_at_ct": "2026-08-24 06:58:55 CT"
+    "notes_scraped_at_ct": "2026-08-24 06:58:55 CT",
+    "chase_letter_close": "If you have any questions or concerns about the work at 11935 Noble Wood, the $871 invoice, or the remaining $349 / EPO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 111,
@@ -2881,7 +2888,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0505-171249 open $261.00 \u00b7 81 days past due."
+        "what": "0505-171249 open $261.00 · 81 days past due."
       }
     ],
     "balance": 261,
@@ -2911,7 +2918,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0505-171249 open $261.00 \u00b7 81 days past due."
+        "what": "0505-171249 open $261.00 · 81 days past due."
       }
     ],
     "hyphen_status": null,
@@ -2920,7 +2927,7 @@ window.DATA = [
     "open_balance": 261,
     "dueDate": "2026-06-04",
     "packet": "hold",
-    "chase_analysis": "Found: Brandi Cook 2026-04-29 asked 11946 Noble Wood and Brandi 2026-05-04 asked the retest. Not found: request .eml on disk for either client ask. Write-off \u2014 missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Brandi Cook 2026-04-29 asked 11946 Noble Wood and Brandi 2026-05-04 asked the retest. Not found: request .eml on disk for either client ask. Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -2970,7 +2977,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0505-171250 open $261.00 \u00b7 81 days past due."
+        "what": "0505-171250 open $261.00 · 81 days past due."
       }
     ],
     "balance": 261,
@@ -3005,7 +3012,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0505-171250 open $261.00 \u00b7 81 days past due."
+        "what": "0505-171250 open $261.00 · 81 days past due."
       }
     ],
     "hyphen_status": null,
@@ -3014,7 +3021,7 @@ window.DATA = [
     "open_balance": 261,
     "dueDate": "2026-06-04",
     "packet": "hold",
-    "chase_analysis": "Found: Brandi 2026-04-29 + 2026-05-04 retest thread at 11942 Noble Wood; first visit paid 0430-171078 / PO 86520786-000 check 1255333 $261. Not found: request .eml on disk. Write-off \u2014 missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Brandi 2026-04-29 + 2026-05-04 retest thread at 11942 Noble Wood; first visit paid 0430-171078 / PO 86520786-000 check 1255333 $261. Not found: request .eml on disk. Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -3064,7 +3071,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0505-171251 open $261.00 \u00b7 81 days past due."
+        "what": "0505-171251 open $261.00 · 81 days past due."
       }
     ],
     "balance": 261,
@@ -3099,7 +3106,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0505-171251 open $261.00 \u00b7 81 days past due."
+        "what": "0505-171251 open $261.00 · 81 days past due."
       }
     ],
     "hyphen_status": null,
@@ -3108,7 +3115,7 @@ window.DATA = [
     "open_balance": 261,
     "dueDate": "2026-06-04",
     "packet": "hold",
-    "chase_analysis": "Found: same Brandi 2026-04-29 + 2026-05-04 thread at 11935 Noble Wood. Not found: request .eml on disk. Write-off \u2014 missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: same Brandi 2026-04-29 + 2026-05-04 thread at 11935 Noble Wood. Not found: request .eml on disk. Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -3158,7 +3165,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0623-173021 open $783.00 \u00b7 32 days past due.",
+        "what": "0623-173021 open $783.00 · 32 days past due.",
         "today": true
       }
     ],
@@ -3202,7 +3209,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0623-173021 open $783.00 \u00b7 32 days past due.",
+        "what": "0623-173021 open $783.00 · 32 days past due.",
         "today": true
       }
     ],
@@ -3250,7 +3257,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00639 open $261.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00639 open $261.00 · -20 days past due."
       }
     ],
     "balance": 261,
@@ -3274,7 +3281,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00639 open $261.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00639 open $261.00 · -20 days past due."
       }
     ],
     "hyphen_status": null,
@@ -3283,7 +3290,7 @@ window.DATA = [
     "open_balance": 261,
     "dueDate": "2026-09-13",
     "packet": "complete",
-    "chase_analysis": "Brandi Cook 2026-08-12 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20349952-000 at 11652 Lazy Oak Creek Drive , Magnolia, TX 77354 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Brandi Cook 2026-08-12 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20349952-000 at 11652 Lazy Oak Creek Drive , Magnolia, TX 77354 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -3318,7 +3325,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00640 open $522.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00640 open $522.00 · -20 days past due."
       }
     ],
     "balance": 522,
@@ -3342,7 +3349,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00640 open $522.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00640 open $522.00 · -20 days past due."
       }
     ],
     "hyphen_status": null,
@@ -3351,7 +3358,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-13",
     "packet": "complete",
-    "chase_analysis": "Brandi Cook 2026-08-12 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20348554-000 at 11878 Noble Wood Village Dr , Magnolia, TX 77354 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Brandi Cook 2026-08-12 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20348554-000 at 11878 Noble Wood Village Dr , Magnolia, TX 77354 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -3391,7 +3398,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00575 open $522.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00575 open $522.00 · -18 days past due."
       }
     ],
     "balance": 522,
@@ -3424,7 +3431,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00575 open $522.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00575 open $522.00 · -18 days past due."
       }
     ],
     "hyphen_status": null,
@@ -3483,7 +3490,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0504-171210 open $522.00 \u00b7 82 days past due."
+        "what": "0504-171210 open $522.00 · 82 days past due."
       }
     ],
     "balance": 522,
@@ -3518,7 +3525,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0504-171210 open $522.00 \u00b7 82 days past due."
+        "what": "0504-171210 open $522.00 · 82 days past due."
       }
     ],
     "hyphen_status": null,
@@ -3527,7 +3534,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-06-03",
     "packet": "hold",
-    "chase_analysis": "Found: Jason Wagner 2026-04-28 and 2026-05-04 asked 4228 Centennial Ridge; first visit paid 0429-171027 / PO 86443856-000 check 1255333 $522. Not found: request .eml on disk (Graph asks have no attachments). Write-off \u2014 missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Jason Wagner 2026-04-28 and 2026-05-04 asked 4228 Centennial Ridge; first visit paid 0429-171027 / PO 86443856-000 check 1255333 $522. Not found: request .eml on disk (Graph asks have no attachments). Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -3582,7 +3589,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0504-171213 open $522.00 \u00b7 75 days past due."
+        "what": "0504-171213 open $522.00 · 75 days past due."
       }
     ],
     "balance": 522,
@@ -3622,7 +3629,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0504-171213 open $522.00 \u00b7 75 days past due."
+        "what": "0504-171213 open $522.00 · 75 days past due."
       }
     ],
     "hyphen_status": null,
@@ -3631,7 +3638,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-06-10",
     "packet": "hold",
-    "chase_analysis": "Found: same Jason 2026-04-28 + 2026-05-04 pair at 4304 Centennial Ridge; first visit paid 0429-171029 / PO 86442263-000 check 1255333 $522. Not found: request .eml on disk. Write-off \u2014 missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: same Jason 2026-04-28 + 2026-05-04 pair at 4304 Centennial Ridge; first visit paid 0429-171029 / PO 86442263-000 check 1255333 $522. Not found: request .eml on disk. Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -3681,7 +3688,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0708-173802 open $522.00 \u00b7 12 days past due."
+        "what": "0708-173802 open $522.00 · 12 days past due."
       }
     ],
     "balance": 522,
@@ -3716,7 +3723,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0708-173802 open $522.00 \u00b7 12 days past due."
+        "what": "0708-173802 open $522.00 · 12 days past due."
       }
     ],
     "hyphen_status": null,
@@ -3725,7 +3732,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-08-12",
     "packet": "hold",
-    "chase_analysis": "Found: Derek Stauffer 2026-06-29 and Jason Wagner 2026-07-08 asked 2623 Enchanted Maple; first visit paid 0706-173512 / PO 8788602-000 check 1319014 $522. Not found: request .eml on disk. Write-off \u2014 missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Derek Stauffer 2026-06-29 and Jason Wagner 2026-07-08 asked 2623 Enchanted Maple; first visit paid 0706-173512 / PO 8788602-000 check 1319014 $522. Not found: request .eml on disk. Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -3755,7 +3762,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00612 open $522.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00612 open $522.00 · -18 days past due."
       }
     ],
     "balance": 522,
@@ -3770,7 +3777,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00612 open $522.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00612 open $522.00 · -18 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -3812,7 +3819,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00601 open $522.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00601 open $522.00 · -19 days past due."
       }
     ],
     "balance": 522,
@@ -3827,7 +3834,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00601 open $522.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00601 open $522.00 · -19 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -3889,7 +3896,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0610-172435 open $1,044.00 \u00b7 45 days past due.",
+        "what": "0610-172435 open $1,044.00 · 45 days past due.",
         "today": true
       }
     ],
@@ -3937,7 +3944,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0610-172435 open $1,044.00 \u00b7 45 days past due.",
+        "what": "0610-172435 open $1,044.00 · 45 days past due.",
         "today": true
       }
     ],
@@ -4000,7 +4007,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0713-174021 open $783.00 \u00b7 12 days past due.",
+        "what": "0713-174021 open $783.00 · 12 days past due.",
         "today": true
       }
     ],
@@ -4048,7 +4055,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0713-174021 open $783.00 \u00b7 12 days past due.",
+        "what": "0713-174021 open $783.00 · 12 days past due.",
         "today": true
       }
     ],
@@ -4091,7 +4098,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00447 open $783.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00447 open $783.00 · -11 days past due."
       }
     ],
     "balance": 783,
@@ -4106,7 +4113,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00447 open $783.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00447 open $783.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -4148,7 +4155,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00448 open $783.00 \u00b7 -12 days past due."
+        "what": "CTL-26-00448 open $783.00 · -12 days past due."
       }
     ],
     "balance": 783,
@@ -4163,7 +4170,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00448 open $783.00 \u00b7 -12 days past due."
+        "what": "CTL-26-00448 open $783.00 · -12 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -4205,7 +4212,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00162 open $1,044.00 \u00b7 -2 days past due."
+        "what": "CTL-26-00162 open $1,044.00 · -2 days past due."
       }
     ],
     "balance": 1044,
@@ -4220,7 +4227,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00162 open $1,044.00 \u00b7 -2 days past due."
+        "what": "CTL-26-00162 open $1,044.00 · -2 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -4262,7 +4269,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00428 open $1,044.00 \u00b7 -10 days past due."
+        "what": "CTL-26-00428 open $1,044.00 · -10 days past due."
       }
     ],
     "balance": 1044,
@@ -4277,7 +4284,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00428 open $1,044.00 \u00b7 -10 days past due."
+        "what": "CTL-26-00428 open $1,044.00 · -10 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -4319,7 +4326,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00499 open $1,044.00 \u00b7 -12 days past due."
+        "what": "CTL-26-00499 open $1,044.00 · -12 days past due."
       }
     ],
     "balance": 1044,
@@ -4334,7 +4341,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00499 open $1,044.00 \u00b7 -12 days past due."
+        "what": "CTL-26-00499 open $1,044.00 · -12 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -4376,7 +4383,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00500 open $1,044.00 \u00b7 -16 days past due."
+        "what": "CTL-26-00500 open $1,044.00 · -16 days past due."
       }
     ],
     "balance": 1044,
@@ -4391,7 +4398,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00500 open $1,044.00 \u00b7 -16 days past due."
+        "what": "CTL-26-00500 open $1,044.00 · -16 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -4433,7 +4440,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00501 open $1,044.00 \u00b7 -16 days past due."
+        "what": "CTL-26-00501 open $1,044.00 · -16 days past due."
       }
     ],
     "balance": 1044,
@@ -4448,7 +4455,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00501 open $1,044.00 \u00b7 -16 days past due."
+        "what": "CTL-26-00501 open $1,044.00 · -16 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -4490,7 +4497,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00489 open $522.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00489 open $522.00 · -19 days past due."
       }
     ],
     "balance": 522,
@@ -4505,7 +4512,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00489 open $522.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00489 open $522.00 · -19 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -4567,7 +4574,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0518-171733 open $349.00 \u00b7 68 days past due.",
+        "what": "0518-171733 open $349.00 · 68 days past due.",
         "today": true
       }
     ],
@@ -4611,7 +4618,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0518-171733 open $349.00 \u00b7 68 days past due.",
+        "what": "0518-171733 open $349.00 · 68 days past due.",
         "today": true
       }
     ],
@@ -4635,7 +4642,7 @@ window.DATA = [
     "daysPastDue": 68,
     "builder_order_number": "87800771-000",
     "totalAmt": 871,
-    "chase_subject": "EPO needed \u00b7 31519 San Floro \u00b7 0518-171733 \u00b7 68 days past due",
+    "chase_subject": "EPO needed · 31519 San Floro · 0518-171733 · 68 days past due",
     "hyphen_notes": "[5/27/2026] Maria Lerma: Note Sent: 0518-171733 349.00 Proctor 522.00 2 lifts Total Due 871.00",
     "chase_letter": "We performed compaction plus Proctor and PI at 31519 San Floro and billed invoice 0518-171733 for $871. Lennar paid $522 on check 1286405 (6/22/2026) on PO 87800771-000 for the lifts. The remaining $349 is the Proctor and PI. Please issue an EPO for the leftover Proctor/PI.",
     "service_address": "31519 San Floro",
@@ -4651,7 +4658,8 @@ window.DATA = [
     "leftover_flag": false,
     "notes_plain": "5/27/2026 | Maria Lerma | Note Sent | 0518-171733 349.00 Proctor 522.00 2 lifts Total Due 871.00",
     "notes_empty": false,
-    "notes_scraped_at_ct": "2026-08-24 06:58:55 CT"
+    "notes_scraped_at_ct": "2026-08-24 06:58:55 CT",
+    "chase_letter_close": "If you have any questions or concerns about the work at 31519 San Floro, the $871 invoice, or the remaining $349 / EPO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 98,
@@ -4680,7 +4688,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0518-171744 open $1.87 \u00b7 68 days past due."
+        "what": "0518-171744 open $1.87 · 68 days past due."
       }
     ],
     "balance": 1.87,
@@ -4714,7 +4722,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0518-171744 open $1.87 \u00b7 68 days past due."
+        "what": "0518-171744 open $1.87 · 68 days past due."
       }
     ],
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
@@ -4737,7 +4745,7 @@ window.DATA = [
     "totalAmt": 871,
     "chase_subject": "",
     "hyphen_notes": "[5/27/2026] Maria Lerma: Note Sent: 0518-171744 349.00 Proctor 522.00 2 lifts Total Due 871.00\n[6/2/2026] Lennar Homes LLC - Lennar - Houston Operations: Note Received: Wrong",
-    "chase_letter": "Do not send a builder letter. Amount off \u2014 nothing named they must issue. Packet stays Hold.",
+    "chase_letter": "Do not send a builder letter. Amount off — nothing named they must issue. Packet stays Hold.",
     "service_address": "1040 Moss Vista Lane",
     "mail": "not_sent",
     "hyphen_order_id": "376249634",
@@ -4751,7 +4759,8 @@ window.DATA = [
     "leftover_flag": false,
     "notes_plain": "5/27/2026 | Maria Lerma | Note Sent | 0518-171744 349.00 Proctor 522.00 2 lifts Total Due 871.00\n6/2/2026 | Lennar Homes LLC - Lennar - Houston Operations | Note Received | Wrong",
     "notes_empty": false,
-    "notes_scraped_at_ct": "2026-08-24 06:58:55 CT"
+    "notes_scraped_at_ct": "2026-08-24 06:58:55 CT",
+    "chase_letter_close": "If you have any questions or concerns about the work at 1040 Moss Vista Lane, the $871 invoice, or the correction, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 90,
@@ -4780,7 +4789,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0526-171916 open $522.00 \u00b7 60 days past due."
+        "what": "0526-171916 open $522.00 · 60 days past due."
       }
     ],
     "balance": 522,
@@ -4810,7 +4819,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0526-171916 open $522.00 \u00b7 60 days past due."
+        "what": "0526-171916 open $522.00 · 60 days past due."
       }
     ],
     "hyphen_status": null,
@@ -4819,7 +4828,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-06-25",
     "packet": "hold",
-    "chase_analysis": "Found: Brandi Cook 2026-05-17 asked two lifts at 2116 Hidden Hills; first visit paid 0518-171750 / PO 91601169-000 check 1274186 $522. Not found: second client schedule ask / request .eml (Brandi 5/22 is a status check). Write-off \u2014 missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Brandi Cook 2026-05-17 asked two lifts at 2116 Hidden Hills; first visit paid 0518-171750 / PO 91601169-000 check 1274186 $522. Not found: second client schedule ask / request .eml (Brandi 5/22 is a status check). Write-off — missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -4864,7 +4873,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0526-171918 open $522.00 \u00b7 60 days past due."
+        "what": "0526-171918 open $522.00 · 60 days past due."
       }
     ],
     "balance": 522,
@@ -4894,7 +4903,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0526-171918 open $522.00 \u00b7 60 days past due."
+        "what": "0526-171918 open $522.00 · 60 days past due."
       }
     ],
     "hyphen_status": null,
@@ -4903,7 +4912,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-06-25",
     "packet": "hold",
-    "chase_analysis": "Found: Brandi 2026-05-17 first ask at 2120 Hidden Hills; first visit paid 0518-171759 / PO 91599759-000 check 1274186 $522. Not found: Friday client retest ask / request .eml (Brandi 5/22 and Kenny 5/26 are status). Write-off \u2014 missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Brandi 2026-05-17 first ask at 2120 Hidden Hills; first visit paid 0518-171759 / PO 91599759-000 check 1274186 $522. Not found: Friday client retest ask / request .eml (Brandi 5/22 and Kenny 5/26 are status). Write-off — missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -4962,7 +4971,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00522 open $522.00 \u00b7 -16 days past due."
+        "what": "CTL-26-00522 open $522.00 · -16 days past due."
       }
     ],
     "balance": 522,
@@ -4977,7 +4986,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00522 open $522.00 \u00b7 -16 days past due."
+        "what": "CTL-26-00522 open $522.00 · -16 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -5019,7 +5028,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00580 open $522.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00580 open $522.00 · -17 days past due."
       }
     ],
     "balance": 522,
@@ -5034,7 +5043,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00580 open $522.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00580 open $522.00 · -17 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -5076,7 +5085,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00626 open $522.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00626 open $522.00 · -19 days past due."
       }
     ],
     "balance": 522,
@@ -5091,7 +5100,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00626 open $522.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00626 open $522.00 · -19 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -5168,7 +5177,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "179586 open $261.00 \u00b7 159 days past due.",
+        "what": "179586 open $261.00 · 159 days past due.",
         "today": true
       }
     ],
@@ -5220,7 +5229,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "179586 open $261.00 \u00b7 159 days past due.",
+        "what": "179586 open $261.00 · 159 days past due.",
         "today": true
       }
     ],
@@ -5238,7 +5247,7 @@ window.DATA = [
     "dueDate": "2026-03-18",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "complete",
-    "chase_analysis": "Today's notes show we first wrote two lifts $522 against billed $783; later corrected to three lifts $783. They paid $522 against the first number. Notes error. Awaiting last-sent 2026-08-17 11:39 CT \u2014 do not rewrite.",
+    "chase_analysis": "Today's notes show we first wrote two lifts $522 against billed $783; later corrected to three lifts $783. They paid $522 against the first number. Notes error. Awaiting last-sent 2026-08-17 11:39 CT — do not rewrite.",
     "chase_to_name": "Montana Grove",
     "chase_from_name": "Billings",
     "chase_to": "montana.grove@lennar.com",
@@ -5249,7 +5258,7 @@ window.DATA = [
     "daysPastDue": 159,
     "builder_order_number": "61893156-000",
     "totalAmt": 783,
-    "chase_subject": "EPO needed \u2014 179586 \u2014 11974 Hedley Court \u00b7 159 days past due",
+    "chase_subject": "EPO needed — 179586 — 11974 Hedley Court · 159 days past due",
     "hyphen_notes": "[3/11/2026] Maria Lerma: Note Sent: 179586 2 lifts 522.00\n[3/24/2026] Esmeralda Cantu: Note Sent: 179586 2 lifts 522.00\n[3/24/2026] Esmeralda Cantu: Note Sent: Correction 179586 3 lifts 783.00\n[4/10/2026] Esmeralda Cantu: Note Sent: Correction 179586 3 lifts 783.00 please issue epo for short paid lift 1 261.00",
     "chase_letter": "We originally uploaded the wrong notes into Hyphen on PO 61893156-000 for the work at 11974 Hedley Court. The first note, entered March 11, said two lifts for $522. That was our error, and we apologize. Those incorrect notes caused the underpayment: Lennar paid $522 on check 1217932 (April 6) against invoice 179586, which billed $783 for three lifts. We corrected the notes on March 24. The corrective notes now show three lifts for $783.\n\nThree lifts were performed at this address on February 10, and three separate reports were issued: 260210-61527 (1st lift), 260210-61528 (2nd lift), and 260210-61529 (3rd / final). Those reports were sent to you on March 5. After the $522 check, $261 remains open on invoice 179586. This has been 159 days past due. Please issue an EPO or supplemental purchase order for the remaining $261 so we can close the balance.\nMaria asked Montana Grove and Brian Maerz for an updated PO on May 13 and again on May 29. We have not received a reply. The Hyphen PO is still sitting at the original two-lift quantity / $522.",
     "service_address": "11974 Hedley Court",
@@ -5297,7 +5306,8 @@ window.DATA = [
     "notes_empty": false,
     "notes_scraped_at_ct": "2026-08-24 06:58:55 CT",
     "last_sent": "2026-08-17 11:39 CT",
-    "follow_up_due": "Thu 2026-08-20"
+    "follow_up_due": "Thu 2026-08-20",
+    "chase_letter_close": "If you have any questions or concerns about the work at 11974 Hedley Court, the $783 invoice, or the correction, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 189,
@@ -5351,7 +5361,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "179587 open $261.00 \u00b7 159 days past due.",
+        "what": "179587 open $261.00 · 159 days past due.",
         "today": true
       }
     ],
@@ -5408,7 +5418,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "179587 open $261.00 \u00b7 159 days past due.",
+        "what": "179587 open $261.00 · 159 days past due.",
         "today": true
       }
     ],
@@ -5426,7 +5436,7 @@ window.DATA = [
     "dueDate": "2026-03-18",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "Same first-note miss versus billed $783. Notes error. Awaiting last-sent 2026-08-17 13:09 CT \u2014 do not rewrite. Packet Hold on Inquiry files.",
+    "chase_analysis": "Same first-note miss versus billed $783. Notes error. Awaiting last-sent 2026-08-17 13:09 CT — do not rewrite. Packet Hold on Inquiry files.",
     "chase_to_name": "Montana Grove",
     "chase_from_name": "Billings",
     "chase_to": "montana.grove@lennar.com",
@@ -5437,7 +5447,7 @@ window.DATA = [
     "daysPastDue": 159,
     "builder_order_number": "61894458-000",
     "totalAmt": 783,
-    "chase_subject": "EPO needed \u2014 179587 \u2014 11975 Hedley Court \u00b7 159 days past due",
+    "chase_subject": "EPO needed — 179587 — 11975 Hedley Court · 159 days past due",
     "hyphen_notes": "[3/11/2026] Maria Lerma: Note Sent: 179587 2 lifts 522.00\n[3/24/2026] Esmeralda Cantu: Note Sent: Correction 179587 3 lifts 783.00",
     "chase_letter": "We originally uploaded the wrong notes into Hyphen on PO 61894458-000 for the work at 11975 Hedley Court. The first note, entered March 11, said two lifts for $522. That was our error, and we apologize. Those incorrect notes caused the underpayment: Lennar paid $522 on check 1205773 (March 23) against invoice 179587, which billed $783 for three lifts. We corrected the notes on March 24. The corrective notes now show three lifts for $783.\n\nThree lifts were performed at this address on February 10, and three separate reports were issued: 260210-61530 (1st lift), 260210-61531 (2nd lift), and 260210-61532 (3rd / final). Those reports were sent to you on March 5. After the $522 check, $261 remains open on invoice 179587. This has been 159 days past due. Please issue an EPO or supplemental purchase order for the remaining $261 on this house, 11975 Hedley Court, so we can close the balance.\nMaria asked for an updated PO on May 14 and again on May 29. William followed up on June 25, and Veronica asked again on July 16. That same day the reply was to add this lift to another address that still has an open PO. We need the leftover lift on 11975 Hedley itself. Moving it onto another lot would leave this invoice open and mix two houses.",
     "service_address": "11975 Hedley Court",
@@ -5475,7 +5485,7 @@ window.DATA = [
     "hyphen_order_id": "369242484",
     "scrape_as_of": "2026-08-19",
     "payments_stale": true,
-    "workup_attachments_note": "Shared Hedley packet: Ryan Potter 2/9 call-in names 11975 as three lifts; Esme 3/5 send plus 11975 PDFs in 179586-atts. 179586-draft-files Maria asks are 11974-titled. No separate 179587 invoice send on disk. 7:30 legal-draft miss: Inquiry rows 2026-05-14, 2026-05-29, and 2026-07-16 have no 11975 .eml on disk (Maria asks in 179586-draft-files are 11974-titled; no Montana 7/16 file). Packet held. Already sent 2026-08-17 \u2014 do not re-draft.",
+    "workup_attachments_note": "Shared Hedley packet: Ryan Potter 2/9 call-in names 11975 as three lifts; Esme 3/5 send plus 11975 PDFs in 179586-atts. 179586-draft-files Maria asks are 11974-titled. No separate 179587 invoice send on disk. 7:30 legal-draft miss: Inquiry rows 2026-05-14, 2026-05-29, and 2026-07-16 have no 11975 .eml on disk (Maria asks in 179586-draft-files are 11974-titled; no Montana 7/16 file). Packet held. Already sent 2026-08-17 — do not re-draft.",
     "check_amount": 522,
     "status": "partial",
     "docNumber": "179587",
@@ -5485,7 +5495,8 @@ window.DATA = [
     "notes_empty": false,
     "notes_scraped_at_ct": "2026-08-24 06:58:55 CT",
     "last_sent": "2026-08-17 13:09 CT",
-    "follow_up_due": "Thu 2026-08-20"
+    "follow_up_due": "Thu 2026-08-20",
+    "chase_letter_close": "If you have any questions or concerns about the work at 11975 Hedley Court, the $783 invoice, or the correction, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 75,
@@ -5504,7 +5515,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0610-172476 open $783.00 \u00b7 45 days past due.",
+        "what": "0610-172476 open $783.00 · 45 days past due.",
         "today": true
       }
     ],
@@ -5529,7 +5540,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0610-172476 open $783.00 \u00b7 45 days past due.",
+        "what": "0610-172476 open $783.00 · 45 days past due.",
         "today": true
       }
     ],
@@ -5542,7 +5553,7 @@ window.DATA = [
     "dueDate": "2026-07-10",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "Bikram (bikram_upreti2000@icloud.com) 2026-06-09 10:55 AM CT asked Ryan/Joe for 18592/18586/18580/18574 Barrichello \u2014 2 back + 3 front; Ryan added. This invoice is 3 lifts ($783) at 18580. Montana 6/30 wrote 'Po is released now' after asking for reports; payments CSV still has no row at 18580 Barrichello and found=false. One named ask, not two visits. Looked in mail; No PO.",
+    "chase_analysis": "Bikram (bikram_upreti2000@icloud.com) 2026-06-09 10:55 AM CT asked Ryan/Joe for 18592/18586/18580/18574 Barrichello — 2 back + 3 front; Ryan added. This invoice is 3 lifts ($783) at 18580. Montana 6/30 wrote 'Po is released now' after asking for reports; payments CSV still has no row at 18580 Barrichello and found=false. One named ask, not two visits. Looked in mail; No PO.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "mary.king@lennar.com",
@@ -5551,7 +5562,7 @@ window.DATA = [
     "daysPastDue": 45,
     "builder_order_number": null,
     "totalAmt": 783,
-    "chase_subject": "PO needed \u00b7 18580 Barrichello \u00b7 0610-172476 \u00b7 45 days past due",
+    "chase_subject": "PO needed · 18580 Barrichello · 0610-172476 · 45 days past due",
     "chase_letter": "We performed the work at 18580 Barrichello and issued invoice 0610-172476 for $783. This has been 45 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "18580 Barrichello",
     "mail": "not_sent",
@@ -5561,7 +5572,8 @@ window.DATA = [
     "workup_attachments_note": "Graph: Bikram 2026-06-09 Multiple addresses spring branch crossing. Montana 6/30 hasAttachments=true on a report thread, not a schedule-ask file for this invoice. No ask .eml on disk.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0610-172476"
+    "docNumber": "0610-172476",
+    "chase_letter_close": "If you have any questions or concerns about the work at 18580 Barrichello, the $783 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 49,
@@ -5580,7 +5592,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0706-173580 open $522.00 \u00b7 19 days past due.",
+        "what": "0706-173580 open $522.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -5605,7 +5617,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0706-173580 open $522.00 \u00b7 19 days past due.",
+        "what": "0706-173580 open $522.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -5627,7 +5639,7 @@ window.DATA = [
     "daysPastDue": 19,
     "builder_order_number": null,
     "totalAmt": 522,
-    "chase_subject": "PO needed \u00b7 15868 Barrichello \u00b7 0706-173580 \u00b7 19 days past due",
+    "chase_subject": "PO needed · 15868 Barrichello · 0706-173580 · 19 days past due",
     "chase_letter": "We performed the work at 15868 Barrichello and issued invoice 0706-173580 for $522. This has been 19 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "15868 Barrichello",
     "mail": "not_sent",
@@ -5637,7 +5649,8 @@ window.DATA = [
     "workup_attachments_note": "Graph: ryan_kkdirt 2026-07-02 15868 barrichello to ryan/joe. Veronica 7/15 missing-PO blast (community list). No ask file on disk.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0706-173580"
+    "docNumber": "0706-173580",
+    "chase_letter_close": "If you have any questions or concerns about the work at 15868 Barrichello, the $522 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 34,
@@ -5651,7 +5664,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00033 open $522.00 \u00b7 4 days past due."
+        "what": "CTL-26-00033 open $522.00 · 4 days past due."
       }
     ],
     "balance": 522,
@@ -5666,7 +5679,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00033 open $522.00 \u00b7 4 days past due."
+        "what": "CTL-26-00033 open $522.00 · 4 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -5723,7 +5736,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0619-172781 open $1,305.00 \u00b7 36 days past due.",
+        "what": "0619-172781 open $1,305.00 · 36 days past due.",
         "today": true
       }
     ],
@@ -5758,7 +5771,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0619-172781 open $1,305.00 \u00b7 36 days past due.",
+        "what": "0619-172781 open $1,305.00 · 36 days past due.",
         "today": true
       }
     ],
@@ -5771,7 +5784,7 @@ window.DATA = [
     "dueDate": "2026-07-19",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "Patrick McCoy 2026-06-10 8:44 AM CT asked Ryan to put 3036 Sunset on schedule tomorrow; when asked lifts he said he had no idea. Same-address research only: first invoice 0611-172551 / PO 99435610-000 check 1293044 2026-06-29 $783 (3 lifts) at 3036 Sunset Glory Drive. This open invoice is 5 lifts $1305 on that same BO. Graph has no second named schedule ask for additional lifts \u2014 Patrick 6/15 is a status/report check. Same-address is not a 2nd-callout tag. Looked in mail; No PO.",
+    "chase_analysis": "Patrick McCoy 2026-06-10 8:44 AM CT asked Ryan to put 3036 Sunset on schedule tomorrow; when asked lifts he said he had no idea. Same-address research only: first invoice 0611-172551 / PO 99435610-000 check 1293044 2026-06-29 $783 (3 lifts) at 3036 Sunset Glory Drive. This open invoice is 5 lifts $1305 on that same BO. Graph has no second named schedule ask for additional lifts — Patrick 6/15 is a status/report check. Same-address is not a 2nd-callout tag. Looked in mail; No PO.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": null,
@@ -5780,7 +5793,7 @@ window.DATA = [
     "daysPastDue": 36,
     "builder_order_number": null,
     "totalAmt": 1305,
-    "chase_subject": "PO needed \u00b7 3036 Sunset Glory Dr \u00b7 0619-172781 \u00b7 36 days past due",
+    "chase_subject": "PO needed · 3036 Sunset Glory Dr · 0619-172781 · 36 days past due",
     "chase_letter": "We performed the work at 3036 Sunset Glory Dr and issued invoice 0619-172781 for $1,305. This has been 36 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "3036 Sunset Glory Dr",
     "mail": "not_sent",
@@ -5790,7 +5803,8 @@ window.DATA = [
     "workup_attachments_note": "Graph: Patrick 2026-06-10 schedule ask; Patrick 6/15 confirm-tested. Great Lawn lists in this search do not name 3036 as a second call-in. No ask file on disk.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0619-172781"
+    "docNumber": "0619-172781",
+    "chase_letter_close": "If you have any questions or concerns about the work at 3036 Sunset Glory Dr, the $1305 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 49,
@@ -5834,7 +5848,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0706-173537 open $1,566.00 \u00b7 19 days past due.",
+        "what": "0706-173537 open $1,566.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -5888,7 +5902,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0706-173537 open $1,566.00 \u00b7 19 days past due.",
+        "what": "0706-173537 open $1,566.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -5931,7 +5945,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0706-173557 open $1,566.00 \u00b7 19 days past due.",
+        "what": "0706-173557 open $1,566.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -5947,7 +5961,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0706-173557 open $1,566.00 \u00b7 19 days past due.",
+        "what": "0706-173557 open $1,566.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -5969,7 +5983,7 @@ window.DATA = [
     "daysPastDue": 19,
     "builder_order_number": null,
     "totalAmt": 1566,
-    "chase_subject": "PO needed \u00b7 3069 Highbank Dr \u00b7 0706-173557 \u00b7 19 days past due",
+    "chase_subject": "PO needed · 3069 Highbank Dr · 0706-173557 · 19 days past due",
     "chase_letter": "We performed the work at 3069 Highbank Dr and issued invoice 0706-173557 for $1,566. This has been 19 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "3069 Highbank Dr",
     "mail": "not_sent",
@@ -5979,7 +5993,8 @@ window.DATA = [
     "workup_attachments_note": "Graph: no schedule email names 3069 Highbank before 7/6. Esme 7/27 report send to Kenny. No ask file on disk.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0706-173557"
+    "docNumber": "0706-173557",
+    "chase_letter_close": "If you have any questions or concerns about the work at 3069 Highbank Dr, the $1566 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 49,
@@ -5993,7 +6008,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0706-173563 open $1,305.00 \u00b7 19 days past due.",
+        "what": "0706-173563 open $1,305.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -6009,7 +6024,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0706-173563 open $1,305.00 \u00b7 19 days past due.",
+        "what": "0706-173563 open $1,305.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -6031,7 +6046,7 @@ window.DATA = [
     "daysPastDue": 19,
     "builder_order_number": null,
     "totalAmt": 1305,
-    "chase_subject": "PO needed \u00b7 3073 Highbank Dr \u00b7 0706-173563 \u00b7 19 days past due",
+    "chase_subject": "PO needed · 3073 Highbank Dr · 0706-173563 · 19 days past due",
     "chase_letter": "We performed the work at 3073 Highbank Dr and issued invoice 0706-173563 for $1,305. This has been 19 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "3073 Highbank Dr",
     "mail": "not_sent",
@@ -6041,7 +6056,8 @@ window.DATA = [
     "workup_attachments_note": "Graph: no schedule email names 3073 before 7/6. Esme 7/17 report send to Tino. No ask file on disk.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0706-173563"
+    "docNumber": "0706-173563",
+    "chase_letter_close": "If you have any questions or concerns about the work at 3073 Highbank Dr, the $1305 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 11,
@@ -6055,7 +6071,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00537 open $1,044.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00537 open $1,044.00 · -19 days past due."
       }
     ],
     "balance": 1044,
@@ -6070,7 +6086,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00537 open $1,044.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00537 open $1,044.00 · -19 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -6152,7 +6168,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "179593 open $1,044.00 \u00b7 159 days past due.",
+        "what": "179593 open $1,044.00 · 159 days past due.",
         "today": true
       }
     ],
@@ -6208,7 +6224,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "179593 open $1,044.00 \u00b7 159 days past due.",
+        "what": "179593 open $1,044.00 · 159 days past due.",
         "today": true
       }
     ],
@@ -6253,7 +6269,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00319 open $1,044.00 \u00b7 -9 days past due."
+        "what": "CTL-26-00319 open $1,044.00 · -9 days past due."
       }
     ],
     "balance": 1044,
@@ -6268,7 +6284,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00319 open $1,044.00 \u00b7 -9 days past due."
+        "what": "CTL-26-00319 open $1,044.00 · -9 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -6310,7 +6326,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00412 open $522.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00412 open $522.00 · -11 days past due."
       }
     ],
     "balance": 522,
@@ -6325,7 +6341,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00412 open $522.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00412 open $522.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -6367,7 +6383,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00269 open $1,044.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00269 open $1,044.00 · -17 days past due."
       }
     ],
     "balance": 1044,
@@ -6382,7 +6398,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00269 open $1,044.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00269 open $1,044.00 · -17 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -6424,7 +6440,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00544 open $1,044.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00544 open $1,044.00 · -17 days past due."
       }
     ],
     "balance": 1044,
@@ -6439,7 +6455,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00544 open $1,044.00 \u00b7 -17 days past due."
+        "what": "CTL-26-00544 open $1,044.00 · -17 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -6481,7 +6497,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00274 open $1,044.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00274 open $1,044.00 · -18 days past due."
       }
     ],
     "balance": 1044,
@@ -6496,7 +6512,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00274 open $1,044.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00274 open $1,044.00 · -18 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -6538,7 +6554,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00276 open $1,044.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00276 open $1,044.00 · -18 days past due."
       }
     ],
     "balance": 1044,
@@ -6553,7 +6569,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00276 open $1,044.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00276 open $1,044.00 · -18 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -6595,7 +6611,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00545 open $1,044.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00545 open $1,044.00 · -18 days past due."
       }
     ],
     "balance": 1044,
@@ -6610,7 +6626,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00545 open $1,044.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00545 open $1,044.00 · -18 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -6652,7 +6668,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00549 open $1,044.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00549 open $1,044.00 · -18 days past due."
       }
     ],
     "balance": 1044,
@@ -6667,7 +6683,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00549 open $1,044.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00549 open $1,044.00 · -18 days past due."
       }
     ],
     "hyphen_status": null,
@@ -6676,7 +6692,7 @@ window.DATA = [
     "open_balance": 1044,
     "dueDate": "2026-09-11",
     "packet": "hold",
-    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20971426-000 at 3021 Lone Pecan Lane, Katy, TX 77493 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20971426-000 at 3021 Lone Pecan Lane, Katy, TX 77493 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -6706,7 +6722,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00550 open $1,044.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00550 open $1,044.00 · -18 days past due."
       }
     ],
     "balance": 1044,
@@ -6721,7 +6737,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00550 open $1,044.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00550 open $1,044.00 · -18 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -6768,7 +6784,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0522-171908 open $522.00 \u00b7 64 days past due.",
+        "what": "0522-171908 open $522.00 · 64 days past due.",
         "today": true
       }
     ],
@@ -6793,7 +6809,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0522-171908 open $522.00 \u00b7 64 days past due.",
+        "what": "0522-171908 open $522.00 · 64 days past due.",
         "today": true
       }
     ],
@@ -6815,7 +6831,7 @@ window.DATA = [
     "daysPastDue": 64,
     "builder_order_number": null,
     "totalAmt": 522,
-    "chase_subject": "PO needed \u00b7 215 Violet Crown \u00b7 0522-171908 \u00b7 64 days past due",
+    "chase_subject": "PO needed · 215 Violet Crown · 0522-171908 · 64 days past due",
     "chase_letter": "We performed the work at 215 Violet Crown and issued invoice 0522-171908 for $522. This has been 64 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "215 Violet Crown",
     "mail": "not_sent",
@@ -6825,7 +6841,8 @@ window.DATA = [
     "workup_attachments_note": "Graph: Angel 2026-05-22 The Trails compaction test (215 violet crown - 2 lifts). Maria 6/3 EPO request. Esme 6/8 report send. No ask file on disk.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0522-171908"
+    "docNumber": "0522-171908",
+    "chase_letter_close": "If you have any questions or concerns about the work at 215 Violet Crown, the $522 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 76,
@@ -6854,7 +6871,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0609-172331 open $783.00 \u00b7 46 days past due."
+        "what": "0609-172331 open $783.00 · 46 days past due."
       }
     ],
     "balance": 783,
@@ -6884,7 +6901,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0609-172331 open $783.00 \u00b7 46 days past due."
+        "what": "0609-172331 open $783.00 · 46 days past due."
       }
     ],
     "hyphen_status": null,
@@ -6893,7 +6910,7 @@ window.DATA = [
     "open_balance": 783,
     "dueDate": "2026-07-09",
     "packet": "hold",
-    "chase_analysis": "Found: Angel Gonzalez 2026-05-26 asked 217 Violet Crown 3 lifts; first visit paid 0526-171938 / PO 149259-000 check 1274186 $783. Not found: second 217 schedule ask / request .eml. Write-off \u2014 missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Angel Gonzalez 2026-05-26 asked 217 Violet Crown 3 lifts; first visit paid 0526-171938 / PO 149259-000 check 1274186 $783. Not found: second 217 schedule ask / request .eml. Write-off — missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -6928,7 +6945,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0609-172334 open $783.00 \u00b7 46 days past due.",
+        "what": "0609-172334 open $783.00 · 46 days past due.",
         "today": true
       }
     ],
@@ -6953,7 +6970,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0609-172334 open $783.00 \u00b7 46 days past due.",
+        "what": "0609-172334 open $783.00 · 46 days past due.",
         "today": true
       }
     ],
@@ -6975,7 +6992,7 @@ window.DATA = [
     "daysPastDue": 46,
     "builder_order_number": null,
     "totalAmt": 783,
-    "chase_subject": "PO needed \u00b7 28620 Escarpment \u00b7 0609-172334 \u00b7 46 days past due",
+    "chase_subject": "PO needed · 28620 Escarpment · 0609-172334 · 46 days past due",
     "chase_letter": "We performed the work at 28620 Escarpment and issued invoice 0609-172334 for $783. This has been 46 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "28620 Escarpment",
     "mail": "not_sent",
@@ -6985,7 +7002,8 @@ window.DATA = [
     "workup_attachments_note": "Graph: Angel 2026-06-03 The Trails compaction test (28620 Escarpment- 3 lifts). David 6/30 report ask. Donna 6/30 schedule ask on that thread is for the 218 Violet Crown side. No ask file on disk.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0609-172334"
+    "docNumber": "0609-172334",
+    "chase_letter_close": "If you have any questions or concerns about the work at 28620 Escarpment, the $783 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 76,
@@ -7014,7 +7032,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0609-172337 open $783.00 \u00b7 46 days past due."
+        "what": "0609-172337 open $783.00 · 46 days past due."
       }
     ],
     "balance": 783,
@@ -7044,7 +7062,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0609-172337 open $783.00 \u00b7 46 days past due."
+        "what": "0609-172337 open $783.00 · 46 days past due."
       }
     ],
     "hyphen_status": null,
@@ -7053,7 +7071,7 @@ window.DATA = [
     "open_balance": 783,
     "dueDate": "2026-07-09",
     "packet": "hold",
-    "chase_analysis": "Found: Angel 2026-05-26 asked 28624 Escarpment 3 lifts; first visit paid 0526-171941 / PO 150831-000 check 1280746 $783. Not found: second 28624 schedule ask / request .eml. Write-off \u2014 missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Angel 2026-05-26 asked 28624 Escarpment 3 lifts; first visit paid 0526-171941 / PO 150831-000 check 1280746 $783. Not found: second 28624 schedule ask / request .eml. Write-off — missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -7103,7 +7121,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0701-173352 open $522.00 \u00b7 24 days past due.",
+        "what": "0701-173352 open $522.00 · 24 days past due.",
         "today": true
       }
     ],
@@ -7147,7 +7165,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0701-173352 open $522.00 \u00b7 24 days past due.",
+        "what": "0701-173352 open $522.00 · 24 days past due.",
         "today": true
       }
     ],
@@ -7190,7 +7208,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00617 open $522.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00617 open $522.00 · -19 days past due."
       }
     ],
     "balance": 522,
@@ -7205,7 +7223,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00617 open $522.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00617 open $522.00 · -19 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -7272,7 +7290,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0706-173638 open $783.00 \u00b7 19 days past due.",
+        "what": "0706-173638 open $783.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -7317,7 +7335,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0706-173638 open $783.00 \u00b7 19 days past due.",
+        "what": "0706-173638 open $783.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -7380,7 +7398,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0623-173032 open $522.00 \u00b7 32 days past due."
+        "what": "0623-173032 open $522.00 · 32 days past due."
       }
     ],
     "balance": 522,
@@ -7415,7 +7433,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0623-173032 open $522.00 \u00b7 32 days past due."
+        "what": "0623-173032 open $522.00 · 32 days past due."
       }
     ],
     "hyphen_status": null,
@@ -7424,7 +7442,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-07-23",
     "packet": "hold",
-    "chase_analysis": "Found: Aaron Ratliff 2026-06-15 and 2026-06-23 asked 1443 Parks Edge Lane; first visit paid 0618-172837 / PO 98591741-000 check 1298587 $522. Not found: request .eml on disk. Write-off \u2014 missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Aaron Ratliff 2026-06-15 and 2026-06-23 asked 1443 Parks Edge Lane; first visit paid 0618-172837 / PO 98591741-000 check 1298587 $522. Not found: request .eml on disk. Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -7454,7 +7472,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00259 open $522.00 \u00b7 -5 days past due."
+        "what": "CTL-26-00259 open $522.00 · -5 days past due."
       }
     ],
     "balance": 522,
@@ -7469,7 +7487,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00259 open $522.00 \u00b7 -5 days past due."
+        "what": "CTL-26-00259 open $522.00 · -5 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -7511,7 +7529,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00204 open $522.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00204 open $522.00 · -11 days past due."
       }
     ],
     "balance": 522,
@@ -7526,7 +7544,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00204 open $522.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00204 open $522.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -7568,7 +7586,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0702-173599 open $522.00 \u00b7 23 days past due.",
+        "what": "0702-173599 open $522.00 · 23 days past due.",
         "today": true
       }
     ],
@@ -7584,7 +7602,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0702-173599 open $522.00 \u00b7 23 days past due.",
+        "what": "0702-173599 open $522.00 · 23 days past due.",
         "today": true
       }
     ],
@@ -7597,7 +7615,7 @@ window.DATA = [
     "dueDate": "2026-08-01",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "Looked in ryan/joe/maria/billings/william for 1156 Thistlewood. Graph hits are Brandi 2026-06-30 Woodhaven list (1029 Thistlewood Trail, 1156 Mossy Glade \u2014 not 1156 Thistlewood) and Brandi 2026-07-09 confirming Oak Shade, not Thistlewood. No client call-in names this street. Memo is two lifts / two dispatches on one invoice, not two visits. Payments CSV has no row at 1156 Thistlewood. Not found in Hyphen, so this is No PO.",
+    "chase_analysis": "Looked in ryan/joe/maria/billings/william for 1156 Thistlewood. Graph hits are Brandi 2026-06-30 Woodhaven list (1029 Thistlewood Trail, 1156 Mossy Glade — not 1156 Thistlewood) and Brandi 2026-07-09 confirming Oak Shade, not Thistlewood. No client call-in names this street. Memo is two lifts / two dispatches on one invoice, not two visits. Payments CSV has no row at 1156 Thistlewood. Not found in Hyphen, so this is No PO.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": null,
@@ -7606,7 +7624,7 @@ window.DATA = [
     "daysPastDue": 23,
     "builder_order_number": null,
     "totalAmt": 522,
-    "chase_subject": "PO needed \u00b7 1156 Thistlewood \u00b7 0702-173599 \u00b7 23 days past due",
+    "chase_subject": "PO needed · 1156 Thistlewood · 0702-173599 · 23 days past due",
     "chase_letter": "We performed the work at 1156 Thistlewood and issued invoice 0702-173599 for $522. This has been 23 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "1156 Thistlewood",
     "mail": "not_sent",
@@ -7616,7 +7634,8 @@ window.DATA = [
     "workup_attachments_note": "Graph: no email names 1156 Thistlewood. Nearby Brandi/Ryan thread is 1156 Mossy Glade vs Oak Shade. No request .eml/.pdf on disk under hyphen-board/cases or workup. Graph hasAttachments=false on the client asks. Cannot prove two named asks with files. Do not set 2nd callout.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0702-173599"
+    "docNumber": "0702-173599",
+    "chase_letter_close": "If you have any questions or concerns about the work at 1156 Thistlewood, the $522 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 11,
@@ -7630,7 +7649,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00570 open $783.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00570 open $783.00 · -19 days past due."
       }
     ],
     "balance": 783,
@@ -7645,7 +7664,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00570 open $783.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00570 open $783.00 · -19 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -7687,7 +7706,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00441 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00441 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -7702,7 +7721,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00441 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00441 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -7744,7 +7763,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-07-15",
     "packet": "hold",
-    "chase_analysis": "Found: Candido Hernandez 2026-06-10 visit paid 0608-172271 / PO 91BCNPT4_005007 check 00063545 $350 at 12121 Harrington Gates. Not found: second client call-in / request .eml (Candido 6/11 is a status ping). Write-off \u2014 missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Candido Hernandez 2026-06-10 visit paid 0608-172271 / PO 91BCNPT4_005007 check 00063545 $350 at 12121 Harrington Gates. Not found: second client call-in / request .eml (Candido 6/11 is a status ping). Write-off — missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "projectcoordinators-houston@mhinc.com",
     "parent": "MHI HOMES",
@@ -7773,7 +7792,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00479 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00479 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -7788,7 +7807,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00479 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00479 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -7830,7 +7849,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00480 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00480 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -7845,7 +7864,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00480 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00480 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -7902,7 +7921,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0508-171401 open $260.00 \u00b7 78 days past due."
+        "what": "0508-171401 open $260.00 · 78 days past due."
       }
     ],
     "balance": 260,
@@ -7940,7 +7959,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0508-171401 open $260.00 \u00b7 78 days past due."
+        "what": "0508-171401 open $260.00 · 78 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -7989,7 +8008,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00328 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00328 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -8004,7 +8023,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00328 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00328 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -8046,7 +8065,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00206 open $350.00 \u00b7 -12 days past due."
+        "what": "CTL-26-00206 open $350.00 · -12 days past due."
       }
     ],
     "balance": 350,
@@ -8061,7 +8080,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00206 open $350.00 \u00b7 -12 days past due."
+        "what": "CTL-26-00206 open $350.00 · -12 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -8166,7 +8185,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00025 open $350.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00025 open $350.00 · -20 days past due."
       }
     ],
     "balance": 350,
@@ -8190,7 +8209,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00025 open $350.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00025 open $350.00 · -20 days past due."
       }
     ],
     "hyphen_status": null,
@@ -8199,7 +8218,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-09-13",
     "packet": "complete",
-    "chase_analysis": "Evan Brown 2026-07-15 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91CND415_004405 at 10415 Melida Dawn Way , Richmond, TX 77406 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Evan Brown 2026-07-15 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91CND415_004405 at 10415 Melida Dawn Way , Richmond, TX 77406 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "nlemaster@mhinc.com",
     "parent": "MHI HOMES",
@@ -8234,7 +8253,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00607 open $350.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00607 open $350.00 · -20 days past due."
       }
     ],
     "balance": 350,
@@ -8258,7 +8277,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00607 open $350.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00607 open $350.00 · -20 days past due."
       }
     ],
     "hyphen_status": null,
@@ -8267,7 +8286,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-09-13",
     "packet": "complete",
-    "chase_analysis": "Binh Tran 2026-08-11 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91KCOLT6_005735 at 1703 Dumas Street , Todd Mission, TX 77316 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Binh Tran 2026-08-11 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91KCOLT6_005735 at 1703 Dumas Street , Todd Mission, TX 77316 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "projectcoordinators-houston@coventryhomes.com",
     "parent": "MHI HOMES",
@@ -8302,7 +8321,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00608 open $350.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00608 open $350.00 · -20 days past due."
       }
     ],
     "balance": 350,
@@ -8326,7 +8345,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00608 open $350.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00608 open $350.00 · -20 days past due."
       }
     ],
     "hyphen_status": null,
@@ -8335,7 +8354,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-09-13",
     "packet": "complete",
-    "chase_analysis": "Binh Tran 2026-08-11 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91KCOLT6_005573 at 1618 Leona Lane , Todd Mission, TX 77316 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Binh Tran 2026-08-11 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91KCOLT6_005573 at 1618 Leona Lane , Todd Mission, TX 77316 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "projectcoordinators-houston@coventryhomes.com",
     "parent": "MHI HOMES",
@@ -8365,7 +8384,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00114 open $350.00 \u00b7 1 days past due."
+        "what": "CTL-26-00114 open $350.00 · 1 days past due."
       }
     ],
     "balance": 350,
@@ -8380,7 +8399,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00114 open $350.00 \u00b7 1 days past due."
+        "what": "CTL-26-00114 open $350.00 · 1 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -8422,7 +8441,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00115 open $350.00 \u00b7 1 days past due."
+        "what": "CTL-26-00115 open $350.00 · 1 days past due."
       }
     ],
     "balance": 350,
@@ -8437,7 +8456,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00115 open $350.00 \u00b7 1 days past due."
+        "what": "CTL-26-00115 open $350.00 · 1 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -8479,7 +8498,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00116 open $350.00 \u00b7 1 days past due."
+        "what": "CTL-26-00116 open $350.00 · 1 days past due."
       }
     ],
     "balance": 350,
@@ -8494,7 +8513,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00116 open $350.00 \u00b7 1 days past due."
+        "what": "CTL-26-00116 open $350.00 · 1 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -8536,7 +8555,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00117 open $350.00 \u00b7 1 days past due."
+        "what": "CTL-26-00117 open $350.00 · 1 days past due."
       }
     ],
     "balance": 350,
@@ -8551,7 +8570,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00117 open $350.00 \u00b7 1 days past due."
+        "what": "CTL-26-00117 open $350.00 · 1 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -8593,7 +8612,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00118 open $350.00 \u00b7 1 days past due."
+        "what": "CTL-26-00118 open $350.00 · 1 days past due."
       }
     ],
     "balance": 350,
@@ -8608,7 +8627,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00118 open $350.00 \u00b7 1 days past due."
+        "what": "CTL-26-00118 open $350.00 · 1 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -8650,7 +8669,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00119 open $350.00 \u00b7 1 days past due."
+        "what": "CTL-26-00119 open $350.00 · 1 days past due."
       }
     ],
     "balance": 350,
@@ -8665,7 +8684,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00119 open $350.00 \u00b7 1 days past due."
+        "what": "CTL-26-00119 open $350.00 · 1 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -8717,7 +8736,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00245 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00245 open $350.00 · -4 days past due."
       }
     ],
     "balance": 350,
@@ -8742,7 +8761,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00245 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00245 open $350.00 · -4 days past due."
       }
     ],
     "hyphen_status": null,
@@ -8751,7 +8770,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-08-28",
     "packet": "hold",
-    "chase_analysis": "Found: Matthew Moore 2026-06-26 asked 2918 Wind Cave (paid 0629-173206) and Matthew 2026-07-27 asked 2918 again. Not found: request .eml on disk for either client ask. Write-off \u2014 missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Matthew Moore 2026-06-26 asked 2918 Wind Cave (paid 0629-173206) and Matthew 2026-07-27 asked 2918 again. Not found: request .eml on disk for either client ask. Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "projectcoordinators-houston@mhinc.com",
     "parent": "MHI HOMES",
@@ -8781,7 +8800,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00246 open $350.00 \u00b7 -5 days past due."
+        "what": "CTL-26-00246 open $350.00 · -5 days past due."
       }
     ],
     "balance": 350,
@@ -8796,7 +8815,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00246 open $350.00 \u00b7 -5 days past due."
+        "what": "CTL-26-00246 open $350.00 · -5 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -8838,7 +8857,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00247 open $350.00 \u00b7 -5 days past due."
+        "what": "CTL-26-00247 open $350.00 · -5 days past due."
       }
     ],
     "balance": 350,
@@ -8853,7 +8872,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00247 open $350.00 \u00b7 -5 days past due."
+        "what": "CTL-26-00247 open $350.00 · -5 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -8895,7 +8914,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00326 open $350.00 \u00b7 -6 days past due."
+        "what": "CTL-26-00326 open $350.00 · -6 days past due."
       }
     ],
     "balance": 350,
@@ -8910,7 +8929,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00326 open $350.00 \u00b7 -6 days past due."
+        "what": "CTL-26-00326 open $350.00 · -6 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -8952,7 +8971,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00327 open $350.00 \u00b7 -6 days past due."
+        "what": "CTL-26-00327 open $350.00 · -6 days past due."
       }
     ],
     "balance": 350,
@@ -8967,7 +8986,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00327 open $350.00 \u00b7 -6 days past due."
+        "what": "CTL-26-00327 open $350.00 · -6 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -9004,7 +9023,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0703-173508 open $350.00 \u00b7 19 days past due.",
+        "what": "0703-173508 open $350.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -9015,7 +9034,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0703-173508 open $350.00 \u00b7 19 days past due.",
+        "what": "0703-173508 open $350.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -9028,7 +9047,7 @@ window.DATA = [
     "dueDate": "2026-08-05",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "Ryan Martin 2026-07-02 12:35 PM CT asked compaction at 19031 cetara villa 5-11-23; Maria sent the 7/7 report. This SON is not on Hyphen (found=false) and the QBO memo is terms-only. Payments scrape has check 00068971 8/15/2026 $350 blank SON / BO 91KCYPGR_004502 at 19031 Cetara Villa Drive \u2014 that line is not joined to 0703-173508, so it is not treated as this invoice's payment. One named ask, not same-service-twice; this is No PO.",
+    "chase_analysis": "Ryan Martin 2026-07-02 12:35 PM CT asked compaction at 19031 cetara villa 5-11-23; Maria sent the 7/7 report. This SON is not on Hyphen (found=false) and the QBO memo is terms-only. Payments scrape has check 00068971 8/15/2026 $350 blank SON / BO 91KCYPGR_004502 at 19031 Cetara Villa Drive — that line is not joined to 0703-173508, so it is not treated as this invoice's payment. One named ask, not same-service-twice; this is No PO.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "projectcoordinators-houston@coventryhomes.com",
@@ -9037,7 +9056,7 @@ window.DATA = [
     "daysPastDue": 19,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 19031 Cetara Villa \u00b7 0703-173508 \u00b7 19 days past due",
+    "chase_subject": "PO needed · 19031 Cetara Villa · 0703-173508 · 19 days past due",
     "chase_letter": "We performed the work at 19031 Cetara Villa and issued invoice 0703-173508 for $350. This has been 19 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "19031 Cetara Villa",
     "mail": "not_sent",
@@ -9046,7 +9065,8 @@ window.DATA = [
     "payments_stale": true,
     "check_amount": null,
     "status": "open",
-    "docNumber": "0703-173508"
+    "docNumber": "0703-173508",
+    "chase_letter_close": "If you have any questions or concerns about the work at 19031 Cetara Villa, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 25,
@@ -9060,7 +9080,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00278 open $350.00 \u00b7 -5 days past due."
+        "what": "CTL-26-00278 open $350.00 · -5 days past due."
       }
     ],
     "balance": 350,
@@ -9075,7 +9095,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00278 open $350.00 \u00b7 -5 days past due."
+        "what": "CTL-26-00278 open $350.00 · -5 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -9117,7 +9137,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00279 open $350.00 \u00b7 -5 days past due."
+        "what": "CTL-26-00279 open $350.00 · -5 days past due."
       }
     ],
     "balance": 350,
@@ -9132,7 +9152,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00279 open $350.00 \u00b7 -5 days past due."
+        "what": "CTL-26-00279 open $350.00 · -5 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -9174,7 +9194,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00155 open $350.00 \u00b7 -9 days past due."
+        "what": "CTL-26-00155 open $350.00 · -9 days past due."
       }
     ],
     "balance": 350,
@@ -9189,7 +9209,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00155 open $350.00 \u00b7 -9 days past due."
+        "what": "CTL-26-00155 open $350.00 · -9 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -9251,7 +9271,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0609-172393 open $60.00 \u00b7 40 days past due."
+        "what": "0609-172393 open $60.00 · 40 days past due."
       }
     ],
     "balance": 60,
@@ -9286,7 +9306,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0609-172393 open $60.00 \u00b7 40 days past due."
+        "what": "0609-172393 open $60.00 · 40 days past due."
       }
     ],
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
@@ -9338,7 +9358,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00616 open $350.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00616 open $350.00 · -19 days past due."
       }
     ],
     "balance": 350,
@@ -9353,7 +9373,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00616 open $350.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00616 open $350.00 · -19 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -9395,7 +9415,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00490 open $350.00 \u00b7 -13 days past due."
+        "what": "CTL-26-00490 open $350.00 · -13 days past due."
       }
     ],
     "balance": 350,
@@ -9410,7 +9430,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00490 open $350.00 \u00b7 -13 days past due."
+        "what": "CTL-26-00490 open $350.00 · -13 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -9452,7 +9472,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00491 open $350.00 \u00b7 -13 days past due."
+        "what": "CTL-26-00491 open $350.00 · -13 days past due."
       }
     ],
     "balance": 350,
@@ -9467,7 +9487,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00491 open $350.00 \u00b7 -13 days past due."
+        "what": "CTL-26-00491 open $350.00 · -13 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -9509,7 +9529,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00450 open $350.00 \u00b7 -16 days past due."
+        "what": "CTL-26-00450 open $350.00 · -16 days past due."
       }
     ],
     "balance": 350,
@@ -9524,7 +9544,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00450 open $350.00 \u00b7 -16 days past due."
+        "what": "CTL-26-00450 open $350.00 · -16 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -9566,7 +9586,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-07-29",
     "packet": "hold",
-    "chase_analysis": "Found: Jake Fisher 2026-06-01 asked 3528 Hidden Hickory (paid 0602-172143) and Jake 2026-06-18 asked again. Not found: request .eml on disk for either client ask. Write-off \u2014 missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Jake Fisher 2026-06-01 asked 3528 Hidden Hickory (paid 0602-172143) and Jake 2026-06-18 asked again. Not found: request .eml on disk for either client ask. Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "accountspayable@coventryhomes.com",
     "parent": "MHI HOMES",
@@ -9595,7 +9615,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00177 open $350.00 \u00b7 -2 days past due."
+        "what": "CTL-26-00177 open $350.00 · -2 days past due."
       }
     ],
     "balance": 350,
@@ -9610,7 +9630,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00177 open $350.00 \u00b7 -2 days past due."
+        "what": "CTL-26-00177 open $350.00 · -2 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -9652,7 +9672,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00178 open $350.00 \u00b7 -2 days past due."
+        "what": "CTL-26-00178 open $350.00 · -2 days past due."
       }
     ],
     "balance": 350,
@@ -9667,7 +9687,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00178 open $350.00 \u00b7 -2 days past due."
+        "what": "CTL-26-00178 open $350.00 · -2 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -9709,7 +9729,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00413 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00413 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -9724,7 +9744,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00413 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00413 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -9766,7 +9786,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00602 open $350.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00602 open $350.00 · -18 days past due."
       }
     ],
     "balance": 350,
@@ -9781,7 +9801,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00602 open $350.00 \u00b7 -18 days past due."
+        "what": "CTL-26-00602 open $350.00 · -18 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -9818,7 +9838,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0529-172013 open $350.00 \u00b7 54 days past due.",
+        "what": "0529-172013 open $350.00 · 54 days past due.",
         "today": true
       }
     ],
@@ -9829,7 +9849,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0529-172013 open $350.00 \u00b7 54 days past due.",
+        "what": "0529-172013 open $350.00 · 54 days past due.",
         "today": true
       }
     ],
@@ -9842,7 +9862,7 @@ window.DATA = [
     "dueDate": "2026-07-01",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "Ben Lacey 2026-05-28 2:21 PM CT asked compaction tomorrow at 613 / 610 / 618 Coal Creek; Maria sent the 6/1 report. This SON is not on Hyphen. Payments scrape has check 00065328 7/15/2026 $350 blank SON / BO 91LEGAC1_008523 at 613 Coal Creek Lane \u2014 not joined to 0529-172013. One named ask, not same-service-twice; this is No PO on the open QBO doc.",
+    "chase_analysis": "Ben Lacey 2026-05-28 2:21 PM CT asked compaction tomorrow at 613 / 610 / 618 Coal Creek; Maria sent the 6/1 report. This SON is not on Hyphen. Payments scrape has check 00065328 7/15/2026 $350 blank SON / BO 91LEGAC1_008523 at 613 Coal Creek Lane — not joined to 0529-172013. One named ask, not same-service-twice; this is No PO on the open QBO doc.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "projectcoordinators-houston@mhinc.com",
@@ -9851,7 +9871,7 @@ window.DATA = [
     "daysPastDue": 54,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 613 Coal Creek \u00b7 0529-172013 \u00b7 54 days past due",
+    "chase_subject": "PO needed · 613 Coal Creek · 0529-172013 · 54 days past due",
     "chase_letter": "We performed the work at 613 Coal Creek and issued invoice 0529-172013 for $350. This has been 54 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "613 Coal Creek",
     "mail": "not_sent",
@@ -9860,7 +9880,8 @@ window.DATA = [
     "payments_stale": true,
     "check_amount": null,
     "status": "open",
-    "docNumber": "0529-172013"
+    "docNumber": "0529-172013",
+    "chase_letter_close": "If you have any questions or concerns about the work at 613 Coal Creek, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 26,
@@ -9874,7 +9895,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00249 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00249 open $350.00 · -4 days past due."
       }
     ],
     "balance": 350,
@@ -9889,7 +9910,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00249 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00249 open $350.00 · -4 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -9931,7 +9952,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00426 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00426 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -9946,7 +9967,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00426 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00426 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -9988,7 +10009,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00538 open $350.00 \u00b7 -13 days past due."
+        "what": "CTL-26-00538 open $350.00 · -13 days past due."
       }
     ],
     "balance": 350,
@@ -10003,7 +10024,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00538 open $350.00 \u00b7 -13 days past due."
+        "what": "CTL-26-00538 open $350.00 · -13 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10045,7 +10066,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00043 open $350.00 \u00b7 -6 days past due."
+        "what": "CTL-26-00043 open $350.00 · -6 days past due."
       }
     ],
     "balance": 350,
@@ -10060,7 +10081,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00043 open $350.00 \u00b7 -6 days past due."
+        "what": "CTL-26-00043 open $350.00 · -6 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10107,7 +10128,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00485 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00485 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -10131,7 +10152,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00485 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00485 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_status": null,
@@ -10140,7 +10161,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-09-04",
     "packet": "complete",
-    "chase_analysis": "David P. Amaya 2026-08-04 asked Joe to schedule compaction at 5107 Mulberry (Pomona). One named ask, first visit. QBO note PO 19966144-000 is hyphen_pos 19107 Torrione / found sibling CTL-26-00458 (Lennar) \u2014 wrong-PO research only, not this invoice's SON. Payments CSV has no 5107 Mulberry row. After the mail look this is No PO.",
+    "chase_analysis": "David P. Amaya 2026-08-04 asked Joe to schedule compaction at 5107 Mulberry (Pomona). One named ask, first visit. QBO note PO 19966144-000 is hyphen_pos 19107 Torrione / found sibling CTL-26-00458 (Lennar) — wrong-PO research only, not this invoice's SON. Payments CSV has no 5107 Mulberry row. After the mail look this is No PO.",
     "check_date": null,
     "email": "accountspayable@coventryhomes.com",
     "parent": "MHI HOMES",
@@ -10170,7 +10191,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00237 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00237 open $350.00 · -4 days past due."
       }
     ],
     "balance": 350,
@@ -10185,7 +10206,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00237 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00237 open $350.00 · -4 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10227,7 +10248,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00238 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00238 open $350.00 · -4 days past due."
       }
     ],
     "balance": 350,
@@ -10242,7 +10263,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00238 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00238 open $350.00 · -4 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10284,7 +10305,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00239 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00239 open $350.00 · -4 days past due."
       }
     ],
     "balance": 350,
@@ -10299,7 +10320,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00239 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00239 open $350.00 · -4 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10341,7 +10362,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00240 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00240 open $350.00 · -4 days past due."
       }
     ],
     "balance": 350,
@@ -10356,7 +10377,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00240 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00240 open $350.00 · -4 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10398,7 +10419,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00241 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00241 open $350.00 · -4 days past due."
       }
     ],
     "balance": 350,
@@ -10413,7 +10434,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00241 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00241 open $350.00 · -4 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10455,7 +10476,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00280 open $350.00 \u00b7 -9 days past due."
+        "what": "CTL-26-00280 open $350.00 · -9 days past due."
       }
     ],
     "balance": 350,
@@ -10470,7 +10491,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00280 open $350.00 \u00b7 -9 days past due."
+        "what": "CTL-26-00280 open $350.00 · -9 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10512,7 +10533,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00307 open $350.00 \u00b7 -5 days past due."
+        "what": "CTL-26-00307 open $350.00 · -5 days past due."
       }
     ],
     "balance": 350,
@@ -10527,7 +10548,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00307 open $350.00 \u00b7 -5 days past due."
+        "what": "CTL-26-00307 open $350.00 · -5 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10569,7 +10590,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00308 open $350.00 \u00b7 -9 days past due."
+        "what": "CTL-26-00308 open $350.00 · -9 days past due."
       }
     ],
     "balance": 350,
@@ -10584,7 +10605,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00308 open $350.00 \u00b7 -9 days past due."
+        "what": "CTL-26-00308 open $350.00 · -9 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10626,7 +10647,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0713-173967 open $350.00 \u00b7 5 days past due."
+        "what": "0713-173967 open $350.00 · 5 days past due."
       }
     ],
     "balance": 350,
@@ -10641,7 +10662,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0713-173967 open $350.00 \u00b7 5 days past due."
+        "what": "0713-173967 open $350.00 · 5 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10683,7 +10704,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0713-173968 open $350.00 \u00b7 5 days past due."
+        "what": "0713-173968 open $350.00 · 5 days past due."
       }
     ],
     "balance": 350,
@@ -10698,7 +10719,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0713-173968 open $350.00 \u00b7 5 days past due."
+        "what": "0713-173968 open $350.00 · 5 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10740,7 +10761,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0713-173969 open $350.00 \u00b7 5 days past due."
+        "what": "0713-173969 open $350.00 · 5 days past due."
       }
     ],
     "balance": 350,
@@ -10755,7 +10776,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0713-173969 open $350.00 \u00b7 5 days past due."
+        "what": "0713-173969 open $350.00 · 5 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10797,7 +10818,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00417 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00417 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -10812,7 +10833,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00417 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00417 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10854,7 +10875,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00418 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00418 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -10869,7 +10890,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00418 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00418 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10911,7 +10932,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00419 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00419 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -10926,7 +10947,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00419 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00419 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -10968,7 +10989,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00420 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00420 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -10983,7 +11004,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00420 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00420 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -11025,7 +11046,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00421 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00421 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -11040,7 +11061,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00421 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00421 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -11077,7 +11098,7 @@ window.DATA = [
       {
         "when": "2026-04-27",
         "lab": "Called in",
-        "what": "Emmanuel Camarillo called 6707 Sweet Orange (first visit). 0427-170924 $350 \u2014 later paid in full, not this leftover."
+        "what": "Emmanuel Camarillo called 6707 Sweet Orange (first visit). 0427-170924 $350 — later paid in full, not this leftover."
       },
       {
         "when": "2026-05-08",
@@ -11112,7 +11133,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0511-171460 open $120.00 \u00b7 75 days past due."
+        "what": "0511-171460 open $120.00 · 75 days past due."
       }
     ],
     "balance": 120,
@@ -11122,7 +11143,7 @@ window.DATA = [
       {
         "when": "2026-04-27",
         "lab": "Called in",
-        "what": "Emmanuel Camarillo called 6707 Sweet Orange (first visit). 0427-170924 $350 \u2014 later paid in full, not this leftover.",
+        "what": "Emmanuel Camarillo called 6707 Sweet Orange (first visit). 0427-170924 $350 — later paid in full, not this leftover.",
         "filename": "2026-04-27_Emmanuel-Camarillo_6707-Sweet-Orange-Compaction-Testing-Valencia.eml",
         "file": "2026-04-27_Emmanuel-Camarillo_6707-Sweet-Orange-Compaction-Testing-Valencia.eml",
         "mailbox": "ryan@coastaltestinglabs.com",
@@ -11173,7 +11194,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0511-171460 open $120.00 \u00b7 75 days past due."
+        "what": "0511-171460 open $120.00 · 75 days past due."
       }
     ],
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
@@ -11196,7 +11217,7 @@ window.DATA = [
     "totalAmt": 350,
     "chase_subject": "",
     "hyphen_notes": "[6/11/2026] Dream Finders Homes, LLC - Coventry - Houston Divi: Note Received: invoice 0515-171642\n[7/2/2026] Esmeralda Cantu: Note Sent: Good morning, Hope all is well can you please issue an EPO for the short paid amount of $ 70.00. The invoice is for $ 350.00\n[7/2/2026] Esmeralda Cantu: Note Sent: Please disregard my notes. Thank you\n[7/2/2026] Esmeralda Cantu: Note Sent: Correct invoice number 0511-171460 Thank you",
-    "chase_letter": "Do not send a builder letter. Amount off \u2014 nothing named they must issue. Packet stays Hold.",
+    "chase_letter": "Do not send a builder letter. Amount off — nothing named they must issue. Packet stays Hold.",
     "service_address": "6707 Sweet Orange",
     "mail": "not_sent",
     "hyphen_order_id": "379063456",
@@ -11210,7 +11231,8 @@ window.DATA = [
     "leftover_flag": false,
     "notes_plain": "6/11/2026 | Dream Finders Homes, LLC - Coventry - Houston Divi | Note Received | invoice 0515-171642\n7/2/2026 | Esmeralda Cantu | Note Sent | Good morning, Hope all is well can you please issue an EPO for the short paid amount of $ 70.00. The invoice is for $ 350.00\n7/2/2026 | Esmeralda Cantu | Note Sent | Please disregard my notes. Thank you\n7/2/2026 | Esmeralda Cantu | Note Sent | Correct invoice number 0511-171460 Thank you",
     "notes_empty": false,
-    "notes_scraped_at_ct": "2026-08-24 06:58:56 CT"
+    "notes_scraped_at_ct": "2026-08-24 06:58:56 CT",
+    "chase_letter_close": "If you have any questions or concerns about the work at 6707 Sweet Orange, the $350 invoice, or the correction, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 101,
@@ -11219,7 +11241,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0515-171642 open $230.00 \u00b7 71 days past due.",
+        "what": "0515-171642 open $230.00 · 71 days past due.",
         "today": true
       }
     ],
@@ -11230,7 +11252,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0515-171642 open $230.00 \u00b7 71 days past due.",
+        "what": "0515-171642 open $230.00 · 71 days past due.",
         "today": true
       }
     ],
@@ -11252,7 +11274,7 @@ window.DATA = [
     "daysPastDue": 71,
     "builder_order_number": null,
     "totalAmt": 230,
-    "chase_subject": "PO needed \u00b7 19010 Apple Fritter \u00b7 0515-171642 \u00b7 71 days past due",
+    "chase_subject": "PO needed · 19010 Apple Fritter · 0515-171642 · 71 days past due",
     "chase_letter": "We performed the work at 19010 Apple Fritter and issued invoice 0515-171642 for $230. This has been 71 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "19010 Apple Fritter",
     "mail": "not_sent",
@@ -11261,7 +11283,8 @@ window.DATA = [
     "payments_stale": true,
     "check_amount": null,
     "status": "open",
-    "docNumber": "0515-171642"
+    "docNumber": "0515-171642",
+    "chase_letter_close": "If you have any questions or concerns about the work at 19010 Apple Fritter, the $230 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 56,
@@ -11285,7 +11308,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0625-173126 open $350.00 \u00b7 26 days past due.",
+        "what": "0625-173126 open $350.00 · 26 days past due.",
         "today": true
       }
     ],
@@ -11315,7 +11338,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0625-173126 open $350.00 \u00b7 26 days past due.",
+        "what": "0625-173126 open $350.00 · 26 days past due.",
         "today": true
       }
     ],
@@ -11373,7 +11396,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0625-173127 open $350.00 \u00b7 26 days past due.",
+        "what": "0625-173127 open $350.00 · 26 days past due.",
         "today": true
       }
     ],
@@ -11408,7 +11431,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0625-173127 open $350.00 \u00b7 26 days past due.",
+        "what": "0625-173127 open $350.00 · 26 days past due.",
         "today": true
       }
     ],
@@ -11451,7 +11474,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00089 open $350.00 \u00b7 -6 days past due."
+        "what": "CTL-26-00089 open $350.00 · -6 days past due."
       }
     ],
     "balance": 350,
@@ -11466,7 +11489,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00089 open $350.00 \u00b7 -6 days past due."
+        "what": "CTL-26-00089 open $350.00 · -6 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -11508,7 +11531,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00049 open $350.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00049 open $350.00 · -20 days past due."
       }
     ],
     "balance": 350,
@@ -11523,7 +11546,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00049 open $350.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00049 open $350.00 · -20 days past due."
       }
     ],
     "hyphen_status": null,
@@ -11532,7 +11555,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-09-13",
     "packet": "hold",
-    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91LVLNC5_008477 at 18702 Windy Orchard Street , Manvel, TX 77578 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91LVLNC5_008477 at 18702 Windy Orchard Street , Manvel, TX 77578 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "projectcoordinators-houston@mhinc.com",
     "parent": "MHI HOMES",
@@ -11557,7 +11580,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0626-173160 open $350.00 \u00b7 26 days past due.",
+        "what": "0626-173160 open $350.00 · 26 days past due.",
         "today": true
       }
     ],
@@ -11568,7 +11591,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0626-173160 open $350.00 \u00b7 26 days past due.",
+        "what": "0626-173160 open $350.00 · 26 days past due.",
         "today": true
       }
     ],
@@ -11581,7 +11604,7 @@ window.DATA = [
     "dueDate": "2026-07-29",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "Brandon Pope 2026-06-25 2:46 PM CT asked 12064 Moonlight path on the next-available list; Maria sent the 6/29 report and the 7/2 Westridge June invoice packet. Brandon 2026-07-23 11:31 AM CT named 12064 again \u2014 that later visit is CTL-26-00174 / PO 91KWRCV5_004991, already on Hyphen and paid check 00068971 8/15 $350. Open 0626-173160 is the June first visit, one named ask for this bill, no PO on this SON. This is No PO.",
+    "chase_analysis": "Brandon Pope 2026-06-25 2:46 PM CT asked 12064 Moonlight path on the next-available list; Maria sent the 6/29 report and the 7/2 Westridge June invoice packet. Brandon 2026-07-23 11:31 AM CT named 12064 again — that later visit is CTL-26-00174 / PO 91KWRCV5_004991, already on Hyphen and paid check 00068971 8/15 $350. Open 0626-173160 is the June first visit, one named ask for this bill, no PO on this SON. This is No PO.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "projectcoordinators-houston@mhinc.com",
@@ -11590,7 +11613,7 @@ window.DATA = [
     "daysPastDue": 26,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 12064 Moonlight Path \u00b7 0626-173160 \u00b7 26 days past due",
+    "chase_subject": "PO needed · 12064 Moonlight Path · 0626-173160 · 26 days past due",
     "chase_letter": "We performed the work at 12064 Moonlight Path and issued invoice 0626-173160 for $350. This has been 26 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "12064 Moonlight Path",
     "mail": "not_sent",
@@ -11599,7 +11622,8 @@ window.DATA = [
     "payments_stale": true,
     "check_amount": null,
     "status": "open",
-    "docNumber": "0626-173160"
+    "docNumber": "0626-173160",
+    "chase_letter_close": "If you have any questions or concerns about the work at 12064 Moonlight Path, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 49,
@@ -11608,7 +11632,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0701-173362 open $350.00 \u00b7 19 days past due.",
+        "what": "0701-173362 open $350.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -11619,7 +11643,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0701-173362 open $350.00 \u00b7 19 days past due.",
+        "what": "0701-173362 open $350.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -11632,7 +11656,7 @@ window.DATA = [
     "dueDate": "2026-08-05",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "Joshua Stubbs 2026-06-30 2:50 PM CT asked compaction tomorrow at 12105 / 12109 / 12121 Moonlight; Maria sent the 7/7 12105 report. Brandon Pope 2026-07-23 11:31 AM CT named 12105 again \u2014 that later visit is CTL-26-00170 / PO 91KWRCV5_005306 (still open in QBO, found=true). Open 0701-173362 is the July 1 first visit, one named ask for this bill, no PO on this SON. This is No PO.",
+    "chase_analysis": "Joshua Stubbs 2026-06-30 2:50 PM CT asked compaction tomorrow at 12105 / 12109 / 12121 Moonlight; Maria sent the 7/7 12105 report. Brandon Pope 2026-07-23 11:31 AM CT named 12105 again — that later visit is CTL-26-00170 / PO 91KWRCV5_005306 (still open in QBO, found=true). Open 0701-173362 is the July 1 first visit, one named ask for this bill, no PO on this SON. This is No PO.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "projectcoordinators-houston@mhinc.com",
@@ -11641,7 +11665,7 @@ window.DATA = [
     "daysPastDue": 19,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 12105 Moonlight \u00b7 0701-173362 \u00b7 19 days past due",
+    "chase_subject": "PO needed · 12105 Moonlight · 0701-173362 · 19 days past due",
     "chase_letter": "We performed the work at 12105 Moonlight and issued invoice 0701-173362 for $350. This has been 19 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "12105 Moonlight",
     "mail": "not_sent",
@@ -11650,7 +11674,8 @@ window.DATA = [
     "payments_stale": true,
     "check_amount": null,
     "status": "open",
-    "docNumber": "0701-173362"
+    "docNumber": "0701-173362",
+    "chase_letter_close": "If you have any questions or concerns about the work at 12105 Moonlight, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 49,
@@ -11659,7 +11684,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0701-173363 open $350.00 \u00b7 19 days past due.",
+        "what": "0701-173363 open $350.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -11670,7 +11695,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0701-173363 open $350.00 \u00b7 19 days past due.",
+        "what": "0701-173363 open $350.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -11683,7 +11708,7 @@ window.DATA = [
     "dueDate": "2026-08-05",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "Joshua Stubbs 2026-06-30 2:50 PM CT asked 12109 Moonlight on the same three-address list; Maria sent the 7/7 12109 report. Brandon 7/23 named 12109 again \u2014 later visit CTL-26-00171 / PO 91KWRCV5_005201 paid check 00068971 8/15 $350 on that SON, not this one. Open 0701-173363 is the first visit, one named ask for this bill, no PO on this SON. This is No PO.",
+    "chase_analysis": "Joshua Stubbs 2026-06-30 2:50 PM CT asked 12109 Moonlight on the same three-address list; Maria sent the 7/7 12109 report. Brandon 7/23 named 12109 again — later visit CTL-26-00171 / PO 91KWRCV5_005201 paid check 00068971 8/15 $350 on that SON, not this one. Open 0701-173363 is the first visit, one named ask for this bill, no PO on this SON. This is No PO.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "projectcoordinators-houston@mhinc.com",
@@ -11692,7 +11717,7 @@ window.DATA = [
     "daysPastDue": 19,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 12109 Moonlight \u00b7 0701-173363 \u00b7 19 days past due",
+    "chase_subject": "PO needed · 12109 Moonlight · 0701-173363 · 19 days past due",
     "chase_letter": "We performed the work at 12109 Moonlight and issued invoice 0701-173363 for $350. This has been 19 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "12109 Moonlight",
     "mail": "not_sent",
@@ -11701,7 +11726,8 @@ window.DATA = [
     "payments_stale": true,
     "check_amount": null,
     "status": "open",
-    "docNumber": "0701-173363"
+    "docNumber": "0701-173363",
+    "chase_letter_close": "If you have any questions or concerns about the work at 12109 Moonlight, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 49,
@@ -11710,7 +11736,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0701-173364 open $350.00 \u00b7 19 days past due.",
+        "what": "0701-173364 open $350.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -11721,7 +11747,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0701-173364 open $350.00 \u00b7 19 days past due.",
+        "what": "0701-173364 open $350.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -11734,7 +11760,7 @@ window.DATA = [
     "dueDate": "2026-08-05",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "Joshua Stubbs 2026-06-30 2:50 PM CT asked 12121 Moonlight on the same list; Maria sent the 7/7 12121 report. Brandon Pope 2026-07-23 11:34 AM CT added 12121 moonlight path \u2014 later visit CTL-26-00168 / PO 91KWRCV5_005097, still open, found=true. Open 0701-173364 is the first visit, one named ask for this bill, no PO on this SON. This is No PO.",
+    "chase_analysis": "Joshua Stubbs 2026-06-30 2:50 PM CT asked 12121 Moonlight on the same list; Maria sent the 7/7 12121 report. Brandon Pope 2026-07-23 11:34 AM CT added 12121 moonlight path — later visit CTL-26-00168 / PO 91KWRCV5_005097, still open, found=true. Open 0701-173364 is the first visit, one named ask for this bill, no PO on this SON. This is No PO.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "projectcoordinators-houston@mhinc.com",
@@ -11743,7 +11769,7 @@ window.DATA = [
     "daysPastDue": 19,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 12121 Moonlight \u00b7 0701-173364 \u00b7 19 days past due",
+    "chase_subject": "PO needed · 12121 Moonlight · 0701-173364 · 19 days past due",
     "chase_letter": "We performed the work at 12121 Moonlight and issued invoice 0701-173364 for $350. This has been 19 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "12121 Moonlight",
     "mail": "not_sent",
@@ -11752,7 +11778,8 @@ window.DATA = [
     "payments_stale": true,
     "check_amount": null,
     "status": "open",
-    "docNumber": "0701-173364"
+    "docNumber": "0701-173364",
+    "chase_letter_close": "If you have any questions or concerns about the work at 12121 Moonlight, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 27,
@@ -11766,7 +11793,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00173 open $350.00 \u00b7 -3 days past due."
+        "what": "CTL-26-00173 open $350.00 · -3 days past due."
       }
     ],
     "balance": 350,
@@ -11781,7 +11808,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00173 open $350.00 \u00b7 -3 days past due."
+        "what": "CTL-26-00173 open $350.00 · -3 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -11823,7 +11850,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00248 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00248 open $350.00 · -4 days past due."
       }
     ],
     "balance": 350,
@@ -11838,7 +11865,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00248 open $350.00 \u00b7 -4 days past due."
+        "what": "CTL-26-00248 open $350.00 · -4 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -11880,7 +11907,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00168 open $350.00 \u00b7 -10 days past due."
+        "what": "CTL-26-00168 open $350.00 · -10 days past due."
       }
     ],
     "balance": 350,
@@ -11895,7 +11922,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00168 open $350.00 \u00b7 -10 days past due."
+        "what": "CTL-26-00168 open $350.00 · -10 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -11937,7 +11964,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00170 open $350.00 \u00b7 -10 days past due."
+        "what": "CTL-26-00170 open $350.00 · -10 days past due."
       }
     ],
     "balance": 350,
@@ -11952,7 +11979,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00170 open $350.00 \u00b7 -10 days past due."
+        "what": "CTL-26-00170 open $350.00 · -10 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -11994,7 +12021,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00433 open $350.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00433 open $350.00 · -19 days past due."
       }
     ],
     "balance": 350,
@@ -12009,7 +12036,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00433 open $350.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00433 open $350.00 · -19 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -12051,7 +12078,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00434 open $350.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00434 open $350.00 · -19 days past due."
       }
     ],
     "balance": 350,
@@ -12066,7 +12093,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00434 open $350.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00434 open $350.00 · -19 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -12108,7 +12135,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00435 open $350.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00435 open $350.00 · -19 days past due."
       }
     ],
     "balance": 350,
@@ -12123,7 +12150,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00435 open $350.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00435 open $350.00 · -19 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -12165,7 +12192,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00646 open $350.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00646 open $350.00 · -20 days past due."
       }
     ],
     "balance": 350,
@@ -12180,7 +12207,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00646 open $350.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00646 open $350.00 · -20 days past due."
       }
     ],
     "hyphen_status": null,
@@ -12189,7 +12216,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-09-13",
     "packet": "hold",
-    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91KWLDTR_003388 at 26123 Treetop Terrace Lane , Montgomery, TX 77316 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91KWLDTR_003388 at 26123 Treetop Terrace Lane , Montgomery, TX 77316 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "projectcoordinators-houston@mhinc.com",
     "parent": "MHI HOMES",
@@ -12219,7 +12246,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00647 open $350.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00647 open $350.00 · -20 days past due."
       }
     ],
     "balance": 350,
@@ -12234,7 +12261,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00647 open $350.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00647 open $350.00 · -20 days past due."
       }
     ],
     "hyphen_status": null,
@@ -12243,7 +12270,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-09-13",
     "packet": "hold",
-    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91KWLDTR_003515 at 26139 Treetop Terrace Lane , Montgomery, TX 77316 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91KWLDTR_003515 at 26139 Treetop Terrace Lane , Montgomery, TX 77316 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "projectcoordinators-houston@mhinc.com",
     "parent": "MHI HOMES",
@@ -12273,7 +12300,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00648 open $350.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00648 open $350.00 · -20 days past due."
       }
     ],
     "balance": 350,
@@ -12288,7 +12315,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00648 open $350.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00648 open $350.00 · -20 days past due."
       }
     ],
     "hyphen_status": null,
@@ -12297,7 +12324,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-09-13",
     "packet": "hold",
-    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91KWLDTR_003254 at 26143 Treetop Terrace Lane , Montgomery, TX 77316 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91KWLDTR_003254 at 26143 Treetop Terrace Lane , Montgomery, TX 77316 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "projectcoordinators-houston@mhinc.com",
     "parent": "MHI HOMES",
@@ -12327,7 +12354,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00451 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00451 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -12342,7 +12369,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00451 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00451 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -12384,7 +12411,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00452 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00452 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -12399,7 +12426,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00452 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00452 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_status": null,
@@ -12408,7 +12435,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-09-04",
     "packet": "hold",
-    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91WNDCRS_003032 at 6738 Pebble Bluff Court, Cove, TX 77523 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91WNDCRS_003032 at 6738 Pebble Bluff Court, Cove, TX 77523 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "accountspayable@coventryhomes.com",
     "parent": "MHI HOMES",
@@ -12438,7 +12465,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00453 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00453 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -12453,7 +12480,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00453 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00453 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -12495,7 +12522,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00454 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00454 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -12510,7 +12537,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00454 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00454 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -12552,7 +12579,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00455 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00455 open $350.00 · -11 days past due."
       }
     ],
     "balance": 350,
@@ -12567,7 +12594,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00455 open $350.00 \u00b7 -11 days past due."
+        "what": "CTL-26-00455 open $350.00 · -11 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -12609,7 +12636,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-06-14",
     "packet": "hold",
-    "chase_analysis": "Found: Jake Fisher 2026-05-06 listed 32447 Poplar Grove (paid sibling 0507-171340) and Hunter Hewlett 2026-05-14 asked again. Not found: request .eml on disk for either client ask. Write-off \u2014 missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Jake Fisher 2026-05-06 listed 32447 Poplar Grove (paid sibling 0507-171340) and Hunter Hewlett 2026-05-14 asked again. Not found: request .eml on disk for either client ask. Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "accountspayable@coventryhomes.com",
     "parent": "MHI HOMES",
@@ -12638,7 +12665,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-06-14",
     "packet": "hold",
-    "chase_analysis": "Found: Jake Fisher 2026-05-06 listed 31837 Pecan Cottage; first visit paid 0507-171335 / PO 91KMDI18_006326 check 00060133 $350. Not found: second client call-in / request .eml (Maria report sends are not a second ask). Write-off \u2014 missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Jake Fisher 2026-05-06 listed 31837 Pecan Cottage; first visit paid 0507-171335 / PO 91KMDI18_006326 check 00060133 $350. Not found: second client call-in / request .eml (Maria report sends are not a second ask). Write-off — missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "accountspayable@coventryhomes.com",
     "parent": "MHI HOMES",
@@ -12667,7 +12694,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-06-14",
     "packet": "hold",
-    "chase_analysis": "Found: Jake Fisher 2026-05-06 listed 32435 Poplar Grove; first visit paid 0507-171339 / PO 91KMDI24_001802 check 00060133 $350. Not found: second client ask / request .eml for this lot (Hunter 5/14 is 32447 only). Write-off \u2014 missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Jake Fisher 2026-05-06 listed 32435 Poplar Grove; first visit paid 0507-171339 / PO 91KMDI24_001802 check 00060133 $350. Not found: second client ask / request .eml for this lot (Hunter 5/14 is 32447 only). Write-off — missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "accountspayable@coventryhomes.com",
     "parent": "MHI HOMES",
@@ -12721,7 +12748,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0506-171278 open $270.00 \u00b7 61 days past due."
+        "what": "0506-171278 open $270.00 · 61 days past due."
       }
     ],
     "balance": 270,
@@ -12777,7 +12804,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0506-171278 open $270.00 \u00b7 61 days past due."
+        "what": "0506-171278 open $270.00 · 61 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -12836,7 +12863,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0511-171458 open $52.00 \u00b7 68 days past due."
+        "what": "0511-171458 open $52.00 · 68 days past due."
       }
     ],
     "balance": 52,
@@ -12861,7 +12888,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0511-171458 open $52.00 \u00b7 68 days past due."
+        "what": "0511-171458 open $52.00 · 68 days past due."
       }
     ],
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
@@ -12928,7 +12955,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0511-171459 open $52.00 \u00b7 68 days past due."
+        "what": "0511-171459 open $52.00 · 68 days past due."
       }
     ],
     "balance": 52,
@@ -12958,7 +12985,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0511-171459 open $52.00 \u00b7 68 days past due."
+        "what": "0511-171459 open $52.00 · 68 days past due."
       }
     ],
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
@@ -13025,7 +13052,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0611-172568 open $104.00 \u00b7 40 days past due."
+        "what": "0611-172568 open $104.00 · 40 days past due."
       }
     ],
     "balance": 104,
@@ -13055,7 +13082,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0611-172568 open $104.00 \u00b7 40 days past due."
+        "what": "0611-172568 open $104.00 · 40 days past due."
       }
     ],
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
@@ -13127,7 +13154,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0611-172620 open $52.00 \u00b7 40 days past due."
+        "what": "0611-172620 open $52.00 · 40 days past due."
       }
     ],
     "balance": 52,
@@ -13162,7 +13189,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0611-172620 open $52.00 \u00b7 40 days past due."
+        "what": "0611-172620 open $52.00 · 40 days past due."
       }
     ],
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
@@ -13229,7 +13256,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0611-172621 open $52.00 \u00b7 40 days past due."
+        "what": "0611-172621 open $52.00 · 40 days past due."
       }
     ],
     "balance": 52,
@@ -13259,7 +13286,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0611-172621 open $52.00 \u00b7 40 days past due."
+        "what": "0611-172621 open $52.00 · 40 days past due."
       }
     ],
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
@@ -13316,7 +13343,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00097 open $52.00 \u00b7 1 days past due."
+        "what": "CTL-26-00097 open $52.00 · 1 days past due."
       }
     ],
     "balance": 52,
@@ -13336,7 +13363,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00097 open $52.00 \u00b7 1 days past due."
+        "what": "CTL-26-00097 open $52.00 · 1 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -13381,7 +13408,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0612-172625 open $416.00 \u00b7 40 days past due.",
+        "what": "0612-172625 open $416.00 · 40 days past due.",
         "today": true
       }
     ],
@@ -13392,7 +13419,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0612-172625 open $416.00 \u00b7 40 days past due.",
+        "what": "0612-172625 open $416.00 · 40 days past due.",
         "today": true
       }
     ],
@@ -13414,7 +13441,7 @@ window.DATA = [
     "daysPastDue": 40,
     "builder_order_number": null,
     "totalAmt": 416,
-    "chase_subject": "PO needed \u00b7 29614 Grassland Prairie Dr \u00b7 0612-172625 \u00b7 40 days past due",
+    "chase_subject": "PO needed · 29614 Grassland Prairie Dr · 0612-172625 · 40 days past due",
     "chase_letter": "We performed the work at 29614 Grassland Prairie Dr and issued invoice 0612-172625 for $416. This has been 40 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "29614 Grassland Prairie Dr",
     "mail": "not_sent",
@@ -13423,7 +13450,8 @@ window.DATA = [
     "payments_stale": true,
     "check_amount": null,
     "status": "open",
-    "docNumber": "0612-172625"
+    "docNumber": "0612-172625",
+    "chase_letter_close": "If you have any questions or concerns about the work at 29614 Grassland Prairie Dr, the $416 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 42,
@@ -13437,7 +13465,7 @@ window.DATA = [
     "open_balance": 610,
     "dueDate": "2026-08-12",
     "packet": "hold",
-    "chase_analysis": "Found: Austin Elliott 2026-07-06\u20137/8 Evergrove pad work at 6043 Sunset Grove Loop paid 0708-173774 / PO 48212608-000 check 530957 $416. Not found: second client call-in / request .eml (status pings are not a new ask). Write-off \u2014 missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Austin Elliott 2026-07-06–7/8 Evergrove pad work at 6043 Sunset Grove Loop paid 0708-173774 / PO 48212608-000 check 530957 $416. Not found: second client call-in / request .eml (status pings are not a new ask). Write-off — missing second client ask. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "HoustonPurchasing@tollbrothers.com",
     "parent": "Toll Brothers, Inc.",
@@ -13494,7 +13522,7 @@ window.DATA = [
     "open_balance": 416,
     "dueDate": "2026-07-08",
     "packet": "hold",
-    "chase_analysis": "Found: Pedro Vilela 2026-05-07 asked 8010 Fulshear Ridge (paid 0508-171406) and Pedro 2026-05-29 asked the retest. Not found: request .eml on disk for either client ask. Write-off \u2014 missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Pedro Vilela 2026-05-07 asked 8010 Fulshear Ridge (paid 0508-171406) and Pedro 2026-05-29 asked the retest. Not found: request .eml on disk for either client ask. Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "HoustonPurchasing@tollbrothers.com",
     "parent": "Toll Brothers, Inc.",
@@ -13518,7 +13546,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0529-172002 open $416.00 \u00b7 54 days past due.",
+        "what": "0529-172002 open $416.00 · 54 days past due.",
         "today": true
       }
     ],
@@ -13529,7 +13557,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0529-172002 open $416.00 \u00b7 54 days past due.",
+        "what": "0529-172002 open $416.00 · 54 days past due.",
         "today": true
       }
     ],
@@ -13542,7 +13570,7 @@ window.DATA = [
     "dueDate": "2026-07-01",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "Derek Bird 2026-05-28 7:34 AM CT asked compaction tomorrow at 7814 and 7802 Hundson River. No customer-facing report for this May visit is in Maria/Ryan Graph; the 6/5 Revera invoice packet is attached. No payments-scrape hit at 7802 on this SON. Javier Salazar 2026-08-11 asked another compaction \u2014 later job, not this invoice. One named ask, first visit. This is No PO.",
+    "chase_analysis": "Derek Bird 2026-05-28 7:34 AM CT asked compaction tomorrow at 7814 and 7802 Hundson River. No customer-facing report for this May visit is in Maria/Ryan Graph; the 6/5 Revera invoice packet is attached. No payments-scrape hit at 7802 on this SON. Javier Salazar 2026-08-11 asked another compaction — later job, not this invoice. One named ask, first visit. This is No PO.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "HoustonPurchasing@tollbrothers.com",
@@ -13551,7 +13579,7 @@ window.DATA = [
     "daysPastDue": 54,
     "builder_order_number": null,
     "totalAmt": 416,
-    "chase_subject": "PO needed \u00b7 7802 Hundson River \u00b7 0529-172002 \u00b7 54 days past due",
+    "chase_subject": "PO needed · 7802 Hundson River · 0529-172002 · 54 days past due",
     "chase_letter": "We performed the work at 7802 Hundson River and issued invoice 0529-172002 for $416. This has been 54 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "7802 Hundson River",
     "mail": "not_sent",
@@ -13560,7 +13588,8 @@ window.DATA = [
     "payments_stale": true,
     "check_amount": null,
     "status": "open",
-    "docNumber": "0529-172002"
+    "docNumber": "0529-172002",
+    "chase_letter_close": "If you have any questions or concerns about the work at 7802 Hundson River, the $416 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 11,
@@ -13574,7 +13603,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00628 open $416.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00628 open $416.00 · -19 days past due."
       }
     ],
     "balance": 416,
@@ -13589,7 +13618,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00628 open $416.00 \u00b7 -19 days past due."
+        "what": "CTL-26-00628 open $416.00 · -19 days past due."
       }
     ],
     "hyphen_notes_scrape": "ok",
@@ -13636,7 +13665,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00629 open $416.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00629 open $416.00 · -20 days past due."
       }
     ],
     "balance": 416,
@@ -13660,7 +13689,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00629 open $416.00 \u00b7 -20 days past due."
+        "what": "CTL-26-00629 open $416.00 · -20 days past due."
       }
     ],
     "hyphen_status": null,
@@ -13669,7 +13698,7 @@ window.DATA = [
     "open_balance": 416,
     "dueDate": "2026-09-13",
     "packet": "complete",
-    "chase_analysis": "Javier Salazar 2026-08-12 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 52163121-000 at 1635 Highland Waters Drive, Rosenberg, TX 77469 ELEVATION NAME: 3 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Javier Salazar 2026-08-12 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 52163121-000 at 1635 Highland Waters Drive, Rosenberg, TX 77469 ELEVATION NAME: 3 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "HoustonPurchasing@tollbrothers.com",
     "parent": "Toll Brothers, Inc.",
@@ -13694,7 +13723,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0430-171119 open $416.00 \u00b7 86 days past due.",
+        "what": "0430-171119 open $416.00 · 86 days past due.",
         "today": true
       }
     ],
@@ -13705,7 +13734,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0430-171119 open $416.00 \u00b7 86 days past due.",
+        "what": "0430-171119 open $416.00 · 86 days past due.",
         "today": true
       }
     ],
@@ -13727,7 +13756,7 @@ window.DATA = [
     "daysPastDue": 86,
     "builder_order_number": null,
     "totalAmt": 416,
-    "chase_subject": "PO needed \u00b7 2614 Crown Ridge \u00b7 0430-171119 \u00b7 86 days past due",
+    "chase_subject": "PO needed · 2614 Crown Ridge · 0430-171119 · 86 days past due",
     "chase_letter": "We performed the work at 2614 Crown Ridge and issued invoice 0430-171119 for $416. This has been 86 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "2614 Crown Ridge",
     "mail": "not_sent",
@@ -13736,7 +13765,8 @@ window.DATA = [
     "payments_stale": true,
     "check_amount": null,
     "status": "open",
-    "docNumber": "0430-171119"
+    "docNumber": "0430-171119",
+    "chase_letter_close": "If you have any questions or concerns about the work at 2614 Crown Ridge, the $416 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 84,
@@ -13745,7 +13775,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0529-172011 open $610.00 \u00b7 54 days past due.",
+        "what": "0529-172011 open $610.00 · 54 days past due.",
         "today": true
       }
     ],
@@ -13756,7 +13786,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0529-172011 open $610.00 \u00b7 54 days past due.",
+        "what": "0529-172011 open $610.00 · 54 days past due.",
         "today": true
       }
     ],
@@ -13778,7 +13808,7 @@ window.DATA = [
     "daysPastDue": 54,
     "builder_order_number": null,
     "totalAmt": 610,
-    "chase_subject": "PO needed \u00b7 5322 Gilded Estates \u00b7 0529-172011 \u00b7 54 days past due",
+    "chase_subject": "PO needed · 5322 Gilded Estates · 0529-172011 · 54 days past due",
     "chase_letter": "We performed the work at 5322 Gilded Estates and issued invoice 0529-172011 for $610. This has been 54 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "5322 Gilded Estates",
     "mail": "not_sent",
@@ -13787,7 +13817,8 @@ window.DATA = [
     "payments_stale": true,
     "check_amount": null,
     "status": "open",
-    "docNumber": "0529-172011"
+    "docNumber": "0529-172011",
+    "chase_letter_close": "If you have any questions or concerns about the work at 5322 Gilded Estates, the $610 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 42,
@@ -13829,7 +13860,7 @@ window.DATA = [
       {
         "when": "2026-05-04",
         "lab": "Invoiced",
-        "what": "0504-171172 $416 pad at this address \u2014 later paid in full on the same 6/5 check, not this leftover."
+        "what": "0504-171172 $416 pad at this address — later paid in full on the same 6/5 check, not this leftover."
       },
       {
         "when": "2026-05-21",
@@ -13854,7 +13885,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0522-171895 open $656.50 \u00b7 61 days past due."
+        "what": "0522-171895 open $656.50 · 61 days past due."
       }
     ],
     "balance": 656.5,
@@ -13869,7 +13900,7 @@ window.DATA = [
       {
         "when": "2026-05-04",
         "lab": "Invoiced",
-        "what": "0504-171172 $416 pad at this address \u2014 later paid in full on the same 6/5 check, not this leftover."
+        "what": "0504-171172 $416 pad at this address — later paid in full on the same 6/5 check, not this leftover."
       },
       {
         "when": "2026-05-21",
@@ -13894,7 +13925,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0522-171895 open $656.50 \u00b7 61 days past due."
+        "what": "0522-171895 open $656.50 · 61 days past due."
       }
     ],
     "chase_letter_lead": "Do not send a builder letter. Issue is Amount off. The leftover is not a named lab or unpaid lift we can chase from files on disk. Packet stays Hold.",
@@ -13985,7 +14016,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0512-171556 open $350.00 \u00b7 74 days past due.",
+        "what": "0512-171556 open $350.00 · 74 days past due.",
         "today": true
       }
     ],
@@ -14019,7 +14050,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0512-171556 open $350.00 \u00b7 74 days past due.",
+        "what": "0512-171556 open $350.00 · 74 days past due.",
         "today": true
       }
     ],
@@ -14032,7 +14063,7 @@ window.DATA = [
     "dueDate": "2026-06-11",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "No ryan/joe email call-in for 22115 Dion Skipper. Maria report 5/13 4:09 PM CT to Ty Cooley / AJ Fike / Jim Spurgeon + compactiontests. Invoice 5/12 $350, memo 260512-64678 / dispatch 171556. Maria emailed this invoice 5/22 to Ty/Jim/AJ. Payments CSV and hyphen_pos: no 22115 (neighbors 22031/22106/22110/22103 paid \u2014 different houses). One service, no PO. No PO after analysis.",
+    "chase_analysis": "No ryan/joe email call-in for 22115 Dion Skipper. Maria report 5/13 4:09 PM CT to Ty Cooley / AJ Fike / Jim Spurgeon + compactiontests. Invoice 5/12 $350, memo 260512-64678 / dispatch 171556. Maria emailed this invoice 5/22 to Ty/Jim/AJ. Payments CSV and hyphen_pos: no 22115 (neighbors 22031/22106/22110/22103 paid — different houses). One service, no PO. No PO after analysis.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "HOU.acctspayable@tripointehomes.com",
@@ -14041,7 +14072,7 @@ window.DATA = [
     "daysPastDue": 74,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 22115 Dion Skipper \u00b7 0512-171556 \u00b7 74 days past due",
+    "chase_subject": "PO needed · 22115 Dion Skipper · 0512-171556 · 74 days past due",
     "chase_letter": "We performed the work at 22115 Dion Skipper and issued invoice 0512-171556 for $350. This has been 74 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "22115 Dion Skipper",
     "mail": "not_sent",
@@ -14051,7 +14082,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0512-171556"
+    "docNumber": "0512-171556",
+    "chase_letter_close": "If you have any questions or concerns about the work at 22115 Dion Skipper, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 56,
@@ -14080,7 +14112,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0626-173144 open $350.00 \u00b7 26 days past due.",
+        "what": "0626-173144 open $350.00 · 26 days past due.",
         "today": true
       }
     ],
@@ -14123,7 +14155,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0626-173144 open $350.00 \u00b7 26 days past due.",
+        "what": "0626-173144 open $350.00 · 26 days past due.",
         "today": true
       }
     ],
@@ -14136,7 +14168,7 @@ window.DATA = [
     "dueDate": "2026-07-29",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "complete",
-    "chase_analysis": "Ty Cooley 6/24 2:57 PM CT asked Ryan for Friday afternoon at 22103 Dion Skipper and 22002 Open Marsh; then Bridgeland; Ryan got it. Maria report 6/29 4:23 PM CT for 22002 Open Marsh (this relook found the report; last night's batch had missed it). Invoice 6/29 $350. Maria 7/2 Bridgeland June invoices. Payments CSV has 22006 Open Marsh Way paid \u2014 different house. hyphen_pos: none. One named ask, one report, no PO. No PO after analysis.",
+    "chase_analysis": "Ty Cooley 6/24 2:57 PM CT asked Ryan for Friday afternoon at 22103 Dion Skipper and 22002 Open Marsh; then Bridgeland; Ryan got it. Maria report 6/29 4:23 PM CT for 22002 Open Marsh (this relook found the report; last night's batch had missed it). Invoice 6/29 $350. Maria 7/2 Bridgeland June invoices. Payments CSV has 22006 Open Marsh Way paid — different house. hyphen_pos: none. One named ask, one report, no PO. No PO after analysis.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "HOU.acctspayable@tripointehomes.com",
@@ -14145,7 +14177,7 @@ window.DATA = [
     "daysPastDue": 26,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 22002 Open Marsh \u00b7 0626-173144 \u00b7 26 days past due",
+    "chase_subject": "PO needed · 22002 Open Marsh · 0626-173144 · 26 days past due",
     "chase_letter": "We performed the work at 22002 Open Marsh and issued invoice 0626-173144 for $350. This has been 26 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "22002 Open Marsh",
     "mail": "not_sent",
@@ -14155,7 +14187,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0626-173144"
+    "docNumber": "0626-173144",
+    "chase_letter_close": "If you have any questions or concerns about the work at 22002 Open Marsh, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 70,
@@ -14184,7 +14217,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0611-172575 open $680.00 \u00b7 40 days past due.",
+        "what": "0611-172575 open $680.00 · 40 days past due.",
         "today": true
       }
     ],
@@ -14227,7 +14260,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0611-172575 open $680.00 \u00b7 40 days past due.",
+        "what": "0611-172575 open $680.00 · 40 days past due.",
         "today": true
       }
     ],
@@ -14240,7 +14273,7 @@ window.DATA = [
     "dueDate": "2026-07-15",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "complete",
-    "chase_analysis": "Scott Caron 6/10 3:53 PM CT asked Ryan for proctors at 6027 Everwillow Drive and 6019 Sunset Grove Loop. Ryan received and added. This invoice is $680 (not the $350 pad). Maria emailed invoice 0611-172575 on 6/22. Veronica report 6/26 11:40 AM CT for 6027 Everwillow. Same address also has open 0623-173080 $350 with no separate named ask. Amounts differ ($680 vs $350); the only named ask is proctors. Do not invent that these are the same service twice. Tree does not unlock Write-off or 2nd callout. Payments CSV and hyphen_pos: no 6027 Everwillow (6027 Sunset Grove Loop is Toll \u2014 different street). One named proctor ask, report + $680 invoice, no PO. No PO after analysis.",
+    "chase_analysis": "Scott Caron 6/10 3:53 PM CT asked Ryan for proctors at 6027 Everwillow Drive and 6019 Sunset Grove Loop. Ryan received and added. This invoice is $680 (not the $350 pad). Maria emailed invoice 0611-172575 on 6/22. Veronica report 6/26 11:40 AM CT for 6027 Everwillow. Same address also has open 0623-173080 $350 with no separate named ask. Amounts differ ($680 vs $350); the only named ask is proctors. Do not invent that these are the same service twice. Tree does not unlock Write-off or 2nd callout. Payments CSV and hyphen_pos: no 6027 Everwillow (6027 Sunset Grove Loop is Toll — different street). One named proctor ask, report + $680 invoice, no PO. No PO after analysis.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "HOU.acctspayable@tripointehomes.com",
@@ -14249,7 +14282,7 @@ window.DATA = [
     "daysPastDue": 40,
     "builder_order_number": null,
     "totalAmt": 680,
-    "chase_subject": "PO needed \u00b7 6027 Everwillow Dr \u00b7 0611-172575 \u00b7 40 days past due",
+    "chase_subject": "PO needed · 6027 Everwillow Dr · 0611-172575 · 40 days past due",
     "chase_letter": "We performed the work at 6027 Everwillow Dr and issued invoice 0611-172575 for $680. This has been 40 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "6027 Everwillow Dr",
     "mail": "not_sent",
@@ -14259,7 +14292,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0611-172575"
+    "docNumber": "0611-172575",
+    "chase_letter_close": "If you have any questions or concerns about the work at 6027 Everwillow Dr, the $680 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 56,
@@ -14293,7 +14327,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0623-173080 open $350.00 \u00b7 26 days past due.",
+        "what": "0623-173080 open $350.00 · 26 days past due.",
         "today": true
       }
     ],
@@ -14345,7 +14379,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0623-173080 open $350.00 \u00b7 26 days past due.",
+        "what": "0623-173080 open $350.00 · 26 days past due.",
         "today": true
       }
     ],
@@ -14358,7 +14392,7 @@ window.DATA = [
     "dueDate": "2026-07-29",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "complete",
-    "chase_analysis": "Same lot as open 0611-172575 $680. Graph in the five boxes: the only 6027 named ask is Scott Caron's 6/10 proctor email. No separate ryan/joe request for this $350. Veronica 6/26 report is not a second call-in. Maria 7/2 Evergrove June invoices covers this document. Tree: missing a second named ask. Write-off only if same-service-twice. $680 vs $350 and a proctor ask vs a typical pad bill \u2014 same-service-twice is not proven. Do not invent a second pad visit. Else No PO. Payments CSV and hyphen_pos: no 6027 Everwillow. No PO after analysis.",
+    "chase_analysis": "Same lot as open 0611-172575 $680. Graph in the five boxes: the only 6027 named ask is Scott Caron's 6/10 proctor email. No separate ryan/joe request for this $350. Veronica 6/26 report is not a second call-in. Maria 7/2 Evergrove June invoices covers this document. Tree: missing a second named ask. Write-off only if same-service-twice. $680 vs $350 and a proctor ask vs a typical pad bill — same-service-twice is not proven. Do not invent a second pad visit. Else No PO. Payments CSV and hyphen_pos: no 6027 Everwillow. No PO after analysis.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "HOU.acctspayable@tripointehomes.com",
@@ -14367,7 +14401,7 @@ window.DATA = [
     "daysPastDue": 26,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 6027 Everwillow Dr \u00b7 0623-173080 \u00b7 26 days past due",
+    "chase_subject": "PO needed · 6027 Everwillow Dr · 0623-173080 · 26 days past due",
     "chase_letter": "We performed the work at 6027 Everwillow Dr and issued invoice 0623-173080 for $350. This has been 26 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "6027 Everwillow Dr",
     "mail": "not_sent",
@@ -14377,7 +14411,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0623-173080"
+    "docNumber": "0623-173080",
+    "chase_letter_close": "If you have any questions or concerns about the work at 6027 Everwillow Dr, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 56,
@@ -14401,7 +14436,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0623-173081 open $350.00 \u00b7 26 days past due.",
+        "what": "0623-173081 open $350.00 · 26 days past due.",
         "today": true
       }
     ],
@@ -14435,7 +14470,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0623-173081 open $350.00 \u00b7 26 days past due.",
+        "what": "0623-173081 open $350.00 · 26 days past due.",
         "today": true
       }
     ],
@@ -14457,7 +14492,7 @@ window.DATA = [
     "daysPastDue": 26,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 6035 Ever Willow Dr \u00b7 0623-173081 \u00b7 26 days past due",
+    "chase_subject": "PO needed · 6035 Ever Willow Dr · 0623-173081 · 26 days past due",
     "chase_letter": "We performed the work at 6035 Ever Willow Dr and issued invoice 0623-173081 for $350. This has been 26 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "6035 Ever Willow Dr",
     "mail": "not_sent",
@@ -14467,7 +14502,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0623-173081"
+    "docNumber": "0623-173081",
+    "chase_letter_close": "If you have any questions or concerns about the work at 6035 Ever Willow Dr, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 49,
@@ -14491,7 +14527,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0701-173393 open $350.00 \u00b7 19 days past due.",
+        "what": "0701-173393 open $350.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -14525,7 +14561,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0701-173393 open $350.00 \u00b7 19 days past due.",
+        "what": "0701-173393 open $350.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -14538,7 +14574,7 @@ window.DATA = [
     "dueDate": "2026-08-05",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "No ryan/joe email call-in for 3614 Misty Cedar. Maria report 7/2 4:42 PM CT to Scott/Josh. Invoice 7/6 $350. Maria 7/13 July Evergrove invoices. Payments CSV Misty Cedar rows are 3615/3619/3603 \u2014 different lots. hyphen_pos: none at 3614. One service, no PO. No PO after analysis.",
+    "chase_analysis": "No ryan/joe email call-in for 3614 Misty Cedar. Maria report 7/2 4:42 PM CT to Scott/Josh. Invoice 7/6 $350. Maria 7/13 July Evergrove invoices. Payments CSV Misty Cedar rows are 3615/3619/3603 — different lots. hyphen_pos: none at 3614. One service, no PO. No PO after analysis.",
     "chase_from_name": "Billings",
     "check_date": null,
     "email": "HOU.acctspayable@tripointehomes.com",
@@ -14547,7 +14583,7 @@ window.DATA = [
     "daysPastDue": 19,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 3614 Misty Cedar \u00b7 0701-173393 \u00b7 19 days past due",
+    "chase_subject": "PO needed · 3614 Misty Cedar · 0701-173393 · 19 days past due",
     "chase_letter": "We performed the work at 3614 Misty Cedar and issued invoice 0701-173393 for $350. This has been 19 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "3614 Misty Cedar",
     "mail": "not_sent",
@@ -14557,7 +14593,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0701-173393"
+    "docNumber": "0701-173393",
+    "chase_letter_close": "If you have any questions or concerns about the work at 3614 Misty Cedar, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 49,
@@ -14581,7 +14618,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0701-173394 open $350.00 \u00b7 19 days past due.",
+        "what": "0701-173394 open $350.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -14615,7 +14652,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0701-173394 open $350.00 \u00b7 19 days past due.",
+        "what": "0701-173394 open $350.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -14637,7 +14674,7 @@ window.DATA = [
     "daysPastDue": 19,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 3623 Misty Cedar Grove \u00b7 0701-173394 \u00b7 19 days past due",
+    "chase_subject": "PO needed · 3623 Misty Cedar Grove · 0701-173394 · 19 days past due",
     "chase_letter": "We performed the work at 3623 Misty Cedar Grove and issued invoice 0701-173394 for $350. This has been 19 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "3623 Misty Cedar Grove",
     "mail": "not_sent",
@@ -14647,7 +14684,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0701-173394"
+    "docNumber": "0701-173394",
+    "chase_letter_close": "If you have any questions or concerns about the work at 3623 Misty Cedar Grove, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 42,
@@ -14671,7 +14709,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0708-173849 open $350.00 \u00b7 12 days past due.",
+        "what": "0708-173849 open $350.00 · 12 days past due.",
         "today": true
       }
     ],
@@ -14701,7 +14739,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0708-173849 open $350.00 \u00b7 12 days past due.",
+        "what": "0708-173849 open $350.00 · 12 days past due.",
         "today": true
       }
     ],
@@ -14723,7 +14761,7 @@ window.DATA = [
     "daysPastDue": 12,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 5326 Maple Stream \u00b7 0708-173849 \u00b7 12 days past due",
+    "chase_subject": "PO needed · 5326 Maple Stream · 0708-173849 · 12 days past due",
     "chase_letter": "We performed the work at 5326 Maple Stream and issued invoice 0708-173849 for $350. This has been 12 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "5326 Maple Stream",
     "mail": "not_sent",
@@ -14733,7 +14771,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0708-173849"
+    "docNumber": "0708-173849",
+    "chase_letter_close": "If you have any questions or concerns about the work at 5326 Maple Stream, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 42,
@@ -14757,7 +14796,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0708-173850 open $350.00 \u00b7 12 days past due.",
+        "what": "0708-173850 open $350.00 · 12 days past due.",
         "today": true
       }
     ],
@@ -14787,7 +14826,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0708-173850 open $350.00 \u00b7 12 days past due.",
+        "what": "0708-173850 open $350.00 · 12 days past due.",
         "today": true
       }
     ],
@@ -14809,7 +14848,7 @@ window.DATA = [
     "daysPastDue": 12,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 5330 Maple Stream \u00b7 0708-173850 \u00b7 12 days past due",
+    "chase_subject": "PO needed · 5330 Maple Stream · 0708-173850 · 12 days past due",
     "chase_letter": "We performed the work at 5330 Maple Stream and issued invoice 0708-173850 for $350. This has been 12 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "5330 Maple Stream",
     "mail": "not_sent",
@@ -14819,7 +14858,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0708-173850"
+    "docNumber": "0708-173850",
+    "chase_letter_close": "If you have any questions or concerns about the work at 5330 Maple Stream, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 24,
@@ -14838,7 +14878,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00306 open $350.00 \u00b7 -6 days past due."
+        "what": "CTL-26-00306 open $350.00 · -6 days past due."
       }
     ],
     "balance": 350,
@@ -14862,7 +14902,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00306 open $350.00 \u00b7 -6 days past due."
+        "what": "CTL-26-00306 open $350.00 · -6 days past due."
       }
     ],
     "hyphen_status": null,
@@ -14906,7 +14946,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00305 open $350.00 \u00b7 -9 days past due."
+        "what": "CTL-26-00305 open $350.00 · -9 days past due."
       }
     ],
     "balance": 350,
@@ -14930,7 +14970,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00305 open $350.00 \u00b7 -9 days past due."
+        "what": "CTL-26-00305 open $350.00 · -9 days past due."
       }
     ],
     "hyphen_status": null,
@@ -14989,7 +15029,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0428-170954 open $610.00 \u00b7 88 days past due.",
+        "what": "0428-170954 open $610.00 · 88 days past due.",
         "today": true
       }
     ],
@@ -15025,7 +15065,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0428-170954 open $610.00 \u00b7 88 days past due.",
+        "what": "0428-170954 open $610.00 · 88 days past due.",
         "today": true
       }
     ],
@@ -15038,7 +15078,7 @@ window.DATA = [
     "dueDate": "2026-05-28",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "complete",
-    "chase_analysis": "Jake Matcheski 4/27 12:47 PM CT asked Esme/Jocelyne for a compaction test tomorrow at 3003 Heritage Grove Ct (Legacy Grove). Jocelyne FW to Ryan/Joe; Joe got it; Ryan 4/28 3:44 PM CT trying to make it that afternoon. Maria report 4/30 10:49 AM CT to Jake (resent 5/1). Invoice $610 4/28 \u2014 Maria later titled the 6/26 chase Proctor PO Request. Invoice emailed 5/18 to Jake. Maria 6/26 Proctor PO request to Jake and Chris \u2014 no builder reply. Payments CSV and hyphen_pos/events: no 3003 Heritage Grove. One named ask, report + invoice on file, no PO. No PO after analysis.",
+    "chase_analysis": "Jake Matcheski 4/27 12:47 PM CT asked Esme/Jocelyne for a compaction test tomorrow at 3003 Heritage Grove Ct (Legacy Grove). Jocelyne FW to Ryan/Joe; Joe got it; Ryan 4/28 3:44 PM CT trying to make it that afternoon. Maria report 4/30 10:49 AM CT to Jake (resent 5/1). Invoice $610 4/28 — Maria later titled the 6/26 chase Proctor PO Request. Invoice emailed 5/18 to Jake. Maria 6/26 Proctor PO request to Jake and Chris — no builder reply. Payments CSV and hyphen_pos/events: no 3003 Heritage Grove. One named ask, report + invoice on file, no PO. No PO after analysis.",
     "chase_to_name": "Jake Matcheski",
     "chase_from_name": "Billings",
     "chase_to": "jake.matcheski@tripointehomes.com",
@@ -15049,7 +15089,7 @@ window.DATA = [
     "daysPastDue": 88,
     "builder_order_number": null,
     "totalAmt": 610,
-    "chase_subject": "PO needed \u00b7 3003 Heritage Grove Ct \u00b7 0428-170954 \u00b7 88 days past due",
+    "chase_subject": "PO needed · 3003 Heritage Grove Ct · 0428-170954 · 88 days past due",
     "chase_letter": "We performed the work at 3003 Heritage Grove Ct and issued invoice 0428-170954 for $610. This has been 88 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "3003 Heritage Grove Ct",
     "chase_cc": [
@@ -15081,7 +15121,58 @@ window.DATA = [
     "workup_attachments_note": "Case folder /workspace/hyphen-board/cases/0428-170954/ has Jake call-in, Maria report, invoice, 6/26 PO request.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0428-170954"
+    "docNumber": "0428-170954",
+    "chase_letter_close": "If you have any questions or concerns about the work at 3003 Heritage Grove Ct, the $610 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there.",
+    "chase_attachments": [
+      {
+        "kind": "callin",
+        "label": "Called in · Jake Matcheski 2026-04-27",
+        "mailbox": "esmeralda@coastaltestinglabs.com",
+        "messageId": "AAMkADEzZjA4ZmIwLWI2NDYtNGVhZC04M2NlLTk4MjkwNDIwOTY4ZABGAAAAAAAXUdg3bhDCSYKC7MUWDJS1BwDtWWcWwq6fSbwyJ7DgVVeuAAAAALYXAADtWWcWwq6fSbwyJ7DgVVeuAAMzhUulAAA=",
+        "path": "/workspace/hyphen-board/cases/0428-170954/2026-04-27_Jake-Matcheski_3003-Heritage-Grove-Ct-Legacy-Grove.eml",
+        "fromName": "Jake Matcheski",
+        "from": "Jake.Matcheski@TriPointeHomes.com",
+        "subject": "3003 Heritage Grove Ct - Legacy Grove",
+        "sent": "2026-04-27T17:47:00+00:00",
+        "bodyPreview": "Good afternoon, Can I please schedule compaction test for this pad tomorrow morning? Thank you Jake Matcheski CONSTRUCTION MANAGER E Jake.Matcheski@TriPointeHomes.com M 713.823.0181 W TriPointeHomes.com A 16340 Park Ten "
+      },
+      {
+        "kind": "report",
+        "label": "Report transmittal · Maria 2026-04-30",
+        "mailbox": "maria@coastaltestinglabs.com",
+        "messageId": "AAMkAGI2NWVhODc2LTgyMzktNDMyYS05NjE2LWU2NjdjMGQzNmMyNQBGAAAAAAA6fJNVzYU9SrviPsSBAaEUBwDwJyxQUrJjSbVEmjknkwS0AAAAAAEJAADwJyxQUrJjSbVEmjknkwS0AAC2PW9JAAA=",
+        "path": "/workspace/hyphen-board/cases/0428-170954/2026-04-30_Maria_Report-Legacy-Grove-3003-Heritage-Grove-Ct.eml",
+        "fromName": "Maria Lerma",
+        "from": "Maria@coastaltestinglabs.com",
+        "subject": "Report - TriPointe Homes - Legacy Grove - 3003 Heritage Grove Ct.",
+        "sent": "2026-04-30T15:49:46+00:00",
+        "bodyPreview": "Good Morning, Attached please find the report available for your company. Please advise if you have any questions or need anything further assistance. Thanks, and hope you are having a great day. TO SCHEDULE TESTING PLEA"
+      },
+      {
+        "kind": "asked",
+        "label": "Inquiry · Maria invoice 2026-05-18",
+        "mailbox": "maria@coastaltestinglabs.com",
+        "messageId": "AAMkAGI2NWVhODc2LTgyMzktNDMyYS05NjE2LWU2NjdjMGQzNmMyNQBGAAAAAAA6fJNVzYU9SrviPsSBAaEUBwDwJyxQUrJjSbVEmjknkwS0AAAAAAEJAADwJyxQUrJjSbVEmjknkwS0AAC2PXc8AAA=",
+        "path": "/workspace/hyphen-board/cases/0428-170954/2026-05-18_Maria_Invoice-0428-170954-3003-Heritage-Grove-Ct.eml",
+        "fromName": "Maria Lerma",
+        "from": "Maria@coastaltestinglabs.com",
+        "subject": "TriPointe Homes - May - Invoice 0428-170954 - Legacy Grove - 3003\r\n Heritage Grove Ct.",
+        "sent": "2026-05-18T19:40:30+00:00",
+        "bodyPreview": "Good Afternoon, Please find attached the invoice for the work completed. We kindly request your prompt payment at your earliest convenience. Should you have any questions or require additional details, please don't hesit"
+      },
+      {
+        "kind": "asked",
+        "label": "Inquiry · Maria Proctor PO Request 2026-06-26",
+        "mailbox": "maria@coastaltestinglabs.com",
+        "messageId": "AAMkAGI2NWVhODc2LTgyMzktNDMyYS05NjE2LWU2NjdjMGQzNmMyNQBGAAAAAAA6fJNVzYU9SrviPsSBAaEUBwDwJyxQUrJjSbVEmjknkwS0AAAAAAEJAADwJyxQUrJjSbVEmjknkwS0AAC2PY96AAA=",
+        "path": "/workspace/hyphen-board/cases/0428-170954/2026-06-26_Maria_Proctor-PO-Request-3003-Heritage-Grove-Ct.eml",
+        "fromName": "Maria Lerma",
+        "from": "Maria@coastaltestinglabs.com",
+        "subject": "Proctor PO Request - 3003 Heritage Grove Ct - Legacy Grove\t",
+        "sent": "2026-06-26T15:44:46+00:00",
+        "bodyPreview": "Good morning, I hope all is well. Please see attached report and invoice sent to the distribution list we have in our system. * Compaction request was received on 4/27/2026 from Jake Matcheski - Please see attached email"
+      }
+    ]
   },
   {
     "daysSinceInvoice": 49,
@@ -15115,7 +15206,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0630-173247 open $350.00 \u00b7 19 days past due.",
+        "what": "0630-173247 open $350.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -15167,7 +15258,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0630-173247 open $350.00 \u00b7 19 days past due.",
+        "what": "0630-173247 open $350.00 · 19 days past due.",
         "today": true
       }
     ],
@@ -15189,7 +15280,7 @@ window.DATA = [
     "daysPastDue": 19,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 22414 Topaz Harbor Lane \u00b7 0630-173247 \u00b7 19 days past due",
+    "chase_subject": "PO needed · 22414 Topaz Harbor Lane · 0630-173247 · 19 days past due",
     "chase_letter": "We performed the work at 22414 Topaz Harbor Lane and issued invoice 0630-173247 for $350. This has been 19 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "22414 Topaz Harbor Lane",
     "mail": "not_sent",
@@ -15199,7 +15290,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0630-173247"
+    "docNumber": "0630-173247",
+    "chase_letter_close": "If you have any questions or concerns about the work at 22414 Topaz Harbor Lane, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 116,
@@ -15228,7 +15320,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0430-171118 open $350.00 \u00b7 86 days past due.",
+        "what": "0430-171118 open $350.00 · 86 days past due.",
         "today": true
       }
     ],
@@ -15271,7 +15363,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0430-171118 open $350.00 \u00b7 86 days past due.",
+        "what": "0430-171118 open $350.00 · 86 days past due.",
         "today": true
       }
     ],
@@ -15284,7 +15376,7 @@ window.DATA = [
     "dueDate": "2026-05-30",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "No ryan/joe email call-in for 32143 Sky Branch in the five Graph boxes. Maria report 5/4 3:13 PM CT to the Pecan Ridge list. Invoice 4/30 $350, memo report 260430-64240 / dispatch 171118. Maria May Pecan Ridge invoice batch 5/11. Maria 6/26 PO request to Jerry/Chad/Keith/Josh \u2014 no builder reply. Payments CSV and hyphen_pos: no 32143. Neighbor 32147 now has EPO 1271603-000 for 0415-170614 \u2014 different house. One service, no PO. Who called is timeline only (likely phone). No PO after analysis.",
+    "chase_analysis": "No ryan/joe email call-in for 32143 Sky Branch in the five Graph boxes. Maria report 5/4 3:13 PM CT to the Pecan Ridge list. Invoice 4/30 $350, memo report 260430-64240 / dispatch 171118. Maria May Pecan Ridge invoice batch 5/11. Maria 6/26 PO request to Jerry/Chad/Keith/Josh — no builder reply. Payments CSV and hyphen_pos: no 32143. Neighbor 32147 now has EPO 1271603-000 for 0415-170614 — different house. One service, no PO. Who called is timeline only (likely phone). No PO after analysis.",
     "chase_to_name": "Chad Luedke",
     "chase_from_name": "Billings",
     "chase_to": "chad.luedke@tripointehomes.com",
@@ -15295,7 +15387,7 @@ window.DATA = [
     "daysPastDue": 86,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 32143 Sky Branch Dr. \u00b7 0430-171118 \u00b7 86 days past due",
+    "chase_subject": "PO needed · 32143 Sky Branch Dr. · 0430-171118 · 86 days past due",
     "chase_letter": "We performed the work at 32143 Sky Branch Dr. and issued invoice 0430-171118 for $350. This has been 86 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "32143 Sky Branch Dr.",
     "chase_cc": [
@@ -15335,7 +15427,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0430-171118"
+    "docNumber": "0430-171118",
+    "chase_letter_close": "If you have any questions or concerns about the work at 32143 Sky Branch Dr., the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 102,
@@ -15359,7 +15452,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0514-171597 open $350.00 \u00b7 72 days past due.",
+        "what": "0514-171597 open $350.00 · 72 days past due.",
         "today": true
       }
     ],
@@ -15393,7 +15486,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0514-171597 open $350.00 \u00b7 72 days past due.",
+        "what": "0514-171597 open $350.00 · 72 days past due.",
         "today": true
       }
     ],
@@ -15406,7 +15499,7 @@ window.DATA = [
     "dueDate": "2026-06-13",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "No ryan/joe email call-in for 7910 Oakside Court. Maria report 5/15 4:42 PM CT to the Pecan Ridge list. Invoice 5/14 $350, memo 260514-64719 / dispatch 171597. Maria 5/22 May Pecan Ridge invoice batch. Payments CSV Oakside rows are Toll 7906/7915/7919 \u2014 different builder and houses. hyphen_pos: no 7910 Oakside. One service, no PO. No PO after analysis.",
+    "chase_analysis": "No ryan/joe email call-in for 7910 Oakside Court. Maria report 5/15 4:42 PM CT to the Pecan Ridge list. Invoice 5/14 $350, memo 260514-64719 / dispatch 171597. Maria 5/22 May Pecan Ridge invoice batch. Payments CSV Oakside rows are Toll 7906/7915/7919 — different builder and houses. hyphen_pos: no 7910 Oakside. One service, no PO. No PO after analysis.",
     "chase_to_name": "Chad Luedke",
     "chase_from_name": "Billings",
     "chase_to": "chad.luedke@tripointehomes.com",
@@ -15417,7 +15510,7 @@ window.DATA = [
     "daysPastDue": 72,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 7910 Oakside Court \u00b7 0514-171597 \u00b7 72 days past due",
+    "chase_subject": "PO needed · 7910 Oakside Court · 0514-171597 · 72 days past due",
     "chase_letter": "We performed the work at 7910 Oakside Court and issued invoice 0514-171597 for $350. This has been 72 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "7910 Oakside Court",
     "chase_cc": [
@@ -15457,7 +15550,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0514-171597"
+    "docNumber": "0514-171597",
+    "chase_letter_close": "If you have any questions or concerns about the work at 7910 Oakside Court, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 102,
@@ -15481,7 +15575,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0514-171600 open $350.00 \u00b7 72 days past due.",
+        "what": "0514-171600 open $350.00 · 72 days past due.",
         "today": true
       }
     ],
@@ -15515,7 +15609,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0514-171600 open $350.00 \u00b7 72 days past due.",
+        "what": "0514-171600 open $350.00 · 72 days past due.",
         "today": true
       }
     ],
@@ -15528,7 +15622,7 @@ window.DATA = [
     "dueDate": "2026-06-13",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "No ryan/joe email call-in for 8011 Leaf Drift Court. Maria report 5/15 4:40 PM CT. Invoice 5/14 $350, memo 260514-64722 / dispatch 171600. Maria 5/22 May Pecan Ridge batch. Payments CSV has 8014 and 8018 Leaf Drift (paid) \u2014 different houses. No 8011. One service, no PO. No PO after analysis.",
+    "chase_analysis": "No ryan/joe email call-in for 8011 Leaf Drift Court. Maria report 5/15 4:40 PM CT. Invoice 5/14 $350, memo 260514-64722 / dispatch 171600. Maria 5/22 May Pecan Ridge batch. Payments CSV has 8014 and 8018 Leaf Drift (paid) — different houses. No 8011. One service, no PO. No PO after analysis.",
     "chase_to_name": "Chad Luedke",
     "chase_from_name": "Billings",
     "chase_to": "chad.luedke@tripointehomes.com",
@@ -15539,7 +15633,7 @@ window.DATA = [
     "daysPastDue": 72,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 8011 Leaf Drift Court \u00b7 0514-171600 \u00b7 72 days past due",
+    "chase_subject": "PO needed · 8011 Leaf Drift Court · 0514-171600 · 72 days past due",
     "chase_letter": "We performed the work at 8011 Leaf Drift Court and issued invoice 0514-171600 for $350. This has been 72 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "8011 Leaf Drift Court",
     "chase_cc": [
@@ -15579,7 +15673,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0514-171600"
+    "docNumber": "0514-171600",
+    "chase_letter_close": "If you have any questions or concerns about the work at 8011 Leaf Drift Court, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 77,
@@ -15608,7 +15703,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0602-172200 open $350.00 \u00b7 47 days past due.",
+        "what": "0602-172200 open $350.00 · 47 days past due.",
         "today": true
       }
     ],
@@ -15651,7 +15746,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0602-172200 open $350.00 \u00b7 47 days past due.",
+        "what": "0602-172200 open $350.00 · 47 days past due.",
         "today": true
       }
     ],
@@ -15675,7 +15770,7 @@ window.DATA = [
     "daysPastDue": 47,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 8039 Leaf Drift \u00b7 0602-172200 \u00b7 47 days past due",
+    "chase_subject": "PO needed · 8039 Leaf Drift · 0602-172200 · 47 days past due",
     "chase_letter": "We performed the work at 8039 Leaf Drift and issued invoice 0602-172200 for $350. This has been 47 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "8039 Leaf Drift",
     "chase_cc": [
@@ -15715,7 +15810,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0602-172200"
+    "docNumber": "0602-172200",
+    "chase_letter_close": "If you have any questions or concerns about the work at 8039 Leaf Drift, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 70,
@@ -15749,7 +15845,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0611-172549 open $350.00 \u00b7 40 days past due.",
+        "what": "0611-172549 open $350.00 · 40 days past due.",
         "today": true
       }
     ],
@@ -15801,7 +15897,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0611-172549 open $350.00 \u00b7 40 days past due.",
+        "what": "0611-172549 open $350.00 · 40 days past due.",
         "today": true
       }
     ],
@@ -15825,7 +15921,7 @@ window.DATA = [
     "daysPastDue": 40,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 32171 Sky Branch Dr \u00b7 0611-172549 \u00b7 40 days past due",
+    "chase_subject": "PO needed · 32171 Sky Branch Dr · 0611-172549 · 40 days past due",
     "chase_letter": "We performed the work at 32171 Sky Branch Dr and issued invoice 0611-172549 for $350. This has been 40 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "32171 Sky Branch Dr",
     "chase_cc": [
@@ -15865,7 +15961,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0611-172549"
+    "docNumber": "0611-172549",
+    "chase_letter_close": "If you have any questions or concerns about the work at 32171 Sky Branch Dr, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 70,
@@ -15899,7 +15996,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0611-172550 open $350.00 \u00b7 40 days past due.",
+        "what": "0611-172550 open $350.00 · 40 days past due.",
         "today": true
       }
     ],
@@ -15951,7 +16048,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0611-172550 open $350.00 \u00b7 40 days past due.",
+        "what": "0611-172550 open $350.00 · 40 days past due.",
         "today": true
       }
     ],
@@ -15964,7 +16061,7 @@ window.DATA = [
     "dueDate": "2026-07-15",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "complete",
-    "chase_analysis": "Same Jerry Battle 6/10 email as 32171. Maria report 6/12 4:00 PM CT for 32175. Invoice 6/15 $350. Maria 6/22 June Pecan Ridge invoices. Payments CSV and hyphen_pos: no 32175. Different lot from 32171 \u2014 not same-address twice. One named ask, one report, no PO. No PO after analysis.",
+    "chase_analysis": "Same Jerry Battle 6/10 email as 32171. Maria report 6/12 4:00 PM CT for 32175. Invoice 6/15 $350. Maria 6/22 June Pecan Ridge invoices. Payments CSV and hyphen_pos: no 32175. Different lot from 32171 — not same-address twice. One named ask, one report, no PO. No PO after analysis.",
     "chase_to_name": "Chad Luedke",
     "chase_from_name": "Billings",
     "chase_to": "chad.luedke@tripointehomes.com",
@@ -15975,7 +16072,7 @@ window.DATA = [
     "daysPastDue": 40,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 32175 Sky Branch Dr \u00b7 0611-172550 \u00b7 40 days past due",
+    "chase_subject": "PO needed · 32175 Sky Branch Dr · 0611-172550 · 40 days past due",
     "chase_letter": "We performed the work at 32175 Sky Branch Dr and issued invoice 0611-172550 for $350. This has been 40 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "32175 Sky Branch Dr",
     "chase_cc": [
@@ -16015,7 +16112,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0611-172550"
+    "docNumber": "0611-172550",
+    "chase_letter_close": "If you have any questions or concerns about the work at 32175 Sky Branch Dr, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 70,
@@ -16044,7 +16142,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0611-172588 open $350.00 \u00b7 40 days past due.",
+        "what": "0611-172588 open $350.00 · 40 days past due.",
         "today": true
       }
     ],
@@ -16087,7 +16185,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0611-172588 open $350.00 \u00b7 40 days past due.",
+        "what": "0611-172588 open $350.00 · 40 days past due.",
         "today": true
       }
     ],
@@ -16100,7 +16198,7 @@ window.DATA = [
     "dueDate": "2026-07-15",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "complete",
-    "chase_analysis": "Chad Luedke 6/11 10:14 AM CT asked Ryan for two pad tests tomorrow: 8018 Sun Leaf and 8022 Sun Leaf. Ryan added; Chad: Pecan Ridge. Ryan 1:17 PM note about Jerry's Sky Branch pads is scheduling, not a second 8018 visit. Maria report 6/15 2:46 PM CT. Invoice 6/15 $350. Maria 6/22 June Pecan Ridge invoices. Payments CSV Sun Leaf rows are 8122/8115/8119 \u2014 not 8018. 8018 Leaf Drift paid is a different street. hyphen_pos: none. One named ask, one report, no PO. No PO after analysis.",
+    "chase_analysis": "Chad Luedke 6/11 10:14 AM CT asked Ryan for two pad tests tomorrow: 8018 Sun Leaf and 8022 Sun Leaf. Ryan added; Chad: Pecan Ridge. Ryan 1:17 PM note about Jerry's Sky Branch pads is scheduling, not a second 8018 visit. Maria report 6/15 2:46 PM CT. Invoice 6/15 $350. Maria 6/22 June Pecan Ridge invoices. Payments CSV Sun Leaf rows are 8122/8115/8119 — not 8018. 8018 Leaf Drift paid is a different street. hyphen_pos: none. One named ask, one report, no PO. No PO after analysis.",
     "chase_to_name": "Chad Luedke",
     "chase_from_name": "Billings",
     "chase_to": "chad.luedke@tripointehomes.com",
@@ -16111,7 +16209,7 @@ window.DATA = [
     "daysPastDue": 40,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 8018 Sun Leaf \u00b7 0611-172588 \u00b7 40 days past due",
+    "chase_subject": "PO needed · 8018 Sun Leaf · 0611-172588 · 40 days past due",
     "chase_letter": "We performed the work at 8018 Sun Leaf and issued invoice 0611-172588 for $350. This has been 40 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "8018 Sun Leaf",
     "chase_cc": [
@@ -16151,7 +16249,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0611-172588"
+    "docNumber": "0611-172588",
+    "chase_letter_close": "If you have any questions or concerns about the work at 8018 Sun Leaf, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 126,
@@ -16185,7 +16284,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0416-170658 open $350.00 \u00b7 96 days past due.",
+        "what": "0416-170658 open $350.00 · 96 days past due.",
         "today": true
       }
     ],
@@ -16222,7 +16321,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0416-170658 open $350.00 \u00b7 96 days past due.",
+        "what": "0416-170658 open $350.00 · 96 days past due.",
         "today": true
       }
     ],
@@ -16235,7 +16334,7 @@ window.DATA = [
     "dueDate": "2026-05-20",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "hold",
-    "chase_analysis": "Hunter Hott 4/15 6:07 PM CT listed 28502 Pebble Springs house pad (Tri Pointe Woodson's) to Ryan/Joe. Ryan 4/16 6:53 AM CT added to schedule. Maria report 4/17 3:23 PM CT to the Woodson's Tri Pointe list. Invoice 4/20 $350 still open. Maria April Woodson's invoice batch 4/27. Maria 6/26 PO request to Chris and the Woodson's CMs \u2014 no builder reply. Billings 8/18 11:59 AM CT already sent a PO-needed letter to Chris (Hunter is timeline only; not on To). Portal address search 2026-08-18: zero orders at 28502; neighbors 28515/28511/28506 only. Payments CSV and hyphen_pos/events: no 28502 row. One named ask, one report, no PO. Not same-address twice. No PO after analysis.",
+    "chase_analysis": "Hunter Hott 4/15 6:07 PM CT listed 28502 Pebble Springs house pad (Tri Pointe Woodson's) to Ryan/Joe. Ryan 4/16 6:53 AM CT added to schedule. Maria report 4/17 3:23 PM CT to the Woodson's Tri Pointe list. Invoice 4/20 $350 still open. Maria April Woodson's invoice batch 4/27. Maria 6/26 PO request to Chris and the Woodson's CMs — no builder reply. Billings 8/18 11:59 AM CT already sent a PO-needed letter to Chris (Hunter is timeline only; not on To). Portal address search 2026-08-18: zero orders at 28502; neighbors 28515/28511/28506 only. Payments CSV and hyphen_pos/events: no 28502 row. One named ask, one report, no PO. Not same-address twice. No PO after analysis.",
     "chase_to_name": "Chris Tschumperlin",
     "chase_from_name": "Billings",
     "chase_to": "chris.tschumperlin@tripointehomes.com",
@@ -16246,7 +16345,7 @@ window.DATA = [
     "daysPastDue": 96,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 28502 Pebble Springs \u00b7 0416-170658 \u00b7 96 days past due",
+    "chase_subject": "PO needed · 28502 Pebble Springs · 0416-170658 · 96 days past due",
     "chase_letter": "Hunter Hott called us on April 15 for pad work at 28502 Pebble Springs. We sent the report April 17 and invoice 0416-170658 for $350 on April 20. It is 96 days past due. There is no PO in Hyphen to bill against. Please create that PO.",
     "service_address": "28502 Pebble Springs",
     "chase_cc": [
@@ -16300,7 +16399,8 @@ window.DATA = [
     "status": "open",
     "docNumber": "0416-170658",
     "last_sent": "2026-08-18 11:59 CT",
-    "follow_up_due": "Fri 2026-08-21"
+    "follow_up_due": "Fri 2026-08-21",
+    "chase_letter_close": "If you have any questions or concerns about the work at 28502 Pebble Springs, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 42,
@@ -16329,7 +16429,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0707-173658 open $350.00 \u00b7 12 days past due.",
+        "what": "0707-173658 open $350.00 · 12 days past due.",
         "today": true
       }
     ],
@@ -16372,7 +16472,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0707-173658 open $350.00 \u00b7 12 days past due.",
+        "what": "0707-173658 open $350.00 · 12 days past due.",
         "today": true
       }
     ],
@@ -16385,7 +16485,7 @@ window.DATA = [
     "dueDate": "2026-08-12",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "complete",
-    "chase_analysis": "Hunter Hott 7/5 9:21 PM CT list includes Tri Pointe Woodson's 28243 Serene Point. Ryan 7/6 7:55 AM CT added to schedule. No dedicated 28243 report-send in the five Graph boxes. Invoice 7/13 $350. Maria 7/20 Woodson's July invoices. Maria 7/28 asked Chris Tschumperlin to confirm 28243 is the correct address (attached the Hunter request). No PO reply. Payments CSV has many other Serene Point houses paid \u2014 not 28243. hyphen_pos: none. One named ask, no second PO, not same-address twice. No PO after analysis.",
+    "chase_analysis": "Hunter Hott 7/5 9:21 PM CT list includes Tri Pointe Woodson's 28243 Serene Point. Ryan 7/6 7:55 AM CT added to schedule. No dedicated 28243 report-send in the five Graph boxes. Invoice 7/13 $350. Maria 7/20 Woodson's July invoices. Maria 7/28 asked Chris Tschumperlin to confirm 28243 is the correct address (attached the Hunter request). No PO reply. Payments CSV has many other Serene Point houses paid — not 28243. hyphen_pos: none. One named ask, no second PO, not same-address twice. No PO after analysis.",
     "chase_to_name": "Chris Tschumperlin",
     "chase_from_name": "Billings",
     "chase_to": "chris.tschumperlin@tripointehomes.com",
@@ -16396,7 +16496,7 @@ window.DATA = [
     "daysPastDue": 12,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 28243 Serene Point \u00b7 0707-173658 \u00b7 12 days past due",
+    "chase_subject": "PO needed · 28243 Serene Point · 0707-173658 · 12 days past due",
     "chase_letter": "We performed the work at 28243 Serene Point and issued invoice 0707-173658 for $350. This has been 12 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "28243 Serene Point",
     "chase_cc": [
@@ -16448,7 +16548,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0707-173658"
+    "docNumber": "0707-173658",
+    "chase_letter_close": "If you have any questions or concerns about the work at 28243 Serene Point, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 42,
@@ -16477,7 +16578,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0707-173676 open $350.00 \u00b7 12 days past due.",
+        "what": "0707-173676 open $350.00 · 12 days past due.",
         "today": true
       }
     ],
@@ -16520,7 +16621,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0707-173676 open $350.00 \u00b7 12 days past due.",
+        "what": "0707-173676 open $350.00 · 12 days past due.",
         "today": true
       }
     ],
@@ -16544,7 +16645,7 @@ window.DATA = [
     "daysPastDue": 12,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 4544 Sterling Springs \u00b7 0707-173676 \u00b7 12 days past due",
+    "chase_subject": "PO needed · 4544 Sterling Springs · 0707-173676 · 12 days past due",
     "chase_letter": "We performed the work at 4544 Sterling Springs and issued invoice 0707-173676 for $350. This has been 12 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "4544 Sterling Springs",
     "chase_cc": [
@@ -16596,7 +16697,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0707-173676"
+    "docNumber": "0707-173676",
+    "chase_letter_close": "If you have any questions or concerns about the work at 4544 Sterling Springs, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 42,
@@ -16630,7 +16732,7 @@ window.DATA = [
       {
         "when": "2026-07-09",
         "lab": "Replied",
-        "what": "Bart Mills cited the April/May first-visit payments \u2014 not a second PO."
+        "what": "Bart Mills cited the April/May first-visit payments — not a second PO."
       },
       {
         "when": "2026-07-13",
@@ -16640,7 +16742,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0707-173717 open $350.00 \u00b7 12 days past due."
+        "what": "0707-173717 open $350.00 · 12 days past due."
       }
     ],
     "balance": 350,
@@ -16675,7 +16777,7 @@ window.DATA = [
       {
         "when": "2026-07-09",
         "lab": "Replied",
-        "what": "Bart Mills cited the April/May first-visit payments \u2014 not a second PO."
+        "what": "Bart Mills cited the April/May first-visit payments — not a second PO."
       },
       {
         "when": "2026-07-13",
@@ -16685,7 +16787,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0707-173717 open $350.00 \u00b7 12 days past due."
+        "what": "0707-173717 open $350.00 · 12 days past due."
       }
     ],
     "hyphen_status": null,
@@ -16694,7 +16796,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-08-12",
     "packet": "hold",
-    "chase_analysis": "Found: Hunter Hott 2026-04-15 listed 28103 Sand Valley (paid 0416-170656) and Hunter 2026-07-06 makeup list named it again. Not found: request .eml on disk for either client ask. Write-off \u2014 missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Hunter Hott 2026-04-15 listed 28103 Sand Valley (paid 0416-170656) and Hunter 2026-07-06 makeup list named it again. Not found: request .eml on disk for either client ask. Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "HOU.acctspayable@tripointehomes.com",
     "parent": "TriPointe Homes",
@@ -16739,7 +16841,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0710-173949 open $350.00 \u00b7 12 days past due.",
+        "what": "0710-173949 open $350.00 · 12 days past due.",
         "today": true
       }
     ],
@@ -16782,7 +16884,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "0710-173949 open $350.00 \u00b7 12 days past due.",
+        "what": "0710-173949 open $350.00 · 12 days past due.",
         "today": true
       }
     ],
@@ -16795,7 +16897,7 @@ window.DATA = [
     "dueDate": "2026-08-12",
     "chase_from": "billings@coastaltestinglabs.com",
     "packet": "complete",
-    "chase_analysis": "Hunter Hott 7/9 7:46 PM CT standalone email: schedule 28428 Woodward Creek, Woodson's / Tri Pointe. Ryan 7/10 7:05 AM CT will do. Not on Hunter's 7/5 list (that list had 28403 Woodward Creek \u2014 different lot). Maria report 7/15 3:27 PM CT. Invoice 7/13 $350. Maria 7/20 Woodson's July invoices. Payments CSV Woodward Creek rows are 28403 (paid) and 28443 (Toll) \u2014 not 28428. hyphen_pos: none. One named ask, one report, no PO. No PO after analysis.",
+    "chase_analysis": "Hunter Hott 7/9 7:46 PM CT standalone email: schedule 28428 Woodward Creek, Woodson's / Tri Pointe. Ryan 7/10 7:05 AM CT will do. Not on Hunter's 7/5 list (that list had 28403 Woodward Creek — different lot). Maria report 7/15 3:27 PM CT. Invoice 7/13 $350. Maria 7/20 Woodson's July invoices. Payments CSV Woodward Creek rows are 28403 (paid) and 28443 (Toll) — not 28428. hyphen_pos: none. One named ask, one report, no PO. No PO after analysis.",
     "chase_to_name": "Chris Tschumperlin",
     "chase_from_name": "Billings",
     "chase_to": "chris.tschumperlin@tripointehomes.com",
@@ -16806,7 +16908,7 @@ window.DATA = [
     "daysPastDue": 12,
     "builder_order_number": null,
     "totalAmt": 350,
-    "chase_subject": "PO needed \u00b7 28428 Woodward Creek \u00b7 0710-173949 \u00b7 12 days past due",
+    "chase_subject": "PO needed · 28428 Woodward Creek · 0710-173949 · 12 days past due",
     "chase_letter": "We performed the work at 28428 Woodward Creek and issued invoice 0710-173949 for $350. This has been 12 days past due with no purchase order on file. Please create a PO for this visit and release payment.",
     "service_address": "28428 Woodward Creek",
     "chase_cc": [
@@ -16858,7 +16960,8 @@ window.DATA = [
     "workup_attachments_note": "No case-folder attachments saved this pass. Graph ids are in _tp-graph.json.",
     "check_amount": null,
     "status": "open",
-    "docNumber": "0710-173949"
+    "docNumber": "0710-173949",
+    "chase_letter_close": "If you have any questions or concerns about the work at 28428 Woodward Creek, the $350 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there."
   },
   {
     "daysSinceInvoice": 7,
@@ -16882,7 +16985,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00422 open $350.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00422 open $350.00 · -23 days past due."
       }
     ],
     "balance": 350,
@@ -16915,7 +17018,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00422 open $350.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00422 open $350.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -16924,7 +17027,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-09-16",
     "packet": "complete",
-    "chase_analysis": "Gabriel Gomez 2026-07-31 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91KTRL57_002610 at 417 Rugged Rock Ln , New Caney, TX 77357 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Gabriel Gomez 2026-07-31 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 91KTRL57_002610 at 417 Rugged Rock Ln , New Caney, TX 77357 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "projectcoordinators-houston@mhinc.com",
     "parent": "MHI HOMES",
@@ -16964,7 +17067,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00436 open $350.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00436 open $350.00 · -23 days past due."
       }
     ],
     "balance": 350,
@@ -16997,7 +17100,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00436 open $350.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00436 open $350.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17006,7 +17109,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-09-16",
     "packet": "complete",
-    "chase_analysis": "Gabriel Gomez 2026-08-14 asked to schedule 12101 Moonlight (with 12122 and Pond Cove). Brandon Pope 7/31 had named 12101 then wrote Disregard not ready \u2014 that is not a second visit. Join found=false; hyphen_pos 91KWRCV5_005899 at 12101 is research only, not this SON. After the mail look this is No PO.",
+    "chase_analysis": "Gabriel Gomez 2026-08-14 asked to schedule 12101 Moonlight (with 12122 and Pond Cove). Brandon Pope 7/31 had named 12101 then wrote Disregard not ready — that is not a second visit. Join found=false; hyphen_pos 91KWRCV5_005899 at 12101 is research only, not this SON. After the mail look this is No PO.",
     "check_date": null,
     "email": "projectcoordinators-houston@mhinc.com",
     "parent": "MHI HOMES",
@@ -17041,7 +17144,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00442 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00442 open $522.00 · -23 days past due."
       }
     ],
     "balance": 522,
@@ -17065,7 +17168,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00442 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00442 open $522.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17074,7 +17177,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-16",
     "packet": "complete",
-    "chase_analysis": "Ryan Potter 2026-08-03 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23436699-000 at 211 Monarch Trail , Huntsville, TX 77340 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Ryan Potter 2026-08-03 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23436699-000 at 211 Monarch Trail , Huntsville, TX 77340 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -17109,7 +17212,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00446 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00446 open $522.00 · -23 days past due."
       }
     ],
     "balance": 522,
@@ -17133,7 +17236,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00446 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00446 open $522.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17142,7 +17245,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-16",
     "packet": "complete",
-    "chase_analysis": "Ryan Potter 2026-08-03 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23439267-000 at 213 Monarch Trail , Huntsville, TX 77340 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Ryan Potter 2026-08-03 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23439267-000 at 213 Monarch Trail , Huntsville, TX 77340 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -17172,7 +17275,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00548 open $1,044.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00548 open $1,044.00 · -23 days past due."
       }
     ],
     "balance": 1044,
@@ -17187,7 +17290,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00548 open $1,044.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00548 open $1,044.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17196,7 +17299,7 @@ window.DATA = [
     "open_balance": 1044,
     "dueDate": "2026-09-16",
     "packet": "hold",
-    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20975494-000 at 3017 Lone Pecan Lane , Katy, TX 77493 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20975494-000 at 3017 Lone Pecan Lane , Katy, TX 77493 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -17226,7 +17329,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00567 open $611.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00567 open $611.00 · -23 days past due."
       }
     ],
     "balance": 611,
@@ -17241,7 +17344,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00567 open $611.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00567 open $611.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17250,7 +17353,7 @@ window.DATA = [
     "open_balance": 611,
     "dueDate": "2026-09-16",
     "packet": "hold",
-    "chase_analysis": "No street on the join. QBO/hyphen_pos PO 24140494-000 is job_address INDIRECTS SOUTHERN POINTE 50 (not a house). Graph on the invoice number shows Payton Walker / Veronica 8/12\u20138/13 talking about a Southern Pointe PO through Indirects that still was not visible in Hyphen. Do not invent a lot. After the mail look this SON is No PO.",
+    "chase_analysis": "No street on the join. QBO/hyphen_pos PO 24140494-000 is job_address INDIRECTS SOUTHERN POINTE 50 (not a house). Graph on the invoice number shows Payton Walker / Veronica 8/12–8/13 talking about a Southern Pointe PO through Indirects that still was not visible in Hyphen. Do not invent a lot. After the mail look this SON is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -17263,7 +17366,7 @@ window.DATA = [
     "hyphen_order_id": null,
     "scrape_as_of": "2026-08-19",
     "payments_stale": true,
-    "workup_attachments_note": "Graph: CTL-26-00567 invoice 8/17 $611 Southern Pointe. Payton 8/13 and Veronica 8/13 on Purchase Order Request \u2014 Southern Pointe \u2014 1 service address (Indirects). No house in those previews. No request .eml on disk.",
+    "workup_attachments_note": "Graph: CTL-26-00567 invoice 8/17 $611 Southern Pointe. Payton 8/13 and Veronica 8/13 on Purchase Order Request — Southern Pointe — 1 service address (Indirects). No house in those previews. No request .eml on disk.",
     "check_amount": null,
     "status": "open",
     "docNumber": "CTL-26-00567"
@@ -17285,7 +17388,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00621 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00621 open $522.00 · -23 days past due."
       }
     ],
     "balance": 522,
@@ -17309,7 +17412,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00621 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00621 open $522.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17318,7 +17421,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-16",
     "packet": "complete",
-    "chase_analysis": "Payton Walker 2026-08-11 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23054691-000 at 6148 Gunn Ridge Drive , College Station, TX 77845 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Payton Walker 2026-08-11 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23054691-000 at 6148 Gunn Ridge Drive , College Station, TX 77845 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -17353,7 +17456,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00622 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00622 open $522.00 · -23 days past due."
       }
     ],
     "balance": 522,
@@ -17377,7 +17480,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00622 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00622 open $522.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17386,7 +17489,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-16",
     "packet": "complete",
-    "chase_analysis": "Payton Walker 2026-08-11 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23041347-000 at 6160 Gunn Ridge Drive , College Station, TX 77485 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Payton Walker 2026-08-11 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23041347-000 at 6160 Gunn Ridge Drive , College Station, TX 77485 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -17416,7 +17519,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00630 open $416.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00630 open $416.00 · -23 days past due."
       }
     ],
     "balance": 416,
@@ -17431,7 +17534,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00630 open $416.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00630 open $416.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17440,7 +17543,7 @@ window.DATA = [
     "open_balance": 416,
     "dueDate": "2026-09-16",
     "packet": "hold",
-    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 59940171-000 at 1526 Timber Woods Drive , Missouri City, TX 77459 ELEVATION NAME: 60 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 59940171-000 at 1526 Timber Woods Drive , Missouri City, TX 77459 ELEVATION NAME: 60 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "jnguyen@tollbrothersinc.com",
     "parent": "Toll Brothers, Inc.",
@@ -17480,7 +17583,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00631 open $416.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00631 open $416.00 · -23 days past due."
       }
     ],
     "balance": 416,
@@ -17505,7 +17608,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00631 open $416.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00631 open $416.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17514,7 +17617,7 @@ window.DATA = [
     "open_balance": 416,
     "dueDate": "2026-09-16",
     "packet": "hold",
-    "chase_analysis": "Found: Derek Bird 2026-05-28 first-visit ask and Javier Salazar 2026-08-11 asked another compaction at 7802 Hundson River. Not found: request .eml on disk for either client ask. Write-off \u2014 missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
+    "chase_analysis": "Found: Derek Bird 2026-05-28 first-visit ask and Javier Salazar 2026-08-11 asked another compaction at 7802 Hundson River. Not found: request .eml on disk for either client ask. Write-off — missing request .eml. Packet hold. No builder letter; william@ to Esmeralda.",
     "check_date": null,
     "email": "HoustonPurchasing@tollbrothers.com",
     "parent": "Toll Brothers, Inc.",
@@ -17549,7 +17652,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00645 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00645 open $522.00 · -23 days past due."
       }
     ],
     "balance": 522,
@@ -17573,7 +17676,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00645 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00645 open $522.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17582,7 +17685,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-16",
     "packet": "complete",
-    "chase_analysis": "Kenneth Pustejovsky 2026-08-13 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20820450-000 at 23012 Pearl Lakes Court , Porter, TX 77365 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Kenneth Pustejovsky 2026-08-13 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20820450-000 at 23012 Pearl Lakes Court , Porter, TX 77365 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -17617,7 +17720,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00653 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00653 open $522.00 · -23 days past due."
       }
     ],
     "balance": 522,
@@ -17641,7 +17744,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00653 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00653 open $522.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17650,7 +17753,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-16",
     "packet": "complete",
-    "chase_analysis": "Nick Gaspard 2026-08-13 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20777033-000 at 5522 Dovish Brook Lane, Richmond, TX 77469 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Nick Gaspard 2026-08-13 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20777033-000 at 5522 Dovish Brook Lane, Richmond, TX 77469 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -17685,7 +17788,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00654 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00654 open $522.00 · -23 days past due."
       }
     ],
     "balance": 522,
@@ -17709,7 +17812,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00654 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00654 open $522.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17718,7 +17821,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-16",
     "packet": "complete",
-    "chase_analysis": "Nick Gaspard 2026-08-13 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20780339-000 at 5526 Dovish Brook Lane, Richmond, TX 77469 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Nick Gaspard 2026-08-13 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20780339-000 at 5526 Dovish Brook Lane, Richmond, TX 77469 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -17753,7 +17856,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00656 open $783.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00656 open $783.00 · -23 days past due."
       }
     ],
     "balance": 783,
@@ -17777,7 +17880,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00656 open $783.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00656 open $783.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17786,7 +17889,7 @@ window.DATA = [
     "open_balance": 783,
     "dueDate": "2026-09-16",
     "packet": "complete",
-    "chase_analysis": "Brandi Cook 2026-08-13 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 19625155-000 at 2073 Hidden Hills Lane, Katy, TX 77493 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Brandi Cook 2026-08-13 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 19625155-000 at 2073 Hidden Hills Lane, Katy, TX 77493 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -17821,7 +17924,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00657 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00657 open $522.00 · -23 days past due."
       }
     ],
     "balance": 522,
@@ -17845,7 +17948,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00657 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00657 open $522.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17854,7 +17957,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-16",
     "packet": "complete",
-    "chase_analysis": "Brandi Cook 2026-08-13 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 19598441-000 at 1005 High Meadows Lane, Katy, TX 77493 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Brandi Cook 2026-08-13 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 19598441-000 at 1005 High Meadows Lane, Katy, TX 77493 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -17893,7 +17996,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00659 open $350.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00659 open $350.00 · -23 days past due."
       }
     ],
     "balance": 350,
@@ -17917,7 +18020,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00659 open $350.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00659 open $350.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -17965,7 +18068,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00660 open $350.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00660 open $350.00 · -23 days past due."
       }
     ],
     "balance": 350,
@@ -17989,7 +18092,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00660 open $350.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00660 open $350.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18033,7 +18136,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00661 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00661 open $522.00 · -23 days past due."
       }
     ],
     "balance": 522,
@@ -18057,7 +18160,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00661 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00661 open $522.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18066,7 +18169,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-16",
     "packet": "complete",
-    "chase_analysis": "Jennifer Polasek 2026-08-14 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 19949643-000 at 4739 Valeria Cottage Drive , Fulshear, TX 77441 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Jennifer Polasek 2026-08-14 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 19949643-000 at 4739 Valeria Cottage Drive , Fulshear, TX 77441 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -18096,7 +18199,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00664 open $350.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00664 open $350.00 · -23 days past due."
       }
     ],
     "balance": 350,
@@ -18111,7 +18214,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00664 open $350.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00664 open $350.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18155,7 +18258,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00665 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00665 open $522.00 · -23 days past due."
       }
     ],
     "balance": 522,
@@ -18179,7 +18282,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00665 open $522.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00665 open $522.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18188,7 +18291,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-16",
     "packet": "complete",
-    "chase_analysis": "Angel Gonzalez 2026-08-14 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23258167-000 at 17887 Aile Pierre Pass , Conroe, TX 77302 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Angel Gonzalez 2026-08-14 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23258167-000 at 17887 Aile Pierre Pass , Conroe, TX 77302 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -18218,7 +18321,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00669 open $1,044.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00669 open $1,044.00 · -23 days past due."
       }
     ],
     "balance": 1044,
@@ -18233,7 +18336,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00669 open $1,044.00 \u00b7 -23 days past due."
+        "what": "CTL-26-00669 open $1,044.00 · -23 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18242,7 +18345,7 @@ window.DATA = [
     "open_balance": 1044,
     "dueDate": "2026-09-16",
     "packet": "hold",
-    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 22256012-000 at 3005 Lone Pecan Lane , Katy, TX 77493 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 22256012-000 at 3005 Lone Pecan Lane , Katy, TX 77493 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -18282,7 +18385,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00432 open $350.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00432 open $350.00 · -24 days past due."
       }
     ],
     "balance": 350,
@@ -18315,7 +18418,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00432 open $350.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00432 open $350.00 · -24 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18324,7 +18427,7 @@ window.DATA = [
     "open_balance": 350,
     "dueDate": "2026-09-17",
     "packet": "complete",
-    "chase_analysis": "Gabriel Gomez 2026-08-14 asked to schedule 12122 Moonlight Path Drive. Brandon Pope 7/31 had named 12122 then wrote Disregard not ready \u2014 that is not a second visit. Join found=false; hyphen_pos 91KWRCV5_005768 at 12122 is research only, not this SON. After the mail look this is No PO.",
+    "chase_analysis": "Gabriel Gomez 2026-08-14 asked to schedule 12122 Moonlight Path Drive. Brandon Pope 7/31 had named 12122 then wrote Disregard not ready — that is not a second visit. Join found=false; hyphen_pos 91KWRCV5_005768 at 12122 is research only, not this SON. After the mail look this is No PO.",
     "check_date": null,
     "email": "projectcoordinators-houston@mhinc.com",
     "parent": "MHI HOMES",
@@ -18354,7 +18457,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00611 open $522.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00611 open $522.00 · -24 days past due."
       }
     ],
     "balance": 522,
@@ -18369,7 +18472,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00611 open $522.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00611 open $522.00 · -24 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18378,7 +18481,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-17",
     "packet": "hold",
-    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23732981-000 at 209 Madrone Trail , New Caney, TX 77357 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23732981-000 at 209 Madrone Trail , New Caney, TX 77357 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -18418,7 +18521,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00613 open $522.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00613 open $522.00 · -24 days past due."
       }
     ],
     "balance": 522,
@@ -18451,7 +18554,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00613 open $522.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00613 open $522.00 · -24 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18460,7 +18563,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-17",
     "packet": "complete",
-    "chase_analysis": "Steve Speer 2026-08-07 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23142033-000 at 1109 Amory Drive , College Station, TX 77845 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Steve Speer 2026-08-07 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23142033-000 at 1109 Amory Drive , College Station, TX 77845 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -18500,7 +18603,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00614 open $522.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00614 open $522.00 · -24 days past due."
       }
     ],
     "balance": 522,
@@ -18533,7 +18636,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00614 open $522.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00614 open $522.00 · -24 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18542,7 +18645,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-17",
     "packet": "complete",
-    "chase_analysis": "Steve Speer 2026-08-07 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23140505-000 at 6152 Kinney Lane , College Station, TX 77845 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Steve Speer 2026-08-07 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23140505-000 at 6152 Kinney Lane , College Station, TX 77845 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -18577,7 +18680,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00641 open $783.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00641 open $783.00 · -24 days past due."
       }
     ],
     "balance": 783,
@@ -18601,7 +18704,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00641 open $783.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00641 open $783.00 · -24 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18610,7 +18713,7 @@ window.DATA = [
     "open_balance": 783,
     "dueDate": "2026-09-17",
     "packet": "complete",
-    "chase_analysis": "Brandi Cook 2026-08-12 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20843029-000 at 15434 Glinton Farm Lane , Conroe, TX 77303 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Brandi Cook 2026-08-12 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20843029-000 at 15434 Glinton Farm Lane , Conroe, TX 77303 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -18645,7 +18748,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00677 open $522.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00677 open $522.00 · -24 days past due."
       }
     ],
     "balance": 522,
@@ -18669,7 +18772,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00677 open $522.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00677 open $522.00 · -24 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18678,7 +18781,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-17",
     "packet": "hold",
-    "chase_analysis": "Aaron Ratliff 2026-08-14 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 22495806-000 at 1830 New Dawn Drive , Angelton, TX 77515 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Aaron Ratliff 2026-08-14 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 22495806-000 at 1830 New Dawn Drive , Angelton, TX 77515 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -18713,7 +18816,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00678 open $522.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00678 open $522.00 · -24 days past due."
       }
     ],
     "balance": 522,
@@ -18737,7 +18840,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00678 open $522.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00678 open $522.00 · -24 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18746,7 +18849,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-17",
     "packet": "hold",
-    "chase_analysis": "Aaron Ratliff 2026-08-14 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23737344-000 at 1514 Parks Edge Lane , Angleton, TX 77515 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Aaron Ratliff 2026-08-14 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23737344-000 at 1514 Parks Edge Lane , Angleton, TX 77515 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -18781,7 +18884,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00679 open $522.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00679 open $522.00 · -24 days past due."
       }
     ],
     "balance": 522,
@@ -18805,7 +18908,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00679 open $522.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00679 open $522.00 · -24 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18814,7 +18917,7 @@ window.DATA = [
     "open_balance": 522,
     "dueDate": "2026-09-17",
     "packet": "hold",
-    "chase_analysis": "Aaron Ratliff 2026-08-14 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 22490992-000 at 1518 Parks Edge Lane , Angleton, TX 77515 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Aaron Ratliff 2026-08-14 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 22490992-000 at 1518 Parks Edge Lane , Angleton, TX 77515 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "mary.king@lennar.com",
     "parent": "LENNAR HOMES",
@@ -18854,7 +18957,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00684 open $416.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00684 open $416.00 · -24 days past due."
       }
     ],
     "balance": 416,
@@ -18887,7 +18990,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00684 open $416.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00684 open $416.00 · -24 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18896,7 +18999,7 @@ window.DATA = [
     "open_balance": 416,
     "dueDate": "2026-09-17",
     "packet": "complete",
-    "chase_analysis": "Bradley Adams 2026-08-14 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 55105078-000 at 5722 Watercrest Oak Drive , Richmond, TX 77406 ELEVATION NAME: 3 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Bradley Adams 2026-08-14 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 55105078-000 at 5722 Watercrest Oak Drive , Richmond, TX 77406 ELEVATION NAME: 3 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "HoustonPurchasing@tollbrothers.com",
     "parent": "Toll Brothers, Inc.",
@@ -18931,7 +19034,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00685 open $416.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00685 open $416.00 · -24 days past due."
       }
     ],
     "balance": 416,
@@ -18955,7 +19058,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00685 open $416.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00685 open $416.00 · -24 days past due."
       }
     ],
     "hyphen_status": null,
@@ -18964,7 +19067,7 @@ window.DATA = [
     "open_balance": 416,
     "dueDate": "2026-09-17",
     "packet": "complete",
-    "chase_analysis": "Derek Bird 2026-08-14 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 55106067-000 at 5711 Peach Grove Lane , Richmond, TX 77406 ELEVATION NAME: 3 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Derek Bird 2026-08-14 asked for this house in Graph. Join found=false and no Hyphen PO on this SON. hyphen_pos lists 55106067-000 at 5711 Peach Grove Lane , Richmond, TX 77406 ELEVATION NAME: 3 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": "HoustonPurchasing@tollbrothers.com",
     "parent": "Toll Brothers, Inc.",
@@ -18994,7 +19097,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00692 open $783.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00692 open $783.00 · -24 days past due."
       }
     ],
     "balance": 783,
@@ -19009,7 +19112,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00692 open $783.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00692 open $783.00 · -24 days past due."
       }
     ],
     "hyphen_status": null,
@@ -19018,7 +19121,7 @@ window.DATA = [
     "open_balance": 783,
     "dueDate": "2026-09-17",
     "packet": "hold",
-    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20858491-000 at 11111 Frio Creek Drive, Willis, TX 77378 (stage ISSUED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20858491-000 at 11111 Frio Creek Drive, Willis, TX 77378 (stage ISSUED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -19048,7 +19151,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00693 open $783.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00693 open $783.00 · -24 days past due."
       }
     ],
     "balance": 783,
@@ -19063,7 +19166,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00693 open $783.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00693 open $783.00 · -24 days past due."
       }
     ],
     "hyphen_status": null,
@@ -19072,7 +19175,7 @@ window.DATA = [
     "open_balance": 783,
     "dueDate": "2026-09-17",
     "packet": "hold",
-    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23137605-000 at 11115 Frio Creek Drive, Willis, TX 77378 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23137605-000 at 11115 Frio Creek Drive, Willis, TX 77378 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -19102,7 +19205,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00694 open $783.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00694 open $783.00 · -24 days past due."
       }
     ],
     "balance": 783,
@@ -19117,7 +19220,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00694 open $783.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00694 open $783.00 · -24 days past due."
       }
     ],
     "hyphen_status": null,
@@ -19126,7 +19229,7 @@ window.DATA = [
     "open_balance": 783,
     "dueDate": "2026-09-17",
     "packet": "hold",
-    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20854393-000 at 11116 Frio Creek Drive, Willis, TX 77378 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 20854393-000 at 11116 Frio Creek Drive, Willis, TX 77378 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
@@ -19156,7 +19259,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00695 open $783.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00695 open $783.00 · -24 days past due."
       }
     ],
     "balance": 783,
@@ -19171,7 +19274,7 @@ window.DATA = [
       {
         "when": "2026-08-24",
         "lab": "Today",
-        "what": "CTL-26-00695 open $783.00 \u00b7 -24 days past due."
+        "what": "CTL-26-00695 open $783.00 · -24 days past due."
       }
     ],
     "hyphen_status": null,
@@ -19180,7 +19283,7 @@ window.DATA = [
     "open_balance": 783,
     "dueDate": "2026-09-17",
     "packet": "hold",
-    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23136231-000 at 11124 Frio Creek Drive, Willis, TX 77378 (stage COMPLETED) \u2014 not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
+    "chase_analysis": "Graph search of ryan/joe/maria/billings/william by address did not turn a named client call-in for this house (treat as phone if serviced). Join found=false and no Hyphen PO on this SON. hyphen_pos lists 23136231-000 at 11124 Frio Creek Drive, Willis, TX 77378 (stage COMPLETED) — not on this join SON, research only. Payments CSV has no other SON at this house. Not same-service-twice on two named asks. After the mail look this is No PO.",
     "check_date": null,
     "email": null,
     "parent": "LENNAR HOMES",
