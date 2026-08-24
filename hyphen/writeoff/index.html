@@ -518,7 +518,7 @@ button { cursor: pointer; background: none; border: 0; }
       <img class="mark" src="../ctl-mark-on-white.png" width="22" height="22" alt="" />
       <div class="brand-text">
         <h1>Hyphen review</h1>
-        <p class="asof">Write-off · Thursday 2026-08-20</p>
+        <p class="asof" id="asof">Write-off · Monday 2026-08-24</p>
       </div>
     </div>
     <div class="counts">
@@ -583,6 +583,17 @@ button { cursor: pointer; background: none; border: 0; }
 <script>
 (function () {
   "use strict";
+  function asofStamp() {
+    var raw = String(window.BOOK_ASOF || "").trim();
+    var iso = /^\d{4}-\d{2}-\d{2}$/.test(raw) ? raw : "";
+    if (!iso) iso = new Date().toLocaleDateString("en-CA", { timeZone: "America/Chicago" });
+    var p = iso.split("-");
+    var dt = new Date(+p[0], +p[1] - 1, +p[2]);
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    return days[dt.getDay()] + " " + iso;
+  }
+  var asofEl = document.getElementById("asof");
+  if (asofEl) asofEl.textContent = asofEl.textContent.replace(/·.*/, "· " + asofStamp());
   var ROWS = [
     {
       id: "0611-172568",
