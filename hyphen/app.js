@@ -489,6 +489,38 @@
       (rows.length ? "" : '<div class="empty-state">No invoices match these filters.</div>');
   }
 
+  function fileHref(id, name) {
+    var base = String(name || "").split("/").pop();
+    if (!base) return "";
+    return "files/" + id + "/" + encodeURIComponent(base).replace(/%2F/g, "/");
+  }
+  function caseFiles(r) {
+    var extra = (window.CASE_FILES || {})[r.id];
+    var seen = {};
+    var out = [];
+    function add(label, name) {
+      var href = fileHref(r.id, name);
+      if (!href || seen[href]) return;
+      seen[href] = 1;
+      out.push({ label: label || name, href: href });
+    }
+    if (extra && extra.length) {
+      extra.forEach(function (a) { add(a.label || a.file, a.file || a.path); });
+    }
+    (r.attachments || []).forEach(function (a) {
+      add(a.label || a.kind || a.filename, a.path || a.file || a.filename);
+    });
+    return out;
+  }
+  function caseFilesHtml(r) {
+    var files = caseFiles(r);
+    if (!files.length) return "";
+    var lis = files.map(function (f) {
+      return '<a class="case-file" href="' + esc(f.href) + '" target="_blank" rel="noopener">' + esc(f.label) + "</a>";
+    }).join("");
+    return '<div class="sec-h">On this case</div><div class="card case-files">' + lis + "</div>";
+  }
+
   function renderCase(rows) {
     var el = $("case");
     var r = rows.filter(function (x) { return x.id === state.selected; })[0];
@@ -524,7 +556,7 @@
     var cls = "case-body" + (cols.length === 1 ? " one" : "") + (cols.length === 0 ? " empty" : "");
     var body = '<div class="' + cls + '">' + cols.join("") + "</div>";
 
-    el.innerHTML = top + analysis + body + footerHtml(r);
+    el.innerHTML = top + analysis + caseFilesHtml(r) + body + footerHtml(r);
     bindFooter(r, rows);
   }
 

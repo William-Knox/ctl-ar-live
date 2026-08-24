@@ -714,3 +714,13 @@ tbody tr { cursor: pointer; }
 .erow.today .lab { color: var(--clay); }
 
 
+
+.case-files { padding: 10px 12px; }
+.case-file {
+  display: block;
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--navy);
+  text-decoration: underline;
+  padding: 3px 0;
+}
