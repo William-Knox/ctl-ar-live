@@ -528,6 +528,16 @@
     bindFooter(r, rows);
   }
 
+  function asofStamp() {
+    var raw = String(window.BOOK_ASOF || "").trim();
+    var iso = /^\d{4}-\d{2}-\d{2}$/.test(raw) ? raw : "";
+    if (!iso) iso = new Date().toLocaleDateString("en-CA", { timeZone: "America/Chicago" });
+    var p = iso.split("-");
+    var dt = new Date(+p[0], +p[1] - 1, +p[2]);
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    return days[dt.getDay()] + " " + iso;
+  }
+
   function refreshChrome(rows) {
     $("countN").textContent = String(rows.length);
     var open = rows.reduce(function (s, r) { return s + r.open; }, 0);
@@ -546,8 +556,8 @@
     if ($("nWrite")) $("nWrite").textContent = String(boxCount("writeoff"));
     if ($("nAwait")) $("nAwait").textContent = String(boxCount("awaiting"));
     var asof = $("asof");
-    var boxLab = { chase: "Chase", apply: "Apply", writeoff: "Write-off", awaiting: "Awaiting" }[state.box];
-    asof.textContent = boxLab + " · Thursday 2026-08-20";
+    var boxLab = { chase: "Chase", apply: "Apply", writeoff: "Write-off", awaiting: "Awaiting" }[state.box] || "Chase";
+    if (asof) asof.textContent = boxLab + " · " + asofStamp();
     var issueCounts = {};
     DATA.filter(inBox).forEach(function (r) {
       issueCounts[r.issue] = (issueCounts[r.issue] || 0) + 1;
