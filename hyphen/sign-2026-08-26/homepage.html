@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#F8F6F2" />
-<title>Hyphen review · Home</title>
+<title>Hyphen review · Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
@@ -14,10 +14,10 @@
 <div class="app">
   <header class="hdr">
     <div class="brand">
-      <img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" />
+      <a class="mark-link" href="homepage.html" aria-label="Dashboard"><img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" /></a>
       <div class="brand-text">
         <h1>Hyphen review</h1>
-        <p class="asof">Home · sample fixture</p>
+        <p class="asof">Dashboard · sample fixture</p>
       </div>
     </div>
     <div class="counts">
@@ -25,9 +25,8 @@
     </div>
   </header>
   <div class="bar">
-    <span class="seg-lab">Box</span>
-    <div class="seg" role="navigation" aria-label="Hyphen boxes">
-      <a href="app-open.html">Chase</a><a href="apply.html">Apply</a><a href="writeoff.html">Write-off</a><a href="awaiting.html">Awaiting</a>
+    <div class="seg" role="navigation" aria-label="Dashboard and queues">
+      <a class="on" href="homepage.html" aria-current="page">Dashboard</a><a href="app-open.html">Chase</a><a href="apply.html">Apply</a><a href="writeoff.html">Write-off</a><a href="awaiting.html">Awaiting</a>
     </div>
   </div>
   <div class="sign-strip">SAMPLE / FIXTURE · not a book · not live AR</div>
@@ -58,6 +57,18 @@
       </div>
 
       <div class="home-filter">
+        <label>Builder</label>
+        <div class="menu" data-menu="builder">
+          <button class="menu-btn" type="button"><span class="t">Builder</span><i class="caret"></i></button>
+          <div class="menu-pop" hidden>
+            <label><input type="checkbox" value="LENNAR HOMES" /> Lennar</label>
+            <label><input type="checkbox" value="MHI HOMES" /> MHI</label>
+            <label><input type="checkbox" value="Toll Brothers, Inc." /> Toll</label>
+            <label><input type="checkbox" value="K. Hovnanian of Houston" /> K. Hovnanian</label>
+            <label><input type="checkbox" value="TriPointe Homes" /> TriPointe Homes</label>
+            <div class="menu-foot"><button type="button" class="all" data-select="builder">Select all</button><button type="button" class="all" data-clear="builder">Clear</button></div>
+          </div>
+        </div>
         <label for="homeIssue">Issue</label>
         <select id="homeIssue" aria-label="Filter sample figures by Issue">
           <option value="">All</option>
@@ -73,7 +84,7 @@
           <option value="Write-off">Write-off</option>
           <option value="Leftover lab">Leftover lab</option>
         </select>
-        <span>Sample fixture. Filters these figures. Not a fifth box.</span>
+        <span>Sample fixture. Filters these figures.</span>
       </div>
 
       <div class="home-graphs">
@@ -100,8 +111,39 @@
         </section>
       </div>
 
-      <h2 class="home-in">Go to a box</h2>
-      <div class="home-boxes" role="navigation" aria-label="Hyphen boxes">
+      <div class="home-graphs">
+        <section class="home-card" aria-label="Sample open dollars by Issue">
+          <h2>Open $ by Issue</h2>
+          <p class="home-card-sub">Sample fixture. Bars only.</p>
+          <div id="issueBars"></div>
+        </section>
+        <section class="home-card" aria-label="Sample invoice count by Chase Apply Write-off Awaiting">
+          <h2>Invoice count</h2>
+          <p class="home-card-sub">Sample fixture. Chase / Apply / Write-off / Awaiting. Bars only.</p>
+          <div id="boxCountBars"></div>
+        </section>
+      </div>
+
+      <div class="home-graphs one">
+        <section class="home-card" aria-label="Sample leftover dollars versus Unpaid complete">
+          <h2>Leftover $ vs Unpaid complete $</h2>
+          <p class="home-card-sub">Sample fixture. Two numbers. Two bars. Not a fifth queue.</p>
+          <div class="pair">
+            <div>
+              <div class="kpi-lab">Leftover</div>
+              <div class="kpi-num" id="kpiLeft">$0</div>
+            </div>
+            <div>
+              <div class="kpi-lab">Unpaid complete</div>
+              <div class="kpi-num" id="kpiUnpaid">$0</div>
+            </div>
+          </div>
+          <div id="pairBars"></div>
+        </section>
+      </div>
+
+      <h2 class="home-in">Open a queue</h2>
+      <div class="home-boxes" role="navigation" aria-label="Queues">
         <a class="home-box" href="app-open.html" id="boxChase">
           <b>Chase</b><span>Needs you. Queue and case.</span>
           <div class="box-bar"><span class="hbar-track"><i style="width:100%"></i></span><span class="hbar-n">$148,208</span></div>

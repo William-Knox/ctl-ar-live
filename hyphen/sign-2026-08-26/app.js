@@ -2,6 +2,8 @@
 (function () {
   "use strict";
 
+  var BKEY = "hyphen-builders";
+
   function $(id) { return document.getElementById(id); }
   function money(n) {
     return "$" + Math.round(Number(n) || 0).toLocaleString("en-US");
@@ -29,28 +31,112 @@
     if (issue === "Leftover") return !!r.leftover;
     return r.issue === issue;
   }
+  function matchBuilder(r, builders) {
+    if (!builders || !builders.length) return true;
+    return builders.indexOf(r.parent) >= 0;
+  }
   function pct(n, max) {
     if (!max) return 0;
     return Math.max(0, Math.min(100, Math.round((n / max) * 100)));
   }
 
-  function paintBars(host, rows, hotFrom) {
+  function checkedIn(menu) {
+    var pop = document.querySelector('.menu[data-menu="' + menu + '"] .menu-pop');
+    if (!pop) return [];
+    var boxes = pop.querySelectorAll("input[type=checkbox]");
+    var on = [];
+    boxes.forEach(function (c) {
+      if (c.checked) on.push(c.value);
+    });
+    if (menu === "builder" && on.length && on.length === boxes.length) return [];
+    return on;
+  }
+  function saveBuilders() {
+    try { sessionStorage.setItem(BKEY, JSON.stringify(checkedIn("builder"))); } catch (e) {}
+  }
+  function restoreBuilders() {
+    var saved;
+    try { saved = JSON.parse(sessionStorage.getItem(BKEY) || "[]"); } catch (e) { saved = []; }
+    if (!saved || !saved.length) return;
+    var pop = document.querySelector('.menu[data-menu="builder"] .menu-pop');
+    if (!pop) return;
+    pop.querySelectorAll("input[type=checkbox]").forEach(function (c) {
+      c.checked = saved.indexOf(c.value) >= 0;
+    });
+  }
+
+  function paintBars(host, rows, hotFrom, wide) {
     if (!host) return;
     var max = 0;
     rows.forEach(function (r) { if (r.open > max) max = r.open; });
     host.innerHTML = rows.map(function (r) {
       var hot = hotFrom != null && r.open >= hotFrom ? " hot" : "";
-      return '<div class="hbar"><span class="hbar-lab">' + esc(r.lab) +
+      var cls = wide ? "hbar wide-lab" : "hbar";
+      return '<div class="' + cls + '"><span class="hbar-lab">' + esc(r.lab) +
         '</span><span class="hbar-track"><i style="width:' + pct(r.open, max) +
         '%"></i></span><span class="hbar-n' + hot + '">' + money(r.open) + "</span></div>";
     }).join("");
   }
 
-  function paintHome(issue) {
+  function paintCountBars(host, rows) {
+    if (!host) return;
+    var max = 0;
+    rows.forEach(function (r) { if (r.n > max) max = r.n; });
+    host.innerHTML = rows.map(function (r) {
+      return '<div class="hbar"><span class="hbar-lab">' + esc(r.lab) +
+        '</span><span class="hbar-track"><i style="width:' + pct(r.n, max) +
+        '%"></i></span><span class="hbar-n">' + String(r.n) + "</span></div>";
+    }).join("");
+  }
+
+  function extraFrom(rows) {
+    var byIssue = {};
+    var boxN = { chase: 0, apply: 0, writeoff: 0, awaiting: 0 };
+    var leftover = 0;
+    var unpaid = 0;
+    (rows || []).forEach(function (r) {
+      if (r.leftover) leftover += r.open;
+      if (r.issue === "Unpaid complete") unpaid += r.open;
+      byIssue[r.issue || "—"] = (byIssue[r.issue || "—"] || 0) + r.open;
+      if (boxN[r.box] != null) boxN[r.box] += 1;
+    });
+    var issueOrder = [
+      "Leftover lab", "Quantity shortfall", "Notes error", "Amount off",
+      "Write-off", "Unpaid complete", "No PO", "Paid to apply",
+      "Pending Notes", "Pending client acceptance"
+    ];
+    var issues = issueOrder.map(function (lab) {
+      return { lab: lab, open: byIssue[lab] || 0 };
+    }).filter(function (r) { return r.open > 0; });
+    if (!issues.length) {
+      issues = Object.keys(byIssue).map(function (k) {
+        return { lab: k, open: byIssue[k] };
+      }).sort(function (a, b) { return b.open - a.open; });
+    }
+    return {
+      leftover: leftover,
+      unpaid: unpaid,
+      issues: issues,
+      boxCounts: [
+        { lab: "Chase", n: boxN.chase },
+        { lab: "Apply", n: boxN.apply },
+        { lab: "Write-off", n: boxN.writeoff },
+        { lab: "Awaiting", n: boxN.awaiting }
+      ]
+    };
+  }
+
+  function paintHome() {
     var S = window.SAMPLE;
-    if (!S) return;
-    var open, needs, waiting, lateN, lateOpen, aging, builders, boxes;
-    if (!issue) {
+    if (!S || !document.body.classList.contains("home")) return;
+    var issue = $("homeIssue") ? $("homeIssue").value : "";
+    var builders = checkedIn("builder");
+    var sliced = !!(issue || builders.length);
+    var open, needs, waiting, lateN, lateOpen, aging, buildersBars, boxes, extraRows;
+    extraRows = (S.book || []).filter(function (r) {
+      return matchIssue(r, issue) && matchBuilder(r, builders);
+    });
+    if (!sliced) {
       var a = S.all;
       open = a.open;
       needs = a.needs;
@@ -58,10 +144,9 @@
       lateN = a.lateN;
       lateOpen = a.lateOpen;
       aging = a.aging;
-      builders = a.builders;
+      buildersBars = a.builders;
       boxes = a.boxes;
     } else {
-      var rows = (S.book || []).filter(function (r) { return matchIssue(r, issue); });
       open = 0;
       needs = 0;
       waiting = 0;
@@ -70,7 +155,7 @@
       var age = { "0–30": 0, "31–60": 0, "61–90": 0, "90+": 0 };
       var byB = {};
       var byBox = { chase: 0, apply: 0, writeoff: 0, awaiting: 0 };
-      rows.forEach(function (r) {
+      extraRows.forEach(function (r) {
         open += r.open;
         if (r.box === "chase") needs += 1;
         if (r.box === "awaiting") waiting += 1;
@@ -89,7 +174,7 @@
         { lab: "61–90", open: age["61–90"] },
         { lab: "90+", open: age["90+"] }
       ];
-      builders = Object.keys(byB).map(function (k) {
+      buildersBars = Object.keys(byB).map(function (k) {
         return { lab: k, open: byB[k] };
       }).sort(function (x, y) { return y.open - x.open; }).slice(0, 5);
       boxes = [
@@ -105,7 +190,7 @@
     if ($("kpiLateN")) $("kpiLateN").textContent = String(lateN);
     if ($("kpiLateOpen")) $("kpiLateOpen").textContent = money(lateOpen);
     paintBars($("agingBars"), aging, 1);
-    paintBars($("builderBars"), builders, null);
+    paintBars($("builderBars"), buildersBars, null);
     var boxMax = 0;
     boxes.forEach(function (b) { if (b.open > boxMax) boxMax = b.open; });
     document.querySelectorAll(".home-box").forEach(function (el, i) {
@@ -116,13 +201,16 @@
       if (bar) bar.style.width = pct(b.open, boxMax) + "%";
       if (n) n.textContent = money(b.open);
     });
-  }
-
-  if (document.body.classList.contains("home") && $("homeIssue")) {
-    $("homeIssue").addEventListener("change", function () {
-      paintHome($("homeIssue").value);
-    });
-    paintHome("");
+    var extra = extraFrom(extraRows);
+    if (!sliced && S.all.boxCounts) extra.boxCounts = S.all.boxCounts;
+    paintBars($("issueBars"), extra.issues, null, true);
+    paintCountBars($("boxCountBars"), extra.boxCounts);
+    if ($("kpiLeft")) $("kpiLeft").textContent = money(extra.leftover);
+    if ($("kpiUnpaid")) $("kpiUnpaid").textContent = money(extra.unpaid);
+    paintBars($("pairBars"), [
+      { lab: "Leftover", open: extra.leftover },
+      { lab: "Unpaid complete", open: extra.unpaid }
+    ], null, true);
   }
 
   document.querySelectorAll(".menu-btn").forEach(function (btn) {
@@ -154,7 +242,7 @@
       var on = !lo.classList.contains("on");
       lo.classList.toggle("on", on);
       lo.setAttribute("aria-pressed", on ? "true" : "false");
-      paintQueue();
+      refresh();
     });
   }
 
@@ -165,7 +253,8 @@
       if (!pop) return;
       var on = b.hasAttribute("data-select");
       pop.querySelectorAll("input[type=checkbox]").forEach(function (c) { c.checked = on; });
-      paintQueue();
+      saveBuilders();
+      refresh();
     });
   });
 
@@ -293,15 +382,6 @@
 
   var queueState = { sortDir: "desc", selected: "0428-170954" };
 
-  function checkedIn(menu) {
-    var pop = document.querySelector('.menu[data-menu="' + menu + '"] .menu-pop');
-    if (!pop) return [];
-    var on = [];
-    pop.querySelectorAll("input[type=checkbox]").forEach(function (c) {
-      if (c.checked) on.push(c.value);
-    });
-    return on;
-  }
   function fillCommunities() {
     var pop = document.querySelector('.menu[data-menu="community"] .menu-pop');
     var S = window.SAMPLE;
@@ -350,6 +430,26 @@
     });
     return rows;
   }
+  var hdrLock = null;
+  function lockHdr() {
+    if (hdrLock) return;
+    hdrLock = [];
+    document.querySelectorAll(".hdr .count b").forEach(function (b) {
+      hdrLock.push(b.textContent);
+    });
+  }
+  function restoreHdr() {
+    if (!hdrLock) return;
+    document.querySelectorAll(".hdr .count b").forEach(function (b, i) {
+      if (hdrLock[i] != null) b.textContent = hdrLock[i];
+    });
+  }
+  function setHdr(n, open, third) {
+    var bs = document.querySelectorAll(".hdr .count b");
+    if (bs[0] && n != null) bs[0].textContent = String(n);
+    if (bs[1] && open != null) bs[1].textContent = money(open);
+    if (bs[2] && third != null) bs[2].textContent = String(third);
+  }
   function paintQueue() {
     var tb = $("tbody");
     if (!tb || !window.SAMPLE || !window.SAMPLE.queue) return;
@@ -376,6 +476,19 @@
       var s = th.querySelector(".s");
       if (s) s.textContent = queueState.sortDir === "desc" ? "▼" : "▲";
     }
+    var filtered = !!(lo && lo.classList.contains("on")) ||
+      checkedIn("days").length || checkedIn("builder").length ||
+      checkedIn("community").length || checkedIn("why").length ||
+      !!( $("q") && $("q").value );
+    if ($("tbody")) {
+      if (filtered) {
+        var open = 0;
+        rows.forEach(function (r) { open += r.open; });
+        setHdr(rows.length, open);
+      } else {
+        restoreHdr();
+      }
+    }
     var clear = $("clearBtn");
     if (clear) {
       var on = !!(lo && lo.classList.contains("on")) ||
@@ -386,12 +499,84 @@
     }
   }
 
+  function parseMoney(el) {
+    if (!el) return 0;
+    return Number(String(el.textContent || "").replace(/[^0-9.]/g, "")) || 0;
+  }
+  function paintLists() {
+    var builders = checkedIn("builder");
+    var empty = $("listEmpty");
+    var shown = 0;
+    var open = 0;
+    var extra = 0;
+
+    document.querySelectorAll("article.check[data-parent]").forEach(function (el) {
+      var on = !builders.length || builders.indexOf(el.getAttribute("data-parent")) >= 0;
+      el.hidden = !on;
+      if (on) {
+        shown += 1;
+        open += parseMoney(el.querySelector(".check-tot .amt"));
+        extra += el.querySelectorAll(".ainv").length;
+      }
+    });
+    if (document.querySelector("article.check[data-parent]")) {
+      if (empty) empty.hidden = shown > 0;
+      if (builders.length) setHdr(extra, open, shown);
+      else restoreHdr();
+      return;
+    }
+
+    document.querySelectorAll("article.wo-row[data-parent]").forEach(function (el) {
+      var on = !builders.length || builders.indexOf(el.getAttribute("data-parent")) >= 0;
+      el.hidden = !on;
+      if (on) {
+        shown += 1;
+        open += parseMoney(el.querySelector(".open"));
+      }
+    });
+    if (document.querySelector("article.wo-row[data-parent]")) {
+      if (empty) empty.hidden = shown > 0;
+      if (builders.length) setHdr(shown, open, shown);
+      else restoreHdr();
+      return;
+    }
+
+    document.querySelectorAll(".stage.await tbody tr[data-parent]").forEach(function (el) {
+      var on = !builders.length || builders.indexOf(el.getAttribute("data-parent")) >= 0;
+      el.hidden = !on;
+      if (on) {
+        shown += 1;
+        open += parseMoney(el.querySelector(".money"));
+        extra += 1;
+      }
+    });
+    if (document.querySelector(".stage.await tbody tr[data-parent]")) {
+      if (empty) empty.hidden = shown > 0;
+      if (builders.length) setHdr(shown, open, extra);
+      else restoreHdr();
+    }
+  }
+
+  function refresh() {
+    paintHome();
+    paintQueue();
+    paintLists();
+  }
+
+  lockHdr();
+  restoreBuilders();
   fillCommunities();
   document.querySelectorAll(".menu-pop").forEach(function (pop) {
     pop.addEventListener("click", function (e) { e.stopPropagation(); });
-    pop.addEventListener("change", function () { paintQueue(); });
+    pop.addEventListener("change", function () {
+      saveBuilders();
+      refresh();
+    });
   });
-  if ($("q")) $("q").addEventListener("input", paintQueue);
+  if ($("homeIssue")) {
+    $("homeIssue").addEventListener("change", refresh);
+  }
+  if ($("q")) $("q").addEventListener("input", refresh);
   var daysTh = document.querySelector("thead th[data-sort=days]");
   if (daysTh) {
     daysTh.addEventListener("click", function () {
@@ -409,7 +594,8 @@
         c.checked = false;
       });
       if ($("q")) $("q").value = "";
-      paintQueue();
+      saveBuilders();
+      refresh();
     });
   }
   var list = $("tbody");
@@ -421,5 +607,5 @@
       paintQueue();
     });
   }
-  paintQueue();
+  refresh();
 })();
