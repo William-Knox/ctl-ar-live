@@ -14,7 +14,7 @@
 <div class="app">
   <header class="hdr">
     <div class="brand">
-      <img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" />
+      <a class="mark-link" href="homepage.html" aria-label="Dashboard"><img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" /></a>
       <div class="brand-text">
         <h1>Hyphen review</h1>
         <p class="asof">Apply · Monday 2026-08-24</p>
@@ -25,9 +25,19 @@
     </div>
   </header>
   <div class="bar">
-    <span class="seg-lab">Box</span>
-    <div class="seg" role="tablist" aria-label="Hyphen boxes">
-      <a href="app-open.html">Chase</a><a class="on" href="apply.html" aria-current="page">Apply</a><a href="writeoff.html">Write-off</a><a href="awaiting.html">Awaiting</a>
+    <div class="seg" role="tablist" aria-label="Dashboard and queues">
+      <a href="homepage.html">Dashboard</a><a href="app-open.html">Chase</a><a class="on" href="apply.html" aria-current="page">Apply</a><a href="writeoff.html">Write-off</a><a href="awaiting.html">Awaiting</a>
+    </div>
+    <div class="menu" data-menu="builder">
+      <button class="menu-btn" type="button"><span class="t">Builder</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="LENNAR HOMES" /> Lennar</label>
+        <label><input type="checkbox" value="MHI HOMES" /> MHI</label>
+        <label><input type="checkbox" value="Toll Brothers, Inc." /> Toll</label>
+        <label><input type="checkbox" value="K. Hovnanian of Houston" /> K. Hovnanian</label>
+        <label><input type="checkbox" value="TriPointe Homes" /> TriPointe Homes</label>
+        <div class="menu-foot"><button type="button" class="all" data-select="builder">Select all</button><button type="button" class="all" data-clear="builder">Clear</button></div>
+      </div>
     </div>
 
   </div>

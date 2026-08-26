@@ -26,6 +26,12 @@ window.SAMPLE = {
       { lab: "Apply", href: "apply.html", sub: "Paid to apply. Esme note.", open: 4134 },
       { lab: "Write-off", href: "writeoff.html", sub: "One bucket. Esme note.", open: 11865 },
       { lab: "Awaiting", href: "awaiting.html", sub: "Waiting on them.", open: 3048 }
+    ],
+    boxCounts: [
+      { lab: "Chase", n: 318 },
+      { lab: "Apply", n: 10 },
+      { lab: "Write-off", n: 31 },
+      { lab: "Awaiting", n: 6 }
     ]
   },
   issues: [

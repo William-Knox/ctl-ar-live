@@ -14,7 +14,7 @@
 <div class="app" id="app">
   <header class="hdr">
     <div class="brand">
-      <img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" />
+      <a class="mark-link" href="homepage.html" aria-label="Dashboard"><img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" /></a>
       <div class="brand-text">
         <h1>Hyphen review</h1>
         <p class="asof">Chase · Monday 2026-08-24</p>
@@ -26,9 +26,8 @@
   </header>
   <div class="bar">
     <input class="search" id="q" type="search" placeholder="Invoice, address, community" autocomplete="off" />
-    <span class="seg-lab">Box</span>
-    <div class="seg" role="tablist" aria-label="Hyphen boxes">
-      <a class="on" href="app-open.html" aria-current="page">Chase</a><a href="apply.html">Apply</a><a href="writeoff.html">Write-off</a><a href="awaiting.html">Awaiting</a>
+    <div class="seg" role="tablist" aria-label="Dashboard and queues">
+      <a href="homepage.html">Dashboard</a><a class="on" href="app-open.html" aria-current="page">Chase</a><a href="apply.html">Apply</a><a href="writeoff.html">Write-off</a><a href="awaiting.html">Awaiting</a>
     </div>
 
     <button type="button" class="lo-chip" id="loChip" aria-pressed="false">Leftover <span class="n" id="loN">19</span></button>

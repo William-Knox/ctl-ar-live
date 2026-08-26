@@ -14,7 +14,7 @@
 <div class="app">
   <header class="hdr">
     <div class="brand">
-      <img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" />
+      <a class="mark-link" href="homepage.html" aria-label="Dashboard"><img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" /></a>
       <div class="brand-text">
         <h1>Hyphen review</h1>
         <p class="asof">Awaiting · Monday 2026-08-24</p>
@@ -26,9 +26,19 @@
   </header>
   <div class="bar">
     <input class="search" id="q" type="search" placeholder="Invoice, address, community" autocomplete="off" />
-    <span class="seg-lab">Box</span>
-    <div class="seg" role="tablist" aria-label="Hyphen boxes">
-      <a href="app-open.html">Chase</a><a href="apply.html">Apply</a><a href="writeoff.html">Write-off</a><a class="on" href="awaiting.html" aria-current="page">Awaiting</a>
+    <div class="seg" role="tablist" aria-label="Dashboard and queues">
+      <a href="homepage.html">Dashboard</a><a href="app-open.html">Chase</a><a href="apply.html">Apply</a><a href="writeoff.html">Write-off</a><a class="on" href="awaiting.html" aria-current="page">Awaiting</a>
+    </div>
+    <div class="menu" data-menu="builder">
+      <button class="menu-btn" type="button"><span class="t">Builder</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="LENNAR HOMES" /> Lennar</label>
+        <label><input type="checkbox" value="MHI HOMES" /> MHI</label>
+        <label><input type="checkbox" value="Toll Brothers, Inc." /> Toll</label>
+        <label><input type="checkbox" value="K. Hovnanian of Houston" /> K. Hovnanian</label>
+        <label><input type="checkbox" value="TriPointe Homes" /> TriPointe Homes</label>
+        <div class="menu-foot"><button type="button" class="all" data-select="builder">Select all</button><button type="button" class="all" data-clear="builder">Clear</button></div>
+      </div>
     </div>
 
     <button type="button" class="lo-chip" aria-pressed="false">Follow-up due <span class="n">6</span></button>
@@ -47,8 +57,8 @@
           <th class="w-to">To</th>
           <th class="num w-open">Open $</th>
         </tr></thead>
-        <tbody><tr class="" data-id="180131"><td class="inv">180131</td><td class="addr">12527/12523 Alligator Lake</td><td><span class="pill why">Unpaid complete</span></td><td class="sent">Mon 2026-08-17 10:49 CT</td><td class="num"><span class="wait">5</span></td><td>2026-08-20<span class="pill due">Due</span></td><td></td><td class="num money">$783</td></tr><tr class="alt sel" data-id="0410-170532"><td class="inv">0410-170532</td><td class="addr">10478 Sugar Mill Dr</td><td><span class="pill why">Leftover lab</span></td><td class="sent">Mon 2026-08-17 14:47 CT</td><td class="num"><span class="wait">5</span></td><td>2026-08-20<span class="pill due">Due</span></td><td>Montana Grove</td><td class="num money">$349</td></tr><tr class="" data-id="179586"><td class="inv">179586</td><td class="addr">11974 Hedley Court</td><td><span class="pill why">Notes error</span></td><td class="sent">Mon 2026-08-17 11:39 CT</td><td class="num"><span class="wait">5</span></td><td>2026-08-20<span class="pill due">Due</span></td><td>Montana Grove</td><td class="num money">$261</td></tr><tr class="alt" data-id="179587"><td class="inv">179587</td><td class="addr">11975 Hedley Court</td><td><span class="pill why">Notes error</span></td><td class="sent">Mon 2026-08-17 13:09 CT</td><td class="num"><span class="wait">5</span></td><td>2026-08-20<span class="pill due">Due</span></td><td>Montana Grove</td><td class="num money">$261</td></tr><tr class="" data-id="179593"><td class="inv">179593</td><td class="addr">3071 Huntersville Dr</td><td><span class="pill why">Unpaid complete</span></td><td class="sent">Tue 2026-08-18</td><td class="num"><span class="wait">4</span></td><td>2026-08-21<span class="pill due">Due</span></td><td></td><td class="num money">$1,044</td></tr><tr class="alt" data-id="0416-170658"><td class="inv">0416-170658</td><td class="addr">28502 Pebble Springs</td><td><span class="pill why">No PO</span></td><td class="sent">Tue 2026-08-18 11:59 CT</td><td class="num"><span class="wait">4</span></td><td>2026-08-21<span class="pill due">Due</span></td><td>Chris Tschumperlin</td><td class="num money">$350</td></tr></tbody>
-      </table>
+        <tbody><tr class="" data-id="180131" data-parent="LENNAR HOMES"><td class="inv">180131</td><td class="addr">12527/12523 Alligator Lake</td><td><span class="pill why">Unpaid complete</span></td><td class="sent">Mon 2026-08-17 10:49 CT</td><td class="num"><span class="wait">5</span></td><td class="follow">2026-08-20<span class="pill due">Due</span></td><td></td><td class="num money">$783</td></tr><tr class="alt sel" data-id="0410-170532" data-parent="LENNAR HOMES"><td class="inv">0410-170532</td><td class="addr">10478 Sugar Mill Dr</td><td><span class="pill why">Leftover lab</span></td><td class="sent">Mon 2026-08-17 14:47 CT</td><td class="num"><span class="wait">5</span></td><td class="follow">2026-08-20<span class="pill due">Due</span></td><td>Montana Grove</td><td class="num money">$349</td></tr><tr class="" data-id="179586" data-parent="LENNAR HOMES"><td class="inv">179586</td><td class="addr">11974 Hedley Court</td><td><span class="pill why">Notes error</span></td><td class="sent">Mon 2026-08-17 11:39 CT</td><td class="num"><span class="wait">5</span></td><td class="follow">2026-08-20<span class="pill due">Due</span></td><td>Montana Grove</td><td class="num money">$261</td></tr><tr class="alt" data-id="179587" data-parent="LENNAR HOMES"><td class="inv">179587</td><td class="addr">11975 Hedley Court</td><td><span class="pill why">Notes error</span></td><td class="sent">Mon 2026-08-17 13:09 CT</td><td class="num"><span class="wait">5</span></td><td class="follow">2026-08-20<span class="pill due">Due</span></td><td>Montana Grove</td><td class="num money">$261</td></tr><tr class="" data-id="179593" data-parent="LENNAR HOMES"><td class="inv">179593</td><td class="addr">3071 Huntersville Dr</td><td><span class="pill why">Unpaid complete</span></td><td class="sent">Tue 2026-08-18</td><td class="num"><span class="wait">4</span></td><td class="follow">2026-08-21<span class="pill due">Due</span></td><td></td><td class="num money">$1,044</td></tr><tr class="alt" data-id="0416-170658" data-parent="TriPointe Homes"><td class="inv">0416-170658</td><td class="addr">28502 Pebble Springs</td><td><span class="pill why">No PO</span></td><td class="sent">Tue 2026-08-18 11:59 CT</td><td class="num"><span class="wait">4</span></td><td class="follow">2026-08-21<span class="pill due">Due</span></td><td>Chris Tschumperlin</td><td class="num money">$350</td></tr></tbody>
+      </table><div class="empty-state" id="listEmpty" hidden>No invoices for this builder.</div>
       
     </div>
     <div class="gutter" role="separator" aria-orientation="vertical" tabindex="0" aria-label="Resize queue"></div>
@@ -84,6 +94,7 @@
 
   </div>
 </div>
+<script src="fixture.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
