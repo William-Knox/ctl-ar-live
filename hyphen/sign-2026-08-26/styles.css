@@ -22,7 +22,7 @@
   --toolbar-h: 38px;
   --thead-h: 30px;
   --row-h: 42px;
-  --list-w: 420px;
+  --list-w: 560px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
@@ -381,10 +381,11 @@ tbody tr { cursor: pointer; }
   color: var(--navy);
   border: 1px solid var(--line-2);
 }
-.w-dpd { width: 48px; }
-.w-inv { width: 104px; }
-.w-why { width: 118px; }
-.w-open { width: 68px; }
+.w-dpd { width: 46px; }
+.w-inv { width: 96px; }
+.w-bld { width: 72px; }
+.w-why { width: 104px; }
+.w-open { width: 64px; }
 
 .empty-state {
   padding: 28px 16px;
@@ -885,10 +886,11 @@ tbody tr { cursor: pointer; }
 .sent { font-variant-numeric: tabular-nums; }
 
 .popup-back {
-  position: fixed; inset: 0; background: rgba(15,23,42,0.28); z-index: 120;
+  position: fixed; inset: 0; background: rgba(15,23,42,0.28); z-index: 200;
   display: none; align-items: center; justify-content: center; padding: 24px;
 }
-.popup-back.on, body.popup-open .popup-back { display: flex; }
+.popup-back.on { display: flex; }
+body.popup-open #draftsPopup { display: flex; }
 .popup {
   width: min(440px, 92vw); background: var(--paper); border: 1px solid var(--line-2);
   border-radius: 10px; box-shadow: 0 16px 40px rgba(15,23,42,0.18);
@@ -1019,7 +1021,6 @@ body.home .app { height: auto; min-height: 100%; }
 }
 .box-bar .hbar-track { height: 8px; }
 .box-bar .hbar-n { font-size: 12px; font-weight: 650; font-variant-numeric: tabular-nums; }
-.w-bld { width: 78px; }
 thead th.sort { cursor: pointer; }
 thead th.sort .s { font-size: 9px; margin-left: 2px; color: var(--navy); }
 .case-files.under-letter {

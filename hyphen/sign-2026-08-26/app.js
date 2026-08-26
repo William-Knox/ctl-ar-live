@@ -220,16 +220,18 @@
       more.setAttribute("aria-expanded", m.hidden ? "false" : "true");
     });
   }
-  var send = $("cSend");
-  if (send) {
-    send.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      var m = $("cReadyMenu");
-      if (m) m.hidden = true;
-      openNamed("sendPopup");
-    });
+  function openSend(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    var m = $("cReadyMenu");
+    if (m) m.hidden = true;
+    openNamed("sendPopup");
   }
+  var send = $("cSend");
+  if (send) send.addEventListener("click", openSend);
+  document.querySelectorAll("[data-open-send]").forEach(function (b) {
+    b.addEventListener("click", openSend);
+  });
 
   /* Drag-resize the left queue so the full address is visible. */
   (function resizeQueue() {
@@ -250,7 +252,7 @@
     try { saved = parseInt(sessionStorage.getItem(KEY) || "", 10); } catch (e) {}
     if (saved) apply(saved);
     gutters.forEach(function (g) {
-      var startX = 0, startW = 420, dragging = false;
+      var startX = 0, startW = 560, dragging = false;
       function pane() {
         return document.querySelector(".wrap") || document.querySelector(".pane-left");
       }
