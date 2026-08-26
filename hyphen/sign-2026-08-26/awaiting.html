@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F8F6F2" />
+<title>Hyphen review · Awaiting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --cream: #F8F6F2;
+  --cream-2: #EFEDE7;
+  --cream-3: #E7E3DB;
+  --paper: #FFFdf8;
+  --navy: #0F172A;
+  --navy-2: #1E293B;
+  --ink: #161410;
+  --muted: #6F6A62;
+  --muted-2: #8A847A;
+  --line: #E4E0D8;
+  --line-2: #D6D1C7;
+  --clay: #C2410C;
+  --clay-soft: #F3E6DE;
+  --found-bg: #E3EBE5;
+  --found-fg: #3A5648;
+  --header-h: 46px;
+  --toolbar-h: 38px;
+  --thead-h: 30px;
+  --row-h: 42px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+  background: var(--cream);
+  color: var(--navy);
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "tnum";
+  -webkit-font-smoothing: antialiased;
+}
+body { overflow: hidden; }
+button, input { font-family: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: 0; }
+::selection { background: #E8D5C8; }
+
+.app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.hdr {
+  height: var(--header-h);
+  flex: 0 0 var(--header-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px 0 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.mark {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  object-fit: contain;
+}
+.brand-text { min-width: 0; }
+.brand-text h1 {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.mock-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 16px;
+  margin-left: 7px;
+  padding: 0 6px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  vertical-align: 2px;
+}
+.asof {
+  margin-top: 2px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.counts { display: flex; align-items: baseline; gap: 14px; flex-shrink: 0; }
+.count { text-align: right; }
+.count b {
+  display: block;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.count span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.bar {
+  height: var(--toolbar-h);
+  flex: 0 0 var(--toolbar-h);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+  white-space: nowrap;
+}
+.search {
+  width: 200px;
+  height: 26px;
+  border: 1px solid var(--line-2);
+  background: var(--paper);
+  border-radius: 4px;
+  padding: 0 8px 0 26px;
+  font-size: 12px;
+  font-weight: 500;
+  outline: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%236F6A62' stroke-width='1.6'><circle cx='5.2' cy='5.2' r='3.6'/><path d='M8 8l3 3'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 8px 50%;
+}
+.search:focus { border-color: var(--navy); }
+.search::placeholder { color: var(--muted-2); font-weight: 450; }
+.seg-lab {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 2px 0 6px;
+}
+.seg {
+  display: inline-flex;
+  height: 26px;
+  border: 1px solid var(--line-2);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--paper);
+}
+.seg button, .seg a {
+  height: 26px;
+  padding: 0 9px;
+  font-size: 11.5px;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border-right: 1px solid var(--line-2);
+  text-decoration: none;
+}
+.seg button:last-child, .seg a:last-child { border-right: 0; }
+.seg button.on, .seg a.on { background: var(--navy); color: var(--cream); }
+.seg .n {
+  font-variant-numeric: tabular-nums;
+  font-size: 10.5px;
+  font-weight: 650;
+  opacity: 0.72;
+}
+.lo-chip {
+  height: 26px;
+  margin-left: 8px;
+  padding: 0 9px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: var(--paper);
+  font-size: 11.5px;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.lo-chip.on { background: var(--navy); border-color: var(--navy); color: var(--cream); }
+.lo-chip .n { font-variant-numeric: tabular-nums; font-size: 10.5px; font-weight: 650; opacity: 0.72; }
+.clear-btn {
+  height: 26px;
+  padding: 0 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--clay);
+  display: none;
+}
+.clear-btn.show { display: inline-flex; align-items: center; }
+
+.mail-note {
+  flex: 0 0 auto;
+  padding: 7px 14px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--navy);
+  background: #E4E8F0;
+  border-bottom: 1px solid var(--line);
+  letter-spacing: -0.01em;
+}
+.mail-note b { font-weight: 650; }
+
+.stage {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  background: var(--paper);
+}
+.wrap {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  background: var(--paper);
+}
+.app.open .wrap {
+  flex: 0 0 52%;
+  max-width: 720px;
+  border-right: 1px solid var(--line);
+}
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: -0.011em;
+}
+thead th {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  height: var(--thead-h);
+  background: var(--cream-2);
+  border-bottom: 1px solid var(--line-2);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  padding: 0 8px;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+}
+thead th:hover { color: var(--navy); }
+thead th .s {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 8px;
+  letter-spacing: 0;
+  color: var(--navy);
+  opacity: 0;
+}
+thead th.sorted { color: var(--navy); }
+thead th.sorted .s { opacity: 1; }
+thead th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+td {
+  height: var(--row-h);
+  padding: 0 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: middle;
+  white-space: nowrap;
+  background: var(--paper);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+td.comm, td.addr { overflow: hidden; text-overflow: ellipsis; }
+tbody tr.alt td { background: #FBF9F5; }
+tbody tr:hover td { background: #F3EFE8; }
+tbody tr.sel td { background: #EDE6DC; }
+tbody tr.sel td:first-child { box-shadow: inset 2px 0 0 var(--navy); }
+tbody tr { cursor: pointer; }
+.inv {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.money { font-variant-numeric: tabular-nums; font-weight: 600; letter-spacing: -0.015em; }
+.comm { font-weight: 550; }
+.addr { color: var(--navy-2); }
+.wait { font-variant-numeric: tabular-nums; font-weight: 600; }
+.sent { font-variant-numeric: tabular-nums; }
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.pill.why {
+  background: var(--cream);
+  color: var(--navy);
+  border: 1px solid #C9C3B8;
+}
+.pill.awaiting {
+  background: var(--cream-2);
+  color: var(--navy);
+  border: 1px solid var(--line-2);
+}
+.pill.due {
+  background: var(--cream-2);
+  color: var(--navy);
+  border: 1px solid var(--line-2);
+  margin-left: 6px;
+}
+.w-inv { width: 118px; }
+.w-why { width: 124px; }
+.w-sent { width: 148px; }
+.w-wait { width: 88px; }
+.w-follow { width: 118px; }
+.w-to { width: 140px; }
+.w-open { width: 72px; }
+
+.empty-state {
+  padding: 48px 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.case {
+  display: none;
+  flex: 1;
+  min-width: 0;
+  background: var(--cream);
+  flex-direction: column;
+  overflow: hidden;
+}
+.app.open .case { display: flex; }
+.case-top {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px 10px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+}
+.case-id { font-size: 18px; font-weight: 650; letter-spacing: -0.035em; }
+.case-sub { margin-top: 3px; font-size: 12.5px; font-weight: 500; color: var(--navy-2); }
+.case-nav { display: flex; gap: 6px; flex-shrink: 0; }
+.case-nav button {
+  min-width: 40px;
+  min-height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--navy);
+}
+.case-nav button:hover { border-color: #C4BDB2; }
+.case-nav button:disabled { opacity: 0.38; cursor: default; }
+.case-nav .x { min-width: 36px; color: var(--muted); }
+
+.status {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  padding: 12px 16px 0;
+}
+.schip {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--paper);
+  min-height: 54px;
+}
+.schip lab {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.schip val {
+  display: block;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+.schip.ok { background: var(--found-bg); border-color: transparent; }
+.schip.ok val { color: var(--found-fg); }
+.schip.hold { background: var(--cream-2); border-color: transparent; }
+
+.note {
+  margin: 12px 16px 0;
+  padding: 9px 11px;
+  background: var(--cream-2);
+  border-radius: 7px;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.note b { font-weight: 650; color: var(--navy); }
+
+.pack-strip {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 16px 0;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 650;
+  background: var(--found-bg);
+  color: var(--found-fg);
+  border: 0;
+}
+.chip.warn {
+  background: var(--cream-2);
+  color: var(--navy-2);
+}
+
+.case-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px 0;
+  overflow: hidden;
+}
+.sec-h {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 2px 8px;
+}
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: auto;
+  flex: 1;
+}
+.letter {
+  padding: 14px 16px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.011em;
+  color: var(--ink);
+}
+.letter .kind {
+  display: inline-flex;
+  height: 18px;
+  padding: 0 7px;
+  margin-bottom: 10px;
+  border: 1px solid #C9C3B8;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.letter .meta {
+  font-size: 11.5px;
+  font-weight: 550;
+  color: var(--navy-2);
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+.letter p { margin: 0 0 10px; }
+.letter .sig { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+.letter .sig b { display: block; font-weight: 650; letter-spacing: -0.02em; }
+.letter .sig span { display: block; font-size: 12px; }
+
+.acts {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px 14px;
+  border-top: 1px solid var(--line-2);
+  margin-top: 12px;
+  background: #F3EFE8;
+  box-shadow: 0 -8px 16px rgba(15,23,42,0.04);
+}
+.act {
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  cursor: pointer;
+}
+.act.ghost:hover { border-color: #C4BDB2; background: #FFFdf8; }
+.act-note { font-size: 11.5px; font-weight: 500; color: var(--muted); margin-left: 4px; }
+
+.toast {
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--navy);
+  color: var(--cream);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+  z-index: 80;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.18);
+  max-width: min(520px, 92vw);
+  text-align: center;
+}
+.toast.on { opacity: 1; }
+
+@media (max-width: 860px) {
+  html, body { overflow: auto; }
+  .app { height: auto; min-height: 100%; }
+  .hdr {
+    height: auto;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    padding: calc(10px + env(safe-area-inset-top)) 12px 8px;
+    gap: 8px;
+  }
+  .asof { white-space: normal; }
+  .counts { width: 100%; justify-content: space-between; }
+  .bar { height: auto; flex-wrap: wrap; white-space: normal; padding: 8px 10px; }
+  .search { width: 100%; }
+  .seg { flex-wrap: wrap; height: auto; width: 100%; }
+  .seg button, .seg a { min-height: 36px; height: 36px; flex: 1 1 auto; }
+  .stage { flex-direction: column; }
+  .app.open .wrap {
+    flex: 0 0 auto;
+    max-height: 32vh;
+    max-width: none;
+    width: 100%;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .status { grid-template-columns: 1fr 1fr; }
+  .acts .act { flex: 1 1 auto; min-width: 120px; min-height: 40px; height: auto; }
+}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <header class="hdr">
+    <div class="brand">
+      <img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" />
+      <div class="brand-text">
+        <h1>Hyphen review</h1>
+        <p class="asof" id="asof">Awaiting · Monday 2026-08-24</p>
+      </div>
+    </div>
+    <div class="counts">
+      <div class="count"><b id="countN">0</b><span>invoices</span></div>
+      <div class="count"><b id="countOpen">$0</b><span>open</span></div>
+      <div class="count"><b id="countDue">0</b><span>follow-up due</span></div>
+    </div>
+  </header>
+
+  <div class="bar">
+    <input class="search" id="q" type="search" placeholder="Invoice, address, community" autocomplete="off" />
+
+    <span class="seg-lab">Box</span>
+        <div class="seg" role="tablist" aria-label="Hyphen boxes">
+      <a href="app-open.html">Chase</a>
+      <a href="apply.html">Apply</a>
+      <a href="writeoff.html">Write-off</a>
+      <a class="on" href="app-open.html" aria-current="page">Awaiting</a>
+    </div>
+
+    <button type="button" class="lo-chip" id="dueChip" aria-pressed="false">Follow-up due <span class="n" id="dueN">0</span></button>
+    <button class="clear-btn" id="clearBtn" type="button">Clear filters</button>
+  </div>
+
+  <div class="mail-note">
+    Sent correspondence. Their court. No auto-send. No follow-up button.
+  </div>
+
+  <div class="stage">
+    <div class="wrap" id="list" aria-label="Sent list">
+      <table id="grid">
+        <thead>
+          <tr>
+            <th class="w-inv" data-sort="id">Invoice <span class="s"></span></th>
+            <th data-sort="addr">Address <span class="s"></span></th>
+            <th class="w-why" data-sort="issue">Issue <span class="s"></span></th>
+            <th class="w-sent" data-sort="last_sent">Last sent <span class="s"></span></th>
+            <th class="num w-wait sorted" data-sort="waiting" data-dir="desc">Waiting <span class="s">▼</span></th>
+            <th class="w-follow" data-sort="follow_up_on">Follow-up due <span class="s"></span></th>
+            <th class="w-to" data-sort="to">To <span class="s"></span></th>
+            <th class="num w-open" data-sort="open" data-dir="desc">Open $ <span class="s"></span></th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div class="empty-state" id="empty" hidden>No invoices match these filters.</div>
+    </div>
+    <section class="case" id="case" aria-label="Awaiting case"></section>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<script src="../data.js"></script>
+<script ></script>
+<script>
+(function () {
+  "use strict";
+  function asofStamp() {
+    var raw = String(window.BOOK_ASOF || "").trim();
+    var iso = /^\d{4}-\d{2}-\d{2}$/.test(raw) ? raw : "";
+    if (!iso) iso = new Date().toLocaleDateString("en-CA", { timeZone: "America/Chicago" });
+    var p = iso.split("-");
+    var dt = new Date(+p[0], +p[1] - 1, +p[2]);
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    return days[dt.getDay()] + " " + iso;
+  }
+  var asofEl = document.getElementById("asof");
+  if (asofEl) asofEl.textContent = asofEl.textContent.replace(/·.*/, "· " + asofStamp());
+  /* Book as-of: window.BOOK_ASOF or today America/Chicago. Date-only; Sat/Sun skipped. */
+  var AS_OF = (/^\d{4}-\d{2}-\d{2}$/.test(String(window.BOOK_ASOF || "").trim())
+    ? String(window.BOOK_ASOF).trim()
+    : new Date().toLocaleDateString("en-CA", { timeZone: "America/Chicago" }));
+  var LOCKED = {
+    "Leftover lab": 1,
+    "Quantity shortfall": 1,
+    "Notes error": 1,
+    "Amount off": 1,
+    "Write-off": 1,
+    "Unpaid complete": 1,
+    "No PO": 1,
+    "Paid to apply": 1
+  };
+  var ROWS = [];
+
+  var LOCKED_TREE = {
+    "Leftover lab": 1,
+    "Quantity shortfall": 1,
+    "Notes error": 1,
+    "Amount off": 1,
+    "Write-off": 1,
+    "Unpaid complete": 1,
+    "No PO": 1,
+    "Paid to apply": 1
+  };
+  var KEEP_LEFTOVER = { "0508-171401": 1, "0506-171278": 1 };
+  function lockIssue(raw, doc) {
+    var id = String(doc || "");
+    if (KEEP_LEFTOVER[id]) return "Leftover lab";
+    var iss = String(raw == null ? "" : raw);
+    var low = iss.toLowerCase();
+    if (low === "billed-wrong" || low === "billed wrong" || low === "flagged") return "Write-off";
+    return iss;
+  }
+  function mailLabel(m) {
+    if (m === "awaiting") return "Awaiting";
+    if (m === "not_sent" || !m) return "Not sent";
+    return String(m);
+  }
+
+  function boxCount(kind) {
+    var src = (window.DATA || []);
+    return src.filter(function (d) {
+      var iss = lockIssue(d.issue, d.docNumber);
+      if (kind === "chase") return (d.mail || "") !== "awaiting" && iss !== "Paid to apply" && iss !== "Write-off";
+      if (kind === "apply") return iss === "Paid to apply";
+      if (kind === "writeoff") return iss === "Write-off" && (d.mail || "") !== "awaiting";
+      if (kind === "awaiting") return (d.mail || "") === "awaiting";
+      return false;
+    }).length;
+  }
+  function paintBoxCounts() {
+    function set(id, n) { var el = $(id); if (el) el.textContent = String(n); }
+    set("nChase", boxCount("chase"));
+    set("nApply", boxCount("apply"));
+    set("apN", boxCount("apply"));
+    set("nWrite", boxCount("writeoff"));
+    set("woN", boxCount("writeoff"));
+    set("nAwait", boxCount("awaiting"));
+    set("awN", boxCount("awaiting"));
+  }
+  var liveAW = [];
+  if (typeof window.DATA !== "undefined" && window.DATA && window.DATA.length) {
+    liveAW = window.DATA.filter(function (d) {
+      return (d.mail || "") === "awaiting";
+    }).map(function (d) {
+      return {
+        id: d.docNumber,
+        community: d.customer || "",
+        addr: d.service_address || "",
+        issue: lockIssue(d.issue, d.docNumber),
+        last_sent: d.last_sent || "",
+        open: Number(d.balance != null ? d.balance : d.open_balance) || 0,
+        parent: d.parent || "",
+        court: "theirs",
+        to: (function () {
+          var s = String(d.chase_to_name || d.chase_to || "").trim();
+          if (!s || /not recorded/i.test(s)) return "";
+          return s;
+        })(),
+        analysis: d.chase_analysis || "",
+        sent: d.chase_letter || d.chase_letter_lead || "",
+        due: false
+      };
+    });
+    if (liveAW.length) ROWS = liveAW;
+  }
+
+  function ymd(s) {
+    var m = String(s).match(/(\d{4})-(\d{2})-(\d{2})/);
+    return [Number(m[1]), Number(m[2]), Number(m[3])];
+  }
+  function addCal(p, n) {
+    var dt = new Date(Date.UTC(p[0], p[1] - 1, p[2] + n));
+    return [dt.getUTCFullYear(), dt.getUTCMonth() + 1, dt.getUTCDate()];
+  }
+  function wd(p) { return new Date(Date.UTC(p[0], p[1] - 1, p[2])).getUTCDay(); }
+  function cmp(a, b) {
+    if (a[0] !== b[0]) return a[0] - b[0];
+    if (a[1] !== b[1]) return a[1] - b[1];
+    return a[2] - b[2];
+  }
+  /* Waiting = business days after last_sent through AS_OF (Sat/Sun skipped). last_sent is day 0. */
+  function bizDaysSince(from, to) {
+    var a = ymd(from), b = ymd(to), n = 0, cur = addCal(a, 1);
+    while (cmp(cur, b) <= 0) {
+      var d = wd(cur);
+      if (d !== 0 && d !== 6) n++;
+      cur = addCal(cur, 1);
+    }
+    return n;
+  }
+  /* Follow-up due date = last_sent + 3 business days. Due when that date has been reached. */
+  function addBizDays(from, n) {
+    var cur = ymd(from), left = n;
+    while (left > 0) {
+      cur = addCal(cur, 1);
+      var d = wd(cur);
+      if (d !== 0 && d !== 6) left--;
+    }
+    return cur;
+  }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function fmtYMD(p) { return p[0] + "-" + pad(p[1]) + "-" + pad(p[2]); }
+  function fmtSent(stamp) {
+    var s = String(stamp || "");
+    var m = s.match(/(\d{4}-\d{2}-\d{2})(?:\s+(\d{1,2}:\d{2})\s*CT)?/);
+    if (!m) return s;
+    var names = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    var p = ymd(m[1]);
+    var day = names[wd(p)];
+    if (m[2]) return day + " " + m[1] + " " + m[2] + " CT";
+    return day + " " + m[1];
+  }
+
+  ROWS.forEach(function (r) {
+    if (!LOCKED[r.issue]) throw new Error("unlocked issue " + r.issue);
+    if (!liveAW.length && String(r.id).indexOf("0410") !== -1) throw new Error("0410 must stay out");
+    if (!r.last_sent) {
+      r.waiting = 0;
+      r.follow_up_on = "";
+      r.due = false;
+      r.sent_lab = "";
+      return;
+    }
+    r.waiting = bizDaysSince(r.last_sent, AS_OF);
+    r.follow_up_on = fmtYMD(addBizDays(r.last_sent, 3));
+    r.due = cmp(addBizDays(r.last_sent, 3), ymd(AS_OF)) <= 0;
+    r.sent_lab = fmtSent(r.last_sent);
+  });
+
+  var dueCount = ROWS.filter(function (r) { return r.due; }).length;
+  var state = {
+    sortKey: "waiting",
+    sortDir: "desc",
+    search: "",
+    dueOnly: false,
+    selected: null
+  };
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+  function money(n) {
+    return "$" + Math.round(Number(n) || 0).toLocaleString("en-US");
+  }
+  function toast(msg) {
+    var el = $("toast");
+    el.textContent = msg;
+    el.classList.add("on");
+    clearTimeout(toast._t);
+    toast._t = setTimeout(function () { el.classList.remove("on"); }, 3200);
+  }
+  function rowBy(id) { return ROWS.filter(function (r) { return r.id === id; })[0]; }
+
+  function filtered() {
+    var q = state.search.trim().toLowerCase();
+    return ROWS.filter(function (r) {
+      if (state.dueOnly && !r.due) return false;
+      if (q) {
+        var blob = (r.id + " " + r.addr + " " + r.community + " " + r.parent + " " + r.issue).toLowerCase();
+        if (blob.indexOf(q) < 0) return false;
+      }
+      return true;
+    }).slice().sort(function (a, b) {
+      var ka = a[state.sortKey], kb = b[state.sortKey];
+      var cmpv = 0;
+      if (typeof ka === "number" || typeof kb === "number") cmpv = (Number(ka) || 0) - (Number(kb) || 0);
+      else cmpv = String(ka || "").localeCompare(String(kb || ""));
+      return state.sortDir === "desc" ? -cmpv : cmpv;
+    });
+  }
+
+  function renderList() {
+    var rows = filtered();
+    var open = rows.reduce(function (s, r) { return s + r.open; }, 0);
+    var dueN = rows.filter(function (r) { return r.due; }).length;
+    $("countN").textContent = String(rows.length);
+    $("countOpen").textContent = money(open);
+    $("countDue").textContent = String(dueN);
+    $("dueN").textContent = String(dueCount);
+    paintBoxCounts();
+    $("empty").hidden = rows.length > 0;
+    $("tbody").innerHTML = rows.map(function (r, i) {
+      return '<tr class="' + (i % 2 ? "alt" : "") + (r.id === state.selected ? " sel" : "") + '" data-id="' + esc(r.id) + '">' +
+        '<td class="inv" data-label="Invoice">' + esc(r.id) + "</td>" +
+        '<td class="addr" data-label="Address">' + esc(r.addr) + "</td>" +
+        '<td data-label="Issue"><span class="pill why">' + esc(r.issue) + "</span></td>" +
+        '<td class="sent" data-label="Last sent">' + esc(r.sent_lab) + "</td>" +
+        '<td class="num" data-label="Waiting"><span class="wait">' + r.waiting + "</span></td>" +
+        '<td data-label="Follow-up due">' + esc(r.follow_up_on || "") +
+          (r.due ? '<span class="pill due">Due</span>' : "") + "</td>" +
+        '<td data-label="To">' + esc(r.to || "") + "</td>" +
+        '<td class="num money" data-label="Open $">' + money(r.open) + "</td>" +
+        "</tr>";
+    }).join("");
+    document.querySelectorAll("thead th").forEach(function (th) {
+      var on = th.getAttribute("data-sort") === state.sortKey;
+      th.classList.toggle("sorted", on);
+      var s = th.querySelector(".s");
+      if (s) s.textContent = on ? (state.sortDir === "desc" ? "▼" : "▲") : "";
+    });
+    $("dueChip").classList.toggle("on", state.dueOnly);
+    $("dueChip").setAttribute("aria-pressed", state.dueOnly ? "true" : "false");
+    var dirty = state.dueOnly || state.search;
+    $("clearBtn").classList.toggle("show", !!dirty);
+  }
+
+  function renderCase() {
+    var r = state.selected ? rowBy(state.selected) : null;
+    $("app").classList.toggle("open", !!r);
+    if (!r) {
+      $("case").innerHTML = "";
+      return;
+    }
+    var rows = filtered();
+    var idx = -1;
+    rows.forEach(function (x, i) { if (x.id === r.id) idx = i; });
+    var courtLab = "Their court";
+    var followLab = r.due ? "Follow-up due" : "Not yet";
+    var chips =
+      '<span class="chip">Awaiting · theirs</span>' +
+      (r.due
+        ? '<span class="chip warn">Follow-up due ' + esc(r.follow_up_on) + "</span>"
+        : '<span class="chip">Follow-up ' + esc(r.follow_up_on) + "</span>") +
+      '<span class="chip warn">Human stamp · not a parser</span>';
+    $("case").innerHTML =
+      '<div class="case-top"><div>' +
+      '<div class="case-id">' + esc(r.id) + " · " + esc(r.addr) + "</div>" +
+      '<div class="case-sub">' + esc(r.parent) + " · " + esc(r.community) + " · " + money(r.open) + " open</div></div>" +
+      '<div class="case-nav">' +
+      '<button type="button" id="casePrev"' + (idx <= 0 ? " disabled" : "") + ">Prev</button>" +
+      '<button type="button" id="caseNext"' + (idx < 0 || idx >= rows.length - 1 ? " disabled" : "") + ">Next</button>" +
+      '<button type="button" class="x" id="caseClose" aria-label="Close">✕</button>' +
+      "</div></div>" +
+      '<div class="status">' +
+      '<div class="schip ok"><lab>Court</lab><val>' + courtLab + "</val></div>" +
+      '<div class="schip' + (r.due ? " hold" : "") + '"><lab>Follow-up</lab><val>' + followLab + "</val></div>" +
+      '<div class="schip"><lab>Last sent</lab><val>' + esc(r.sent_lab) + "</val></div>" +
+      '<div class="schip"><lab>Waiting</lab><val>' + r.waiting + " biz days</val></div></div>" +
+      '<p class="note"><b>Already sent.</b> ' + esc(r.analysis) + " Ball stays with them until a human stamps Needs you after a reply with a question. A reply that does nothing stays Awaiting. No last reply on file — do not invent one.</p>" +
+      '<div class="pack-strip">' + chips + "</div>" +
+      '<div class="case-body"><div class="sec-h">Last sent</div><div class="card letter">' +
+      '<span class="kind">Sent · their court</span>' +
+      '<div class="meta">Sent ' + esc(r.sent_lab) + " · To " + esc(r.to) + " · Follow-up " + esc(r.follow_up_on) +
+      (r.due ? " · due" : " · not yet") + "</div>" +
+      "<p>" + (r.sent ? esc(r.sent) : "Already sent. Do not rewrite.") + "</p>" +
+      '<div class="sig"><b>William Knox</b><span>william@coastaltestinglabs.com</span></div>' +
+      "</div></div>" +
+      '<div class="acts">' +
+      '<button class="act ghost" type="button" id="cHold">Hold</button>' +
+      '<button class="act ghost" type="button" id="cNext">Next</button>' +
+      '<p class="act-note">Hold / Next only. No Draft. No Send. No auto-follow-up.</p>' +
+      "</div>";
+
+    $("casePrev").addEventListener("click", function () {
+      if (idx > 0) { state.selected = rows[idx - 1].id; render(); }
+    });
+    $("caseNext").addEventListener("click", function () {
+      if (idx >= 0 && idx < rows.length - 1) { state.selected = rows[idx + 1].id; render(); }
+    });
+    $("caseClose").addEventListener("click", function () {
+      state.selected = null;
+      render();
+    });
+    $("cHold").addEventListener("click", function () {
+      toast("Hold.");
+    });
+    $("cNext").addEventListener("click", function () {
+      if (idx >= 0 && idx < rows.length - 1) { state.selected = rows[idx + 1].id; render(); }
+      else toast("End of this filtered queue.");
+    });
+  }
+
+  function render() {
+    renderList();
+    renderCase();
+  }
+
+  $("q").addEventListener("input", function () { state.search = this.value; render(); });
+  $("dueChip").addEventListener("click", function () {
+    state.dueOnly = !state.dueOnly;
+    render();
+  });
+  $("clearBtn").addEventListener("click", function () {
+    state.search = "";
+    state.dueOnly = false;
+    $("q").value = "";
+    render();
+  });
+  document.querySelector("thead").addEventListener("click", function (e) {
+    var th = e.target.closest("th");
+    if (!th) return;
+    var key = th.getAttribute("data-sort");
+    if (!key) return;
+    if (state.sortKey === key) state.sortDir = state.sortDir === "desc" ? "asc" : "desc";
+    else {
+      state.sortKey = key;
+      state.sortDir = th.getAttribute("data-dir") || "asc";
+    }
+    render();
+  });
+  $("tbody").addEventListener("click", function (e) {
+    var tr = e.target.closest("tr");
+    if (!tr) return;
+    var id = tr.getAttribute("data-id");
+    state.selected = state.selected === id ? null : id;
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

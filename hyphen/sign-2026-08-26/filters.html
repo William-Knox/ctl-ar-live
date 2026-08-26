@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F8F6F2" />
+<title>Hyphen review · Chase</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+  <header class="hdr">
+    <div class="brand">
+      <img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" />
+      <div class="brand-text">
+        <h1>Hyphen review</h1>
+        <p class="asof">Chase · Monday 2026-08-24</p>
+      </div>
+    </div>
+    <div class="counts"><div class="count"><b>0</b><span>invoices</span></div><div class="count"><b>$0</b><span>open</span></div></div>
+  </header>
+  <div class="bar">
+    <span class="seg-lab">Box</span>
+    <div class="seg" role="tablist"><a class="on" href="app-open.html" aria-current="page">Chase</a><a href="apply.html">Apply</a><a href="writeoff.html">Write-off</a><a href="awaiting.html">Awaiting</a></div>
+    <button type="button" class="lo-chip" aria-pressed="false">Leftover <span class="n">19</span></button>
+  </div>
+
+  <div class="bar filter-demo" style="border-top:0">
+    <button type="button" class="lo-chip on" aria-pressed="true">Leftover <span class="n">19</span></button>
+    <div class="menu" data-menu="why">
+      <button class="menu-btn on" type="button"><span class="t">Issue</span></button>
+      <div class="menu-pop">
+        <label><input type="checkbox" checked /> Leftover lab</label>
+        <label><input type="checkbox" /> Quantity shortfall</label>
+        <label><input type="checkbox" /> Notes error</label>
+        <label><input type="checkbox" /> Amount off</label>
+        <label><input type="checkbox" /> No PO</label>
+        <div class="menu-foot"><button type="button" class="all">Select all</button><button type="button" class="all">Clear</button></div>
+      </div>
+    </div>
+    <div class="menu">
+      <button class="menu-btn" type="button"><span class="t">Days</span></button>
+      <div class="menu-pop">
+        <label><input type="checkbox" /> 0–15</label>
+        <label><input type="checkbox" /> 16–30</label>
+        <label><input type="checkbox" checked /> 30+</label>
+      </div>
+    </div>
+    <div class="menu">
+      <button class="menu-btn" type="button"><span class="t">Builder</span></button>
+      <div class="menu-pop">
+        <label><input type="checkbox" /> Lennar</label>
+        <label><input type="checkbox" /> MHI</label>
+        <label><input type="checkbox" /> Toll</label>
+        <label><input type="checkbox" /> TriPointe Homes</label>
+      </div>
+    </div>
+  </div>
+  <div class="empty-card">
+    <h2>Leftover is a chip, not a page.</h2>
+    <p>Issue / Days / Builder are saved-view filters. leftover-case.html is not a product. Select all sits next to Clear.</p>
+  </div>
+</div>
+</body></html>
