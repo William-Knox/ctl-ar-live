@@ -995,6 +995,24 @@ body.home .app { height: auto; min-height: 100%; }
 }
 .chart-head .home-card-sub { margin-bottom: 0; }
 .chart-toggles { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.xtab-wrap { width: 100%; overflow-x: auto; }
+.home-card .xtab {
+  width: 100%;
+  min-width: 100%;
+  table-layout: auto;
+}
+.home-card .xtab thead th { position: static; }
+.home-card .xtab th, .home-card .xtab td {
+  overflow: visible;
+  text-overflow: unset;
+  white-space: nowrap;
+  height: auto;
+  min-height: 0;
+  padding: 8px 10px;
+}
+.home-card .xtab td.iss { white-space: normal; min-width: 148px; }
+.home-card .xtab td.tot { font-weight: 650; }
+.home-card .xtab tbody tr { cursor: default; }
 .home-card h2, .home-in {
   font-size: 14px; font-weight: 650; letter-spacing: -0.02em; color: var(--navy);
 }
