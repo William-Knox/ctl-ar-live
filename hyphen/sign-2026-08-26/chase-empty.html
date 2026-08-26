@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body data-queue="empty">
 <div class="app" id="app">
   <header class="hdr">
     <div class="brand">
@@ -33,20 +33,6 @@
 
     <button type="button" class="lo-chip" id="loChip" aria-pressed="false">Leftover <span class="n" id="loN">19</span></button>
 
-    <div class="menu" data-menu="why">
-      <button class="menu-btn" type="button"><span class="t">Issue</span><i class="caret"></i></button>
-      <div class="menu-pop" hidden>
-        <label><input type="checkbox" value="Leftover lab" /> Leftover lab <span class="n">2</span></label>
-        <label><input type="checkbox" value="Quantity shortfall" /> Quantity shortfall <span class="n">2</span></label>
-        <label><input type="checkbox" value="Notes error" /> Notes error <span class="n">0</span></label>
-        <label><input type="checkbox" value="Amount off" /> Amount off <span class="n">2</span></label>
-        <label><input type="checkbox" value="Write-off" /> Write-off <span class="n">31</span></label>
-        <label><input type="checkbox" value="Unpaid complete" /> Unpaid complete <span class="n">115</span></label>
-        <label><input type="checkbox" value="No PO" /> No PO <span class="n">154</span></label>
-        <label><input type="checkbox" value="Paid to apply" /> Paid to apply <span class="n">10</span></label>
-        <div class="menu-foot"><button type="button" class="all" data-select="why">Select all</button><button type="button" class="all" data-clear="why">Clear</button></div>
-      </div>
-    </div>
     <div class="menu" data-menu="days">
       <button class="menu-btn" type="button"><span class="t">Days</span><i class="caret"></i></button>
       <div class="menu-pop" hidden>
@@ -64,7 +50,29 @@
         <label><input type="checkbox" value="Toll Brothers, Inc." /> Toll</label>
         <label><input type="checkbox" value="K. Hovnanian of Houston" /> K. Hovnanian</label>
         <label><input type="checkbox" value="TriPointe Homes" /> TriPointe Homes</label>
-        <div class="menu-foot"><button type="button" class="all" data-select="builders">Select all</button><button type="button" class="all" data-clear="builders">Clear</button></div>
+        <div class="menu-foot"><button type="button" class="all" data-select="builder">Select all</button><button type="button" class="all" data-clear="builder">Clear</button></div>
+      </div>
+    </div>
+    <div class="menu" data-menu="community">
+      <button class="menu-btn" type="button"><span class="t">Community</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <div class="menu-foot"><button type="button" class="all" data-select="community">Select all</button><button type="button" class="all" data-clear="community">Clear</button></div>
+      </div>
+    </div>
+    <div class="menu" data-menu="why">
+      <button class="menu-btn" type="button"><span class="t">Issue</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="Leftover lab" /> Leftover lab <span class="n">2</span></label>
+        <label><input type="checkbox" value="Quantity shortfall" /> Quantity shortfall <span class="n">2</span></label>
+        <label><input type="checkbox" value="Notes error" /> Notes error <span class="n">0</span></label>
+        <label><input type="checkbox" value="Amount off" /> Amount off <span class="n">2</span></label>
+        <label><input type="checkbox" value="Write-off" /> Write-off <span class="n">31</span></label>
+        <label><input type="checkbox" value="Unpaid complete" /> Unpaid complete <span class="n">115</span></label>
+        <label><input type="checkbox" value="No PO" /> No PO <span class="n">154</span></label>
+        <label><input type="checkbox" value="Paid to apply" /> Paid to apply <span class="n">10</span></label>
+        <label><input type="checkbox" value="Pending Notes" /> Pending Notes <span class="n">0</span></label>
+        <label><input type="checkbox" value="Pending client acceptance" /> Pending client acceptance <span class="n">0</span></label>
+        <div class="menu-foot"><button type="button" class="all" data-select="why">Select all</button><button type="button" class="all" data-clear="why">Clear</button></div>
       </div>
     </div>
 
@@ -85,7 +93,7 @@
   </div>
   <div class="stage">
     <div class="wrap" id="list" aria-label="Queue">
-      <table id="grid"><thead><tr><th class="num w-dpd">Days</th><th class="w-inv">Invoice</th><th>Address</th><th class="w-why">Issue</th><th class="num w-open">Open $</th></tr></thead><tbody></tbody></table>
+      <table id="grid"><thead><tr><th class="num w-dpd sort on" data-sort="days" aria-sort="descending">Days <span class="s">▼</span></th><th class="w-inv">Invoice</th><th>Address</th><th class="w-bld">Builder</th><th class="w-why">Issue</th><th class="num w-open">Open $</th></tr></thead><tbody></tbody></table>
       <div class="empty-state">No invoices match these filters.</div>
     </div>
     <div class="gutter" role="separator" aria-orientation="vertical" tabindex="0" aria-label="Resize queue"></div>
@@ -107,6 +115,19 @@
     </div>
   </div>
 </div>
+
+<div class="popup-back" id="sendPopup" role="dialog" aria-modal="true" aria-labelledby="sendTitle" aria-hidden="true">
+  <div class="popup">
+    <h2 id="sendTitle">Send</h2>
+    <p>Confirm you want to send this letter now from billings@.</p>
+    <p class="warn">This mock does not send mail. The Outlook / Graph send is not built.</p>
+    <div class="acts">
+      <button class="act ghost" type="button" id="sendCancel">Cancel</button>
+      <button class="act primary" type="button" id="sendConfirm">Send</button>
+    </div>
+  </div>
+</div>
+<script src="fixture.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
