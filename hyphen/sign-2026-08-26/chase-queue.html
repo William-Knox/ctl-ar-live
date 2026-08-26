@@ -33,20 +33,6 @@
 
     <button type="button" class="lo-chip" id="loChip" aria-pressed="false">Leftover <span class="n" id="loN">19</span></button>
 
-    <div class="menu" data-menu="why">
-      <button class="menu-btn" type="button"><span class="t">Issue</span><i class="caret"></i></button>
-      <div class="menu-pop" hidden>
-        <label><input type="checkbox" value="Leftover lab" /> Leftover lab <span class="n">2</span></label>
-        <label><input type="checkbox" value="Quantity shortfall" /> Quantity shortfall <span class="n">2</span></label>
-        <label><input type="checkbox" value="Notes error" /> Notes error <span class="n">0</span></label>
-        <label><input type="checkbox" value="Amount off" /> Amount off <span class="n">2</span></label>
-        <label><input type="checkbox" value="Write-off" /> Write-off <span class="n">31</span></label>
-        <label><input type="checkbox" value="Unpaid complete" /> Unpaid complete <span class="n">115</span></label>
-        <label><input type="checkbox" value="No PO" /> No PO <span class="n">154</span></label>
-        <label><input type="checkbox" value="Paid to apply" /> Paid to apply <span class="n">10</span></label>
-        <div class="menu-foot"><button type="button" class="all" data-select="why">Select all</button><button type="button" class="all" data-clear="why">Clear</button></div>
-      </div>
-    </div>
     <div class="menu" data-menu="days">
       <button class="menu-btn" type="button"><span class="t">Days</span><i class="caret"></i></button>
       <div class="menu-pop" hidden>
@@ -64,7 +50,29 @@
         <label><input type="checkbox" value="Toll Brothers, Inc." /> Toll</label>
         <label><input type="checkbox" value="K. Hovnanian of Houston" /> K. Hovnanian</label>
         <label><input type="checkbox" value="TriPointe Homes" /> TriPointe Homes</label>
-        <div class="menu-foot"><button type="button" class="all" data-select="builders">Select all</button><button type="button" class="all" data-clear="builders">Clear</button></div>
+        <div class="menu-foot"><button type="button" class="all" data-select="builder">Select all</button><button type="button" class="all" data-clear="builder">Clear</button></div>
+      </div>
+    </div>
+    <div class="menu" data-menu="community">
+      <button class="menu-btn" type="button"><span class="t">Community</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <div class="menu-foot"><button type="button" class="all" data-select="community">Select all</button><button type="button" class="all" data-clear="community">Clear</button></div>
+      </div>
+    </div>
+    <div class="menu" data-menu="why">
+      <button class="menu-btn" type="button"><span class="t">Issue</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="Leftover lab" /> Leftover lab <span class="n">2</span></label>
+        <label><input type="checkbox" value="Quantity shortfall" /> Quantity shortfall <span class="n">2</span></label>
+        <label><input type="checkbox" value="Notes error" /> Notes error <span class="n">0</span></label>
+        <label><input type="checkbox" value="Amount off" /> Amount off <span class="n">2</span></label>
+        <label><input type="checkbox" value="Write-off" /> Write-off <span class="n">31</span></label>
+        <label><input type="checkbox" value="Unpaid complete" /> Unpaid complete <span class="n">115</span></label>
+        <label><input type="checkbox" value="No PO" /> No PO <span class="n">154</span></label>
+        <label><input type="checkbox" value="Paid to apply" /> Paid to apply <span class="n">10</span></label>
+        <label><input type="checkbox" value="Pending Notes" /> Pending Notes <span class="n">0</span></label>
+        <label><input type="checkbox" value="Pending client acceptance" /> Pending client acceptance <span class="n">0</span></label>
+        <div class="menu-foot"><button type="button" class="all" data-select="why">Select all</button><button type="button" class="all" data-clear="why">Clear</button></div>
       </div>
     </div>
 
@@ -86,9 +94,10 @@
   <div class="stage">
     <div class="wrap" id="list" aria-label="Queue">
       <table id="grid"><thead><tr>
-        <th class="num w-dpd">Days</th>
+        <th class="num w-dpd sort on" data-sort="days" aria-sort="descending">Days <span class="s">▼</span></th>
         <th class="w-inv">Invoice</th>
         <th>Address</th>
+        <th class="w-bld">Builder</th>
         <th class="w-why">Issue</th>
         <th class="num w-open">Open $</th>
       </tr></thead><tbody id="tbody">
@@ -106,8 +115,6 @@
         <button type="button">Next</button>
       </div></div>
       <p class="note"><b>Analysis.</b> Jake Matcheski 4/27 12:47 PM CT asked Esme/Jocelyne for a compaction test tomorrow at 3003 Heritage Grove Ct (Legacy Grove). Jocelyne FW to Ryan/Joe; Joe got it; Ryan 4/28 3:44 PM CT trying to make it that afternoon. Maria report 4/30 10:49 AM CT to Jake (resent 5/1). Invoice $610 4/28 — Maria later titled the 6/26 chase Proctor PO Request. Invoice emailed 5/18 to Jake. Maria 6/26 Proctor PO request to Jake and Chris — no builder reply. Payments CSV and hyphen_pos/events: no 3003 Heritage Grove. One named ask, report + invoice on file, no PO. No PO after analysis.</p>
-      <div class="sec-h" style="padding:12px 16px 8px">Attachments</div>
-      <div class="card case-files" style="margin:0 16px;flex:0 0 auto"><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-04-27_Jake-Matcheski_3003-Heritage-Grove-Ct-Legacy-Grove.eml" target="_blank" rel="noopener">Called in · Jake Matcheski 2026-04-27</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-04-30_Maria_Report-Legacy-Grove-3003-Heritage-Grove-Ct.eml" target="_blank" rel="noopener">Report transmittal · Maria 2026-04-30</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-04-30_Maria_Report_-_TriPointe_Homes_-_Legacy_Grove_-_3003_Heritage_Grove_Ct..pdf" target="_blank" rel="noopener">Report PDF · 2026-04-30</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-05-18_Maria_Invoice-0428-170954-3003-Heritage-Grove-Ct.eml" target="_blank" rel="noopener">Inquiry · Maria invoice 2026-05-18</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-05-18_Maria_Invoice-0428-170954.pdf" target="_blank" rel="noopener">Invoice PDF · 2026-05-18</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-06-26_Maria_Proctor-PO-Request-3003-Heritage-Grove-Ct.eml" target="_blank" rel="noopener">Inquiry · Maria Proctor PO Request 2026-06-26</a></div>
       <div class="case-body">
         <div class="col">
           <div class="sec-h">Timeline of Events</div>
@@ -130,6 +137,7 @@
               <div><b>Subj</b> PO needed · 3003 Heritage Grove Ct · 0428-170954 · 88 days past due</div>
               <div><b>CC</b> Chris Tschumperlin, Ryan, Maria, Veronica, William Knox</div>
             </div>
+            <div class="letter-edit" contenteditable="true" spellcheck="true">
             <p>We performed the work at 3003 Heritage Grove Ct and issued invoice 0428-170954 for $610. This has been 88 days past due with no purchase order on file. Please create a PO for this visit and release payment.</p>
             <div class="tl-h">Timeline of Events</div>
             <div class="tl">
@@ -142,7 +150,10 @@
             </div>
             <p>If you have any questions or concerns about the work at 3003 Heritage Grove Ct, the $610 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there.</p>
             <div class="sig"><b>Billings</b><span>billings@coastaltestinglabs.com</span></div>
+            </div>
           </div>
+          <div class="sec-h att-h">Attachments</div>
+          <div class="card case-files under-letter"><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-04-27_Jake-Matcheski_3003-Heritage-Grove-Ct-Legacy-Grove.eml" target="_blank" rel="noopener">Called in · Jake Matcheski 2026-04-27</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-04-30_Maria_Report-Legacy-Grove-3003-Heritage-Grove-Ct.eml" target="_blank" rel="noopener">Report transmittal · Maria 2026-04-30</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-04-30_Maria_Report_-_TriPointe_Homes_-_Legacy_Grove_-_3003_Heritage_Grove_Ct..pdf" target="_blank" rel="noopener">Report PDF · 2026-04-30</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-05-18_Maria_Invoice-0428-170954-3003-Heritage-Grove-Ct.eml" target="_blank" rel="noopener">Inquiry · Maria invoice 2026-05-18</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-05-18_Maria_Invoice-0428-170954.pdf" target="_blank" rel="noopener">Invoice PDF · 2026-05-18</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-06-26_Maria_Proctor-PO-Request-3003-Heritage-Grove-Ct.eml" target="_blank" rel="noopener">Inquiry · Maria Proctor PO Request 2026-06-26</a></div>
         </div>
       </div>
       <div class="acts">
@@ -153,6 +164,7 @@
             <button type="button" class="send" id="cSend">Send now<span class="hint">Sends this letter from billings@. Does not wait in Drafts. This mock does not send mail.</span></button>
           </div>
         </div>
+        <button class="act primary" type="button" data-open-send>Send</button>
         <button class="act ghost" type="button">Hold</button>
         <button class="act ghost" type="button">Next</button>
         <p class="act-note">Unsent chase. Draft split. Put in Drafts + Send now.</p>
@@ -171,6 +183,19 @@
     </div>
   </div>
 </div>
+
+<div class="popup-back" id="sendPopup" role="dialog" aria-modal="true" aria-labelledby="sendTitle" aria-hidden="true">
+  <div class="popup">
+    <h2 id="sendTitle">Send</h2>
+    <p>Confirm you want to send this letter now from billings@.</p>
+    <p class="warn">This mock does not send mail. The Outlook / Graph send is not built.</p>
+    <div class="acts">
+      <button class="act ghost" type="button" id="sendCancel">Cancel</button>
+      <button class="act primary" type="button" id="sendConfirm">Send</button>
+    </div>
+  </div>
+</div>
+<script src="fixture.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

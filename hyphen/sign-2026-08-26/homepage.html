@@ -37,56 +37,92 @@
       <div class="kpi-row" aria-label="Sample KPIs">
         <div class="kpi">
           <div class="kpi-lab">Open $</div>
-          <div class="kpi-num">$167,255</div>
+          <div class="kpi-num" id="kpiOpen">$167,255</div>
           <div class="kpi-sub">fixture</div>
         </div>
         <div class="kpi">
           <div class="kpi-lab">Needs you</div>
-          <div class="kpi-num">318</div>
+          <div class="kpi-num" id="kpiNeeds">318</div>
           <div class="kpi-sub">Chase · fixture</div>
         </div>
         <div class="kpi">
           <div class="kpi-lab">Waiting on them</div>
-          <div class="kpi-num">6</div>
+          <div class="kpi-num" id="kpiWait">6</div>
           <div class="kpi-sub">Awaiting · fixture</div>
         </div>
         <div class="kpi">
           <div class="kpi-lab">30+ days</div>
-          <div class="kpi-num hot">214</div>
-          <div class="kpi-sub">fixture · <span class="hot">$125,455</span></div>
+          <div class="kpi-num hot" id="kpiLateN">214</div>
+          <div class="kpi-sub">fixture · <span class="hot" id="kpiLateOpen">$125,455</span></div>
         </div>
+      </div>
+
+      <div class="home-filter">
+        <label for="homeIssue">Issue</label>
+        <select id="homeIssue" aria-label="Filter sample figures by Issue">
+          <option value="">All</option>
+          <option value="Leftover">Leftover</option>
+          <option value="No PO">No PO</option>
+          <option value="Unpaid complete">Unpaid complete</option>
+          <option value="Pending Notes">Pending Notes</option>
+          <option value="Pending client acceptance">Pending client acceptance</option>
+          <option value="Paid to apply">Paid to apply</option>
+          <option value="Quantity shortfall">Quantity shortfall</option>
+          <option value="Notes error">Notes error</option>
+          <option value="Amount off">Amount off</option>
+          <option value="Write-off">Write-off</option>
+          <option value="Leftover lab">Leftover lab</option>
+        </select>
+        <span>Sample fixture. Filters these figures. Not a fifth box.</span>
       </div>
 
       <div class="home-graphs">
         <section class="home-card" aria-label="Sample aging by open dollars">
           <h2>Aging by open $</h2>
           <p class="home-card-sub">Sample fixture. Bars only.</p>
-          <div class="hbar"><span class="hbar-lab">0–30</span><span class="hbar-track"><i style="width:80%"></i></span><span class="hbar-n">$41,800</span></div>
-          <div class="hbar"><span class="hbar-lab">31–60</span><span class="hbar-track"><i style="width:73%"></i></span><span class="hbar-n hot">$38,200</span></div>
-          <div class="hbar"><span class="hbar-lab">61–90</span><span class="hbar-track"><i style="width:100%"></i></span><span class="hbar-n hot">$52,140</span></div>
-          <div class="hbar"><span class="hbar-lab">90+</span><span class="hbar-track"><i style="width:67%"></i></span><span class="hbar-n hot">$35,115</span></div>
+          <div id="agingBars">
+            <div class="hbar"><span class="hbar-lab">0–30</span><span class="hbar-track"><i style="width:80%"></i></span><span class="hbar-n">$41,800</span></div>
+            <div class="hbar"><span class="hbar-lab">31–60</span><span class="hbar-track"><i style="width:73%"></i></span><span class="hbar-n hot">$38,200</span></div>
+            <div class="hbar"><span class="hbar-lab">61–90</span><span class="hbar-track"><i style="width:100%"></i></span><span class="hbar-n hot">$52,140</span></div>
+            <div class="hbar"><span class="hbar-lab">90+</span><span class="hbar-track"><i style="width:67%"></i></span><span class="hbar-n hot">$35,115</span></div>
+          </div>
         </section>
         <section class="home-card" aria-label="Sample top five builders by open dollars">
           <h2>Top five builders</h2>
           <p class="home-card-sub">Sample fixture. By open $. Bars only.</p>
-          <div class="hbar"><span class="hbar-lab">Lennar</span><span class="hbar-track"><i style="width:100%"></i></span><span class="hbar-n">$72,400</span></div>
-          <div class="hbar"><span class="hbar-lab">Toll</span><span class="hbar-track"><i style="width:54%"></i></span><span class="hbar-n">$38,900</span></div>
-          <div class="hbar"><span class="hbar-lab">MHI</span><span class="hbar-track"><i style="width:29%"></i></span><span class="hbar-n">$21,150</span></div>
-          <div class="hbar"><span class="hbar-lab">TriPointe</span><span class="hbar-track"><i style="width:20%"></i></span><span class="hbar-n">$14,620</span></div>
-          <div class="hbar"><span class="hbar-lab">K. Hovnanian</span><span class="hbar-track"><i style="width:14%"></i></span><span class="hbar-n">$9,880</span></div>
+          <div id="builderBars">
+            <div class="hbar"><span class="hbar-lab">Lennar</span><span class="hbar-track"><i style="width:100%"></i></span><span class="hbar-n">$72,400</span></div>
+            <div class="hbar"><span class="hbar-lab">Toll</span><span class="hbar-track"><i style="width:54%"></i></span><span class="hbar-n">$38,900</span></div>
+            <div class="hbar"><span class="hbar-lab">MHI</span><span class="hbar-track"><i style="width:29%"></i></span><span class="hbar-n">$21,150</span></div>
+            <div class="hbar"><span class="hbar-lab">TriPointe</span><span class="hbar-track"><i style="width:20%"></i></span><span class="hbar-n">$14,620</span></div>
+            <div class="hbar"><span class="hbar-lab">K. Hovnanian</span><span class="hbar-track"><i style="width:14%"></i></span><span class="hbar-n">$9,880</span></div>
+          </div>
         </section>
       </div>
 
       <h2 class="home-in">Go to a box</h2>
       <div class="home-boxes" role="navigation" aria-label="Hyphen boxes">
-        <a class="home-box" href="app-open.html"><b>Chase</b><span>Needs you. Queue and case.</span></a>
-        <a class="home-box" href="apply.html"><b>Apply</b><span>Paid to apply. Esme note.</span></a>
-        <a class="home-box" href="writeoff.html"><b>Write-off</b><span>One bucket. Esme note.</span></a>
-        <a class="home-box" href="awaiting.html"><b>Awaiting</b><span>Waiting on them.</span></a>
+        <a class="home-box" href="app-open.html" id="boxChase">
+          <b>Chase</b><span>Needs you. Queue and case.</span>
+          <div class="box-bar"><span class="hbar-track"><i style="width:100%"></i></span><span class="hbar-n">$148,208</span></div>
+        </a>
+        <a class="home-box" href="apply.html" id="boxApply">
+          <b>Apply</b><span>Paid to apply. Esme note.</span>
+          <div class="box-bar"><span class="hbar-track"><i style="width:3%"></i></span><span class="hbar-n">$4,134</span></div>
+        </a>
+        <a class="home-box" href="writeoff.html" id="boxWriteoff">
+          <b>Write-off</b><span>One bucket. Esme note.</span>
+          <div class="box-bar"><span class="hbar-track"><i style="width:8%"></i></span><span class="hbar-n">$11,865</span></div>
+        </a>
+        <a class="home-box" href="awaiting.html" id="boxAwaiting">
+          <b>Awaiting</b><span>Waiting on them.</span>
+          <div class="box-bar"><span class="hbar-track"><i style="width:2%"></i></span><span class="hbar-n">$3,048</span></div>
+        </a>
       </div>
     </div>
   </div>
 </div>
+<script src="fixture.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
