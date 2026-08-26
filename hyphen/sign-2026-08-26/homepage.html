@@ -88,24 +88,34 @@
       </div>
 
       <div class="home-graphs bleed">
-        <section class="home-card" aria-label="Open by Issue or Aging">
+        <section class="home-card" aria-label="Open by Issue and aging">
           <div class="chart-head">
             <div>
-              <h2 id="openTitle">Open by Issue</h2>
-              <p class="home-card-sub">Sample fixture. Bars only.</p>
+              <h2 id="openTitle">Open</h2>
+              <p class="home-card-sub">Sample fixture. Issue by aging. $ or count.</p>
             </div>
             <div class="chart-toggles">
               <div class="seg" role="group" aria-label="Open metric">
                 <button type="button" class="on" id="openMetricMoney" data-open-metric="money" aria-pressed="true">$</button>
                 <button type="button" id="openMetricCount" data-open-metric="count" aria-pressed="false">Count</button>
               </div>
-              <div class="seg" role="group" aria-label="Open grouping">
-                <button type="button" class="on" id="openGroupIssue" data-open-group="issue" aria-pressed="true">By Issue</button>
-                <button type="button" id="openGroupAging" data-open-group="aging" aria-pressed="false">By Aging</button>
-              </div>
             </div>
           </div>
-          <div id="openBars"></div>
+          <div class="xtab-wrap">
+            <table class="xtab" id="openGrid">
+              <thead>
+                <tr>
+                  <th>Issue</th>
+                  <th class="num">0–30</th>
+                  <th class="num">31–60</th>
+                  <th class="num">61–90</th>
+                  <th class="num">90+</th>
+                  <th class="num">Total</th>
+                </tr>
+              </thead>
+              <tbody id="openBars"></tbody>
+            </table>
+          </div>
         </section>
       </div>
 
