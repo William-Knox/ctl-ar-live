@@ -20,14 +20,48 @@
         <p class="asof">Write-off · Monday 2026-08-24</p>
       </div>
     </div>
-    <div class="counts"><div class="count"><b>0</b><span>invoices</span></div><div class="count"><b>$0</b><span>open</span></div></div>
+    <div class="counts">
+      <div class="count"><b>0</b><span>invoices</span></div><div class="count"><b>$0</b><span>open</span></div><div class="count"><b>0</b><span>on note</span></div>
+    </div>
   </header>
   <div class="bar">
     <span class="seg-lab">Box</span>
-    <div class="seg" role="tablist"><a href="app-open.html">Chase</a><a href="apply.html">Apply</a><a class="on" href="writeoff.html" aria-current="page">Write-off</a><a href="awaiting.html">Awaiting</a></div>
-    <button type="button" class="lo-chip" aria-pressed="false">Leftover <span class="n">19</span></button>
-  </div>
+    <div class="seg" role="tablist" aria-label="Hyphen boxes">
+      <a href="app-open.html">Chase</a><a href="apply.html">Apply</a><a class="on" href="writeoff.html" aria-current="page">Write-off</a><a href="awaiting.html">Awaiting</a>
+    </div>
 
-  <div class="empty-card"><h2>No write-offs.</h2><p>One bucket. Esme note. No builder letter.</p></div>
+  </div>
+  <div class="mail-note">Write-off invoices live in this box. One bucket. One internal william@ note to Esmeralda. We do not write off in QBO. No builder letter. Live chase queue unchanged.</div>
+  <div class="stage writeoff">
+    <div class="pane-left" aria-label="Write-off invoices"><div class="empty-state">No write-off invoices in this bucket.</div></div>
+    <aside class="pane-right" aria-label="Research note">
+      <div class="c-head"><div><h2>Research note</h2><span class="c-kind esme">Esme · not sent</span></div></div>
+      <div class="c-body">
+        <dl class="c-meta">
+          <div class="c-row"><dt>From</dt><dd class="c-field"><div class="who">William Knox</div><div class="addr">william@coastaltestinglabs.com</div></dd></div>
+          <div class="c-row"><dt>To</dt><dd class="c-field"><div class="who">Esmeralda</div><div class="addr">esmeralda@coastaltestinglabs.com</div></dd></div>
+          <div class="c-row"><dt>Subject</dt><dd class="c-field"><div class="who">Hyphen write-off · select invoices with analysis</div></dd></div>
+        </dl>
+        <div class="note-letter"><p class="empty">Check a Write-off invoice with analysis. Empty-analysis rows stay Hold and never join this note. We do not write off from this screen.</p></div>
+      </div>
+      <div class="c-foot">
+        <div class="actions"><button class="act primary" type="button" data-open-drafts disabled>Put in Drafts</button></div>
+        <p class="act-note">One compact Put in Drafts — not the builder Draft split. Drafts the william@ Esme note. Does not send. We do not write off in QBO. No builder letter.</p>
+      </div>
+    </aside>
+  </div>
 </div>
-</body></html>
+<div class="popup-back" id="draftsPopup" role="dialog" aria-modal="true" aria-labelledby="draftsTitle" aria-hidden="true">
+  <div class="popup">
+    <h2 id="draftsTitle">Put in Drafts</h2>
+    <p>Confirm you want a draft of this letter in Outlook Drafts.</p>
+    <p class="warn">The Outlook / Graph draft is not built. This click does not send mail.</p>
+    <div class="acts">
+      <button class="act ghost" type="button" id="draftsCancel">Cancel</button>
+      <button class="act primary" type="button" id="draftsConfirm">Put in Drafts</button>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

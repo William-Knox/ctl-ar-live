@@ -9,7 +9,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
-<script>window.LAYOUT = "A";</script>
 </head>
 <body>
 <div class="app" id="app">
@@ -18,43 +17,36 @@
       <img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" />
       <div class="brand-text">
         <h1>Hyphen review</h1>
-        <p class="asof" id="asof">Chase · Monday 2026-08-24</p>
+        <p class="asof">Chase · Monday 2026-08-24</p>
       </div>
     </div>
     <div class="counts">
-      <div class="count"><b id="countN">0</b><span>invoices</span></div>
-      <div class="count"><b id="countOpen">$0</b><span>open</span></div>
+      <div class="count"><b>318</b><span>invoices</span></div><div class="count"><b>$167,255</b><span>open</span></div>
     </div>
   </header>
-
   <div class="bar">
     <input class="search" id="q" type="search" placeholder="Invoice, address, community" autocomplete="off" />
-
     <span class="seg-lab">Box</span>
     <div class="seg" role="tablist" aria-label="Hyphen boxes">
-      <a class="on" href="app-open.html" aria-current="page">Chase</a>
-      <a href="apply.html">Apply</a>
-      <a href="writeoff.html">Write-off</a>
-      <a href="awaiting.html">Awaiting</a>
+      <a class="on" href="app-open.html" aria-current="page">Chase</a><a href="apply.html">Apply</a><a href="writeoff.html">Write-off</a><a href="awaiting.html">Awaiting</a>
     </div>
 
-    <button type="button" class="lo-chip" id="loChip" aria-pressed="false">Leftover <span class="n" id="loN">—</span></button>
+    <button type="button" class="lo-chip" id="loChip" aria-pressed="false">Leftover <span class="n" id="loN">19</span></button>
 
     <div class="menu" data-menu="why">
       <button class="menu-btn" type="button"><span class="t">Issue</span><i class="caret"></i></button>
       <div class="menu-pop" hidden>
-        <label><input type="checkbox" value="Leftover lab" /> Leftover lab <span class="n">0</span></label>
-        <label><input type="checkbox" value="Quantity shortfall" /> Quantity shortfall <span class="n">0</span></label>
+        <label><input type="checkbox" value="Leftover lab" /> Leftover lab <span class="n">2</span></label>
+        <label><input type="checkbox" value="Quantity shortfall" /> Quantity shortfall <span class="n">2</span></label>
         <label><input type="checkbox" value="Notes error" /> Notes error <span class="n">0</span></label>
-        <label><input type="checkbox" value="Amount off" /> Amount off <span class="n">0</span></label>
-        <label><input type="checkbox" value="Write-off" /> Write-off <span class="n">0</span></label>
-        <label><input type="checkbox" value="Unpaid complete" /> Unpaid complete <span class="n">0</span></label>
-        <label><input type="checkbox" value="No PO" /> No PO <span class="n">0</span></label>
-        <label><input type="checkbox" value="Paid to apply" /> Paid to apply <span class="n">0</span></label>
+        <label><input type="checkbox" value="Amount off" /> Amount off <span class="n">2</span></label>
+        <label><input type="checkbox" value="Write-off" /> Write-off <span class="n">31</span></label>
+        <label><input type="checkbox" value="Unpaid complete" /> Unpaid complete <span class="n">115</span></label>
+        <label><input type="checkbox" value="No PO" /> No PO <span class="n">154</span></label>
+        <label><input type="checkbox" value="Paid to apply" /> Paid to apply <span class="n">10</span></label>
         <div class="menu-foot"><button type="button" class="all" data-select="why">Select all</button><button type="button" class="all" data-clear="why">Clear</button></div>
       </div>
     </div>
-
     <div class="menu" data-menu="days">
       <button class="menu-btn" type="button"><span class="t">Days</span><i class="caret"></i></button>
       <div class="menu-pop" hidden>
@@ -64,7 +56,6 @@
         <div class="menu-foot"><button type="button" class="all" data-select="days">Select all</button><button type="button" class="all" data-clear="days">Clear</button></div>
       </div>
     </div>
-
     <div class="menu" data-menu="builder">
       <button class="menu-btn" type="button"><span class="t">Builder</span><i class="caret"></i></button>
       <div class="menu-pop" hidden>
@@ -79,27 +70,106 @@
 
     <button class="clear-btn" id="clearBtn" type="button">Clear filters</button>
     <div class="bar-spacer"></div>
-
     <div class="menu" data-menu="more">
       <button class="menu-btn" type="button" aria-label="More filters">⋯</button>
       <div class="menu-pop right" hidden>
         <div class="menu-sec">Hyphen</div>
-        <label><input type="checkbox" value="short" data-hy /> Short</label>
-        <label><input type="checkbox" value="unpaid" data-hy /> Unpaid</label>
-        <label><input type="checkbox" value="notfound" data-hy /> Not found</label>
+        <label><input type="checkbox" value="short" /> Short</label>
+        <label><input type="checkbox" value="unpaid" /> Unpaid</label>
+        <label><input type="checkbox" value="notfound" /> Not found</label>
         <div class="menu-foot"><button type="button" class="all" data-select="more">Select all</button><button type="button" class="all" data-clear="more">Clear</button></div>
       </div>
     </div>
-  </div>
 
+
+  </div>
   <div class="stage">
-    <div class="wrap" id="list" aria-label="Queue"></div>
-    <section class="case" id="case" aria-label="Invoice case"></section>
+    <div class="wrap" id="list" aria-label="Queue">
+      <table id="grid"><thead><tr>
+        <th class="num w-dpd">Days</th>
+        <th class="w-inv">Invoice</th>
+        <th>Address</th>
+        <th class="w-why">Issue</th>
+        <th class="num w-open">Open $</th>
+      </tr></thead><tbody id="tbody">
+        <tr class="sel" data-id="0428-170954"><td class="num"><span class="dpd late">88</span></td><td class="inv">0428-170954</td><td class="addr">3003 Heritage Grove Ct</td><td><span class="pill why">No PO</span></td><td class="num money">$610</td></tr><tr class="alt" data-id="0430-171079"><td class="num"><span class="dpd late">86</span></td><td class="inv">0430-171079</td><td class="addr">11946 Noble Wood</td><td><span class="pill why">Unpaid complete</span></td><td class="num money">$261</td></tr><tr data-id="0430-171147"><td class="num"><span class="dpd late">86</span></td><td class="inv">0430-171147</td><td class="addr">10502 Shining Orion</td><td><span class="pill why">Paid to apply</span></td><td class="num money">$350</td></tr><tr class="alt" data-id="0430-171119"><td class="num"><span class="dpd late">86</span></td><td class="inv">0430-171119</td><td class="addr">2614 Crown Ridge</td><td><span class="pill why">No PO</span></td><td class="num money">$416</td></tr><tr data-id="0430-171118"><td class="num"><span class="dpd late">86</span></td><td class="inv">0430-171118</td><td class="addr">32143 Sky Branch Dr.</td><td><span class="pill why">No PO</span></td><td class="num money">$350</td></tr><tr class="alt" data-id="0430-171077"><td class="num"><span class="dpd late">82</span></td><td class="inv">0430-171077</td><td class="addr">11935 Noble Wood</td><td><span class="pill why">Leftover lab</span></td><td class="num money">$349</td></tr><tr data-id="0504-171210"><td class="num"><span class="dpd late">82</span></td><td class="inv">0504-171210</td><td class="addr">4228 Centennial Ridge</td><td><span class="pill why">Write-off</span></td><td class="num money">$522</td></tr><tr class="alt" data-id="0505-171249"><td class="num"><span class="dpd late">81</span></td><td class="inv">0505-171249</td><td class="addr">11946 Noble Wood</td><td><span class="pill why">Write-off</span></td><td class="num money">$261</td></tr><tr data-id="0505-171250"><td class="num"><span class="dpd late">81</span></td><td class="inv">0505-171250</td><td class="addr">11942 Noble Wood</td><td><span class="pill why">Write-off</span></td><td class="num money">$261</td></tr><tr class="alt" data-id="0505-171251"><td class="num"><span class="dpd late">81</span></td><td class="inv">0505-171251</td><td class="addr">11935 Noble Wood</td><td><span class="pill why">Write-off</span></td><td class="num money">$261</td></tr><tr data-id="0506-171310"><td class="num"><span class="dpd late">80</span></td><td class="inv">0506-171310</td><td class="addr">1220 Charlotte Way</td><td><span class="pill why">Quantity shortfall</span></td><td class="num money">$261</td></tr><tr class="alt" data-id="0508-171401"><td class="num"><span class="dpd late">78</span></td><td class="inv">0508-171401</td><td class="addr">12507 Nueces River Dr</td><td></td><td class="num money">$260</td></tr><tr data-id="0504-171213"><td class="num"><span class="dpd late">75</span></td><td class="inv">0504-171213</td><td class="addr">4304 Centennial Ridge</td><td><span class="pill why">Write-off</span></td><td class="num money">$522</td></tr><tr class="alt" data-id="0511-171457"><td class="num"><span class="dpd late">75</span></td><td class="inv">0511-171457</td><td class="addr">8431 Seasonal Solstice</td><td><span class="pill why">Paid to apply</span></td><td class="num money">$350</td></tr><tr data-id="0511-171460"><td class="num"><span class="dpd late">75</span></td><td class="inv">0511-171460</td><td class="addr">6707 Sweet Orange</td><td><span class="pill why">Amount off</span></td><td class="num money">$120</td></tr><tr class="alt" data-id="0512-171556"><td class="num"><span class="dpd late">74</span></td><td class="inv">0512-171556</td><td class="addr">22115 Dion Skipper</td><td><span class="pill why">No PO</span></td><td class="num money">$350</td></tr><tr data-id="0513-171546"><td class="num"><span class="dpd late">73</span></td><td class="inv">0513-171546</td><td class="addr">21602 Colonial Meadow</td><td><span class="pill why">Write-off</span></td><td class="num money">$522</td></tr><tr class="alt" data-id="0514-171597"><td class="num"><span class="dpd late">72</span></td><td class="inv">0514-171597</td><td class="addr">7910 Oakside Court</td><td><span class="pill why">No PO</span></td><td class="num money">$350</td></tr><tr data-id="0514-171600"><td class="num"><span class="dpd late">72</span></td><td class="inv">0514-171600</td><td class="addr">8011 Leaf Drift Court</td><td><span class="pill why">No PO</span></td><td class="num money">$350</td></tr><tr class="alt" data-id="0515-171642"><td class="num"><span class="dpd late">71</span></td><td class="inv">0515-171642</td><td class="addr">19010 Apple Fritter</td><td><span class="pill why">No PO</span></td><td class="num money">$230</td></tr><tr data-id="0515-171655"><td class="num"><span class="dpd late">71</span></td><td class="inv">0515-171655</td><td class="addr">32447 Poplar Grove</td><td><span class="pill why">Write-off</span></td><td class="num money">$350</td></tr><tr class="alt" data-id="0515-171663"><td class="num"><span class="dpd late">71</span></td><td class="inv">0515-171663</td><td class="addr">31837 Pecan Cottage</td><td><span class="pill why">Write-off</span></td><td class="num money">$350</td></tr><tr data-id="0515-171664"><td class="num"><span class="dpd late">71</span></td><td class="inv">0515-171664</td><td class="addr">32435 Poplar Grove</td><td><span class="pill why">Write-off</span></td><td class="num money">$350</td></tr><tr class="alt" data-id="0518-171733"><td class="num"><span class="dpd late">68</span></td><td class="inv">0518-171733</td><td class="addr">31519 San Floro</td><td><span class="pill why">Leftover lab</span></td><td class="num money">$349</td></tr><tr data-id="0518-171744"><td class="num"><span class="dpd late">68</span></td><td class="inv">0518-171744</td><td class="addr">1040 Moss Vista Lane</td><td><span class="pill why">Amount off</span></td><td class="num money">$2</td></tr><tr class="alt" data-id="0511-171458"><td class="num"><span class="dpd late">68</span></td><td class="inv">0511-171458</td><td class="addr">19614 Jessica View Circle</td><td><span class="pill why">Write-off</span></td><td class="num money">$52</td></tr><tr data-id="0511-171459"><td class="num"><span class="dpd late">68</span></td><td class="inv">0511-171459</td><td class="addr">20014 Winding Angelica Way</td><td><span class="pill why">Write-off</span></td><td class="num money">$52</td></tr><tr class="alt" data-id="0515-171662"><td class="num"><span class="dpd late">68</span></td><td class="inv">0515-171662</td><td class="addr">31630 Hatcher Grove</td><td><span class="pill why">No PO</span></td><td class="num money">$416</td></tr><tr data-id="0519-171828"><td class="num"><span class="dpd late">67</span></td><td class="inv">0519-171828</td><td class="addr">13560 Bay Springs</td><td><span class="pill why">No PO</span></td><td class="num money">$261</td></tr><tr class="alt" data-id="0519-171829"><td class="num"><span class="dpd late">67</span></td><td class="inv">0519-171829</td><td class="addr">13568 Bay Springs</td><td><span class="pill why">No PO</span></td><td class="num money">$261</td></tr><tr data-id="0522-171908"><td class="num"><span class="dpd late">64</span></td><td class="inv">0522-171908</td><td class="addr">215 Violet Crown</td><td><span class="pill why">No PO</span></td><td class="num money">$522</td></tr><tr class="alt" data-id="0506-171278"><td class="num"><span class="dpd late">61</span></td><td class="inv">0506-171278</td><td class="addr">19035 Cetara Villa</td><td></td><td class="num money">$270</td></tr><tr data-id="0522-171895"><td class="num"><span class="dpd late">61</span></td><td class="inv">0522-171895</td><td class="addr">28311 Woodland Creek</td><td><span class="pill why">Write-off</span></td><td class="num money">$657</td></tr><tr class="alt" data-id="0526-171916"><td class="num"><span class="dpd late">60</span></td><td class="inv">0526-171916</td><td class="addr">2116 Hidden Hills</td><td><span class="pill why">Write-off</span></td><td class="num money">$522</td></tr><tr data-id="0526-171918"><td class="num"><span class="dpd late">60</span></td><td class="inv">0526-171918</td><td class="addr">2120 Hidden Hills</td><td><span class="pill why">Write-off</span></td><td class="num money">$522</td></tr><tr class="alt" data-id="0529-172013"><td class="num"><span class="dpd late">54</span></td><td class="inv">0529-172013</td><td class="addr">613 Coal Creek</td><td><span class="pill why">No PO</span></td><td class="num money">$350</td></tr><tr data-id="0529-172002"><td class="num"><span class="dpd late">54</span></td><td class="inv">0529-172002</td><td class="addr">7802 Hundson River</td><td><span class="pill why">No PO</span></td><td class="num money">$416</td></tr><tr class="alt" data-id="0529-172011"><td class="num"><span class="dpd late">54</span></td><td class="inv">0529-172011</td><td class="addr">5322 Gilded Estates</td><td><span class="pill why">No PO</span></td><td class="num money">$610</td></tr>
+      </tbody></table>
+    </div>
+    <section class="case" id="case" aria-label="Invoice case">
+      <div class="case-top"><div>
+        <div class="case-id">0428-170954 · 3003 Heritage Grove Ct</div>
+        <div class="case-sub">TriPointe Homes · 21-506 Legacy Grove · $610 open · <span class="dpd late">88</span> days past due</div>
+      </div>
+      <div class="case-nav">
+        <button type="button" disabled>Prev</button>
+        <button type="button">Next</button>
+      </div></div>
+      <p class="note"><b>Analysis.</b> Jake Matcheski 4/27 12:47 PM CT asked Esme/Jocelyne for a compaction test tomorrow at 3003 Heritage Grove Ct (Legacy Grove). Jocelyne FW to Ryan/Joe; Joe got it; Ryan 4/28 3:44 PM CT trying to make it that afternoon. Maria report 4/30 10:49 AM CT to Jake (resent 5/1). Invoice $610 4/28 — Maria later titled the 6/26 chase Proctor PO Request. Invoice emailed 5/18 to Jake. Maria 6/26 Proctor PO request to Jake and Chris — no builder reply. Payments CSV and hyphen_pos/events: no 3003 Heritage Grove. One named ask, report + invoice on file, no PO. No PO after analysis.</p>
+      <div class="sec-h" style="padding:12px 16px 8px">On this case</div>
+      <div class="card case-files" style="margin:0 16px;flex:0 0 auto"><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-04-27_Jake-Matcheski_3003-Heritage-Grove-Ct-Legacy-Grove.eml" target="_blank" rel="noopener">Called in · Jake Matcheski 2026-04-27</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-04-30_Maria_Report-Legacy-Grove-3003-Heritage-Grove-Ct.eml" target="_blank" rel="noopener">Report transmittal · Maria 2026-04-30</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-04-30_Maria_Report_-_TriPointe_Homes_-_Legacy_Grove_-_3003_Heritage_Grove_Ct..pdf" target="_blank" rel="noopener">Report PDF · 2026-04-30</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-05-18_Maria_Invoice-0428-170954-3003-Heritage-Grove-Ct.eml" target="_blank" rel="noopener">Inquiry · Maria invoice 2026-05-18</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-05-18_Maria_Invoice-0428-170954.pdf" target="_blank" rel="noopener">Invoice PDF · 2026-05-18</a><a class="case-file" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-06-26_Maria_Proctor-PO-Request-3003-Heritage-Grove-Ct.eml" target="_blank" rel="noopener">Inquiry · Maria Proctor PO Request 2026-06-26</a></div>
+      <div class="case-body">
+        <div class="col">
+          <div class="sec-h">Timeline of Events</div>
+          <div class="card">
+            <div class="erow has-src"><div class="when">2026-04-27</div><div class="lab">Called in</div><div class="what">Jake Matcheski asked for compaction at 3003 Heritage Grove Ct. <a class="src" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-04-27_Jake-Matcheski_3003-Heritage-Grove-Ct-Legacy-Grove.eml" target="_blank" rel="noopener">Source</a></div></div>
+            <div class="erow"><div class="when">2026-04-28</div><div class="lab">Invoiced</div><div class="what">0428-170954 $610.</div></div>
+            <div class="erow has-src"><div class="when">2026-04-30</div><div class="lab">Report transmittal</div><div class="what">Maria sent the report to Jake. <a class="src" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-04-30_Maria_Report-Legacy-Grove-3003-Heritage-Grove-Ct.eml" target="_blank" rel="noopener">Source</a></div></div>
+            <div class="erow has-src"><div class="when">2026-05-18</div><div class="lab">Inquiry</div><div class="what">Maria sent invoice 0428-170954 $610 to Jake. <a class="src" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-05-18_Maria_Invoice-0428-170954-3003-Heritage-Grove-Ct.eml" target="_blank" rel="noopener">Source</a></div></div>
+            <div class="erow has-src"><div class="when">2026-06-26</div><div class="lab">Inquiry</div><div class="what">Maria asked Jake and Chris for a PO. <a class="src" href="https://william-knox.github.io/ctl-ar-live/hyphen/files/0428-170954/2026-06-26_Maria_Proctor-PO-Request-3003-Heritage-Grove-Ct.eml" target="_blank" rel="noopener">Source</a></div></div>
+            <div class="erow today"><div class="when">Today</div><div class="lab">Today</div><div class="what">Open $610. 88 days past due.</div></div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="sec-h">Letter</div>
+          <div class="card letter">
+            <span class="kind">Builder · not sent</span>
+            <div class="meta">
+              <div><b>From</b> Billings · billings@coastaltestinglabs.com</div>
+              <div><b>To</b> Jake Matcheski · jake.matcheski@tripointehomes.com</div>
+              <div><b>Subj</b> PO needed · 3003 Heritage Grove Ct · 0428-170954 · 88 days past due</div>
+              <div><b>CC</b> Chris Tschumperlin, Ryan, Maria, Veronica, William Knox</div>
+            </div>
+            <p>We performed the work at 3003 Heritage Grove Ct and issued invoice 0428-170954 for $610. This has been 88 days past due with no purchase order on file. Please create a PO for this visit and release payment.</p>
+            <div class="tl-h">Timeline of Events</div>
+            <div class="tl">
+              <div class="erow"><div class="when">2026-04-27</div><div class="lab">Called in</div><div class="what">Jake Matcheski asked for compaction at 3003 Heritage Grove Ct.</div></div>
+              <div class="erow"><div class="when">2026-04-28</div><div class="lab">Invoiced</div><div class="what">0428-170954 $610.</div></div>
+              <div class="erow"><div class="when">2026-04-30</div><div class="lab">Report transmittal</div><div class="what">Maria sent the report to Jake.</div></div>
+              <div class="erow"><div class="when">2026-05-18</div><div class="lab">Inquiry</div><div class="what">Maria sent invoice 0428-170954 $610 to Jake.</div></div>
+              <div class="erow"><div class="when">2026-06-26</div><div class="lab">Inquiry</div><div class="what">Maria asked Jake and Chris for a PO.</div></div>
+              <div class="erow today"><div class="when">Today</div><div class="lab">Today</div><div class="what">Open $610. 88 days past due.</div></div>
+            </div>
+            <p>If you have any questions or concerns about the work at 3003 Heritage Grove Ct, the $610 invoice, or what you need from us to issue the PO, reply to this email. We will work it with you from there.</p>
+            <div class="sig"><b>Billings</b><span>billings@coastaltestinglabs.com</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="acts">
+        <div class="split">
+          <button class="act primary" type="button" id="cDraft" data-open-drafts>Put in Drafts</button>
+          <button class="act primary split-arrow" type="button" id="cMore" aria-haspopup="menu" aria-expanded="false" aria-label="More send options">▾</button>
+          <div class="split-menu" id="cReadyMenu" hidden>
+            <button type="button" class="send" id="cSend">Send now<span class="hint">Sends this letter from billings@. Does not wait in Drafts. This mock does not send mail.</span></button>
+          </div>
+        </div>
+        <button class="act ghost" type="button">Hold</button>
+        <button class="act ghost" type="button">Next</button>
+        <p class="act-note">Unsent chase. Draft split. Put in Drafts + Send now.</p>
+      </div>
+    </section>
   </div>
 </div>
-<div class="toast" id="toast" role="status"></div>
-<script src="../data.js"></script>
-<script src="files-index.js"></script>
+<div class="popup-back" id="draftsPopup" role="dialog" aria-modal="true" aria-labelledby="draftsTitle" aria-hidden="true">
+  <div class="popup">
+    <h2 id="draftsTitle">Put in Drafts</h2>
+    <p>Confirm you want a draft of this letter in Outlook Drafts.</p>
+    <p class="warn">The Outlook / Graph draft is not built. This click does not send mail.</p>
+    <div class="acts">
+      <button class="act ghost" type="button" id="draftsCancel">Cancel</button>
+      <button class="act primary" type="button" id="draftsConfirm">Put in Drafts</button>
+    </div>
+  </div>
+</div>
 <script src="app.js"></script>
 </body>
 </html>

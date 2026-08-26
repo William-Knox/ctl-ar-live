@@ -20,14 +20,48 @@
         <p class="asof">Apply · Monday 2026-08-24</p>
       </div>
     </div>
-    <div class="counts"><div class="count"><b>0</b><span>invoices</span></div><div class="count"><b>$0</b><span>open</span></div></div>
+    <div class="counts">
+      <div class="count"><b>0</b><span>invoices</span></div><div class="count"><b>$0</b><span>open</span></div><div class="count"><b>0</b><span>checks</span></div>
+    </div>
   </header>
   <div class="bar">
     <span class="seg-lab">Box</span>
-    <div class="seg" role="tablist"><a href="app-open.html">Chase</a><a class="on" href="apply.html" aria-current="page">Apply</a><a href="writeoff.html">Write-off</a><a href="awaiting.html">Awaiting</a></div>
-    <button type="button" class="lo-chip" aria-pressed="false">Leftover <span class="n">19</span></button>
-  </div>
+    <div class="seg" role="tablist" aria-label="Hyphen boxes">
+      <a href="app-open.html">Chase</a><a class="on" href="apply.html" aria-current="page">Apply</a><a href="writeoff.html">Write-off</a><a href="awaiting.html">Awaiting</a>
+    </div>
 
-  <div class="empty-card"><h2>No checks to apply.</h2><p>Paid-to-apply invoices leave this box. We do not apply cash.</p></div>
+  </div>
+  <div class="mail-note">Paid-to-apply invoices live in this box. We do not apply cash here. One internal research note to Esmeralda. Live chase queue is unchanged. Nothing is sent. Nothing posts in QBO.</div>
+  <div class="stage apply">
+    <div class="pane-left" aria-label="Checks"><div class="empty-state">No checks.</div></div>
+    <aside class="pane-right" aria-label="Research note">
+      <div class="c-head"><div><h2>Research note</h2><span class="c-kind esme">Esme · not sent</span></div></div>
+      <div class="c-body">
+        <dl class="c-meta">
+          <div class="c-row"><dt>From</dt><dd class="c-field"><div class="who">William Knox</div><div class="addr">william@coastaltestinglabs.com</div></dd></div>
+          <div class="c-row"><dt>To</dt><dd class="c-field"><div class="who">Esmeralda</div><div class="addr">esmeralda@coastaltestinglabs.com</div></dd></div>
+          <div class="c-row"><dt>Subject</dt><dd class="c-field"><div class="who">Hyphen payments to research · select a check</div></dd></div>
+        </dl>
+        <div class="note-letter"><p class="empty">Select a check on the left. This note stays empty until at least one payment is included. We are not applying anything from this screen.</p></div>
+      </div>
+      <div class="c-foot">
+        <div class="actions"><button class="act primary" type="button" data-open-drafts disabled>Put in Drafts</button></div>
+        <p class="act-note">We do not apply cash here. Put in Drafts drafts the william@ research note to Esmeralda. Not a builder letter. No Timeline. Does not send. Nothing posts in QBO.</p>
+      </div>
+    </aside>
+  </div>
 </div>
-</body></html>
+<div class="popup-back" id="draftsPopup" role="dialog" aria-modal="true" aria-labelledby="draftsTitle" aria-hidden="true">
+  <div class="popup">
+    <h2 id="draftsTitle">Put in Drafts</h2>
+    <p>Confirm you want a draft of this letter in Outlook Drafts.</p>
+    <p class="warn">The Outlook / Graph draft is not built. This click does not send mail.</p>
+    <div class="acts">
+      <button class="act ghost" type="button" id="draftsCancel">Cancel</button>
+      <button class="act primary" type="button" id="draftsConfirm">Put in Drafts</button>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

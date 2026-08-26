@@ -20,14 +20,40 @@
         <p class="asof">Awaiting · Monday 2026-08-24</p>
       </div>
     </div>
-    <div class="counts"><div class="count"><b>0</b><span>invoices</span></div><div class="count"><b>$0</b><span>open</span></div></div>
+    <div class="counts">
+      <div class="count"><b>0</b><span>invoices</span></div><div class="count"><b>$0</b><span>open</span></div><div class="count"><b>0</b><span>follow-up due</span></div>
+    </div>
   </header>
   <div class="bar">
+    <input class="search" id="q" type="search" placeholder="Invoice, address, community" autocomplete="off" />
     <span class="seg-lab">Box</span>
-    <div class="seg" role="tablist"><a href="app-open.html">Chase</a><a href="apply.html">Apply</a><a href="writeoff.html">Write-off</a><a class="on" href="awaiting.html" aria-current="page">Awaiting</a></div>
-    <button type="button" class="lo-chip" aria-pressed="false">Leftover <span class="n">19</span></button>
-  </div>
+    <div class="seg" role="tablist" aria-label="Hyphen boxes">
+      <a href="app-open.html">Chase</a><a href="apply.html">Apply</a><a href="writeoff.html">Write-off</a><a class="on" href="awaiting.html" aria-current="page">Awaiting</a>
+    </div>
 
-  <div class="empty-card"><h2>None awaiting.</h2><p>Last sent · Waiting · Follow-up due is +3 Chicago business days.</p></div>
+    <button type="button" class="lo-chip" aria-pressed="false">Follow-up due <span class="n">0</span></button>
+  </div>
+  <div class="mail-note cool">Sent correspondence. Their court. Follow-up due = last sent + 3 Chicago business days. No auto-send. No Send now.</div>
+  <div class="stage await">
+    <div class="wrap" aria-label="Sent list">
+      <table id="grid">
+        <thead><tr>
+          <th class="w-inv">Invoice</th>
+          <th>Address</th>
+          <th class="w-why">Issue</th>
+          <th class="w-sent">Last sent</th>
+          <th class="num w-wait sorted">Waiting <span class="s">▼</span></th>
+          <th class="w-follow">Follow-up due</th>
+          <th class="w-to">To</th>
+          <th class="num w-open">Open $</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+      <div class="empty-state">No invoices awaiting. None sent.</div>
+    </div>
+
+  </div>
 </div>
-</body></html>
+<script src="app.js"></script>
+</body>
+</html>

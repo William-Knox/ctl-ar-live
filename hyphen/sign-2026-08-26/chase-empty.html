@@ -4,14 +4,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#F8F6F2" />
-<title>Hyphen review · Chase</title>
+<title>Hyphen review · Chase empty</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div class="app">
+<div class="app" id="app">
   <header class="hdr">
     <div class="brand">
       <img class="mark" src="ctl-mark-on-white.png" width="22" height="22" alt="" />
@@ -20,17 +20,92 @@
         <p class="asof">Chase · Monday 2026-08-24</p>
       </div>
     </div>
-    <div class="counts"><div class="count"><b>0</b><span>invoices</span></div><div class="count"><b>$0</b><span>open</span></div></div>
+    <div class="counts">
+      <div class="count"><b>0</b><span>invoices</span></div><div class="count"><b>$0</b><span>open</span></div>
+    </div>
   </header>
   <div class="bar">
+    <input class="search" id="q" type="search" placeholder="Invoice, address, community" autocomplete="off" />
     <span class="seg-lab">Box</span>
-    <div class="seg" role="tablist"><a class="on" href="app-open.html" aria-current="page">Chase</a><a href="apply.html">Apply</a><a href="writeoff.html">Write-off</a><a href="awaiting.html">Awaiting</a></div>
-    <button type="button" class="lo-chip" aria-pressed="false">Leftover <span class="n">19</span></button>
-  </div>
+    <div class="seg" role="tablist" aria-label="Hyphen boxes">
+      <a class="on" href="app-open.html" aria-current="page">Chase</a><a href="apply.html">Apply</a><a href="writeoff.html">Write-off</a><a href="awaiting.html">Awaiting</a>
+    </div>
 
+    <button type="button" class="lo-chip" id="loChip" aria-pressed="false">Leftover <span class="n" id="loN">19</span></button>
+
+    <div class="menu" data-menu="why">
+      <button class="menu-btn" type="button"><span class="t">Issue</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="Leftover lab" /> Leftover lab <span class="n">2</span></label>
+        <label><input type="checkbox" value="Quantity shortfall" /> Quantity shortfall <span class="n">2</span></label>
+        <label><input type="checkbox" value="Notes error" /> Notes error <span class="n">0</span></label>
+        <label><input type="checkbox" value="Amount off" /> Amount off <span class="n">2</span></label>
+        <label><input type="checkbox" value="Write-off" /> Write-off <span class="n">31</span></label>
+        <label><input type="checkbox" value="Unpaid complete" /> Unpaid complete <span class="n">115</span></label>
+        <label><input type="checkbox" value="No PO" /> No PO <span class="n">154</span></label>
+        <label><input type="checkbox" value="Paid to apply" /> Paid to apply <span class="n">10</span></label>
+        <div class="menu-foot"><button type="button" class="all" data-select="why">Select all</button><button type="button" class="all" data-clear="why">Clear</button></div>
+      </div>
+    </div>
+    <div class="menu" data-menu="days">
+      <button class="menu-btn" type="button"><span class="t">Days</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="0-15" /> 0–15</label>
+        <label><input type="checkbox" value="16-30" /> 16–30</label>
+        <label><input type="checkbox" value="30+" /> 30+</label>
+        <div class="menu-foot"><button type="button" class="all" data-select="days">Select all</button><button type="button" class="all" data-clear="days">Clear</button></div>
+      </div>
+    </div>
+    <div class="menu" data-menu="builder">
+      <button class="menu-btn" type="button"><span class="t">Builder</span><i class="caret"></i></button>
+      <div class="menu-pop" hidden>
+        <label><input type="checkbox" value="LENNAR HOMES" /> Lennar</label>
+        <label><input type="checkbox" value="MHI HOMES" /> MHI</label>
+        <label><input type="checkbox" value="Toll Brothers, Inc." /> Toll</label>
+        <label><input type="checkbox" value="K. Hovnanian of Houston" /> K. Hovnanian</label>
+        <label><input type="checkbox" value="TriPointe Homes" /> TriPointe Homes</label>
+        <div class="menu-foot"><button type="button" class="all" data-select="builders">Select all</button><button type="button" class="all" data-clear="builders">Clear</button></div>
+      </div>
+    </div>
+
+    <button class="clear-btn" id="clearBtn" type="button">Clear filters</button>
+    <div class="bar-spacer"></div>
+    <div class="menu" data-menu="more">
+      <button class="menu-btn" type="button" aria-label="More filters">⋯</button>
+      <div class="menu-pop right" hidden>
+        <div class="menu-sec">Hyphen</div>
+        <label><input type="checkbox" value="short" /> Short</label>
+        <label><input type="checkbox" value="unpaid" /> Unpaid</label>
+        <label><input type="checkbox" value="notfound" /> Not found</label>
+        <div class="menu-foot"><button type="button" class="all" data-select="more">Select all</button><button type="button" class="all" data-clear="more">Clear</button></div>
+      </div>
+    </div>
+
+
+  </div>
   <div class="stage">
-    <div class="wrap"><div class="empty-card"><h2>No invoices match these filters.</h2><p>Clear filters or Leftover to return to the Chase queue.</p></div></div>
-    <section class="case"><div class="empty-card"><h2>No analysis.</h2><p>Empty analysis stays Hold. Do not invent.</p></div></section>
+    <div class="wrap" id="list" aria-label="Queue">
+      <table id="grid"><thead><tr><th class="num w-dpd">Days</th><th class="w-inv">Invoice</th><th>Address</th><th class="w-why">Issue</th><th class="num w-open">Open $</th></tr></thead><tbody></tbody></table>
+      <div class="empty-state">No invoices match these filters.</div>
+    </div>
+    <section class="case" id="case" aria-label="Invoice case">
+      <div class="note missing">No invoice in this filtered queue.</div>
+      <p class="note missing"><b>No analysis.</b> Empty analysis stays Hold. Do not invent.</p>
+      <div class="acts"><button class="act ghost" type="button">Hold</button><button class="act ghost" type="button">Next</button><p class="act-note">Hold. Empty analysis stays Hold. Do not invent.</p></div>
+    </section>
   </div>
 </div>
-</body></html>
+<div class="popup-back" id="draftsPopup" role="dialog" aria-modal="true" aria-labelledby="draftsTitle" aria-hidden="true">
+  <div class="popup">
+    <h2 id="draftsTitle">Put in Drafts</h2>
+    <p>Confirm you want a draft of this letter in Outlook Drafts.</p>
+    <p class="warn">The Outlook / Graph draft is not built. This click does not send mail.</p>
+    <div class="acts">
+      <button class="act ghost" type="button" id="draftsCancel">Cancel</button>
+      <button class="act primary" type="button" id="draftsConfirm">Put in Drafts</button>
+    </div>
+  </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
