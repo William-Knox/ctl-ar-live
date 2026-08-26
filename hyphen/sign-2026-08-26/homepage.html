@@ -87,17 +87,29 @@
         <span>Sample fixture. Filters these figures.</span>
       </div>
 
-      <div class="home-graphs">
-        <section class="home-card" aria-label="Sample aging by open dollars">
-          <h2>Aging by open $</h2>
-          <p class="home-card-sub">Sample fixture. Bars only.</p>
-          <div id="agingBars">
-            <div class="hbar"><span class="hbar-lab">0–30</span><span class="hbar-track"><i style="width:80%"></i></span><span class="hbar-n">$41,800</span></div>
-            <div class="hbar"><span class="hbar-lab">31–60</span><span class="hbar-track"><i style="width:73%"></i></span><span class="hbar-n hot">$38,200</span></div>
-            <div class="hbar"><span class="hbar-lab">61–90</span><span class="hbar-track"><i style="width:100%"></i></span><span class="hbar-n hot">$52,140</span></div>
-            <div class="hbar"><span class="hbar-lab">90+</span><span class="hbar-track"><i style="width:67%"></i></span><span class="hbar-n hot">$35,115</span></div>
+      <div class="home-graphs bleed">
+        <section class="home-card" aria-label="Open by Issue or Aging">
+          <div class="chart-head">
+            <div>
+              <h2 id="openTitle">Open by Issue</h2>
+              <p class="home-card-sub">Sample fixture. Bars only.</p>
+            </div>
+            <div class="chart-toggles">
+              <div class="seg" role="group" aria-label="Open metric">
+                <button type="button" class="on" id="openMetricMoney" data-open-metric="money" aria-pressed="true">$</button>
+                <button type="button" id="openMetricCount" data-open-metric="count" aria-pressed="false">Count</button>
+              </div>
+              <div class="seg" role="group" aria-label="Open grouping">
+                <button type="button" class="on" id="openGroupIssue" data-open-group="issue" aria-pressed="true">By Issue</button>
+                <button type="button" id="openGroupAging" data-open-group="aging" aria-pressed="false">By Aging</button>
+              </div>
+            </div>
           </div>
+          <div id="openBars"></div>
         </section>
+      </div>
+
+      <div class="home-graphs bleed">
         <section class="home-card" aria-label="Sample top five builders by open dollars">
           <h2>Top five builders</h2>
           <p class="home-card-sub">Sample fixture. By open $. Bars only.</p>
@@ -108,37 +120,6 @@
             <div class="hbar"><span class="hbar-lab">TriPointe</span><span class="hbar-track"><i style="width:20%"></i></span><span class="hbar-n">$14,620</span></div>
             <div class="hbar"><span class="hbar-lab">K. Hovnanian</span><span class="hbar-track"><i style="width:14%"></i></span><span class="hbar-n">$9,880</span></div>
           </div>
-        </section>
-      </div>
-
-      <div class="home-graphs">
-        <section class="home-card" aria-label="Sample open dollars by Issue">
-          <h2>Open $ by Issue</h2>
-          <p class="home-card-sub">Sample fixture. Bars only.</p>
-          <div id="issueBars"></div>
-        </section>
-        <section class="home-card" aria-label="Sample invoice count by Chase Apply Write-off Awaiting">
-          <h2>Invoice count</h2>
-          <p class="home-card-sub">Sample fixture. Chase / Apply / Write-off / Awaiting. Bars only.</p>
-          <div id="boxCountBars"></div>
-        </section>
-      </div>
-
-      <div class="home-graphs one">
-        <section class="home-card" aria-label="Sample leftover dollars versus Unpaid complete">
-          <h2>Leftover $ vs Unpaid complete $</h2>
-          <p class="home-card-sub">Sample fixture. Two numbers. Two bars. Not a fifth queue.</p>
-          <div class="pair">
-            <div>
-              <div class="kpi-lab">Leftover</div>
-              <div class="kpi-num" id="kpiLeft">$0</div>
-            </div>
-            <div>
-              <div class="kpi-lab">Unpaid complete</div>
-              <div class="kpi-num" id="kpiUnpaid">$0</div>
-            </div>
-          </div>
-          <div id="pairBars"></div>
         </section>
       </div>
 
