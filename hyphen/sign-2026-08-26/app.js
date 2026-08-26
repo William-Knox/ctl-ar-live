@@ -65,65 +65,97 @@
     });
   }
 
-  function paintBars(host, rows, hotFrom, wide) {
+  var openChart = { metric: "money", group: "issue" };
+  var ISSUE_ORDER = [
+    "Leftover lab", "Quantity shortfall", "Notes error", "Amount off",
+    "Write-off", "Unpaid complete", "No PO", "Paid to apply",
+    "Pending Notes", "Pending client acceptance"
+  ];
+  var AGE_BANDS = ["0–30", "31–60", "61–90", "90+"];
+
+  function ageBand(days) {
+    if (days <= 30) return "0–30";
+    if (days <= 60) return "31–60";
+    if (days <= 90) return "61–90";
+    return "90+";
+  }
+
+  function paintBars(host, rows, wide) {
     if (!host) return;
     var max = 0;
     rows.forEach(function (r) { if (r.open > max) max = r.open; });
     host.innerHTML = rows.map(function (r) {
-      var hot = hotFrom != null && r.open >= hotFrom ? " hot" : "";
       var cls = wide ? "hbar wide-lab" : "hbar";
       return '<div class="' + cls + '"><span class="hbar-lab">' + esc(r.lab) +
         '</span><span class="hbar-track"><i style="width:' + pct(r.open, max) +
-        '%"></i></span><span class="hbar-n' + hot + '">' + money(r.open) + "</span></div>";
+        '%"></i></span><span class="hbar-n">' + money(r.open) + "</span></div>";
     }).join("");
   }
 
-  function paintCountBars(host, rows) {
-    if (!host) return;
-    var max = 0;
-    rows.forEach(function (r) { if (r.n > max) max = r.n; });
-    host.innerHTML = rows.map(function (r) {
-      return '<div class="hbar"><span class="hbar-lab">' + esc(r.lab) +
-        '</span><span class="hbar-track"><i style="width:' + pct(r.n, max) +
-        '%"></i></span><span class="hbar-n">' + String(r.n) + "</span></div>";
-    }).join("");
-  }
-
-  function extraFrom(rows) {
-    var byIssue = {};
-    var boxN = { chase: 0, apply: 0, writeoff: 0, awaiting: 0 };
-    var leftover = 0;
-    var unpaid = 0;
-    (rows || []).forEach(function (r) {
-      if (r.leftover) leftover += r.open;
-      if (r.issue === "Unpaid complete") unpaid += r.open;
-      byIssue[r.issue || "—"] = (byIssue[r.issue || "—"] || 0) + r.open;
-      if (boxN[r.box] != null) boxN[r.box] += 1;
-    });
-    var issueOrder = [
-      "Leftover lab", "Quantity shortfall", "Notes error", "Amount off",
-      "Write-off", "Unpaid complete", "No PO", "Paid to apply",
-      "Pending Notes", "Pending client acceptance"
-    ];
-    var issues = issueOrder.map(function (lab) {
-      return { lab: lab, open: byIssue[lab] || 0 };
-    }).filter(function (r) { return r.open > 0; });
-    if (!issues.length) {
-      issues = Object.keys(byIssue).map(function (k) {
-        return { lab: k, open: byIssue[k] };
-      }).sort(function (a, b) { return b.open - a.open; });
+  function openChartRows(rows, lockedAging) {
+    if (openChart.group === "aging") {
+      var acc = {};
+      AGE_BANDS.forEach(function (b) { acc[b] = { lab: b, open: 0, n: 0 }; });
+      (rows || []).forEach(function (r) {
+        var b = ageBand(r.days);
+        acc[b].open += r.open;
+        acc[b].n += 1;
+      });
+      if (lockedAging && openChart.metric === "money") {
+        lockedAging.forEach(function (r) {
+          if (acc[r.lab]) acc[r.lab].open = r.open;
+        });
+      }
+      return AGE_BANDS.map(function (b) { return acc[b]; });
     }
-    return {
-      leftover: leftover,
-      unpaid: unpaid,
-      issues: issues,
-      boxCounts: [
-        { lab: "Chase", n: boxN.chase },
-        { lab: "Apply", n: boxN.apply },
-        { lab: "Write-off", n: boxN.writeoff },
-        { lab: "Awaiting", n: boxN.awaiting }
-      ]
-    };
+    var by = {};
+    (rows || []).forEach(function (r) {
+      var lab = r.issue || "—";
+      if (!by[lab]) by[lab] = { lab: lab, open: 0, n: 0 };
+      by[lab].open += r.open;
+      by[lab].n += 1;
+    });
+    var list = ISSUE_ORDER.map(function (lab) { return by[lab]; }).filter(Boolean);
+    if (!list.length) {
+      list = Object.keys(by).map(function (k) { return by[k]; })
+        .sort(function (a, b) { return b.open - a.open; });
+    }
+    return list;
+  }
+
+  function paintOpenChart(rows, lockedAging) {
+    var host = $("openBars");
+    if (!host) return;
+    var list = openChartRows(rows, lockedAging);
+    var useCount = openChart.metric === "count";
+    var max = 0;
+    list.forEach(function (r) {
+      var v = useCount ? r.n : r.open;
+      if (v > max) max = v;
+    });
+    host.innerHTML = list.map(function (r) {
+      var v = useCount ? r.n : r.open;
+      return '<div class="hbar wide-lab"><span class="hbar-lab">' + esc(r.lab) +
+        '</span><span class="hbar-track"><i style="width:' + pct(v, max) +
+        '%"></i></span><span class="hbar-n">' + (useCount ? String(r.n) : money(r.open)) +
+        "</span></div>";
+    }).join("");
+    if ($("openTitle")) {
+      $("openTitle").textContent = openChart.group === "aging" ? "Open by Aging" : "Open by Issue";
+    }
+  }
+
+  function markOpenToggles() {
+    document.querySelectorAll("[data-open-metric]").forEach(function (b) {
+      var on = b.getAttribute("data-open-metric") === openChart.metric;
+      b.classList.toggle("on", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    document.querySelectorAll("[data-open-group]").forEach(function (b) {
+      var on = b.getAttribute("data-open-group") === openChart.group;
+      b.classList.toggle("on", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
   }
 
   function paintHome() {
@@ -189,8 +221,8 @@
     if ($("kpiWait")) $("kpiWait").textContent = String(waiting);
     if ($("kpiLateN")) $("kpiLateN").textContent = String(lateN);
     if ($("kpiLateOpen")) $("kpiLateOpen").textContent = money(lateOpen);
-    paintBars($("agingBars"), aging, 1);
-    paintBars($("builderBars"), buildersBars, null);
+    paintBars($("agingBars"), aging);
+    paintBars($("builderBars"), buildersBars);
     var boxMax = 0;
     boxes.forEach(function (b) { if (b.open > boxMax) boxMax = b.open; });
     document.querySelectorAll(".home-box").forEach(function (el, i) {
@@ -201,16 +233,8 @@
       if (bar) bar.style.width = pct(b.open, boxMax) + "%";
       if (n) n.textContent = money(b.open);
     });
-    var extra = extraFrom(extraRows);
-    if (!sliced && S.all.boxCounts) extra.boxCounts = S.all.boxCounts;
-    paintBars($("issueBars"), extra.issues, null, true);
-    paintCountBars($("boxCountBars"), extra.boxCounts);
-    if ($("kpiLeft")) $("kpiLeft").textContent = money(extra.leftover);
-    if ($("kpiUnpaid")) $("kpiUnpaid").textContent = money(extra.unpaid);
-    paintBars($("pairBars"), [
-      { lab: "Leftover", open: extra.leftover },
-      { lab: "Unpaid complete", open: extra.unpaid }
-    ], null, true);
+    paintOpenChart(extraRows, sliced ? null : aging);
+    markOpenToggles();
   }
 
   document.querySelectorAll(".menu-btn").forEach(function (btn) {
@@ -576,6 +600,18 @@
   if ($("homeIssue")) {
     $("homeIssue").addEventListener("change", refresh);
   }
+  document.querySelectorAll("[data-open-metric]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      openChart.metric = b.getAttribute("data-open-metric");
+      paintHome();
+    });
+  });
+  document.querySelectorAll("[data-open-group]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      openChart.group = b.getAttribute("data-open-group");
+      paintHome();
+    });
+  });
   if ($("q")) $("q").addEventListener("input", refresh);
   var daysTh = document.querySelector("thead th[data-sort=days]");
   if (daysTh) {
