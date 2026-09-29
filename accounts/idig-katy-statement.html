@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CTL — Statement · iDig Katy · Aug 31, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #F8F6F2;
+    --surface: #FFFFFF;
+    --surface-2: #EFEDE8;
+    --navy: #0F172A;
+    --navy-mid: #334155;
+    --muted: #64748B;
+    --border: #E2E0DB;
+    --blue: #2563EB;
+    --blue-soft: rgba(37,99,235,0.08);
+    --clay: #C2410C;
+    --clay-soft: rgba(194,65,12,0.08);
+    --clay-deep: #7C2D12;
+    --amber: #B45309;
+    --slate: #94A3B8;
+    --shadow: 0 2px 12px rgba(15,23,42,0.08), 0 1px 3px rgba(15,23,42,0.05);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--cream); color: var(--navy); font-family: Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+  .screen-bar {
+    max-width: 880px; margin: 0 auto; padding: 18px 24px 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; color: var(--muted);
+  }
+  .screen-bar a { color: var(--blue); text-decoration: none; font-weight: 600; }
+  .print-btn {
+    font-family: Inter, system-ui, sans-serif; font-size: 12px; font-weight: 650;
+    padding: 7px 14px; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--navy); background: var(--navy); color: #fff;
+  }
+
+  .sheet {
+    max-width: 880px; margin: 18px auto 56px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow);
+    padding: 48px 56px 40px;
+  }
+
+  .letterhead {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding-bottom: 24px; border-bottom: 2px solid var(--navy);
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .mark { width: 44px; height: 44px; display: block; object-fit: contain; }
+  .brand-name { font-size: 15px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; }
+  .brand-name span { display: block; color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
+  .doc-meta { text-align: right; }
+  .doc-type { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; text-transform: uppercase; color: var(--navy); }
+  .doc-meta .d { margin-top: 6px; font-size: 12px; color: var(--muted); font-weight: 500; }
+  .doc-meta .d strong { color: var(--navy); font-weight: 650; }
+
+  .parties { display: flex; justify-content: space-between; gap: 32px; margin-top: 28px; }
+  .billto .k, .summary-box .k { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .billto .who { font-size: 16px; font-weight: 700; letter-spacing: -0.015em; }
+  .billto .line { margin-top: 3px; font-size: 13px; color: var(--navy-mid); }
+  .summary-box { text-align: right; }
+  .summary-box .total { font-size: 34px; font-weight: 800; letter-spacing: -0.03em; color: var(--clay); font-variant-numeric: tabular-nums; }
+  .summary-box .sub { margin-top: 4px; font-size: 12px; color: var(--navy-mid); }
+
+  .aging { margin-top: 32px; }
+  .aging .k { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .stack { display: flex; height: 14px; border-radius: 999px; overflow: hidden; background: var(--surface-2); }
+  .stack span { display: block; height: 100%; }
+  .stack .b1 { background: var(--slate); width: 51.4%; }
+  .stack .b3 { background: var(--clay); width: 29.1%; }
+  .stack .b4 { background: var(--clay-deep); width: 19.5%; }
+  .buckets { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 14px; }
+  .bucket .bk { display: flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .swatch { width: 8px; height: 8px; border-radius: 99px; flex: none; }
+  .bucket .bv { margin-top: 4px; font-size: 15px; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .bucket.hot .bv { color: var(--clay); }
+
+  table { width: 100%; border-collapse: collapse; margin-top: 32px; }
+  thead { display: table-header-group; }
+  th {
+    text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); padding: 10px 12px;
+    background: #FBFAF7; border-bottom: 1px solid var(--border); white-space: nowrap;
+  }
+  th.num, td.num { text-align: right; }
+  td {
+    padding: 8px 12px; border-bottom: 1px solid var(--border);
+    font-size: 12.5px; white-space: nowrap; font-variant-numeric: tabular-nums;
+  }
+  td.doc { font-weight: 700; letter-spacing: -0.01em; }
+  td.job { color: var(--navy-mid); }
+  td.days { font-weight: 650; }
+  td.days.hot { color: var(--clay); }
+  tr.total td {
+    border-bottom: none; border-top: 2px solid var(--navy);
+    padding-top: 12px; padding-bottom: 0;
+    font-size: 14px; font-weight: 800; letter-spacing: -0.015em;
+  }
+  tr.total td.num { color: var(--clay); }
+  tr { page-break-inside: avoid; }
+
+  .remit {
+    margin-top: 36px; padding: 18px 20px; border: 1px solid var(--border);
+    border-radius: 12px; background: var(--cream);
+    display: flex; justify-content: space-between; gap: 32px;
+  }
+  .remit .k { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .remit .v { font-size: 12.5px; color: var(--navy-mid); line-height: 1.6; }
+  .remit .v strong { color: var(--navy); font-weight: 650; }
+
+  .sheet-foot {
+    margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between;
+    font-size: 11px; color: var(--muted);
+  }
+
+  @media print {
+    @page { size: letter; margin: 14mm; }
+    html, body { background: #fff; }
+    .screen-bar { display: none; }
+    .sheet {
+      margin: 0; max-width: none; border: none; border-radius: 0;
+      box-shadow: none; padding: 0;
+    }
+    .remit { background: #fff; }
+  }
+</style>
+</head>
+<body>
+  <div class="screen-bar">
+    <a href="./idig-katy.html">← iDig Katy account</a>
+    <button type="button" class="print-btn" onclick="window.print()">Print / save PDF</button>
+  </div>
+
+  <div class="sheet">
+    <header class="letterhead">
+      <div class="brand">
+        <img class="mark" src="../ctl-mark.png" alt="" />
+        <div class="brand-name">
+          Coastal Testing Laboratories
+          <span>Accounts receivable</span>
+        </div>
+      </div>
+      <div class="doc-meta">
+        <div class="doc-type">Statement</div>
+        <div class="d">Statement date · <strong>August 31, 2026</strong></div>
+        <div class="d">Account · <strong>iDig Katy</strong></div>
+      </div>
+    </header>
+
+    <section class="parties">
+      <div class="billto">
+        <div class="k">Bill to</div>
+        <div class="who">iDig Katy</div>
+        <div class="line">Attn: Jen / James</div>
+        <div class="line">jen@idigkaty.com</div>
+      </div>
+      <div class="summary-box">
+        <div class="k">Total due</div>
+        <div class="total">$9,093.50</div>
+        <div class="sub">60 open invoices · $9,093.50 past due · oldest 98 days</div>
+      </div>
+    </section>
+
+    <section class="aging">
+      <div class="k">Aging of balance</div>
+      <div class="stack" aria-hidden="true">
+        <span class="b1"></span>
+        <span class="b3"></span>
+        <span class="b4"></span>
+      </div>
+      <div class="buckets">
+        <div class="bucket">
+          <div class="bk"><span class="swatch" style="background:#2563EB"></span>Current</div>
+          <div class="bv">$0.00</div>
+        </div>
+        <div class="bucket">
+          <div class="bk"><span class="swatch" style="background:#94A3B8"></span>1–30 days</div>
+          <div class="bv">$4,675.00</div>
+        </div>
+        <div class="bucket">
+          <div class="bk"><span class="swatch" style="background:#B45309"></span>31–60 days</div>
+          <div class="bv">$0.00</div>
+        </div>
+        <div class="bucket hot">
+          <div class="bk"><span class="swatch" style="background:#C2410C"></span>61–90 days</div>
+          <div class="bv">$2,643.50</div>
+        </div>
+        <div class="bucket hot">
+          <div class="bk"><span class="swatch" style="background:#7C2D12"></span>90+ days</div>
+          <div class="bv">$1,775.00</div>
+        </div>
+      </div>
+    </section>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Invoice</th>
+          <th>Date</th>
+          <th>Due</th>
+          <th>Job / customer</th>
+          <th class="num">Balance</th>
+          <th class="num">Days past due</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="doc">0516-171721</td><td>May 25, 2026</td><td>May 25, 2026</td><td class="job">26-553 Flora</td><td class="num">$1,235.00</td><td class="num days hot">98</td></tr>
+        <tr><td class="doc">0530-172076</td><td>May 30, 2026</td><td>May 30, 2026</td><td class="job">26-558 Sealy Cryan Park</td><td class="num">$540.00</td><td class="num days hot">93</td></tr>
+        <tr><td class="doc">0430-171092</td><td>May 4, 2026</td><td>Jun 3, 2026</td><td class="job">iDig Katy</td><td class="num">$935.00</td><td class="num days hot">89</td></tr>
+        <tr><td class="doc">0603-172209</td><td>Jun 8, 2026</td><td>Jun 8, 2026</td><td class="job">26-558 Sealy Cryan Park</td><td class="num">$900.00</td><td class="num days hot">84</td></tr>
+        <tr><td class="doc">0608-172340</td><td>Jun 15, 2026</td><td>Jun 15, 2026</td><td class="job">26-558 Sealy Cryan Park</td><td class="num">$808.50</td><td class="num days hot">77</td></tr>
+        <tr><td class="doc">CTL-26-00342</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00343</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00344</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00345</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00346</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00347</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00348</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00349</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00350</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00351</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00352</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00353</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00354</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00355</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00356</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00357</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00358</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00359</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00360</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00361</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00362</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00363</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00364</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00365</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00366</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00367</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00368</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00369</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00370</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00371</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00372</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00373</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00374</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00375</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00376</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00377</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00378</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00379</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00380</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00381</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00382</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00383</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00384</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00385</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00386</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00387</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00388</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00389</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00390</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00391</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00392</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00393</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00394</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00395</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr><td class="doc">CTL-26-00396</td><td>Jul 31, 2026</td><td>Aug 30, 2026</td><td class="job">26-0080 Trails of Cochran Ranch</td><td class="num">$85.00</td><td class="num days">1</td></tr>
+        <tr class="total">
+          <td colspan="4">Total due · 60 invoices</td>
+          <td class="num">$9,093.50</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section class="remit">
+      <div>
+        <div class="k">Remit to</div>
+        <div class="v"><strong>Coastal Testing Laboratories</strong><br />Please reference an invoice number or this account with payment.</div>
+      </div>
+      <div>
+        <div class="k">Questions</div>
+        <div class="v">Reply to the email that carried this statement and we will walk the account with you.</div>
+      </div>
+    </section>
+
+    <div class="sheet-foot">
+      <span>Coastal Testing Laboratories · Accounts receivable</span>
+      <span>Statement of open account · August 31, 2026</span>
+    </div>
+  </div>
+</body>
+</html>
